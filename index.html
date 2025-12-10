@@ -2070,6 +2070,428 @@
             transition: width 0.3s ease;
         }
 
+        /* === DESIGN TOKEN INSPECTOR MODAL === */
+        .token-inspector-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .token-inspector-modal.visible {
+            display: flex;
+        }
+
+        .token-inspector-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .token-inspector-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .token-inspector-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .token-inspector-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .token-tab {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .token-tab:hover {
+            color: var(--text-primary);
+        }
+
+        .token-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .token-inspector-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .token-section {
+            margin-bottom: 2rem;
+        }
+
+        .token-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .token-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .token-item:hover {
+            border-color: var(--accent);
+        }
+
+        .token-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: monospace;
+        }
+
+        .token-copy-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .token-copy-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .token-value {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .color-swatch-large {
+            width: 100%;
+            height: 60px;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .export-options {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .export-btn {
+            padding: 0.625rem 1.25rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .export-btn:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .export-btn.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .export-btn.primary:hover {
+            background: var(--accent-light);
+        }
+
+        /* === STYLE COMPARISON MATRIX === */
+        .comparison-matrix-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .comparison-matrix-modal.visible {
+            display: flex;
+        }
+
+        .comparison-matrix-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 1400px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-matrix-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comparison-matrix-body {
+            flex: 1;
+            overflow: auto;
+            padding: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .comparison-table th {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--bg-tertiary);
+        }
+
+        .difference-highlight {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--warning);
+            padding-left: 0.75rem !important;
+        }
+
+        /* === INTERACTIVE PREVIEW TOOLBAR === */
+        .preview-toolbar {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 25;
+        }
+
+        .style-card:hover .preview-toolbar {
+            opacity: 1;
+        }
+
+        .preview-tool-btn {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: none;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .preview-tool-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .preview-tool-btn.active {
+            background: var(--accent);
+        }
+
+        /* === AI RECOMMENDATIONS PANEL === */
+        .ai-recommendations-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            bottom: 0;
+            width: 400px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 4000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .ai-recommendations-panel.visible {
+            right: 0;
+        }
+
+        .ai-panel-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-panel-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ai-badge {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .ai-panel-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .ai-suggestion {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .ai-suggestion:hover {
+            border-color: var(--accent);
+        }
+
+        .ai-suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-suggestion-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .ai-confidence {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .ai-suggestion-reason {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-suggestion-action {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .ai-suggestion-action:hover {
+            background: var(--accent-light);
+        }
+
         /* === ENHANCED MOBILE RESPONSIVENESS === */
         @media (max-width: 640px) {
             /* Header adjustments */
@@ -2485,6 +2907,22 @@
                         <rect x="14" y="14" width="7" height="7"></rect>
                     </svg>
                     Collections
+                </button>
+                <button class="action-btn" id="aiSuggestionsBtn" title="AI Style Suggestions" aria-label="Get AI-powered style suggestions" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); border-color: #8b5cf6;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    AI Suggestions
+                </button>
+                <button class="action-btn" id="comparisonMatrixBtn" title="Compare Multiple Styles" aria-label="Open comparison matrix">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    Matrix
                 </button>
                 <select class="sort-select" id="sortSelect" aria-label="Sort styles">
                     <option value="number">Sort by Number</option>
@@ -2902,6 +3340,85 @@
             <div class="collections-list" id="collectionsList">
                 <!-- Collections will be rendered here -->
             </div>
+        </div>
+    </div>
+
+    <!-- Design Token Inspector Modal -->
+    <div class="token-inspector-modal" id="tokenInspectorModal">
+        <div class="token-inspector-content">
+            <div class="token-inspector-header">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-15l-3 5.196M8.34 15.804l-3 5.196m12.526-16.5l-3 5.196m-8.856 6.108l-3 5.196"></path>
+                    </svg>
+                    Design Tokens
+                </h2>
+                <button onclick="closeTokenInspector()" class="shortcuts-close" aria-label="Close">×</button>
+            </div>
+            
+            <div class="token-inspector-tabs">
+                <button class="token-tab active" data-tab="colors">Colors</button>
+                <button class="token-tab" data-tab="typography">Typography</button>
+                <button class="token-tab" data-tab="spacing">Spacing</button>
+                <button class="token-tab" data-tab="export">Export</button>
+            </div>
+            
+            <div class="token-inspector-body" id="tokenInspectorBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Matrix Modal -->
+    <div class="comparison-matrix-modal" id="comparisonMatrixModal">
+        <div class="comparison-matrix-content">
+            <div class="comparison-matrix-header">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Style Comparison Matrix
+                </h2>
+                <div style="display:flex;gap:0.75rem;">
+                    <button class="export-btn" onclick="exportComparisonMatrix()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Export PDF
+                    </button>
+                    <button onclick="closeComparisonMatrix()" class="shortcuts-close" aria-label="Close">×</button>
+                </div>
+            </div>
+            
+            <div class="comparison-matrix-body" id="comparisonMatrixBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Recommendations Panel -->
+    <div class="ai-recommendations-panel" id="aiRecommendationsPanel">
+        <div class="ai-panel-header">
+            <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                Smart Suggestions
+                <span class="ai-badge">AI</span>
+            </h3>
+            <button onclick="closeAIPanel()" class="shortcuts-close" aria-label="Close">×</button>
+        </div>
+        
+        <div class="ai-panel-body" id="aiPanelBody">
+            <!-- Suggestions will be dynamically populated -->
         </div>
     </div>
 
@@ -3643,6 +4160,27 @@
                         </div>
                         <div class="card-preview-overlay">
                             <span class="preview-btn">View Style</span>
+                        </div>
+                        <div class="preview-toolbar">
+                            <button class="preview-tool-btn" 
+                                    onclick="openTokenInspector(${style.num}, event)"
+                                    title="View Design Tokens"
+                                    aria-label="View design tokens">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                </svg>
+                            </button>
+                            <button class="preview-tool-btn" 
+                                    onclick="addToComparisonMatrix(${style.num}, event)"
+                                    title="Add to Matrix"
+                                    aria-label="Add to comparison matrix">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                     <div class="card-content">
@@ -4754,6 +5292,415 @@
             `;
             // Would add these but the structure is already complex
         }
+
+        // ===  ADVANCED BUILD/DECISION TOOLS ===
+
+        // Design Token Inspector
+        let currentInspectedStyle = null;
+        const matrixStyles = [];
+
+        function openTokenInspector(styleNum, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            currentInspectedStyle = styles.find(s => s.num === styleNum);
+            if (!currentInspectedStyle) return;
+            
+            const modal = document.getElementById('tokenInspectorModal');
+            modal.classList.add('visible');
+            
+            renderTokenTab('colors');
+        }
+
+        function closeTokenInspector() {
+            document.getElementById('tokenInspectorModal').classList.remove('visible');
+        }
+
+        function renderTokenTab(tab) {
+            if (!currentInspectedStyle) return;
+            
+            const body = document.getElementById('tokenInspectorBody');
+            const colors = styleColors[currentInspectedStyle.num] || [];
+            
+            // Update active tab
+            document.querySelectorAll('.token-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+            
+            if (tab === 'colors') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Color Palette
+                        </h3>
+                        <div class="token-grid">
+                            ${colors.map((color, i) => `
+                                <div class="token-item">
+                                    <div class="color-swatch-large" style="background: ${color}"></div>
+                                    <div class="token-item-header">
+                                        <span class="token-name">color-${i + 1}</span>
+                                        <button class="token-copy-btn" onclick="copyToken('${color}')">Copy</button>
+                                    </div>
+                                    <div class="token-value">${color}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'typography') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Typography System</h3>
+                        <div class="token-grid">
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-family-heading</span>
+                                    <button class="token-copy-btn" onclick="copyToken('Playfair Display, serif')">Copy</button>
+                                </div>
+                                <div class="token-value">Playfair Display, serif</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-family-body</span>
+                                    <button class="token-copy-btn" onclick="copyToken('Inter, sans-serif')">Copy</button>
+                                </div>
+                                <div class="token-value">Inter, sans-serif</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-size-base</span>
+                                    <button class="token-copy-btn" onclick="copyToken('16px')">Copy</button>
+                                </div>
+                                <div class="token-value">16px</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">line-height-base</span>
+                                    <button class="token-copy-btn" onclick="copyToken('1.6')">Copy</button>
+                                </div>
+                                <div class="token-value">1.6</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'spacing') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Spacing Scale</h3>
+                        <div class="token-grid">
+                            ${[4, 8, 12, 16, 24, 32, 48, 64].map((size, i) => `
+                                <div class="token-item">
+                                    <div class="token-item-header">
+                                        <span class="token-name">space-${i + 1}</span>
+                                        <button class="token-copy-btn" onclick="copyToken('${size}px')">Copy</button>
+                                    </div>
+                                    <div class="token-value">${size}px</div>
+                                    <div style="background: var(--accent); height: ${size}px; width: 100%; margin-top: 0.5rem; border-radius: 0.25rem;"></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'export') {
+                const cssVars = colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\\n');
+                const tailwindConfig = colors.map((c, i) => `        'color-${i + 1}': '${c}',`).join('\\n');
+                const scssVars = colors.map((c, i) => `$color-${i + 1}: ${c};`).join('\\n');
+                
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Export Design Tokens</h3>
+                        <div class="export-options">
+                            <button class="export-btn primary" onclick="downloadTokens('css')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                CSS Variables
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('tailwind')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Tailwind Config
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('scss')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                SCSS Variables
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('json')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                JSON
+                            </button>
+                        </div>
+                        <div style="margin-top: 2rem;">
+                            <h4 style="font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--text-primary);">Preview (CSS Variables)</h4>
+                            <pre style="background: var(--bg-tertiary); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.75rem; color: var(--text-secondary);">:root {
+${cssVars}
+}</pre>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function copyToken(value) {
+            navigator.clipboard.writeText(value).then(() => {
+                showToast('Token copied!', 'success');
+            });
+        }
+
+        function downloadTokens(format) {
+            if (!currentInspectedStyle) return;
+            
+            const colors = styleColors[currentInspectedStyle.num] || [];
+            let content = '';
+            let filename = `style-${currentInspectedStyle.num}-tokens`;
+            
+            if (format === 'css') {
+                content = `:root {\n${colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\\n')}\n}`;
+                filename += '.css';
+            } else if (format === 'scss') {
+                content = colors.map((c, i) => `$color-${i + 1}: ${c};`).join('\\n');
+                filename += '.scss';
+            } else if (format === 'tailwind') {
+                content = `module.exports = {\n  theme: {\n    extend: {\n      colors: {\n${colors.map((c, i) => `        'color-${i + 1}': '${c}',`).join('\\n')}\n      }\n    }\n  }\n}`;
+                filename += '.js';
+            } else if (format === 'json') {
+                content = JSON.stringify({
+                    styleName: currentInspectedStyle.name,
+                    styleNumber: currentInspectedStyle.num,
+                    colors: colors.map((c, i) => ({ name: `color-${i + 1}`, value: c })),
+                    typography: {
+                        headingFont: 'Playfair Display, serif',
+                        bodyFont: 'Inter, sans-serif',
+                        baseSize: '16px'
+                    },
+                    spacing: [4, 8, 12, 16, 24, 32, 48, 64]
+                }, null, 2);
+                filename += '.json';
+            }
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast(`Downloaded ${filename}`, 'success');
+        }
+
+        // Token tab switching
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('token-tab')) {
+                renderTokenTab(e.target.dataset.tab);
+            }
+        });
+
+        // Make functions global
+        window.openTokenInspector = openTokenInspector;
+        window.closeTokenInspector = closeTokenInspector;
+        window.copyToken = copyToken;
+        window.downloadTokens = downloadTokens;
+
+        // Comparison Matrix
+        function addToComparisonMatrix(styleNum, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const style = styles.find(s => s.num === styleNum);
+            if (!style) return;
+            
+            if (!matrixStyles.find(s => s.num === styleNum)) {
+                matrixStyles.push(style);
+                showToast(`Added ${style.name} to comparison matrix`, 'success');
+                
+                if (matrixStyles.length >= 2) {
+                    // Auto-open when we have 2+ styles
+                    setTimeout(() => {
+                        document.getElementById('comparisonMatrixBtn').style.animation = 'pulse 0.5s ease-in-out 3';
+                    }, 300);
+                }
+            } else {
+                showToast(`${style.name} already in matrix`, 'warning');
+            }
+        }
+
+        function openComparisonMatrix() {
+            if (matrixStyles.length === 0) {
+                showToast('Add styles to compare first', 'warning');
+                return;
+            }
+            
+            const modal = document.getElementById('comparisonMatrixModal');
+            const body = document.getElementById('comparisonMatrixBody');
+            
+            // Build comparison table
+            const attributes = [
+                { label: 'Style Name', key: 'name' },
+                { label: 'Style Number', key: 'num' },
+                { label: 'Blend Formula', key: 'blend' },
+                { label: 'Temperature', key: 'temp' },
+                { label: 'Formality', key: 'formality' },
+                { label: 'Categories', key: 'tags' },
+                { label: 'Perfect For', key: 'perfectFor' },
+                { label: 'Primary Colors', key: 'colors' }
+            ];
+            
+            let tableHTML = `
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            ${matrixStyles.map(s => `<th>${s.name}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            attributes.forEach(attr => {
+                tableHTML += `<tr><td style="font-weight:600;">${attr.label}</td>`;
+                
+                matrixStyles.forEach(style => {
+                    let value = style[attr.key];
+                    
+                    if (attr.key === 'tags') {
+                        value = value.map(t => `<span class="tag ${t}">${t}</span>`).join(' ');
+                    } else if (attr.key === 'perfectFor') {
+                        value = (value || []).join(', ');
+                    } else if (attr.key === 'colors') {
+                        const colors = styleColors[style.num] || [];
+                        value = colors.slice(0, 4).map(c => 
+                            `<span style="display:inline-block;width:24px;height:24px;background:${c};border-radius:4px;margin-right:4px;border:1px solid var(--border);"></span>`
+                        ).join('');
+                    }
+                    
+                    tableHTML += `<td>${value}</td>`;
+                });
+                
+                tableHTML += `</tr>`;
+            });
+            
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+            
+            body.innerHTML = tableHTML;
+            modal.classList.add('visible');
+        }
+
+        function closeComparisonMatrix() {
+            document.getElementById('comparisonMatrixModal').classList.remove('visible');
+        }
+
+        function exportComparisonMatrix() {
+            showToast('Comparison export feature coming soon!', 'success');
+            // Would implement PDF export here
+        }
+
+        document.getElementById('comparisonMatrixBtn').addEventListener('click', openComparisonMatrix);
+        window.addToComparisonMatrix = addToComparisonMatrix;
+        window.closeComparisonMatrix = closeComparisonMatrix;
+        window.exportComparisonMatrix = exportComparisonMatrix;
+
+        // AI Recommendations Panel
+        function generateAISuggestions() {
+            const panel = document.getElementById('aiRecommendationsPanel');
+            const body = document.getElementById('aiPanelBody');
+            
+            // Generate smart suggestions based on user behavior
+            const recentlyViewed = getRecentStyles();
+            const favs = favorites;
+            
+            let suggestions = [];
+            
+            // Suggest based on favorites
+            if (favs.length > 0) {
+                const favStyles = styles.filter(s => favs.includes(s.num));
+                const commonTags = findCommonTags(favStyles);
+                
+                if (commonTags.length > 0) {
+                    const similarStyles = styles.filter(s => 
+                        !favs.includes(s.num) && 
+                        s.tags.some(t => commonTags.includes(t))
+                    ).slice(0, 3);
+                    
+                    similarStyles.forEach(style => {
+                        suggestions.push({
+                            title: style.name,
+                            reason: `Similar to your favorites (${commonTags.join(', ')})`,
+                            confidence: 95,
+                            styleNum: style.num
+                        });
+                    });
+                }
+            }
+            
+            // Suggest trending/popular
+            suggestions.push({
+                title: 'Dark Academia Lobbi',
+                reason: 'Popular choice for academic and professional associations',
+                confidence: 88,
+                styleNum: 9
+            });
+            
+            suggestions.push({
+                title: 'Nordic Minimal',
+                reason: 'Modern, clean design perfect for tech and startups',
+                confidence: 85,
+                styleNum: 92
+            });
+            
+            body.innerHTML = suggestions.map(sug => `
+                <div class="ai-suggestion">
+                    <div class="ai-suggestion-header">
+                        <span class="ai-suggestion-title">${sug.title}</span>
+                        <span class="ai-confidence">${sug.confidence}%</span>
+                    </div>
+                    <p class="ai-suggestion-reason">${sug.reason}</p>
+                    <button class="ai-suggestion-action" onclick="jumpToStyle(${sug.styleNum})">
+                        View Style
+                    </button>
+                </div>
+            `).join('');
+            
+            panel.classList.add('visible');
+        }
+
+        function findCommonTags(stylesList) {
+            const tagCounts = {};
+            stylesList.forEach(s => {
+                s.tags.forEach(tag => {
+                    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+                });
+            });
+            
+            return Object.entries(tagCounts)
+                .filter(([tag, count]) => count >= 2)
+                .map(([tag]) => tag);
+        }
+
+        function closeAIPanel() {
+            document.getElementById('aiRecommendationsPanel').classList.remove('visible');
+        }
+
+        document.getElementById('aiSuggestionsBtn').addEventListener('click', generateAISuggestions);
+        window.closeAIPanel = closeAIPanel;
 
         // Initial render
         populateSearchSuggestions();
