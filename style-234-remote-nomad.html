@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Nomad Network - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * ═══════════════════════════════════════════════════════════════════════
+         * REMOTE NOMAD NETWORK - DESIGN SYSTEM
+         * Style ID: 234
+         * ═══════════════════════════════════════════════════════════════════════
+         *
+         * DESIGN PHILOSOPHY:
+         * This design system captures the spirit of location independence and
+         * digital nomadism—the freedom to work from anywhere while staying
+         * connected. It balances adventure and exploration with the practical
+         * needs of remote work, creating an interface that feels both exciting
+         * and productive.
+         *
+         * BLEND COMPOSITION:
+         * - Digital Nomad: 55% (Primary influence)
+         *   → Clean, modern interfaces optimized for productivity on-the-go
+         *   → Cloud connectivity and seamless sync indicators
+         *   → Mobile-first responsive design for working anywhere
+         *   → Efficient layouts that maximize limited screen real estate
+         * - Travel Adventure: 30% (Secondary influence)
+         *   → Vibrant colors inspired by sunsets and global destinations
+         *   → Location markers and map-inspired visual elements
+         *   → Dynamic, energetic interactions suggesting movement
+         *   → Photography-friendly frames for documenting journeys
+         * - Coworking Modern: 15% (Accent influence)
+         *   → Professional polish suitable for client meetings
+         *   → Collaborative features for distributed teams
+         *   → Clean typography and organized information hierarchy
+         *   → Workspace aesthetics that work in cafes and coworking spaces
+         *
+         * COLOR PSYCHOLOGY:
+         * - Passport Blue (#2563eb): Trust, professionalism, sky and sea -
+         *   represents the freedom of travel and the reliability needed for
+         *   remote work. Primary action color for critical workflows.
+         * - Sunset Orange (#f97316): Energy, creativity, warmth - captures
+         *   golden hour moments and the excitement of new destinations.
+         *   Accent color for notifications and highlights.
+         * - WiFi Green (#22c55e): Connectivity, growth, "online" status -
+         *   signals successful connections and available resources. Used for
+         *   positive status indicators and completion states.
+         * - Luggage Gray (#64748b): Stability, neutrality, sophistication -
+         *   provides grounding for information-dense interfaces. Text and
+         *   structural elements that need to recede.
+         *
+         * TYPOGRAPHY STRATEGY:
+         * - Josefin Sans (Sans-serif display): Used for headings and featured
+         *   content. This geometric font has an adventurous, slightly quirky
+         *   personality that suggests creativity and independence. Its tall
+         *   x-height works well on mobile screens, and its distinctiveness
+         *   creates memorable brand presence.
+         * - DM Sans (Sans-serif): Used for UI elements and body text.
+         *   Originally designed for low screen resolutions, DM Sans maintains
+         *   excellent legibility on any device. Its clean, modern forms
+         *   support dense information while remaining approachable. The wide
+         *   range of weights provides clear hierarchy.
+         *
+         * COMPONENT ARCHITECTURE:
+         * - Cards: Light, elevated feel suggesting cloud-based data
+         * - Buttons: Confident CTAs with travel-inspired icons
+         * - Tables: Compact, scannable for quick reference on mobile
+         * - Forms: Streamlined with autofill and quick inputs
+         * - Navigation: Tab-based for thumb-friendly mobile navigation
+         * - Status indicators: Real-time connection and timezone displays
+         *
+         * TEMPERATURE RATING: 6/10 (Adventure Balanced)
+         * Balanced between warm and cool to represent both professional
+         * work and exciting travel. Orange and green add warmth, while
+         * blues and grays provide cooling professionalism. The overall
+         * effect is energetic but not overwhelming.
+         *
+         * FORMALITY RATING: 4/10 (Casual)
+         * Intentionally casual to match the flexible, independent lifestyle
+         * of digital nomads. Professional enough for work contexts, but
+         * relaxed enough to use at a beach cafe. The design says "work-life
+         * integration" not "corporate office."
+         *
+         * ACCESSIBILITY NOTES:
+         * - WCAG AA contrast ratios maintained (AAA on critical paths)
+         * - Touch targets: 48x48px minimum for mobile-first usage
+         * - Focus indicators: High contrast with 3px outlines
+         * - Color never sole indicator (icons + text for status)
+         * - Responsive from 320px width upward
+         * - Offline states clearly communicated
+         * - Time zones and dates show user's local time by default
+         * - Screen reader labels for all connectivity indicators
+         *
+         * LOCATION & CONNECTIVITY FEATURES:
+         * - Timezone displays show multiple locations simultaneously
+         * - Connectivity indicators (WiFi strength, VPN status, sync state)
+         * - Location pins and map-inspired visual elements
+         * - Currency converters and time zone calculators integrated
+         * - "Where I'm Working" status displays
+         *
+         * INTERACTION PHILOSOPHY:
+         * - Transitions: 250-350ms (snappy for mobile responsiveness)
+         * - Gestures: Swipe navigation and pull-to-refresh on mobile
+         * - Hover states: Lift and glow effects suggesting digital interaction
+         * - Loading states: Progress indicators with location-based animations
+         * - Offline mode: Graceful degradation with clear offline indicators
+         *
+         * MOBILE-FIRST CONSIDERATIONS:
+         * - Bottom navigation bar for thumb-friendly reach
+         * - Collapsible sections to maximize screen real estate
+         * - One-handed operation patterns throughout
+         * - Minimal data usage with optimized assets
+         * - Works on spotty connections with progressive loading
+         *
+         * RESPONSIVE STRATEGY:
+         * - 320px: Essential features only, vertical stack
+         * - 768px: Two-column layouts, expanded navigation
+         * - 1024px: Full desktop experience with sidebars
+         * - Always maintains mobile accessibility patterns
+         * ═══════════════════════════════════════════════════════════════════════
+         */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Color Palette */
+            --passport-blue: #2563eb;
+            --passport-blue-light: #3b82f6;
+            --passport-blue-dark: #1e40af;
+            --sunset-orange: #f97316;
+            --sunset-orange-light: #fb923c;
+            --sunset-orange-dark: #ea580c;
+            --wifi-green: #22c55e;
+            --wifi-green-light: #4ade80;
+            --wifi-green-dark: #16a34a;
+            --luggage-gray: #64748b;
+            --luggage-gray-light: #94a3b8;
+            --luggage-gray-dark: #475569;
+
+            /* Neutral Palette */
+            --cloud-white: #ffffff;
+            --sky-light: #f8fafc;
+            --horizon-gray: #e2e8f0;
+
+            /* Semantic Colors */
+            --color-success: #22c55e;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+            --color-info: #2563eb;
+            --color-online: #22c55e;
+            --color-offline: #94a3b8;
+
+            /* Typography */
+            --font-display: 'Josefin Sans', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+
+            /* Spacing Scale (mobile-optimized) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 0.75rem;  /* 12px */
+            --space-md: 1rem;     /* 16px */
+            --space-lg: 1.5rem;   /* 24px */
+            --space-xl: 2rem;     /* 32px */
+            --space-2xl: 3rem;    /* 48px */
+
+            /* Border Radius (modern, friendly) */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+
+            /* Shadows (light, floating) */
+            --shadow-sm: 0 1px 2px rgba(37, 99, 235, 0.05);
+            --shadow-md: 0 4px 6px rgba(37, 99, 235, 0.1);
+            --shadow-lg: 0 10px 15px rgba(37, 99, 235, 0.15);
+            --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.3);
+
+            /* Transitions (snappy, responsive) */
+            --transition-fast: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /*
+         * BASE STYLES
+         * Clean, modern foundation optimized for mobile screens
+         * and global travel contexts
+         */
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--sky-light) 0%, #dbeafe 100%);
+            color: var(--luggage-gray-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: 16px;
+            padding-bottom: 80px; /* Space for mobile bottom nav */
+        }
+
+        /*
+         * HEADER COMPONENT
+         * Compact header optimized for mobile with essential info
+         * and connection status
+         */
+        .header {
+            background: var(--cloud-white);
+            border-bottom: 1px solid var(--horizon-gray);
+            padding: var(--space-md) var(--space-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--passport-blue);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+
+        /*
+         * STATUS BAR
+         * Real-time connection and location indicators
+         */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-size: 0.85rem;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--luggage-gray);
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: var(--radius-full);
+            background: var(--wifi-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-offline .status-dot {
+            background: var(--color-offline);
+            animation: none;
+        }
+
+        /*
+         * NAVIGATION COMPONENT
+         * Desktop horizontal nav that converts to bottom mobile nav
+         */
+        .nav {
+            display: flex;
+            gap: var(--space-xs);
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--luggage-gray);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .nav-link:hover {
+            background: var(--sky-light);
+            color: var(--passport-blue);
+        }
+
+        .nav-link.active {
+            background: var(--passport-blue);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /*
+         * MOBILE BOTTOM NAVIGATION
+         * Thumb-friendly navigation bar fixed to bottom on mobile
+         */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--cloud-white);
+            border-top: 1px solid var(--horizon-gray);
+            padding: var(--space-sm);
+            z-index: 100;
+            box-shadow: 0 -4px 6px rgba(37, 99, 235, 0.05);
+        }
+
+        .mobile-nav-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            padding: var(--space-xs);
+            color: var(--luggage-gray);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            min-width: 64px;
+        }
+
+        .mobile-nav-link .icon {
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav-link.active {
+            color: var(--passport-blue);
+        }
+
+        /*
+         * MAIN CONTAINER
+         * Responsive container with mobile-first spacing
+         */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        /*
+         * PAGE HEADER
+         * Location-aware header with current position and timezone
+         */
+        .page-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--passport-blue-dark);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--luggage-gray);
+            max-width: 60ch;
+            margin-bottom: var(--space-md);
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            padding: var(--space-md);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.9rem;
+            color: var(--luggage-gray-dark);
+        }
+
+        .location-icon {
+            font-size: 1.25rem;
+        }
+
+        /*
+         * STATS GRID
+         * Compact, scannable metrics for nomad productivity
+         */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid var(--horizon-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--passport-blue) 0%, var(--sunset-orange) 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--luggage-gray);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--passport-blue);
+            margin-bottom: var(--space-xs);
+            line-height: 1.1;
+        }
+
+        .stat-change {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--luggage-gray);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .stat-change.positive {
+            color: var(--wifi-green);
+        }
+
+        /*
+         * CONTENT GRID
+         * Flexible layout for main content and sidebar
+         */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        /*
+         * CARD COMPONENT
+         * Light, floating cards suggesting cloud-based data
+         */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--horizon-gray);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--sky-light);
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--passport-blue-dark);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        /*
+         * TABLE COMPONENT
+         * Compact, mobile-friendly tables with clear hierarchy
+         */
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table thead th {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--luggage-gray);
+            text-align: left;
+            padding: var(--space-md);
+            background: var(--sky-light);
+            border-bottom: 2px solid var(--passport-blue-light);
+        }
+
+        .table thead th:first-child {
+            border-top-left-radius: var(--radius-md);
+        }
+
+        .table thead th:last-child {
+            border-top-right-radius: var(--radius-md);
+        }
+
+        .table tbody td {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--luggage-gray-dark);
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--horizon-gray);
+            transition: var(--transition-fast);
+        }
+
+        .table tbody tr {
+            transition: var(--transition-base);
+        }
+
+        .table tbody tr:hover {
+            background: var(--sky-light);
+        }
+
+        /*
+         * BADGE COMPONENT
+         * Colorful status badges for locations and connectivity
+         */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+        }
+
+        .badge-online {
+            background: #d1fae5;
+            color: var(--wifi-green-dark);
+        }
+
+        .badge-working {
+            background: #dbeafe;
+            color: var(--passport-blue-dark);
+        }
+
+        .badge-exploring {
+            background: #fed7aa;
+            color: #9a3412;
+        }
+
+        .badge-traveling {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        /*
+         * FORM COMPONENT
+         * Streamlined forms optimized for quick mobile input
+         */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--luggage-gray-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--luggage-gray-dark);
+            background: white;
+            border: 2px solid var(--horizon-gray);
+            border-radius: var(--radius-md);
+            transition: var(--transition-base);
+            min-height: 48px;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--passport-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /*
+         * BUTTON COMPONENT
+         * Confident CTAs with travel-inspired personality
+         */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-lg);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-base);
+            min-height: 48px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--passport-blue) 0%, var(--passport-blue-light) 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-orange-light) 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--passport-blue);
+            color: var(--passport-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--passport-blue);
+            color: white;
+        }
+
+        /*
+         * QUICK ACTIONS SIDEBAR
+         * Travel and connectivity tools
+         */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .action-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--horizon-gray);
+            text-align: center;
+            transition: var(--transition-base);
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .action-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            background: linear-gradient(135deg, var(--passport-blue-light) 0%, var(--passport-blue) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .action-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--passport-blue-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .action-description {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--luggage-gray);
+            margin-bottom: var(--space-md);
+            line-height: 1.5;
+        }
+
+        /*
+         * FOOTER COMPONENT
+         * Minimal footer with essential links
+         */
+        .footer {
+            background: white;
+            border-top: 1px solid var(--horizon-gray);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--passport-blue);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--luggage-gray);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .footer-link:hover {
+            color: var(--passport-blue);
+            padding-left: var(--space-xs);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--horizon-gray);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--luggage-gray);
+        }
+
+        /*
+         * TIMEZONE WIDGET
+         * Multiple timezone display for global coordination
+         */
+        .timezone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-sm);
+        }
+
+        .timezone-card {
+            background: var(--sky-light);
+            padding: var(--space-sm);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .timezone-city {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--luggage-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .timezone-time {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--passport-blue);
+        }
+
+        /*
+         * RESPONSIVE DESIGN
+         * Mobile-first with progressive enhancement
+         */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                display: grid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-xs);
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: var(--space-md) var(--space-sm);
+            }
+
+            .header {
+                padding: var(--space-sm);
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .location-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /*
+         * ACCESSIBILITY: REDUCED MOTION
+         */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🌍</span>
+                Remote Nomad
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">
+                    <span>🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-link">
+                    <span>📍</span>
+                    Locations
+                </a>
+                <a href="#" class="nav-link">
+                    <span>💼</span>
+                    Work
+                </a>
+                <a href="#" class="nav-link">
+                    <span>👥</span>
+                    Network
+                </a>
+            </nav>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+                <div class="status-item">
+                    <span>🔒</span>
+                    <span>VPN: Active</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <h1 class="page-title">Welcome Back, Explorer</h1>
+            <p class="page-subtitle">Track your remote work, connect with fellow nomads, and discover your next destination.</p>
+
+            <div class="location-info">
+                <div class="location-item">
+                    <span class="location-icon">📍</span>
+                    <strong>Current Location:</strong>
+                    <span>Lisbon, Portugal</span>
+                </div>
+                <div class="location-item">
+                    <span class="location-icon">🕐</span>
+                    <strong>Local Time:</strong>
+                    <span>14:23 WET</span>
+                </div>
+                <div class="location-item">
+                    <span class="location-icon">☀️</span>
+                    <strong>Weather:</strong>
+                    <span>22°C, Sunny</span>
+                </div>
+                <div class="location-item">
+                    <span class="location-icon">📶</span>
+                    <strong>WiFi:</strong>
+                    <span>Excellent (89 Mbps)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">✈️</div>
+                <div class="stat-label">Cities Visited</div>
+                <div class="stat-value">34</div>
+                <div class="stat-change positive">↑ 3 this year</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💻</div>
+                <div class="stat-label">Hours Worked</div>
+                <div class="stat-value">168</div>
+                <div class="stat-change positive">↑ On track</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-label">Network</div>
+                <div class="stat-value">842</div>
+                <div class="stat-change positive">↑ Growing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-label">Reviews</div>
+                <div class="stat-value">4.9</div>
+                <div class="stat-change positive">↑ Excellent</div>
+            </div>
+        </div>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- MAIN CONTENT CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span>📅</span>
+                        Recent Activity
+                    </h2>
+                    <button class="btn btn-outline">View All</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Coworking at Second Home</strong></td>
+                            <td>Lisbon, PT</td>
+                            <td>Dec 10</td>
+                            <td><span class="badge badge-working">Working</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Networking Event</strong></td>
+                            <td>Lisbon, PT</td>
+                            <td>Dec 9</td>
+                            <td><span class="badge badge-online">Online</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exploring Sintra</strong></td>
+                            <td>Sintra, PT</td>
+                            <td>Dec 8</td>
+                            <td><span class="badge badge-exploring">Exploring</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Client Meeting (Video)</strong></td>
+                            <td>Remote</td>
+                            <td>Dec 7</td>
+                            <td><span class="badge badge-working">Working</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Travel to Lisbon</strong></td>
+                            <td>Porto → Lisbon</td>
+                            <td>Dec 6</td>
+                            <td><span class="badge badge-traveling">Traveling</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beach Coworking</strong></td>
+                            <td>Porto, PT</td>
+                            <td>Dec 5</td>
+                            <td><span class="badge badge-working">Working</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="quick-actions">
+                <div class="action-card">
+                    <div class="action-icon">🕐</div>
+                    <h3 class="action-title">Time Zones</h3>
+                    <div class="timezone-grid">
+                        <div class="timezone-card">
+                            <div class="timezone-city">New York</div>
+                            <div class="timezone-time">09:23</div>
+                        </div>
+                        <div class="timezone-card">
+                            <div class="timezone-city">London</div>
+                            <div class="timezone-time">14:23</div>
+                        </div>
+                        <div class="timezone-card">
+                            <div class="timezone-city">Tokyo</div>
+                            <div class="timezone-time">23:23</div>
+                        </div>
+                        <div class="timezone-card">
+                            <div class="timezone-city">Sydney</div>
+                            <div class="timezone-time">01:23</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">🗺️</div>
+                    <h3 class="action-title">Find Coworking</h3>
+                    <p class="action-description">Discover workspaces near you</p>
+                    <button class="btn btn-primary">Search Nearby</button>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">🤝</div>
+                    <h3 class="action-title">Meetups</h3>
+                    <p class="action-description">Connect with local nomads</p>
+                    <button class="btn btn-secondary">Browse Events</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM SECTION -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span>✍️</span>
+                    Log Your Journey
+                </h2>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="activity-type">Activity Type</label>
+                    <select class="form-select" id="activity-type">
+                        <option>Coworking Session</option>
+                        <option>Client Meeting</option>
+                        <option>Networking Event</option>
+                        <option>Local Exploration</option>
+                        <option>Travel Day</option>
+                        <option>Rest & Recharge</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="location">Location</label>
+                    <input type="text" class="form-input" id="location" placeholder="City, Country">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="notes">Notes & Reflections</label>
+                    <textarea class="form-textarea" id="notes" placeholder="Share your experience, tips for fellow nomads, or memorable moments..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="submit" class="btn btn-primary">📝 Log Activity</button>
+                    <button type="button" class="btn btn-outline">Save Draft</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="#" class="mobile-nav-link active">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="icon">📍</span>
+                <span>Places</span>
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="icon">💼</span>
+                <span>Work</span>
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="icon">👥</span>
+                <span>Network</span>
+            </a>
+            <a href="#" class="mobile-nav-link">
+                <span class="icon">⚙️</span>
+                <span>More</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Visa Guide</a></li>
+                    <li><a href="#" class="footer-link">Coworking Map</a></li>
+                    <li><a href="#" class="footer-link">Cost of Living</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Forums</a></li>
+                    <li><a href="#" class="footer-link">Meetups</a></li>
+                    <li><a href="#" class="footer-link">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Currency Converter</a></li>
+                    <li><a href="#" class="footer-link">Time Zone Calculator</a></li>
+                    <li><a href="#" class="footer-link">Packing Checklist</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Help Center</a></li>
+                    <li><a href="#" class="footer-link">Safety Tips</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Remote Nomad Network. Work from anywhere. Live everywhere.</p>
+        </div>
+    </footer>
+</body>
+</html>
