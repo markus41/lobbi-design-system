@@ -19,84 +19,90 @@
             box-sizing: border-box;
         }
 
+        /* Mobile-First Base Styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--background);
             color: var(--text);
             min-height: 100vh;
-            padding: 3rem;
+            padding: 1rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
             color: var(--primary-color);
+            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 0.9375rem;
             color: rgba(249, 250, 251, 0.7);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
         }
 
         .info-box {
             background: rgba(59, 130, 246, 0.1);
             border: 1px solid var(--primary-color);
             border-radius: 0.5rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .info-box h2 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
         }
 
         .info-box p {
             line-height: 1.6;
             margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
         }
 
         .token-display {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
         }
 
         .token-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 0.5rem;
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         .token-card h3 {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: rgba(249, 250, 251, 0.6);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .token-value {
             font-family: 'Courier New', monospace;
-            font-size: 1rem;
+            font-size: 0.8125rem;
             color: var(--secondary-color);
             background: rgba(16, 185, 129, 0.1);
             padding: 0.5rem;
             border-radius: 0.25rem;
             margin-bottom: 0.5rem;
+            word-break: break-all;
         }
 
         .color-swatch {
             width: 100%;
-            height: 50px;
+            height: 40px;
             border-radius: 0.25rem;
             margin-top: 0.5rem;
         }
@@ -105,64 +111,225 @@
             background: rgba(245, 158, 11, 0.1);
             border: 1px solid var(--accent);
             border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 6rem;
         }
 
         .instructions h3 {
             color: var(--accent);
             margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
 
         .instructions ol {
-            margin-left: 1.5rem;
-            line-height: 1.8;
+            margin-left: 1.25rem;
+            line-height: 1.7;
+            font-size: 0.9375rem;
         }
 
         .instructions li {
             margin-bottom: 0.5rem;
         }
 
-        /* Export Panel */
+        /* Tablet Styles (768px+) */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+
+            .container {
+                max-width: 1200px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .info-box {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .info-box h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .info-box p {
+                font-size: 1rem;
+            }
+
+            .token-display {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .token-card {
+                padding: 1.25rem;
+            }
+
+            .token-card h3 {
+                font-size: 0.8125rem;
+            }
+
+            .token-value {
+                font-size: 0.9375rem;
+            }
+
+            .color-swatch {
+                height: 50px;
+            }
+
+            .instructions {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .instructions h3 {
+                font-size: 1.125rem;
+            }
+
+            .instructions ol {
+                margin-left: 1.5rem;
+                font-size: 1rem;
+                line-height: 1.8;
+            }
+        }
+
+        /* Desktop Styles (1024px+) */
+        @media (min-width: 1024px) {
+            body {
+                padding: 3rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 3rem;
+            }
+
+            .info-box {
+                padding: 2rem;
+            }
+
+            .token-display {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .token-card {
+                padding: 1.5rem;
+            }
+
+            .token-card h3 {
+                font-size: 0.875rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .token-value {
+                font-size: 1rem;
+            }
+        }
+
+        /* Extra Small Devices (max 375px) */
+        @media (max-width: 375px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .info-box {
+                padding: 0.875rem;
+            }
+
+            .info-box h2 {
+                font-size: 1.125rem;
+            }
+
+            .info-box p {
+                font-size: 0.875rem;
+            }
+
+            .token-card {
+                padding: 0.875rem;
+            }
+
+            .token-value {
+                font-size: 0.75rem;
+                padding: 0.375rem;
+            }
+
+            .instructions {
+                padding: 0.875rem;
+            }
+
+            .instructions ol {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Export Panel - Mobile First */
         .export-panel {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 0;
+            left: 0;
+            right: 0;
             background: rgba(0, 0, 0, 0.95);
-            padding: 1rem 1.25rem;
-            border-radius: 0.75rem;
+            padding: 0.875rem 1rem;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .export-panel h4 {
-            font-size: 0.6875rem;
+            font-size: 0.625rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.625rem;
         }
 
         .export-buttons {
             display: flex;
             gap: 0.5rem;
+            justify-content: stretch;
         }
 
         .export-btn {
-            padding: 0.5rem 0.875rem;
+            flex: 1;
+            padding: 0.625rem 0.75rem;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 0.375rem;
             cursor: pointer;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.375rem;
+            justify-content: center;
+            gap: 0.25rem;
             transition: all 0.2s;
+            min-height: 44px;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
         }
 
         .export-btn:hover {
@@ -170,26 +337,99 @@
             border-color: #3b82f6;
         }
 
+        .export-btn:active {
+            transform: scale(0.98);
+        }
+
+        .export-btn svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
         .export-toast {
             position: fixed;
-            bottom: 6rem;
-            right: 2rem;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
             background: #10b981;
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             font-weight: 500;
             opacity: 0;
-            transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 1001;
             pointer-events: none;
+            max-width: calc(100% - 2rem);
+            text-align: center;
         }
 
         .export-toast.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Tablet Styles (768px+) */
+        @media (min-width: 768px) {
+            .export-panel {
+                bottom: 2rem;
+                left: auto;
+                right: 2rem;
+                border-radius: 0.75rem;
+                padding: 1rem 1.25rem;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+                max-width: 300px;
+            }
+
+            .export-panel h4 {
+                font-size: 0.6875rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .export-buttons {
+                gap: 0.5rem;
+            }
+
+            .export-btn {
+                padding: 0.5rem 0.875rem;
+                font-size: 0.8125rem;
+            }
+
+            .export-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .export-toast {
+                bottom: 6rem;
+                right: 2rem;
+                left: auto;
+                transform: translateY(10px);
+                max-width: none;
+            }
+
+            .export-toast.visible {
+                transform: translateY(0);
+            }
+        }
+
+        /* Desktop Styles (1024px+) */
+        @media (min-width: 1024px) {
+            .export-panel {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .export-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
         }
     </style>
 </head>
@@ -200,7 +440,7 @@
 
         <div class="info-box">
             <h2>About This Test Page</h2>
-            <p>This page demonstrates the export panel functionality that has been added to all 210 style pages in the Lobbi Design System gallery.</p>
+            <p>This page demonstrates the export panel functionality that has been added to all 255 style pages in the Lobbi Design System gallery.</p>
             <p>The export panel allows designers and developers to quickly extract design tokens in three formats: CSS custom properties, Tailwind configuration, and JSON.</p>
         </div>
 
