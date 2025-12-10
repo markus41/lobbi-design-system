@@ -1013,7 +1013,7 @@
 }
 
     
-/* Similar Styles Section */
+/* Similar Styles Section - Collapsible */
 .similar-styles-section {
     position: fixed;
     bottom: 0;
@@ -1024,6 +1024,20 @@
     padding: 1rem 2rem;
     z-index: 999;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, padding 0.3s ease;
+}
+
+.similar-styles-section.collapsed {
+    transform: translateY(calc(100% - 44px));
+    padding-bottom: 0.5rem;
+}
+
+.similar-styles-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
 }
 
 .similar-styles-title {
@@ -1031,13 +1045,55 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0;
+    transition: margin 0.3s ease;
+}
+
+.similar-styles-section:not(.collapsed) .similar-styles-title {
     margin-bottom: 0.75rem;
+}
+
+.similar-styles-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: color 0.2s, background 0.2s;
+}
+
+.similar-styles-toggle:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.similar-styles-toggle svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.similar-styles-section.collapsed .similar-styles-toggle svg {
+    transform: rotate(180deg);
 }
 
 .similar-styles-grid {
     display: flex;
     gap: 1rem;
     overflow-x: auto;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 120px;
+}
+
+.similar-styles-section.collapsed .similar-styles-grid {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .similar-style-card {
@@ -1534,7 +1590,14 @@ function showToast(message) {
 
 <!-- Similar Styles Section -->
 <div class="similar-styles-section">
-    <h3 class="similar-styles-title">Similar Styles</h3>
+    <div class="similar-styles-header">
+        <h3 class="similar-styles-title">Similar Styles</h3>
+        <button class="similar-styles-toggle" aria-label="Toggle similar styles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
+    </div>
     <div class="similar-styles-grid">
         <a href="style-95-organic-wellness.html" class="similar-style-card">
             <div class="similar-preview" style="background: linear-gradient(135deg, hsl(102.5, 50%, 50%), hsl(162.5, 50%, 50%))"></div>
@@ -1555,5 +1618,36 @@ function showToast(message) {
     </div>
 </div>
 
+
+<script>
+(function() {
+    const section = document.querySelector('.similar-styles-section');
+    const toggle = document.querySelector('.similar-styles-toggle');
+    const STORAGE_KEY = 'lobbi-similar-styles-collapsed';
+
+    // Restore collapsed state from localStorage
+    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+        section.classList.add('collapsed');
+    }
+
+    // Toggle collapse on click
+    if (toggle) {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            section.classList.toggle('collapsed');
+            localStorage.setItem(STORAGE_KEY, section.classList.contains('collapsed'));
+        });
+    }
+
+    // Also allow clicking the header to toggle
+    const header = document.querySelector('.similar-styles-header');
+    if (header) {
+        header.addEventListener('click', () => {
+            section.classList.toggle('collapsed');
+            localStorage.setItem(STORAGE_KEY, section.classList.contains('collapsed'));
+        });
+    }
+})();
+</script>
 </body>
 </html>
