@@ -846,11 +846,32 @@
             .gallery-nav { padding: 0.5rem 1rem; }
         }
 
+    
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            z-index: 10001;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Gallery Navigation -->
-    <nav class="gallery-nav" id="galleryNav">
+    <nav class="gallery-nav" aria-label="Gallery navigation" id="galleryNav">
         <div class="gallery-nav-left">
             <a href="index.html" class="gallery-nav-back">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -858,7 +879,7 @@
                 </svg>
                 Back to Gallery
             </a>
-            <span class="gallery-nav-title">Style <strong>189</strong> of 140 &mdash; Style 189</span>
+            <span class="gallery-nav-title">Style <strong>189</strong> of 210 &mdash; Style 189</span>
         </div>
         <div class="gallery-nav-right">
             <div class="gallery-nav-arrows">
@@ -924,7 +945,7 @@
 
     <!-- Header Component -->
     <header>
-        <div class="container">
+        <div id="main-content" class="container">
             <div class="header-content">
                 <a href="#" class="logo">Paper & Print</a>
                 <nav>

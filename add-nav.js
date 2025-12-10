@@ -152,7 +152,83 @@ const styleNameMap = {
     137: 'Heritage Modernist',
     138: 'Eco-Luxury Refined',
     139: 'Artisan Contemporary',
-    140: 'Accessible Professional Plus'
+    140: 'Accessible Professional Plus',
+    // Historical & Classical 141-152
+    141: 'Art Nouveau Elegance',
+    142: 'Gothic Revival Digital',
+    143: 'Victorian Modernist',
+    144: 'Rococo Digital Garden',
+    145: 'Neoclassical Authority',
+    146: 'Renaissance Revival',
+    147: 'Medieval Guild Hall',
+    148: 'Baroque Grandeur',
+    149: 'Roman Empire Digital',
+    150: 'Ancient Egyptian Luxe',
+    151: 'Byzantine Contemporary',
+    152: 'Colonial American Heritage',
+    // Cultural & Regional 153-164
+    153: 'Japanese Wabi-Sabi',
+    154: 'Scandinavian Hygge',
+    155: 'Moroccan Geometric',
+    156: 'Indian Mughal Luxury',
+    157: 'Chinese Imperial',
+    158: 'Greek Mediterranean',
+    159: 'African Kente',
+    160: 'Celtic Heritage',
+    161: 'Persian Carpet',
+    162: 'Mexican Folk Art',
+    163: 'Nordic Rune',
+    164: 'Brazilian Carnival',
+    // Digital UI & Illustration 165-176
+    165: 'Flat Design 2.0',
+    166: 'Skeuomorphic Revival',
+    167: 'Isometric Illustration',
+    168: 'Line Art Minimal',
+    169: 'Gradient Mesh UI',
+    170: 'Duotone Photography',
+    171: 'Low Poly 3D',
+    172: 'Watercolor Digital',
+    173: 'Comic Book Pop',
+    174: 'Pixel Art Retro',
+    175: 'Sticker Playful',
+    176: 'Blueprint Technical',
+    // Retro & Nostalgic 177-188
+    177: '1950s Diner',
+    178: '1960s Mod',
+    179: '1970s Disco',
+    180: '1980s Synthwave',
+    181: '1990s Grunge',
+    182: 'Y2K Millennium',
+    183: 'Vintage Americana',
+    184: 'Art Deco Golden',
+    185: 'Vintage Cinema',
+    186: 'Retro Computing',
+    187: 'Victorian Steampunk',
+    188: 'Mid-Century Modern',
+    // Texture, Motion & Gaming 189-200
+    189: 'Paper Texture',
+    190: 'Concrete Brutalist',
+    191: 'Wood Grain Natural',
+    192: 'Marble Luxury',
+    193: 'Kinetic Typography',
+    194: 'Parallax Depth',
+    195: 'Liquid Motion',
+    196: 'Micro-Interaction Rich',
+    197: 'RPG Fantasy',
+    198: 'Sci-Fi HUD',
+    199: 'Casual Mobile',
+    200: 'Esports Arena',
+    // Light, Dark & Emerging 201-210
+    201: 'Pure Light Minimal',
+    202: 'Warm Light Natural',
+    203: 'Cool Light Professional',
+    204: 'True Dark Mode',
+    205: 'Elevated Dark',
+    206: 'AI Native Interface',
+    207: 'Neural Network',
+    208: 'Spatial Computing',
+    209: 'Generative Art',
+    210: 'Sustainable Digital'
 };
 
 // Style file mapping
@@ -299,7 +375,83 @@ const styleFiles = {
     137: 'style-137-heritage-modernist.html',
     138: 'style-138-eco-luxury.html',
     139: 'style-139-artisan-contemporary.html',
-    140: 'style-140-accessible-professional.html'
+    140: 'style-140-accessible-professional.html',
+    // Historical & Classical 141-152
+    141: 'style-141-art-nouveau-elegance.html',
+    142: 'style-142-gothic-revival-digital.html',
+    143: 'style-143-victorian-modernist.html',
+    144: 'style-144-rococo-digital-garden.html',
+    145: 'style-145-neoclassical-authority.html',
+    146: 'style-146-renaissance-revival.html',
+    147: 'style-147-medieval-guild-hall.html',
+    148: 'style-148-baroque-grandeur.html',
+    149: 'style-149-roman-empire-digital.html',
+    150: 'style-150-ancient-egyptian-luxe.html',
+    151: 'style-151-byzantine-contemporary.html',
+    152: 'style-152-colonial-american-heritage.html',
+    // Cultural & Regional 153-164
+    153: 'style-153-japanese-wabi-sabi.html',
+    154: 'style-154-scandinavian-hygge.html',
+    155: 'style-155-moroccan-geometric.html',
+    156: 'style-156-indian-mughal-luxury.html',
+    157: 'style-157-chinese-imperial.html',
+    158: 'style-158-greek-mediterranean.html',
+    159: 'style-159-african-kente.html',
+    160: 'style-160-celtic-heritage.html',
+    161: 'style-161-persian-carpet.html',
+    162: 'style-162-mexican-folk-art.html',
+    163: 'style-163-nordic-rune.html',
+    164: 'style-164-brazilian-carnival.html',
+    // Digital UI & Illustration 165-176
+    165: 'style-165-flat-design-2-0.html',
+    166: 'style-166-skeuomorphic-revival.html',
+    167: 'style-167-isometric-illustration.html',
+    168: 'style-168-line-art-minimal.html',
+    169: 'style-169-gradient-mesh-ui.html',
+    170: 'style-170-duotone-photography.html',
+    171: 'style-171-low-poly-3d.html',
+    172: 'style-172-watercolor-digital.html',
+    173: 'style-173-comic-book-pop.html',
+    174: 'style-174-pixel-art-retro.html',
+    175: 'style-175-sticker-playful.html',
+    176: 'style-176-blueprint-technical.html',
+    // Retro & Nostalgic 177-188
+    177: 'style-177-1950s-diner.html',
+    178: 'style-178-1960s-mod.html',
+    179: 'style-179-1970s-disco.html',
+    180: 'style-180-1980s-synthwave.html',
+    181: 'style-181-1990s-grunge.html',
+    182: 'style-182-y2k-millennium.html',
+    183: 'style-183-vintage-americana.html',
+    184: 'style-184-art-deco-golden.html',
+    185: 'style-185-vintage-cinema.html',
+    186: 'style-186-retro-computing.html',
+    187: 'style-187-victorian-steampunk.html',
+    188: 'style-188-mid-century-modern.html',
+    // Texture, Motion & Gaming 189-200
+    189: 'style-189-paper-texture.html',
+    190: 'style-190-concrete-brutalist.html',
+    191: 'style-191-wood-grain-natural.html',
+    192: 'style-192-marble-luxury.html',
+    193: 'style-193-kinetic-typography.html',
+    194: 'style-194-parallax-depth.html',
+    195: 'style-195-liquid-motion.html',
+    196: 'style-196-micro-interaction-rich.html',
+    197: 'style-197-rpg-fantasy.html',
+    198: 'style-198-sci-fi-hud.html',
+    199: 'style-199-casual-mobile.html',
+    200: 'style-200-esports-arena.html',
+    // Light, Dark & Emerging 201-210
+    201: 'style-201-pure-light-minimal.html',
+    202: 'style-202-warm-light-natural.html',
+    203: 'style-203-cool-light-professional.html',
+    204: 'style-204-true-dark-mode.html',
+    205: 'style-205-elevated-dark.html',
+    206: 'style-206-ai-native-interface.html',
+    207: 'style-207-neural-network.html',
+    208: 'style-208-spatial-computing.html',
+    209: 'style-209-generative-art.html',
+    210: 'style-210-sustainable-digital.html'
 };
 
 // The navigation HTML and CSS to inject
@@ -435,7 +587,7 @@ const navCSS = `
 
 const navHTML = (styleNum, styleName) => {
     const prevNum = styleNum > 1 ? styleNum - 1 : null;
-    const nextNum = styleNum < 140 ? styleNum + 1 : null;
+    const nextNum = styleNum < 210 ? styleNum + 1 : null;
 
     const prevHref = prevNum ? styleFiles[prevNum] : '#';
     const nextHref = nextNum ? styleFiles[nextNum] : '#';
@@ -450,7 +602,7 @@ const navHTML = (styleNum, styleName) => {
                 </svg>
                 Back to Gallery
             </a>
-            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 140 &mdash; ${styleName}</span>
+            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 210 &mdash; ${styleName}</span>
         </div>
         <div class="gallery-nav-right">
             <div class="gallery-nav-arrows">

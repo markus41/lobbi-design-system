@@ -1235,11 +1235,32 @@
                 text-align: center;
             }
         }
+    
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            z-index: 10001;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Gallery Navigation -->
-    <nav class="gallery-nav" id="galleryNav">
+    <nav class="gallery-nav" aria-label="Gallery navigation" id="galleryNav">
         <div class="gallery-nav-left">
             <a href="index.html" class="gallery-nav-back">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1247,7 +1268,7 @@
                 </svg>
                 Back to Gallery
             </a>
-            <span class="gallery-nav-title">Style <strong>136</strong> of 135 &mdash; Minimal Wellness</span>
+            <span class="gallery-nav-title">Style <strong>136</strong> of 210 &mdash; Minimal Wellness</span>
             <span class="gallery-nav-hints" title="Keyboard Shortcuts">
                 <span class="hint-text">← → Navigate • ESC Hide</span>
             </span>
@@ -1292,7 +1313,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div id="main-content" class="container">
             <h1 class="hero-title">Your Wellness Journey</h1>
             <p class="hero-subtitle">Track your progress, connect with coaches, and discover a healthier, more balanced you.</p>
             <div class="hero-actions">
