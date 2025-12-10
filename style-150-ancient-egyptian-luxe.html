@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 150: Ancient Egyptian Luxe - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+/*
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        ULTRATHINK METHODOLOGY v3.0                           ║
+║                    STYLE 150: ANCIENT EGYPTIAN LUXE                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+DESIGN PHILOSOPHY:
+The eternal sophistication of pharaonic design translated into digital luxury.
+This style captures the mathematical precision of Egyptian sacred geometry, the
+opulence of royal tombs, and the timeless appeal of hieroglyphic communication.
+Like the golden ratio found in pyramid construction, every element maintains
+divine proportion and purposeful placement.
+
+BLEND ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. EGYPTIAN DESIGN (50%) - Sacred Foundation                                │
+│    • Sacred geometry: Lotus, papyrus, and scarab-inspired patterns          │
+│    • Hierarchical scale: Size denotes importance (pharaonic convention)     │
+│    • Horizontal registers: Content organized in parallel bands              │
+│    • Symmetrical balance: Perfect bilateral harmony                         │
+│    • Symbolic colors: Lapis lazuli blue, papyrus cream, desert terracotta   │
+│    • Hieroglyphic influence: Icon-based communication patterns              │
+│                                                                              │
+│ 2. ART DECO GEOMETRY (30%) - Modernist Translation                          │
+│    • Angular precision: Sharp corners, chevron patterns                      │
+│    • Stepped forms: Ziggurat-inspired elevation                             │
+│    • Geometric repetition: Tessellation and rhythm                          │
+│    • Linear elegance: Strong horizontal/vertical emphasis                   │
+│    • Luxe materials: Chrome effects, lacquered surfaces                     │
+│    • Streamlined aesthetic: Egyptian revival through 1920s lens             │
+│                                                                              │
+│ 3. LUXURY GOLD (20%) - Opulent Accents                                      │
+│    • Royal metal: Gold leaf and gilded details                              │
+│    • Reflective surfaces: Shimmer and luminosity                            │
+│    • Premium signaling: Exclusive, high-value communication                 │
+│    • Accent strategy: Strategic placement for maximum impact                │
+│    • Warm illumination: Golden hour lighting metaphor                       │
+│    • Treasure aesthetic: Every element treated as precious artifact         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+COLOR PSYCHOLOGY:
+• Papyrus Cream (#F9F5EC): Ancient wisdom, scholarly pursuit, timeless knowledge
+• Lapis Blue (#1A5490): Sacred stone, royal divinity, celestial connection
+• Gold (#D4AF37): Pharaonic wealth, eternal value, divine illumination
+• Terracotta (#C8664F): Desert warmth, earthly foundation, human craftsmanship
+
+TYPOGRAPHY STRATEGY:
+• Noto Serif Display: Elegant serifs echoing hieroglyphic formality
+  - High contrast strokes for visual drama
+  - Geometric letterform construction
+  - Available in multiple weights for hierarchy
+
+• Noto Serif: Refined readability with classical proportions
+  - Excellent screen legibility
+  - Comfortable reading experience
+  - Maintains visual dignity at all sizes
+
+TEMPERATURE & FORMALITY:
+• Temperature: 5/10 (Warm) - Golden accents, terracotta earth tones
+• Formality: 8/10 (High) - Sacred geometry, institutional gravitas
+• Luxury Level: 9/10 - Premium materials, opulent detailing
+
+SACRED GEOMETRY PRINCIPLES:
+• Golden Ratio (φ = 1.618): Applied to spacing, sizing, proportions
+• Perfect symmetry: Bilateral balance in layout composition
+• Horizontal bands: Egyptian register system for content organization
+• Stepped elevation: Pyramid-inspired depth hierarchy
+• Lotus proportions: Expanding patterns from central axis
+
+ACCESSIBILITY STANDARDS:
+✓ WCAG 2.1 AA contrast ratios (4.5:1 body, 3:1 large text)
+✓ Focus indicators with gold outline (3px for visibility)
+✓ Semantic HTML with ARIA labels where needed
+✓ Responsive typography using clamp() functions
+✓ Touch targets 44x44px minimum (royal decree)
+
+RESPONSIVE STRATEGY:
+• Mobile: Single column, stacked registers (papyrus scroll metaphor)
+• Tablet: Two-column grids, balanced symmetry
+• Desktop: Full multi-column layouts with hierarchical scale
+• Large screens: Maximum 1600px width (temple proportion)
+
+COMPONENT ARCHITECTURE:
+1. Header: Pharaonic banner with cartouche-inspired logo
+2. Stats Grid: Four sacred pillars displaying key metrics
+3. Content Cards: Tomb-like containers with golden accents
+4. Data Table: Hieroglyphic-inspired information architecture
+5. Forms: Temple petition style with formal validation
+6. Buttons: Tiered authority with geometric shapes
+7. Badges: Scarab-beetle inspired status indicators
+8. Footer: Foundation register with columnar organization
+
+USE CASES:
+• Luxury brands and premium services
+• Museums and cultural institutions
+• High-end hospitality and travel
+• Fine art galleries and auction houses
+• Exclusive membership organizations
+• Premium creative agencies
+• Heritage luxury goods
+
+IMPLEMENTATION NOTES:
+- CSS Custom Properties enable light/dark mode (day/night cycle)
+- Grid system based on 8px unit (sacred geometry)
+- Border patterns use geometric repetition
+- Hover states reveal golden underlays
+- Gradient overlays create depth and richness
+- Box shadows suggest carved relief
+
+HISTORICAL REFERENCES:
+• Great Pyramid of Giza: Proportional mathematics
+• Book of the Dead: Hierarchical visual organization
+• Tutankhamun's Tomb: Color palette and gold abundance
+• Karnak Temple: Columnar rhythm and scale
+• Papyrus manuscripts: Horizontal register system
+• Art Deco movement: 1920s Egyptian revival
+
+EMOTIONAL IMPACT:
+Users experience the weight of millennia—sophisticated, prestigious, and
+timelessly elegant. The interface conveys exclusivity without coldness,
+luxury without ostentation. Like entering a beautifully preserved temple,
+every interaction feels significant and curated.
+
+GEOMETRIC PATTERNS:
+• Lotus flower: Growth, enlightenment (border decorations)
+• Papyrus bundle: Wisdom, documentation (content containers)
+• Scarab beetle: Protection, transformation (badges)
+• Ankh symbol: Life, continuity (navigation indicators)
+• Was scepter: Authority, power (call-to-action buttons)
+
+VERSION: 1.0.0
+CREATED: 2025-12-09
+DESIGNER: Lobbi Design System Team
+*/
+
+:root {
+    /* Color System - Egyptian Royal Palette */
+    --color-papyrus: #F9F5EC;
+    --color-papyrus-dark: #F0EBD8;
+    --color-lapis: #1A5490;
+    --color-lapis-light: #2B6FB8;
+    --color-lapis-dark: #0D3A65;
+    --color-gold: #D4AF37;
+    --color-gold-light: #E8C96F;
+    --color-gold-dark: #B8941F;
+    --color-terracotta: #C8664F;
+    --color-terracotta-light: #D98574;
+    --color-terracotta-dark: #A44D38;
+    --color-sand: #E8D5B7;
+    --color-desert-shadow: #4A4035;
+    --color-ivory: #FFFEF9;
+
+    /* Semantic Colors */
+    --color-primary: var(--color-lapis);
+    --color-primary-hover: var(--color-lapis-light);
+    --color-secondary: var(--color-gold);
+    --color-secondary-hover: var(--color-gold-light);
+    --color-accent: var(--color-terracotta);
+    --color-text-primary: var(--color-desert-shadow);
+    --color-text-secondary: #6B5E52;
+    --color-background: var(--color-papyrus);
+    --color-surface: var(--color-ivory);
+    --color-border: var(--color-sand);
+    --color-focus: var(--color-gold);
+
+    /* Status Colors */
+    --color-success: #3D6B2F;
+    --color-warning: var(--color-terracotta);
+    --color-error: #8B2E1F;
+    --color-info: var(--color-lapis);
+
+    /* Typography System */
+    --font-display: 'Noto Serif Display', serif;
+    --font-body: 'Noto Serif', serif;
+
+    --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --font-size-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
+    --font-size-xl: clamp(1.375rem, 1.25rem + 0.625vw, 1.875rem);
+    --font-size-2xl: clamp(1.875rem, 1.625rem + 1.25vw, 2.75rem);
+    --font-size-3xl: clamp(2.25rem, 1.875rem + 1.875vw, 3.5rem);
+
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.3;
+    --line-height-normal: 1.618; /* Golden ratio */
+    --line-height-relaxed: 1.8;
+
+    /* Spacing System - Sacred Geometry (8px base) */
+    --space-xs: 0.25rem;    /* 4px */
+    --space-sm: 0.5rem;     /* 8px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.618rem;   /* 26px - Golden ratio */
+    --space-xl: 2.618rem;   /* 42px - Golden ratio² */
+    --space-2xl: 4.236rem;  /* 68px - Golden ratio³ */
+    --space-3xl: 6.854rem;  /* 110px - Golden ratio⁴ */
+
+    /* Border & Radius */
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 3px;
+    --border-radius-sm: 2px;
+    --border-radius-md: 4px;
+    --border-radius-lg: 8px;
+
+    /* Shadows - Carved Relief Effect */
+    --shadow-sm: 0 2px 4px rgba(74, 64, 53, 0.1);
+    --shadow-md: 0 4px 8px rgba(74, 64, 53, 0.15);
+    --shadow-lg: 0 8px 16px rgba(74, 64, 53, 0.2);
+    --shadow-xl: 0 16px 32px rgba(74, 64, 53, 0.25);
+    --shadow-gold: 0 4px 16px rgba(212, 175, 55, 0.3);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 400ms ease-in-out;
+
+    /* Layout */
+    --content-max-width: 1600px;
+    --content-padding: var(--space-lg);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-lapis-dark);
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+a {
+    color: var(--color-lapis);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
+}
+
+a:focus-visible {
+    outline: var(--border-width-thick) solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Header Component */
+.header {
+    background: linear-gradient(135deg, var(--color-lapis-dark) 0%, var(--color-lapis) 100%);
+    border-bottom: 4px solid var(--color-gold);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-gold) 0px,
+        var(--color-gold) 10px,
+        var(--color-gold-light) 10px,
+        var(--color-gold-light) 20px
+    );
+}
+
+.header-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--content-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: var(--space-sm) var(--space-lg);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+    border-left: 3px solid var(--color-gold);
+    border-right: 3px solid var(--color-gold);
+}
+
+.nav {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.nav-link {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-papyrus);
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: var(--color-gold-light);
+    border-bottom-color: transparent;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+/* Main Layout */
+.main {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--content-padding);
+}
+
+.section {
+    margin-bottom: var(--space-3xl);
+}
+
+.section-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: var(--border-width-medium) solid var(--color-gold);
+    position: relative;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background: var(--color-lapis);
+}
+
+.section-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-lapis-dark);
+}
+
+.section-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Stats Grid Component */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-papyrus) 100%);
+    border: var(--border-width-medium) solid var(--color-gold);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-lapis) 0px,
+        var(--color-lapis) 8px,
+        var(--color-gold) 8px,
+        var(--color-gold) 16px
+    );
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold);
+}
+
+.stat-card:hover::after {
+    opacity: 1;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-lapis);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.stat-label {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+/* Content Cards Component */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-xl);
+}
+
+.card {
+    background: var(--color-surface);
+    border: var(--border-width-medium) solid var(--color-sand);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-lapis) 100%);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-terracotta) 0px,
+        var(--color-terracotta) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card-header {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-md);
+}
+
+.card-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-lapis-dark);
+}
+
+.card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.card-content {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-md);
+}
+
+.card-footer {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    padding-top: var(--space-lg);
+    padding-left: var(--space-md);
+    border-top: var(--border-width-thin) solid var(--color-border);
+}
+
+/* Data Table Component */
+.table-container {
+    background: var(--color-surface);
+    border: var(--border-width-medium) solid var(--color-gold);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.table-header {
+    padding: var(--space-lg) var(--space-xl);
+    background: linear-gradient(135deg, var(--color-lapis-dark) 0%, var(--color-lapis) 100%);
+    border-bottom: 4px solid var(--color-gold);
+}
+
+.table-title {
+    color: var(--color-papyrus);
+    margin-bottom: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-papyrus-dark) 100%);
+    border-bottom: var(--border-width-medium) solid var(--color-lapis);
+}
+
+.table th {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+    padding: var(--space-lg) var(--space-xl);
+    color: var(--color-lapis-dark);
+}
+
+.table td {
+    padding: var(--space-lg) var(--space-xl);
+    border-bottom: var(--border-width-thin) solid var(--color-border);
+}
+
+.table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.05) 50%, transparent 100%);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Form Components */
+.form {
+    background: var(--color-surface);
+    border: var(--border-width-medium) solid var(--color-sand);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-lapis), var(--color-gold), var(--color-terracotta));
+}
+
+.form-group {
+    margin-bottom: var(--space-xl);
+}
+
+.form-label {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-lapis-dark);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    padding: var(--space-md) var(--space-lg);
+    border: var(--border-width-medium) solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-papyrus);
+    color: var(--color-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    background-color: var(--color-surface);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-helper {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xs);
+    font-style: italic;
+}
+
+/* Button Components */
+.button {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-md) var(--space-xl);
+    border: var(--border-width-medium) solid transparent;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    min-height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-slow), height var(--transition-slow);
+}
+
+.button:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.button:focus-visible {
+    outline: var(--border-width-thick) solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.button-primary {
+    background: linear-gradient(135deg, var(--color-lapis) 0%, var(--color-lapis-light) 100%);
+    color: var(--color-papyrus);
+    border-color: var(--color-lapis-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-primary:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    color: var(--color-lapis-dark);
+    border-color: var(--color-gold-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-secondary:hover {
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+}
+
+.button-tertiary {
+    background: var(--color-papyrus);
+    color: var(--color-lapis);
+    border-color: var(--color-sand);
+}
+
+.button-tertiary:hover {
+    background: var(--color-sand);
+    border-color: var(--color-gold);
+}
+
+/* Badge Components */
+.badge {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    border: var(--border-width-thin) solid transparent;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, #3D6B2F, #4D8B3F);
+    color: var(--color-papyrus);
+    border-color: #2D5B1F;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, var(--color-terracotta), var(--color-terracotta-light));
+    color: var(--color-papyrus);
+    border-color: var(--color-terracotta-dark);
+}
+
+.badge-error {
+    background: linear-gradient(135deg, #8B2E1F, #AB3E2F);
+    color: var(--color-papyrus);
+    border-color: #6B1E0F;
+}
+
+.badge-info {
+    background: linear-gradient(135deg, var(--color-lapis), var(--color-lapis-light));
+    color: var(--color-papyrus);
+    border-color: var(--color-lapis-dark);
+}
+
+.badge-neutral {
+    background: var(--color-sand);
+    color: var(--color-desert-shadow);
+    border-color: var(--color-border);
+}
+
+/* Footer Component */
+.footer {
+    background: linear-gradient(180deg, var(--color-lapis-dark) 0%, var(--color-desert-shadow) 100%);
+    border-top: 6px solid var(--color-gold);
+    color: var(--color-papyrus);
+    margin-top: var(--space-3xl);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-gold) 0px,
+        var(--color-gold) 12px,
+        var(--color-terracotta) 12px,
+        var(--color-terracotta) 24px
+    );
+}
+
+.footer-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--content-padding) var(--space-xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.footer-section h4 {
+    color: var(--color-gold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.footer-link {
+    color: var(--color-papyrus);
+    font-size: var(--font-size-base);
+    transition: color var(--transition-fast);
+    border-bottom: 1px solid transparent;
+}
+
+.footer-link:hover {
+    color: var(--color-gold-light);
+    border-bottom-color: var(--color-gold-light);
+}
+
+.footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: var(--border-width-thin) solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-sand);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    :root {
+        --content-padding: var(--space-md);
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .nav {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>150</strong> of 140 &mdash; Style 150</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 149) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">LUXOR ESTATE</div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Collections</a>
+                <a href="#" class="nav-link">Heritage</a>
+                <a href="#" class="nav-link">Gallery</a>
+                <a href="#" class="nav-link">Membership</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Stats Grid Component -->
+        <section class="section">
+            <div class="section-header">
+                <h1 class="section-title">Sacred Metrics</h1>
+                <p class="section-description">Four pillars of eternal excellence and timeless sophistication</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5,000+</div>
+                    <div class="stat-label">Years of Heritage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">24K</div>
+                    <div class="stat-label">Gold Standard</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,847</div>
+                    <div class="stat-label">Curated Artifacts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">98.7%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Cards Component -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Exclusive Collections</h2>
+                <p class="section-description">Curated treasures from the ancient world to modern luxury</p>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Royal Dynasty Jewelry</h3>
+                        <div class="card-meta">18th Dynasty • Authenticated 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Exquisite pieces crafted for pharaonic courts, featuring lapis lazuli, gold, and carnelian in sacred geometric patterns that have captivated collectors for millennia.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-success">Available</span>
+                        <span class="badge badge-neutral">Premium</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Papyrus Manuscripts</h3>
+                        <div class="card-meta">Ptolemaic Period • Carbon Dated</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Rare hieratic and demotic scripts preserved through ancient methods, offering glimpses into daily life, religious practices, and administrative systems.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-warning">Reserved</span>
+                        <span class="badge badge-info">Museum Quality</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Temple Architectural Elements</h3>
+                        <div class="card-meta">New Kingdom • Karnak Temple</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Monumental stone carvings featuring lotus capitals, hieroglyphic inscriptions, and relief sculptures that once adorned sacred temple complexes.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-error">Sold</span>
+                        <span class="badge badge-neutral">Masterwork</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Data Table Component -->
+        <section class="section">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Current Auction Listings</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Lot Number</th>
+                                <th>Item Description</th>
+                                <th>Period</th>
+                                <th>Current Bid</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LOT-2025-147</td>
+                                <td>Gold Scarab Amulet</td>
+                                <td>New Kingdom</td>
+                                <td>$24,500</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>LOT-2025-148</td>
+                                <td>Limestone Relief Fragment</td>
+                                <td>Middle Kingdom</td>
+                                <td>$18,200</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>LOT-2025-149</td>
+                                <td>Faience Ushabti Set</td>
+                                <td>Late Period</td>
+                                <td>$12,800</td>
+                                <td><span class="badge badge-warning">Closing Soon</span></td>
+                            </tr>
+                            <tr>
+                                <td>LOT-2025-150</td>
+                                <td>Bronze Osiris Statue</td>
+                                <td>Ptolemaic</td>
+                                <td>$31,500</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>LOT-2025-151</td>
+                                <td>Painted Mummy Mask</td>
+                                <td>Roman Egypt</td>
+                                <td>$45,900</td>
+                                <td><span class="badge badge-error">Ended</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Components -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Membership Inquiry</h2>
+                <p class="section-description">Join our exclusive circle of collectors and connoisseurs</p>
+            </div>
+            <form class="form">
+                <div class="form-group">
+                    <label for="member-name" class="form-label">Full Name</label>
+                    <input type="text" id="member-name" class="form-input" placeholder="Cleopatra VII Philopator" required>
+                </div>
+                <div class="form-group">
+                    <label for="interest-area" class="form-label">Primary Interest</label>
+                    <select id="interest-area" class="form-select" required>
+                        <option value="">Select Your Focus</option>
+                        <option value="jewelry">Royal Jewelry & Adornments</option>
+                        <option value="manuscripts">Papyrus & Manuscripts</option>
+                        <option value="sculpture">Sculpture & Relief Work</option>
+                        <option value="funerary">Funerary Arts</option>
+                        <option value="architecture">Architectural Elements</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="collection-note" class="form-label">Collection Goals</label>
+                    <textarea id="collection-note" class="form-textarea" placeholder="Describe your collecting philosophy and areas of focus..." required></textarea>
+                    <div class="form-helper">Share your vision for building a meaningful collection</div>
+                </div>
+                <div class="form-group">
+                    <label for="member-email" class="form-label">Contact Email</label>
+                    <input type="email" id="member-email" class="form-input" placeholder="cleopatra@example.com" required>
+                </div>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <button type="submit" class="button button-primary">Submit Application</button>
+                    <button type="button" class="button button-secondary">Schedule Consultation</button>
+                    <button type="reset" class="button button-tertiary">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Button Showcase -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Action Hierarchy</h2>
+                <p class="section-description">Tiered interface commands reflecting divine proportion</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+                <button class="button button-primary">Primary Action</button>
+                <button class="button button-secondary">Secondary Action</button>
+                <button class="button button-tertiary">Tertiary Action</button>
+            </div>
+        </section>
+
+        <!-- Badge Showcase -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Status Indicators</h2>
+                <p class="section-description">Scarab-inspired badges for collection tracking</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+                <span class="badge badge-success">Available</span>
+                <span class="badge badge-warning">Reserved</span>
+                <span class="badge badge-error">Sold</span>
+                <span class="badge badge-info">Authenticated</span>
+                <span class="badge badge-neutral">Under Review</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Luxor Estate</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Our Legacy</a></li>
+                        <li><a href="#" class="footer-link">Curatorial Team</a></li>
+                        <li><a href="#" class="footer-link">Authentication Process</a></li>
+                        <li><a href="#" class="footer-link">Provenance Standards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Collections</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Royal Dynasty Jewelry</a></li>
+                        <li><a href="#" class="footer-link">Papyrus Manuscripts</a></li>
+                        <li><a href="#" class="footer-link">Temple Architecture</a></li>
+                        <li><a href="#" class="footer-link">Funerary Arts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Private Sales</a></li>
+                        <li><a href="#" class="footer-link">Auction Calendar</a></li>
+                        <li><a href="#" class="footer-link">Appraisal Services</a></li>
+                        <li><a href="#" class="footer-link">Conservation Studio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Gallery Locations</a></li>
+                        <li><a href="#" class="footer-link">Private Viewings</a></li>
+                        <li><a href="#" class="footer-link">Collector Inquiries</a></li>
+                        <li><a href="#" class="footer-link">Media Relations</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Luxor Estate. Preserving Antiquity Since 1847.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

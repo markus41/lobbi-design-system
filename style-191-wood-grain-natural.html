@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 191: Wood Grain Natural - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DOCUMENTATION - STYLE 191: WOOD GRAIN NATURAL
+        ═══════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY:
+        "Organic warmth and sustainable beauty through handcrafted natural materials"
+
+        BLEND ANALYSIS:
+        ┌─────────────────────────────────────────────────────────────────────────┐
+        │ WOOD MATERIAL (55%) - Organic Foundation                                │
+        │ • Oak tan (#C8A882) provides warm, light wood base                      │
+        │ • Walnut brown (#654321) creates rich, deep wood tones                  │
+        │ • Wood grain patterns through gradient striations                       │
+        │ • Natural knots and variations via subtle texture overlays              │
+        │ • Smooth sanded finish with soft edge treatments                        │
+        │ • Warm undertones throughout color palette                              │
+        │                                                                          │
+        │ CABIN WARMTH (25%) - Cozy Atmosphere                                    │
+        │ • Forest green (#4A6741) brings outdoor connection                      │
+        │ • Cream (#F5EFE0) evokes natural light on wood surfaces                │
+        │ • Gentle shadows create depth without harshness                         │
+        │ • Rounded corners (8px) soften edges like worn wood                     │
+        │ • Inviting, comfortable spacing and generous padding                    │
+        │ • Welcoming color temperature throughout                                │
+        │                                                                          │
+        │ ARTISAN CRAFT (20%) - Handmade Quality                                  │
+        │ • Vollkorn typography brings traditional craftsmanship                  │
+        │ • Warm gray (#8B7D6B) suggests natural aging and patina                │
+        │ • Subtle imperfections through texture (hand-sanded feel)               │
+        │ • Organic shapes and natural flow in layouts                            │
+        │ • Attention to detail in every component                                │
+        └─────────────────────────────────────────────────────────────────────────┘
+
+        VISUAL ATTRIBUTES:
+        • Temperature: 7/10 (Warm) - Rich wood tones create inviting warmth
+        • Formality: 5/10 (Balanced) - Professional yet approachable and human
+        • Texture Density: Medium-High - Wood grain patterns throughout
+        • Material Authenticity: Natural, sustainable, handcrafted aesthetic
+
+        TYPOGRAPHY SYSTEM:
+        • Headings: Vollkorn (700) - Classic serif with organic character
+        • Body: Nunito Sans (400-800) - Friendly, rounded sans with warmth
+        • Scale: 1.333 ratio for natural, pleasing hierarchy
+        • Leading: 1.7 for body, 1.3 for headings (comfortable, spacious)
+
+        COLOR PSYCHOLOGY:
+        • Oak tan: Natural beauty, organic, sustainable
+        • Walnut brown: Rich depth, quality craftsmanship, earthiness
+        • Forest green: Growth, nature, environmental connection
+        • Cream: Light, clarity, natural illumination
+        • Warm gray: Aged wisdom, natural patina, authenticity
+
+        INTERACTION PRINCIPLES:
+        • Hover states warm and brighten (like light on wood)
+        • Focus states use natural green outlines (forest connection)
+        • Transitions are smooth (400ms) like natural movement
+        • Active states deepen tone (like pressing into wood)
+        • Haptic quality to all interactions
+
+        ACCESSIBILITY:
+        • WCAG 2.1 AA compliant with enhanced contrast
+        • Focus indicators clear and nature-inspired (3px forest green)
+        • Semantic HTML structure throughout
+        • Responsive breakpoints: 768px (tablet), 1024px (desktop)
+        • Large touch targets (min 44px) for accessibility
+
+        USE CASES:
+        ✓ Hospitality and lodging businesses
+        ✓ Artisan and craft marketplaces
+        ✓ Sustainable and eco-friendly brands
+        ✓ Home and interior design services
+        ✓ Wellness and retreat centers
+        ✓ Organic food and beverage brands
+
+        TAGS: hospitality, creative, natural, sustainable, artisan, warm
+        ═══════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color System - Wood Material Palette */
+            --color-oak-tan: #C8A882;
+            --color-oak-light: #D9BF9A;
+            --color-walnut: #654321;
+            --color-walnut-dark: #4A3219;
+            --color-cream: #F5EFE0;
+            --color-cream-light: #FAF6ED;
+            --color-forest-green: #4A6741;
+            --color-forest-dark: #3A5231;
+            --color-warm-gray: #8B7D6B;
+            --color-soft-brown: #A8906E;
+
+            /* Typography */
+            --font-heading: 'Vollkorn', serif;
+            --font-body: 'Nunito Sans', sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+
+            /* Spacing Scale (1.5 ratio - generous) */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2.25rem;
+            --space-2xl: 3.375rem;
+
+            /* Border Radius - Organic, softened */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Shadows - Soft, natural light */
+            --shadow-sm: 0 2px 4px rgba(101, 67, 33, 0.08), 0 1px 2px rgba(101, 67, 33, 0.06);
+            --shadow-md: 0 4px 8px rgba(101, 67, 33, 0.1), 0 2px 4px rgba(101, 67, 33, 0.06);
+            --shadow-lg: 0 8px 16px rgba(101, 67, 33, 0.12), 0 4px 8px rgba(101, 67, 33, 0.08);
+            --shadow-warm: 0 10px 20px rgba(101, 67, 33, 0.15), 0 6px 10px rgba(101, 67, 33, 0.1);
+
+            /* Transitions */
+            --transition-base: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-walnut);
+            background: var(--color-cream-light);
+            background-image:
+                linear-gradient(135deg, rgba(200, 168, 130, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(74, 103, 65, 0.04) 0%, transparent 60%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Wood grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(101, 67, 33, 0.02) 0px,
+                    rgba(101, 67, 33, 0.02) 1px,
+                    transparent 1px,
+                    transparent 4px,
+                    rgba(101, 67, 33, 0.01) 4px,
+                    rgba(101, 67, 33, 0.01) 5px,
+                    transparent 5px,
+                    transparent 12px
+                );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* Header Component */
+        header {
+            background: linear-gradient(135deg, var(--color-walnut) 0%, var(--color-walnut-dark) 100%);
+            border-bottom: 4px solid var(--color-forest-green);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-lg) 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-cream);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        nav a {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-cream);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        nav a:hover {
+            background: rgba(200, 168, 130, 0.2);
+            color: var(--color-oak-light);
+        }
+
+        nav a:focus {
+            outline: 3px solid var(--color-forest-green);
+            outline-offset: 2px;
+        }
+
+        /* Stats Grid Component */
+        .stats-section {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-light) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .stat-card {
+            background: var(--color-cream-light);
+            background-image:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(101, 67, 33, 0.03) 0px,
+                    rgba(101, 67, 33, 0.03) 2px,
+                    transparent 2px,
+                    transparent 8px
+                );
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--color-oak-light);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-forest-green), var(--color-oak-tan));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-warm);
+            border-color: var(--color-forest-green);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-walnut);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--color-warm-gray);
+            margin-top: var(--space-sm);
+            font-weight: var(--font-weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--color-forest-green);
+            margin-top: var(--space-xs);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.3;
+            color: var(--color-walnut);
+        }
+
+        h1 { font-size: 2.75rem; margin-bottom: var(--space-md); }
+        h2 { font-size: 2.25rem; margin-bottom: var(--space-md); }
+        h3 { font-size: 1.75rem; margin-bottom: var(--space-sm); }
+        h4 { font-size: 1.5rem; margin-bottom: var(--space-sm); }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-warm-gray);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        /* Content Cards Component */
+        .cards-section {
+            padding: var(--space-2xl) 0;
+            background: var(--color-cream-light);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .content-card {
+            background: var(--color-cream-light);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            border: 2px solid var(--color-oak-light);
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-warm);
+            border-color: var(--color-forest-green);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-oak-tan) 0%, var(--color-soft-brown) 100%);
+            background-image:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(101, 67, 33, 0.1) 0px,
+                    rgba(101, 67, 33, 0.1) 2px,
+                    transparent 2px,
+                    transparent 12px
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border-bottom: 3px solid var(--color-forest-green);
+        }
+
+        .card-content {
+            padding: var(--space-xl);
+            background: var(--color-cream-light);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-walnut);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-description {
+            color: var(--color-warm-gray);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--color-warm-gray);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* Data Table Component */
+        .table-section {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-light) 100%);
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            padding-left: var(--space-2xl);
+            border: 2px solid var(--color-oak-light);
+            border-radius: var(--radius-md);
+            background: var(--color-cream-light);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-walnut);
+            transition: all var(--transition-base);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-forest-green);
+            box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.15);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.125rem;
+        }
+
+        .table-wrapper {
+            background: var(--color-cream-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 2px solid var(--color-oak-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--color-walnut) 0%, var(--color-walnut-dark) 100%);
+            border-bottom: 3px solid var(--color-forest-green);
+        }
+
+        th {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-bold);
+            text-align: left;
+            padding: var(--space-lg) var(--space-xl);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-cream);
+        }
+
+        td {
+            padding: var(--space-lg) var(--space-xl);
+            border-bottom: 1px solid var(--color-oak-light);
+        }
+
+        tbody tr {
+            transition: background var(--transition-base);
+        }
+
+        tbody tr:hover {
+            background: var(--color-cream);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Component */
+        .form-section {
+            padding: var(--space-2xl) 0;
+            background: var(--color-cream-light);
+        }
+
+        .form-wrapper {
+            max-width: 650px;
+            margin: var(--space-xl) auto 0;
+            background: var(--color-cream-light);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-oak-light);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-xl);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-sm);
+            color: var(--color-walnut);
+            font-size: 1rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border: 2px solid var(--color-oak-light);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-walnut);
+            background: var(--color-cream-light);
+            transition: all var(--transition-base);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-forest-green);
+            box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Buttons Component */
+        .button-group {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-bold);
+            padding: var(--space-md) var(--space-xl);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-forest-green) 0%, var(--color-forest-dark) 100%);
+            color: var(--color-cream);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            filter: brightness(1.1);
+        }
+
+        .btn-primary:focus {
+            outline: 3px solid var(--color-forest-green);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background: var(--color-cream);
+            color: var(--color-walnut);
+            border: 2px solid var(--color-oak-tan);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-oak-light);
+            border-color: var(--color-forest-green);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-forest-green);
+            border: 2px solid var(--color-forest-green);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-forest-green);
+            color: var(--color-cream);
+        }
+
+        /* Badges Component */
+        .badges-section {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-light) 100%);
+        }
+
+        .badge-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 0.02em;
+        }
+
+        .badge-success {
+            background: rgba(74, 103, 65, 0.15);
+            color: var(--color-forest-dark);
+            border: 2px solid var(--color-forest-green);
+        }
+
+        .badge-warning {
+            background: rgba(200, 168, 130, 0.2);
+            color: var(--color-walnut);
+            border: 2px solid var(--color-oak-tan);
+        }
+
+        .badge-info {
+            background: rgba(139, 125, 107, 0.15);
+            color: var(--color-walnut);
+            border: 2px solid var(--color-warm-gray);
+        }
+
+        .badge-neutral {
+            background: var(--color-cream);
+            color: var(--color-walnut);
+            border: 2px solid var(--color-oak-light);
+        }
+
+        /* Footer Component */
+        footer {
+            background: linear-gradient(135deg, var(--color-walnut-dark) 0%, var(--color-walnut) 100%);
+            color: var(--color-cream);
+            padding: var(--space-2xl) 0;
+            margin-top: var(--space-2xl);
+            border-top: 4px solid var(--color-forest-green);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--color-cream);
+            margin-bottom: var(--space-md);
+            font-size: 1.25rem;
+        }
+
+        .footer-section p {
+            line-height: 1.7;
+            color: var(--color-oak-light);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-section a {
+            color: var(--color-oak-light);
+            text-decoration: none;
+            transition: color var(--transition-base);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .footer-section a:hover {
+            color: var(--color-cream-light);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(200, 168, 130, 0.3);
+            text-align: center;
+            color: var(--color-oak-light);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: var(--space-sm);
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.875rem; }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>191</strong> of 140 &mdash; Style 191</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 190) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Artisan Woods</a>
+                <nav>
+                    <ul>
+                        <li><a href="#stats">Home</a></li>
+                        <li><a href="#content">Gallery</a></li>
+                        <li><a href="#data">Projects</a></li>
+                        <li><a href="#contact">Connect</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Grid Component -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <h1>Handcrafted from Nature</h1>
+                <p class="section-subtitle">Where sustainable materials meet artisan craftsmanship, creating warm, welcoming spaces that honor the natural beauty of wood grain and organic textures.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">2,847</div>
+                    <div class="stat-label">Pieces Crafted</div>
+                    <div class="stat-change">↑ 32% this season</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">94%</div>
+                    <div class="stat-label">Sustainable Wood</div>
+                    <div class="stat-change">100% traceable</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,204</div>
+                    <div class="stat-label">Happy Customers</div>
+                    <div class="stat-change">↑ 28% growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-change">Master artisans</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Cards Component -->
+    <section class="cards-section" id="content">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signature Collections</h2>
+                <p class="section-subtitle">Explore our handcrafted pieces, each celebrating the unique character and natural beauty of carefully selected wood.</p>
+            </div>
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-image">🪵</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Live Edge Tables</h3>
+                        <p class="card-description">Celebrating the natural edge of the tree, each table preserves the organic form and unique character of sustainable hardwoods.</p>
+                        <div class="card-meta">
+                            <span>Custom Built</span>
+                            <span>•</span>
+                            <span>Oak & Walnut</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">🌲</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cabin Furniture</h3>
+                        <p class="card-description">Rustic warmth meets modern comfort in pieces designed for mountain retreats and cozy woodland homes.</p>
+                        <div class="card-meta">
+                            <span>Handcrafted</span>
+                            <span>•</span>
+                            <span>Pine & Cedar</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">🔨</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Artisan Details</h3>
+                        <p class="card-description">Hand-carved accents and joinery that showcase traditional woodworking techniques passed down through generations.</p>
+                        <div class="card-meta">
+                            <span>Heritage Craft</span>
+                            <span>•</span>
+                            <span>Mixed Hardwoods</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Table Component -->
+    <section class="table-section" id="data">
+        <div class="container">
+            <div class="section-header">
+                <h2>Active Commissions</h2>
+                <p class="section-subtitle">Current projects in our workshop, from initial design to final finishing touches.</p>
+            </div>
+            <div class="table-controls">
+                <div class="search-box">
+                    <input type="text" placeholder="Search projects..." aria-label="Search projects">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary">Filter</button>
+                    <button class="btn btn-secondary">Export</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Wood Type</th>
+                            <th>Status</th>
+                            <th>Completion</th>
+                            <th>Client</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dining Table Set</td>
+                            <td>Black Walnut</td>
+                            <td><span class="badge badge-success">Finishing</span></td>
+                            <td>Dec 15, 2024</td>
+                            <td>Mountain Lodge</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Shelving</td>
+                            <td>White Oak</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                            <td>Dec 20, 2024</td>
+                            <td>Urban Loft</td>
+                        </tr>
+                        <tr>
+                            <td>Headboard Frame</td>
+                            <td>Reclaimed Pine</td>
+                            <td><span class="badge badge-success">Complete</span></td>
+                            <td>Dec 08, 2024</td>
+                            <td>Lakeside Cabin</td>
+                        </tr>
+                        <tr>
+                            <td>Kitchen Island</td>
+                            <td>Maple & Cherry</td>
+                            <td><span class="badge badge-info">Design Phase</span></td>
+                            <td>Jan 10, 2025</td>
+                            <td>Farmhouse</td>
+                        </tr>
+                        <tr>
+                            <td>Office Desk</td>
+                            <td>Ash Wood</td>
+                            <td><span class="badge badge-success">Complete</span></td>
+                            <td>Nov 30, 2024</td>
+                            <td>Home Studio</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Component -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Commission a Piece</h2>
+                <p class="section-subtitle">Let's create something beautiful together. Share your vision and we'll craft a custom piece that brings natural warmth to your space.</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-type">Project Type</label>
+                        <select id="project-type" name="project-type">
+                            <option>Dining Table</option>
+                            <option>Desk or Office</option>
+                            <option>Shelving & Storage</option>
+                            <option>Bedroom Furniture</option>
+                            <option>Custom Design</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Vision</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Start Your Project</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges Component -->
+    <section class="badges-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Craft & Values</h2>
+                <p class="section-subtitle">The skills, materials, and principles that guide every piece we create.</p>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Sustainable Sourcing</span>
+                <span class="badge badge-success">Hand Crafted</span>
+                <span class="badge badge-warning">Live Edge</span>
+                <span class="badge badge-info">Custom Joinery</span>
+                <span class="badge badge-neutral">Natural Finish</span>
+                <span class="badge badge-success">Hardwood Specialist</span>
+                <span class="badge badge-warning">Heritage Techniques</span>
+                <span class="badge badge-info">Eco-Friendly</span>
+                <span class="badge badge-neutral">Made to Order</span>
+                <span class="badge badge-success">Lifetime Quality</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Our Story</h4>
+                    <p>For fifteen years, we've been crafting furniture that honors the natural beauty of wood, combining traditional techniques with sustainable practices.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">Live Edge Tables</a></li>
+                        <li><a href="#">Cabin Furniture</a></li>
+                        <li><a href="#">Custom Pieces</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Wood Care Guide</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Visit Workshop</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Artisan Woods. Handcrafted with care from sustainable materials. Style 191: Wood Grain Natural - Lobbi Design System Gallery.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

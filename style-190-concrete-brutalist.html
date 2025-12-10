@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 190: Concrete Brutalist - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DOCUMENTATION - STYLE 190: CONCRETE BRUTALIST
+        ═══════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY:
+        "Raw materiality, structural honesty, and monumental strength through uncompromising design"
+
+        BLEND ANALYSIS:
+        ┌─────────────────────────────────────────────────────────────────────────┐
+        │ CONCRETE MATERIAL (55%) - Structural Foundation                         │
+        │ • Primary gray (#8B8D8E) mimics poured concrete finish                 │
+        │ • Charcoal (#2D2D2D) provides deep shadow and texture                  │
+        │ • Exposed aggregate (#B5B5B5) creates surface variation                │
+        │ • Heavy box shadows simulate concrete mass and weight                   │
+        │ • Minimal radius (2px max) maintains hard, geometric edges             │
+        │ • Rough texture overlay evokes concrete formwork patterns               │
+        │                                                                          │
+        │ BRUTALIST ARCHITECTURE (25%) - Geometric Truth                          │
+        │ • Bold geometric shapes without decorative elements                     │
+        │ • Bebas Neue typography provides architectural monumentality            │
+        │ • Exposed structural grid systems                                       │
+        │ • Sharp angles and perpendicular intersections                          │
+        │ • Repetitive modular components (béton brut aesthetic)                  │
+        │ • Steel blue (#4A6FA5) accents represent structural steel               │
+        │                                                                          │
+        │ INDUSTRIAL RAW (20%) - Functional Honesty                               │
+        │ • No-nonsense layouts prioritizing function over form                   │
+        │ • Utilitarian interface elements                                        │
+        │ • Exposed systems and processes (nothing hidden)                        │
+        │ • Heavy visual weight through thick borders and bold type               │
+        │ • Mechanical precision in spacing and alignment                         │
+        └─────────────────────────────────────────────────────────────────────────┘
+
+        VISUAL ATTRIBUTES:
+        • Temperature: 3/10 (Cool) - Steel and concrete create stark coolness
+        • Formality: 7/10 (Professional) - Serious, authoritative, institutional
+        • Texture Density: Very High - Concrete grain, aggregate, formwork marks
+        • Material Authenticity: Unfinished, raw, honest exposure
+
+        TYPOGRAPHY SYSTEM:
+        • Headings: Bebas Neue (700) - Bold, condensed, architectural presence
+        • Body: Barlow (400-700) - Industrial sans-serif with geometric clarity
+        • Scale: 1.2 ratio for compact, dense hierarchy
+        • Leading: 1.5 for body, 1.1 for headings (tight, structural)
+        • Letter-spacing: Wide on headings (0.1em) for architectural feel
+
+        COLOR PSYCHOLOGY:
+        • Concrete gray: Strength, permanence, institutional authority
+        • Charcoal: Depth, seriousness, structural shadow
+        • Steel blue: Industrial precision, engineered systems
+        • Exposed aggregate: Natural, unfinished, honest materials
+        • Minimal contrast: Brutalist aesthetic of monochromatic truth
+
+        INTERACTION PRINCIPLES:
+        • Hover states are subtle (brutalism resists decoration)
+        • Focus states use sharp, geometric outlines (2px solid)
+        • Transitions are quick (200ms) - no softness, direct response
+        • Active states use depth through heavy shadows
+        • Clicks feel solid, weighty, structural
+
+        ACCESSIBILITY:
+        • WCAG 2.1 AA compliant contrasts (enhanced for concrete textures)
+        • Focus indicators bold and geometric (3px solid borders)
+        • Semantic HTML maintains structural clarity
+        • Responsive breakpoints: 768px (tablet), 1024px (desktop)
+        • High contrast mode available for readability
+
+        USE CASES:
+        ✓ Architecture and construction firms
+        ✓ Engineering and industrial companies
+        ✓ Urban development platforms
+        ✓ Tech companies seeking bold, distinctive presence
+        ✓ Cultural institutions embracing modernist aesthetics
+
+        TAGS: creative, professional, brutalist, industrial, architectural
+        ═══════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color System - Concrete Material Palette */
+            --color-concrete: #8B8D8E;
+            --color-concrete-light: #B5B5B5;
+            --color-concrete-dark: #6B6D6E;
+            --color-charcoal: #2D2D2D;
+            --color-charcoal-deep: #1A1A1A;
+            --color-steel-blue: #4A6FA5;
+            --color-steel-blue-dark: #3A5A85;
+            --color-aggregate: #9A9C9D;
+            --color-white: #FFFFFF;
+            --color-off-white: #F5F5F5;
+
+            /* Typography */
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-body: 'Barlow', sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Spacing Scale (1.2 ratio - compact) */
+            --space-xs: 0.5rem;
+            --space-sm: 0.6rem;
+            --space-md: 0.75rem;
+            --space-lg: 1rem;
+            --space-xl: 1.5rem;
+            --space-2xl: 2rem;
+            --space-3xl: 3rem;
+
+            /* Border Radius - Minimal, geometric */
+            --radius-none: 0;
+            --radius-sm: 2px;
+            --radius-md: 2px;
+
+            /* Shadows - Heavy, concrete mass */
+            --shadow-brutalist-sm: 4px 4px 0 rgba(29, 29, 29, 0.3);
+            --shadow-brutalist-md: 8px 8px 0 rgba(29, 29, 29, 0.3);
+            --shadow-brutalist-lg: 12px 12px 0 rgba(29, 29, 29, 0.3);
+            --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+            /* Transitions - Quick, direct */
+            --transition-base: 200ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--color-charcoal);
+            background: var(--color-concrete-light);
+            background-image:
+                linear-gradient(90deg, rgba(139, 141, 142, 0.1) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(139, 141, 142, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Concrete texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='concrete'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23concrete)' opacity='0.06'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* Header Component */
+        header {
+            background: var(--color-charcoal);
+            border-bottom: 4px solid var(--color-steel-blue);
+            box-shadow: var(--shadow-brutalist-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-lg) 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-white);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 0;
+            list-style: none;
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--color-white);
+            text-decoration: none;
+            padding: var(--space-md) var(--space-xl);
+            border-right: 2px solid var(--color-concrete-dark);
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        nav li:last-child a {
+            border-right: none;
+        }
+
+        nav a:hover {
+            background: var(--color-steel-blue);
+        }
+
+        nav a:focus {
+            outline: 3px solid var(--color-steel-blue);
+            outline-offset: -3px;
+        }
+
+        /* Stats Grid Component */
+        .stats-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-concrete);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--color-off-white);
+            padding: var(--space-2xl);
+            border: 4px solid var(--color-charcoal);
+            box-shadow: var(--shadow-brutalist-md);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--color-steel-blue);
+        }
+
+        .stat-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-brutalist-lg);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            line-height: 1;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-label {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--color-concrete-dark);
+            margin-top: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--color-steel-blue);
+            margin-top: var(--space-sm);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.1;
+            color: var(--color-charcoal);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h1 { font-size: 4rem; margin-bottom: var(--space-md); }
+        h2 { font-size: 3rem; margin-bottom: var(--space-md); }
+        h3 { font-size: 2rem; margin-bottom: var(--space-sm); }
+        h4 { font-size: 1.5rem; margin-bottom: var(--space-sm); }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-charcoal);
+            line-height: 1.5;
+            font-weight: var(--font-weight-medium);
+            max-width: 800px;
+        }
+
+        /* Content Cards Component */
+        .cards-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-off-white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .content-card {
+            background: var(--color-white);
+            border: 4px solid var(--color-charcoal);
+            box-shadow: var(--shadow-brutalist-md);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .content-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-brutalist-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--color-concrete) 0%, var(--color-concrete-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 4px solid var(--color-steel-blue);
+        }
+
+        .card-content {
+            padding: var(--space-xl);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-description {
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--space-lg);
+            font-size: 0.875rem;
+            color: var(--color-concrete-dark);
+            font-weight: var(--font-weight-semibold);
+            text-transform: uppercase;
+        }
+
+        /* Data Table Component */
+        .table-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-concrete);
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border: 3px solid var(--color-charcoal);
+            background: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            transition: all var(--transition-base);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-steel-blue);
+            box-shadow: var(--shadow-brutalist-sm);
+        }
+
+        .table-wrapper {
+            background: var(--color-white);
+            border: 4px solid var(--color-charcoal);
+            box-shadow: var(--shadow-brutalist-md);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--color-charcoal);
+            border-bottom: 4px solid var(--color-steel-blue);
+        }
+
+        th {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            text-align: left;
+            padding: var(--space-lg) var(--space-xl);
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-white);
+        }
+
+        td {
+            padding: var(--space-lg) var(--space-xl);
+            border-bottom: 2px solid var(--color-concrete-light);
+            font-weight: var(--font-weight-medium);
+        }
+
+        tbody tr {
+            transition: background var(--transition-base);
+        }
+
+        tbody tr:hover {
+            background: var(--color-off-white);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Component */
+        .form-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-off-white);
+        }
+
+        .form-wrapper {
+            max-width: 700px;
+            margin: var(--space-2xl) auto 0;
+            background: var(--color-white);
+            padding: var(--space-3xl);
+            border: 4px solid var(--color-charcoal);
+            box-shadow: var(--shadow-brutalist-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-xl);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+            color: var(--color-charcoal);
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border: 3px solid var(--color-charcoal);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            background: var(--color-white);
+            transition: all var(--transition-base);
+            font-weight: var(--font-weight-medium);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-steel-blue);
+            box-shadow: var(--shadow-brutalist-sm);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Buttons Component */
+        .button-group {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            padding: var(--space-lg) var(--space-2xl);
+            border: 3px solid var(--color-charcoal);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-size: 1.25rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-primary {
+            background: var(--color-charcoal);
+            color: var(--color-white);
+            box-shadow: var(--shadow-brutalist-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-steel-blue);
+            border-color: var(--color-steel-blue);
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-brutalist-md);
+        }
+
+        .btn-primary:focus {
+            outline: 3px solid var(--color-steel-blue);
+            outline-offset: 3px;
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-charcoal);
+            box-shadow: var(--shadow-brutalist-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-concrete-light);
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-brutalist-md);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-steel-blue);
+            border-color: var(--color-steel-blue);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-steel-blue);
+            color: var(--color-white);
+        }
+
+        /* Badges Component */
+        .badges-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-concrete);
+        }
+
+        .badge-group {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-lg);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 3px solid var(--color-charcoal);
+        }
+
+        .badge-success {
+            background: var(--color-steel-blue);
+            color: var(--color-white);
+        }
+
+        .badge-warning {
+            background: var(--color-white);
+            color: var(--color-charcoal);
+        }
+
+        .badge-info {
+            background: var(--color-concrete-dark);
+            color: var(--color-white);
+        }
+
+        .badge-neutral {
+            background: var(--color-off-white);
+            color: var(--color-charcoal);
+        }
+
+        /* Footer Component */
+        footer {
+            background: var(--color-charcoal-deep);
+            color: var(--color-white);
+            padding: var(--space-3xl) 0;
+            border-top: 6px solid var(--color-steel-blue);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            margin-bottom: var(--space-lg);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-section a {
+            color: var(--color-concrete-light);
+            text-decoration: none;
+            transition: color var(--transition-base);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-steel-blue);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 2px solid var(--color-concrete-dark);
+            text-align: center;
+            color: var(--color-concrete-light);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.75rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 2px solid var(--color-concrete-dark);
+                padding: var(--space-md);
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>190</strong> of 140 &mdash; Style 190</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 189) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">CONCRETE</a>
+                <nav>
+                    <ul>
+                        <li><a href="#stats">DATA</a></li>
+                        <li><a href="#content">PROJECTS</a></li>
+                        <li><a href="#data">ARCHIVE</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Grid Component -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <h1>RAW MATERIALS<br>HONEST DESIGN</h1>
+                <p class="section-subtitle">Uncompromising brutalist architecture principles applied to digital interfaces. Structural truth, material honesty, monumental presence.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">847</div>
+                    <div class="stat-label">Structures Built</div>
+                    <div class="stat-change">↑ 28% Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">96%</div>
+                    <div class="stat-label">Structural Integrity</div>
+                    <div class="stat-change">↑ 4% Stronger</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1.2M</div>
+                    <div class="stat-label">Tons Concrete</div>
+                    <div class="stat-change">↑ 15% Volume</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">523</div>
+                    <div class="stat-label">Active Sites</div>
+                    <div class="stat-change">↑ 19% Expansion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Cards Component -->
+    <section class="cards-section" id="content">
+        <div class="container">
+            <div class="section-header">
+                <h2>MONUMENTAL WORKS</h2>
+                <p class="section-subtitle">Bold architectural statements that prioritize function, expose structure, and embrace the raw beauty of unfinished materials.</p>
+            </div>
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-image">🏢</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Urban Fortress</h3>
+                        <p class="card-description">Exposed concrete tower emphasizing vertical mass and structural honesty through repetitive geometric modules and raw surface finish.</p>
+                        <div class="card-meta">
+                            <span>45 Stories</span>
+                            <span>•</span>
+                            <span>Commercial</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">🏛️</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Industrial Complex</h3>
+                        <p class="card-description">Massive concrete forms revealing construction processes and celebrating the unfinished aesthetic of béton brut materiality.</p>
+                        <div class="card-meta">
+                            <span>200K SqFt</span>
+                            <span>•</span>
+                            <span>Manufacturing</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">⚙️</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Structural Grid</h3>
+                        <p class="card-description">Exposed framework showcasing engineering precision and the inherent beauty of load-bearing systems without decorative concealment.</p>
+                        <div class="card-meta">
+                            <span>Institutional</span>
+                            <span>•</span>
+                            <span>Public Works</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Table Component -->
+    <section class="table-section" id="data">
+        <div class="container">
+            <div class="section-header">
+                <h2>PROJECT DATABASE</h2>
+                <p class="section-subtitle">Complete archive of construction projects, structural specifications, and material deployments.</p>
+            </div>
+            <div class="table-controls">
+                <div class="search-box">
+                    <input type="text" placeholder="SEARCH ARCHIVES..." aria-label="Search projects">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary">FILTER</button>
+                    <button class="btn btn-secondary">EXPORT</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Structure Type</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Scale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BRT-2024-089</td>
+                            <td>Residential Tower</td>
+                            <td><span class="badge badge-success">Complete</span></td>
+                            <td>2024-12-01</td>
+                            <td>Large</td>
+                        </tr>
+                        <tr>
+                            <td>BRT-2024-102</td>
+                            <td>Cultural Center</td>
+                            <td><span class="badge badge-warning">Construction</span></td>
+                            <td>2024-11-28</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>BRT-2024-076</td>
+                            <td>Transit Hub</td>
+                            <td><span class="badge badge-success">Complete</span></td>
+                            <td>2024-11-25</td>
+                            <td>Large</td>
+                        </tr>
+                        <tr>
+                            <td>BRT-2024-115</td>
+                            <td>Industrial Park</td>
+                            <td><span class="badge badge-info">Planning</span></td>
+                            <td>2024-11-20</td>
+                            <td>XLarge</td>
+                        </tr>
+                        <tr>
+                            <td>BRT-2024-063</td>
+                            <td>Public Housing</td>
+                            <td><span class="badge badge-success">Complete</span></td>
+                            <td>2024-11-15</td>
+                            <td>Medium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Component -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>PROJECT INQUIRY</h2>
+                <p class="section-subtitle">Submit specifications for structural analysis and material requirements. Direct communication for serious proposals only.</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Organization Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Contact Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-type">Structure Type</label>
+                        <select id="project-type" name="project-type">
+                            <option>Residential Complex</option>
+                            <option>Commercial Tower</option>
+                            <option>Industrial Facility</option>
+                            <option>Public Infrastructure</option>
+                            <option>Cultural Institution</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Specifications</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges Component -->
+    <section class="badges-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>CORE COMPETENCIES</h2>
+                <p class="section-subtitle">Specialized capabilities in structural engineering, concrete technology, and brutalist design methodology.</p>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Concrete Casting</span>
+                <span class="badge badge-success">Structural Steel</span>
+                <span class="badge badge-warning">Load Engineering</span>
+                <span class="badge badge-info">Formwork Design</span>
+                <span class="badge badge-neutral">Aggregate Mix</span>
+                <span class="badge badge-success">Brutalist Architecture</span>
+                <span class="badge badge-warning">Industrial Scale</span>
+                <span class="badge badge-info">Modular Systems</span>
+                <span class="badge badge-neutral">Urban Planning</span>
+                <span class="badge badge-success">Material Honesty</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Philosophy</h4>
+                    <p>Uncompromising structural honesty. Raw materials exposed. Function over decoration. Monumentality through mass.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Structural Engineering</a></li>
+                        <li><a href="#">Concrete Technology</a></li>
+                        <li><a href="#">Brutalist Design</a></li>
+                        <li><a href="#">Industrial Construction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Material Specifications</a></li>
+                        <li><a href="#">Structural Standards</a></li>
+                        <li><a href="#">Project Archive</a></li>
+                        <li><a href="#">Technical Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Network</h4>
+                    <ul>
+                        <li><a href="#">Partner Firms</a></li>
+                        <li><a href="#">Supply Chain</a></li>
+                        <li><a href="#">Industry Groups</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 CONCRETE BRUTALIST SYSTEMS. STRUCTURAL INTEGRITY GUARANTEED. STYLE 190: CONCRETE BRUTALIST - LOBBI DESIGN SYSTEM GALLERY.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

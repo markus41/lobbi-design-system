@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 192: Marble Luxury - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DOCUMENTATION - STYLE 192: MARBLE LUXURY
+        ═══════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY:
+        "Architectural prestige and timeless elegance through natural stone opulence"
+
+        BLEND ANALYSIS:
+        ┌─────────────────────────────────────────────────────────────────────────┐
+        │ MARBLE MATERIAL (55%) - Natural Stone Foundation                        │
+        │ • White marble (#F8F8F8) provides pristine, luxurious base             │
+        │ • Gray veining (#C1C1C1) creates authentic marble striations           │
+        │ • Polished finish through subtle gradients and highlights               │
+        │ • Natural stone patterns via diagonal vein overlays                     │
+        │ • Cool temperature with slight warmth from cream undertones             │
+        │ • Depth through layered translucency effects                            │
+        │                                                                          │
+        │ LUXURY INTERIOR (25%) - Refined Elegance                                │
+        │ • Gold accents (#C9A961) bring precious metal highlights               │
+        │ • Charcoal (#2C2C2C) provides sophisticated contrast                    │
+        │ • Generous spacing creates sense of spaciousness                        │
+        │ • Soft cream (#FBF9F5) adds warmth to cool marble                      │
+        │ • Premium typography (Cormorant) evokes high-end design                │
+        │ • Subtle shadows suggest quality craftsmanship                          │
+        │                                                                          │
+        │ CLASSIC ELEGANCE (20%) - Timeless Authority                             │
+        │ • Balanced proportions following golden ratio principles                │
+        │ • Serif typography brings traditional sophistication                    │
+        │ • Minimal ornamentation lets materials speak                            │
+        │ • Architectural grid systems and classical alignment                    │
+        │ • Restrained color palette emphasizes quality over flash                │
+        └─────────────────────────────────────────────────────────────────────────┘
+
+        VISUAL ATTRIBUTES:
+        • Temperature: 4/10 (Cool-Neutral) - Marble coolness warmed by gold/cream
+        • Formality: 9/10 (Highly Formal) - Prestigious, sophisticated, refined
+        • Texture Density: High - Complex veining patterns throughout
+        • Material Authenticity: Natural stone with polished finish
+
+        TYPOGRAPHY SYSTEM:
+        • Headings: Cormorant (700) - Elegant serif with classical proportions
+        • Body: Jost (400-700) - Geometric sans with modern sophistication
+        • Scale: 1.414 ratio (√2) for architectural harmony
+        • Leading: 1.8 for body, 1.2 for headings (luxurious spacing)
+
+        COLOR PSYCHOLOGY:
+        • White marble: Purity, luxury, timeless quality
+        • Gray veining: Natural authenticity, depth, prestige
+        • Gold: Wealth, excellence, premium quality
+        • Charcoal: Sophistication, authority, grounding
+        • Soft cream: Warmth, accessibility, comfort in luxury
+
+        INTERACTION PRINCIPLES:
+        • Hover states are subtle and refined (no aggressive changes)
+        • Focus states use gold outlines (premium accent)
+        • Transitions are smooth (500ms) like polished surfaces
+        • Active states deepen slightly (pressing into stone)
+        • All interactions feel premium and deliberate
+
+        ACCESSIBILITY:
+        • WCAG 2.1 AA compliant with enhanced contrasts
+        • Focus indicators elegant but clear (2px gold)
+        • Semantic HTML maintains structural clarity
+        • Responsive breakpoints: 768px (tablet), 1024px (desktop)
+        • High contrast available for readability without sacrificing elegance
+
+        USE CASES:
+        ✓ Luxury hospitality and hotels
+        ✓ High-end real estate platforms
+        ✓ Premium professional services (law, consulting)
+        ✓ Luxury retail and e-commerce
+        ✓ Fine dining and culinary experiences
+        ✓ Wealth management and financial services
+        ✓ Architectural and interior design firms
+
+        TAGS: premium, hospitality, luxury, sophisticated, timeless, elegant
+        ═══════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color System - Marble Material Palette */
+            --color-marble-white: #F8F8F8;
+            --color-marble-pure: #FFFFFF;
+            --color-marble-cream: #FBF9F5;
+            --color-marble-vein: #C1C1C1;
+            --color-marble-vein-dark: #A8A8A8;
+            --color-charcoal: #2C2C2C;
+            --color-charcoal-deep: #1A1A1A;
+            --color-gold: #C9A961;
+            --color-gold-light: #D4B76F;
+            --color-gold-dark: #B89850;
+            --color-soft-gray: #E8E8E8;
+
+            /* Typography */
+            --font-heading: 'Cormorant', serif;
+            --font-body: 'Jost', sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Spacing Scale (1.414 ratio - architectural) */
+            --space-xs: 0.5rem;
+            --space-sm: 0.707rem;
+            --space-md: 1rem;
+            --space-lg: 1.414rem;
+            --space-xl: 2rem;
+            --space-2xl: 2.828rem;
+            --space-3xl: 4rem;
+
+            /* Border Radius - Refined, minimal */
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            --radius-xl: 12px;
+
+            /* Shadows - Soft, luxurious depth */
+            --shadow-sm: 0 1px 3px rgba(44, 44, 44, 0.08), 0 1px 2px rgba(44, 44, 44, 0.04);
+            --shadow-md: 0 4px 8px rgba(44, 44, 44, 0.07), 0 2px 4px rgba(44, 44, 44, 0.05);
+            --shadow-lg: 0 10px 20px rgba(44, 44, 44, 0.1), 0 6px 12px rgba(44, 44, 44, 0.06);
+            --shadow-xl: 0 20px 40px rgba(44, 44, 44, 0.12), 0 10px 20px rgba(44, 44, 44, 0.08);
+
+            /* Transitions - Smooth, polished */
+            --transition-base: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-charcoal);
+            background: var(--color-marble-white);
+            background-image:
+                linear-gradient(135deg, rgba(193, 193, 193, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Marble veining overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(75deg, transparent 45%, rgba(193, 193, 193, 0.08) 46%, rgba(193, 193, 193, 0.12) 47%, rgba(193, 193, 193, 0.08) 48%, transparent 49%),
+                linear-gradient(105deg, transparent 55%, rgba(193, 193, 193, 0.06) 56%, rgba(193, 193, 193, 0.1) 57%, rgba(193, 193, 193, 0.06) 58%, transparent 59%),
+                linear-gradient(85deg, transparent 65%, rgba(193, 193, 193, 0.04) 66%, rgba(193, 193, 193, 0.08) 67%, rgba(193, 193, 193, 0.04) 68%, transparent 69%);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-2xl);
+        }
+
+        /* Header Component */
+        header {
+            background: linear-gradient(180deg, var(--color-marble-pure) 0%, var(--color-marble-white) 100%);
+            border-bottom: 1px solid var(--color-marble-vein);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-xl) 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .logo::first-letter {
+            color: var(--color-gold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--space-2xl);
+            list-style: none;
+        }
+
+        nav a {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-charcoal);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+            position: relative;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-gold);
+            transition: all var(--transition-base);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--color-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:focus {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 4px;
+        }
+
+        /* Stats Grid Component */
+        .stats-section {
+            padding: var(--space-3xl) 0;
+            background: linear-gradient(180deg, var(--color-marble-white) 0%, var(--color-marble-cream) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--color-marble-pure);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-soft-gray);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-gold);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            line-height: 1;
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-marble-vein-dark);
+            margin-top: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--color-gold);
+            margin-top: var(--space-sm);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: var(--space-2xl);
+            max-width: 900px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            color: var(--color-charcoal);
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: var(--space-lg); letter-spacing: -0.02em; }
+        h2 { font-size: 2.828rem; margin-bottom: var(--space-lg); letter-spacing: -0.01em; }
+        h3 { font-size: 2rem; margin-bottom: var(--space-md); }
+        h4 { font-size: 1.414rem; margin-bottom: var(--space-md); }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-marble-vein-dark);
+            line-height: 1.8;
+            font-weight: var(--font-weight-normal);
+        }
+
+        /* Content Cards Component */
+        .cards-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-marble-cream);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .content-card {
+            background: var(--color-marble-pure);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            border: 1px solid var(--color-soft-gray);
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-gold);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--color-marble-white) 0%, var(--color-soft-gray) 100%);
+            background-image:
+                linear-gradient(75deg, transparent 45%, rgba(193, 193, 193, 0.2) 46%, rgba(193, 193, 193, 0.3) 47%, rgba(193, 193, 193, 0.2) 48%, transparent 49%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        .card-content {
+            padding: var(--space-2xl);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-description {
+            color: var(--color-marble-vein-dark);
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--color-gold);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Data Table Component */
+        .table-section {
+            padding: var(--space-3xl) 0;
+            background: linear-gradient(180deg, var(--color-marble-white) 0%, var(--color-marble-cream) 100%);
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--space-md) var(--space-xl);
+            padding-left: calc(var(--space-xl) + var(--space-lg));
+            border: 1px solid var(--color-marble-vein);
+            border-radius: var(--radius-md);
+            background: var(--color-marble-pure);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            transition: all var(--transition-base);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: var(--space-lg);
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.125rem;
+        }
+
+        .table-wrapper {
+            background: var(--color-marble-pure);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-soft-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        th {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-semibold);
+            text-align: left;
+            padding: var(--space-xl) var(--space-2xl);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-marble-pure);
+        }
+
+        td {
+            padding: var(--space-xl) var(--space-2xl);
+            border-bottom: 1px solid var(--color-soft-gray);
+            font-weight: var(--font-weight-normal);
+        }
+
+        tbody tr {
+            transition: background var(--transition-base);
+        }
+
+        tbody tr:hover {
+            background: var(--color-marble-cream);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Component */
+        .form-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-marble-cream);
+        }
+
+        .form-wrapper {
+            max-width: 700px;
+            margin: var(--space-2xl) auto 0;
+            background: var(--color-marble-pure);
+            padding: var(--space-3xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--color-soft-gray);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-2xl);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-md);
+            color: var(--color-charcoal);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border: 1px solid var(--color-marble-vein);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            background: var(--color-marble-white);
+            transition: all var(--transition-base);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+            background: var(--color-marble-pure);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Buttons Component */
+        .button-group {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-semibold);
+            padding: var(--space-md) var(--space-2xl);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            color: var(--color-marble-pure);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+        }
+
+        .btn-primary:focus {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 4px;
+        }
+
+        .btn-secondary {
+            background: var(--color-marble-pure);
+            color: var(--color-charcoal);
+            border: 2px solid var(--color-marble-vein);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-marble-white);
+            border-color: var(--color-gold);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-gold);
+            border: 2px solid var(--color-gold);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-gold);
+            color: var(--color-marble-pure);
+        }
+
+        /* Badges Component */
+        .badges-section {
+            padding: var(--space-3xl) 0;
+            background: linear-gradient(180deg, var(--color-marble-white) 0%, var(--color-marble-cream) 100%);
+        }
+
+        .badge-group {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(201, 169, 97, 0.1));
+            color: var(--color-gold-dark);
+            border: 1px solid var(--color-gold);
+        }
+
+        .badge-warning {
+            background: rgba(168, 168, 168, 0.1);
+            color: var(--color-marble-vein-dark);
+            border: 1px solid var(--color-marble-vein);
+        }
+
+        .badge-info {
+            background: rgba(44, 44, 44, 0.05);
+            color: var(--color-charcoal);
+            border: 1px solid var(--color-soft-gray);
+        }
+
+        .badge-neutral {
+            background: var(--color-marble-white);
+            color: var(--color-charcoal);
+            border: 1px solid var(--color-marble-vein);
+        }
+
+        /* Footer Component */
+        footer {
+            background: linear-gradient(135deg, var(--color-charcoal-deep) 0%, var(--color-charcoal) 100%);
+            color: var(--color-marble-white);
+            padding: var(--space-3xl) 0;
+            margin-top: var(--space-3xl);
+            border-top: 3px solid var(--color-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section h4 {
+            color: var(--color-marble-pure);
+            margin-bottom: var(--space-lg);
+            font-size: 1.414rem;
+            font-family: var(--font-heading);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: var(--color-marble-vein);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-section a {
+            color: var(--color-marble-vein);
+            text-decoration: none;
+            transition: color var(--transition-base);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .footer-section a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(193, 193, 193, 0.2);
+            text-align: center;
+            color: var(--color-marble-vein);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: var(--space-md);
+            }
+
+            nav a {
+                font-size: 0.85rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .container {
+                padding: 0 var(--space-lg);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--space-xl);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>192</strong> of 140 &mdash; Style 192</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 191) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Prestige</a>
+                <nav>
+                    <ul>
+                        <li><a href="#stats">Overview</a></li>
+                        <li><a href="#content">Portfolio</a></li>
+                        <li><a href="#data">Services</a></li>
+                        <li><a href="#contact">Inquire</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Grid Component -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <h1>Architectural Excellence</h1>
+                <p class="section-subtitle">Where timeless luxury meets natural beauty. Experience the refined elegance of marble and the prestigious warmth of gold in every detail of our carefully crafted designs.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">487</div>
+                    <div class="stat-label">Luxury Properties</div>
+                    <div class="stat-change">↑ 18% Annual Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                    <div class="stat-change">Premium Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$4.2B</div>
+                    <div class="stat-label">Portfolio Value</div>
+                    <div class="stat-change">↑ 24% Appreciation</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">35</div>
+                    <div class="stat-label">Years Heritage</div>
+                    <div class="stat-change">Legacy of Quality</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Cards Component -->
+    <section class="cards-section" id="content">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signature Collections</h2>
+                <p class="section-subtitle">Curated selections of our most prestigious properties and design achievements, each embodying the perfect marriage of natural elegance and architectural distinction.</p>
+            </div>
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-image">🏛️</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Grand Residences</h3>
+                        <p class="card-description">Palatial living spaces featuring Carrara marble throughout, bespoke finishes, and meticulous attention to classical proportions and timeless design.</p>
+                        <div class="card-meta">
+                            <span>Ultra-Luxury</span>
+                            <span>•</span>
+                            <span>8,500+ SqFt</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">💎</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Penthouse Suites</h3>
+                        <p class="card-description">Sky-high sanctuaries with floor-to-ceiling marble, gold accents, and panoramic views from the world's most prestigious addresses.</p>
+                        <div class="card-meta">
+                            <span>Premium</span>
+                            <span>•</span>
+                            <span>Exclusive</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">✨</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Heritage Estates</h3>
+                        <p class="card-description">Historic properties restored to their original grandeur with authentic materials, preserving architectural legacy for future generations.</p>
+                        <div class="card-meta">
+                            <span>Historic</span>
+                            <span>•</span>
+                            <span>Landmark</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Table Component -->
+    <section class="table-section" id="data">
+        <div class="container">
+            <div class="section-header">
+                <h2>Available Properties</h2>
+                <p class="section-subtitle">An exclusive selection of our current offerings, each representing the pinnacle of luxury living and architectural achievement.</p>
+            </div>
+            <div class="table-controls">
+                <div class="search-box">
+                    <input type="text" placeholder="Search properties..." aria-label="Search properties">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary">Filter</button>
+                    <button class="btn btn-secondary">Export</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property Name</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Size</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The Palazzo</td>
+                            <td>Park Avenue, NYC</td>
+                            <td><span class="badge badge-success">Available</span></td>
+                            <td>12,400 SqFt</td>
+                            <td>Penthouse</td>
+                        </tr>
+                        <tr>
+                            <td>Marble Heights</td>
+                            <td>Beverly Hills</td>
+                            <td><span class="badge badge-warning">Reserved</span></td>
+                            <td>9,200 SqFt</td>
+                            <td>Estate</td>
+                        </tr>
+                        <tr>
+                            <td>The Meridian</td>
+                            <td>Mayfair, London</td>
+                            <td><span class="badge badge-success">Available</span></td>
+                            <td>8,800 SqFt</td>
+                            <td>Townhouse</td>
+                        </tr>
+                        <tr>
+                            <td>Versailles Gardens</td>
+                            <td>Monaco</td>
+                            <td><span class="badge badge-info">Coming Soon</span></td>
+                            <td>15,600 SqFt</td>
+                            <td>Villa</td>
+                        </tr>
+                        <tr>
+                            <td>Grand Bellevue</td>
+                            <td>Geneva</td>
+                            <td><span class="badge badge-success">Available</span></td>
+                            <td>7,500 SqFt</td>
+                            <td>Residence</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Component -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Private Consultation</h2>
+                <p class="section-subtitle">Begin your journey to exceptional living. Our dedicated team provides personalized service for discerning clients seeking the finest properties and bespoke design solutions.</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-type">Interest Area</label>
+                        <select id="project-type" name="project-type">
+                            <option>Penthouse Acquisition</option>
+                            <option>Estate Purchase</option>
+                            <option>Interior Design</option>
+                            <option>Property Investment</option>
+                            <option>Architectural Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Requirements</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Schedule Consultation</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges Component -->
+    <section class="badges-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Distinguished Services</h2>
+                <p class="section-subtitle">Our comprehensive suite of premium services and specialized expertise in luxury property and design.</p>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Luxury Real Estate</span>
+                <span class="badge badge-success">Interior Design</span>
+                <span class="badge badge-warning">Architectural Services</span>
+                <span class="badge badge-info">Property Management</span>
+                <span class="badge badge-neutral">Investment Advisory</span>
+                <span class="badge badge-success">Marble Specialists</span>
+                <span class="badge badge-warning">Heritage Restoration</span>
+                <span class="badge badge-info">Bespoke Finishes</span>
+                <span class="badge badge-neutral">Concierge Service</span>
+                <span class="badge badge-success">Global Portfolio</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Our Heritage</h4>
+                    <p>For over three decades, we have been the trusted name in luxury property and design, serving discerning clients who demand nothing less than perfection.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Luxury Real Estate</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Architectural Services</a></li>
+                        <li><a href="#">Property Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Portfolio Gallery</a></li>
+                        <li><a href="#">Design Insights</a></li>
+                        <li><a href="#">Market Reports</a></li>
+                        <li><a href="#">Client Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Schedule Viewing</a></li>
+                        <li><a href="#">Private Consultation</a></li>
+                        <li><a href="#">Global Offices</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Prestige Luxury Properties. Excellence in Every Detail. Style 192: Marble Luxury - Lobbi Design System Gallery.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

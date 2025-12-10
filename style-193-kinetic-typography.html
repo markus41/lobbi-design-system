@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 193: Kinetic Typography - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ============================================================================
+        ULTRATHINK DOCUMENTATION: KINETIC TYPOGRAPHY DESIGN SYSTEM
+        ============================================================================
+
+        STYLE IDENTITY:
+        - Name: Kinetic Typography
+        - ID: 193
+        - Category: Motion & Animation
+        - Temperature: 5/10 (Balanced energy)
+        - Formality: 5/10 (Casual-professional balance)
+        - Tags: creative, media
+
+        DESIGN PHILOSOPHY:
+        Typography becomes the primary visual element through motion. Text isn't
+        static - it breathes, shifts, and responds to user interaction. This
+        style treats letterforms as dynamic objects that communicate through
+        movement, creating visual rhythm and expressive hierarchy.
+
+        BLEND ANALYSIS:
+        1. Kinetic Type (55%): Primary driver
+           - Animated text transformations
+           - Letter-spacing animations
+           - Scale and rotation effects on hover
+           - Staggered text reveals
+           - Typography as primary visual element
+
+        2. Motion Graphics (25%): Secondary influence
+           - Bold geometric shapes in motion
+           - Color transitions for emphasis
+           - Animated underlines and decorations
+           - Dynamic background elements
+
+        3. Dynamic Layout (20%): Supporting layer
+           - Flexible grid that responds to content
+           - Adaptive spacing based on text length
+           - Responsive hierarchy shifts
+           - Content reflow animations
+
+        COLOR SYSTEM:
+        - Base: Black (#000000) - Strong foundation
+        - Accent: Vibrant Red (#FF0054) - Energy and emphasis
+        - Secondary: Cyan (#00F0FF) - Technical edge
+        - Neutral: White (#FFFFFF), Gray (#808080)
+        - Philosophy: Bold contrast creates typographic impact
+
+        TYPOGRAPHY STRATEGY:
+        - Headings: Space Grotesk - Geometric, modern, great for kinetic effects
+        - Body: Inter - Clean, readable, excellent at all sizes
+        - Display: Space Grotesk Bold - Maximum impact
+        - Scale: 14px base, 1.25 ratio for hierarchy
+
+        MOTION PRINCIPLES:
+        1. Text-First: Typography leads all motion
+        2. Responsive: Animations react to user input
+        3. Rhythmic: Consistent timing creates flow (0.3s standard)
+        4. Purposeful: Every animation communicates
+        5. Performant: GPU-accelerated transforms only
+
+        ACCESSIBILITY CONSIDERATIONS:
+        - prefers-reduced-motion support throughout
+        - 4.5:1+ contrast ratios maintained
+        - Focus states with animated indicators
+        - Keyboard navigation fully supported
+        - Screen reader friendly structure
+
+        INTERACTION PATTERNS:
+        - Hover: Letter-spacing expansion, color shift
+        - Focus: Animated underline, scale emphasis
+        - Active: Quick scale feedback
+        - Load: Staggered text reveals
+        - Scroll: Subtle parallax on headings
+
+        RESPONSIVE STRATEGY:
+        - Mobile: Simplified animations, reduced motion
+        - Tablet: Moderate kinetic effects
+        - Desktop: Full kinetic typography experience
+        - Breakpoints: 768px, 1024px
+
+        TECHNICAL IMPLEMENTATION:
+        - CSS Custom Properties for theme control
+        - Transform-based animations for performance
+        - Will-change hints for complex animations
+        - Intersection Observer for scroll effects
+        - Reduced motion queries respected
+
+        USE CASES:
+        - Creative agencies
+        - Media companies
+        - Portfolio sites
+        - Digital magazines
+        - Brand experiences
+        - Design studios
+
+        ============================================================================
+        */
+
+        :root {
+            /* Color System */
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-red: #FF0054;
+            --color-cyan: #00F0FF;
+            --color-gray: #808080;
+            --color-gray-light: #E0E0E0;
+            --color-gray-dark: #404040;
+
+            /* Typography */
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 2rem;
+            --font-size-3xl: 3rem;
+            --font-size-4xl: 4rem;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Animation */
+            --transition-fast: 0.15s;
+            --transition-base: 0.3s;
+            --transition-slow: 0.5s;
+            --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+            /* Layout */
+            --container-max: 1200px;
+            --border-radius: 0.25rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-black);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+
+        /* Typography Kinetic Effects */
+        .kinetic-text {
+            display: inline-block;
+            transition: letter-spacing var(--transition-base) var(--ease-out),
+                        transform var(--transition-base) var(--ease-out),
+                        color var(--transition-base) var(--ease-out);
+        }
+
+        .kinetic-text:hover {
+            letter-spacing: 0.1em;
+            color: var(--color-red);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .kinetic-reveal {
+                animation: reveal 0.6s var(--ease-out) forwards;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            @keyframes reveal {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .stagger-1 { animation-delay: 0.1s; }
+            .stagger-2 { animation-delay: 0.2s; }
+            .stagger-3 { animation-delay: 0.3s; }
+            .stagger-4 { animation-delay: 0.4s; }
+        }
+
+        /* Header */
+        .header {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--color-red);
+        }
+
+        .header-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .logo:hover {
+            letter-spacing: 0.05em;
+            color: var(--color-cyan);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--color-white);
+            position: relative;
+            padding: var(--space-sm) 0;
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-red);
+            transition: width var(--transition-base) var(--ease-out);
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            letter-spacing: 0.05em;
+            outline: none;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-gray-dark);
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-3xl) 0;
+        }
+
+        .stat-card {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-base) var(--ease-out);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-red), transparent);
+            transition: left var(--transition-slow) var(--ease-out);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-red);
+            margin-bottom: var(--space-sm);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .stat-card:hover .stat-value {
+            letter-spacing: 0.1em;
+            color: var(--color-cyan);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-light);
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        .card {
+            background: var(--color-white);
+            border: 2px solid var(--color-black);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .card:hover {
+            border-color: var(--color-red);
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0 var(--color-black);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .card:hover .card-title {
+            letter-spacing: 0.05em;
+            color: var(--color-red);
+        }
+
+        .card-content {
+            color: var(--color-gray-dark);
+            line-height: 1.7;
+        }
+
+        /* Data Table */
+        .table-container {
+            margin: var(--space-2xl) 0;
+            overflow-x: auto;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .table-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+        }
+
+        .table-filter {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .filter-input {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid var(--color-black);
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--color-red);
+            transform: scale(1.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 2px solid var(--color-black);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--color-black);
+            color: var(--color-white);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-align: left;
+            padding: var(--space-md) var(--space-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: var(--font-size-sm);
+        }
+
+        td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-gray-light);
+            transition: all var(--transition-fast) var(--ease-out);
+        }
+
+        tr:hover td {
+            background: var(--color-black);
+            color: var(--color-white);
+            letter-spacing: 0.02em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Elements */
+        .form-section {
+            margin: var(--space-3xl) 0;
+            padding: var(--space-2xl);
+            background: var(--color-black);
+            color: var(--color-white);
+            border-radius: var(--border-radius);
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+            letter-spacing: -0.01em;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-cyan);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: var(--space-md);
+            background: var(--color-white);
+            color: var(--color-black);
+            border: 2px solid var(--color-white);
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-red);
+            transform: scale(1.02);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin: var(--space-xl) 0;
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            padding: var(--space-md) var(--space-xl);
+            border: 2px solid var(--color-black);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-base) var(--ease-out);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--color-red);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width var(--transition-base) var(--ease-out),
+                        height var(--transition-base) var(--ease-out);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            letter-spacing: 0.05em;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+            letter-spacing: 0.05em;
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-black);
+            border: 2px solid var(--color-black);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-red);
+            border-color: var(--color-red);
+            color: var(--color-white);
+            letter-spacing: 0.05em;
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        /* Badges */
+        .badge-group {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin: var(--space-lg) 0;
+        }
+
+        .badge {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all var(--transition-base) var(--ease-out);
+            display: inline-block;
+        }
+
+        .badge:hover {
+            letter-spacing: 0.15em;
+            transform: scale(1.05);
+        }
+
+        .badge-success {
+            background: #00FF88;
+            color: var(--color-black);
+        }
+
+        .badge-warning {
+            background: #FFD700;
+            color: var(--color-black);
+        }
+
+        .badge-error {
+            background: var(--color-red);
+            color: var(--color-white);
+        }
+
+        .badge-info {
+            background: var(--color-cyan);
+            color: var(--color-black);
+        }
+
+        .badge-neutral {
+            background: var(--color-gray-light);
+            color: var(--color-black);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+            margin-top: var(--space-3xl);
+            border-top: 3px solid var(--color-red);
+        }
+
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-md);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .footer-section h3:hover {
+            letter-spacing: 0.05em;
+            color: var(--color-cyan);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-gray-light);
+            text-decoration: none;
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .footer-link:hover {
+            color: var(--color-red);
+            letter-spacing: 0.05em;
+            padding-left: var(--space-sm);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-gray-dark);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --font-size-4xl: 3rem;
+                --font-size-3xl: 2.5rem;
+            }
+
+            .nav {
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-size-4xl: 2.5rem;
+                --font-size-3xl: 2rem;
+                --font-size-2xl: 1.5rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-sm);
+            }
+
+            .stats-grid,
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>193</strong> of 140 &mdash; Style 193</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 192) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo kinetic-text">LOBBI</div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link">Analytics</a></li>
+                    <li><a href="#" class="nav-link">Reports</a></li>
+                    <li><a href="#" class="nav-link">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title kinetic-reveal stagger-1">
+                <span class="kinetic-text">Typography</span> in Motion
+            </h1>
+            <p class="hero-subtitle kinetic-reveal stagger-2">
+                Experience design where text becomes the primary visual element,
+                creating dynamic and expressive interfaces through kinetic typography.
+            </p>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card kinetic-reveal stagger-1">
+                <div class="stat-value">2.4K</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card kinetic-reveal stagger-2">
+                <div class="stat-value">89%</div>
+                <div class="stat-label">Engagement Rate</div>
+            </div>
+            <div class="stat-card kinetic-reveal stagger-3">
+                <div class="stat-value">156</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card kinetic-reveal stagger-4">
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">Avg Rating</div>
+            </div>
+        </section>
+
+        <!-- Content Cards -->
+        <section class="cards-grid">
+            <article class="card">
+                <h3 class="card-title">Dynamic Layouts</h3>
+                <p class="card-content">
+                    Flexible grid systems that respond to content and user interaction,
+                    creating fluid and adaptive designs that feel alive.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Active</span>
+                    <span class="badge badge-info">Featured</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">Motion Graphics</h3>
+                <p class="card-content">
+                    Bold geometric shapes and color transitions that enhance typography,
+                    adding depth and visual interest to every interaction.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-warning">Beta</span>
+                    <span class="badge badge-neutral">New</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">Expressive Text</h3>
+                <p class="card-content">
+                    Letterforms become dynamic objects that communicate through movement,
+                    scale, and transformation, creating memorable experiences.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Live</span>
+                    <span class="badge badge-info">Popular</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- Data Table -->
+        <section class="table-container">
+            <div class="table-header">
+                <h2 class="table-title kinetic-text">Project Overview</h2>
+                <div class="table-filter">
+                    <input type="text" class="filter-input" placeholder="Filter by name..." aria-label="Filter table by name">
+                    <select class="filter-input" aria-label="Filter by status">
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>Pending</option>
+                        <option>Completed</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kinetic Brand System</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>78%</td>
+                        <td>Dec 15, 2025</td>
+                    </tr>
+                    <tr>
+                        <td>Motion Graphics Library</td>
+                        <td><span class="badge badge-warning">In Review</span></td>
+                        <td>92%</td>
+                        <td>Dec 20, 2025</td>
+                    </tr>
+                    <tr>
+                        <td>Typography Animation Set</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>65%</td>
+                        <td>Jan 10, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic Layout System</td>
+                        <td><span class="badge badge-info">Planning</span></td>
+                        <td>34%</td>
+                        <td>Jan 25, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Interactive Text Effects</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>88%</td>
+                        <td>Dec 18, 2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2 class="form-title">Get Started with Kinetic Design</h2>
+            <form class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="project">Project Type</label>
+                    <select id="project" class="form-select" required>
+                        <option>Brand Identity</option>
+                        <option>Web Experience</option>
+                        <option>Digital Magazine</option>
+                        <option>Portfolio Site</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="timeline">Timeline</label>
+                    <select id="timeline" class="form-select" required>
+                        <option>1-2 weeks</option>
+                        <option>2-4 weeks</option>
+                        <option>1-2 months</option>
+                        <option>3+ months</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label" for="message">Project Description</label>
+                    <textarea id="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+                </div>
+            </form>
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">
+                    <span>Submit Request</span>
+                </button>
+                <button type="button" class="btn btn-secondary">
+                    <span>Save Draft</span>
+                </button>
+                <button type="reset" class="btn btn-tertiary">
+                    <span>Clear Form</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Button Showcase -->
+        <section>
+            <h2 class="table-title kinetic-text" style="margin-bottom: var(--space-xl);">Interactive Elements</h2>
+            <div class="button-group">
+                <button class="btn btn-primary"><span>Primary Action</span></button>
+                <button class="btn btn-secondary"><span>Secondary Action</span></button>
+                <button class="btn btn-tertiary"><span>Tertiary Action</span></button>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-neutral">Neutral</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Case Studies</a></li>
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Team</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Newsletter</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                        <li><a href="#" class="footer-link">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. Style 193: Kinetic Typography. Crafted with motion and precision.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

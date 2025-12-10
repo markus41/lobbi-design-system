@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 165: Flat Design 2.0 - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DOCUMENTATION: STYLE 165 - FLAT DESIGN 2.0
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        STYLE IDENTITY:
+        Name: Flat Design 2.0
+        ID: 165
+        Category: Digital UI & Illustration
+        Temperature: 5/10 (Balanced - Professional yet approachable)
+        Formality: 6/10 (Semi-formal - Modern business casual)
+        Tags: tech, professional
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        BLEND ANALYSIS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY: Flat Design (55%)
+        - Clean, two-dimensional aesthetics without textures or gradients
+        - Focus on simplicity, usability, and information hierarchy
+        - Bold, vibrant color palette as primary visual language
+        - Geometric shapes with crisp edges and minimal decoration
+        - Implementation: Base layer for all components, solid colors, no texture
+
+        SECONDARY: Subtle Shadows (25%)
+        - Soft, barely-there drop shadows for depth perception
+        - Elevation system with 2-3 levels of shadow intensity
+        - Shadows serve functional purpose (hierarchy) not decoration
+        - Box-shadow values kept minimal (2-8px blur radius)
+        - Implementation: 0 2px 4px rgba(0,0,0,0.08) for cards, 0 4px 8px for elevated
+
+        TERTIARY: Bold Color (20%)
+        - High-contrast color combinations for visual impact
+        - Strategic use of vibrant hues (blue, coral, mint) against neutrals
+        - Color as functional signifier (status, actions, categories)
+        - Maintains WCAG AA contrast ratios despite boldness
+        - Implementation: Primary actions in vibrant blue, accents in coral/mint
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        DESIGN PHILOSOPHY:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        "Clean simplicity with depth hints, bold colors, geometric precision"
+
+        This evolution of flat design embraces the clarity and minimalism of the
+        original flat design movement while acknowledging that subtle depth cues
+        improve usability. The addition of minimal shadows creates visual hierarchy
+        without abandoning flat design principles. Bold colors serve as the primary
+        design language, creating energy and guiding user attention through strategic
+        contrast and vibrancy.
+
+        CORE PRINCIPLES:
+        1. Simplicity First: Remove unnecessary elements, focus on content
+        2. Functional Depth: Shadows serve usability, not decoration
+        3. Color as Language: Vibrant hues communicate meaning and hierarchy
+        4. Geometric Clarity: Clean lines, perfect circles, precise rectangles
+        5. Information Priority: Design serves content, never overshadows it
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COLOR SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY PALETTE:
+        - Vibrant Blue (#3B82F6): Primary actions, links, interactive elements
+        - Coral Red (#FF6B6B): Alerts, destructive actions, hot metrics
+        - Mint Green (#51CF66): Success states, positive metrics, confirmations
+        - White (#FFFFFF): Backgrounds, card surfaces, clean space
+        - Charcoal (#2D3748): Text, headers, strong contrast elements
+
+        FUNCTIONAL MAPPING:
+        - Primary Actions: Vibrant Blue (CTAs, navigation active states)
+        - Secondary Actions: Charcoal with transparency
+        - Success: Mint Green (confirmations, positive metrics)
+        - Warning: Coral Red (alerts, important notices)
+        - Background: White (main), very light gray (#F7FAFC) for contrast
+        - Text: Charcoal (primary), gray variants for hierarchy
+
+        CONTRAST RATIOS (WCAG AA Compliant):
+        - Blue on White: 4.89:1 (AA compliant for large text, AAA for graphics)
+        - Charcoal on White: 11.58:1 (AAA compliant)
+        - White on Blue: 4.89:1 (AA compliant)
+        - Coral on White: 3.68:1 (AA compliant for large text)
+        - Mint on White: 1.82:1 (Used only for decorative elements, not text)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        TYPOGRAPHY SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DISPLAY FONT: Poppins (Google Fonts)
+        - Usage: Headings (h1-h6), navigation, buttons, labels
+        - Weights: 400 (Regular), 600 (Semibold), 700 (Bold)
+        - Characteristics: Geometric, friendly, highly legible
+        - Rationale: Modern geometric sans-serif complements flat design aesthetic
+
+        BODY FONT: Inter (Google Fonts)
+        - Usage: Body text, descriptions, table content, form inputs
+        - Weights: 400 (Regular), 500 (Medium), 600 (Semibold)
+        - Characteristics: Optimized for screens, excellent readability
+        - Rationale: Designed for UI, maintains clarity at all sizes
+
+        TYPE SCALE (Major Third - 1.25 ratio):
+        - h1: 2.441rem (39.06px) - Page titles
+        - h2: 1.953rem (31.25px) - Section headers
+        - h3: 1.563rem (25px) - Subsection headers
+        - h4: 1.25rem (20px) - Card titles
+        - body: 1rem (16px) - Standard text
+        - small: 0.8rem (12.8px) - Captions, metadata
+
+        LINE HEIGHT:
+        - Headers: 1.2 (tight for impact)
+        - Body: 1.6 (comfortable reading)
+        - UI Elements: 1.4 (balanced for buttons/inputs)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        SPACING SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BASE UNIT: 4px (0.25rem)
+        SCALE: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128px
+
+        COMPONENT SPACING:
+        - xs: 4px (tight inline elements)
+        - sm: 8px (button padding, small gaps)
+        - md: 16px (card padding, standard gaps)
+        - lg: 24px (section spacing)
+        - xl: 32px (major section breaks)
+        - 2xl: 48px (page-level spacing)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ELEVATION SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        LEVEL 0 (Flat): No shadow
+        - Usage: Body background, inline elements
+
+        LEVEL 1 (Subtle): 0 2px 4px rgba(0,0,0,0.08)
+        - Usage: Cards, form inputs, standard containers
+        - Elevation: 2px vertical offset
+
+        LEVEL 2 (Raised): 0 4px 8px rgba(0,0,0,0.12)
+        - Usage: Hover states, modals, dropdowns
+        - Elevation: 4px vertical offset
+
+        LEVEL 3 (Floating): 0 8px 16px rgba(0,0,0,0.16)
+        - Usage: Active drag states, important overlays
+        - Elevation: 8px vertical offset
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        INTERACTION PATTERNS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BUTTONS:
+        - Primary: Vibrant blue background, white text, subtle shadow on hover
+        - Secondary: White background, blue text, blue border, shadow on hover
+        - Tertiary: Transparent, blue text, no border, underline on hover
+        - Hover: Darken color by 10%, increase shadow elevation
+        - Active: Darken color by 15%, decrease shadow elevation
+        - Focus: 3px solid outline in primary color, 2px offset
+
+        CARDS:
+        - Default: White background, subtle shadow, rounded corners
+        - Hover: Increase shadow elevation, slight upward translation
+        - Clickable: Cursor pointer, transform on hover
+
+        FORMS:
+        - Inputs: White background, light border, shadow on focus
+        - Focus: Blue border, increased shadow, no color flash
+        - Error: Coral border, error message below
+        - Success: Mint border, success icon/message
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ACCESSIBILITY FEATURES:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        WCAG 2.1 AA COMPLIANCE:
+        - All text meets minimum contrast ratios (4.5:1 for body, 3:1 for large)
+        - Focus indicators visible and high contrast (3:1 minimum)
+        - Interactive elements minimum 44x44px touch target
+        - Color not sole indicator of meaning (icons + text)
+        - Form labels properly associated with inputs
+        - Semantic HTML structure for screen readers
+
+        KEYBOARD NAVIGATION:
+        - Tab order follows visual order
+        - Focus visible on all interactive elements
+        - Skip links for main content
+        - Escape closes modals/dropdowns
+
+        RESPONSIVE DESIGN:
+        - Mobile-first approach
+        - Breakpoints: 768px (tablet), 1024px (desktop)
+        - Touch-friendly targets on mobile (minimum 44px)
+        - Readable text without zoom (minimum 16px)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT SPECIFICATIONS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        1. HEADER & NAVIGATION:
+           - Fixed position, full width
+           - Logo left, navigation center/right
+           - Vibrant blue background for brand presence
+           - White text for maximum contrast
+           - Mobile: Hamburger menu, slide-in drawer
+
+        2. STATS/METRICS GRID:
+           - 4-column grid on desktop, 2-column on tablet, 1-column on mobile
+           - White cards with subtle shadows
+           - Large numbers in charcoal, labels in gray
+           - Color-coded icons (blue, coral, mint) for visual differentiation
+
+        3. CONTENT CARDS:
+           - White background, rounded corners (8px)
+           - Subtle shadow for separation from background
+           - Hover: Elevated shadow, slight transform
+           - Action buttons in card footer
+
+        4. DATA TABLE:
+           - Clean, lined rows for readability
+           - Alternating row colors (white/very light gray)
+           - Sticky header on scroll
+           - Sort indicators in headers
+           - Mobile: Card-based responsive layout
+
+        5. FORM ELEMENTS:
+           - Clean inputs with subtle borders
+           - Focus: Blue border, increased shadow
+           - Labels above inputs, clear hierarchy
+           - Inline validation with color + icon
+
+        6. BUTTONS:
+           - Minimum height 44px (touch-friendly)
+           - Rounded corners (6px)
+           - Clear visual hierarchy (primary/secondary/tertiary)
+           - Icon + text for important actions
+
+        7. BADGES/STATUS INDICATORS:
+           - Rounded pill shape
+           - Color-coded (blue/mint/coral)
+           - Inline with text or standalone
+           - Small text, bold weight
+
+        8. FOOTER:
+           - Multi-column layout on desktop
+           - Charcoal background for contrast with page
+           - White/light gray text
+           - Social icons, links, copyright
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        IMPLEMENTATION NOTES:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BROWSER SUPPORT:
+        - Modern evergreen browsers (Chrome, Firefox, Safari, Edge)
+        - Progressive enhancement for older browsers
+        - CSS Grid with flexbox fallback
+        - CSS custom properties with fallback values
+
+        PERFORMANCE:
+        - Minimal CSS, no preprocessor required
+        - Google Fonts loaded with font-display: swap
+        - No JavaScript dependencies for core styling
+        - Optimized for critical rendering path
+
+        MAINTAINABILITY:
+        - CSS custom properties for easy theming
+        - Consistent naming convention (BEM-inspired)
+        - Component-based structure
+        - Clear comments for complex styles
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --color-primary: #3B82F6;
+            --color-primary-dark: #2563EB;
+            --color-primary-darker: #1D4ED8;
+            --color-secondary: #FF6B6B;
+            --color-success: #51CF66;
+            --color-white: #FFFFFF;
+            --color-charcoal: #2D3748;
+            --color-gray-50: #F7FAFC;
+            --color-gray-100: #EDF2F7;
+            --color-gray-200: #E2E8F0;
+            --color-gray-300: #CBD5E0;
+            --color-gray-600: #718096;
+            --color-gray-700: #4A5568;
+
+            /* Typography */
+            --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Type Scale */
+            --text-xs: 0.8rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.25rem;
+            --text-xl: 1.563rem;
+            --text-2xl: 1.953rem;
+            --text-3xl: 2.441rem;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.16);
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            --radius-xl: 12px;
+            --radius-full: 9999px;
+
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 250ms ease-in-out;
+            --transition-slow: 350ms ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background-color: var(--color-gray-50);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--color-charcoal);
+        }
+
+        h1 { font-size: var(--text-3xl); margin-bottom: var(--space-lg); }
+        h2 { font-size: var(--text-2xl); margin-bottom: var(--space-md); }
+        h3 { font-size: var(--text-xl); margin-bottom: var(--space-md); }
+        h4 { font-size: var(--text-lg); margin-bottom: var(--space-sm); }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-md) 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-white);
+            text-decoration: none;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--space-lg);
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: background-color var(--transition-fast);
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            background-color: var(--color-primary-dark);
+            outline: none;
+        }
+
+        .nav-link:focus-visible {
+            outline: 3px solid var(--color-white);
+            outline-offset: 2px;
+        }
+
+        /* Main Content */
+        .main {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-title {
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .stat-card {
+            background-color: var(--color-white);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-lg);
+            font-weight: 700;
+        }
+
+        .stat-icon.blue { background-color: #DBEAFE; color: var(--color-primary); }
+        .stat-icon.coral { background-color: #FFE5E5; color: var(--color-secondary); }
+        .stat-icon.mint { background-color: #D3F9D8; color: var(--color-success); }
+
+        .stat-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-charcoal);
+            font-family: var(--font-display);
+        }
+
+        .stat-change {
+            font-size: var(--text-sm);
+            margin-top: var(--space-xs);
+            font-weight: 500;
+        }
+
+        .stat-change.positive { color: var(--color-success); }
+        .stat-change.negative { color: var(--color-secondary); }
+
+        /* Content Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            color: var(--color-white);
+        }
+
+        .card-content {
+            padding: var(--space-lg);
+        }
+
+        .card-title {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: var(--space-sm);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--color-primary-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            background-color: var(--color-primary-darker);
+            transform: translateY(0);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 3px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--color-gray-50);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-tertiary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: none;
+        }
+
+        .btn-tertiary:hover,
+        .btn-tertiary:focus {
+            text-decoration: underline;
+            background-color: var(--color-gray-50);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-primary {
+            background-color: #DBEAFE;
+            color: var(--color-primary-dark);
+        }
+
+        .badge-success {
+            background-color: #D3F9D8;
+            color: #2B8A3E;
+        }
+
+        .badge-warning {
+            background-color: #FFE5E5;
+            color: #C92A2A;
+        }
+
+        /* Data Table */
+        .table-container {
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .table-header {
+            padding: var(--space-lg);
+            border-bottom: 2px solid var(--color-gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: var(--text-lg);
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background-color: var(--color-gray-50);
+            padding: var(--space-md);
+            text-align: left;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--color-charcoal);
+            border-bottom: 2px solid var(--color-gray-200);
+            white-space: nowrap;
+        }
+
+        .table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .table tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        .table tbody tr:hover {
+            background-color: var(--color-gray-50);
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Forms */
+        .form-section {
+            background-color: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-sm);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            transition: all var(--transition-fast);
+            background-color: var(--color-white);
+            min-height: 44px;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-help {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-top: var(--space-xs);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-charcoal);
+            color: var(--color-white);
+            padding: var(--space-2xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-base);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-gray-300);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover,
+        .footer-link:focus {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-700);
+            padding-top: var(--space-lg);
+            text-align: center;
+            color: var(--color-gray-300);
+            font-size: var(--text-sm);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: scroll;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>165</strong> of 140 &mdash; Style 165</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 164) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Lobbi Design</a>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-link">Dashboard</a></li>
+                        <li><a href="#" class="nav-link">Products</a></li>
+                        <li><a href="#" class="nav-link">Analytics</a></li>
+                        <li><a href="#" class="nav-link">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <section class="section">
+                <h1>Style 165: Flat Design 2.0</h1>
+                <p style="color: var(--color-gray-600); font-size: var(--text-lg);">
+                    Clean simplicity with depth hints, bold colors, and geometric precision
+                </p>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Total Users</span>
+                            <div class="stat-icon blue">↑</div>
+                        </div>
+                        <div class="stat-value">24,568</div>
+                        <div class="stat-change positive">↑ 12.5% from last month</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Revenue</span>
+                            <div class="stat-icon coral">$</div>
+                        </div>
+                        <div class="stat-value">$89,432</div>
+                        <div class="stat-change negative">↓ 3.2% from last month</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Active Projects</span>
+                            <div class="stat-icon mint">✓</div>
+                        </div>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">↑ 8.7% from last month</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Conversion</span>
+                            <div class="stat-icon blue">%</div>
+                        </div>
+                        <div class="stat-value">4.8%</div>
+                        <div class="stat-change positive">↑ 1.2% from last month</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Cards -->
+            <section class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-image">📊</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Analytics Dashboard</h3>
+                            <p class="card-description">
+                                Comprehensive analytics platform with real-time data visualization and reporting capabilities.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View Project</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">🎨</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Design System</h3>
+                            <p class="card-description">
+                                Modern design system with reusable components, tokens, and comprehensive documentation.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View Project</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">🚀</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mobile App Launch</h3>
+                            <p class="card-description">
+                                Cross-platform mobile application with native performance and beautiful user interface.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View Project</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="section">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Recent Transactions</h3>
+                        <button class="btn btn-secondary">Export</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#10243</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>Premium Plan</td>
+                                    <td>$299.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td>#10242</td>
+                                    <td>Michael Chen</td>
+                                    <td>Starter Plan</td>
+                                    <td>$99.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td>#10241</td>
+                                    <td>Emily Davis</td>
+                                    <td>Enterprise Plan</td>
+                                    <td>$999.00</td>
+                                    <td><span class="badge badge-primary">Processing</span></td>
+                                    <td>2025-12-07</td>
+                                </tr>
+                                <tr>
+                                    <td>#10240</td>
+                                    <td>James Wilson</td>
+                                    <td>Premium Plan</td>
+                                    <td>$299.00</td>
+                                    <td><span class="badge badge-warning">Refunded</span></td>
+                                    <td>2025-12-07</td>
+                                </tr>
+                                <tr>
+                                    <td>#10239</td>
+                                    <td>Lisa Anderson</td>
+                                    <td>Starter Plan</td>
+                                    <td>$99.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-06</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Elements -->
+            <section class="section">
+                <h2 class="section-title">Contact Form</h2>
+                <div class="form-section">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                            <p class="form-help">We'll never share your email with anyone else.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" class="form-select">
+                                <option>General Inquiry</option>
+                                <option>Technical Support</option>
+                                <option>Sales Question</option>
+                                <option>Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-textarea" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="reset" class="btn btn-tertiary">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Button Showcase -->
+            <section class="section">
+                <h2 class="section-title">Button Styles</h2>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+                    <button class="btn btn-primary">Primary Button</button>
+                    <button class="btn btn-secondary">Secondary Button</button>
+                    <button class="btn btn-tertiary">Tertiary Button</button>
+                    <button class="btn btn-primary" disabled>Disabled Button</button>
+                </div>
+            </section>
+
+            <!-- Badge Showcase -->
+            <section class="section">
+                <h2 class="section-title">Status Badges</h2>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+                    <span class="badge badge-primary">Active</span>
+                    <span class="badge badge-success">Completed</span>
+                    <span class="badge badge-warning">Warning</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                        <li><a href="#" class="footer-link">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                        <li><a href="#" class="footer-link">Tutorials</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

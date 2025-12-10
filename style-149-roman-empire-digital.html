@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 149: Roman Empire Digital - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+/*
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        ULTRATHINK METHODOLOGY v3.0                           ║
+║                     STYLE 149: ROMAN EMPIRE DIGITAL                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+DESIGN PHILOSOPHY:
+Imperial authority embodied in digital form. This style channels the eternal
+power of Roman governance, architectural permanence, and legal precision. Like
+the Roman Forum where laws were carved in marble, this design creates an
+immutable sense of authority and timeless institutional strength.
+
+BLEND ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. ROMAN CLASSICAL (55%) - Foundation                                       │
+│    • Architectural hierarchy: Column-inspired layouts                       │
+│    • Monumental typography: Trajan-style letterforms via Cinzel             │
+│    • Material honesty: Marble textures, bronze accents                      │
+│    • Imperial palette: Red, white, bronze against charcoal                  │
+│    • Spatial proportion: Golden ratio in component sizing                   │
+│                                                                              │
+│ 2. LAW FIRM AUTHORITY (25%) - Professional Rigor                            │
+│    • Structural formality: Grid-based precision                             │
+│    • Legal documentation standards: Clear hierarchy, scannable content      │
+│    • Professional restraint: Minimal decoration, maximum clarity            │
+│    • Trust signals: Serif typography, conservative color usage              │
+│    • Institutional weight: Heavy font weights, bold borders                 │
+│                                                                              │
+│ 3. MARBLE MATERIAL (20%) - Tactile Presence                                 │
+│    • Stone textures: Subtle grain patterns in backgrounds                   │
+│    • Veining effects: Delicate lines in surface treatments                  │
+│    • Color variation: Natural stone color gradations                        │
+│    • Physical weight: Box shadows suggesting depth and mass                 │
+│    • Permanence signaling: High contrast, solid borders                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+COLOR PSYCHOLOGY:
+• Marble White (#FAF9F7): Purity, classical architecture, institutional trust
+• Imperial Red (#8B1A1A): Roman power, legal authority, decisive action
+• Bronze (#A0754A): Ancient prestige, timeless value, earned status
+• Charcoal Gray (#2C2C2C): Gravitas, permanence, shadow of monuments
+
+TYPOGRAPHY STRATEGY:
+• Cinzel: Modern interpretation of Trajan's Column inscriptions
+  - Uppercase for maximum authority (headlines, navigation)
+  - Balanced proportions for digital legibility
+  - Weighted variants for hierarchy (400/600/700)
+
+• Source Serif Pro: Contemporary legal document clarity
+  - High x-height for screen reading
+  - Strong serifs for professional tone
+  - Versatile weights for content hierarchy
+
+TEMPERATURE & FORMALITY:
+• Temperature: 3/10 (Cold) - Marble coolness, institutional distance
+• Formality: 10/10 (Maximum) - Imperial court, legal chambers, state functions
+• Authority Level: 10/10 - Unquestionable institutional power
+
+ACCESSIBILITY STANDARDS:
+✓ WCAG 2.1 AA contrast ratios (4.5:1 body text, 3:1 large text)
+✓ Focus indicators for keyboard navigation (2px bronze outline)
+✓ Semantic HTML structure (landmarks, headings, labels)
+✓ Responsive typography (clamp() for fluid scaling)
+✓ Touch targets minimum 44x44px
+
+RESPONSIVE STRATEGY:
+• Mobile-first foundation (320px base)
+• Tablet breakpoint: 768px (adjusted grid columns)
+• Desktop breakpoint: 1024px (full multi-column layouts)
+• Large desktop: 1440px (maximum content width)
+
+COMPONENT ARCHITECTURE:
+1. Header: Imperial banner with columnar navigation
+2. Stats Grid: Four-pillar metric display (quadriga symbolism)
+3. Content Cards: Marble-like containers with bronze accents
+4. Data Table: Legal document precision with sortable columns
+5. Forms: Petition-style input with formal validation
+6. Buttons: Tiered authority (primary/secondary/tertiary)
+7. Badges: Status indicators with imperial color coding
+8. Footer: Foundation stone with archival information
+
+USE CASES:
+• Law firms and legal associations
+• Government portals and civic organizations
+• Professional certification bodies
+• Heritage institutions and museums
+• Financial institutions requiring gravitas
+• Academic institutions with classical traditions
+
+IMPLEMENTATION NOTES:
+- CSS Custom Properties enable theme variations (dark mode: inverted marble)
+- Grid system based on 8px base unit (Roman architectural proportions)
+- Border widths use 1px/2px/3px progression (structural hierarchy)
+- Box shadows suggest marble depth without excessive decoration
+- Hover states provide subtle feedback while maintaining formality
+
+HISTORICAL REFERENCES:
+• Trajan's Column (113 CE): Typographic inspiration
+• Roman Forum: Layout and spatial hierarchy
+• Pantheon: Proportion and monumentality
+• Marble of Carrara: Color and texture palette
+• Imperial decrees: Document structure and formality
+
+EMOTIONAL IMPACT:
+Entering this interface feels like stepping into the Pantheon—immediate
+recognition of authority, permanence, and institutional weight. Users experience
+the psychological impact of classical architecture: respect for tradition,
+confidence in stability, and trust in established systems.
+
+VERSION: 1.0.0
+CREATED: 2025-12-09
+DESIGNER: Lobbi Design System Team
+*/
+
+:root {
+    /* Color System - Roman Imperial Palette */
+    --color-marble-white: #FAF9F7;
+    --color-marble-light: #F2F1EF;
+    --color-imperial-red: #8B1A1A;
+    --color-imperial-red-dark: #6B1414;
+    --color-bronze: #A0754A;
+    --color-bronze-light: #B88B5E;
+    --color-bronze-dark: #8A6039;
+    --color-charcoal: #2C2C2C;
+    --color-charcoal-light: #444444;
+    --color-stone-gray: #6B6B6B;
+    --color-stone-light: #9E9E9E;
+
+    /* Semantic Colors */
+    --color-primary: var(--color-imperial-red);
+    --color-primary-hover: var(--color-imperial-red-dark);
+    --color-secondary: var(--color-bronze);
+    --color-secondary-hover: var(--color-bronze-dark);
+    --color-text-primary: var(--color-charcoal);
+    --color-text-secondary: var(--color-stone-gray);
+    --color-background: var(--color-marble-white);
+    --color-surface: var(--color-marble-light);
+    --color-border: var(--color-stone-light);
+    --color-focus: var(--color-bronze);
+
+    /* Status Colors */
+    --color-success: #2D5016;
+    --color-warning: #8A6039;
+    --color-error: var(--color-imperial-red);
+    --color-info: var(--color-stone-gray);
+
+    /* Typography System */
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Source Serif Pro', serif;
+
+    --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --font-size-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
+    --font-size-xl: clamp(1.375rem, 1.25rem + 0.625vw, 1.875rem);
+    --font-size-2xl: clamp(1.875rem, 1.625rem + 1.25vw, 2.75rem);
+    --font-size-3xl: clamp(2.25rem, 1.875rem + 1.875vw, 3.5rem);
+
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.8;
+
+    /* Spacing System - 8px base unit */
+    --space-xs: 0.25rem;    /* 4px */
+    --space-sm: 0.5rem;     /* 8px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 3rem;      /* 48px */
+    --space-3xl: 4rem;      /* 64px */
+
+    /* Border & Radius */
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 3px;
+    --border-radius-sm: 2px;
+    --border-radius-md: 4px;
+    --border-radius-lg: 6px;
+
+    /* Shadows - Marble depth */
+    --shadow-sm: 0 1px 3px rgba(44, 44, 44, 0.12);
+    --shadow-md: 0 4px 6px rgba(44, 44, 44, 0.15);
+    --shadow-lg: 0 10px 20px rgba(44, 44, 44, 0.18);
+    --shadow-xl: 0 20px 40px rgba(44, 44, 44, 0.22);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 400ms ease-in-out;
+
+    /* Layout */
+    --content-max-width: 1440px;
+    --content-padding: var(--space-lg);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    background-image:
+        linear-gradient(rgba(44, 44, 44, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 44, 44, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+a:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Header Component */
+.header {
+    background-color: var(--color-charcoal);
+    border-bottom: var(--border-width-thick) solid var(--color-bronze);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--content-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-marble-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.nav-link {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-marble-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: var(--border-width-medium) solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--color-bronze-light);
+    border-bottom-color: var(--color-bronze-light);
+}
+
+.nav-link:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-bronze);
+    outline-offset: 2px;
+}
+
+/* Main Layout */
+.main {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--content-padding);
+}
+
+.section {
+    margin-bottom: var(--space-3xl);
+}
+
+.section-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: var(--border-width-medium) solid var(--color-border);
+}
+
+.section-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-sm);
+}
+
+.section-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+/* Stats Grid Component */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--color-marble-white) 0%, var(--color-marble-light) 100%);
+    border: var(--border-width-medium) solid var(--color-stone-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-imperial-red), var(--color-bronze));
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-imperial-red);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Content Cards Component */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-xl);
+}
+
+.card {
+    background: var(--color-marble-white);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--space-xl);
+    right: var(--space-xl);
+    height: var(--border-width-thick);
+    background: linear-gradient(90deg, transparent, var(--color-bronze), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-bronze);
+    transform: translateY(-2px);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card-header {
+    margin-bottom: var(--space-lg);
+}
+
+.card-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.card-content {
+    margin-bottom: var(--space-lg);
+}
+
+.card-footer {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    padding-top: var(--space-lg);
+    border-top: var(--border-width-thin) solid var(--color-border);
+}
+
+/* Data Table Component */
+.table-container {
+    background: var(--color-marble-white);
+    border: var(--border-width-medium) solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.table-header {
+    padding: var(--space-lg) var(--space-xl);
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-light) 100%);
+    border-bottom: var(--border-width-thick) solid var(--color-bronze);
+}
+
+.table-title {
+    color: var(--color-marble-white);
+    margin-bottom: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: var(--color-marble-light);
+    border-bottom: var(--border-width-medium) solid var(--color-bronze);
+}
+
+.table th {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-lg) var(--space-xl);
+    color: var(--color-charcoal);
+}
+
+.table td {
+    padding: var(--space-lg) var(--space-xl);
+    border-bottom: var(--border-width-thin) solid var(--color-border);
+}
+
+.table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.table tbody tr:hover {
+    background-color: var(--color-marble-light);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Form Components */
+.form {
+    background: var(--color-marble-white);
+    border: var(--border-width-medium) solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: var(--space-xl);
+}
+
+.form-label {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-charcoal);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    padding: var(--space-md) var(--space-lg);
+    border: var(--border-width-medium) solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-marble-white);
+    color: var(--color-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-bronze);
+    box-shadow: 0 0 0 3px rgba(160, 117, 74, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-helper {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xs);
+    font-style: italic;
+}
+
+/* Button Components */
+.button {
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-md) var(--space-xl);
+    border: var(--border-width-medium) solid transparent;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    min-height: 44px;
+}
+
+.button:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.button-primary {
+    background: linear-gradient(135deg, var(--color-imperial-red) 0%, var(--color-imperial-red-dark) 100%);
+    color: var(--color-marble-white);
+    border-color: var(--color-imperial-red-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-primary:hover {
+    background: var(--color-imperial-red-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.button-secondary {
+    background: linear-gradient(135deg, var(--color-bronze) 0%, var(--color-bronze-dark) 100%);
+    color: var(--color-marble-white);
+    border-color: var(--color-bronze-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-secondary:hover {
+    background: var(--color-bronze-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.button-tertiary {
+    background: var(--color-marble-white);
+    color: var(--color-charcoal);
+    border-color: var(--color-stone-light);
+}
+
+.button-tertiary:hover {
+    background: var(--color-marble-light);
+    border-color: var(--color-bronze);
+}
+
+/* Badge Components */
+.badge {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+    color: var(--color-marble-white);
+}
+
+.badge-warning {
+    background-color: var(--color-warning);
+    color: var(--color-marble-white);
+}
+
+.badge-error {
+    background-color: var(--color-error);
+    color: var(--color-marble-white);
+}
+
+.badge-info {
+    background-color: var(--color-info);
+    color: var(--color-marble-white);
+}
+
+.badge-neutral {
+    background-color: var(--color-marble-light);
+    color: var(--color-charcoal);
+    border: var(--border-width-thin) solid var(--color-border);
+}
+
+/* Footer Component */
+.footer {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-light) 100%);
+    border-top: var(--border-width-thick) solid var(--color-bronze);
+    color: var(--color-marble-light);
+    margin-top: var(--space-3xl);
+}
+
+.footer-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--content-padding) var(--space-xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.footer-section h4 {
+    color: var(--color-bronze-light);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.footer-link {
+    color: var(--color-marble-light);
+    font-size: var(--font-size-base);
+    transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-bronze-light);
+}
+
+.footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: var(--border-width-thin) solid var(--color-stone-gray);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-stone-light);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    :root {
+        --content-padding: var(--space-md);
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .nav {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-wrapper {
+        overflow-x: scroll;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>149</strong> of 140 &mdash; Style 149</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 148) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">SPQR Digital</div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Governance</a>
+                <a href="#" class="nav-link">Legislation</a>
+                <a href="#" class="nav-link">Archives</a>
+                <a href="#" class="nav-link">Tribunal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Stats Grid Component -->
+        <section class="section">
+            <div class="section-header">
+                <h1 class="section-title">Imperial Metrics</h1>
+                <p class="section-description">Four pillars of institutional authority and governance excellence</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">MMXXV</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">847</div>
+                    <div class="stat-label">Legal Precedents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.8%</div>
+                    <div class="stat-label">Case Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12.4M</div>
+                    <div class="stat-label">Documents Archived</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Cards Component -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Legal Divisions</h2>
+                <p class="section-description">Specialized tribunals ensuring justice across all domains</p>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Constitutional Law</h3>
+                        <div class="card-meta">Est. MCMXCVIII • 42 Active Cases</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Defending foundational principles and interpreting constitutional frameworks with scholarly rigor and institutional authority.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-success">Active</span>
+                        <span class="badge badge-neutral">High Priority</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Corporate Governance</h3>
+                        <div class="card-meta">Est. MMII • 89 Active Cases</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Navigating complex corporate structures and fiduciary responsibilities with precision and strategic foresight.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-success">Active</span>
+                        <span class="badge badge-warning">Medium Priority</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">International Treaties</h3>
+                        <div class="card-meta">Est. MMVII • 27 Active Cases</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Facilitating cross-border agreements and diplomatic resolutions through established protocols and historical precedent.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-success">Active</span>
+                        <span class="badge badge-info">Specialized</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Data Table Component -->
+        <section class="section">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Recent Case Proceedings</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Case Number</th>
+                                <th>Plaintiff</th>
+                                <th>Filed Date</th>
+                                <th>Division</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-CL-0847</td>
+                                <td>Marcus & Associates v. State Authority</td>
+                                <td>Jan 15, 2025</td>
+                                <td>Constitutional</td>
+                                <td><span class="badge badge-warning">In Review</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-CG-0423</td>
+                                <td>Aurelius Holdings Ltd.</td>
+                                <td>Feb 03, 2025</td>
+                                <td>Corporate</td>
+                                <td><span class="badge badge-success">Approved</span></td>
+                            </tr>
+                            <tr>
+                                <td>2024-IT-1156</td>
+                                <td>International Trade Commission</td>
+                                <td>Nov 22, 2024</td>
+                                <td>Treaties</td>
+                                <td><span class="badge badge-info">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>2024-CL-0982</td>
+                                <td>Citizens United for Constitutional Rights</td>
+                                <td>Dec 08, 2024</td>
+                                <td>Constitutional</td>
+                                <td><span class="badge badge-success">Resolved</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-CG-0156</td>
+                                <td>Severus Corporation v. Board</td>
+                                <td>Jan 28, 2025</td>
+                                <td>Corporate</td>
+                                <td><span class="badge badge-error">Under Appeal</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Components -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Legal Consultation Request</h2>
+                <p class="section-description">Submit your inquiry for formal review and counsel assignment</p>
+            </div>
+            <form class="form">
+                <div class="form-group">
+                    <label for="client-name" class="form-label">Full Legal Name</label>
+                    <input type="text" id="client-name" class="form-input" placeholder="Marcus Aurelius" required>
+                </div>
+                <div class="form-group">
+                    <label for="case-type" class="form-label">Case Classification</label>
+                    <select id="case-type" class="form-select" required>
+                        <option value="">Select Classification</option>
+                        <option value="constitutional">Constitutional Law</option>
+                        <option value="corporate">Corporate Governance</option>
+                        <option value="treaties">International Treaties</option>
+                        <option value="civil">Civil Litigation</option>
+                        <option value="criminal">Criminal Defense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="case-details" class="form-label">Case Summary</label>
+                    <textarea id="case-details" class="form-textarea" placeholder="Provide a comprehensive summary of your legal matter..." required></textarea>
+                    <div class="form-helper">All information provided is subject to attorney-client privilege</div>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email" class="form-label">Official Contact</label>
+                    <input type="email" id="contact-email" class="form-input" placeholder="marcus@example.com" required>
+                </div>
+                <div style="display: flex; gap: var(--space-md);">
+                    <button type="submit" class="button button-primary">Submit Petition</button>
+                    <button type="button" class="button button-secondary">Schedule Consultation</button>
+                    <button type="reset" class="button button-tertiary">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Button Showcase -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Action Hierarchy</h2>
+                <p class="section-description">Tiered authority levels for institutional commands</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+                <button class="button button-primary">Primary Action</button>
+                <button class="button button-secondary">Secondary Action</button>
+                <button class="button button-tertiary">Tertiary Action</button>
+            </div>
+        </section>
+
+        <!-- Badge Showcase -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Status Indicators</h2>
+                <p class="section-description">Imperial classification system for case tracking</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+                <span class="badge badge-success">Approved</span>
+                <span class="badge badge-warning">Under Review</span>
+                <span class="badge badge-error">Denied</span>
+                <span class="badge badge-info">Pending</span>
+                <span class="badge badge-neutral">Filed</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Our History</a></li>
+                        <li><a href="#" class="footer-link">Legal Philosophy</a></li>
+                        <li><a href="#" class="footer-link">Board of Magistrates</a></li>
+                        <li><a href="#" class="footer-link">Accreditation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Practice Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Constitutional Law</a></li>
+                        <li><a href="#" class="footer-link">Corporate Governance</a></li>
+                        <li><a href="#" class="footer-link">International Treaties</a></li>
+                        <li><a href="#" class="footer-link">Civil Litigation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Legal Library</a></li>
+                        <li><a href="#" class="footer-link">Precedent Archive</a></li>
+                        <li><a href="#" class="footer-link">Publications</a></li>
+                        <li><a href="#" class="footer-link">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Office Locations</a></li>
+                        <li><a href="#" class="footer-link">Schedule Consultation</a></li>
+                        <li><a href="#" class="footer-link">Emergency Counsel</a></li>
+                        <li><a href="#" class="footer-link">Media Inquiries</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; MMXXV SPQR Digital Legal Services. All Rights Reserved. | Established MCMLXXVI</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

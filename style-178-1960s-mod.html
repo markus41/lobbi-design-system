@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 178: 1960s Mod</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: 60s Mod (55%) + Op Art (25%) + Space Age (20%)                  ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: 4/10 - Bold, youthful, rebellious against establishment   ║
+    ║  • Era: 1960s cultural revolution, youth movement, modernism            ║
+    ║  • Texture: Geometric patterns + Optical illusions + Smooth curves      ║
+    ║  • Temperature: 6/10 - Vibrant orange warmth balanced with cool black   ║
+    ║  • Ornamentation: Medium-high - Bold patterns, geometric precision      ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Bold geometric patterns meet optimistic futurism. Sharp orange and     ║
+    ║  electric blue against stark black and white create maximum contrast.   ║
+    ║  Op Art influences bring visual dynamism through geometric repetition,  ║
+    ║  while Space Age curves suggest faith in technological progress. This   ║
+    ║  style captures the energy of Carnaby Street, Target patterns, and the  ║
+    ║  moon landing generation's optimism.                                     ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Geometric patterns, black/white contrast, circular motifs   ║
+    ║  • Secondary: Orange pops, electric blue accents, psychedelic curves    ║
+    ║                                                                           ║
+    ║  USE CASES: Creative agencies, Media companies, Fashion brands, Design  ║
+    ║             studios, Youth-focused organizations, Art galleries, Music  ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 1960s Mod Palette */
+            --mod-orange: #FF6B35;
+            --mod-black: #000000;
+            --mod-white: #FFFFFF;
+            --electric-blue: #0096FF;
+            --hot-pink: #FF1493;
+            --lime-green: #32CD32;
+            --sunshine-yellow: #FFD700;
+
+            /* Gradients */
+            --mod-gradient: linear-gradient(135deg, var(--mod-orange) 0%, var(--hot-pink) 100%);
+            --space-gradient: radial-gradient(circle, var(--electric-blue) 0%, var(--mod-black) 100%);
+
+            /* Patterns */
+            --op-art-shadow: 0 0 0 4px var(--mod-white), 0 0 0 8px var(--mod-black), 0 0 0 12px var(--mod-white);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: var(--mod-white);
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 0, 0, 0.02) 40px, rgba(0, 0, 0, 0.02) 80px);
+            min-height: 100vh;
+            color: var(--mod-black);
+        }
+
+        /* Op Art Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Circular target pattern */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background:
+                radial-gradient(circle, transparent 0%, transparent 19%, var(--mod-orange) 20%, var(--mod-orange) 29%, transparent 30%, transparent 49%, var(--electric-blue) 50%, var(--electric-blue) 59%, transparent 60%);
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        /* === HEADER === */
+        .header {
+            background: var(--mod-black);
+            border-bottom: 8px solid var(--mod-orange);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Righteous', cursive;
+            font-size: 3rem;
+            color: var(--mod-white);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--mod-gradient);
+        }
+
+        .nav {
+            display: flex;
+            gap: 0;
+        }
+
+        .nav a {
+            color: var(--mod-white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border-right: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .nav a:first-child {
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: var(--mod-orange);
+            color: var(--mod-black);
+        }
+
+        .nav a:focus {
+            outline: 3px solid var(--electric-blue);
+            outline-offset: -3px;
+        }
+
+        /* === MAIN === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-family: 'Righteous', cursive;
+            font-size: 6rem;
+            text-align: center;
+            color: var(--mod-black);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .page-title::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--mod-orange);
+            z-index: -1;
+        }
+
+        .page-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--electric-blue);
+            z-index: -2;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--mod-black);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            background: var(--mod-white);
+            border: 6px solid var(--mod-black);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--mod-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .stat-card:nth-child(2) {
+            clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05) rotate(-2deg);
+            border-color: var(--electric-blue);
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .stat-card:focus-within {
+            outline: 4px solid var(--hot-pink);
+            outline-offset: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Righteous', cursive;
+            font-size: 4rem;
+            color: var(--mod-orange);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--mod-black);
+            font-size: 0.875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* === CARDS === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--mod-white);
+            border: 6px solid var(--mod-black);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 6px solid transparent;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+        }
+
+        .card:hover::before {
+            border-color: var(--mod-orange);
+            top: 6px;
+            left: 6px;
+        }
+
+        .card:focus-within {
+            outline: 4px solid var(--electric-blue);
+            outline-offset: 4px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 4px solid var(--mod-black);
+        }
+
+        .card-title {
+            font-family: 'Righteous', cursive;
+            font-size: 1.5rem;
+            color: var(--mod-black);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-badge {
+            background: var(--mod-orange);
+            color: var(--mod-white);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .card-content {
+            color: var(--mod-black);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 0.875rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid var(--mod-black);
+            font-family: 'Rubik', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--hot-pink);
+            outline-offset: 4px;
+        }
+
+        .btn-primary {
+            background: var(--mod-orange);
+            color: var(--mod-white);
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .btn-primary:hover {
+            background: var(--electric-blue);
+            transform: translate(-3px, -3px);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            border: 4px solid var(--mod-black);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-secondary {
+            background: var(--electric-blue);
+            color: var(--mod-white);
+            clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+        }
+
+        .btn-secondary:hover {
+            background: var(--hot-pink);
+            transform: translate(-3px, -3px);
+        }
+
+        .btn-ghost {
+            background: var(--mod-white);
+            color: var(--mod-black);
+        }
+
+        .btn-ghost:hover {
+            background: var(--mod-black);
+            color: var(--mod-white);
+            transform: translate(-3px, -3px);
+        }
+
+        /* === FORMS === */
+        .form-section {
+            background: var(--mod-white);
+            border: 6px solid var(--mod-black);
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 800;
+            font-size: 0.875rem;
+            color: var(--mod-black);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 4px solid var(--mod-black);
+            font-size: 1rem;
+            font-family: 'Rubik', sans-serif;
+            background: var(--mod-white);
+            color: var(--mod-black);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: 4px solid var(--mod-orange);
+            outline-offset: 0;
+            border-color: var(--electric-blue);
+        }
+
+        /* === TABLE === */
+        .section-title {
+            font-family: 'Righteous', cursive;
+            font-size: 3rem;
+            color: var(--mod-black);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--mod-gradient);
+        }
+
+        .table-container {
+            background: var(--mod-white);
+            border: 6px solid var(--mod-black);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--mod-black);
+            color: var(--mod-white);
+            padding: 1.5rem 1.5rem;
+            text-align: left;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 800;
+        }
+
+        th:nth-child(odd) {
+            background: var(--mod-orange);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+            color: var(--mod-black);
+            font-weight: 600;
+        }
+
+        tr:hover td {
+            background: var(--mod-orange);
+            color: var(--mod-white);
+        }
+
+        tbody tr:focus-within {
+            outline: 4px solid var(--electric-blue);
+            outline-offset: -4px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 3px solid var(--mod-black);
+        }
+
+        .status-active {
+            background: var(--lime-green);
+            color: var(--mod-black);
+        }
+
+        .status-pending {
+            background: var(--sunshine-yellow);
+            color: var(--mod-black);
+        }
+
+        .status-completed {
+            background: var(--electric-blue);
+            color: var(--mod-white);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: var(--mod-black);
+            border-top: 8px solid var(--mod-orange);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--mod-white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-meta {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--mod-orange);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .nav { flex-wrap: wrap; }
+            .page-title { font-size: 3rem; }
+            .logo { font-size: 2rem; }
+        }
+
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .gallery-nav-hints {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 400;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+        .hint-text {
+            font-family: 'Courier New', monospace;
+        }
+        .gallery-nav-categories {
+            display: inline-flex;
+            gap: 0.25rem;
+            margin-left: 1rem;
+        }
+        .category-tag {
+            font-size: 0.625rem;
+            padding: 2px 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 3px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>178</strong> of 180 &mdash; 1960s Mod</span>
+            <span class="gallery-nav-hints" title="Keyboard Shortcuts">
+                <span class="hint-text">← → Navigate • ESC Hide</span>
+            </span>
+            <span class="gallery-nav-categories">
+                <span class="category-tag">creative</span><span class="category-tag">media</span>
+            </span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-177-1950s-diner.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-179-1970s-disco.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft') window.location.href = 'style-177-1950s-diner.html';
+                if (e.key === 'ArrowRight') window.location.href = 'style-179-1970s-disco.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">LOBBI</div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="page-title" data-text="DASHBOARD">DASHBOARD</h1>
+        <p class="subtitle">Geometric Precision Meets Bold Vision</p>
+
+        <div class="stats-grid">
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Members</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">$124K</div>
+                <div class="stat-label">Revenue</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Events</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Retention</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Conference 2025</h3>
+                    <span class="card-badge">Featured</span>
+                </div>
+                <p class="card-content">Join us for our flagship event featuring cutting-edge keynotes, dynamic workshops, and revolutionary networking opportunities.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Member Renewal</h3>
+                    <span class="card-badge">Action</span>
+                </div>
+                <p class="card-content">247 members have renewals approaching. Launch automated reminder campaign to maintain momentum.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Send Reminders</button>
+                    <button class="btn btn-ghost">View List</button>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Q4 Financial</h3>
+                    <span class="card-badge">New</span>
+                </div>
+                <p class="card-content">Quarterly financial summary ready. Revenue increased 12% from last quarter with exceptional engagement metrics.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-secondary">Share</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="form-section">
+            <div class="form-group">
+                <label class="form-label" for="member-search">Search Members</label>
+                <input type="text" id="member-search" class="form-input" placeholder="ENTER MEMBER NAME OR EMAIL..." />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="event-type">Event Type</label>
+                <select id="event-type" class="form-select">
+                    <option>ALL EVENTS</option>
+                    <option>CONFERENCES</option>
+                    <option>WORKSHOPS</option>
+                    <option>NETWORKING</option>
+                    <option>WEBINARS</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">Search</button>
+            <button class="btn btn-ghost">Reset</button>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr tabindex="0">
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Premium)</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status-badge status-active">Confirmed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Jennifer Adams</td>
+                        <td>Downloaded conference materials</td>
+                        <td>Dec 7, 2025</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 178: 1960s Mod</p>
+        <p class="footer-meta">Bold geometric patterns, Op Art dynamics | Youth revolution & space age optimism</p>
+    </footer>
+</body>
+</html>

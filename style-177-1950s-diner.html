@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 177: 1950s Diner</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: 50s Americana (55%) + Retro Diner (25%) + Chrome Accent (20%)   ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: 4/10 - Casual, friendly, approachable diner aesthetic     ║
+    ║  • Era: 1950s post-war optimism, golden age of American diners          ║
+    ║  • Texture: Chrome shine + vinyl booths + formica counters = Retro      ║
+    ║  • Temperature: 7/10 - Warm cherry red, inviting turquoise, cozy cream  ║
+    ║  • Ornamentation: Medium - Bold colors, checkered patterns, neon signs  ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Captures the jukebox era with chrome accents, neon glow, and classic   ║
+    ║  diner aesthetics. Cherry red booths, turquoise counters, black and     ║
+    ║  white checkered floors evoke milkshake nostalgia and rock 'n' roll     ║
+    ║  energy. Lobster script headlines channel vintage signage while clean   ║
+    ║  slab serifs maintain readability. A celebration of post-war optimism,  ║
+    ║  drive-in culture, and American roadside charm.                          ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Cherry red dominance, turquoise accents, chrome borders     ║
+    ║  • Secondary: Cream backgrounds, checkered patterns, bold shadows       ║
+    ║                                                                           ║
+    ║  USE CASES: Hospitality brands, Retro restaurants, Creative agencies,   ║
+    ║             Event venues, Nostalgic campaigns, Food & beverage, Diners  ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 1950s Diner Palette */
+            --cherry-red: #DC143C;
+            --turquoise: #40E0D0;
+            --chrome-silver: #C0C0C0;
+            --cream: #FFF8DC;
+            --black: #1a1a1a;
+            --white: #FFFFFF;
+            --neon-pink: #FF6EC7;
+            --retro-yellow: #FFE66D;
+
+            /* Gradients */
+            --chrome-gradient: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%);
+            --neon-glow: 0 0 20px rgba(255, 110, 199, 0.6), 0 0 40px rgba(64, 224, 208, 0.4);
+
+            /* Shadows */
+            --retro-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+            --chrome-shine: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            background: var(--cream);
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(220, 20, 60, 0.03) 50px, rgba(220, 20, 60, 0.03) 100px),
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(64, 224, 208, 0.03) 50px, rgba(64, 224, 208, 0.03) 100px);
+            min-height: 100vh;
+            color: var(--black);
+        }
+
+        /* Checkered pattern background element */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-image:
+                linear-gradient(45deg, var(--black) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--black) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--black) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--black) 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+            background-color: var(--white);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: var(--cherry-red);
+            border-bottom: 6px solid var(--chrome-silver);
+            box-shadow: var(--chrome-shine);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            color: var(--cream);
+            text-shadow:
+                3px 3px 0px var(--black),
+                0 0 30px rgba(255, 230, 109, 0.8);
+            letter-spacing: 0.05em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background: var(--turquoise);
+            border: 3px solid var(--black);
+            border-radius: 50px;
+            box-shadow: var(--retro-shadow);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: var(--retro-yellow);
+            color: var(--black);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav a:focus {
+            outline: 3px solid var(--neon-pink);
+            outline-offset: 2px;
+        }
+
+        /* === MAIN === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        .page-title {
+            font-family: 'Lobster', cursive;
+            font-size: 5rem;
+            text-align: center;
+            color: var(--cherry-red);
+            text-shadow:
+                4px 4px 0px var(--black),
+                0 0 40px rgba(220, 20, 60, 0.6);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--black);
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 4px solid var(--black);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--retro-shadow);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--turquoise);
+        }
+
+        .stat-card:nth-child(even)::before {
+            background: var(--cherry-red);
+        }
+
+        .stat-card:hover {
+            transform: translate(2px, 2px) scale(1.02);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card:focus-within {
+            outline: 3px solid var(--cherry-red);
+            outline-offset: 4px;
+        }
+
+        .stat-value {
+            font-family: 'Lobster', cursive;
+            font-size: 3.5rem;
+            color: var(--cherry-red);
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* === CARDS === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 4px solid var(--black);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: var(--retro-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 4px solid transparent;
+            border-radius: 28px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translate(2px, 2px) rotate(-0.5deg);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+            border-color: var(--turquoise);
+        }
+
+        .card:focus-within {
+            outline: 3px solid var(--cherry-red);
+            outline-offset: 4px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--turquoise);
+        }
+
+        .card-title {
+            font-family: 'Lobster', cursive;
+            font-size: 1.75rem;
+            color: var(--cherry-red);
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-badge {
+            background: var(--cherry-red);
+            color: var(--cream);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 2px solid var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .card-content {
+            color: var(--black);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 3px solid var(--black);
+            font-family: 'Roboto Slab', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--retro-shadow);
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--neon-pink);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: var(--cherry-red);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--turquoise);
+            color: var(--black);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--turquoise);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--retro-yellow);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-ghost {
+            background: var(--cream);
+            color: var(--black);
+        }
+
+        .btn-ghost:hover {
+            background: var(--chrome-silver);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        /* === FORMS === */
+        .form-section {
+            background: var(--white);
+            border: 4px solid var(--black);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--retro-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 3px solid var(--black);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Roboto Slab', serif;
+            background: var(--cream);
+            color: var(--black);
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: 3px solid var(--cherry-red);
+            outline-offset: 2px;
+            background: var(--white);
+            border-color: var(--turquoise);
+        }
+
+        /* === TABLE === */
+        .section-title {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container {
+            background: var(--white);
+            border: 4px solid var(--black);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--retro-shadow);
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--cherry-red);
+            color: var(--cream);
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            border-bottom: 3px solid var(--black);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        tr:hover td {
+            background: var(--turquoise);
+            color: var(--black);
+        }
+
+        tbody tr:focus-within {
+            outline: 3px solid var(--cherry-red);
+            outline-offset: -3px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 2px solid var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .status-active {
+            background: var(--turquoise);
+            color: var(--black);
+        }
+
+        .status-pending {
+            background: var(--retro-yellow);
+            color: var(--black);
+        }
+
+        .status-completed {
+            background: var(--cherry-red);
+            color: var(--cream);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: var(--cherry-red);
+            border-top: 6px solid var(--chrome-silver);
+            box-shadow: var(--chrome-shine);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: 'Lobster', cursive;
+            font-size: 2rem;
+            color: var(--cream);
+            text-shadow: 2px 2px 0px var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-meta {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--cream);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .nav { flex-direction: column; }
+            .page-title { font-size: 3rem; }
+            .logo { font-size: 2rem; }
+        }
+
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .gallery-nav-hints {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 400;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+        .hint-text {
+            font-family: 'Courier New', monospace;
+        }
+        .gallery-nav-categories {
+            display: inline-flex;
+            gap: 0.25rem;
+            margin-left: 1rem;
+        }
+        .category-tag {
+            font-size: 0.625rem;
+            padding: 2px 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 3px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>177</strong> of 180 &mdash; 1950s Diner</span>
+            <span class="gallery-nav-hints" title="Keyboard Shortcuts">
+                <span class="hint-text">← → Navigate • ESC Hide</span>
+            </span>
+            <span class="gallery-nav-categories">
+                <span class="category-tag">hospitality</span><span class="category-tag">creative</span>
+            </span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-176.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-178-1960s-mod.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft') window.location.href = 'style-176.html';
+                if (e.key === 'ArrowRight') window.location.href = 'style-178-1960s-mod.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">LOBBI</div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="subtitle">Welcome to the Jukebox Era</p>
+
+        <div class="stats-grid">
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Members</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">$124K</div>
+                <div class="stat-label">Revenue</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Events</div>
+            </div>
+            <div class="stat-card" tabindex="0">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Retention</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Annual Conference</h3>
+                    <span class="card-badge">Featured</span>
+                </div>
+                <p class="card-content">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities at the historic Grand Ballroom.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Membership Renewal</h3>
+                    <span class="card-badge">Action</span>
+                </div>
+                <p class="card-content">247 members have renewals coming up this month. Send automated reminders to keep your community thriving.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Send Reminders</button>
+                    <button class="btn btn-ghost">View List</button>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-header">
+                    <h3 class="card-title">Q4 Financial Report</h3>
+                    <span class="card-badge">New</span>
+                </div>
+                <p class="card-content">Your quarterly financial summary is ready. Revenue increased 12% from last quarter with excellent member engagement.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-secondary">Share</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="form-section">
+            <div class="form-group">
+                <label class="form-label" for="member-search">Search Members</label>
+                <input type="text" id="member-search" class="form-input" placeholder="Enter member name or email..." />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="event-type">Event Type</label>
+                <select id="event-type" class="form-select">
+                    <option>All Events</option>
+                    <option>Conferences</option>
+                    <option>Workshops</option>
+                    <option>Networking</option>
+                    <option>Webinars</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">Search</button>
+            <button class="btn btn-ghost">Reset</button>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr tabindex="0">
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Premium)</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status-badge status-active">Confirmed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                    </tr>
+                    <tr tabindex="0">
+                        <td>Jennifer Adams</td>
+                        <td>Downloaded conference materials</td>
+                        <td>Dec 7, 2025</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 177: 1950s Diner</p>
+        <p class="footer-meta">Cherry red booths, turquoise accents, chrome shine | Jukebox era nostalgia</p>
+    </footer>
+</body>
+</html>

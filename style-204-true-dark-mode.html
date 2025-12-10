@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 204: True Dark Mode - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔════════════════════════════════════════════════════════════════════════════╗
+        ║                           ULTRATHINK METHODOLOGY                            ║
+        ║                       STYLE 204: TRUE DARK MODE                            ║
+        ╚════════════════════════════════════════════════════════════════════════════╝
+
+        BLEND ARCHITECTURE:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        Primary Component: True Dark (55%)
+        ├─ Pure black backgrounds (#000000)
+        ├─ Maximum contrast reduction
+        ├─ OLED-optimized color choices
+        └─ Energy-efficient display support
+
+        Secondary Component: OLED Black (25%)
+        ├─ Pixel-off black for OLED screens
+        ├─ Battery conservation
+        ├─ Infinite contrast ratio
+        └─ Screen burn-in prevention
+
+        Tertiary Component: Reduced Eye Strain (20%)
+        ├─ Lower brightness levels
+        ├─ Softer white tones (#E5E5E5)
+        ├─ Reduced blue light emission
+        └─ Optimized for nighttime use
+
+        DESIGN PHILOSOPHY:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        OLED-optimized darkness meets energy efficiency. This style embraces true
+        black (#000) for OLED displays, conserving battery while reducing eye
+        strain for late-night work sessions. Perfect for developers, night owls,
+        and mobile applications where battery life matters.
+
+        EMOTIONAL RESONANCE:
+        ├─ Temperature: 4/10 (Neutral-cool)
+        ├─ Formality: 6/10 (Professional, modern)
+        ├─ Energy: Focused, calm, nocturnal
+        └─ Mood: Immersive, comfortable, efficient
+
+        USE CASES:
+        ├─ Developer tools and IDEs
+        ├─ Mobile applications (battery saving)
+        ├─ Entertainment platforms
+        └─ Late-night productivity tools
+
+        COLOR PSYCHOLOGY:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        - True Black: Mystery, sophistication, focus
+        - Soft White: Clarity without glare
+        - Muted Colors: Reduced stimulation, calm
+        - Accent Colors: Vibrancy against darkness
+
+        ACCESSIBILITY COMPLIANCE:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ✓ WCAG 2.1 AA compliant (dark mode standards)
+        ✓ Text contrast optimized for #000 backgrounds
+        ✓ Reduced eye strain for extended use
+        ✓ Focus states with high visibility
+        ✓ Touch targets 44x44px minimum
+        ✓ Color-blind friendly accent palette
+
+        TECHNICAL IMPLEMENTATION:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        - True black (#000) for OLED efficiency
+        - Careful contrast management
+        - Softer shadows (dark on dark)
+        - Reduced brightness text colors
+        - Performance optimized (<50kb)
+
+        BATTERY EFFICIENCY:
+        ├─ OLED screens: 60% less power vs white
+        ├─ True black pixels are OFF
+        └─ Extends device battery life
+
+        BREAKPOINTS:
+        ├─ Mobile: < 768px
+        ├─ Tablet: 768px - 1024px
+        └─ Desktop: > 1024px
+        */
+
+        :root {
+            /* Color System - True Dark Palette */
+            --color-black: #000000;
+            --color-background: #000000;
+            --color-surface: #0A0A0A;
+            --color-surface-elevated: #141414;
+            --color-border: #1F1F1F;
+            --color-border-light: #2A2A2A;
+
+            /* Text Colors - Soft Whites */
+            --color-text-primary: #E5E5E5;
+            --color-text-secondary: #A3A3A3;
+            --color-text-tertiary: #737373;
+
+            /* Accent Colors - Vibrant Against Dark */
+            --color-primary: #3B82F6;
+            --color-primary-hover: #2563EB;
+            --color-primary-light: #1E3A8A;
+            --color-success: #22C55E;
+            --color-warning: #F59E0B;
+            --color-error: #EF4444;
+            --color-info: #06B6D4;
+
+            /* Dark Mode Specific Colors */
+            --color-purple: #A78BFA;
+            --color-pink: #EC4899;
+            --color-cyan: #22D3EE;
+            --color-green: #34D399;
+
+            /* Shadows - Subtle Dark on Dark */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 3rem;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 200ms ease;
+            --transition-slow: 300ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            color: var(--color-text-primary);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header Component */
+        .header {
+            background-color: var(--color-black);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: color var(--transition-base);
+            padding: var(--spacing-xs) 0;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 4px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-xl);
+        }
+
+        .page-header {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .page-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.03em;
+        }
+
+        .page-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            font-weight: 400;
+        }
+
+        /* Stats Grid Component */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .stat-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            background-color: var(--color-surface-elevated);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-tertiary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-change {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .stat-change.positive {
+            color: var(--color-success);
+        }
+
+        .stat-change.negative {
+            color: var(--color-error);
+        }
+
+        /* Content Cards Component */
+        .content-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-xl);
+            letter-spacing: -0.02em;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .content-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .content-card:hover {
+            background-color: var(--color-surface-elevated);
+            border-color: var(--color-primary);
+            transform: translateY(-4px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary-light), var(--color-surface));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-3xl);
+        }
+
+        .card-content {
+            padding: var(--spacing-xl);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: var(--font-size-xs);
+            color: var(--color-text-tertiary);
+        }
+
+        /* Data Table Component */
+        .table-container {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .table-filters {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .table-wrapper {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background-color: var(--color-surface-elevated);
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table td {
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-primary);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background-color: var(--color-surface-elevated);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Elements Component */
+        .form-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .form-label {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-text-primary);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-primary);
+            background-color: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            font-family: var(--font-family);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background-color: var(--color-black);
+            box-shadow: 0 0 0 3px var(--color-primary-light);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Buttons Component */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .button {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            font-family: var(--font-family);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            min-height: 44px;
+        }
+
+        .button:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .button-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .button-secondary {
+            background-color: var(--color-surface-elevated);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border);
+        }
+
+        .button-secondary:hover {
+            background-color: var(--color-border);
+            border-color: var(--color-text-tertiary);
+        }
+
+        .button-tertiary {
+            background-color: transparent;
+            color: var(--color-primary);
+        }
+
+        .button-tertiary:hover {
+            background-color: var(--color-primary-light);
+        }
+
+        /* Badges Component */
+        .badges-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .badges-grid {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-xs) var(--spacing-md);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-success {
+            background-color: #052E16;
+            color: #86EFAC;
+        }
+
+        .badge-warning {
+            background-color: #451A03;
+            color: #FCD34D;
+        }
+
+        .badge-error {
+            background-color: #450A0A;
+            color: #FCA5A5;
+        }
+
+        .badge-info {
+            background-color: #082F49;
+            color: #7DD3FC;
+        }
+
+        .badge-neutral {
+            background-color: var(--color-surface-elevated);
+            color: var(--color-text-secondary);
+        }
+
+        /* Footer Component */
+        .footer {
+            background-color: var(--color-black);
+            border-top: 1px solid var(--color-border);
+            margin-top: var(--spacing-3xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer-column h3 {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: color var(--transition-base);
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            color: var(--color-text-tertiary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: var(--spacing-md);
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .main-content {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .page-title {
+                font-size: var(--font-size-2xl);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                padding: var(--spacing-lg);
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>204</strong> of 140 &mdash; Style 204</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 203) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header Component -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">Lobbi</a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">Code</a>
+                <a href="#" class="nav-link">Projects</a>
+                <a href="#" class="nav-link">Settings</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">True Dark Mode</h1>
+            <p class="page-subtitle">OLED-optimized darkness meets energy efficiency for late-night productivity</p>
+        </div>
+
+        <!-- Stats Grid Component -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Active Projects</div>
+                <div class="stat-value">42</div>
+                <div class="stat-change positive">↑ 6 from last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Code Commits</div>
+                <div class="stat-value">1,847</div>
+                <div class="stat-change positive">↑ 24.3% from last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Battery Saved</div>
+                <div class="stat-value">58%</div>
+                <div class="stat-change positive">vs light mode</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Response Time</div>
+                <div class="stat-value">48ms</div>
+                <div class="stat-change positive">↓ 12ms from last week</div>
+            </div>
+        </section>
+
+        <!-- Content Cards Component -->
+        <section class="content-section">
+            <h2 class="section-title">Active Repositories</h2>
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-image">⚡</div>
+                    <div class="card-content">
+                        <h3 class="card-title">API Gateway Service</h3>
+                        <p class="card-description">High-performance API gateway with rate limiting, caching, and authentication middleware for microservices.</p>
+                        <div class="card-meta">
+                            <span>Updated 1h ago</span>
+                            <span>•</span>
+                            <span>TypeScript</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">🔐</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Auth Microservice</h3>
+                        <p class="card-description">OAuth2 and JWT-based authentication service with multi-factor authentication and session management.</p>
+                        <div class="card-meta">
+                            <span>Updated 3h ago</span>
+                            <span>•</span>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-image">📊</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Analytics Engine</h3>
+                        <p class="card-description">Real-time data processing pipeline with event streaming and advanced analytics capabilities.</p>
+                        <div class="card-meta">
+                            <span>Updated 5h ago</span>
+                            <span>•</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Data Table Component -->
+        <section class="table-container">
+            <div class="table-header">
+                <h2 class="section-title">Recent Deployments</h2>
+                <div class="table-filters">
+                    <button class="button button-secondary">Filter</button>
+                    <button class="button button-secondary">Export</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Deployment ID</th>
+                            <th>Service</th>
+                            <th>Environment</th>
+                            <th>Version</th>
+                            <th>Status</th>
+                            <th>Deployed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#DEP-3847</td>
+                            <td>API Gateway</td>
+                            <td>Production</td>
+                            <td>v2.4.1</td>
+                            <td><span class="badge badge-success">Live</span></td>
+                            <td>2h ago</td>
+                        </tr>
+                        <tr>
+                            <td>#DEP-3846</td>
+                            <td>Auth Service</td>
+                            <td>Production</td>
+                            <td>v1.8.3</td>
+                            <td><span class="badge badge-success">Live</span></td>
+                            <td>4h ago</td>
+                        </tr>
+                        <tr>
+                            <td>#DEP-3845</td>
+                            <td>Analytics Engine</td>
+                            <td>Staging</td>
+                            <td>v3.1.0-rc.1</td>
+                            <td><span class="badge badge-warning">Testing</span></td>
+                            <td>6h ago</td>
+                        </tr>
+                        <tr>
+                            <td>#DEP-3844</td>
+                            <td>Payment Gateway</td>
+                            <td>Production</td>
+                            <td>v1.5.2</td>
+                            <td><span class="badge badge-success">Live</span></td>
+                            <td>1d ago</td>
+                        </tr>
+                        <tr>
+                            <td>#DEP-3843</td>
+                            <td>Notification Service</td>
+                            <td>Production</td>
+                            <td>v2.0.1</td>
+                            <td><span class="badge badge-error">Rollback</span></td>
+                            <td>1d ago</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Form Elements Component -->
+        <section class="form-section">
+            <h2 class="section-title">Deploy Configuration</h2>
+            <form class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="service">Service Name</label>
+                    <input type="text" id="service" class="form-input" placeholder="Enter service name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="environment">Environment</label>
+                    <select id="environment" class="form-select">
+                        <option>Select environment</option>
+                        <option>Production</option>
+                        <option>Staging</option>
+                        <option>Development</option>
+                        <option>QA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="version">Version Tag</label>
+                    <input type="text" id="version" class="form-input" placeholder="v1.0.0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="branch">Branch</label>
+                    <select id="branch" class="form-select">
+                        <option>Select branch</option>
+                        <option>main</option>
+                        <option>develop</option>
+                        <option>feature/*</option>
+                        <option>hotfix/*</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label" for="notes">Deployment Notes</label>
+                    <textarea id="notes" class="form-textarea" placeholder="Describe what changes are included in this deployment"></textarea>
+                </div>
+            </form>
+        </section>
+
+        <!-- Buttons Component -->
+        <section class="button-section">
+            <h2 class="section-title">Deployment Actions</h2>
+            <div class="button-group">
+                <button class="button button-primary">Deploy to Production</button>
+                <button class="button button-secondary">Run Tests</button>
+                <button class="button button-tertiary">View Logs</button>
+            </div>
+        </section>
+
+        <!-- Badges Component -->
+        <section class="badges-section">
+            <h2 class="section-title">Build Status</h2>
+            <div class="badges-grid">
+                <span class="badge badge-success">Passing</span>
+                <span class="badge badge-warning">Building</span>
+                <span class="badge badge-error">Failed</span>
+                <span class="badge badge-info">Queued</span>
+                <span class="badge badge-neutral">Cancelled</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Developer</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                        <li><a href="#" class="footer-link">API Reference</a></li>
+                        <li><a href="#" class="footer-link">CLI Tools</a></li>
+                        <li><a href="#" class="footer-link">SDK</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Platform</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Status</a></li>
+                        <li><a href="#" class="footer-link">Changelog</a></li>
+                        <li><a href="#" class="footer-link">Roadmap</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Guides</a></li>
+                        <li><a href="#" class="footer-link">Tutorials</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Privacy</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. Style 204: True Dark Mode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 197: RPG Fantasy - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK METHODOLOGY - STYLE 197: RPG FANTASY
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Epic Adventure Interface: This design system captures the essence of classic
+        fantasy RPGs, combining the aesthetic appeal of medieval manuscripts with
+        modern game UI conventions. The system evokes a sense of quest, discovery,
+        and character progression through ornate borders, parchment textures, and
+        hierarchical information display.
+
+        BLEND ANALYSIS
+        ─────────────────────────────────────────────────────────────────────────────
+        Primary (55%): Fantasy RPG
+        - Ornate borders and decorative elements
+        - Character stat displays with progress bars
+        - Quest log and inventory grid layouts
+        - Parchment-inspired backgrounds
+        - Gold accent highlights for important items
+
+        Secondary (25%): Medieval UI
+        - Gothic-inspired typography hierarchy
+        - Illuminated manuscript color palette
+        - Stone and wood texture references
+        - Heraldic design patterns
+        - Scroll-like content containers
+
+        Tertiary (20%): Quest Interface
+        - Achievement tracking systems
+        - Progress indicators for objectives
+        - Interactive map elements
+        - Notification badges for new items/quests
+        - Skill tree visualization patterns
+
+        COLOR PSYCHOLOGY & APPLICATION
+        ─────────────────────────────────────────────────────────────────────────────
+        Parchment (#F4E4C1): Base layer, evokes aged paper and quest logs
+        Deep Purple (#4A235A): Royal authority, magical elements, rare items
+        Forest Green (#1E5631): Nature, healing, secondary actions
+        Rich Gold (#C9A961): Rewards, highlights, legendary items
+        Dark Brown (#3E2723): Text, borders, grounding element
+        Crimson (#8B0000): Danger, warnings, critical stats
+
+        TYPOGRAPHY STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Headings: MedievalSharp - Gothic aesthetic, fantasy immersion
+        Body: Merriweather - Readable serif, traditional book feel
+        Hierarchy: Clear differentiation between quest titles, descriptions, stats
+
+        EXPERIENTIAL METRICS
+        ─────────────────────────────────────────────────────────────────────────────
+        Temperature: 5/10 (Balanced - Epic yet approachable)
+        Formality: 5/10 (Semi-formal - Adventure narrative with structure)
+        Energy: 6/10 (Moderate-high - Exciting without overwhelming)
+        Playfulness: 7/10 (High - Fantasy escapism and character immersion)
+
+        ACCESSIBILITY STANDARDS
+        ─────────────────────────────────────────────────────────────────────────────
+        WCAG 2.1 AA Compliance:
+        - Minimum contrast ratio 4.5:1 for normal text
+        - Minimum contrast ratio 3:1 for large text
+        - Focus indicators on all interactive elements
+        - Semantic HTML for screen readers
+        - Responsive touch targets (min 44x44px)
+
+        USE CASES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Fantasy RPG game interfaces
+        - Quest management systems
+        - Character progression dashboards
+        - Medieval-themed applications
+        - Creative portfolio sites
+        - Gaming community platforms
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        - Hover states reveal additional item information
+        - Click interactions feel substantial with visual feedback
+        - Progress bars animate on value changes
+        - Notifications slide in like quest updates
+        - Cards flip or expand for detailed views
+
+        TECHNICAL NOTES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Custom properties for easy theme adjustments
+        - CSS Grid for inventory-style layouts
+        - Flexbox for responsive stat displays
+        - Transform effects for interactive depth
+        - Box-shadow layering for parchment effect
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color Palette */
+            --color-parchment: #F4E4C1;
+            --color-parchment-dark: #E8D4A8;
+            --color-purple: #4A235A;
+            --color-purple-light: #6C3483;
+            --color-green: #1E5631;
+            --color-green-light: #2E7D44;
+            --color-gold: #C9A961;
+            --color-gold-light: #DAC084;
+            --color-brown: #3E2723;
+            --color-brown-light: #5D4037;
+            --color-crimson: #8B0000;
+            --color-white: #FFFFFF;
+
+            /* Typography */
+            --font-heading: 'MedievalSharp', serif;
+            --font-body: 'Merriweather', serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(62, 39, 35, 0.1);
+            --shadow-md: 0 4px 8px rgba(62, 39, 35, 0.15);
+            --shadow-lg: 0 8px 16px rgba(62, 39, 35, 0.2);
+            --shadow-ornate: inset 0 0 0 2px var(--color-gold), 0 4px 8px rgba(62, 39, 35, 0.2);
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-parchment-dark) 0%, var(--color-parchment) 100%);
+            color: var(--color-brown);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background: var(--color-purple);
+            border: 3px solid var(--color-gold);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid var(--color-gold-light);
+            border-radius: var(--radius-md);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            color: var(--color-gold);
+            font-size: 2.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            color: var(--color-parchment);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border: 2px solid var(--color-gold);
+            border-radius: var(--radius-sm);
+            background: var(--color-purple-light);
+            transition: all var(--transition-fast);
+            font-size: 1rem;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: var(--color-gold);
+            color: var(--color-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: var(--color-parchment);
+            border: 3px solid var(--color-brown);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-fast);
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--color-gold);
+            border-radius: var(--radius-sm);
+            pointer-events: none;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-purple);
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-family: var(--font-heading);
+            color: var(--color-brown);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-purple);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 12px;
+            background: var(--color-brown-light);
+            border: 2px solid var(--color-brown);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: var(--spacing-xs);
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+            transition: width 0.5s ease;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: var(--color-parchment);
+            border: 3px solid var(--color-brown);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--color-purple);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 3px solid var(--color-gold);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-card {
+            background: var(--color-parchment-dark);
+            border: 2px solid var(--color-brown);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-ornate);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-badge {
+            background: var(--color-gold);
+            color: var(--color-brown);
+            font-family: var(--font-heading);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            border: 1px solid var(--color-brown);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--color-purple);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .card-description {
+            color: var(--color-brown);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-brown-light);
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--color-parchment);
+            border: 3px solid var(--color-brown);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .table-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .table-filter {
+            flex: 1;
+            min-width: 200px;
+            padding: var(--spacing-sm);
+            border: 2px solid var(--color-brown);
+            border-radius: var(--radius-sm);
+            background: var(--color-parchment-dark);
+            font-family: var(--font-body);
+            color: var(--color-brown);
+            font-size: 1rem;
+        }
+
+        .table-filter:focus {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        thead {
+            background: var(--color-purple);
+            color: var(--color-gold);
+        }
+
+        th {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 2px solid var(--color-gold);
+            font-size: 1rem;
+        }
+
+        tbody tr {
+            background: var(--color-parchment-dark);
+            transition: background var(--transition-fast);
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--color-parchment);
+        }
+
+        tbody tr:hover {
+            background: var(--color-gold-light);
+        }
+
+        td {
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-brown-light);
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--color-parchment);
+            border: 3px solid var(--color-brown);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            color: var(--color-brown);
+            font-size: 1rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: var(--spacing-sm);
+            border: 2px solid var(--color-brown);
+            border-radius: var(--radius-sm);
+            background: var(--color-parchment-dark);
+            font-family: var(--font-body);
+            color: var(--color-brown);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--color-purple);
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: var(--color-gold);
+            color: var(--color-purple);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            outline: none;
+        }
+
+        .btn-secondary {
+            background: var(--color-green);
+            border-color: var(--color-gold);
+            color: var(--color-parchment);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: var(--color-green-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            outline: none;
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            border-color: var(--color-brown);
+            color: var(--color-brown);
+        }
+
+        .btn-tertiary:hover,
+        .btn-tertiary:focus {
+            background: var(--color-brown);
+            color: var(--color-parchment);
+            outline: none;
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            border: 2px solid;
+        }
+
+        .badge-legendary {
+            background: var(--color-gold);
+            border-color: var(--color-purple);
+            color: var(--color-purple);
+        }
+
+        .badge-epic {
+            background: var(--color-purple);
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+        }
+
+        .badge-rare {
+            background: var(--color-green);
+            border-color: var(--color-parchment);
+            color: var(--color-parchment);
+        }
+
+        .badge-common {
+            background: var(--color-brown-light);
+            border-color: var(--color-parchment);
+            color: var(--color-parchment);
+        }
+
+        .badge-danger {
+            background: var(--color-crimson);
+            border-color: var(--color-gold);
+            color: var(--color-parchment);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-purple);
+            border: 3px solid var(--color-gold);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-parchment);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--color-gold);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--color-parchment);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--color-gold);
+            outline: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 2px solid var(--color-gold);
+            font-family: var(--font-heading);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>197</strong> of 140 &mdash; Style 197</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 196) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <h1>⚔️ RPG Fantasy Quest System ⚔️</h1>
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="#quests">Quests</a>
+                <a href="#inventory">Inventory</a>
+                <a href="#character">Character</a>
+                <a href="#guild">Guild</a>
+                <a href="#map">Map</a>
+            </nav>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" aria-label="Character statistics">
+            <div class="stat-card">
+                <div class="stat-icon" style="color: var(--color-gold);">⚔️</div>
+                <div class="stat-label">Attack Power</div>
+                <div class="stat-value">1,284</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="color: var(--color-crimson);">❤️</div>
+                <div class="stat-label">Health Points</div>
+                <div class="stat-value">8,450</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 68%; background: linear-gradient(90deg, var(--color-crimson), #B71C1C);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="color: var(--color-purple-light);">✨</div>
+                <div class="stat-label">Mana Reserve</div>
+                <div class="stat-value">3,620</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 92%; background: linear-gradient(90deg, var(--color-purple), var(--color-purple-light));"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="color: var(--color-green);">🛡️</div>
+                <div class="stat-label">Defense Rating</div>
+                <div class="stat-value">956</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 76%; background: linear-gradient(90deg, var(--color-green), var(--color-green-light));"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Quests -->
+        <section class="content-section">
+            <h2 class="section-title">📜 Active Quests</h2>
+
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge">Main Quest</span>
+                    </div>
+                    <h3 class="card-title">The Dragon's Awakening</h3>
+                    <p class="card-description">
+                        Journey to the Crimson Mountains and investigate the ancient dragon's lair.
+                        The fate of the kingdom rests in your hands.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-gold);">⭐ Legendary</span>
+                        <span>Progress: 3/5</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="background: var(--color-purple); color: var(--color-parchment);">Side Quest</span>
+                    </div>
+                    <h3 class="card-title">Lost Treasure of Eldoria</h3>
+                    <p class="card-description">
+                        A mysterious map has been discovered in the archives. Follow the clues to
+                        uncover the legendary treasure hidden centuries ago.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-purple);">💎 Epic</span>
+                        <span>Progress: 5/8</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="background: var(--color-green); color: var(--color-parchment);">Guild Quest</span>
+                    </div>
+                    <h3 class="card-title">Protect the Merchant Caravan</h3>
+                    <p class="card-description">
+                        Bandits have been attacking trade routes. Escort the merchant caravan safely
+                        through the Darkwood Forest.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-green);">🌿 Rare</span>
+                        <span>Progress: 1/3</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="badges-container">
+                <span class="badge badge-legendary">🏆 Quest Master</span>
+                <span class="badge badge-epic">⚔️ Dragon Slayer</span>
+                <span class="badge badge-rare">🗡️ Sword Expert</span>
+                <span class="badge badge-common">📖 Apprentice</span>
+                <span class="badge badge-danger">⚠️ Cursed</span>
+            </div>
+        </section>
+
+        <!-- Inventory Table -->
+        <section class="table-container">
+            <h2 class="section-title">🎒 Inventory Management</h2>
+
+            <div class="table-controls">
+                <input type="search" class="table-filter" placeholder="Search items..." aria-label="Filter inventory items">
+                <select class="table-filter" aria-label="Filter by rarity">
+                    <option>All Rarities</option>
+                    <option>Legendary</option>
+                    <option>Epic</option>
+                    <option>Rare</option>
+                    <option>Common</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Type</th>
+                        <th>Rarity</th>
+                        <th>Quantity</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sword of Ancient Kings</strong></td>
+                        <td>Weapon</td>
+                        <td><span class="badge badge-legendary">Legendary</span></td>
+                        <td>1</td>
+                        <td>15,000 Gold</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dragon Scale Armor</strong></td>
+                        <td>Armor</td>
+                        <td><span class="badge badge-epic">Epic</span></td>
+                        <td>1</td>
+                        <td>8,500 Gold</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Healing Potion</strong></td>
+                        <td>Consumable</td>
+                        <td><span class="badge badge-common">Common</span></td>
+                        <td>24</td>
+                        <td>50 Gold</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enchanted Bow</strong></td>
+                        <td>Weapon</td>
+                        <td><span class="badge badge-rare">Rare</span></td>
+                        <td>1</td>
+                        <td>3,200 Gold</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mana Crystal</strong></td>
+                        <td>Resource</td>
+                        <td><span class="badge badge-epic">Epic</span></td>
+                        <td>12</td>
+                        <td>750 Gold</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Character Form -->
+        <section class="form-section">
+            <h2 class="section-title">⚙️ Character Customization</h2>
+
+            <form class="form-grid">
+                <div class="form-group">
+                    <label for="char-name" class="form-label">Character Name</label>
+                    <input type="text" id="char-name" class="form-input" placeholder="Enter hero name" value="Aldric the Brave">
+                </div>
+
+                <div class="form-group">
+                    <label for="char-class" class="form-label">Class</label>
+                    <select id="char-class" class="form-select">
+                        <option>Warrior</option>
+                        <option>Mage</option>
+                        <option>Rogue</option>
+                        <option>Paladin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="char-level" class="form-label">Level</label>
+                    <input type="number" id="char-level" class="form-input" value="42" min="1" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="char-guild" class="form-label">Guild</label>
+                    <select id="char-guild" class="form-select">
+                        <option>Knights of Valor</option>
+                        <option>Mages Circle</option>
+                        <option>Shadow Brotherhood</option>
+                        <option>Holy Order</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="char-bio" class="form-label">Character Biography</label>
+                    <textarea id="char-bio" class="form-textarea" placeholder="Tell your hero's story...">A seasoned warrior who has traveled the realm, seeking glory and protecting the innocent from darkness.</textarea>
+                </div>
+            </form>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">💾 Save Character</button>
+                <button type="button" class="btn btn-secondary">🔄 Reset Stats</button>
+                <button type="button" class="btn btn-tertiary">❌ Cancel</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏰 Kingdom</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About the Realm</a></li>
+                        <li><a href="#lore">Lore & History</a></li>
+                        <li><a href="#factions">Factions</a></li>
+                        <li><a href="#news">Kingdom News</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>⚔️ Gameplay</h3>
+                    <ul class="footer-links">
+                        <li><a href="#guides">Quest Guides</a></li>
+                        <li><a href="#classes">Class Info</a></li>
+                        <li><a href="#skills">Skills & Abilities</a></li>
+                        <li><a href="#crafting">Crafting System</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>🛡️ Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="#forums">Forums</a></li>
+                        <li><a href="#discord">Discord Server</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 RPG Fantasy Quest System - Style 197: RPG Fantasy | Lobbi Design System</p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-body); font-size: 0.9rem;">
+                    🎮 Temperature: 5/10 | Formality: 5/10 | Tags: creative, tech
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

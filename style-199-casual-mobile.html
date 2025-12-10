@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 199: Casual Mobile - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK METHODOLOGY - STYLE 199: CASUAL MOBILE
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Friendly Progression Platform: This design system embraces the joy and
+        accessibility of casual mobile gaming. It creates a welcoming environment where
+        users feel encouraged to engage, progress, and celebrate achievements. The
+        aesthetic combines playful energy with clear information hierarchy, making
+        complex systems feel approachable and rewarding.
+
+        BLEND ANALYSIS
+        ─────────────────────────────────────────────────────────────────────────────
+        Primary (55%): Mobile Game UI
+        - Touch-friendly large buttons and controls
+        - Vibrant gradient backgrounds
+        - Progress bars and level indicators
+        - Reward animations and celebrations
+        - Icon-driven navigation
+
+        Secondary (25%): Casual Gaming
+        - Friendly, rounded shapes throughout
+        - Bright, energetic color palette
+        - Playful micro-interactions
+        - Clear visual feedback
+        - Achievement celebration systems
+
+        Tertiary (20%): Achievement System
+        - Star ratings and point displays
+        - Unlock progression visualizations
+        - Badge collection interfaces
+        - Daily reward mechanics
+        - Streak counters and milestones
+
+        COLOR PSYCHOLOGY & APPLICATION
+        ─────────────────────────────────────────────────────────────────────────────
+        Sunny Yellow (#FFD93D): Energy, optimism, attention (coins, rewards)
+        Sky Blue (#6BCF7F): Trust, calm, progression (backgrounds, success states)
+        Coral Pink (#FF6B9D): Playfulness, warmth, excitement (highlights, CTAs)
+        Purple (#A06CD5): Premium, magic, special items (rare achievements)
+        Orange (#FFA559): Achievement, enthusiasm, action (buttons, progress)
+        White (#FFFFFF): Clarity, cleanliness, modern feel
+
+        TYPOGRAPHY STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Headings: Fredoka One - Round, friendly, game-like character
+        Body: Nunito - Highly readable, warm, approachable
+        Weight Variation: Multiple weights for clear hierarchy without harshness
+
+        EXPERIENTIAL METRICS
+        ─────────────────────────────────────────────────────────────────────────────
+        Temperature: 8/10 (Warm - Friendly, inviting, energetic)
+        Formality: 2/10 (Casual - Playful, relaxed, fun)
+        Energy: 9/10 (Very High - Exciting, dynamic, engaging)
+        Accessibility: 9/10 (High - Clear, intuitive, inclusive)
+
+        ACCESSIBILITY STANDARDS
+        ─────────────────────────────────────────────────────────────────────────────
+        WCAG 2.1 AA Compliance:
+        - Large touch targets (minimum 48x48px for mobile)
+        - High contrast despite bright colors (tested against backgrounds)
+        - Clear focus states with multiple indicators
+        - Simple language and clear iconography
+        - Reduced motion options respected
+
+        USE CASES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Mobile casual game interfaces
+        - Kids and family-friendly apps
+        - Gamification systems
+        - Educational platforms
+        - Fitness and habit-tracking apps
+        - Social casual games
+        - Reward and loyalty programs
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        - Buttons "bounce" on interaction
+        - Achievement unlocks with celebration animations
+        - Progress bars fill with satisfying motion
+        - Coins and rewards "pop" when earned
+        - Cards lift and tilt slightly on hover
+        - Success states trigger confetti or sparkles
+
+        TECHNICAL NOTES
+        ─────────────────────────────────────────────────────────────────────────────
+        - CSS transforms for playful animations
+        - Gradient backgrounds for depth and energy
+        - Border-radius creates friendly, approachable shapes
+        - Box-shadows create "floating" elevation
+        - Transition timing creates bounce effects
+        - Mobile-first responsive approach
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color Palette */
+            --color-yellow: #FFD93D;
+            --color-yellow-dark: #FFC107;
+            --color-blue: #6BCF7F;
+            --color-blue-light: #A8E6CF;
+            --color-pink: #FF6B9D;
+            --color-pink-light: #FFB3C6;
+            --color-purple: #A06CD5;
+            --color-purple-light: #C5A3E8;
+            --color-orange: #FFA559;
+            --color-orange-light: #FFBE8B;
+            --color-white: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #5A6C7D;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-success: linear-gradient(135deg, #6BCF7F 0%, #48BB78 100%);
+            --gradient-warning: linear-gradient(135deg, #FFA559 0%, #FF8C42 100%);
+            --gradient-sky: linear-gradient(135deg, #A8E6CF 0%, #6BCF7F 100%);
+            --gradient-sunset: linear-gradient(135deg, #FF6B9D 0%, #FFA559 100%);
+
+            /* Typography */
+            --font-heading: 'Fredoka One', cursive;
+            --font-body: 'Nunito', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 30px;
+            --radius-full: 50px;
+
+            /* Shadows */
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.2);
+            --shadow-colored: 0 10px 30px;
+
+            /* Transitions */
+            --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-smooth: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFF9C4 50%, #FCE4EC 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-full);
+            transition: all 0.3s var(--transition-bounce);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            min-width: 100px;
+            text-align: center;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: var(--color-white);
+            color: var(--color-purple);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-md);
+            outline: none;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-label {
+            font-family: var(--font-heading);
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 16px;
+            background: #E0E0E0;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            border-radius: var(--radius-full);
+            transition: width 1s var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0));
+            animation: shimmer 2s infinite;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+            border: 3px solid transparent;
+        }
+
+        .content-card:hover {
+            transform: translateY(-6px) rotate(1deg);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-purple-light);
+        }
+
+        .card-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .card-description {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 2px solid #E0E0E0;
+            font-weight: 600;
+        }
+
+        .card-stars {
+            color: var(--color-yellow);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .table-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .table-filter {
+            flex: 1;
+            min-width: 200px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 3px solid #E0E0E0;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            color: var(--color-text);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-smooth);
+        }
+
+        .table-filter:focus {
+            outline: none;
+            border-color: var(--color-purple);
+            box-shadow: 0 0 0 4px rgba(160, 108, 213, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        thead th {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm);
+            text-align: left;
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        tbody tr {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            transition: all var(--transition-smooth);
+            border-radius: var(--radius-sm);
+        }
+
+        tbody tr:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-sm);
+        }
+
+        tbody td {
+            padding: var(--spacing-md);
+            border-top: 2px solid #F0F0F0;
+            border-bottom: 2px solid #F0F0F0;
+        }
+
+        tbody td:first-child {
+            border-left: 2px solid #F0F0F0;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        tbody td:last-child {
+            border-right: 2px solid #F0F0F0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 3px solid #E0E0E0;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            color: var(--color-text);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-smooth);
+            background: var(--color-white);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-purple);
+            box-shadow: 0 0 0 4px rgba(160, 108, 213, 0.2);
+            transform: scale(1.02);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-bounce);
+            text-decoration: none;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            color: var(--color-white);
+        }
+
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-md);
+            outline: none;
+        }
+
+        .btn:active {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-success);
+        }
+
+        .btn-tertiary {
+            background: var(--gradient-warning);
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+        }
+
+        .badge:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, var(--color-yellow) 0%, var(--color-yellow-dark) 100%);
+        }
+
+        .badge-silver {
+            background: linear-gradient(135deg, #E0E0E0 0%, #BDBDBD 100%);
+        }
+
+        .badge-bronze {
+            background: linear-gradient(135deg, #FFA559 0%, #FF8C42 100%);
+        }
+
+        .badge-streak {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FFA559 100%);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .badge-level {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-white);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.4rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--color-white);
+            transform: translateX(8px);
+            outline: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+            font-family: var(--font-heading);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus {
+            outline: 3px solid var(--color-purple);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>199</strong> of 140 &mdash; Style 199</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 198) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <h1>🎮 Fun Game Hub 🎮</h1>
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="#play">Play</a>
+                <a href="#shop">Shop</a>
+                <a href="#rewards">Rewards</a>
+                <a href="#friends">Friends</a>
+                <a href="#profile">Profile</a>
+            </nav>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" aria-label="Player statistics">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--gradient-warning);">🪙</div>
+                <div class="stat-label">Gold Coins</div>
+                <div class="stat-value" style="color: var(--color-orange);">45,280</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 82%; background: var(--gradient-warning);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--gradient-primary);">⭐</div>
+                <div class="stat-label">Level Progress</div>
+                <div class="stat-value" style="color: var(--color-purple);">Level 28</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 65%; background: var(--gradient-primary);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--gradient-sunset);">🔥</div>
+                <div class="stat-label">Win Streak</div>
+                <div class="stat-value" style="color: var(--color-pink);">12 Days</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 90%; background: var(--gradient-sunset);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--gradient-success);">💎</div>
+                <div class="stat-label">Gems Collected</div>
+                <div class="stat-value" style="color: var(--color-blue);">1,847</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 74%; background: var(--gradient-success);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Challenges -->
+        <section class="content-section">
+            <h2 class="section-title">🎯 Daily Challenges</h2>
+
+            <div class="cards-grid">
+                <article class="content-card">
+                    <span class="card-badge" style="background: var(--gradient-warning);">🏆 Easy</span>
+                    <h3 class="card-title">Win 5 Matches</h3>
+                    <p class="card-description">
+                        Jump into the arena and secure 5 victories! Earn bonus coins and unlock
+                        a special achievement badge.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-stars">⭐⭐⭐</span>
+                        <span style="color: var(--color-orange); font-weight: 800;">+500 🪙</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <span class="card-badge" style="background: var(--gradient-primary);">🎮 Medium</span>
+                    <h3 class="card-title">Collect 100 Gems</h3>
+                    <p class="card-description">
+                        Search high and low to gather precious gems! Complete this challenge to
+                        unlock a mystery reward box.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-stars">⭐⭐⭐⭐</span>
+                        <span style="color: var(--color-blue); font-weight: 800;">+1000 💎</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <span class="card-badge" style="background: var(--gradient-sunset);">🔥 Hard</span>
+                    <h3 class="card-title">Perfect Combo x3</h3>
+                    <p class="card-description">
+                        Master your skills and achieve 3 perfect combos in a single session!
+                        Only the best can claim this reward.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-stars">⭐⭐⭐⭐⭐</span>
+                        <span style="color: var(--color-pink); font-weight: 800;">+2000 🏆</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="badges-container">
+                <span class="badge badge-gold">🥇 Gold Champion</span>
+                <span class="badge badge-silver">🥈 Silver Star</span>
+                <span class="badge badge-bronze">🥉 Bronze Hero</span>
+                <span class="badge badge-streak">🔥 12 Day Streak</span>
+                <span class="badge badge-level">⭐ Level 28</span>
+            </div>
+        </section>
+
+        <!-- Leaderboard Table -->
+        <section class="table-container">
+            <h2 class="section-title">🏆 Top Players</h2>
+
+            <div class="table-controls">
+                <input type="search" class="table-filter" placeholder="🔍 Search players..." aria-label="Filter leaderboard">
+                <select class="table-filter" aria-label="Filter by timeframe">
+                    <option>⏱️ This Week</option>
+                    <option>📅 This Month</option>
+                    <option>🌟 All Time</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Level</th>
+                        <th>Score</th>
+                        <th>Badges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--color-yellow); font-size: 1.3rem;">🥇</strong></td>
+                        <td><strong>SuperStar88</strong></td>
+                        <td><span class="badge badge-level" style="font-size: 0.8rem;">⭐ 42</span></td>
+                        <td><strong style="color: var(--color-orange);">125,400</strong></td>
+                        <td>🏆🎮💎</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #C0C0C0; font-size: 1.3rem;">🥈</strong></td>
+                        <td><strong>GameMaster</strong></td>
+                        <td><span class="badge badge-level" style="font-size: 0.8rem;">⭐ 38</span></td>
+                        <td><strong style="color: var(--color-orange);">118,950</strong></td>
+                        <td>🏆🎯💎</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #CD7F32; font-size: 1.3rem;">🥉</strong></td>
+                        <td><strong>CoolPlayer</strong></td>
+                        <td><span class="badge badge-level" style="font-size: 0.8rem;">⭐ 35</span></td>
+                        <td><strong style="color: var(--color-orange);">112,300</strong></td>
+                        <td>🎮🔥⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td><strong>NinjaGamer</strong></td>
+                        <td><span class="badge badge-level" style="font-size: 0.8rem;">⭐ 33</span></td>
+                        <td><strong style="color: var(--color-orange);">98,720</strong></td>
+                        <td>🎯⚡🎮</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td><strong>ProChamp</strong></td>
+                        <td><span class="badge badge-level" style="font-size: 0.8rem;">⭐ 30</span></td>
+                        <td><strong style="color: var(--color-orange);">87,450</strong></td>
+                        <td>🏆🔥⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Profile Settings Form -->
+        <section class="form-section">
+            <h2 class="section-title">⚙️ Profile Settings</h2>
+
+            <form class="form-grid">
+                <div class="form-group">
+                    <label for="username" class="form-label">👤 Username</label>
+                    <input type="text" id="username" class="form-input" placeholder="Enter your username" value="AwesomePlayer">
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar" class="form-label">🎨 Avatar Style</label>
+                    <select id="avatar" class="form-select">
+                        <option>😎 Cool Cat</option>
+                        <option>🦊 Clever Fox</option>
+                        <option>🐼 Panda Pro</option>
+                        <option>🦁 Lion King</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="theme" class="form-label">🎨 Theme Color</label>
+                    <select id="theme" class="form-select">
+                        <option>💜 Purple Magic</option>
+                        <option>💙 Ocean Blue</option>
+                        <option>💚 Forest Green</option>
+                        <option>🧡 Sunset Orange</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notifications" class="form-label">🔔 Notifications</label>
+                    <select id="notifications" class="form-select">
+                        <option>🔊 All Notifications</option>
+                        <option>⭐ Important Only</option>
+                        <option>🔕 Mute All</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="bio" class="form-label">📝 Player Bio</label>
+                    <textarea id="bio" class="form-textarea" placeholder="Tell us about yourself...">Just here to have fun and make friends! Love casual games and daily challenges. 🎮✨</textarea>
+                </div>
+            </form>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                <button type="button" class="btn btn-secondary">✅ Verify Account</button>
+                <button type="button" class="btn btn-tertiary">🔄 Reset</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎮 Games</h3>
+                    <ul class="footer-links">
+                        <li><a href="#puzzle">Puzzle Games</a></li>
+                        <li><a href="#action">Action Games</a></li>
+                        <li><a href="#adventure">Adventure</a></li>
+                        <li><a href="#multiplayer">Multiplayer</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>🎁 Rewards</h3>
+                    <ul class="footer-links">
+                        <li><a href="#daily">Daily Bonuses</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#shop">Item Shop</a></li>
+                        <li><a href="#vip">VIP Perks</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>👥 Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="#friends">Find Friends</a></li>
+                        <li><a href="#clans">Join Clans</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#help">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>🎉 Fun Game Hub - Where Every Day is a Win! 🎉</p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-body); font-size: 0.95rem;">
+                    Style 199: Casual Mobile | Temperature: 8/10 | Formality: 2/10 | Tags: creative, tech
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

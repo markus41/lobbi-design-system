@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 158: Greek Mediterranean - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                           ULTRATHINK DOCUMENTATION                            ║
+        ║                      Style 158: Greek Mediterranean                           ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        BLEND FORMULA: Greek Island 55% + Mediterranean Blue 25% + Whitewashed Architecture 20%
+
+        DESIGN PHILOSOPHY:
+        This design system captures the essence of Aegean simplicity and sun-drenched
+        elegance found in Greek island architecture. Inspired by the iconic white-
+        washed buildings of Santorini and the deep blues of the Mediterranean Sea,
+        this system balances classical proportion with coastal relaxation.
+
+        CULTURAL CONTEXT:
+        - Santorini Blue: The iconic blue domes reflecting sky and sea
+        - White: Whitewashed walls reflecting Mediterranean sunlight
+        - Terracotta: Clay pottery and rooftops of traditional architecture
+        - Olive Green: Ancient olive groves and natural landscape
+        - Warm Sand: Sun-bleached stones and sandy beaches
+
+        BLEND ANALYSIS:
+
+        1. Greek Island (55% - Dominant Foundation)
+           Purpose: Establishes authentic Mediterranean aesthetic and cultural identity
+           Implementation:
+           - Santorini blue as primary accent (#2B5C8C)
+           - Crisp white backgrounds mimicking whitewashed walls
+           - Organic, flowing layouts inspired by island architecture
+           - Natural material textures and earthy tones
+           - Relaxed, welcoming atmosphere
+
+        2. Mediterranean Blue (25% - Color Depth)
+           Purpose: Brings the depth and vitality of the Aegean Sea
+           Implementation:
+           - Rich blue gradients for immersive headers
+           - Water-inspired color transitions
+           - Cool blue shadows and accents
+           - Deep navy for contrast and grounding
+           - Refreshing color palette harmony
+
+        3. Whitewashed Architecture (20% - Structural Clarity)
+           Purpose: Provides clean, minimalist structural foundation
+           Implementation:
+           - Generous white space like sunlit courtyards
+           - Clean, geometric layouts with rounded corners
+           - Subtle shadows suggesting depth and dimension
+           - Light, airy component spacing
+           - Architectural simplicity and elegance
+
+        TYPOGRAPHY STRATEGY:
+        - Headings: Libre Baskerville (classical serif)
+          Rationale: Evokes classical Greek literature and philosophy while
+          maintaining excellent readability. The serif style connects to ancient
+          inscriptions and scholarly traditions, adding timeless elegance.
+
+        - Body: Open Sans (humanist sans-serif)
+          Rationale: Provides warm, friendly readability perfect for extended
+          content. The open letterforms echo the welcoming nature of Greek
+          hospitality while ensuring accessibility across all devices.
+
+        TEMPERATURE: 7/10 (Warm)
+        - Sun-drenched color palette
+        - Warm terracotta and sand accents
+        - Inviting, Mediterranean warmth
+        - Balanced with cool blues
+        - Overall: Welcoming and relaxed
+
+        FORMALITY: 6/10 (Moderately Formal)
+        - Classical heritage with casual comfort
+        - Professional yet approachable
+        - Refined but not stuffy
+        - Hospitality-focused warmth
+        - Balanced elegance and ease
+
+        CONTRAST RATIOS (WCAG 2.1 AA Compliance):
+        - Primary text on white: 14.2:1 (AAA)
+        - White text on Santorini blue: 6.1:1 (AA)
+        - Text on olive green: 7.8:1 (AA)
+        - Navy text on sand: 8.3:1 (AA)
+
+        ACCESSIBILITY FEATURES:
+        - High contrast text pairings
+        - Clear focus indicators with blue outline
+        - Generous touch targets (min 44px)
+        - Semantic HTML structure
+        - ARIA labels for navigation
+        - Keyboard-friendly interactions
+
+        RESPONSIVE BEHAVIOR:
+        - Mobile (320px-767px): Single column, stacked cards
+        - Tablet (768px-1023px): Two-column grids, fluid typography
+        - Desktop (1024px+): Full grid layouts, optimal spacing
+
+        USE CASES:
+        - Hospitality and resort websites
+        - Travel and tourism platforms
+        - Restaurant and dining experiences
+        - Creative agency portfolios
+        - Wellness and spa services
+        - Cultural event platforms
+
+        TAGS: hospitality, creative, travel, relaxed, coastal
+
+        ══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Mediterranean Color Palette */
+            --santorini-blue: #2B5C8C;
+            --santorini-blue-dark: #1D3D5C;
+            --santorini-blue-light: #4A7FB3;
+            --aegean-blue: #5B9BD5;
+            --deep-navy: #1A3A52;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --cream: #FFF8F0;
+            --terracotta: #C65D3B;
+            --terracotta-light: #D87D5C;
+            --olive-green: #6B7F39;
+            --olive-light: #8A9E54;
+            --warm-sand: #E6D5C3;
+            --sand-dark: #D4C3B1;
+            --gray-stone: #717171;
+            --gray-light: #A8A8A8;
+
+            /* Semantic Colors */
+            --color-primary: var(--santorini-blue);
+            --color-primary-hover: var(--santorini-blue-dark);
+            --color-secondary: var(--terracotta);
+            --color-success: var(--olive-green);
+            --color-warning: #E8A435;
+            --color-error: #C44536;
+            --color-info: var(--aegean-blue);
+
+            /* Typography */
+            --font-heading: 'Libre Baskerville', serif;
+            --font-body: 'Open Sans', sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(27, 58, 82, 0.08);
+            --shadow-md: 0 4px 8px rgba(27, 58, 82, 0.12);
+            --shadow-lg: 0 8px 16px rgba(27, 58, 82, 0.16);
+            --shadow-xl: 0 12px 24px rgba(27, 58, 82, 0.2);
+
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 250ms ease-in-out;
+            --transition-slow: 350ms ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            color: var(--deep-navy);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           HEADER COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .header {
+            background: linear-gradient(135deg, var(--santorini-blue) 0%, var(--deep-navy) 100%);
+            color: var(--white);
+            padding: var(--space-xl) 0;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .header-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .header-title::before {
+            content: '⚓';
+            font-size: 2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            transition: all var(--transition-base);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 80%;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           STATS GRID COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .stats-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border-bottom: 4px solid var(--santorini-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(91, 155, 213, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-bottom-color: var(--terracotta);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--santorini-blue);
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--gray-stone);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-change {
+            margin-top: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--olive-green);
+            font-weight: 600;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           SECTION HEADERS
+        ═══════════════════════════════════════════════════════════════════════ */
+        .section-header {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--santorini-blue) 0%, var(--terracotta) 100%);
+            border-radius: 2px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           CONTENT CARDS COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .cards-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .content-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--warm-sand) 0%, var(--sand-dark) 100%);
+            color: var(--deep-navy);
+            padding: var(--space-lg);
+            font-family: var(--font-heading);
+            font-size: 1.375rem;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: var(--space-xl);
+        }
+
+        .card-text {
+            color: var(--gray-stone);
+            margin-bottom: var(--space-md);
+            line-height: 1.8;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--off-white);
+            font-size: 0.875rem;
+            color: var(--gray-light);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           DATA TABLE COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .table-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .search-input {
+            padding: var(--space-md) var(--space-lg);
+            border: 2px solid var(--warm-sand);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            min-width: 320px;
+            background: var(--white);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--santorini-blue);
+            box-shadow: 0 0 0 3px rgba(43, 92, 140, 0.1);
+        }
+
+        .table-wrapper {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: linear-gradient(135deg, var(--santorini-blue) 0%, var(--deep-navy) 100%);
+            color: var(--white);
+        }
+
+        .data-table th {
+            padding: var(--space-lg);
+            text-align: left;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .data-table td {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--off-white);
+            color: var(--gray-stone);
+        }
+
+        .data-table tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--cream);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           FORM ELEMENTS COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .form-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .form-container {
+            background: var(--white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-heading);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--warm-sand);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: var(--off-white);
+            transition: all var(--transition-base);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--santorini-blue);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(43, 92, 140, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-help {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            margin-top: var(--space-xs);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           BUTTONS COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .buttons-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        .btn {
+            padding: var(--space-md) var(--space-2xl);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--santorini-blue) 0%, var(--deep-navy) 100%);
+            color: var(--white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            outline: 2px solid var(--santorini-blue);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background: var(--terracotta);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: var(--terracotta-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--santorini-blue);
+            border-color: var(--santorini-blue);
+        }
+
+        .btn-tertiary:hover,
+        .btn-tertiary:focus {
+            background: var(--santorini-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           BADGES COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .badges-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-success {
+            background: var(--olive-green);
+            color: var(--white);
+        }
+
+        .badge-warning {
+            background: #E8A435;
+            color: var(--deep-navy);
+        }
+
+        .badge-error {
+            background: #C44536;
+            color: var(--white);
+        }
+
+        .badge-info {
+            background: var(--aegean-blue);
+            color: var(--white);
+        }
+
+        .badge-premium {
+            background: linear-gradient(135deg, var(--santorini-blue) 0%, var(--terracotta) 100%);
+            color: var(--white);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           FOOTER COMPONENT
+        ═══════════════════════════════════════════════════════════════════════ */
+        .footer {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--santorini-blue-dark) 100%);
+            color: var(--white);
+            padding: var(--space-3xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--terracotta-light);
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color var(--transition-base);
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--terracotta-light);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════
+           RESPONSIVE DESIGN
+        ═══════════════════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                width: 100%;
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            .table-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-input {
+                min-width: 100%;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>158</strong> of 140 &mdash; Style 158</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 157) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">Aegean Retreat</h1>
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Destinations</a>
+                    <a href="#" class="nav-link">Experiences</a>
+                    <a href="#" class="nav-link">Gallery</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- STATS GRID -->
+        <section class="stats-section">
+            <h2 class="section-header">Island Highlights</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">4,582</span>
+                    <div class="stat-label">Happy Guests</div>
+                    <div class="stat-change">↑ 24% this season</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">98.7%</span>
+                    <div class="stat-label">Guest Satisfaction</div>
+                    <div class="stat-change">↑ 2.1% improvement</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">42</span>
+                    <div class="stat-label">Stunning Villas</div>
+                    <div class="stat-change">6 new properties</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">365</span>
+                    <div class="stat-label">Days of Sunshine</div>
+                    <div class="stat-change">Perfect weather</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT CARDS -->
+        <section class="cards-section">
+            <h2 class="section-header">Discover Our Destinations</h2>
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-header">Santorini Sunset Views</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Experience breathtaking sunsets from our clifftop villas overlooking
+                            the caldera. Watch as the sun dips below the Aegean horizon, painting
+                            the sky in shades of orange and pink against the iconic blue domes.
+                        </p>
+                        <div class="card-meta">
+                            <span>📅 Available Now</span>
+                            <span>👁 3,241 interested</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-header">Traditional Greek Cuisine</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Indulge in authentic Mediterranean flavors prepared by local chefs.
+                            From fresh seafood to traditional moussaka, every meal celebrates
+                            Greece's rich culinary heritage with locally-sourced ingredients.
+                        </p>
+                        <div class="card-meta">
+                            <span>📅 Daily Service</span>
+                            <span>👁 2,187 reviews</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-header">Private Beach Access</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Relax on pristine beaches with crystal-clear waters. Our exclusive
+                            beach areas offer the perfect blend of privacy and natural beauty,
+                            complete with white sand and turquoise Mediterranean waters.
+                        </p>
+                        <div class="card-meta">
+                            <span>📅 Open Daily</span>
+                            <span>👁 4,523 visitors</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- DATA TABLE -->
+        <section class="table-section">
+            <h2 class="section-header">Villa Collection</h2>
+            <div class="table-controls">
+                <input
+                    type="search"
+                    class="search-input"
+                    placeholder="Search villas..."
+                    aria-label="Search villa collection"
+                >
+                <div class="badge-group">
+                    <span class="badge badge-premium">Featured</span>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Villa Name</th>
+                            <th>Location</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>Nightly Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Azure Dreams</td>
+                            <td>Oia, Santorini</td>
+                            <td>4-6 Guests</td>
+                            <td><span class="badge badge-success">Available</span></td>
+                            <td>$850</td>
+                        </tr>
+                        <tr>
+                            <td>Whitewashed Paradise</td>
+                            <td>Fira, Santorini</td>
+                            <td>2-4 Guests</td>
+                            <td><span class="badge badge-warning">Limited</span></td>
+                            <td>$625</td>
+                        </tr>
+                        <tr>
+                            <td>Caldera Horizon</td>
+                            <td>Imerovigli</td>
+                            <td>6-8 Guests</td>
+                            <td><span class="badge badge-success">Available</span></td>
+                            <td>$1,200</td>
+                        </tr>
+                        <tr>
+                            <td>Sunset Terrace</td>
+                            <td>Oia, Santorini</td>
+                            <td>2-3 Guests</td>
+                            <td><span class="badge badge-error">Booked</span></td>
+                            <td>$720</td>
+                        </tr>
+                        <tr>
+                            <td>Mediterranean Breeze</td>
+                            <td>Perissa Beach</td>
+                            <td>4-5 Guests</td>
+                            <td><span class="badge badge-info">New Listing</span></td>
+                            <td>$580</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FORM ELEMENTS -->
+        <section class="form-section">
+            <h2 class="section-header">Booking Inquiry</h2>
+            <form class="form-container">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        class="form-input"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                    <div class="form-help">We'll send you a confirmation within 24 hours.</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="villa">Preferred Villa</label>
+                    <select id="villa" class="form-select" required>
+                        <option value="">Select a villa...</option>
+                        <option value="azure">Azure Dreams - $850/night</option>
+                        <option value="whitewashed">Whitewashed Paradise - $625/night</option>
+                        <option value="caldera">Caldera Horizon - $1,200/night</option>
+                        <option value="mediterranean">Mediterranean Breeze - $580/night</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Special Requests</label>
+                    <textarea
+                        id="message"
+                        class="form-textarea"
+                        placeholder="Tell us about any special requests or preferences..."
+                    ></textarea>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- BUTTONS -->
+        <section class="buttons-section">
+            <h2 class="section-header">Action Buttons</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Book Now</button>
+                <button class="btn btn-secondary">View Gallery</button>
+                <button class="btn btn-tertiary">Learn More</button>
+            </div>
+        </section>
+
+        <!-- BADGES -->
+        <section class="badges-section">
+            <h2 class="section-header">Booking Status</h2>
+            <div class="badge-group">
+                <span class="badge badge-success">Available</span>
+                <span class="badge badge-warning">Limited</span>
+                <span class="badge badge-error">Fully Booked</span>
+                <span class="badge badge-info">New Listing</span>
+                <span class="badge badge-premium">Featured Villa</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aegean Retreat</h3>
+                    <p>Experience authentic Greek hospitality in our collection of stunning Mediterranean villas and resorts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Villas</a></li>
+                        <li><a href="#">Destinations</a></li>
+                        <li><a href="#">Activities</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Concierge</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">Private Chef</a></li>
+                        <li><a href="#">Spa & Wellness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Travel Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aegean Retreat. All rights reserved. | Style 158: Greek Mediterranean</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

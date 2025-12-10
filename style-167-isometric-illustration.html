@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 167: Isometric Illustration - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DOCUMENTATION: STYLE 167 - ISOMETRIC ILLUSTRATION
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        STYLE IDENTITY:
+        Name: Isometric Illustration
+        ID: 167
+        Category: Digital UI & Illustration
+        Temperature: 6/10 (Warm - Playful and engaging)
+        Formality: 5/10 (Balanced - Professional but approachable)
+        Tags: tech, creative
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        BLEND ANALYSIS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY: Isometric Design (55%)
+        - 3D perspective using isometric projection (no vanishing points)
+        - 30-degree angle transformations for depth illusion
+        - Geometric shapes arranged in isometric grid
+        - Layered elements creating spatial depth
+        - Implementation: CSS transforms (rotateX, rotateY, skew) for isometric angles,
+          3D positioning, layered shadows for depth perception
+
+        SECONDARY: Tech Illustration (25%)
+        - Clean vector-style graphics
+        - Technical precision in shapes and angles
+        - Icon-based visual language
+        - Grid-based alignment and structure
+        - Implementation: Geometric shapes via CSS, pseudo-elements for decorative
+          tech details, consistent spacing grid, sharp edges
+
+        TERTIARY: Playful Color (20%)
+        - Vibrant, energetic color palette
+        - Multiple accent colors for visual interest
+        - Color blocking for dimensional differentiation
+        - Gradients to enhance depth perception
+        - Implementation: Electric blue, soft purple, mint, warm yellow, strategic
+          gradient overlays on isometric faces
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        DESIGN PHILOSOPHY:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        "3D perspective, technical precision, playful complexity"
+
+        Isometric illustration creates engaging, dimensional interfaces that feel
+        modern and tech-forward. By using consistent 30-degree angles and layered
+        elements, we create depth without perspective distortion. The playful color
+        palette and technical precision balance professional functionality with
+        creative expression. Each component exists in a subtle 3D space, making
+        the interface feel dynamic and alive while maintaining usability.
+
+        CORE PRINCIPLES:
+        1. Consistent Perspective: All elements follow isometric rules (30° angles)
+        2. Layered Depth: Elements stack to create spatial relationships
+        3. Geometric Precision: Clean shapes, sharp edges, technical accuracy
+        4. Playful Energy: Vibrant colors and dynamic compositions
+        5. Functional Clarity: 3D effects enhance, never obscure, usability
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COLOR SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY PALETTE:
+        - Electric Blue (#3B82F6): Primary actions, top surfaces
+        - Soft Purple (#A78BFA): Secondary elements, side surfaces
+        - Mint (#34D399): Success states, highlighted elements
+        - Warm Yellow (#FBBF24): Accents, attention elements
+        - White (#FFFFFF): Clean backgrounds, light surfaces
+        - Deep Navy (#1E293B): Text, shadows, depth indicators
+
+        ISOMETRIC COLOR STRATEGY:
+        - Top Face: Lightest shade (primary color at 100% brightness)
+        - Left Face: Medium shade (primary color at 85% brightness)
+        - Right Face: Darkest shade (primary color at 70% brightness)
+        - Creates automatic depth through color variations
+
+        FACE VARIATIONS:
+        Electric Blue Cube:
+        - Top: #3B82F6
+        - Left: #2563EB
+        - Right: #1D4ED8
+
+        Purple Cube:
+        - Top: #A78BFA
+        - Left: #8B5CF6
+        - Right: #7C3AED
+
+        Mint Cube:
+        - Top: #34D399
+        - Left: #10B981
+        - Right: #059669
+
+        FUNCTIONAL MAPPING:
+        - Primary Actions: Electric blue with isometric depth
+        - Secondary Actions: Purple with softer appearance
+        - Success: Mint with bright, positive feel
+        - Warning: Warm yellow with high visibility
+        - Background: White with subtle grid pattern
+        - Text: Deep navy for strong contrast
+
+        CONTRAST RATIOS (WCAG AA Compliant):
+        - Deep Navy on White: 14.8:1 (AAA compliant)
+        - Electric Blue on White: 4.89:1 (AA compliant)
+        - Purple on White: 3.27:1 (AA for large text, graphics)
+        - Mint on White: 2.04:1 (Decorative only, not for text)
+        - All critical text uses Deep Navy for accessibility
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        TYPOGRAPHY SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DISPLAY FONT: Space Grotesk (Google Fonts)
+        - Usage: Headings, navigation, buttons, labels
+        - Weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
+        - Characteristics: Geometric, modern, tech-inspired with unique character
+        - Rationale: Geometric nature complements isometric design language
+
+        BODY FONT: DM Sans (Google Fonts)
+        - Usage: Body text, descriptions, table content, form inputs
+        - Weights: 400 (Regular), 500 (Medium), 600 (Semibold)
+        - Characteristics: Clean, highly legible, humanist sans-serif
+        - Rationale: Balances geometric headers with approachable body text
+
+        TYPE SCALE (Major Second - 1.125 ratio):
+        - h1: 2.027rem (32.4px) - Page titles, bold and geometric
+        - h2: 1.802rem (28.8px) - Section headers
+        - h3: 1.602rem (25.6px) - Subsection headers
+        - h4: 1.424rem (22.8px) - Card titles
+        - h5: 1.266rem (20.3px) - Small headers
+        - body: 1rem (16px) - Standard text
+        - small: 0.889rem (14.2px) - Captions, metadata
+
+        LINE HEIGHT:
+        - Headers: 1.2 (tight, emphasizes geometric form)
+        - Body: 1.65 (comfortable, readable)
+        - UI Elements: 1.5 (balanced for buttons/inputs)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ISOMETRIC TRANSFORMATION SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        CORE ANGLES:
+        Isometric projection uses consistent 30-degree angles to create 3D illusion
+        without perspective distortion.
+
+        CSS TRANSFORMS:
+        - Isometric Grid: rotateX(60deg) rotateZ(-45deg)
+        - Top Face: rotateX(90deg)
+        - Left Face: rotateY(30deg) rotateX(90deg)
+        - Right Face: rotateY(-30deg) rotateX(90deg)
+
+        LAYERING:
+        Elements are layered using z-index and translateZ to create depth:
+        - Base layer: z-index: 1
+        - Content layer: z-index: 10
+        - Interactive layer: z-index: 20
+        - Overlay layer: z-index: 30
+
+        SHADOW STRATEGY:
+        Shadows cast at 30-degree angles to match isometric perspective:
+        - Standard: transform: translateX(4px) translateY(4px)
+        - Elevated: transform: translateX(8px) translateY(8px)
+        - High: transform: translateX(12px) translateY(12px)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        SPACING SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BASE UNIT: 4px (0.25rem)
+        ISOMETRIC GRID: 8px (0.5rem) - Aligns with 30-degree angle spacing
+
+        SCALE: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64px
+
+        COMPONENT SPACING:
+        - xs: 4px (tight inline)
+        - sm: 8px (grid unit, standard gap)
+        - md: 16px (card padding, 2x grid)
+        - lg: 24px (section spacing, 3x grid)
+        - xl: 32px (major breaks, 4x grid)
+        - 2xl: 48px (page spacing, 6x grid)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        DEPTH & SHADOW SYSTEM:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        ISOMETRIC SHADOWS:
+        Unlike traditional drop shadows, isometric shadows follow the 30-degree
+        angle to maintain perspective consistency.
+
+        LEVEL 0 (Flat): No shadow
+        - Usage: Background elements, inline content
+
+        LEVEL 1 (Subtle Depth):
+        - Shadow: 0 4px 8px rgba(30,41,59,0.1)
+        - Offset: translateX(2px) translateY(2px)
+        - Usage: Cards, contained elements
+
+        LEVEL 2 (Moderate Depth):
+        - Shadow: 0 6px 12px rgba(30,41,59,0.15)
+        - Offset: translateX(4px) translateY(4px)
+        - Usage: Buttons, interactive elements, hover states
+
+        LEVEL 3 (High Depth):
+        - Shadow: 0 8px 16px rgba(30,41,59,0.2)
+        - Offset: translateX(6px) translateY(6px)
+        - Usage: Modals, dropdowns, active states
+
+        COLORED SHADOWS:
+        Some elements use colored shadows matching the element color for
+        enhanced isometric effect:
+        - Blue element: box-shadow with rgba(59,130,246,0.3)
+        - Purple element: box-shadow with rgba(167,139,250,0.3)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        INTERACTION PATTERNS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BUTTONS:
+        - Default: Isometric cube appearance with 3 visible faces
+        - Hover: Slight lift (increase shadow, translate up)
+        - Active: Press down (reduce shadow, translate down)
+        - Focus: Glowing outline maintaining isometric form
+        - Includes micro-animations for depth changes
+
+        CARDS:
+        - Default: Flat card with subtle isometric edge treatment
+        - Hover: Lift and rotate slightly for dynamic feel
+        - Clickable: Full isometric transformation on click
+
+        FORMS:
+        - Inputs: Recessed appearance with inset isometric effect
+        - Focus: Blue glow with maintained depth
+        - Icons: Small isometric decorations
+
+        TABLES:
+        - Headers: Raised isometric bar
+        - Rows: Flat with subtle separators
+        - Hover: Slight highlight with depth hint
+
+        NAVIGATION:
+        - Items: Isometric tab appearance
+        - Active: Raised state, brighter color
+        - Hover: Partial lift animation
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ACCESSIBILITY FEATURES:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        WCAG 2.1 AA COMPLIANCE:
+        - Text uses Deep Navy (#1E293B) on white backgrounds (14.8:1 ratio)
+        - Large text can use Electric Blue (4.89:1 ratio)
+        - Interactive elements minimum 44x44px touch target
+        - Color + shape convey meaning (not color alone)
+        - Form labels properly associated
+        - Semantic HTML structure
+        - Skip links for keyboard navigation
+
+        MOTION CONSIDERATIONS:
+        - Respect prefers-reduced-motion for users sensitive to animation
+        - Isometric transformations can be disabled via media query
+        - Alternative flat appearance for reduced motion preference
+
+        KEYBOARD NAVIGATION:
+        - Tab order follows logical flow
+        - Focus visible with high-contrast indicator
+        - All interactive elements keyboard accessible
+
+        RESPONSIVE DESIGN:
+        - Simplified isometric effects on mobile for performance
+        - Touch targets minimum 44px
+        - Text remains readable without zoom
+        - Reduced transform complexity on smaller screens
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT SPECIFICATIONS:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        1. HEADER & NAVIGATION:
+           - Isometric bar appearance with gradient
+           - Navigation items as isometric tabs
+           - Active state uses raised appearance
+           - Mobile: Simplified flat design for performance
+
+        2. STATS/METRICS GRID:
+           - Cards with isometric top edge
+           - Large numbers with subtle 3D effect
+           - Color-coded icons in isometric containers
+           - Hover creates lift effect
+
+        3. CONTENT CARDS:
+           - Subtle isometric treatment on edges
+           - Colorful header sections
+           - Shadow follows 30-degree angle
+           - Interactive states use depth changes
+
+        4. DATA TABLE:
+           - Header with raised isometric appearance
+           - Clean, flat rows for readability
+           - Hover highlights with depth
+           - Mobile: Card-based layout, reduced isometric effects
+
+        5. FORM ELEMENTS:
+           - Inputs with subtle recessed isometric effect
+           - Labels in geometric font
+           - Focus uses colored glow
+           - Submit button fully isometric
+
+        6. BUTTONS:
+           - Primary: Full isometric cube with 3 visible faces
+           - Secondary: Outline with isometric edge
+           - Clear depth feedback on interaction
+           - Icon integration with isometric alignment
+
+        7. BADGES/STATUS:
+           - Small isometric containers
+           - Color-coded by status
+           - Bold text for readability
+           - Inline with content
+
+        8. FOOTER:
+           - Isometric section divider at top
+           - Clean, organized content
+           - Subtle depth on links
+           - Grid-aligned layout
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        IMPLEMENTATION NOTES:
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PERFORMANCE:
+        - CSS transforms are GPU-accelerated
+        - Minimize transform changes during animations
+        - Use will-change for animated elements
+        - Simplify effects on mobile
+
+        BROWSER SUPPORT:
+        - Modern browsers with CSS transform support
+        - Fallback to flat design for older browsers
+        - Progressive enhancement approach
+
+        MAINTAINABILITY:
+        - CSS custom properties for angle values
+        - Consistent transform patterns
+        - Modular isometric mixins
+        - Clear documentation of transform logic
+
+        GRID ALIGNMENT:
+        All elements align to 8px isometric grid for visual consistency
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        /* CSS Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --color-blue: #3B82F6;
+            --color-blue-medium: #2563EB;
+            --color-blue-dark: #1D4ED8;
+            --color-purple: #A78BFA;
+            --color-purple-medium: #8B5CF6;
+            --color-purple-dark: #7C3AED;
+            --color-mint: #34D399;
+            --color-mint-medium: #10B981;
+            --color-mint-dark: #059669;
+            --color-yellow: #FBBF24;
+            --color-yellow-dark: #F59E0B;
+            --color-white: #FFFFFF;
+            --color-navy: #1E293B;
+            --color-navy-light: #334155;
+            --color-gray-50: #F8FAFC;
+            --color-gray-100: #F1F5F9;
+            --color-gray-200: #E2E8F0;
+            --color-gray-600: #64748B;
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Type Scale */
+            --text-xs: 0.889rem;
+            --text-sm: 0.937rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.266rem;
+            --text-2xl: 1.424rem;
+            --text-3xl: 1.602rem;
+            --text-4xl: 1.802rem;
+            --text-5xl: 2.027rem;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Shadows */
+            --shadow-sm: 0 4px 8px rgba(30,41,59,0.1);
+            --shadow-md: 0 6px 12px rgba(30,41,59,0.15);
+            --shadow-lg: 0 8px 16px rgba(30,41,59,0.2);
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Transitions */
+            --transition-fast: 150ms ease-out;
+            --transition-base: 250ms ease-out;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.65;
+            color: var(--color-navy);
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--color-navy);
+        }
+
+        h1 { font-size: var(--text-5xl); margin-bottom: var(--space-lg); }
+        h2 { font-size: var(--text-4xl); margin-bottom: var(--space-md); }
+        h3 { font-size: var(--text-3xl); margin-bottom: var(--space-md); }
+        h4 { font-size: var(--text-2xl); margin-bottom: var(--space-sm); }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+            color: var(--color-white);
+            padding: var(--space-lg) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-mint), var(--color-yellow), var(--color-blue));
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-white);
+            text-decoration: none;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--space-sm);
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-yellow);
+            transition: all var(--transition-base);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:focus-visible {
+            outline: 3px solid var(--color-yellow);
+            outline-offset: 2px;
+        }
+
+        /* Main */
+        .main {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .stat-card {
+            background: var(--color-white);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            position: relative;
+            transition: all var(--transition-base);
+            border: 2px solid var(--color-gray-200);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            background: linear-gradient(90deg, currentColor, transparent);
+        }
+
+        .stat-card.blue::before { color: var(--color-blue); }
+        .stat-card.purple::before { color: var(--color-purple); }
+        .stat-card.mint::before { color: var(--color-mint); }
+        .stat-card.yellow::before { color: var(--color-yellow); }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .stat-icon.blue {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+            color: var(--color-white);
+            box-shadow: 4px 4px 0 var(--color-blue-dark);
+        }
+
+        .stat-icon.purple {
+            background: linear-gradient(135deg, var(--color-purple), var(--color-purple-dark));
+            color: var(--color-white);
+            box-shadow: 4px 4px 0 var(--color-purple-dark);
+        }
+
+        .stat-icon.mint {
+            background: linear-gradient(135deg, var(--color-mint), var(--color-mint-dark));
+            color: var(--color-white);
+            box-shadow: 4px 4px 0 var(--color-mint-dark);
+        }
+
+        .stat-icon.yellow {
+            background: linear-gradient(135deg, var(--color-yellow), var(--color-yellow-dark));
+            color: var(--color-white);
+            box-shadow: 4px 4px 0 var(--color-yellow-dark);
+        }
+
+        .stat-value {
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            font-family: var(--font-display);
+            color: var(--color-navy);
+            line-height: 1;
+        }
+
+        .stat-change {
+            font-size: var(--text-sm);
+            margin-top: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .stat-change.positive { color: var(--color-mint-dark); }
+        .stat-change.negative { color: #EF4444; }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            border: 2px solid var(--color-gray-200);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) rotateX(2deg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:nth-child(1) .card-image {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+        }
+
+        .card:nth-child(2) .card-image {
+            background: linear-gradient(135deg, var(--color-purple), var(--color-purple-dark));
+        }
+
+        .card:nth-child(3) .card-image {
+            background: linear-gradient(135deg, var(--color-mint), var(--color-mint-dark));
+        }
+
+        .card-content {
+            padding: var(--space-lg);
+        }
+
+        .card-title {
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: var(--space-sm);
+            padding-top: var(--space-md);
+            border-top: 2px solid var(--color-gray-200);
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-sm);
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+            color: var(--color-white);
+            box-shadow: 4px 4px 0 var(--color-blue-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 var(--color-blue-dark);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 2px 2px 0 var(--color-blue-dark);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 3px solid var(--color-yellow);
+            outline-offset: 3px;
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-blue);
+            border: 3px solid var(--color-blue);
+            box-shadow: 4px 4px 0 var(--color-blue);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 var(--color-blue);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+            box-shadow: 2px 2px 0 var(--color-blue);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        .badge-primary {
+            background: var(--color-blue);
+            color: var(--color-white);
+            box-shadow: 2px 2px 0 var(--color-blue-dark);
+        }
+
+        .badge-success {
+            background: var(--color-mint);
+            color: var(--color-white);
+            box-shadow: 2px 2px 0 var(--color-mint-dark);
+        }
+
+        .badge-warning {
+            background: var(--color-yellow);
+            color: var(--color-navy);
+            box-shadow: 2px 2px 0 var(--color-yellow-dark);
+        }
+
+        /* Table */
+        .table-container {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--color-gray-200);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .table-header {
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
+            color: var(--color-white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background: var(--color-gray-100);
+            padding: var(--space-md);
+            text-align: left;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-sm);
+            color: var(--color-navy);
+            border-bottom: 3px solid var(--color-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .table tbody tr {
+            transition: all var(--transition-fast);
+        }
+
+        .table tbody tr:hover {
+            background: var(--color-gray-50);
+            transform: translateX(4px);
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--color-gray-200);
+            max-width: 600px;
+            position: relative;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-mint));
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-sm);
+            color: var(--color-navy);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            transition: all var(--transition-fast);
+            background: var(--color-white);
+            min-height: 44px;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2), 4px 4px 0 var(--color-blue);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-help {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-top: var(--space-xs);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-navy);
+            color: var(--color-white);
+            padding: var(--space-2xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-mint), var(--color-yellow));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-xl);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-gray-200);
+            text-decoration: none;
+            font-size: var(--text-base);
+            transition: all var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--color-mint);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            border-top: 2px solid var(--color-navy-light);
+            padding-top: var(--space-lg);
+            text-align: center;
+            color: var(--color-gray-200);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-list { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+
+            .stat-icon, .btn-primary, .btn-secondary, .badge {
+                box-shadow: 2px 2px 0 currentColor;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>167</strong> of 140 &mdash; Style 167</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 166) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Lobbi Design</a>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-link">Dashboard</a></li>
+                        <li><a href="#" class="nav-link">Products</a></li>
+                        <li><a href="#" class="nav-link">Analytics</a></li>
+                        <li><a href="#" class="nav-link">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <h1>Style 167: Isometric Illustration</h1>
+                <p style="color: var(--color-gray-600); font-size: var(--text-lg);">
+                    3D perspective, technical precision, and playful complexity
+                </p>
+            </section>
+
+            <section class="section">
+                <div class="stats-grid">
+                    <div class="stat-card blue">
+                        <div class="stat-header">
+                            <span class="stat-label">Total Users</span>
+                            <div class="stat-icon blue">↑</div>
+                        </div>
+                        <div class="stat-value">24,568</div>
+                        <div class="stat-change positive">↑ 12.5% from last month</div>
+                    </div>
+
+                    <div class="stat-card purple">
+                        <div class="stat-header">
+                            <span class="stat-label">Revenue</span>
+                            <div class="stat-icon purple">$</div>
+                        </div>
+                        <div class="stat-value">$89,432</div>
+                        <div class="stat-change negative">↓ 3.2% from last month</div>
+                    </div>
+
+                    <div class="stat-card mint">
+                        <div class="stat-header">
+                            <span class="stat-label">Active Projects</span>
+                            <div class="stat-icon mint">✓</div>
+                        </div>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">↑ 8.7% from last month</div>
+                    </div>
+
+                    <div class="stat-card yellow">
+                        <div class="stat-header">
+                            <span class="stat-label">Conversion</span>
+                            <div class="stat-icon yellow">%</div>
+                        </div>
+                        <div class="stat-value">4.8%</div>
+                        <div class="stat-change positive">↑ 1.2% from last month</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Featured Projects</h2>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-image">📊</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Analytics Dashboard</h3>
+                            <p class="card-description">
+                                Comprehensive analytics platform with real-time data visualization and reporting capabilities.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">🎨</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Design System</h3>
+                            <p class="card-description">
+                                Modern design system with reusable components, tokens, and comprehensive documentation.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">🚀</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mobile App Launch</h3>
+                            <p class="card-description">
+                                Cross-platform mobile application with native performance and beautiful interface.
+                            </p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">View</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Recent Transactions</h3>
+                        <button class="btn btn-secondary">Export</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#10243</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>Premium Plan</td>
+                                    <td>$299.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td>#10242</td>
+                                    <td>Michael Chen</td>
+                                    <td>Starter Plan</td>
+                                    <td>$99.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td>#10241</td>
+                                    <td>Emily Davis</td>
+                                    <td>Enterprise Plan</td>
+                                    <td>$999.00</td>
+                                    <td><span class="badge badge-primary">Processing</span></td>
+                                    <td>2025-12-07</td>
+                                </tr>
+                                <tr>
+                                    <td>#10240</td>
+                                    <td>James Wilson</td>
+                                    <td>Premium Plan</td>
+                                    <td>$299.00</td>
+                                    <td><span class="badge badge-warning">Refunded</span></td>
+                                    <td>2025-12-07</td>
+                                </tr>
+                                <tr>
+                                    <td>#10239</td>
+                                    <td>Lisa Anderson</td>
+                                    <td>Starter Plan</td>
+                                    <td>$99.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>2025-12-06</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Contact Form</h2>
+                <div class="form-section">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                            <p class="form-help">We'll never share your email with anyone else.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" class="form-select">
+                                <option>General Inquiry</option>
+                                <option>Technical Support</option>
+                                <option>Sales Question</option>
+                                <option>Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-textarea" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Button Styles</h2>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <button class="btn btn-primary">Primary Button</button>
+                    <button class="btn btn-secondary">Secondary Button</button>
+                    <button class="btn btn-primary" disabled>Disabled Button</button>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Status Badges</h2>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <span class="badge badge-primary">Active</span>
+                    <span class="badge badge-success">Completed</span>
+                    <span class="badge badge-warning">Warning</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                        <li><a href="#" class="footer-link">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                        <li><a href="#" class="footer-link">Tutorials</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

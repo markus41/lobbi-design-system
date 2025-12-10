@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 194: Parallax Depth - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ============================================================================
+        ULTRATHINK DOCUMENTATION: PARALLAX DEPTH DESIGN SYSTEM
+        ============================================================================
+
+        STYLE IDENTITY:
+        - Name: Parallax Depth
+        - ID: 194
+        - Category: Motion & Animation
+        - Temperature: 5/10 (Balanced immersion)
+        - Formality: 6/10 (Professional with creativity)
+        - Tags: tech, creative
+
+        DESIGN PHILOSOPHY:
+        Create spatial depth through layered parallax scrolling, transforming
+        flat interfaces into immersive 3D-like experiences. Elements exist on
+        different depth planes, moving at varying speeds to create a sense of
+        dimension and depth that responds to user scroll behavior.
+
+        BLEND ANALYSIS:
+        1. Parallax Effect (55%): Primary driver
+           - Multi-layer scroll effects with varying speeds
+           - Background, midground, foreground separation
+           - Depth-based element positioning
+           - Scroll-triggered transformations
+           - Creates illusion of 3D space
+
+        2. 3D Layers (25%): Secondary influence
+           - Z-axis positioning with perspective
+           - Shadow depth for elevation hierarchy
+           - Transform3d for hardware acceleration
+           - Layered card systems
+           - Elevation-based visual weight
+
+        3. Immersive Scroll (20%): Supporting layer
+           - Story-driven scroll experiences
+           - Reveal animations on scroll
+           - Progressive content disclosure
+           - Scroll-snap for controlled navigation
+           - Smooth momentum scrolling
+
+        COLOR SYSTEM:
+        - Base: Deep Blue (#0A1628) - Depth and space
+        - Gradient: Deep Blue to Light Blue (#0A1628 → #E8F4F8)
+        - Accent: Electric Blue (#0EA5E9) - Highlights and focus
+        - Secondary: Sky Blue (#38BDF8) - Mid-tone elements
+        - Neutral: White (#FFFFFF), Gray (#94A3B8)
+        - Philosophy: Gradient depth creates spatial hierarchy
+
+        TYPOGRAPHY STRATEGY:
+        - Headings: Outfit - Modern, geometric, excellent scaling
+        - Body: Plus Jakarta Sans - Clean, highly readable
+        - Display: Outfit Bold - Maximum impact for heroes
+        - Scale: 16px base, 1.333 (perfect fourth) ratio
+
+        MOTION PRINCIPLES:
+        1. Depth-First: Parallax creates spatial relationships
+        2. Layered: Elements on distinct z-planes
+        3. Smooth: 60fps transforms with GPU acceleration
+        4. Purposeful: Motion reinforces hierarchy
+        5. Progressive: Content reveals as user explores
+
+        ACCESSIBILITY CONSIDERATIONS:
+        - prefers-reduced-motion disables parallax entirely
+        - High contrast maintained across depth layers
+        - Focus indicators work across all z-planes
+        - Keyboard navigation respects visual hierarchy
+        - Screen readers receive linear content order
+
+        INTERACTION PATTERNS:
+        - Scroll: Primary interaction, drives all parallax
+        - Hover: Depth shift on cards (translateZ)
+        - Focus: Elevation increase with shadow
+        - Load: Staggered layer reveals
+        - Resize: Adaptive parallax speeds
+
+        RESPONSIVE STRATEGY:
+        - Mobile: Reduced parallax, more subtle effects
+        - Tablet: Moderate depth effects
+        - Desktop: Full 3D parallax experience
+        - Breakpoints: 768px, 1024px
+        - Orientation-aware depth scaling
+
+        TECHNICAL IMPLEMENTATION:
+        - CSS 3D transforms with perspective
+        - transform3d for GPU acceleration
+        - Intersection Observer for scroll triggers
+        - will-change for performance optimization
+        - Scroll-linked animations via CSS custom properties
+
+        USE CASES:
+        - Product showcases
+        - Portfolio sites
+        - Landing pages
+        - Storytelling experiences
+        - Brand microsites
+        - Immersive presentations
+
+        ============================================================================
+        */
+
+        :root {
+            /* Color System */
+            --color-deep-blue: #0A1628;
+            --color-dark-blue: #1E293B;
+            --color-mid-blue: #334155;
+            --color-light-blue: #E8F4F8;
+            --color-electric-blue: #0EA5E9;
+            --color-sky-blue: #38BDF8;
+            --color-white: #FFFFFF;
+            --color-gray: #94A3B8;
+            --color-gray-light: #CBD5E1;
+
+            /* Typography */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.333rem;
+            --font-size-xl: 1.777rem;
+            --font-size-2xl: 2.369rem;
+            --font-size-3xl: 3.157rem;
+            --font-size-4xl: 4.209rem;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+
+            /* Animation */
+            --transition-fast: 0.2s;
+            --transition-base: 0.4s;
+            --transition-slow: 0.6s;
+            --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+            /* Layout */
+            --container-max: 1200px;
+            --border-radius: 1rem;
+            --perspective: 1000px;
+
+            /* Depth Layers */
+            --layer-back: translateZ(-100px);
+            --layer-mid: translateZ(-50px);
+            --layer-front: translateZ(0px);
+            --layer-elevated: translateZ(50px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            color: var(--color-white);
+            background: linear-gradient(180deg, var(--color-deep-blue) 0%, var(--color-dark-blue) 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Parallax Container */
+        .parallax-container {
+            perspective: var(--perspective);
+            perspective-origin: center;
+        }
+
+        .parallax-layer {
+            transition: transform var(--transition-slow) var(--ease-out);
+        }
+
+        /* Header with Depth */
+        .header {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-electric-blue), var(--color-sky-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .logo:hover {
+            transform: translateZ(10px) scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--color-gray-light);
+            position: relative;
+            padding: var(--space-sm) var(--space-md);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-electric-blue);
+            transform: translateX(-50%);
+            transition: width var(--transition-base) var(--ease-out);
+        }
+
+        .nav-link:hover::before,
+        .nav-link:focus::before {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--color-white);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-xl);
+        }
+
+        /* Hero with Parallax */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: var(--space-4xl) var(--space-xl);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s var(--ease-out);
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-gray-light);
+            margin-bottom: var(--space-2xl);
+            animation: fadeInUp 0.8s var(--ease-out) 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Grid with Depth */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-4xl) 0;
+            transform-style: preserve-3d;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%);
+            backdrop-filter: blur(10px);
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all var(--transition-base) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            transition: transform var(--transition-slow) var(--ease-out);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) translateZ(20px);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.3);
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        .stat-card:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-electric-blue);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Cards with Layers */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-2xl);
+            margin: var(--space-3xl) 0;
+            perspective: var(--perspective);
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: var(--space-2xl);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all var(--transition-base) var(--ease-out);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, transparent 0%, rgba(14, 165, 233, 0.1) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base) var(--ease-out);
+        }
+
+        .card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 70px rgba(14, 165, 233, 0.4);
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--color-white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content {
+            color: var(--color-gray-light);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Data Table with Depth */
+        .table-container {
+            margin: var(--space-3xl) 0;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: var(--space-2xl);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .table-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .table-filter {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .filter-input {
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(10, 22, 40, 0.6);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: var(--space-sm);
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--color-electric-blue);
+            background: rgba(10, 22, 40, 0.8);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .filter-input::placeholder {
+            color: var(--color-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+        }
+
+        th {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--color-electric-blue);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-align: left;
+            padding: var(--space-md) var(--space-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: var(--font-size-sm);
+            border-bottom: 2px solid rgba(14, 165, 233, 0.3);
+        }
+
+        td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+            transition: all var(--transition-fast) var(--ease-out);
+        }
+
+        tr {
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        tr:hover {
+            background: rgba(14, 165, 233, 0.05);
+            transform: translateX(5px);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Elements with Depth */
+        .form-section {
+            margin: var(--space-4xl) 0;
+            padding: var(--space-3xl);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+            color: var(--color-white);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-electric-blue);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: var(--space-md);
+            background: rgba(10, 22, 40, 0.6);
+            color: var(--color-white);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: var(--space-sm);
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-electric-blue);
+            background: rgba(10, 22, 40, 0.8);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Buttons with Elevation */
+        .button-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin: var(--space-xl) 0;
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            padding: var(--space-md) var(--space-2xl);
+            border: none;
+            border-radius: var(--space-sm);
+            cursor: pointer;
+            transition: all var(--transition-base) var(--ease-out);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width var(--transition-slow) var(--ease-out),
+                        height var(--transition-slow) var(--ease-out);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-electric-blue), var(--color-sky-blue));
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) translateZ(10px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--color-electric-blue);
+            border: 1px solid var(--color-electric-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(14, 165, 233, 0.2);
+            transform: translateY(-4px) translateZ(10px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-gray-light);
+            border: 1px solid var(--color-gray);
+        }
+
+        .btn-tertiary:hover {
+            background: rgba(148, 163, 184, 0.1);
+            border-color: var(--color-gray-light);
+            color: var(--color-white);
+            transform: translateY(-4px) translateZ(10px);
+        }
+
+        .btn:focus {
+            outline: 3px solid rgba(14, 165, 233, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Badges with Depth */
+        .badge-group {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin: var(--space-lg) 0;
+        }
+
+        .badge {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition-base) var(--ease-out);
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge:hover {
+            transform: translateY(-2px) translateZ(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-success {
+            background: linear-gradient(135deg, #10B981, #34D399);
+            color: var(--color-white);
+        }
+
+        .badge-warning {
+            background: linear-gradient(135deg, #F59E0B, #FBBF24);
+            color: var(--color-deep-blue);
+        }
+
+        .badge-error {
+            background: linear-gradient(135deg, #EF4444, #F87171);
+            color: var(--color-white);
+        }
+
+        .badge-info {
+            background: linear-gradient(135deg, var(--color-electric-blue), var(--color-sky-blue));
+            color: var(--color-white);
+        }
+
+        .badge-neutral {
+            background: rgba(148, 163, 184, 0.2);
+            color: var(--color-gray-light);
+            border: 1px solid var(--color-gray);
+        }
+
+        /* Footer with Depth */
+        .footer {
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            padding: var(--space-4xl) var(--space-xl) var(--space-xl);
+            margin-top: var(--space-4xl);
+            border-top: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-md);
+            color: var(--color-white);
+            transition: all var(--transition-base) var(--ease-out);
+        }
+
+        .footer-section h3:hover {
+            color: var(--color-electric-blue);
+            transform: translateX(5px);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-gray);
+            text-decoration: none;
+            transition: all var(--transition-base) var(--ease-out);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--color-electric-blue);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(14, 165, 233, 0.1);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --font-size-4xl: 3rem;
+                --font-size-3xl: 2.5rem;
+                --perspective: 800px;
+            }
+
+            .nav {
+                gap: var(--space-md);
+            }
+
+            .card:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-size-4xl: 2.5rem;
+                --font-size-3xl: 2rem;
+                --font-size-2xl: 1.5rem;
+                --perspective: 600px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-sm);
+            }
+
+            .stats-grid,
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                transform: none !important;
+            }
+
+            .parallax-layer {
+                transform: none !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body class="parallax-container">
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>194</strong> of 140 &mdash; Style 194</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 193) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header parallax-layer">
+        <div class="header-container">
+            <div class="logo">LOBBI</div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link">Projects</a></li>
+                    <li><a href="#" class="nav-link">Analytics</a></li>
+                    <li><a href="#" class="nav-link">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Experience Depth in Design</h1>
+                <p class="hero-subtitle">
+                    Immersive interfaces that transform flat screens into dimensional
+                    experiences through the power of parallax depth and layered storytelling.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">3.2K</div>
+                <div class="stat-label">Active Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">User Satisfaction</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">247</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4.9</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </section>
+
+        <!-- Content Cards -->
+        <section class="cards-grid">
+            <article class="card">
+                <h3 class="card-title">Spatial Design</h3>
+                <p class="card-content">
+                    Create depth through layered parallax effects that respond to scroll,
+                    building immersive experiences that guide users through spatial narratives.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Active</span>
+                    <span class="badge badge-info">Featured</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">3D Layers</h3>
+                <p class="card-content">
+                    Elements positioned on distinct z-planes create natural hierarchy and
+                    visual interest, with shadows and transforms reinforcing spatial relationships.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-warning">In Progress</span>
+                    <span class="badge badge-neutral">Design</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">Immersive Scroll</h3>
+                <p class="card-content">
+                    Story-driven experiences unfold as users explore, with content revealing
+                    progressively to maintain engagement and create memorable journeys.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Live</span>
+                    <span class="badge badge-info">Popular</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- Data Table -->
+        <section class="table-container">
+            <div class="table-header">
+                <h2 class="table-title">Project Portfolio</h2>
+                <div class="table-filter">
+                    <input type="text" class="filter-input" placeholder="Search projects..." aria-label="Search projects">
+                    <select class="filter-input" aria-label="Filter by status">
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>Planning</option>
+                        <option>Completed</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Status</th>
+                        <th>Completion</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Parallax Portfolio</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>82%</td>
+                        <td>Q4 2025</td>
+                    </tr>
+                    <tr>
+                        <td>3D Layer System</td>
+                        <td><span class="badge badge-warning">In Progress</span></td>
+                        <td>67%</td>
+                        <td>Q1 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Immersive Landing</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>91%</td>
+                        <td>Q4 2025</td>
+                    </tr>
+                    <tr>
+                        <td>Depth Design Guide</td>
+                        <td><span class="badge badge-info">Planning</span></td>
+                        <td>45%</td>
+                        <td>Q2 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Scroll Experience</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>76%</td>
+                        <td>Q1 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2 class="form-title">Start Your Depth Journey</h2>
+            <form class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="project-type">Project Type</label>
+                    <select id="project-type" class="form-select" required>
+                        <option>Product Showcase</option>
+                        <option>Portfolio Site</option>
+                        <option>Landing Page</option>
+                        <option>Brand Microsite</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="budget">Budget Range</label>
+                    <select id="budget" class="form-select" required>
+                        <option>$5K - $10K</option>
+                        <option>$10K - $25K</option>
+                        <option>$25K - $50K</option>
+                        <option>$50K+</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label" for="description">Project Description</label>
+                    <textarea id="description" class="form-textarea" placeholder="Describe your vision..." required></textarea>
+                </div>
+            </form>
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                <button type="button" class="btn btn-secondary">Schedule Call</button>
+                <button type="reset" class="btn btn-tertiary">Reset Form</button>
+            </div>
+        </section>
+
+        <!-- Button & Badge Showcase -->
+        <section>
+            <h2 class="table-title" style="margin-bottom: var(--space-xl);">Interactive Elements</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Action</button>
+                <button class="btn btn-secondary">Secondary Action</button>
+                <button class="btn btn-tertiary">Tertiary Action</button>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-neutral">Neutral</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Platform</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Case Studies</a></li>
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Newsletter</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                        <li><a href="#" class="footer-link">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. Style 194: Parallax Depth. Designed with dimensional thinking.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

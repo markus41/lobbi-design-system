@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 198: Sci-Fi HUD - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK METHODOLOGY - STYLE 198: SCI-FI HUD
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Futuristic Command Interface: This design system channels the aesthetic of
+        advanced space command centers, holographic displays, and tactical information
+        systems. The interface presents complex data with clarity while maintaining
+        the immersive feel of cutting-edge technology. Every element suggests precision,
+        advanced engineering, and interstellar exploration.
+
+        BLEND ANALYSIS
+        ─────────────────────────────────────────────────────────────────────────────
+        Primary (55%): Sci-Fi Interface
+        - Holographic glow effects and transparency layers
+        - Angular geometric shapes and technical patterns
+        - Digital readout aesthetics with monospace elements
+        - Grid-based layouts suggesting targeting systems
+        - Animated scan lines and data streams
+
+        Secondary (25%): Holographic HUD
+        - Cyan/blue luminescent elements
+        - Depth through layered transparency
+        - Corner accent brackets and frame elements
+        - Heads-up display information hierarchy
+        - Ghost shadows and neon outlines
+
+        Tertiary (20%): Space Command
+        - Mission-critical color coding (warnings, status)
+        - Tactical grid overlays
+        - Real-time data visualization
+        - Navigation and coordinate systems
+        - Alert state indicators
+
+        COLOR PSYCHOLOGY & APPLICATION
+        ─────────────────────────────────────────────────────────────────────────────
+        Cyan (#00D9FF): Primary interface color, suggests advanced tech and clarity
+        Dark Navy (#0A1628): Deep space backdrop, provides contrast and depth
+        Electric Blue (#0080FF): Interactive elements, holographic projections
+        Warning Orange (#FF6B00): Alerts, critical systems, attention-grabbing
+        Success Green (#00FF88): Confirmation states, optimal status
+        White (#E8F4F8): High-contrast text, maximum readability
+
+        TYPOGRAPHY STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Headings: Orbitron - Geometric, futuristic, technical precision
+        Body: Rajdhani - Clean, readable, slightly condensed for data density
+        Monospace: Used for codes, coordinates, technical readouts
+
+        EXPERIENTIAL METRICS
+        ─────────────────────────────────────────────────────────────────────────────
+        Temperature: 3/10 (Cool - Clinical precision, advanced technology)
+        Formality: 7/10 (Formal - Military/technical command structure)
+        Energy: 8/10 (High - Dynamic, alert, mission-focused)
+        Innovation: 10/10 (Maximum - Cutting-edge future technology)
+
+        ACCESSIBILITY STANDARDS
+        ─────────────────────────────────────────────────────────────────────────────
+        WCAG 2.1 AA Compliance:
+        - Enhanced contrast for glowing elements on dark backgrounds
+        - Minimum 4.5:1 ratio maintained despite glow effects
+        - Focus indicators use multiple visual cues (glow + border)
+        - Motion can be disabled for accessibility preferences
+        - Clear visual hierarchy without relying solely on color
+
+        USE CASES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Sci-fi game interfaces and dashboards
+        - Space exploration applications
+        - Tech product demonstrations
+        - Futuristic data visualization platforms
+        - Cyberpunk and techno-themed projects
+        - Military/tactical simulation interfaces
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        - Hover states intensify glow effects
+        - Click feedback with pulse animations
+        - Data updates with slide-in transitions
+        - Alert states trigger color shifts and pulses
+        - Loading states use scan line animations
+        - Menu reveals with geometric wipes
+
+        TECHNICAL NOTES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Multiple box-shadow layers for glow depth
+        - CSS animations for scan lines and pulses
+        - Transform3d for holographic depth effects
+        - Backdrop-filter for glass morphism
+        - Grid systems for precise technical layouts
+        - CSS custom properties for dynamic theming
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color Palette */
+            --color-navy: #0A1628;
+            --color-navy-light: #152238;
+            --color-cyan: #00D9FF;
+            --color-cyan-glow: rgba(0, 217, 255, 0.5);
+            --color-blue: #0080FF;
+            --color-blue-glow: rgba(0, 128, 255, 0.5);
+            --color-orange: #FF6B00;
+            --color-orange-glow: rgba(255, 107, 0, 0.5);
+            --color-green: #00FF88;
+            --color-green-glow: rgba(0, 255, 136, 0.5);
+            --color-white: #E8F4F8;
+            --color-gray: #6B7B8C;
+
+            /* Typography */
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+
+            /* Glows */
+            --glow-sm: 0 0 10px;
+            --glow-md: 0 0 20px;
+            --glow-lg: 0 0 30px;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 5px var(--color-cyan-glow),
+                            0 0 10px var(--color-cyan-glow),
+                            inset 0 0 5px var(--color-cyan-glow);
+            }
+            50% {
+                box-shadow: 0 0 10px var(--color-cyan),
+                            0 0 20px var(--color-cyan-glow),
+                            inset 0 0 10px var(--color-cyan-glow);
+            }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-navy);
+            color: var(--color-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-cyan);
+            box-shadow: var(--glow-md) var(--color-cyan);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            background: rgba(21, 34, 56, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            box-shadow:
+                0 0 20px var(--color-cyan-glow),
+                inset 0 0 20px rgba(0, 217, 255, 0.1);
+            position: relative;
+        }
+
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-cyan);
+        }
+
+        header::before {
+            top: -2px;
+            left: -2px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        header::after {
+            bottom: -2px;
+            right: -2px;
+            border-left: none;
+            border-top: none;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            font-size: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow:
+                0 0 10px var(--color-cyan),
+                0 0 20px var(--color-cyan-glow);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-sm);
+            background: rgba(0, 217, 255, 0.1);
+            transition: all var(--transition-fast);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '▸';
+            position: absolute;
+            left: 8px;
+            opacity: 0;
+            transition: all var(--transition-fast);
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: var(--color-cyan);
+            color: var(--color-navy);
+            box-shadow:
+                0 0 15px var(--color-cyan),
+                inset 0 0 15px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            outline: none;
+            padding-left: calc(var(--spacing-md) + 12px);
+        }
+
+        nav a:hover::before,
+        nav a:focus::before {
+            opacity: 1;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: rgba(21, 34, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-blue);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow:
+                0 0 15px var(--color-blue-glow),
+                inset 0 0 15px rgba(0, 128, 255, 0.1);
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-cyan);
+            box-shadow:
+                0 0 25px var(--color-cyan-glow),
+                inset 0 0 25px rgba(0, 217, 255, 0.1);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .stat-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-green);
+            text-shadow: 0 0 5px var(--color-green);
+        }
+
+        .stat-label {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 10px var(--color-cyan-glow);
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 217, 255, 0.2);
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-top: var(--spacing-sm);
+            position: relative;
+        }
+
+        .stat-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-cyan), var(--color-blue));
+            box-shadow: 0 0 10px var(--color-cyan);
+            transition: width 0.5s ease;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: rgba(21, 34, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow:
+                0 0 20px var(--color-cyan-glow),
+                inset 0 0 20px rgba(0, 217, 255, 0.05);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px solid var(--color-cyan);
+            padding-bottom: var(--spacing-sm);
+            text-shadow: 0 0 10px var(--color-cyan-glow);
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-card {
+            background: rgba(10, 22, 40, 0.8);
+            border: 1px solid var(--color-blue);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: 0 0 10px var(--color-blue-glow);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+
+        .content-card::before,
+        .content-card::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 1px solid var(--color-cyan);
+            transition: all var(--transition-fast);
+        }
+
+        .content-card::before {
+            top: 8px;
+            left: 8px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .content-card::after {
+            bottom: 8px;
+            right: 8px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-cyan);
+            box-shadow:
+                0 0 20px var(--color-cyan-glow),
+                inset 0 0 20px rgba(0, 217, 255, 0.1);
+        }
+
+        .content-card:hover::before,
+        .content-card:hover::after {
+            width: calc(100% - 16px);
+            height: calc(100% - 16px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-badge {
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--color-cyan);
+            font-family: var(--font-heading);
+            padding: 0.25rem 0.75rem;
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(0, 217, 255, 0.3);
+            font-size: 0.9rem;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: rgba(21, 34, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            box-shadow: 0 0 20px var(--color-cyan-glow);
+        }
+
+        .table-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .table-filter {
+            flex: 1;
+            min-width: 200px;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--radius-sm);
+            background: rgba(0, 217, 255, 0.1);
+            font-family: var(--font-body);
+            color: var(--color-white);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .table-filter:focus {
+            outline: none;
+            border-color: var(--color-cyan);
+            box-shadow: 0 0 10px var(--color-cyan-glow);
+            background: rgba(0, 217, 255, 0.2);
+        }
+
+        .table-filter::placeholder {
+            color: var(--color-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        th {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 2px solid var(--color-cyan);
+            color: var(--color-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            transition: all var(--transition-fast);
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.1);
+        }
+
+        td {
+            padding: var(--spacing-sm);
+            color: var(--color-white);
+        }
+
+        /* Forms */
+        .form-section {
+            background: rgba(21, 34, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 0 20px var(--color-cyan-glow);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--radius-sm);
+            background: rgba(0, 217, 255, 0.1);
+            font-family: var(--font-body);
+            color: var(--color-white);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-cyan);
+            box-shadow:
+                0 0 15px var(--color-cyan-glow),
+                inset 0 0 10px rgba(0, 217, 255, 0.1);
+            background: rgba(0, 217, 255, 0.15);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-block;
+            min-width: 140px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: var(--color-cyan);
+            color: var(--color-navy);
+            box-shadow: 0 0 20px var(--color-cyan);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-secondary {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: var(--color-green);
+            color: var(--color-green);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: var(--color-green);
+            color: var(--color-navy);
+            box-shadow: 0 0 20px var(--color-green);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            border-color: var(--color-gray);
+            color: var(--color-gray);
+        }
+
+        .btn-tertiary:hover,
+        .btn-tertiary:focus {
+            border-color: var(--color-white);
+            color: var(--color-white);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            border: 1px solid;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-online {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: var(--color-green);
+            color: var(--color-green);
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        .badge-warning {
+            background: rgba(255, 107, 0, 0.2);
+            border-color: var(--color-orange);
+            color: var(--color-orange);
+        }
+
+        .badge-active {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+        }
+
+        .badge-offline {
+            background: rgba(107, 123, 140, 0.2);
+            border-color: var(--color-gray);
+            color: var(--color-gray);
+        }
+
+        .badge-critical {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: #FF0000;
+            color: #FF3333;
+            animation: glowPulse 1s ease-in-out infinite;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(21, 34, 56, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-cyan);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            box-shadow: 0 0 20px var(--color-cyan-glow);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--color-cyan);
+            text-shadow: 0 0 10px var(--color-cyan);
+            transform: translateX(5px);
+            outline: none;
+        }
+
+        .footer-links a::before {
+            content: '▸ ';
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .footer-links a:hover::before,
+        .footer-links a:focus::before {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-cyan);
+            font-family: var(--font-heading);
+            color: var(--color-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus {
+            outline: 2px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>198</strong> of 140 &mdash; Style 198</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 197) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <h1>◢ SCI-FI COMMAND CENTER ◣</h1>
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="#systems">Systems</a>
+                <a href="#tactical">Tactical</a>
+                <a href="#crew">Crew</a>
+                <a href="#nav">Navigation</a>
+                <a href="#comms">Comms</a>
+            </nav>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" aria-label="System status metrics">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-cyan);">⚡</div>
+                    <div class="stat-status">OPTIMAL</div>
+                </div>
+                <div class="stat-label">Power Output</div>
+                <div class="stat-value">97.8%</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 97.8%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-green);">🛡️</div>
+                    <div class="stat-status">ACTIVE</div>
+                </div>
+                <div class="stat-label">Shield Integrity</div>
+                <div class="stat-value">84.2%</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 84.2%; background: linear-gradient(90deg, var(--color-green), #00CC66);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-orange);">🎯</div>
+                    <div class="stat-status" style="color: var(--color-orange);">ARMED</div>
+                </div>
+                <div class="stat-label">Weapon Systems</div>
+                <div class="stat-value">100%</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 100%; background: linear-gradient(90deg, var(--color-orange), #FF8533);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-blue);">🚀</div>
+                    <div class="stat-status">ENGAGED</div>
+                </div>
+                <div class="stat-label">Engine Thrust</div>
+                <div class="stat-value">76.5%</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 76.5%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Briefings -->
+        <section class="content-section">
+            <h2 class="section-title">◢ ACTIVE MISSIONS ◣</h2>
+
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge">PRIORITY-1</span>
+                        <span style="color: var(--color-orange);">●</span>
+                    </div>
+                    <h3 class="card-title">Deep Space Reconnaissance</h3>
+                    <p class="card-description">
+                        Investigate anomalous readings in sector 7-G. Unknown energy signatures detected
+                        near the Orion Nebula. Exercise extreme caution.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-cyan);">SECTOR 7-G</span>
+                        <span>ETA: 4.2 hrs</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="border-color: var(--color-green); color: var(--color-green);">PRIORITY-2</span>
+                        <span style="color: var(--color-green);">●</span>
+                    </div>
+                    <h3 class="card-title">Resource Extraction</h3>
+                    <p class="card-description">
+                        Establish mining operations on asteroid LV-426. Rich deposits of rare minerals
+                        detected. Deploy automated extraction units.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-cyan);">LV-426</span>
+                        <span>ETA: 12.8 hrs</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="border-color: var(--color-blue); color: var(--color-blue);">PRIORITY-3</span>
+                        <span style="color: var(--color-blue);">●</span>
+                    </div>
+                    <h3 class="card-title">Diplomatic Escort</h3>
+                    <p class="card-description">
+                        Provide safe passage for diplomatic envoy to neutral space station. Maintain
+                        defensive posture. No engagement unless provoked.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-cyan);">STATION ALPHA</span>
+                        <span>ETA: 6.1 hrs</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="badges-container">
+                <span class="badge badge-online">● SYSTEMS ONLINE</span>
+                <span class="badge badge-warning">▲ MAINTENANCE DUE</span>
+                <span class="badge badge-active">◆ MISSION ACTIVE</span>
+                <span class="badge badge-offline">■ OFFLINE</span>
+                <span class="badge badge-critical">⚠ CRITICAL ALERT</span>
+            </div>
+        </section>
+
+        <!-- Ship Roster Table -->
+        <section class="table-container">
+            <h2 class="section-title">◢ CREW ROSTER ◣</h2>
+
+            <div class="table-controls">
+                <input type="search" class="table-filter" placeholder="Search crew members..." aria-label="Filter crew roster">
+                <select class="table-filter" aria-label="Filter by department">
+                    <option>All Departments</option>
+                    <option>Command</option>
+                    <option>Engineering</option>
+                    <option>Science</option>
+                    <option>Medical</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rank</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Commander Sarah Chen</strong></td>
+                        <td>O-5</td>
+                        <td>Command</td>
+                        <td><span class="badge badge-online">● ACTIVE</span></td>
+                        <td>Bridge - Deck 1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dr. Marcus Reynolds</strong></td>
+                        <td>O-4</td>
+                        <td>Science</td>
+                        <td><span class="badge badge-active">◆ ON DUTY</span></td>
+                        <td>Lab - Deck 3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lt. Yuki Tanaka</strong></td>
+                        <td>O-3</td>
+                        <td>Engineering</td>
+                        <td><span class="badge badge-warning">▲ MAINTENANCE</span></td>
+                        <td>Engine Room</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cmdr. Alex Rivera</strong></td>
+                        <td>O-5</td>
+                        <td>Tactical</td>
+                        <td><span class="badge badge-online">● ACTIVE</span></td>
+                        <td>Bridge - Deck 1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dr. Elena Volkov</strong></td>
+                        <td>O-4</td>
+                        <td>Medical</td>
+                        <td><span class="badge badge-offline">■ OFF DUTY</span></td>
+                        <td>Quarters - Deck 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Command Input Form -->
+        <section class="form-section">
+            <h2 class="section-title">◢ COMMAND INTERFACE ◣</h2>
+
+            <form class="form-grid">
+                <div class="form-group">
+                    <label for="cmd-type" class="form-label">Command Type</label>
+                    <select id="cmd-type" class="form-select">
+                        <option>Navigation</option>
+                        <option>Tactical</option>
+                        <option>Communications</option>
+                        <option>Systems</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cmd-priority" class="form-label">Priority Level</label>
+                    <select id="cmd-priority" class="form-select">
+                        <option>PRIORITY-1 (Critical)</option>
+                        <option>PRIORITY-2 (High)</option>
+                        <option>PRIORITY-3 (Standard)</option>
+                        <option>PRIORITY-4 (Low)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cmd-coords" class="form-label">Coordinates</label>
+                    <input type="text" id="cmd-coords" class="form-input" placeholder="X:000 Y:000 Z:000" value="X:247 Y:831 Z:042">
+                </div>
+
+                <div class="form-group">
+                    <label for="cmd-auth" class="form-label">Authorization Code</label>
+                    <input type="password" id="cmd-auth" class="form-input" placeholder="Enter auth code">
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="cmd-details" class="form-label">Command Details</label>
+                    <textarea id="cmd-details" class="form-textarea" placeholder="Enter detailed command parameters...">Initiating long-range scan sequence. Targeting unknown sector for anomaly detection. Full spectrum analysis required.</textarea>
+                </div>
+            </form>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">► Execute Command</button>
+                <button type="button" class="btn btn-secondary">✓ Verify Systems</button>
+                <button type="button" class="btn btn-tertiary">✕ Abort</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>◢ SHIP SYSTEMS ◣</h3>
+                    <ul class="footer-links">
+                        <li><a href="#propulsion">Propulsion</a></li>
+                        <li><a href="#life-support">Life Support</a></li>
+                        <li><a href="#shields">Defense Shields</a></li>
+                        <li><a href="#weapons">Weapons Array</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>◢ OPERATIONS ◣</h3>
+                    <ul class="footer-links">
+                        <li><a href="#missions">Mission Log</a></li>
+                        <li><a href="#personnel">Personnel</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#reports">Status Reports</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>◢ COMMUNICATIONS ◣</h3>
+                    <ul class="footer-links">
+                        <li><a href="#fleet">Fleet Command</a></li>
+                        <li><a href="#local">Local Comms</a></li>
+                        <li><a href="#distress">Distress Calls</a></li>
+                        <li><a href="#archives">Archives</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>◢ CLASSIFIED - STAR COMMAND DIVISION ◣</p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 1px;">
+                    Style 198: Sci-Fi HUD | Temperature: 3/10 | Formality: 7/10 | Tags: tech, creative
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 196: Micro-Interaction Rich - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ============================================================================
+        ULTRATHINK DOCUMENTATION: MICRO-INTERACTION RICH DESIGN SYSTEM
+        ============================================================================
+
+        STYLE IDENTITY:
+        - Name: Micro-Interaction Rich
+        - ID: 196
+        - Category: Motion & Animation
+        - Temperature: 5/10 (Balanced feedback)
+        - Formality: 6/10 (Professional with personality)
+        - Tags: tech, professional
+
+        DESIGN PHILOSOPHY:
+        Every interaction matters. This system focuses on meaningful feedback
+        through carefully crafted micro-interactions that delight users while
+        maintaining clarity and purpose. Small details create big impacts,
+        making interfaces feel responsive, intelligent, and human.
+
+        BLEND ANALYSIS:
+        1. Micro-interactions (55%): Primary driver
+           - Instant visual feedback on all interactions
+           - Button states with smooth transitions
+           - Input field responses and validation
+           - Loading states and progress indicators
+           - Hover effects that communicate affordance
+
+        2. Feedback Design (25%): Secondary influence
+           - Color changes for state communication
+           - Icon animations for confirmation
+           - Subtle sound-like visual cues
+           - Progressive disclosure of information
+           - Error and success state communication
+
+        3. Delight Details (20%): Supporting layer
+           - Easter egg animations on special actions
+           - Celebratory effects for completions
+           - Playful hover interactions
+           - Attention to small moments
+           - Personality in micro-moments
+
+        COLOR SYSTEM:
+        - Base: Clean White (#FFFFFF) - Clarity and focus
+        - Primary: Vibrant Blue (#3B82F6) - Action and trust
+        - Success: Fresh Green (#10B981) - Positive feedback
+        - Warning: Warm Orange (#F59E0B) - Caution
+        - Error: Bold Red (#EF4444) - Alert
+        - Neutral: Modern Gray (#6B7280) - Supporting text
+        - Philosophy: State-based colors for instant recognition
+
+        TYPOGRAPHY STRATEGY:
+        - Headings: Manrope - Rounded, friendly, professional
+        - Body: Inter - Crystal clear, optimal for UI
+        - Labels: Manrope Medium - Emphasis without aggression
+        - Scale: 16px base, 1.2 ratio for subtle hierarchy
+
+        MOTION PRINCIPLES:
+        1. Instant: Feedback within 100ms
+        2. Purposeful: Every animation communicates
+        3. Subtle: Never distracting, always enhancing
+        4. Consistent: Predictable timing and easing
+        5. Delightful: Small surprises that bring joy
+
+        ACCESSIBILITY CONSIDERATIONS:
+        - All feedback has multiple channels (color + icon + text)
+        - Focus states extremely clear for keyboard navigation
+        - Motion can be disabled without losing functionality
+        - Touch targets 44px minimum for mobile
+        - Error messages programmatically associated with inputs
+
+        INTERACTION PATTERNS:
+        - Hover: Color shift, scale, shadow increase
+        - Click: Quick scale down then up (press feedback)
+        - Focus: Thick outline with color glow
+        - Success: Green checkmark animation
+        - Error: Red shake animation with icon
+        - Loading: Spinner with progress indication
+
+        RESPONSIVE STRATEGY:
+        - Mobile: Touch-optimized interactions, larger targets
+        - Tablet: Balanced touch/mouse interactions
+        - Desktop: Rich hover states, cursor changes
+        - Breakpoints: 768px, 1024px
+        - Input-method aware (touch vs mouse)
+
+        TECHNICAL IMPLEMENTATION:
+        - CSS transitions for instant feedback
+        - Transform-based animations for performance
+        - Custom properties for state management
+        - Pseudo-elements for decorative feedback
+        - Active/focus/hover states on all interactives
+
+        USE CASES:
+        - SaaS applications
+        - Dashboard interfaces
+        - Form-heavy applications
+        - E-commerce platforms
+        - Productivity tools
+        - Admin panels
+
+        ============================================================================
+        */
+
+        :root {
+            /* Color System */
+            --color-white: #FFFFFF;
+            --color-gray-50: #F9FAFB;
+            --color-gray-100: #F3F4F6;
+            --color-gray-200: #E5E7EB;
+            --color-gray-300: #D1D5DB;
+            --color-gray-500: #6B7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+
+            --color-blue: #3B82F6;
+            --color-blue-dark: #2563EB;
+            --color-blue-light: #60A5FA;
+
+            --color-green: #10B981;
+            --color-green-dark: #059669;
+            --color-green-light: #34D399;
+
+            --color-orange: #F59E0B;
+            --color-orange-dark: #D97706;
+            --color-orange-light: #FBBF24;
+
+            --color-red: #EF4444;
+            --color-red-dark: #DC2626;
+            --color-red-light: #F87171;
+
+            /* Typography */
+            --font-heading: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Animation - Fast for micro-interactions */
+            --transition-instant: 0.1s;
+            --transition-fast: 0.15s;
+            --transition-base: 0.2s;
+            --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            /* Layout */
+            --container-max: 1200px;
+            --border-radius: 0.5rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            background: var(--color-gray-50);
+            overflow-x: hidden;
+        }
+
+        /* Header with Micro-interactions */
+        .header {
+            background: var(--color-white);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow var(--transition-base) var(--ease-out);
+        }
+
+        .header:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-blue);
+            cursor: pointer;
+            transition: all var(--transition-fast) var(--ease-out);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--color-blue);
+            transition: width var(--transition-base) var(--ease-out);
+        }
+
+        .logo:hover {
+            color: var(--color-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .logo:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--color-gray-500);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-fast) var(--ease-out);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--color-blue);
+            background: var(--color-gray-100);
+            transform: translateY(-1px);
+        }
+
+        .nav-link:active {
+            transform: translateY(0);
+            background: var(--color-gray-200);
+        }
+
+        .nav-link:focus {
+            outline: 3px solid var(--color-blue);
+            outline-offset: 2px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-xl);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-lg);
+            animation: slideUp 0.6s var(--ease-out);
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-gray-500);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            animation: slideUp 0.6s var(--ease-out) 0.1s backwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Grid with Feedback */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-3xl) 0;
+        }
+
+        .stat-card {
+            background: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--color-gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base) var(--ease-out);
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            border-color: var(--color-blue);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .stat-card:active {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-blue);
+            margin-bottom: var(--space-sm);
+            transition: all var(--transition-fast) var(--ease-bounce);
+        }
+
+        .stat-card:hover .stat-value {
+            transform: scale(1.1);
+            color: var(--color-blue-dark);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-gray-500);
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            border: 2px solid var(--color-gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base) var(--ease-out);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--color-blue);
+            transition: height var(--transition-base) var(--ease-out);
+        }
+
+        .card:hover {
+            border-color: var(--color-blue);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-6px);
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-md);
+            transition: color var(--transition-fast) var(--ease-out);
+        }
+
+        .card:hover .card-title {
+            color: var(--color-blue);
+        }
+
+        .card-content {
+            color: var(--color-gray-500);
+            line-height: 1.7;
+        }
+
+        /* Data Table with Interactive Elements */
+        .table-container {
+            margin: var(--space-2xl) 0;
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            border: 2px solid var(--color-gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .table-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            color: var(--color-gray-900);
+        }
+
+        .table-filter {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .filter-input {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-white);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--border-radius);
+            color: var(--color-gray-700);
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-fast) var(--ease-out);
+        }
+
+        .filter-input:hover {
+            border-color: var(--color-gray-300);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transform: scale(1.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        th {
+            background: var(--color-gray-100);
+            color: var(--color-gray-700);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-align: left;
+            padding: var(--space-md) var(--space-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: var(--font-size-xs);
+            border-bottom: 2px solid var(--color-gray-200);
+            transition: background var(--transition-fast) var(--ease-out);
+        }
+
+        th:hover {
+            background: var(--color-gray-200);
+        }
+
+        td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-gray-200);
+            transition: all var(--transition-instant) var(--ease-out);
+        }
+
+        tr {
+            transition: all var(--transition-fast) var(--ease-out);
+        }
+
+        tr:hover {
+            background: var(--color-gray-50);
+        }
+
+        tr:hover td {
+            color: var(--color-gray-900);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Form Elements with Rich Feedback */
+        .form-section {
+            margin: var(--space-3xl) 0;
+            padding: var(--space-2xl);
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--color-gray-200);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-xl);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-700);
+            transition: color var(--transition-fast) var(--ease-out);
+        }
+
+        .form-group:focus-within .form-label {
+            color: var(--color-blue);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: var(--space-md);
+            background: var(--color-white);
+            color: var(--color-gray-700);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-fast) var(--ease-out);
+        }
+
+        .form-input:hover,
+        .form-textarea:hover,
+        .form-select:hover {
+            border-color: var(--color-gray-300);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transform: scale(1.01);
+        }
+
+        .form-input:valid {
+            border-color: var(--color-green);
+        }
+
+        .form-input:invalid:not(:placeholder-shown) {
+            border-color: var(--color-red);
+            animation: shake 0.3s var(--ease-out);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Buttons with Rich Micro-interactions */
+        .button-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin: var(--space-xl) 0;
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            padding: var(--space-md) var(--space-xl);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-fast) var(--ease-out);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width var(--transition-base) var(--ease-out),
+                        height var(--transition-base) var(--ease-out);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-primary {
+            background: var(--color-blue);
+            color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-blue-dark);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-blue);
+            border-color: var(--color-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-blue);
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--color-gray-500);
+            border-color: var(--color-gray-300);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-gray-100);
+            color: var(--color-gray-700);
+            border-color: var(--color-gray-400);
+        }
+
+        /* Badges with State Feedback */
+        .badge-group {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin: var(--space-lg) 0;
+        }
+
+        .badge {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition-fast) var(--ease-out);
+            display: inline-block;
+            cursor: default;
+        }
+
+        .badge:hover {
+            transform: translateY(-1px) scale(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-success {
+            background: var(--color-green-light);
+            color: var(--color-green-dark);
+        }
+
+        .badge-warning {
+            background: var(--color-orange-light);
+            color: var(--color-orange-dark);
+        }
+
+        .badge-error {
+            background: var(--color-red-light);
+            color: var(--color-red-dark);
+        }
+
+        .badge-info {
+            background: var(--color-blue-light);
+            color: var(--color-blue-dark);
+        }
+
+        .badge-neutral {
+            background: var(--color-gray-200);
+            color: var(--color-gray-700);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-white);
+            padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+            margin-top: var(--space-3xl);
+            border-top: 2px solid var(--color-gray-200);
+        }
+
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-md);
+            transition: color var(--transition-fast) var(--ease-out);
+        }
+
+        .footer-section h3:hover {
+            color: var(--color-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-gray-500);
+            text-decoration: none;
+            transition: all var(--transition-fast) var(--ease-out);
+            display: inline-block;
+            padding: var(--space-xs) 0;
+        }
+
+        .footer-link:hover {
+            color: var(--color-blue);
+            transform: translateX(4px);
+        }
+
+        .footer-link:active {
+            transform: translateX(2px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-gray-200);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --font-size-4xl: 2rem;
+                --font-size-3xl: 1.75rem;
+            }
+
+            .nav {
+                gap: var(--space-sm);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --font-size-4xl: 1.75rem;
+                --font-size-3xl: 1.5rem;
+                --font-size-2xl: 1.25rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-grid,
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .table-filter {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .filter-input {
+                width: 100%;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>196</strong> of 140 &mdash; Style 196</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 195) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">LOBBI</div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link">Projects</a></li>
+                    <li><a href="#" class="nav-link">Reports</a></li>
+                    <li><a href="#" class="nav-link">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Delightfully Responsive</h1>
+            <p class="hero-subtitle">
+                Every interaction matters. Experience interfaces that respond instantly
+                with meaningful feedback, creating delightful moments in every detail.
+            </p>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">5.2K</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">432</div>
+                <div class="stat-label">Interactions/Day</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4.9</div>
+                <div class="stat-label">User Rating</div>
+            </div>
+        </section>
+
+        <!-- Content Cards -->
+        <section class="cards-grid">
+            <article class="card">
+                <h3 class="card-title">Instant Feedback</h3>
+                <p class="card-content">
+                    Every action receives immediate visual response within 100ms,
+                    making interfaces feel alive and responsive to user input.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Active</span>
+                    <span class="badge badge-info">Featured</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">Meaningful Details</h3>
+                <p class="card-content">
+                    Small animations and state changes communicate purpose and
+                    status, guiding users through every step of their journey.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-warning">In Progress</span>
+                    <span class="badge badge-neutral">Design</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3 class="card-title">Delightful Moments</h3>
+                <p class="card-content">
+                    Carefully crafted micro-interactions add personality and joy
+                    without distracting from core functionality and usability.
+                </p>
+                <div class="badge-group">
+                    <span class="badge badge-success">Live</span>
+                    <span class="badge badge-info">Popular</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- Data Table -->
+        <section class="table-container">
+            <div class="table-header">
+                <h2 class="table-title">Interaction Metrics</h2>
+                <div class="table-filter">
+                    <input type="text" class="filter-input" placeholder="Search metrics..." aria-label="Search metrics">
+                    <select class="filter-input" aria-label="Filter by type">
+                        <option>All Types</option>
+                        <option>Micro-interactions</option>
+                        <option>Feedback</option>
+                        <option>Delight</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Status</th>
+                        <th>Engagement</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Button Feedback</td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>94%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Form Validation</td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>89%</td>
+                        <td>Critical</td>
+                    </tr>
+                    <tr>
+                        <td>Hover Effects</td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>97%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Loading States</td>
+                        <td><span class="badge badge-warning">Testing</span></td>
+                        <td>86%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Success Animations</td>
+                        <td><span class="badge badge-info">Beta</span></td>
+                        <td>92%</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2 class="form-title">Experience Rich Interactions</h2>
+            <form class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="interaction">Interaction Type</label>
+                    <select id="interaction" class="form-select" required>
+                        <option>Micro-interactions</option>
+                        <option>Feedback Design</option>
+                        <option>Delight Details</option>
+                        <option>All of the Above</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="priority">Priority Level</label>
+                    <select id="priority" class="form-select" required>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label" for="feedback">Your Feedback</label>
+                    <textarea id="feedback" class="form-textarea" placeholder="Share your thoughts on micro-interactions..." required></textarea>
+                </div>
+            </form>
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                <button type="button" class="btn btn-secondary">Save Draft</button>
+                <button type="reset" class="btn btn-tertiary">Clear Form</button>
+            </div>
+        </section>
+
+        <!-- Button & Badge Showcase -->
+        <section>
+            <h2 class="table-title" style="margin-bottom: var(--space-xl);">Interactive Components</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Action</button>
+                <button class="btn btn-secondary">Secondary Action</button>
+                <button class="btn btn-tertiary">Tertiary Action</button>
+            </div>
+            <div class="badge-group">
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-neutral">Neutral</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Examples</a></li>
+                        <li><a href="#" class="footer-link">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Team</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Newsletter</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                        <li><a href="#" class="footer-link">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lobbi Design System. Style 196: Micro-Interaction Rich. Crafted with attention to detail.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

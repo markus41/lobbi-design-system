@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network - Connected Intelligence Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔═══════════════════════════════════════════════════════════════════════════════╗
+        ║                         ULTRATHINK DESIGN ANALYSIS                            ║
+        ║                       Neural Network - Style 207                              ║
+        ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        ─────────────────
+        This interface visualizes the concept of interconnected neural networks - representing
+        data flow, connected nodes, and intelligent systems. The design emphasizes the beauty
+        of connections, the flow of information, and the emergence of intelligence from
+        networked components. Inspired by neural architecture diagrams and data visualization.
+
+        BLEND COMPOSITION:
+        ──────────────────
+        • Neural Visualization (55%): Node-based layouts, connection patterns, layered
+          architecture, flowing data streams, network topology representation
+        • Data Flow (25%): Animated connections, directional indicators, information
+          pathways, stream processing visualization, real-time updates
+        • Tech Abstract (20%): Geometric patterns, technical aesthetics, grid systems,
+          computational design, algorithmic beauty
+
+        COLOR PSYCHOLOGY:
+        ─────────────────
+        • Deep Blue (#0f172a): Foundation, stability, neural depth
+        • Cyan Connections (#06b6d4): Data flow, active connections, information streams
+        • Purple Nodes (#8b5cf6): Processing centers, intelligence points, key nodes
+        • Dark Background (#020617): Technical environment, focus, reduced eye strain
+        • Accent Teal (#14b8a6): Highlights, active states, successful processing
+
+        TYPOGRAPHY STRATEGY:
+        ────────────────────
+        Space Grotesk (Headings):
+        • Geometric precision suggesting computational accuracy
+        • Technical character with modern sophistication
+        • Strong presence establishing clear hierarchy
+        • Wide letter spacing suggesting open architecture
+
+        DM Sans (Body):
+        • Clean technical readability for data display
+        • Geometric consistency matching the design system
+        • Excellent legibility in dark mode contexts
+        • Balanced proportions for dense information
+
+        COMPONENT ARCHITECTURE:
+        ───────────────────────
+        1. Header: Network topology navigation with connection indicators
+        2. Neural Stats: Node performance metrics with flow visualization
+        3. Connection Cards: Data stream cards with network patterns
+        4. Flow Table: Network activity with connection status
+        5. Network Form: Topology configuration inputs
+        6. Action Nodes: Interactive connection buttons
+        7. Status Signals: Network health indicators
+        8. Footer: Distributed network information
+
+        SPATIAL HIERARCHY:
+        ──────────────────
+        • 16px base spacing unit (pixel-perfect technical grid)
+        • Hexagonal grid inspiration from neural architecture
+        • Network-based layouts suggesting data flow
+        • Layered depth creating 3D network perception
+
+        INTERACTION DESIGN:
+        ───────────────────
+        • Pulse animations suggesting active data flow
+        • Hover states revealing connection pathways
+        • Smooth transitions mimicking neural signal propagation
+        • Glow effects indicating node activation
+        • Connected element relationships through visual linking
+
+        EMOTIONAL TEMPERATURE:
+        ──────────────────────
+        Cool Technical (4/10):
+        • Dark color palette reducing emotional warmth
+        • Technical precision over emotional connection
+        • Data-centric visualization prioritizing information
+        • Professional distance appropriate for analytical context
+
+        FORMALITY LEVEL:
+        ────────────────
+        High Technical (7/10):
+        • Precise technical language and terminology
+        • Academic rigor in presentation
+        • Professional data visualization standards
+        • Formal system architecture communication
+
+        ACCESSIBILITY CONSIDERATIONS:
+        ─────────────────────────────
+        • WCAG 2.1 AA compliant contrast ratios (minimum 4.5:1)
+        • High contrast dark mode optimized for accessibility
+        • Semantic HTML supporting assistive technologies
+        • Keyboard navigation with clear focus indicators
+        • Sufficient touch targets (44x44px minimum)
+        • Motion reduction support for animations
+
+        PERFORMANCE OPTIMIZATION:
+        ─────────────────────────
+        • Optimized Google Fonts loading strategy
+        • GPU-accelerated animations for smooth performance
+        • Efficient CSS Grid calculations
+        • Minimal DOM complexity for fast rendering
+        • CSS custom properties for dynamic theming
+
+        BRAND ALIGNMENT:
+        ────────────────
+        Establishes technical credibility through:
+        • Neural network visual metaphors
+        • Data flow visualization patterns
+        • Technical precision and accuracy
+        • Advanced system architecture representation
+
+        USE CASES:
+        ──────────
+        • Machine learning dashboards
+        • Network monitoring systems
+        • Data flow visualization platforms
+        • Neural architecture design tools
+        • Distributed system management
+        • AI model training interfaces
+        • Research laboratory systems
+
+        COMPETITIVE DIFFERENTIATION:
+        ────────────────────────────
+        Unlike traditional dashboards, this design:
+        • Visualizes data as flowing networks
+        • Emphasizes connections over isolated metrics
+        • Uses neural network metaphors throughout
+        • Creates depth through layered visualization
+        • Balances technical precision with aesthetic appeal
+
+        SCALABILITY:
+        ────────────
+        Component system supports:
+        • Additional network nodes without complexity
+        • Dynamic connection visualization
+        • Responsive layouts maintaining network perception
+        • Theme variations for different network types
+        • Modular visualization components
+
+        TECHNICAL INNOVATION:
+        ─────────────────────
+        • CSS gradient animations for data flow
+        • Pseudo-element connection lines
+        • Glow effects for node activation
+        • Layered backgrounds creating depth
+        • Grid-based network topology layouts
+
+        DARK MODE OPTIMIZATION:
+        ───────────────────────
+        Designed dark-first for:
+        • Reduced eye strain during extended use
+        • Enhanced focus on data visualization
+        • Better contrast for colorful data points
+        • Professional technical environment aesthetic
+
+        ═════════════════════════════════════════════════════════════════════════════
+        */
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           FOUNDATION STYLES
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --color-deep-blue: #0f172a;
+            --color-darker-blue: #020617;
+            --color-cyan: #06b6d4;
+            --color-cyan-light: #22d3ee;
+            --color-purple: #8b5cf6;
+            --color-purple-light: #a78bfa;
+            --color-teal: #14b8a6;
+            --color-teal-light: #2dd4bf;
+            --color-white: #ffffff;
+            --color-gray-dark: #1e293b;
+            --color-gray-medium: #475569;
+            --color-gray-light: #64748b;
+
+            /* Typography */
+            --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+            /* Spacing */
+            --spacing-unit: 16px;
+            --spacing-xs: calc(var(--spacing-unit) * 0.5);
+            --spacing-sm: var(--spacing-unit);
+            --spacing-md: calc(var(--spacing-unit) * 1.5);
+            --spacing-lg: calc(var(--spacing-unit) * 2);
+            --spacing-xl: calc(var(--spacing-unit) * 3);
+
+            /* Borders */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+
+            /* Effects */
+            --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.4);
+            --glow-purple: 0 0 20px rgba(139, 92, 246, 0.4);
+            --glow-teal: 0 0 20px rgba(20, 184, 166, 0.4);
+
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 250ms ease-in-out;
+            --transition-slow: 400ms ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-white);
+            background-color: var(--color-darker-blue);
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           HEADER COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .header {
+            background: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-gray-dark) 100%);
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+            padding: var(--spacing-md) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--glow-cyan);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: var(--glow-cyan); }
+            50% { box-shadow: var(--glow-purple); }
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--color-gray-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            transition: all var(--transition-base);
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--color-cyan);
+            border-color: var(--color-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        .network-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--border-radius-md);
+            font-size: 14px;
+            color: var(--color-cyan);
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--color-cyan);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           MAIN CONTENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        .page-header {
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--color-cyan);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: 1px;
+            text-shadow: var(--glow-cyan);
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--color-gray-light);
+            font-weight: 400;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           STATS GRID COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-gray-dark) 100%);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+            animation: flow 3s ease-in-out infinite;
+        }
+
+        @keyframes flow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .stat-card:hover {
+            border-color: var(--color-cyan);
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-4px);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-title {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-teal));
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-darker-blue);
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-cyan);
+            margin-bottom: var(--spacing-xs);
+            text-shadow: var(--glow-cyan);
+        }
+
+        .stat-insight {
+            font-size: 14px;
+            color: var(--color-gray-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-trend {
+            font-weight: 600;
+            color: var(--color-teal);
+        }
+
+        .stat-trend.negative {
+            color: #f87171;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           CONTENT CARDS COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .content-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-cyan);
+            letter-spacing: 0.5px;
+        }
+
+        .content-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-sm);
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-gray-dark) 100%);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-cyan), var(--color-purple));
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .content-card:hover {
+            border-color: var(--color-purple);
+            box-shadow: var(--glow-purple);
+            transform: translateY(-4px);
+        }
+
+        .content-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid var(--color-purple);
+            color: var(--color-purple-light);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .card-description {
+            color: var(--color-gray-light);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-gray-medium);
+            font-size: 13px;
+            color: var(--color-gray-light);
+        }
+
+        .network-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-xs);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: var(--border-radius-sm);
+            font-size: 13px;
+            color: var(--color-cyan);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           DATA TABLE COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .table-container {
+            background: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-gray-dark) 100%);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .table-header {
+            background: rgba(6, 182, 212, 0.05);
+            border-bottom: 1px solid var(--color-gray-medium);
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-cyan);
+        }
+
+        .table-filter {
+            background: var(--color-darker-blue);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-sm);
+            padding: 6px 12px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-white);
+            min-width: 200px;
+            transition: all var(--transition-base);
+        }
+
+        .table-filter:focus {
+            outline: none;
+            border-color: var(--color-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .data-table th {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--color-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--color-gray-medium);
+        }
+
+        .data-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-medium);
+            color: var(--color-gray-light);
+        }
+
+        .data-table tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background-color: rgba(6, 182, 212, 0.05);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           FORM COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .form-container {
+            background: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-gray-dark) 100%);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-cyan);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gray-light);
+            margin-bottom: var(--spacing-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            font-family: var(--font-body);
+            font-size: 15px;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: var(--border-radius-sm);
+            color: var(--color-white);
+            background: var(--color-darker-blue);
+            transition: all var(--transition-base);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: var(--color-gray-light);
+            margin-top: 4px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           BUTTON COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 600;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-cyan), var(--color-teal));
+            color: var(--color-darker-blue);
+            box-shadow: var(--glow-cyan);
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-primary:focus {
+            outline: 2px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-cyan);
+            border: 2px solid var(--color-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(6, 182, 212, 0.1);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .btn-secondary:focus {
+            outline: 2px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        .btn-tertiary {
+            background: var(--color-gray-dark);
+            color: var(--color-gray-light);
+            border: 1px solid var(--color-gray-medium);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--color-gray-medium);
+            color: var(--color-white);
+        }
+
+        .btn-tertiary:focus {
+            outline: 2px solid var(--color-gray-light);
+            outline-offset: 2px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           BADGE COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .badge-container {
+            display: flex;
+            gap: var(--spacing-xs);
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--border-radius-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid transparent;
+        }
+
+        .badge-success {
+            background: rgba(20, 184, 166, 0.2);
+            color: var(--color-teal-light);
+            border-color: var(--color-teal);
+        }
+
+        .badge-warning {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border-color: #f59e0b;
+        }
+
+        .badge-error {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+            border-color: #ef4444;
+        }
+
+        .badge-info {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--color-cyan-light);
+            border-color: var(--color-cyan);
+        }
+
+        .badge-neural {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--color-purple-light);
+            border-color: var(--color-purple);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.6); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           FOOTER COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .footer {
+            background: var(--color-deep-blue);
+            border-top: 2px solid rgba(6, 182, 212, 0.3);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section-title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-cyan);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .footer-link {
+            color: var(--color-gray-light);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .footer-link:hover {
+            color: var(--color-cyan);
+        }
+
+        .footer-link:focus {
+            outline: 2px solid var(--color-cyan);
+            outline-offset: 2px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--spacing-lg) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-gray-medium);
+            text-align: center;
+            color: var(--color-gray-light);
+            font-size: 14px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           RESPONSIVE DESIGN
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 14px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: var(--spacing-xs);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: var(--spacing-md);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>207</strong> of 140 &mdash; Style 207</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 206) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">◈</div>
+                <span>NEURAL NET</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Network</a>
+                <a href="#" class="nav-link">Nodes</a>
+                <a href="#" class="nav-link">Flow</a>
+                <a href="#" class="nav-link">Analytics</a>
+            </nav>
+            <div class="network-status">
+                <div class="status-indicator"></div>
+                <span>Active</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Neural Network Dashboard</h1>
+            <p class="page-subtitle">Connected intelligence • Real-time data flow • Distributed processing</p>
+        </div>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-title">Active Nodes</div>
+                        <div class="stat-value">2,847</div>
+                    </div>
+                    <div class="stat-icon">⬡</div>
+                </div>
+                <div class="stat-insight">
+                    <span class="stat-trend">+342</span>
+                    <span>new connections</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-title">Data Flow</div>
+                        <div class="stat-value">8.4 TB</div>
+                    </div>
+                    <div class="stat-icon">⟿</div>
+                </div>
+                <div class="stat-insight">
+                    <span class="stat-trend">+18%</span>
+                    <span>throughput increase</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-title">Network Health</div>
+                        <div class="stat-value">98.7%</div>
+                    </div>
+                    <div class="stat-icon">◎</div>
+                </div>
+                <div class="stat-insight">
+                    <span class="stat-trend">+2.3%</span>
+                    <span>uptime improvement</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-title">Processing Speed</div>
+                        <div class="stat-value">1.2ms</div>
+                    </div>
+                    <div class="stat-icon">⚡</div>
+                </div>
+                <div class="stat-insight">
+                    <span class="stat-trend">-15%</span>
+                    <span>latency reduction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT CARDS -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Network Activity</h2>
+            </div>
+            <div class="content-cards">
+                <div class="content-card">
+                    <span class="card-badge">High Priority</span>
+                    <h3 class="card-title">Core Network Optimization</h3>
+                    <p class="card-description">
+                        Primary neural pathways are being optimized for maximum throughput. Current efficiency
+                        at 94.3% with predictive scaling enabled across all nodes.
+                    </p>
+                    <div class="card-meta">
+                        <span>Initiated: 2 hours ago</span>
+                        <span>Progress: 73%</span>
+                    </div>
+                    <div class="network-indicator">
+                        ⬡ 847 nodes participating
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <span class="card-badge">Processing</span>
+                    <h3 class="card-title">Data Stream Analysis</h3>
+                    <p class="card-description">
+                        Real-time analysis of incoming data streams across 12 distributed clusters.
+                        Pattern recognition algorithms identifying key insights.
+                    </p>
+                    <div class="card-meta">
+                        <span>Status: Active</span>
+                        <span>Clusters: 12/12</span>
+                    </div>
+                    <div class="network-indicator">
+                        ⟿ 2.4 GB/s data flow
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <span class="card-badge">Completed</span>
+                    <h3 class="card-title">Neural Weight Update</h3>
+                    <p class="card-description">
+                        Successfully propagated weight updates across the network. New connections
+                        established, redundant pathways pruned for optimal performance.
+                    </p>
+                    <div class="card-meta">
+                        <span>Duration: 45 minutes</span>
+                        <span>Efficiency: +12%</span>
+                    </div>
+                    <div class="network-indicator">
+                        ✓ 100% synchronization
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATA TABLE -->
+        <section class="table-container">
+            <div class="table-header">
+                <h3 class="table-title">Node Performance</h3>
+                <input type="text" class="table-filter" placeholder="Filter nodes...">
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Node ID</th>
+                        <th>Type</th>
+                        <th>Connections</th>
+                        <th>Load</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NODE-A1847</strong></td>
+                        <td>Processing Core</td>
+                        <td>847 active</td>
+                        <td>76%</td>
+                        <td><span class="badge badge-success">⬡ Online</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NODE-B2391</strong></td>
+                        <td>Data Gateway</td>
+                        <td>1,234 active</td>
+                        <td>89%</td>
+                        <td><span class="badge badge-success">⬡ Online</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NODE-C0572</strong></td>
+                        <td>Neural Layer</td>
+                        <td>456 active</td>
+                        <td>54%</td>
+                        <td><span class="badge badge-neural">◈ Processing</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NODE-D1923</strong></td>
+                        <td>Distribution Hub</td>
+                        <td>2,103 active</td>
+                        <td>92%</td>
+                        <td><span class="badge badge-warning">⚠ High Load</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NODE-E3845</strong></td>
+                        <td>Analytics Core</td>
+                        <td>678 active</td>
+                        <td>41%</td>
+                        <td><span class="badge badge-info">◎ Standby</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FORM -->
+        <section class="form-container">
+            <h2 class="form-title">Configure Network Node</h2>
+            <form class="form-grid">
+                <div class="form-group">
+                    <label for="node-id" class="form-label">Node Identifier</label>
+                    <input type="text" id="node-id" class="form-input" placeholder="NODE-XXXXX">
+                    <span class="form-hint">Unique alphanumeric identifier</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="node-type" class="form-label">Node Type</label>
+                    <select id="node-type" class="form-select">
+                        <option>Processing Core</option>
+                        <option>Data Gateway</option>
+                        <option>Neural Layer</option>
+                        <option>Distribution Hub</option>
+                        <option>Analytics Core</option>
+                    </select>
+                    <span class="form-hint">Select primary function</span>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="node-config" class="form-label">Configuration</label>
+                    <textarea id="node-config" class="form-textarea" placeholder="Enter JSON configuration..."></textarea>
+                    <span class="form-hint">Advanced settings in JSON format</span>
+                </div>
+            </form>
+
+            <div class="button-group" style="margin-top: var(--spacing-md);">
+                <button class="btn btn-primary">
+                    <span>⬡</span>
+                    <span>Deploy Node</span>
+                </button>
+                <button class="btn btn-secondary">
+                    <span>⚙</span>
+                    <span>Test Configuration</span>
+                </button>
+                <button class="btn btn-tertiary">Cancel</button>
+            </div>
+        </section>
+
+        <!-- BADGE SHOWCASE -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Network Status Indicators</h2>
+            </div>
+            <div class="badge-container">
+                <span class="badge badge-success">⬡ Online</span>
+                <span class="badge badge-warning">⚠ High Load</span>
+                <span class="badge badge-error">✗ Offline</span>
+                <span class="badge badge-info">◎ Standby</span>
+                <span class="badge badge-neural">◈ Processing</span>
+                <span class="badge badge-neural">⟿ Data Flow</span>
+                <span class="badge badge-success">⚡ High Speed</span>
+                <span class="badge badge-info">◉ Connected</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3 class="footer-section-title">Network</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Architecture</a></li>
+                    <li><a href="#" class="footer-link">Node Management</a></li>
+                    <li><a href="#" class="footer-link">Data Flow</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Documentation</a></li>
+                    <li><a href="#" class="footer-link">API Reference</a></li>
+                    <li><a href="#" class="footer-link">Network Topology</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Monitoring</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">System Health</a></li>
+                    <li><a href="#" class="footer-link">Performance Metrics</a></li>
+                    <li><a href="#" class="footer-link">Alerts</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Help Center</a></li>
+                    <li><a href="#" class="footer-link">Technical Support</a></li>
+                    <li><a href="#" class="footer-link">Status Page</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Neural Network System. Connected Intelligence Platform.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 200: Esports Arena - Lobbi Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK METHODOLOGY - STYLE 200: ESPORTS ARENA
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Competitive Energy Platform: This design system captures the electric atmosphere
+        of professional esports tournaments, combining the intensity of competitive gaming
+        with the polish of broadcast production. The interface communicates speed, precision,
+        and high-stakes competition while maintaining clarity for real-time data streams
+        and live statistics. Every element reinforces team identity and competitive spirit.
+
+        BLEND ANALYSIS
+        ─────────────────────────────────────────────────────────────────────────────
+        Primary (55%): Esports Branding
+        - Bold team colors and identity systems
+        - Dynamic angular shapes suggesting movement
+        - High-contrast layouts for visibility
+        - Aggressive typography for impact
+        - Championship-grade aesthetic polish
+
+        Secondary (25%): Tournament UI
+        - Bracket visualization systems
+        - Match score displays and countdowns
+        - Player statistics and performance metrics
+        - Live tournament progress indicators
+        - Sponsor and branding integration
+
+        Tertiary (20%): Stream Overlay
+        - Lower-third information bars
+        - Kill feed and event notifications
+        - Viewer count and engagement metrics
+        - Chat integration aesthetics
+        - Camera overlay frame designs
+
+        COLOR PSYCHOLOGY & APPLICATION
+        ─────────────────────────────────────────────────────────────────────────────
+        Electric Purple (#9D4EDD): Primary brand, premium competitive feel
+        Neon Green (#00F5A0): Energy, action, success states, highlights
+        Deep Black (#0D0D0D): Professional backdrop, focus and contrast
+        Pure White (#FFFFFF): Clean data display, maximum readability
+        Team Accent (#00D9FF): Customizable team color placeholder
+        Warning Red (#FF0055): Alerts, defeats, critical information
+
+        TYPOGRAPHY STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Headings: Russo One - Bold, impactful, sports/gaming aesthetic
+        Body: Exo 2 - Technical, futuristic, highly readable at all sizes
+        Weight Variation: Wide range from light data to heavy callouts
+
+        EXPERIENTIAL METRICS
+        ─────────────────────────────────────────────────────────────────────────────
+        Temperature: 6/10 (Moderate-warm - Competitive intensity balanced with professionalism)
+        Formality: 4/10 (Casual-professional - Gaming culture meets broadcast standards)
+        Energy: 10/10 (Maximum - Adrenaline, competition, live action)
+        Intensity: 9/10 (Very high - Fast-paced, attention-demanding)
+
+        ACCESSIBILITY STANDARDS
+        ─────────────────────────────────────────────────────────────────────────────
+        WCAG 2.1 AA Compliance:
+        - Neon colors tested against dark backgrounds for sufficient contrast
+        - Multiple visual indicators beyond color (icons, patterns, borders)
+        - Clear typography hierarchy for rapid information scanning
+        - Motion effects can be disabled via prefers-reduced-motion
+        - Focus states prominent for keyboard navigation
+
+        USE CASES
+        ─────────────────────────────────────────────────────────────────────────────
+        - Esports tournament platforms
+        - Gaming league websites
+        - Stream overlay designs
+        - Player and team stat trackers
+        - Competitive gaming communities
+        - Tournament bracket systems
+        - Gaming news and media sites
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        - Fast, snappy transitions matching game speed
+        - Score updates with dramatic emphasis
+        - Victory/defeat states with appropriate energy
+        - Live data streams with subtle pulsing
+        - Hover states reveal additional player/match data
+        - Click feedback feels responsive and immediate
+
+        TECHNICAL NOTES
+        ─────────────────────────────────────────────────────────────────────────────
+        - CSS clip-path for angular, dynamic shapes
+        - Neon glow effects using multiple text-shadows
+        - Animation timing optimized for excitement without distraction
+        - Gradient overlays for depth and energy
+        - Transform skew for aggressive, forward-leaning aesthetic
+        - High-performance animations for live data updates
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color Palette */
+            --color-black: #0D0D0D;
+            --color-black-light: #1A1A1A;
+            --color-purple: #9D4EDD;
+            --color-purple-dark: #7B2CBF;
+            --color-green: #00F5A0;
+            --color-green-dark: #00C781;
+            --color-cyan: #00D9FF;
+            --color-cyan-dark: #00A8CC;
+            --color-white: #FFFFFF;
+            --color-gray: #8B8B8B;
+            --color-red: #FF0055;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
+            --gradient-accent: linear-gradient(135deg, #00F5A0 0%, #00C781 100%);
+            --gradient-team: linear-gradient(135deg, #00D9FF 0%, #00A8CC 100%);
+            --gradient-dark: linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 100%);
+
+            /* Typography */
+            --font-heading: 'Russo One', sans-serif;
+            --font-body: 'Exo 2', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            /* Shadows */
+            --shadow-glow-purple: 0 0 20px rgba(157, 78, 221, 0.6);
+            --shadow-glow-green: 0 0 20px rgba(0, 245, 160, 0.6);
+            --shadow-glow-cyan: 0 0 20px rgba(0, 217, 255, 0.6);
+            --shadow-depth: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-medium: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow:
+                    0 0 5px var(--color-green),
+                    0 0 10px var(--color-green),
+                    0 0 20px var(--color-green);
+            }
+            50% {
+                text-shadow:
+                    0 0 10px var(--color-green),
+                    0 0 20px var(--color-green),
+                    0 0 40px var(--color-green);
+            }
+        }
+
+        @keyframes energyPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(157, 78, 221, 1);
+            }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(157, 78, 221, 0.03) 0px,
+                    transparent 1px,
+                    transparent 2px,
+                    rgba(157, 78, 221, 0.03) 3px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-glow-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(157, 78, 221, 0.3),
+                transparent);
+            animation: slideIn 3s ease-in-out infinite;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1::before {
+            content: '▸';
+            color: var(--color-green);
+            margin-right: var(--spacing-sm);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        header h1::after {
+            content: '◂';
+            color: var(--color-green);
+            margin-left: var(--spacing-sm);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: rgba(157, 78, 221, 0.2);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left var(--transition-medium);
+            z-index: -1;
+        }
+
+        nav a:hover::before,
+        nav a:focus::before {
+            left: 0;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            border-color: var(--color-green);
+            color: var(--color-green);
+            box-shadow: var(--shadow-glow-green);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-depth);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--color-purple);
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-green);
+            box-shadow:
+                var(--shadow-depth),
+                var(--shadow-glow-green);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .stat-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-green);
+            font-weight: 700;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .stat-label {
+            font-family: var(--font-heading);
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 12px;
+            background: rgba(139, 139, 139, 0.2);
+            border: 1px solid var(--color-gray);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            background: var(--gradient-accent);
+            box-shadow: 0 0 15px var(--color-green);
+            transition: width 0.8s ease;
+            position: relative;
+        }
+
+        .stat-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+            animation: slideIn 1.5s ease-in-out infinite;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-depth);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 3px solid var(--color-purple);
+            padding-bottom: var(--spacing-sm);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--gradient-accent);
+        }
+
+        /* Content Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-card {
+            background: var(--color-black-light);
+            border: 2px solid var(--color-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-depth);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: -1;
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .content-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-badge {
+            background: var(--gradient-primary);
+            color: var(--color-white);
+            font-family: var(--font-heading);
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-glow-purple);
+        }
+
+        .card-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-green);
+            box-shadow: 0 0 10px var(--color-green);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-gray);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-depth);
+        }
+
+        .table-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .table-filter {
+            flex: 1;
+            min-width: 200px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid var(--color-gray);
+            border-radius: var(--radius-sm);
+            background: var(--color-black-light);
+            font-family: var(--font-body);
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+
+        .table-filter:focus {
+            outline: none;
+            border-color: var(--color-purple);
+            box-shadow: var(--shadow-glow-purple);
+        }
+
+        .table-filter::placeholder {
+            color: var(--color-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        thead th {
+            font-family: var(--font-heading);
+            padding: var(--spacing-sm);
+            text-align: left;
+            color: var(--color-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--color-green);
+        }
+
+        tbody tr {
+            background: var(--color-black-light);
+            transition: all var(--transition-fast);
+        }
+
+        tbody tr:hover {
+            background: rgba(157, 78, 221, 0.2);
+            box-shadow: inset 0 0 20px rgba(157, 78, 221, 0.3);
+        }
+
+        tbody td {
+            padding: var(--spacing-md);
+            color: var(--color-white);
+            border-top: 1px solid var(--color-gray);
+            border-bottom: 1px solid var(--color-gray);
+        }
+
+        tbody td:first-child {
+            border-left: 1px solid var(--color-gray);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        tbody td:last-child {
+            border-right: 1px solid var(--color-gray);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-depth);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .form-label {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid var(--color-gray);
+            border-radius: var(--radius-sm);
+            background: var(--color-black-light);
+            font-family: var(--font-body);
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-purple);
+            box-shadow: var(--shadow-glow-purple);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn {
+            font-family: var(--font-heading);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: 2px solid;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-block;
+            min-width: 160px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            border-color: var(--color-purple);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            border-color: var(--color-green);
+            box-shadow: var(--shadow-glow-purple);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-secondary {
+            background: var(--gradient-accent);
+            border-color: var(--color-green);
+            color: var(--color-black);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            box-shadow: var(--shadow-glow-green);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            border-color: var(--color-gray);
+            color: var(--color-gray);
+        }
+
+        .btn-tertiary:hover,
+        .btn-tertiary:focus {
+            border-color: var(--color-white);
+            color: var(--color-white);
+            outline: none;
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            border: 2px solid;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            transition: all var(--transition-fast);
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+        }
+
+        .badge-live {
+            background: rgba(255, 0, 85, 0.2);
+            border-color: var(--color-red);
+            color: var(--color-red);
+            animation: energyPulse 1.5s ease-in-out infinite;
+        }
+
+        .badge-winner {
+            background: rgba(0, 245, 160, 0.2);
+            border-color: var(--color-green);
+            color: var(--color-green);
+        }
+
+        .badge-pro {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--color-purple);
+            color: var(--color-purple);
+        }
+
+        .badge-mvp {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+        }
+
+        .badge-offline {
+            background: transparent;
+            border-color: var(--color-gray);
+            color: var(--color-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-dark);
+            border: 2px solid var(--color-purple);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            box-shadow: var(--shadow-depth);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--color-green);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--color-gray);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--color-green);
+            transform: translateX(8px);
+            outline: none;
+        }
+
+        .footer-links a::before {
+            content: '▸ ';
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .footer-links a:hover::before,
+        .footer-links a:focus::before {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 2px solid var(--color-gray);
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus {
+            outline: 2px solid var(--color-green);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>200</strong> of 140 &mdash; Style 200</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="undefined" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 199) window.location.href = 'undefined';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <h1>ESPORTS ARENA</h1>
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="#matches">Matches</a>
+                <a href="#teams">Teams</a>
+                <a href="#players">Players</a>
+                <a href="#brackets">Brackets</a>
+                <a href="#stats">Stats</a>
+            </nav>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" aria-label="Tournament statistics">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-green);">👥</div>
+                    <div class="stat-status">LIVE</div>
+                </div>
+                <div class="stat-label">Active Viewers</div>
+                <div class="stat-value">247K</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 88%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-purple);">🏆</div>
+                    <div class="stat-status">ONGOING</div>
+                </div>
+                <div class="stat-label">Tournament Prize</div>
+                <div class="stat-value">$1.5M</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 95%; background: var(--gradient-primary);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-cyan);">⚔️</div>
+                    <div class="stat-status">IN PROGRESS</div>
+                </div>
+                <div class="stat-label">Active Matches</div>
+                <div class="stat-value">24</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 72%; background: var(--gradient-team);"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="color: var(--color-green);">⚡</div>
+                    <div class="stat-status">RECORD</div>
+                </div>
+                <div class="stat-label">Peak Viewers</div>
+                <div class="stat-value">392K</div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 100%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Matches -->
+        <section class="content-section">
+            <h2 class="section-title">▸ LIVE MATCHES</h2>
+
+            <div class="cards-grid">
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge">GRAND FINALS</span>
+                        <span class="card-status"></span>
+                    </div>
+                    <h3 class="card-title">THUNDER WOLVES VS CYBER DRAGONS</h3>
+                    <p class="card-description">
+                        Championship match for the ultimate title! Both teams at peak performance.
+                        Winner takes home $500K and the trophy. Best of 5 series.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-green); font-weight: 900;">2-1</span>
+                        <span style="color: var(--color-cyan);">158K watching</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="background: var(--gradient-team);">SEMI-FINALS</span>
+                        <span class="card-status"></span>
+                    </div>
+                    <h3 class="card-title">PHOENIX RISING VS STORM RAIDERS</h3>
+                    <p class="card-description">
+                        Intense semi-final showdown! Phoenix looking to continue their winning streak
+                        against the veteran Storm Raiders squad.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-green); font-weight: 900;">1-1</span>
+                        <span style="color: var(--color-cyan);">94K watching</span>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-header">
+                        <span class="card-badge" style="background: var(--gradient-accent);">QUARTERS</span>
+                        <span class="card-status"></span>
+                    </div>
+                    <h3 class="card-title">NIGHT OWLS VS APEX LEGENDS</h3>
+                    <p class="card-description">
+                        Quarter-final clash between tactical Night Owls and aggressive Apex Legends.
+                        Map control will be crucial in this matchup.
+                    </p>
+                    <div class="card-footer">
+                        <span style="color: var(--color-green); font-weight: 900;">0-1</span>
+                        <span style="color: var(--color-cyan);">67K watching</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="badges-container">
+                <span class="badge badge-live">🔴 LIVE</span>
+                <span class="badge badge-winner">✓ WINNER</span>
+                <span class="badge badge-pro">⭐ PRO LEAGUE</span>
+                <span class="badge badge-mvp">👑 MVP</span>
+                <span class="badge badge-offline">◯ OFFLINE</span>
+            </div>
+        </section>
+
+        <!-- Leaderboard Table -->
+        <section class="table-container">
+            <h2 class="section-title">▸ TOURNAMENT RANKINGS</h2>
+
+            <div class="table-controls">
+                <input type="search" class="table-filter" placeholder="Search teams..." aria-label="Filter tournament rankings">
+                <select class="table-filter" aria-label="Filter by region">
+                    <option>All Regions</option>
+                    <option>North America</option>
+                    <option>Europe</option>
+                    <option>Asia</option>
+                    <option>South America</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Region</th>
+                        <th>W-L</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--color-green); font-size: 1.5rem;">1</strong></td>
+                        <td><strong>THUNDER WOLVES</strong></td>
+                        <td><span class="badge badge-mvp" style="font-size: 0.75rem;">NA</span></td>
+                        <td style="color: var(--color-green); font-weight: 700;">15-2</td>
+                        <td><strong style="color: var(--color-green);">3,420</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--color-green); font-size: 1.5rem;">2</strong></td>
+                        <td><strong>CYBER DRAGONS</strong></td>
+                        <td><span class="badge badge-mvp" style="font-size: 0.75rem;">EU</span></td>
+                        <td style="color: var(--color-green); font-weight: 700;">14-3</td>
+                        <td><strong style="color: var(--color-green);">3,280</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--color-cyan); font-size: 1.5rem;">3</strong></td>
+                        <td><strong>PHOENIX RISING</strong></td>
+                        <td><span class="badge badge-mvp" style="font-size: 0.75rem;">ASIA</span></td>
+                        <td style="color: var(--color-green); font-weight: 700;">13-4</td>
+                        <td><strong style="color: var(--color-green);">3,140</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--color-cyan); font-size: 1.5rem;">4</strong></td>
+                        <td><strong>STORM RAIDERS</strong></td>
+                        <td><span class="badge badge-mvp" style="font-size: 0.75rem;">NA</span></td>
+                        <td style="color: var(--color-green); font-weight: 700;">12-5</td>
+                        <td><strong style="color: var(--color-green);">2,890</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td><strong>NIGHT OWLS</strong></td>
+                        <td><span class="badge badge-mvp" style="font-size: 0.75rem;">EU</span></td>
+                        <td style="color: var(--color-gray); font-weight: 700;">10-7</td>
+                        <td><strong style="color: var(--color-gray);">2,540</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Team Registration Form -->
+        <section class="form-section">
+            <h2 class="section-title">▸ TEAM REGISTRATION</h2>
+
+            <form class="form-grid">
+                <div class="form-group">
+                    <label for="team-name" class="form-label">Team Name</label>
+                    <input type="text" id="team-name" class="form-input" placeholder="Enter team name" value="ELITE SQUAD">
+                </div>
+
+                <div class="form-group">
+                    <label for="team-tag" class="form-label">Team Tag</label>
+                    <input type="text" id="team-tag" class="form-input" placeholder="3-5 characters" value="ELIT">
+                </div>
+
+                <div class="form-group">
+                    <label for="team-region" class="form-label">Region</label>
+                    <select id="team-region" class="form-select">
+                        <option>North America</option>
+                        <option>Europe</option>
+                        <option>Asia</option>
+                        <option>South America</option>
+                        <option>Oceania</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="team-tier" class="form-label">Tier</label>
+                    <select id="team-tier" class="form-select">
+                        <option>Pro League</option>
+                        <option>Semi-Pro</option>
+                        <option>Amateur</option>
+                        <option>Rookie</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="team-bio" class="form-label">Team Biography</label>
+                    <textarea id="team-bio" class="form-textarea" placeholder="Tell us about your team...">We are a competitive esports team focused on dominating the pro scene with tactical excellence and teamwork.</textarea>
+                </div>
+            </form>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">⚡ REGISTER TEAM</button>
+                <button type="button" class="btn btn-secondary">✓ VERIFY ROSTER</button>
+                <button type="button" class="btn btn-tertiary">✕ CANCEL</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>▸ TOURNAMENTS</h3>
+                    <ul class="footer-links">
+                        <li><a href="#upcoming">Upcoming Events</a></li>
+                        <li><a href="#brackets">Tournament Brackets</a></li>
+                        <li><a href="#schedule">Match Schedule</a></li>
+                        <li><a href="#results">Past Results</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>▸ TEAMS & PLAYERS</h3>
+                    <ul class="footer-links">
+                        <li><a href="#teams">Team Rankings</a></li>
+                        <li><a href="#players">Player Stats</a></li>
+                        <li><a href="#roster">Roster Changes</a></li>
+                        <li><a href="#transfer">Transfer News</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>▸ COMMUNITY</h3>
+                    <ul class="footer-links">
+                        <li><a href="#watch">Watch Live</a></li>
+                        <li><a href="#discord">Discord Server</a></li>
+                        <li><a href="#news">Latest News</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>▸ ESPORTS ARENA - WHERE LEGENDS ARE BORN ◂</p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 1px;">
+                    Style 200: Esports Arena | Temperature: 6/10 | Formality: 4/10 | Tags: tech, media
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
