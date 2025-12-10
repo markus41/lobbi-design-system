@@ -1,0 +1,279 @@
+const fs = require('fs');
+const path = require('path');
+
+// Define perfectFor mappings for all 210 styles
+const perfectForMappings = {
+    1: ["Heritage Organizations", "Religious Institutions", "Museums"],
+    2: ["Design Studios", "Creative Agencies", "Architecture Firms"],
+    3: ["Luxury Brands", "Premium Services", "Private Wealth"],
+    4: ["Wellness Brands", "Design Studios", "Lifestyle Products"],
+    5: ["Consulting Firms", "Professional Services", "Corporate"],
+    6: ["Tech Startups", "Gaming Companies", "Creative Agencies"],
+    7: ["Design Studios", "Creative Agencies", "Modern Brands"],
+    8: ["SaaS Companies", "Tech Startups", "Modern Business"],
+    9: ["Universities", "Libraries", "Academic Institutions"],
+    10: ["Creative Agencies", "Entertainment Brands", "Media Companies"],
+    11: ["Sustainability Orgs", "Environmental Groups", "Green Tech"],
+    12: ["Architecture Firms", "Design Studios", "Modern Brands"],
+    13: ["Executive Services", "Premium Consulting", "Corporate Leaders"],
+    14: ["Publishers", "Media Companies", "News Organizations"],
+    15: ["Private Banks", "Wealth Management", "Investment Firms"],
+    16: ["Architecture Firms", "Design Studios", "Creative Professionals"],
+    17: ["Corporate Headquarters", "C-Suite Services", "Executive Firms"],
+    18: ["Law Firms", "Legal Services", "Attorney Associations"],
+    19: ["Luxury Hotels", "Premium Resorts", "5-Star Hospitality"],
+    20: ["Investment Firms", "Hedge Funds", "Financial Services"],
+    21: ["Wealth Advisors", "Private Banks", "Asset Management"],
+    22: ["Digital Banks", "Payment Platforms", "Investment Apps"],
+    23: ["Trading Platforms", "Financial Tech", "Investment Apps"],
+    24: ["Insurance Companies", "Risk Management", "Financial Security"],
+    25: ["Crypto Exchanges", "Blockchain Startups", "Web3 Projects"],
+    26: ["Luxury Real Estate", "Property Developers", "Estate Agencies"],
+    27: ["Strategy Consultants", "Management Firms", "Business Advisors"],
+    28: ["Medical Practices", "Healthcare Networks", "Clinical Services"],
+    29: ["Dental Practices", "Cosmetic Dentistry", "Oral Healthcare"],
+    30: ["Pharma Companies", "Drug Manufacturers", "Medical Research"],
+    31: ["Engineering Firms", "Technical Services", "Infrastructure"],
+    32: ["Accounting Firms", "CPA Services", "Financial Auditing"],
+    33: ["Patent Attorneys", "IP Law Firms", "Tech Legal Services"],
+    34: ["HR Consulting", "Talent Management", "Workforce Solutions"],
+    35: ["Yacht Clubs", "Sailing Organizations", "Maritime Societies"],
+    36: ["Golf Clubs", "Country Clubs", "Resort Communities"],
+    37: ["Spas", "Wellness Centers", "Retreat Centers"],
+    38: ["Fine Dining", "Michelin Restaurants", "Culinary Experiences"],
+    39: ["Private Jet Services", "Aviation Charter", "Executive Travel"],
+    40: ["Luxury Watchmakers", "Timepiece Boutiques", "Horology Brands"],
+    41: ["Jewelry Brands", "Luxury Boutiques", "Fine Jewelry"],
+    42: ["Art Galleries", "Museums", "Cultural Institutions"],
+    43: ["AI Research Labs", "Tech Research", "ML Companies"],
+    44: ["Biotech Firms", "Life Sciences", "Research Labs"],
+    45: ["Aerospace Companies", "Space Industry", "Aviation Tech"],
+    46: ["Robotics Companies", "Automation Tech", "AI Hardware"],
+    47: ["Quantum Computing", "Advanced Research", "Tech Labs"],
+    48: ["Clean Energy Firms", "Solar Companies", "Sustainability Tech"],
+    49: ["Space Companies", "Aerospace", "Satellite Services"],
+    50: ["Security Firms", "Cybersecurity", "IT Security Services"],
+    51: ["News Organizations", "Publications", "Media Companies"],
+    52: ["Fashion Publishers", "Style Magazines", "Luxury Media"],
+    53: ["Literary Journals", "Publishers", "Writing Organizations"],
+    54: ["Record Labels", "Music Publishers", "Audio Brands"],
+    55: ["Film Studios", "Production Companies", "Entertainment"],
+    56: ["Photographers", "Photography Studios", "Visual Artists"],
+    57: ["Podcast Networks", "Audio Productions", "Content Creators"],
+    58: ["Streaming Services", "Entertainment Platforms", "Media Tech"],
+    59: ["Corporate Boards", "Executive Councils", "Leadership Groups"],
+    60: ["Fortune 500", "Enterprise Corporations", "Major Businesses"],
+    61: ["Tech Startups", "VC-Backed Companies", "Innovation Labs"],
+    62: ["Nonprofits", "Foundations", "Social Impact Orgs"],
+    63: ["Universities", "Ivy League Colleges", "Academic Institutions"],
+    64: ["Think Tanks", "Research Institutes", "Policy Organizations"],
+    65: ["Foundations", "Philanthropic Orgs", "Charitable Trusts"],
+    66: ["Government Agencies", "Public Services", "Civic Organizations"],
+    67: ["Auction Houses", "Fine Art Sales", "Collectibles Markets"],
+    68: ["Wineries", "Vineyards", "Wine Estates"],
+    69: ["Equestrian Clubs", "Horse Racing", "Riding Organizations"],
+    70: ["Luxury Auto Brands", "Car Dealerships", "Automotive Clubs"],
+    71: ["Local Chambers", "Business Associations", "Regional Councils"],
+    72: ["Trade Associations", "Industry Groups", "Sector Councils"],
+    73: ["Professional Societies", "Industry Associations", "Certification Bodies"],
+    74: ["Alumni Associations", "University Networks", "Graduate Groups"],
+    75: ["Bar Associations", "Legal Societies", "Attorney Networks"],
+    76: ["Medical Associations", "Physician Groups", "Healthcare Networks"],
+    77: ["Realtor Associations", "Real Estate Boards", "Agent Networks"],
+    78: ["Rotary Clubs", "Service Organizations", "Community Groups"],
+    79: ["Credit Unions", "Member-Owned Banks", "Financial Cooperatives"],
+    80: ["HOAs", "Community Associations", "Residential Boards"],
+    81: ["Teachers Unions", "Education Associations", "Faculty Groups"],
+    82: ["Nonprofit Networks", "NGO Alliances", "Impact Coalitions"],
+    83: ["Sports Leagues", "Athletic Associations", "Recreation Councils"],
+    84: ["Veterans Groups", "Military Associations", "Service Organizations"],
+    85: ["Religious Bodies", "Faith Denominations", "Church Networks"],
+    86: ["Fraternal Orders", "Brotherhood Organizations", "Social Clubs"],
+    87: ["Industry Councils", "Sector Leadership", "Business Forums"],
+    88: ["Cooperatives", "Member-Owned Orgs", "Collective Groups"],
+    89: ["Professional Networks", "Career Organizations", "Industry Forums"],
+    90: ["Membership Clubs", "Social Collectives", "Community Hubs"],
+    91: ["SaaS Companies", "Enterprise Software", "B2B Platforms"],
+    92: ["Design Agencies", "Creative Studios", "Modern Brands"],
+    93: ["Concierge Services", "Luxury Lifestyle", "VIP Services"],
+    94: ["Cybersecurity Firms", "Defense Tech", "Security Operations"],
+    95: ["Wellness Brands", "Organic Products", "Eco Lifestyle"],
+    96: ["Investment Banks", "Private Equity", "Wealth Management"],
+    97: ["Design Studios", "Creative Agencies", "Branding Firms"],
+    98: ["Research Institutes", "Academic Centers", "University Labs"],
+    99: ["Sports Media", "Athletic Brands", "Premium Sports"],
+    100: ["Heritage Societies", "Genealogy Orgs", "Historical Groups"],
+    101: ["Quantum Labs", "Advanced Research", "Science Tech"],
+    102: ["Maritime Associations", "Shipping Guilds", "Nautical Societies"],
+    103: ["Artisan Collectives", "Craft Guilds", "Maker Communities"],
+    104: ["Private Aviation", "Jet Services", "Executive Travel"],
+    105: ["Music Schools", "Conservatories", "Performance Academies"],
+    106: ["Green Energy Orgs", "Renewable Tech", "Climate Groups"],
+    107: ["Legal Conferences", "Law Associations", "Attorney Networks"],
+    108: ["Culinary Institutes", "Chef Associations", "Food Guilds"],
+    109: ["Architect Associations", "Design Forums", "Urban Planning"],
+    110: ["Philanthropic Circles", "Donor Networks", "Giving Societies"],
+    111: ["Esports Teams", "Gaming Leagues", "Tournament Platforms"],
+    112: ["Wine Clubs", "Sommelier Societies", "Collector Groups"],
+    113: ["DAOs", "Crypto Communities", "Blockchain Projects"],
+    114: ["Healthcare Networks", "Medical Associations", "Clinical Groups"],
+    115: ["Fashion Councils", "Designer Networks", "Style Associations"],
+    116: ["Motorsport Clubs", "Racing Associations", "Car Enthusiasts"],
+    117: ["Diplomatic Corps", "Foreign Service", "International Relations"],
+    118: ["Startup Accelerators", "VC Networks", "Innovation Hubs"],
+    119: ["Meditation Centers", "Mindfulness Groups", "Spiritual Communities"],
+    120: ["Space Organizations", "Aerospace Advocacy", "Space Tech"],
+    121: ["Innovation Hubs", "Civic Tech", "Government Innovation"],
+    122: ["Government Agencies", "Public Transparency", "Civic Initiatives"],
+    123: ["Public Services", "Government Excellence", "Civic Leadership"],
+    124: ["Regulatory Bodies", "Government Agencies", "Policy Makers"],
+    125: ["Impact Networks", "Nonprofit Alliances", "Social Enterprise"],
+    126: ["Philanthropic Foundations", "Legacy Donors", "Charitable Trusts"],
+    127: ["Community Groups", "Grassroots Orgs", "Local Initiatives"],
+    128: ["Advocacy Groups", "Policy Networks", "Industry Advocates"],
+    129: ["Member Platforms", "Professional Networks", "Community Tech"],
+    130: ["Certification Bodies", "Professional Credentials", "Standards Orgs"],
+    131: ["Industry Councils", "Sector Leadership", "Trade Forums"],
+    132: ["Creative Collectives", "Member Organizations", "Artistic Guilds"],
+    133: ["Professional Guilds", "Trade Associations", "Craft Councils"],
+    134: ["Research Associations", "Think Tanks", "Intelligence Networks"],
+    135: ["Global Standards", "International Bodies", "Regulatory Authorities"],
+    136: ["Wellness Centers", "Spas", "Mindfulness Brands"],
+    137: ["Heritage Organizations", "Preservation Societies", "Museums"],
+    138: ["Sustainable Luxury", "Eco Premium Brands", "Green Design"],
+    139: ["Artisan Brands", "Contemporary Craft", "Design Studios"],
+    140: ["Accessible Services", "Inclusive Orgs", "Universal Design"],
+    141: ["Art Galleries", "Design Studios", "Cultural Organizations"],
+    142: ["Universities", "Libraries", "Heritage Institutions"],
+    143: ["Heritage Brands", "Classic Services", "Traditional Business"],
+    144: ["Floral Brands", "Garden Societies", "Botanical Organizations"],
+    145: ["Government Buildings", "Civic Institutions", "Public Services"],
+    146: ["Fine Art Museums", "Cultural Institutions", "Art Organizations"],
+    147: ["Traditional Guilds", "Craft Associations", "Heritage Groups"],
+    148: ["Opera Houses", "Theaters", "Performing Arts Centers"],
+    149: ["Law Firms", "Legal Institutions", "Justice Organizations"],
+    150: ["Luxury Museums", "Cultural Heritage", "Ancient Art"],
+    151: ["Religious Institutions", "Orthodox Churches", "Faith Communities"],
+    152: ["Heritage Societies", "Historical Associations", "Preservation Groups"],
+    153: ["Zen Centers", "Japanese Culture", "Minimalist Brands"],
+    154: ["Nordic Brands", "Scandinavian Lifestyle", "Cozy Spaces"],
+    155: ["Mediterranean Venues", "Moroccan Brands", "Cultural Centers"],
+    156: ["Indian Luxury", "Cultural Heritage", "Traditional Arts"],
+    157: ["Chinese Organizations", "Asian Heritage", "Cultural Institutions"],
+    158: ["Greek Resorts", "Mediterranean Hospitality", "Island Venues"],
+    159: ["African Art", "Cultural Organizations", "Heritage Groups"],
+    160: ["Celtic Heritage", "Irish Organizations", "Cultural Societies"],
+    161: ["Persian Culture", "Middle Eastern Luxury", "Heritage Brands"],
+    162: ["Mexican Culture", "Latin Arts", "Festive Venues"],
+    163: ["Nordic Heritage", "Viking Culture", "Scandinavian Groups"],
+    164: ["Brazilian Culture", "Carnival Events", "Latin Entertainment"],
+    165: ["SaaS Companies", "Tech Startups", "Modern Apps"],
+    166: ["Premium Apps", "Luxury Software", "High-End Tech"],
+    167: ["Tech Companies", "SaaS Platforms", "Digital Products"],
+    168: ["Design Agencies", "Creative Studios", "Minimal Brands"],
+    169: ["Creative Tech", "Design Apps", "Visual Platforms"],
+    170: ["Photography Studios", "Visual Media", "Creative Agencies"],
+    171: ["Tech Startups", "3D Companies", "Gaming Studios"],
+    172: ["Creative Brands", "Artistic Services", "Design Studios"],
+    173: ["Entertainment Brands", "Pop Culture", "Media Companies"],
+    174: ["Gaming Brands", "Retro Tech", "Nostalgic Products"],
+    175: ["Playful Brands", "Youth Products", "Friendly Services"],
+    176: ["Engineering Firms", "Technical Services", "Industrial Design"],
+    177: ["Retro Diners", "Vintage Restaurants", "Nostalgic Venues"],
+    178: ["Retro Brands", "Vintage Shops", "Nostalgic Services"],
+    179: ["Entertainment Venues", "Nightclubs", "Retro Brands"],
+    180: ["Retro Tech", "Synthwave Brands", "Gaming Companies"],
+    181: ["Alternative Brands", "Music Labels", "Edgy Services"],
+    182: ["Tech Nostalgia", "Y2K Brands", "Digital Services"],
+    183: ["American Brands", "Heritage Businesses", "Traditional Services"],
+    184: ["Luxury Hotels", "Premium Events", "Elegant Venues"],
+    185: ["Film Festivals", "Cinema Organizations", "Entertainment Venues"],
+    186: ["Tech Retro", "Computing History", "Developer Tools"],
+    187: ["Alternative Fashion", "Unique Brands", "Creative Services"],
+    188: ["Modern Furniture", "Design Brands", "Contemporary Living"],
+    189: ["Print Services", "Publishing", "Traditional Media"],
+    190: ["Architecture Firms", "Industrial Design", "Modern Brands"],
+    191: ["Furniture Brands", "Natural Products", "Craft Businesses"],
+    192: ["Luxury Interior", "High-End Design", "Premium Services"],
+    193: ["Motion Design", "Video Production", "Creative Media"],
+    194: ["Interactive Media", "Web Design", "Digital Agencies"],
+    195: ["Animation Studios", "Motion Design", "Creative Tech"],
+    196: ["UX Design", "Tech Products", "Interactive Services"],
+    197: ["Gaming Companies", "RPG Studios", "Fantasy Brands"],
+    198: ["Tech Companies", "Gaming Studios", "Futuristic Brands"],
+    199: ["Mobile Games", "Casual Gaming", "App Studios"],
+    200: ["Esports Organizations", "Gaming Leagues", "Tournament Platforms"],
+    201: ["Minimalist Brands", "Clean Tech", "Modern Services"],
+    202: ["Wellness Brands", "Natural Products", "Holistic Services"],
+    203: ["Tech Companies", "Data Services", "Corporate Software"],
+    204: ["Tech Products", "Developer Tools", "Modern Apps"],
+    205: ["Premium Tech", "Design Software", "Professional Apps"],
+    206: ["AI Companies", "ML Services", "Intelligent Platforms"],
+    207: ["AI Research", "Data Science", "Neural Networks"],
+    208: ["AR/VR Companies", "Spatial Computing", "3D Platforms"],
+    209: ["Creative Tech", "Generative Design", "Art Platforms"],
+    210: ["Sustainable Tech", "Eco Companies", "Green Design"]
+};
+
+// Read the index.html file
+const indexPath = path.join(__dirname, '..', 'index.html');
+let html = fs.readFileSync(indexPath, 'utf8');
+
+// Find and update each style entry
+Object.keys(perfectForMappings).forEach(num => {
+    const styleNum = parseInt(num);
+    const perfectFor = perfectForMappings[styleNum];
+
+    // Create regex to find the style object
+    const regex = new RegExp(
+        `(\\{ num: ${styleNum}, name: "[^"]+", blend: "[^"]+", tags: \\[[^\\]]+\\], temp: \\d+, formality: \\d+, preview: "[^"]+", file: "[^"]+" \\})`,
+        'g'
+    );
+
+    // Replace with updated version that includes perfectFor
+    html = html.replace(regex, (match) => {
+        // Insert perfectFor before the file property
+        return match.replace(
+            /, file: /,
+            `, perfectFor: ${JSON.stringify(perfectFor)}, file: `
+        );
+    });
+});
+
+// Update the renderStyles function to include perfectFor display
+const oldRenderCode = `                        <div class="card-tags">
+                            \${style.tags.map(tag => \`<span class="tag \${tag}">\${tag}</span>\`).join('')}
+                        </div>`;
+
+const newRenderCode = `                        <div class="card-tags">
+                            \${style.tags.map(tag => \`<span class="tag \${tag}">\${tag}</span>\`).join('')}
+                        </div>
+                        <div class="card-perfect-for">
+                            \${(style.perfectFor || []).map(use => \`<span class="perfect-for-tag">\${use}</span>\`).join('')}
+                        </div>`;
+
+html = html.replace(oldRenderCode, newRenderCode);
+
+// Update the filterAndSort function to include perfectFor in search
+const oldFilterCode = `                filtered = filtered.filter(s =>
+                    s.name.toLowerCase().includes(searchTerm) ||
+                    s.blend.toLowerCase().includes(searchTerm) ||
+                    s.tags.some(t => t.includes(searchTerm))
+                );`;
+
+const newFilterCode = `                filtered = filtered.filter(s =>
+                    s.name.toLowerCase().includes(searchTerm) ||
+                    s.blend.toLowerCase().includes(searchTerm) ||
+                    s.tags.some(t => t.includes(searchTerm)) ||
+                    (s.perfectFor || []).some(p => p.toLowerCase().includes(searchTerm))
+                );`;
+
+html = html.replace(oldFilterCode, newFilterCode);
+
+// Write the updated file
+fs.writeFileSync(indexPath, html, 'utf8');
+
+console.log('✓ Added perfectFor tags to all 210 styles');
+console.log('✓ Updated renderStyles() to display perfectFor tags');
+console.log('✓ Updated filterAndSort() to make perfectFor searchable');
+console.log('\nDone! The index.html file has been updated.');

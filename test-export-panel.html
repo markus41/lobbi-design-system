@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Panel Test - Lobbi Design System</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+            --background: #1f2937;
+            --text: #f9fafb;
+            --accent: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: rgba(249, 250, 251, 0.7);
+            margin-bottom: 3rem;
+        }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .token-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .token-card h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: rgba(249, 250, 251, 0.6);
+            margin-bottom: 0.75rem;
+        }
+
+        .token-value {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: var(--secondary-color);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 50px;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .instructions {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .instructions h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Export Panel */
+        .export-panel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .export-panel h4 {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.75rem;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .export-btn {
+            padding: 0.5rem 0.875rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .export-btn:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        .export-toast {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            pointer-events: none;
+        }
+
+        .export-toast.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Export Panel Test</h1>
+        <p class="subtitle">Interactive demonstration of the design token export functionality</p>
+
+        <div class="info-box">
+            <h2>About This Test Page</h2>
+            <p>This page demonstrates the export panel functionality that has been added to all 210 style pages in the Lobbi Design System gallery.</p>
+            <p>The export panel allows designers and developers to quickly extract design tokens in three formats: CSS custom properties, Tailwind configuration, and JSON.</p>
+        </div>
+
+        <div class="token-display">
+            <div class="token-card">
+                <h3>Primary Color</h3>
+                <div class="token-value">--primary-color: #3b82f6</div>
+                <div class="color-swatch" style="background: var(--primary-color);"></div>
+            </div>
+
+            <div class="token-card">
+                <h3>Secondary Color</h3>
+                <div class="token-value">--secondary-color: #10b981</div>
+                <div class="color-swatch" style="background: var(--secondary-color);"></div>
+            </div>
+
+            <div class="token-card">
+                <h3>Background</h3>
+                <div class="token-value">--background: #1f2937</div>
+                <div class="color-swatch" style="background: var(--background);"></div>
+            </div>
+
+            <div class="token-card">
+                <h3>Text Color</h3>
+                <div class="token-value">--text: #f9fafb</div>
+                <div class="color-swatch" style="background: var(--text);"></div>
+            </div>
+
+            <div class="token-card">
+                <h3>Accent Color</h3>
+                <div class="token-value">--accent: #f59e0b</div>
+                <div class="color-swatch" style="background: var(--accent);"></div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Test the Export Panel</h3>
+            <ol>
+                <li>Look at the bottom-right corner of this page - you'll see the export panel</li>
+                <li>Click the <strong>CSS</strong> button to copy all design tokens as CSS custom properties</li>
+                <li>Click the <strong>Tailwind</strong> button to copy tokens formatted for Tailwind CSS config</li>
+                <li>Click the <strong>JSON</strong> button to copy tokens as a JSON object</li>
+                <li>After clicking any button, a green toast notification will appear confirming the copy</li>
+                <li>Paste the copied content into a text editor to verify the format</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Export Panel -->
+    <div class="export-panel">
+        <h4>Export Tokens</h4>
+        <div class="export-buttons">
+            <button onclick="copyCSS()" class="export-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                </svg>
+                CSS
+            </button>
+            <button onclick="copyTailwind()" class="export-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Tailwind
+            </button>
+            <button onclick="copyJSON()" class="export-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                JSON
+            </button>
+        </div>
+    </div>
+    <div id="exportToast" class="export-toast"></div>
+
+    <script>
+        function getTokens() {
+            var root = document.documentElement;
+            var styles = getComputedStyle(root);
+            var tokens = {};
+            for (var i = 0; i < styles.length; i++) {
+                var prop = styles[i];
+                if (prop.startsWith('--')) {
+                    tokens[prop] = styles.getPropertyValue(prop).trim();
+                }
+            }
+            return tokens;
+        }
+
+        function copyCSS() {
+            var tokens = getTokens();
+            var css = ':root {\n' + Object.keys(tokens).map(function(k) {
+                return '    ' + k + ': ' + tokens[k] + ';';
+            }).join('\n') + '\n}';
+            navigator.clipboard.writeText(css);
+            showToast('CSS variables copied!');
+        }
+
+        function copyJSON() {
+            var tokens = getTokens();
+            navigator.clipboard.writeText(JSON.stringify(tokens, null, 2));
+            showToast('JSON tokens copied!');
+        }
+
+        function copyTailwind() {
+            var tokens = getTokens();
+            var config = {
+                theme: {
+                    extend: {
+                        colors: {},
+                        fontFamily: {}
+                    }
+                }
+            };
+            Object.keys(tokens).forEach(function(key) {
+                var value = tokens[key];
+                var cleanKey = key.replace('--', '').replace(/-/g, '_');
+                if (value.includes('#') || value.includes('rgb')) {
+                    config.theme.extend.colors[cleanKey] = value;
+                }
+            });
+            var output = 'module.exports = ' + JSON.stringify(config, null, 2);
+            navigator.clipboard.writeText(output);
+            showToast('Tailwind config copied!');
+        }
+
+        function showToast(message) {
+            var toast = document.getElementById('exportToast');
+            toast.textContent = message;
+            toast.classList.add('visible');
+            setTimeout(function() {
+                toast.classList.remove('visible');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
