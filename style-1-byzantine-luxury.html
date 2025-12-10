@@ -152,7 +152,10 @@
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0.5rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
         }
@@ -160,6 +163,19 @@
         .nav a:hover, .nav a.active {
             color: var(--gold-400);
             border-bottom-color: var(--gold-400);
+        }
+
+        /* Mobile navigation adjustments */
+        @media (max-width: 767px) {
+            .nav {
+                flex-wrap: wrap;
+                gap: 0.5rem 1rem;
+            }
+            
+            .nav a {
+                padding: 0.875rem 0.75rem;
+                font-size: 0.8125rem;
+            }
         }
 
         /* Main Content */
@@ -453,8 +469,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 4px;
@@ -478,8 +494,8 @@
             top: 1rem;
             left: 1rem;
             z-index: 9998;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.2);
@@ -892,6 +908,22 @@
         /* Desktop (1024px+) - Keep original styles */
         @media (min-width: 1024px) {
             /* Original desktop styles apply */
+        }
+
+        
+        /* Mobile touch target optimizations */
+        @media (min-width: 768px) {
+            .gallery-nav-arrow {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .gallery-nav-arrow {
+                width: 32px;
+                height: 32px;
+            }
         }
 
         /* Touch-friendly enhancements */
