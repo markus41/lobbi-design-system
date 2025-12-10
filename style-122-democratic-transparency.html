@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Democratic Transparency Platform - Open Government</title>
+    <style>
+        /*
+        ╔═══════════════════════════════════════════════════════════════════════════╗
+        ║  ULTRATHINK DESIGN ANALYSIS: DEMOCRATIC TRANSPARENCY                      ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  4-WAY EXPERIMENTAL BLEND:                                                ║
+        ║  • Primary (35%): Government Civic - Institutional trust & formality      ║
+        ║  • Secondary (25%): Editorial Swiss - Typographic clarity & precision     ║
+        ║  • Tertiary (20%): Biophilic Design - Natural warmth & human connection   ║
+        ║  • Quaternary (20%): Aurora UI - Modern gradients & visual interest       ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  DESIGN PHILOSOPHY:                                                       ║
+        ║  Open government platforms emphasizing transparency through visual        ║
+        ║  clarity and natural warmth. This design represents democratic ideals     ║
+        ║  of openness, accountability, and citizen engagement while maintaining    ║
+        ║  professional government standards.                                       ║
+        ║                                                                           ║
+        ║  TEMPERATURE: 6/10 (Balanced Natural Warmth)                              ║
+        ║  • Natural green accents add organic warmth                               ║
+        ║  • Clean white maintains objectivity                                      ║
+        ║  • Aurora gradients provide visual warmth                                 ║
+        ║  • Balanced professional yet approachable                                 ║
+        ║                                                                           ║
+        ║  FORMALITY: 8/10 (High Professional Trust)                                ║
+        ║  • Government institutional standards                                     ║
+        ║  • Editorial precision in typography                                      ║
+        ║  • Clear hierarchies and structures                                       ║
+        ║  • Transparency signals through design                                    ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  COLOR PSYCHOLOGY:                                                        ║
+        ║  --clean-white: #ffffff        → Pure transparency & openness             ║
+        ║  --democratic-blue: #1d4ed8    → Trust & democratic authority             ║
+        ║  --transparency-green: #059669 → Growth & environmental responsibility    ║
+        ║  --aurora-gradient: Multi-hue  → Modern governance & innovation           ║
+        ║                                                                           ║
+        ║  SPATIAL STRATEGY:                                                        ║
+        ║  • Editorial Swiss grid (strict alignment)                                ║
+        ║  • Generous whitespace (clarity & breathing room)                         ║
+        ║  • Biophilic spacing (natural rhythms)                                    ║
+        ║  • Aurora accent panels (visual interest)                                 ║
+        ║                                                                           ║
+        ║  COMPONENT BREAKDOWN:                                                     ║
+        ║  1. Header: Clean navigation with aurora accent                           ║
+        ║  2. Stats Grid: 4 metrics with natural color coding                       ║
+        ║  3. Content Cards: Editorial layouts with biophilic elements              ║
+        ║  4. Data Table: Swiss precision with accessibility focus                  ║
+        ║  5. Form Elements: Clean inputs with natural accents                      ║
+        ║  6. Buttons: Primary (blue), Secondary (green), Tertiary (outline)        ║
+        ║  7. Badges: Status indicators with semantic colors                        ║
+        ║  8. Footer: Multi-column democratic information                           ║
+        ║                                                                           ║
+        ║  ACCESSIBILITY COMPLIANCE:                                                ║
+        ║  • WCAG 2.1 Level AAA contrast ratios where possible                      ║
+        ║  • Government Section 508 compliance                                      ║
+        ║  • Universal design principles                                            ║
+        ║  • Multi-sensory status communication                                     ║
+        ╚═══════════════════════════════════════════════════════════════════════════╝
+        */
+
+        :root {
+            /* Base Colors */
+            --clean-white: #ffffff;
+            --paper-white: #fafafa;
+            --light-gray: #f3f4f6;
+            --border-gray: #e5e7eb;
+
+            /* Democratic Blues */
+            --democratic-blue: #1d4ed8;
+            --democratic-blue-light: #60a5fa;
+            --democratic-blue-dark: #1e40af;
+
+            /* Transparency Greens */
+            --transparency-green: #059669;
+            --transparency-green-light: #10b981;
+            --transparency-green-dark: #047857;
+
+            /* Aurora Gradients */
+            --aurora-blue: #60a5fa;
+            --aurora-purple: #a78bfa;
+            --aurora-pink: #f472b6;
+
+            /* Neutrals */
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #6b7280;
+
+            /* Swiss Grid */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+
+            /* Typography */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.75rem;
+            --font-size-2xl: 2.5rem;
+
+            /* Effects */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: 200ms ease;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--clean-white);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header with Aurora Accent */
+        .header {
+            background: var(--clean-white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: var(--space-md) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-purple), var(--aurora-pink));
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .brand-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--democratic-blue), var(--democratic-blue-light));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .nav-link {
+            padding: var(--space-sm) var(--space-md);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .nav-link:hover {
+            background: var(--light-gray);
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            background: var(--democratic-blue);
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--clean-white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        .stat-card.blue { --accent-color: var(--democratic-blue); }
+        .stat-card.green { --accent-color: var(--transparency-green); }
+        .stat-card.aurora {
+            --accent-color: linear-gradient(135deg, var(--aurora-blue), var(--aurora-purple));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+
+        .stat-change {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-change.positive {
+            color: var(--transparency-green);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .content-card {
+            background: var(--clean-white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: all var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--democratic-blue);
+        }
+
+        .card-header {
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .card-meta {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+            line-height: 1.8;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 24px;
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .badge.published {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--transparency-green);
+            border: 2px solid var(--transparency-green);
+        }
+
+        .badge.draft {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--text-secondary);
+            border: 2px solid var(--text-secondary);
+        }
+
+        .badge.review {
+            background: rgba(29, 78, 216, 0.1);
+            color: var(--democratic-blue);
+            border: 2px solid var(--democratic-blue);
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: var(--democratic-blue);
+            color: white;
+            border: 2px solid var(--democratic-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--democratic-blue-dark);
+            border-color: var(--democratic-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--transparency-green);
+            color: white;
+            border: 2px solid var(--transparency-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--transparency-green-dark);
+            border-color: var(--transparency-green-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--light-gray);
+            border-color: var(--text-primary);
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--clean-white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            overflow-x: auto;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: var(--light-gray);
+            border-bottom: 3px solid var(--democratic-blue);
+        }
+
+        .data-table th {
+            padding: var(--space-md);
+            text-align: left;
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .data-table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--border-gray);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .data-table tbody tr {
+            transition: background var(--transition);
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(29, 78, 216, 0.02);
+        }
+
+        /* Form Elements */
+        .form-group {
+            background: var(--clean-white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .form-label {
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-select {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-base);
+            font-family: var(--font-sans);
+            background: var(--clean-white);
+            color: var(--text-primary);
+            transition: all var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--democratic-blue);
+            box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.1);
+        }
+
+        /* Aurora Accent Panel */
+        .aurora-panel {
+            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-purple), var(--aurora-pink));
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            color: white;
+            margin-bottom: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .aurora-panel h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            margin-bottom: var(--space-sm);
+        }
+
+        .aurora-panel p {
+            font-size: var(--font-size-base);
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--paper-white);
+            border-top: 3px solid var(--democratic-blue);
+            padding: var(--space-2xl) var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-link {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            color: var(--democratic-blue);
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: var(--space-lg);
+            margin-top: var(--space-lg);
+            border-top: 2px solid var(--border-gray);
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid,
+            .content-grid,
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid,
+            .content-grid,
+            .footer-content,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>122</strong> of 135 &mdash; Democratic Transparency</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-121-civic-innovation-hub.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-123-public-service-excellence.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 121) window.location.href = 'style-121-civic-innovation-hub.html';
+                if (e.key === 'ArrowRight' && 123) window.location.href = 'style-123-public-service-excellence.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-brand">
+                <div class="brand-icon">📊</div>
+                <div>
+                    <div class="header-title">Democratic Transparency</div>
+                    <div class="header-subtitle">Open Government Data Platform</div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Reports</a>
+                <a href="#" class="nav-link">Data Sets</a>
+                <a href="#" class="nav-link">API</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <div class="stat-label">Published Reports</div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-change positive">↑ 142 this quarter</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-label">Open Datasets</div>
+                <div class="stat-value">389</div>
+                <div class="stat-change positive">↑ 23 this month</div>
+            </div>
+            <div class="stat-card blue">
+                <div class="stat-label">Public Requests</div>
+                <div class="stat-value">5.2K</div>
+                <div class="stat-change positive">↑ 18% increase</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-label">Response Rate</div>
+                <div class="stat-value">98%</div>
+                <div class="stat-change">Within 48 hours</div>
+            </div>
+        </div>
+
+        <!-- Aurora Panel -->
+        <div class="aurora-panel">
+            <h3>Transparency Initiative 2024</h3>
+            <p>Our commitment to open government: Every citizen deserves access to public information. Explore comprehensive datasets, budget allocations, and policy decisions that shape our community.</p>
+        </div>
+
+        <!-- Recent Publications -->
+        <div class="section-header">
+            <h2 class="section-title">Recent Publications</h2>
+            <p class="section-subtitle">Latest reports and datasets published by government departments</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Annual Budget Report 2024</div>
+                    <div class="card-meta">
+                        <span class="badge published">Published</span>
+                        <span>Finance Dept.</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Comprehensive breakdown of fiscal year allocations, expenditures, and financial planning across all municipal departments.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary">View Report</button>
+                    <button class="btn btn-tertiary">Download PDF</button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Environmental Impact Study</div>
+                    <div class="card-meta">
+                        <span class="badge published">Published</span>
+                        <span>Environment Dept.</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Assessment of urban development projects on local ecosystems, air quality metrics, and sustainability initiatives.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary">View Report</button>
+                    <button class="btn btn-tertiary">Download PDF</button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Public Safety Statistics Q4</div>
+                    <div class="card-meta">
+                        <span class="badge review">In Review</span>
+                        <span>Safety Dept.</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Crime statistics, emergency response times, and community policing effectiveness across all districts.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary">Preview Draft</button>
+                    <button class="btn btn-tertiary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open Data Catalog -->
+        <div class="section-header">
+            <h2 class="section-title">Open Data Catalog</h2>
+            <p class="section-subtitle">Browse and download structured datasets for research and analysis</p>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Dataset Name</th>
+                        <th>Department</th>
+                        <th>Last Updated</th>
+                        <th>Records</th>
+                        <th>Format</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Municipal Budget Allocations</td>
+                        <td>Finance</td>
+                        <td>Dec 1, 2024</td>
+                        <td>2,847</td>
+                        <td>CSV, JSON, XML</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>Public Transportation Routes</td>
+                        <td>Transit Authority</td>
+                        <td>Nov 28, 2024</td>
+                        <td>412</td>
+                        <td>GeoJSON, CSV</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>Building Permits & Inspections</td>
+                        <td>Urban Development</td>
+                        <td>Dec 5, 2024</td>
+                        <td>8,234</td>
+                        <td>CSV, JSON</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>Air Quality Measurements</td>
+                        <td>Environment</td>
+                        <td>Dec 8, 2024</td>
+                        <td>15,892</td>
+                        <td>CSV, JSON, API</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>Education Enrollment Statistics</td>
+                        <td>Education</td>
+                        <td>Nov 15, 2024</td>
+                        <td>4,567</td>
+                        <td>CSV, JSON</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>Healthcare Facility Locations</td>
+                        <td>Health Services</td>
+                        <td>Dec 3, 2024</td>
+                        <td>287</td>
+                        <td>GeoJSON, CSV</td>
+                        <td><span class="badge published">Available</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Information Request Form -->
+        <div class="section-header">
+            <h2 class="section-title">Freedom of Information Request</h2>
+            <p class="section-subtitle">Request access to specific government records and documents</p>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-field">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="Your full legal name">
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="you@example.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Select department...</option>
+                        <option>Finance</option>
+                        <option>Environment</option>
+                        <option>Urban Development</option>
+                        <option>Public Safety</option>
+                        <option>Health Services</option>
+                        <option>Education</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Request Type</label>
+                    <select class="form-select">
+                        <option>General Records</option>
+                        <option>Financial Documents</option>
+                        <option>Meeting Minutes</option>
+                        <option>Contracts & Agreements</option>
+                        <option>Policy Documents</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-field">
+                <label class="form-label">Request Details</label>
+                <input type="text" class="form-input" placeholder="Describe the information you are requesting">
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary">Submit Request</button>
+                <button class="btn btn-tertiary">Save Draft</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Transparency</h3>
+                <a href="#" class="footer-link">Open Data Portal</a>
+                <a href="#" class="footer-link">Budget & Finance</a>
+                <a href="#" class="footer-link">Public Records</a>
+                <a href="#" class="footer-link">FOIA Requests</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Departments</h3>
+                <a href="#" class="footer-link">All Departments</a>
+                <a href="#" class="footer-link">Contact Directory</a>
+                <a href="#" class="footer-link">Organization Chart</a>
+                <a href="#" class="footer-link">Leadership</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <a href="#" class="footer-link">API Documentation</a>
+                <a href="#" class="footer-link">Data Standards</a>
+                <a href="#" class="footer-link">Developer Guide</a>
+                <a href="#" class="footer-link">Research Tools</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Legal</h3>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Use</a>
+                <a href="#" class="footer-link">Accessibility</a>
+                <a href="#" class="footer-link">Copyright</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Democratic Transparency Platform © 2024 • Committed to Open Government</p>
+                <p style="margin-top: 8px;">Empowering citizens through accessible, transparent public information</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

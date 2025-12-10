@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Innovation Hub - Public Sector Platform</title>
+    <style>
+        /*
+        ╔═══════════════════════════════════════════════════════════════════════════╗
+        ║  ULTRATHINK DESIGN ANALYSIS: CIVIC INNOVATION HUB                         ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  4-WAY EXPERIMENTAL BLEND:                                                ║
+        ║  • Primary (40%): Government Civic - Public sector formality & trust      ║
+        ║  • Secondary (25%): Startup Accelerator - Dynamic energy & innovation     ║
+        ║  • Tertiary (20%): Swiss Typography - Clear hierarchy & precision         ║
+        ║  • Quaternary (15%): Glassmorphism - Modern depth & transparency          ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  DESIGN PHILOSOPHY:                                                       ║
+        ║  Modern public sector innovation labs bridging government formality       ║
+        ║  with startup energy. This design represents the new generation of        ║
+        ║  civic services - accessible, transparent, and citizen-centric while      ║
+        ║  maintaining institutional trust and professionalism.                     ║
+        ║                                                                           ║
+        ║  TEMPERATURE: 5/10 (Neutral Professional)                                 ║
+        ║  • Balanced warmth through coral accents                                  ║
+        ║  • Cool professionalism from civic blue                                   ║
+        ║  • Clean white backgrounds maintain objectivity                           ║
+        ║  • Neither cold corporate nor warm casual                                 ║
+        ║                                                                           ║
+        ║  FORMALITY: 7/10 (Professional Approachable)                              ║
+        ║  • Government credibility with modern accessibility                       ║
+        ║  • Structured but not rigid                                               ║
+        ║  • Clear hierarchy respecting civic standards                             ║
+        ║  • Innovation signals through visual effects                              ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  COLOR PSYCHOLOGY:                                                        ║
+        ║  --civic-white: #fafbfc       → Clean governance background               ║
+        ║  --innovation-blue: #1d4ed8   → Trust & public sector authority           ║
+        ║  --startup-coral: #f97316     → Energy & forward momentum                 ║
+        ║  --glass-overlay: rgba(255,255,255,0.7) → Transparency & openness         ║
+        ║                                                                           ║
+        ║  SPATIAL STRATEGY:                                                        ║
+        ║  • Swiss grid (16px base) for precision                                   ║
+        ║  • Generous whitespace (government clarity)                               ║
+        ║  • Glass cards with backdrop-blur (modern transparency)                   ║
+        ║  • Floating elements suggesting innovation                                ║
+        ║                                                                           ║
+        ║  COMPONENT BREAKDOWN:                                                     ║
+        ║  1. Header: Glass navigation with civic branding                          ║
+        ║  2. Stats Grid: 4 metrics with gradient accents                           ║
+        ║  3. Content Cards: Glass morphism project/initiative displays             ║
+        ║  4. Data Table: Citizen services with status tracking                     ║
+        ║  5. Form Elements: Modern inputs with glass styling                       ║
+        ║  6. Buttons: Primary (blue), Secondary (coral), Tertiary (glass)          ║
+        ║  7. Badges: Status indicators for programs                                ║
+        ║  8. Footer: Multi-column civic information                                ║
+        ║                                                                           ║
+        ║  ACCESSIBILITY COMPLIANCE:                                                ║
+        ║  • WCAG 2.1 Level AA contrast ratios                                      ║
+        ║  • Government accessibility standards (Section 508)                       ║
+        ║  • Clear focus states for keyboard navigation                             ║
+        ║  • Semantic HTML for screen readers                                       ║
+        ╚═══════════════════════════════════════════════════════════════════════════╝
+        */
+
+        :root {
+            /* Government Civic Colors */
+            --civic-white: #fafbfc;
+            --civic-light: #f1f3f5;
+            --civic-border: #e5e7eb;
+
+            /* Innovation Blues */
+            --innovation-blue: #1d4ed8;
+            --innovation-blue-light: #3b82f6;
+            --innovation-blue-dark: #1e40af;
+
+            /* Startup Energy */
+            --startup-coral: #f97316;
+            --startup-coral-light: #fb923c;
+            --startup-coral-dark: #ea580c;
+
+            /* Glassmorphism */
+            --glass-white: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-shadow: rgba(31, 38, 135, 0.15);
+
+            /* Neutrals */
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+
+            /* Swiss Grid System */
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+
+            /* Typography */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 2rem;
+
+            /* Effects */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: 200ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, #fafbfc 0%, #f0f4f8 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header with Glass Effect */
+        .header {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 16px var(--glass-shadow);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--innovation-blue) 0%, var(--innovation-blue-light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+        }
+
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .header-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .nav-link {
+            padding: var(--space-sm) var(--space-md);
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: all var(--transition);
+        }
+
+        .nav-link:hover {
+            background: var(--glass-white);
+            border-color: var(--civic-border);
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            background: var(--innovation-blue);
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 8px 24px var(--glass-shadow);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-color) 0%, transparent 100%);
+        }
+
+        .stat-card.blue { --gradient-color: var(--innovation-blue); }
+        .stat-card.coral { --gradient-color: var(--startup-coral); }
+        .stat-card.light-blue { --gradient-color: var(--innovation-blue-light); }
+        .stat-card.light-coral { --gradient-color: var(--startup-coral-light); }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px var(--glass-shadow);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-change {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .stat-change.positive {
+            color: #059669;
+        }
+
+        .stat-change.negative {
+            color: var(--startup-coral);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .content-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 8px 24px var(--glass-shadow);
+            transition: all var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px var(--glass-shadow);
+        }
+
+        .card-header {
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--civic-border);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .card-meta {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.active {
+            background: rgba(5, 150, 105, 0.1);
+            color: #059669;
+            border: 1px solid rgba(5, 150, 105, 0.3);
+        }
+
+        .badge.pending {
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--startup-coral);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .badge.planning {
+            background: rgba(29, 78, 216, 0.1);
+            color: var(--innovation-blue);
+            border: 1px solid rgba(29, 78, 216, 0.3);
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .btn-primary {
+            background: var(--innovation-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--innovation-blue-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--startup-coral);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: var(--startup-coral-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-tertiary {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            border: 1px solid var(--civic-border);
+        }
+
+        .btn-tertiary:hover {
+            background: white;
+            border-color: var(--innovation-blue);
+            color: var(--innovation-blue);
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 8px 24px var(--glass-shadow);
+            overflow-x: auto;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: rgba(29, 78, 216, 0.05);
+            border-bottom: 2px solid var(--civic-border);
+        }
+
+        .data-table th {
+            padding: var(--space-md);
+            text-align: left;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--civic-border);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .data-table tbody tr {
+            transition: background var(--transition);
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(29, 78, 216, 0.03);
+        }
+
+        /* Form Elements */
+        .form-group {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 8px 24px var(--glass-shadow);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .form-label {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-input,
+        .form-select {
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--civic-border);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-base);
+            font-family: var(--font-sans);
+            background: white;
+            color: var(--text-primary);
+            transition: all var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--innovation-blue);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: var(--space-2xl) var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-title {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-link {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--innovation-blue);
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: var(--space-lg);
+            margin-top: var(--space-lg);
+            border-top: 1px solid var(--civic-border);
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid,
+            .content-grid,
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid,
+            .content-grid,
+            .footer-content,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>121</strong> of 135 &mdash; Civic Innovation Hub</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-120-space-pioneers.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-122-democratic-transparency.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 120) window.location.href = 'style-120-space-pioneers.html';
+                if (e.key === 'ArrowRight' && 122) window.location.href = 'style-122-democratic-transparency.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-brand">
+                <div class="brand-logo">🏛️</div>
+                <div>
+                    <div class="header-title">Civic Innovation Hub</div>
+                    <div class="header-subtitle">Public Sector Transformation Platform</div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Initiatives</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Resources</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <div class="stat-label">Active Initiatives</div>
+                <div class="stat-value">47</div>
+                <div class="stat-change positive">↑ 23% this quarter</div>
+            </div>
+            <div class="stat-card coral">
+                <div class="stat-label">Citizens Served</div>
+                <div class="stat-value">12.4K</div>
+                <div class="stat-change positive">↑ 15% this month</div>
+            </div>
+            <div class="stat-card light-blue">
+                <div class="stat-label">Digital Services</div>
+                <div class="stat-value">89</div>
+                <div class="stat-change">8 launched this month</div>
+            </div>
+            <div class="stat-card light-coral">
+                <div class="stat-label">Satisfaction Rate</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-change positive">↑ 6% improvement</div>
+            </div>
+        </div>
+
+        <!-- Innovation Initiatives -->
+        <div class="section-header">
+            <h2 class="section-title">Innovation Initiatives</h2>
+            <p class="section-subtitle">Active programs driving public sector transformation</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Smart City Infrastructure</div>
+                    <div class="card-meta">
+                        <span class="badge active">Active</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    IoT-enabled traffic management, public safety monitoring, and environmental sensors improving urban living quality.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-tertiary">Reports</button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Digital Identity System</div>
+                    <div class="card-meta">
+                        <span class="badge active">Active</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Secure blockchain-based identity verification for seamless access to government services and benefits.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-tertiary">Reports</button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-title">Open Data Portal</div>
+                    <div class="card-meta">
+                        <span class="badge planning">Planning</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Transparent access to public datasets enabling civic engagement, research, and data-driven decision making.
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary">Launch Initiative</button>
+                    <button class="btn btn-tertiary">Preview</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Citizen Services Table -->
+        <div class="section-header">
+            <h2 class="section-title">Citizen Services Dashboard</h2>
+            <p class="section-subtitle">Real-time service delivery tracking and metrics</p>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Department</th>
+                        <th>Requests (30d)</th>
+                        <th>Avg. Response Time</th>
+                        <th>Satisfaction</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Business License Application</td>
+                        <td>Commerce & Trade</td>
+                        <td>847</td>
+                        <td>2.3 days</td>
+                        <td>96%</td>
+                        <td><span class="badge active">Operational</span></td>
+                    </tr>
+                    <tr>
+                        <td>Building Permits</td>
+                        <td>Urban Development</td>
+                        <td>634</td>
+                        <td>4.1 days</td>
+                        <td>92%</td>
+                        <td><span class="badge active">Operational</span></td>
+                    </tr>
+                    <tr>
+                        <td>Tax Filing Portal</td>
+                        <td>Revenue Services</td>
+                        <td>3,241</td>
+                        <td>12 minutes</td>
+                        <td>98%</td>
+                        <td><span class="badge active">Operational</span></td>
+                    </tr>
+                    <tr>
+                        <td>Healthcare Registration</td>
+                        <td>Health & Wellness</td>
+                        <td>1,892</td>
+                        <td>1.2 hours</td>
+                        <td>95%</td>
+                        <td><span class="badge active">Operational</span></td>
+                    </tr>
+                    <tr>
+                        <td>Education Enrollment</td>
+                        <td>Public Education</td>
+                        <td>2,147</td>
+                        <td>8 hours</td>
+                        <td>94%</td>
+                        <td><span class="badge active">Operational</span></td>
+                    </tr>
+                    <tr>
+                        <td>Transportation Pass</td>
+                        <td>Transit Authority</td>
+                        <td>412</td>
+                        <td>15 minutes</td>
+                        <td>89%</td>
+                        <td><span class="badge pending">Maintenance</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Service Request Form -->
+        <div class="section-header">
+            <h2 class="section-title">Submit Service Request</h2>
+            <p class="section-subtitle">Request assistance or report issues directly to relevant departments</p>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-field">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="Enter your full name">
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="you@example.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Select department...</option>
+                        <option>Commerce & Trade</option>
+                        <option>Urban Development</option>
+                        <option>Revenue Services</option>
+                        <option>Health & Wellness</option>
+                        <option>Public Education</option>
+                        <option>Transit Authority</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Priority Level</label>
+                    <select class="form-select">
+                        <option>Normal</option>
+                        <option>High</option>
+                        <option>Urgent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-field">
+                <label class="form-label">Request Details</label>
+                <input type="text" class="form-input" placeholder="Briefly describe your request or issue">
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary">Submit Request</button>
+                <button class="btn btn-tertiary">Save Draft</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">About</h3>
+                <a href="#" class="footer-link">Mission & Vision</a>
+                <a href="#" class="footer-link">Leadership Team</a>
+                <a href="#" class="footer-link">Annual Reports</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Services</h3>
+                <a href="#" class="footer-link">Digital Services</a>
+                <a href="#" class="footer-link">Business Support</a>
+                <a href="#" class="footer-link">Citizen Portal</a>
+                <a href="#" class="footer-link">Service Directory</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <a href="#" class="footer-link">Open Data</a>
+                <a href="#" class="footer-link">API Documentation</a>
+                <a href="#" class="footer-link">Developer Tools</a>
+                <a href="#" class="footer-link">Innovation Lab</a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Legal</h3>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Accessibility</a>
+                <a href="#" class="footer-link">Information Security</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Civic Innovation Hub © 2024 • Empowering Citizens Through Digital Transformation</p>
+                <p style="margin-top: 8px;">Committed to transparency, accessibility, and public service excellence</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

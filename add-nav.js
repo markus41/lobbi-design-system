@@ -130,7 +130,23 @@ const styleNameMap = {
     117: 'Diplomatic Corps',
     118: 'Startup Accelerator',
     119: 'Meditation Sangha',
-    120: 'Space Pioneers'
+    120: 'Space Pioneers',
+    // 4+ Way Experimental Blends 121-135
+    121: 'Civic Innovation Hub',
+    122: 'Democratic Transparency',
+    123: 'Public Service Excellence',
+    124: 'Regulatory Modernization',
+    125: 'Impact Collective',
+    126: 'Philanthropic Legacy',
+    127: 'Community Catalyst',
+    128: 'Advocacy Alliance',
+    129: 'Member Ecosystem',
+    130: 'Credential Authority',
+    131: 'Industry Council Evolution',
+    132: 'Membership Renaissance',
+    133: 'Professional Guild Modern',
+    134: 'Association Intelligence',
+    135: 'Global Standards Body'
 };
 
 // Style file mapping
@@ -255,7 +271,23 @@ const styleFiles = {
     117: 'style-117-diplomatic-corps.html',
     118: 'style-118-startup-accelerator.html',
     119: 'style-119-meditation-sangha.html',
-    120: 'style-120-space-pioneers.html'
+    120: 'style-120-space-pioneers.html',
+    // 4+ Way Experimental Blends 121-135
+    121: 'style-121-civic-innovation-hub.html',
+    122: 'style-122-democratic-transparency.html',
+    123: 'style-123-public-service-excellence.html',
+    124: 'style-124-regulatory-modernization.html',
+    125: 'style-125-impact-collective.html',
+    126: 'style-126-philanthropic-legacy.html',
+    127: 'style-127-community-catalyst.html',
+    128: 'style-128-advocacy-alliance.html',
+    129: 'style-129-member-ecosystem.html',
+    130: 'style-130-credential-authority.html',
+    131: 'style-131-industry-council.html',
+    132: 'style-132-membership-renaissance.html',
+    133: 'style-133-professional-guild-modern.html',
+    134: 'style-134-association-intelligence.html',
+    135: 'style-135-global-standards-body.html'
 };
 
 // The navigation HTML and CSS to inject
@@ -391,7 +423,7 @@ const navCSS = `
 
 const navHTML = (styleNum, styleName) => {
     const prevNum = styleNum > 1 ? styleNum - 1 : null;
-    const nextNum = styleNum < 120 ? styleNum + 1 : null;
+    const nextNum = styleNum < 135 ? styleNum + 1 : null;
 
     const prevHref = prevNum ? styleFiles[prevNum] : '#';
     const nextHref = nextNum ? styleFiles[nextNum] : '#';
@@ -406,7 +438,7 @@ const navHTML = (styleNum, styleName) => {
                 </svg>
                 Back to Gallery
             </a>
-            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 120 &mdash; ${styleName}</span>
+            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 135 &mdash; ${styleName}</span>
         </div>
         <div class="gallery-nav-right">
             <div class="gallery-nav-arrows">
