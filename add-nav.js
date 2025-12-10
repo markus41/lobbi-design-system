@@ -146,7 +146,13 @@ const styleNameMap = {
     132: 'Membership Renaissance',
     133: 'Professional Guild Modern',
     134: 'Association Intelligence',
-    135: 'Global Standards Body'
+    135: 'Global Standards Body',
+    // 2-Way Premium Blends 136-140
+    136: 'Minimal Wellness',
+    137: 'Heritage Modernist',
+    138: 'Eco-Luxury Refined',
+    139: 'Artisan Contemporary',
+    140: 'Accessible Professional Plus'
 };
 
 // Style file mapping
@@ -287,7 +293,13 @@ const styleFiles = {
     132: 'style-132-membership-renaissance.html',
     133: 'style-133-professional-guild-modern.html',
     134: 'style-134-association-intelligence.html',
-    135: 'style-135-global-standards-body.html'
+    135: 'style-135-global-standards-body.html',
+    // 2-Way Premium Blends 136-140
+    136: 'style-136-minimal-wellness.html',
+    137: 'style-137-heritage-modernist.html',
+    138: 'style-138-eco-luxury.html',
+    139: 'style-139-artisan-contemporary.html',
+    140: 'style-140-accessible-professional.html'
 };
 
 // The navigation HTML and CSS to inject
@@ -423,7 +435,7 @@ const navCSS = `
 
 const navHTML = (styleNum, styleName) => {
     const prevNum = styleNum > 1 ? styleNum - 1 : null;
-    const nextNum = styleNum < 135 ? styleNum + 1 : null;
+    const nextNum = styleNum < 140 ? styleNum + 1 : null;
 
     const prevHref = prevNum ? styleFiles[prevNum] : '#';
     const nextHref = nextNum ? styleFiles[nextNum] : '#';
@@ -438,7 +450,7 @@ const navHTML = (styleNum, styleName) => {
                 </svg>
                 Back to Gallery
             </a>
-            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 135 &mdash; ${styleName}</span>
+            <span class="gallery-nav-title">Style <strong>${styleNum}</strong> of 140 &mdash; ${styleName}</span>
         </div>
         <div class="gallery-nav-right">
             <div class="gallery-nav-arrows">
