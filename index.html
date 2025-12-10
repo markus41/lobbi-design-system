@@ -43,22 +43,27 @@
 
         /* Theme Toggle Button */
         .theme-toggle {
-            padding: 0.5rem;
+            padding: 0.625rem;
             background: var(--bg-tertiary);
-            border: 1px solid var(--border);
+            border: 1.5px solid var(--border);
             border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 44px;
-            min-height: 44px;
+            min-width: 48px;
+            min-height: 48px;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
         }
 
         .theme-toggle:hover {
             border-color: var(--accent);
             background: var(--bg-secondary);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
         }
 
         .theme-toggle svg {
@@ -98,10 +103,11 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 10, 15, 0.95);
+            background: rgba(10, 10, 15, 0.98);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 0.75rem 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .header-inner {
@@ -119,13 +125,17 @@
             align-items: center;
             gap: 0.5rem;
             flex: 1;
+            min-width: 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 500;
             color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .logo-badge {
@@ -136,6 +146,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            flex-shrink: 0;
         }
 
         /* Desktop header styles */
@@ -280,10 +291,11 @@
         .controls-bar {
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--border);
-            padding: 0.75rem 1rem;
+            padding: 0.875rem 1rem;
             position: sticky;
             top: 56px; /* Mobile header height */
             z-index: 99;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         @media (min-width: 768px) {
@@ -307,7 +319,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         @media (min-width: 768px) {
@@ -319,17 +331,28 @@
         /* === FILTER TABS === Mobile-first */
         .filter-tabs {
             display: flex;
-            gap: 0.375rem;
+            gap: 0.5rem;
             flex-wrap: nowrap;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
             width: 100%;
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.5rem;
+            scroll-behavior: smooth;
         }
 
         .filter-tabs::-webkit-scrollbar {
-            display: none;
+            height: 4px;
+        }
+
+        .filter-tabs::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .filter-tabs::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 2px;
         }
 
         @media (min-width: 768px) {
@@ -338,16 +361,21 @@
                 flex-wrap: wrap;
                 overflow-x: visible;
                 width: auto;
+                scrollbar-width: none;
+            }
+
+            .filter-tabs::-webkit-scrollbar {
+                display: none;
             }
         }
 
         .filter-tab {
-            padding: 0.5rem 0.875rem;
+            padding: 0.625rem 1rem;
             background: transparent;
-            border: 1px solid var(--border);
+            border: 1.5px solid var(--border);
             border-radius: 2rem;
             color: var(--text-secondary);
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
@@ -356,7 +384,8 @@
             gap: 0.375rem;
             white-space: nowrap;
             flex-shrink: 0;
-            min-height: 44px; /* Touch-friendly */
+            min-height: 48px; /* Touch-friendly on mobile */
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
         }
 
         @media (min-width: 768px) {
@@ -371,12 +400,18 @@
         .filter-tab:hover {
             border-color: var(--accent);
             color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .filter-tab:active {
+            transform: scale(0.98);
         }
 
         .filter-tab.active {
             background: var(--accent);
             border-color: var(--accent);
             color: white;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
         }
 
         .filter-count {
@@ -396,7 +431,7 @@
         /* === VIEW CONTROLS === Mobile-first */
         .view-controls {
             display: flex;
-            gap: 0.375rem;
+            gap: 0.5rem;
             align-items: center;
         }
 
@@ -407,38 +442,54 @@
         }
 
         .view-btn {
-            padding: 0.5rem;
+            padding: 0.625rem;
             background: transparent;
-            border: 1px solid var(--border);
-            border-radius: 0.375rem;
+            border: 1.5px solid var(--border);
+            border-radius: 0.5rem;
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.2s;
-            min-height: 44px; /* Touch-friendly */
-            min-width: 44px;
+            min-height: 48px; /* Touch-friendly */
+            min-width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
         }
 
         @media (min-width: 768px) {
             .view-btn {
                 min-height: auto;
                 min-width: auto;
+                padding: 0.5rem;
             }
         }
 
         .view-btn:hover, .view-btn.active {
             border-color: var(--accent);
             color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .view-btn:active {
+            transform: scale(0.95);
         }
 
         .sort-select {
-            padding: 0.5rem 0.75rem;
+            padding: 0.625rem 0.875rem;
             background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 0.375rem;
+            border: 1.5px solid var(--border);
+            border-radius: 0.5rem;
             color: var(--text-primary);
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             cursor: pointer;
-            min-height: 44px; /* Touch-friendly */
+            min-height: 48px; /* Touch-friendly */
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         @media (min-width: 768px) {
@@ -2764,12 +2815,14 @@
             left: 0;
             right: 0;
             background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 0.5rem;
+            border-top: 2px solid var(--border);
+            padding: 0.25rem 0.5rem 0.5rem;
             display: flex; /* Show on mobile by default */
             justify-content: space-around;
+            align-items: center;
             z-index: 100;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
         }
 
         @media (min-width: 768px) {
@@ -2782,25 +2835,40 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.25rem;
-            padding: 0.5rem;
+            justify-content: center;
+            gap: 0.125rem;
+            padding: 0.375rem 0.5rem;
             background: transparent;
             border: none;
             color: var(--text-secondary);
             font-size: 0.625rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 60px;
-            min-height: 44px; /* Touch-friendly */
+            min-width: 64px;
+            min-height: 48px; /* Touch-friendly */
+            border-radius: 0.5rem;
+            position: relative;
         }
 
         .mobile-nav-btn.active {
             color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .mobile-nav-btn:active {
+            transform: scale(0.95);
         }
 
         .mobile-nav-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
+            stroke-width: 2.5;
+        }
+
+        .mobile-nav-btn span {
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
         }
 
         /* Mobile Filter Drawer */
@@ -2810,12 +2878,13 @@
             left: 0;
             right: 0;
             background: var(--bg-secondary);
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-            max-height: 70vh;
+            border-top-left-radius: 1.25rem;
+            border-top-right-radius: 1.25rem;
+            max-height: 75vh;
             z-index: 200;
-            transition: bottom 0.3s ease;
-            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+            transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+            border-top: 2px solid var(--border);
         }
 
         .mobile-filter-drawer.visible {
@@ -2823,11 +2892,12 @@
         }
 
         .drawer-handle {
-            width: 40px;
-            height: 4px;
+            width: 48px;
+            height: 5px;
             background: var(--border);
-            border-radius: 2px;
-            margin: 0.75rem auto;
+            border-radius: 3px;
+            margin: 0.875rem auto;
+            opacity: 0.5;
         }
 
         .drawer-header {
@@ -2838,29 +2908,77 @@
             align-items: center;
         }
 
+        .drawer-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .drawer-header button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.75rem;
+            cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .drawer-header button:hover {
+            color: var(--text-primary);
+        }
+
         .drawer-body {
             padding: 1.5rem;
             overflow-y: auto;
-            max-height: calc(70vh - 100px);
+            max-height: calc(75vh - 100px);
+            -webkit-overflow-scrolling: touch;
         }
 
         .drawer-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .drawer-section-title {
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         /* Touch-optimized elements */
         .touch-target {
-            min-height: 44px;
-            min-width: 44px;
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        /* Filter tabs scroll indicator on mobile */
+        @media (max-width: 767px) {
+            .filter-tabs::after {
+                content: '→';
+                position: sticky;
+                right: 0;
+                background: linear-gradient(90deg, transparent 0%, var(--bg-secondary) 30%);
+                color: var(--accent);
+                font-size: 1.25rem;
+                padding: 0 0.5rem;
+                display: flex;
+                align-items: center;
+                pointer-events: none;
+                opacity: 0.8;
+            }
+
+            .filter-tabs.scrolled-to-end::after {
+                content: '';
+                display: none;
+            }
         }
 
         /* Swipe indicator */
@@ -6494,6 +6612,103 @@ ${cssVars}
         renderRecentStyles();
         renderStyles(styles);
         checkFirstVisit();
+
+        // === MOBILE NAVIGATION ENHANCEMENTS ===
+        
+        // Detect if filter tabs are scrollable and update indicator
+        function updateFilterTabsScrollIndicator() {
+            const filterTabs = document.querySelector('.filter-tabs');
+            if (!filterTabs) return;
+            
+            const isScrollable = filterTabs.scrollWidth > filterTabs.clientWidth;
+            const isScrolledToEnd = filterTabs.scrollLeft + filterTabs.clientWidth >= filterTabs.scrollWidth - 5;
+            
+            if (isScrolledToEnd) {
+                filterTabs.classList.add('scrolled-to-end');
+            } else {
+                filterTabs.classList.remove('scrolled-to-end');
+            }
+        }
+
+        // Listen for scroll events on filter tabs
+        const filterTabsElement = document.querySelector('.filter-tabs');
+        if (filterTabsElement) {
+            filterTabsElement.addEventListener('scroll', updateFilterTabsScrollIndicator);
+            window.addEventListener('resize', updateFilterTabsScrollIndicator);
+            updateFilterTabsScrollIndicator(); // Initial check
+        }
+
+        // Auto-scroll to active filter tab on mobile
+        function scrollToActiveTab() {
+            if (window.innerWidth >= 768) return; // Only on mobile
+            
+            const filterTabs = document.querySelector('.filter-tabs');
+            const activeTab = filterTabs?.querySelector('.filter-tab.active');
+            
+            if (filterTabs && activeTab) {
+                const tabRect = activeTab.getBoundingClientRect();
+                const containerRect = filterTabs.getBoundingClientRect();
+                
+                if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
+                    activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        }
+
+        // Call on filter change
+        const originalFilterTabs = document.querySelectorAll('.filter-tab');
+        originalFilterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                setTimeout(scrollToActiveTab, 100);
+            });
+        });
+
+        // Enhanced mobile nav visual feedback
+        function enhanceMobileNavFeedback() {
+            const navButtons = document.querySelectorAll('.mobile-nav-btn');
+            navButtons.forEach(btn => {
+                btn.addEventListener('touchstart', () => {
+                    btn.style.transform = 'scale(0.95)';
+                }, { passive: true });
+                
+                btn.addEventListener('touchend', () => {
+                    btn.style.transform = '';
+                }, { passive: true });
+            });
+        }
+
+        enhanceMobileNavFeedback();
+
+        // Haptic feedback on mobile (if supported)
+        function triggerHapticFeedback() {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(10);
+            }
+        }
+
+        // Add haptic to nav buttons
+        document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+            btn.addEventListener('click', triggerHapticFeedback);
+        });
+
+        // Add haptic to filter tabs on mobile
+        if (window.innerWidth < 768) {
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', triggerHapticFeedback);
+            });
+        }
+
+        // Add visual hint for swipeable filter tabs on first mobile visit
+        const hasSeenFilterSwipeHint = localStorage.getItem('lobbi-filter-swipe-hint');
+        if (!hasSeenFilterSwipeHint && window.innerWidth < 768) {
+            setTimeout(() => {
+                const filterTabs = document.querySelector('.filter-tabs');
+                if (filterTabs && filterTabs.scrollWidth > filterTabs.clientWidth) {
+                    showToast('Swipe to see more filters →', 'success');
+                    localStorage.setItem('lobbi-filter-swipe-hint', 'true');
+                }
+            }, 3000);
+        }
     </script>
 </body>
 </html>
