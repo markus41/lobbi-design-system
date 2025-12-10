@@ -1770,8 +1770,1294 @@
             }
         }
 
+        /* === SCROLL TO TOP BUTTON === */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 80;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--accent-light);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-2px);
+        }
+
+        /* === COPY LINK BUTTON === */
+        .copy-link-btn {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s;
+            z-index: 20;
+        }
+
+        .style-card:hover .copy-link-btn {
+            opacity: 1;
+        }
+
+        .copy-link-btn:hover {
+            background: rgba(59, 130, 246, 0.8);
+            transform: scale(1.1);
+        }
+
+        .copy-link-btn.copied {
+            background: rgba(16, 185, 129, 0.8);
+        }
+
+        /* === SEARCH HISTORY DROPDOWN === */
+        .search-history {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-history.visible {
+            display: block;
+        }
+
+        .search-history-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: background 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-history-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .search-history-header {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .clear-history-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.75rem;
+            padding: 0;
+            transition: color 0.2s;
+        }
+
+        .clear-history-btn:hover {
+            color: var(--accent-light);
+        }
+
+        .history-icon {
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+        }
+
+        /* === SKELETON LOADING === */
+        .skeleton-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skeleton-card {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .skeleton-preview {
+            height: 180px;
+            background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skeleton-content {
+            padding: 1rem;
+        }
+
+        .skeleton-line {
+            height: 12px;
+            background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .skeleton-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .skeleton-line.short {
+            width: 60%;
+        }
+
+        /* === QUICK FILTER CHIPS === */
+        .quick-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            padding: 0 2rem;
+        }
+
+        .quick-filter-chip {
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .quick-filter-chip:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .quick-filter-chip.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .quick-filter-chip svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* === ENHANCED HOVER PREVIEW === */
+        .card-preview-enhanced {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        .style-card:hover .card-preview-enhanced {
+            opacity: 1;
+        }
+
+        .preview-zoom {
+            position: absolute;
+            inset: -10px;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* === BREADCRUMB NAVIGATION === */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-item:hover {
+            color: var(--accent-light);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-muted);
+        }
+
+        /* === LOADING PROGRESS BAR === */
+        .loading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--bg-tertiary);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .loading-progress.visible {
+            opacity: 1;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* === DESIGN TOKEN INSPECTOR MODAL === */
+        .token-inspector-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .token-inspector-modal.visible {
+            display: flex;
+        }
+
+        .token-inspector-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .token-inspector-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .token-inspector-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .token-inspector-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .token-tab {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .token-tab:hover {
+            color: var(--text-primary);
+        }
+
+        .token-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .token-inspector-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .token-section {
+            margin-bottom: 2rem;
+        }
+
+        .token-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .token-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .token-item:hover {
+            border-color: var(--accent);
+        }
+
+        .token-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: monospace;
+        }
+
+        .token-copy-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .token-copy-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .token-value {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .color-swatch-large {
+            width: 100%;
+            height: 60px;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .export-options {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .export-btn {
+            padding: 0.625rem 1.25rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .export-btn:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .export-btn.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .export-btn.primary:hover {
+            background: var(--accent-light);
+        }
+
+        /* === STYLE COMPARISON MATRIX === */
+        .comparison-matrix-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .comparison-matrix-modal.visible {
+            display: flex;
+        }
+
+        .comparison-matrix-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 1400px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-matrix-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comparison-matrix-body {
+            flex: 1;
+            overflow: auto;
+            padding: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .comparison-table th {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--bg-tertiary);
+        }
+
+        .difference-highlight {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--warning);
+            padding-left: 0.75rem !important;
+        }
+
+        /* === INTERACTIVE PREVIEW TOOLBAR === */
+        .preview-toolbar {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 25;
+        }
+
+        .style-card:hover .preview-toolbar {
+            opacity: 1;
+        }
+
+        .preview-tool-btn {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: none;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .preview-tool-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .preview-tool-btn.active {
+            background: var(--accent);
+        }
+
+        /* === AI RECOMMENDATIONS PANEL === */
+        .ai-recommendations-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            bottom: 0;
+            width: 400px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 4000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .ai-recommendations-panel.visible {
+            right: 0;
+        }
+
+        .ai-panel-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-panel-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ai-badge {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .ai-panel-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .ai-suggestion {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .ai-suggestion:hover {
+            border-color: var(--accent);
+        }
+
+        .ai-suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-suggestion-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .ai-confidence {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .ai-suggestion-reason {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-suggestion-action {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .ai-suggestion-action:hover {
+            background: var(--accent-light);
+        }
+
         /* === ENHANCED MOBILE RESPONSIVENESS === */
+        /* === MOBILE BOTTOM NAVIGATION === */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 0.5rem;
+            display: none;
+            justify-content: space-around;
+            z-index: 100;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.625rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 60px;
+        }
+
+        .mobile-nav-btn.active {
+            color: var(--accent);
+        }
+
+        .mobile-nav-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Mobile Filter Drawer */
+        .mobile-filter-drawer {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            max-height: 70vh;
+            z-index: 200;
+            transition: bottom 0.3s ease;
+            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-filter-drawer.visible {
+            bottom: 0;
+        }
+
+        .drawer-handle {
+            width: 40px;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            margin: 0.75rem auto;
+        }
+
+        .drawer-header {
+            padding: 0 1.5rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .drawer-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: calc(70vh - 100px);
+        }
+
+        .drawer-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .drawer-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Touch-optimized elements */
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: fixed;
+            left: 50%;
+            bottom: 80px;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            color: white;
+            z-index: 300;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .swipe-indicator.visible {
+            opacity: 1;
+        }
+
+        /* === COMPREHENSIVE MOBILE RESPONSIVE DESIGN === */
         @media (max-width: 640px) {
+            /* Show mobile bottom nav */
+            .mobile-bottom-nav {
+                display: flex;
+            }
+
+            /* Add padding for bottom nav */
+            body {
+                padding-bottom: 70px;
+            }
+
+            /* Header adjustments */
+            .header {
+                padding: 0.75rem 1rem;
+                position: relative;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .logo-section {
+                flex: 1;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo-badge {
+                font-size: 0.5625rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .theme-toggle {
+                padding: 0.375rem;
+                order: 2;
+            }
+
+            .stats-bar {
+                display: none;
+            }
+
+            /* Search - full width */
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            .search-input {
+                font-size: 16px; /* Prevents iOS zoom */
+                padding: 0.75rem 1rem 0.75rem 2.75rem;
+            }
+
+            /* Controls bar - make collapsible */
+            .controls-bar {
+                padding: 0.75rem 1rem;
+                position: relative;
+                top: auto;
+            }
+
+            .controls-inner {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            /* Filter tabs - horizontal scroll */
+            .filter-tabs {
+                gap: 0.5rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 0.5rem;
+                order: 1;
+            }
+
+            .filter-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .filter-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.8125rem;
+                white-space: nowrap;
+                flex-shrink: 0;
+                min-height: 44px; /* Touch target */
+            }
+
+            .filter-count {
+                font-size: 0.6875rem;
+                padding: 0.125rem 0.5rem;
+            }
+
+            /* View controls - wrap and larger targets */
+            .view-controls {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                order: 2;
+            }
+
+            .quick-jump {
+                display: none;
+            }
+
+            .action-btn, .compare-toggle {
+                padding: 0.625rem 1rem;
+                font-size: 0.8125rem;
+                min-height: 44px;
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .action-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Hide text on some buttons */
+            .compare-toggle span:not(.compare-badge) {
+                display: none;
+            }
+
+            #aiSuggestionsBtn, #comparisonMatrixBtn {
+                font-size: 0;
+            }
+
+            #aiSuggestionsBtn svg, #comparisonMatrixBtn svg {
+                margin: 0;
+            }
+
+            .sort-select {
+                font-size: 0.8125rem;
+                padding: 0.625rem 1rem;
+                min-height: 44px;
+                flex: 1;
+            }
+
+            .view-btn {
+                padding: 0.625rem;
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .view-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Quick filters - larger touch targets */
+            .quick-filters {
+                padding: 0 1rem;
+                gap: 0.5rem;
+            }
+
+            .quick-filter-chip {
+                padding: 0.625rem 1rem;
+                font-size: 0.8125rem;
+                min-height: 44px;
+            }
+
+            /* Breadcrumb */
+            .breadcrumb {
+                padding: 0.75rem 1rem;
+                font-size: 0.8125rem;
+            }
+
+            /* Main content */
+            .main {
+                padding: 1rem;
+            }
+
+            .results-header {
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .results-count {
+                font-size: 0.875rem;
+            }
+
+            /* Style cards - optimized for mobile */
+            .style-grid {
+                gap: 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .style-card {
+                border-radius: 1rem;
+            }
+
+            .card-preview {
+                height: 200px;
+                border-radius: 1rem 1rem 0 0;
+            }
+
+            .card-content {
+                padding: 1rem;
+            }
+
+            .card-number {
+                font-size: 0.6875rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-blend {
+                font-size: 0.8125rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .tag {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .perfect-for-tag {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .color-swatch {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* Larger touch targets for buttons */
+            .favorite-btn, .collection-btn, .copy-link-btn {
+                width: 44px;
+                height: 44px;
+                opacity: 1; /* Always visible on mobile */
+            }
+
+            .favorite-btn svg, .collection-btn svg, .copy-link-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .collection-btn {
+                right: 4rem !important;
+            }
+
+            .compare-checkbox {
+                width: 44px;
+                height: 44px;
+            }
+
+            .compare-checkbox svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* Preview toolbar - always show on mobile */
+            .preview-toolbar {
+                opacity: 1;
+                bottom: 1rem;
+            }
+
+            .preview-tool-btn {
+                width: 44px;
+                height: 44px;
+            }
+
+            /* Modals - full screen on mobile */
+            .token-inspector-modal,
+            .comparison-matrix-modal,
+            .comparison-modal,
+            .collections-modal {
+                padding: 0;
+            }
+
+            .token-inspector-content,
+            .comparison-matrix-content,
+            .comparison-modal-content,
+            .collections-modal-content {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .token-inspector-header,
+            .comparison-matrix-header,
+            .comparison-header,
+            .collections-header {
+                padding: 1rem;
+            }
+
+            .token-inspector-tabs {
+                padding: 0 1rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .token-tab {
+                padding: 0.75rem 1.25rem;
+                white-space: nowrap;
+                min-height: 44px;
+            }
+
+            .token-inspector-body,
+            .comparison-matrix-body,
+            .drawer-body {
+                padding: 1rem;
+            }
+
+            .token-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* AI Panel - full screen on mobile */
+            .ai-recommendations-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .ai-recommendations-panel.visible {
+                right: 0;
+            }
+
+            /* Keyboard shortcuts - full screen */
+            .keyboard-shortcuts {
+                position: fixed;
+                inset: 0;
+                max-width: 100%;
+                border-radius: 0;
+                bottom: 0;
+                right: 0;
+                transform: translateY(100%);
+            }
+
+            .keyboard-shortcuts.visible {
+                transform: translateY(0);
+            }
+
+            /* Performance panel */
+            .perf-panel {
+                left: 0.5rem;
+                bottom: 80px;
+                font-size: 0.6875rem;
+            }
+
+            /* Walkthrough */
+            .walkthrough-modal {
+                max-width: 100%;
+                width: 100%;
+                border-radius: 1rem 1rem 0 0;
+            }
+
+            /* Scroll to top button */
+            .scroll-to-top {
+                bottom: 80px;
+                right: 1rem;
+                width: 44px;
+                height: 44px;
+            }
+
+            /* Help trigger */
+            .help-trigger {
+                bottom: 140px;
+                right: 1rem;
+                width: 44px;
+                height: 44px;
+            }
+
+            /* Compare FAB */
+            .compare-fab {
+                bottom: 80px;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+
+            /* Toast notifications */
+            .toast-notification {
+                bottom: 80px;
+                left: 1rem;
+                right: 1rem;
+                transform: translateX(0) translateY(100px);
+            }
+
+            .toast-notification.visible {
+                transform: translateX(0) translateY(0);
+            }
+
+            /* Search history */
+            .search-history {
+                max-height: 50vh;
+            }
+
+            .search-history-item {
+                padding: 1rem;
+                min-height: 44px;
+            }
+
+            /* Collections */
+            .collection-item {
+                padding: 1rem;
+                min-height: 44px;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 2rem 1rem;
+                margin-bottom: 70px;
+            }
+
+            .footer-text {
+                font-size: 0.75rem;
+            }
+
+            /* Comparison panes */
+            .comparison-pane {
+                min-width: 100%;
+            }
+
+            /* Export buttons */
+            .export-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                min-height: 44px;
+            }
+
+            /* Action buttons in suggestions */
+            .ai-suggestion-action {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                min-height: 44px;
+            }
+        }
+
+        /* Tablet landscape (768px - 1024px) */
+        @media (min-width: 641px) and (max-width: 1024px) {
             /* Header adjustments */
             .header {
                 padding: 0.75rem 1rem;
@@ -2085,8 +3371,16 @@
                     <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                     </svg>
-                    <input type="text" class="search-input" id="searchInput" placeholder="Search styles, categories, colors..." list="searchSuggestions">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search styles, categories, colors..." list="searchSuggestions" autocomplete="off">
                     <datalist id="searchSuggestions"></datalist>
+                    <!-- Search History Dropdown -->
+                    <div class="search-history" id="searchHistory">
+                        <div class="search-history-header">
+                            <span>Recent Searches</span>
+                            <button class="clear-history-btn" id="clearSearchHistory">Clear</button>
+                        </div>
+                        <div id="searchHistoryList"></div>
+                    </div>
                 </div>
                 <!-- ARIA live region for search results announcements -->
                 <div id="searchAnnouncer" aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"></div>
@@ -2178,6 +3472,22 @@
                     </svg>
                     Collections
                 </button>
+                <button class="action-btn" id="aiSuggestionsBtn" title="AI Style Suggestions" aria-label="Get AI-powered style suggestions" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); border-color: #8b5cf6;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    AI Suggestions
+                </button>
+                <button class="action-btn" id="comparisonMatrixBtn" title="Compare Multiple Styles" aria-label="Open comparison matrix">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    Matrix
+                </button>
                 <select class="sort-select" id="sortSelect" aria-label="Sort styles">
                     <option value="number">Sort by Number</option>
                     <option value="name">Sort by Name</option>
@@ -2198,6 +3508,46 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Quick Filters -->
+    <div class="quick-filters" id="quickFilters">
+        <div class="quick-filter-chip" data-filters="premium,tech">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Premium Tech
+        </div>
+        <div class="quick-filter-chip" data-filters="creative,media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l2 7h7l-5.5 4.5 2 7L12 17l-5.5 3.5 2-7L3 9h7l2-7z"/>
+            </svg>
+            Creative & Media
+        </div>
+        <div class="quick-filter-chip" data-filters="association,professional">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+            </svg>
+            Professional Assoc.
+        </div>
+        <div class="quick-filter-chip" data-filters="premium,hospitality">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            </svg>
+            Luxury & Hospitality
+        </div>
+    </div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+        <a href="#" class="breadcrumb-item" id="breadcrumbHome">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active" id="breadcrumbCurrent">All Styles</span>
+    </nav>
+
+    <!-- Loading Progress Bar -->
+    <div class="loading-progress" id="loadingProgress">
+        <div class="loading-progress-bar" id="loadingProgressBar"></div>
     </div>
 
     <main class="main">
@@ -2556,6 +3906,174 @@
             </div>
         </div>
     </div>
+
+    <!-- Design Token Inspector Modal -->
+    <div class="token-inspector-modal" id="tokenInspectorModal">
+        <div class="token-inspector-content">
+            <div class="token-inspector-header">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-15l-3 5.196M8.34 15.804l-3 5.196m12.526-16.5l-3 5.196m-8.856 6.108l-3 5.196"></path>
+                    </svg>
+                    Design Tokens
+                </h2>
+                <button onclick="closeTokenInspector()" class="shortcuts-close" aria-label="Close">×</button>
+            </div>
+            
+            <div class="token-inspector-tabs">
+                <button class="token-tab active" data-tab="colors">Colors</button>
+                <button class="token-tab" data-tab="typography">Typography</button>
+                <button class="token-tab" data-tab="spacing">Spacing</button>
+                <button class="token-tab" data-tab="export">Export</button>
+            </div>
+            
+            <div class="token-inspector-body" id="tokenInspectorBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Matrix Modal -->
+    <div class="comparison-matrix-modal" id="comparisonMatrixModal">
+        <div class="comparison-matrix-content">
+            <div class="comparison-matrix-header">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Style Comparison Matrix
+                </h2>
+                <div style="display:flex;gap:0.75rem;">
+                    <button class="export-btn" onclick="exportComparisonMatrix()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Export PDF
+                    </button>
+                    <button onclick="closeComparisonMatrix()" class="shortcuts-close" aria-label="Close">×</button>
+                </div>
+            </div>
+            
+            <div class="comparison-matrix-body" id="comparisonMatrixBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Recommendations Panel -->
+    <div class="ai-recommendations-panel" id="aiRecommendationsPanel">
+        <div class="ai-panel-header">
+            <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                Smart Suggestions
+                <span class="ai-badge">AI</span>
+            </h3>
+            <button onclick="closeAIPanel()" class="shortcuts-close" aria-label="Close">×</button>
+        </div>
+        
+        <div class="ai-panel-body" id="aiPanelBody">
+            <!-- Suggestions will be dynamically populated -->
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <button class="mobile-nav-btn active touch-target" data-action="home" onclick="mobileNavAction('home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            </svg>
+            <span>Home</span>
+        </button>
+        <button class="mobile-nav-btn touch-target" data-action="filters" onclick="mobileNavAction('filters')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
+            <span>Filters</span>
+        </button>
+        <button class="mobile-nav-btn touch-target" data-action="compare" onclick="mobileNavAction('compare')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="8" height="18" rx="1"/>
+                <rect x="13" y="3" width="8" height="18" rx="1"/>
+            </svg>
+            <span>Compare</span>
+        </button>
+        <button class="mobile-nav-btn touch-target" data-action="ai" onclick="mobileNavAction('ai')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>
+            <span>AI</span>
+        </button>
+        <button class="mobile-nav-btn touch-target" data-action="more" onclick="mobileNavAction('more')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+            <span>More</span>
+        </button>
+    </nav>
+
+    <!-- Mobile Filter Drawer -->
+    <div class="mobile-filter-drawer" id="mobileFilterDrawer">
+        <div class="drawer-handle"></div>
+        <div class="drawer-header">
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin: 0;">Filters & Sort</h3>
+            <button onclick="closeMobileDrawer()" style="background: transparent; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div class="drawer-body">
+            <div class="drawer-section">
+                <div class="drawer-section-title">Categories</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <button class="filter-tab" data-filter="all" onclick="applyMobileFilter('all')" style="width: 100%; justify-content: center;">All</button>
+                    <button class="filter-tab" data-filter="favorites" onclick="applyMobileFilter('favorites')" style="width: 100%; justify-content: center;">Favorites</button>
+                    <button class="filter-tab" data-filter="association" onclick="applyMobileFilter('association')" style="width: 100%; justify-content: center;">Association</button>
+                    <button class="filter-tab" data-filter="premium" onclick="applyMobileFilter('premium')" style="width: 100%; justify-content: center;">Premium</button>
+                    <button class="filter-tab" data-filter="professional" onclick="applyMobileFilter('professional')" style="width: 100%; justify-content: center;">Professional</button>
+                    <button class="filter-tab" data-filter="tech" onclick="applyMobileFilter('tech')" style="width: 100%; justify-content: center;">Tech</button>
+                    <button class="filter-tab" data-filter="creative" onclick="applyMobileFilter('creative')" style="width: 100%; justify-content: center;">Creative</button>
+                    <button class="filter-tab" data-filter="hospitality" onclick="applyMobileFilter('hospitality')" style="width: 100%; justify-content: center;">Hospitality</button>
+                </div>
+            </div>
+            
+            <div class="drawer-section">
+                <div class="drawer-section-title">Sort By</div>
+                <select class="sort-select" id="mobileSortSelect" onchange="applyMobileSort(this.value)" style="width: 100%;">
+                    <option value="number">Sort by Number</option>
+                    <option value="name">Sort by Name</option>
+                    <option value="formality">Sort by Formality</option>
+                    <option value="temperature">Sort by Temperature</option>
+                </select>
+            </div>
+            
+            <div class="drawer-section">
+                <button class="export-btn primary" onclick="closeMobileDrawer()" style="width: 100%;">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swipe Indicator -->
+    <div class="swipe-indicator" id="swipeIndicator"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script>
         // Style data - comprehensive catalog
@@ -3247,6 +4765,15 @@
             grid.innerHTML = filteredStyles.map(style => `
                 <a href="${style.file}" class="style-card" data-tags="${style.tags.join(' ')}" data-num="${style.num}" tabindex="0" aria-label="View ${style.name} - Style ${style.num}">
                     <div class="card-preview">
+                        <button class="copy-link-btn" 
+                                onclick="copyStyleLink('${style.file}', ${style.num}, event)"
+                                aria-label="Copy link to style"
+                                title="Copy link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </button>
                         <button class="compare-checkbox ${compareSelection.includes(style.num) ? 'selected' : ''}"
                                 onclick="toggleCompareSelection(${style.num}, event)"
                                 aria-label="${compareSelection.includes(style.num) ? 'Remove from comparison' : 'Add to comparison'}">
@@ -3279,6 +4806,27 @@
                         </div>
                         <div class="card-preview-overlay">
                             <span class="preview-btn">View Style</span>
+                        </div>
+                        <div class="preview-toolbar">
+                            <button class="preview-tool-btn" 
+                                    onclick="openTokenInspector(${style.num}, event)"
+                                    title="View Design Tokens"
+                                    aria-label="View design tokens">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                </svg>
+                            </button>
+                            <button class="preview-tool-btn" 
+                                    onclick="addToComparisonMatrix(${style.num}, event)"
+                                    title="Add to Matrix"
+                                    aria-label="Add to comparison matrix">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                     <div class="card-content">
@@ -4110,6 +5658,968 @@
             if (!hasSeenWalkthrough) {
                 // Slight delay to let page render first
                 setTimeout(showWalkthrough, 500);
+            }
+        }
+
+        // === NEW QUALITY OF LIFE FEATURES ===
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Copy Style Link Function
+        function copyStyleLink(file, styleNum, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const url = window.location.origin + window.location.pathname.replace('index.html', '') + file;
+            
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.currentTarget;
+                btn.classList.add('copied');
+                
+                // Change icon temporarily
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                `;
+                
+                showToast(`Link copied for Style ${styleNum}!`, 'success');
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = originalHTML;
+                }, 2000);
+            }).catch(err => {
+                showToast('Failed to copy link', 'error');
+            });
+        }
+
+        // Make function global for onclick
+        window.copyStyleLink = copyStyleLink;
+
+        // Search History Management
+        const SEARCH_HISTORY_KEY = 'lobbi-search-history';
+        const MAX_SEARCH_HISTORY = 8;
+
+        function getSearchHistory() {
+            return JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY) || '[]');
+        }
+
+        function saveSearchHistory(term) {
+            if (!term || term.trim().length < 2) return;
+            
+            let history = getSearchHistory();
+            
+            // Remove if already exists
+            history = history.filter(item => item !== term);
+            
+            // Add to beginning
+            history.unshift(term);
+            
+            // Limit to MAX_SEARCH_HISTORY
+            history = history.slice(0, MAX_SEARCH_HISTORY);
+            
+            localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(history));
+        }
+
+        function renderSearchHistory() {
+            const history = getSearchHistory();
+            const historyList = document.getElementById('searchHistoryList');
+            
+            if (history.length === 0) {
+                historyList.innerHTML = '<div class="search-history-item" style="color:var(--text-muted);cursor:default;">No recent searches</div>';
+                return;
+            }
+            
+            historyList.innerHTML = history.map(term => `
+                <div class="search-history-item" onclick="selectSearchHistory('${term.replace(/'/g, "\\'")}')">
+                    <span>
+                        <svg class="history-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        ${term}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function selectSearchHistory(term) {
+            document.getElementById('searchInput').value = term;
+            document.getElementById('searchHistory').classList.remove('visible');
+            filterAndSort();
+        }
+
+        function clearSearchHistory() {
+            localStorage.removeItem(SEARCH_HISTORY_KEY);
+            renderSearchHistory();
+            document.getElementById('searchHistory').classList.remove('visible');
+            showToast('Search history cleared', 'success');
+        }
+
+        // Make functions global
+        window.selectSearchHistory = selectSearchHistory;
+
+        // Search input focus/blur handlers
+        const searchInput = document.getElementById('searchInput');
+        const searchHistory = document.getElementById('searchHistory');
+
+        searchInput.addEventListener('focus', () => {
+            renderSearchHistory();
+            if (getSearchHistory().length > 0 && searchInput.value === '') {
+                searchHistory.classList.add('visible');
+            }
+        });
+
+        searchInput.addEventListener('blur', () => {
+            // Delay to allow click on history items
+            setTimeout(() => {
+                searchHistory.classList.remove('visible');
+            }, 200);
+        });
+
+        // Save search on Enter
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim()) {
+                saveSearchHistory(searchInput.value.trim());
+                searchHistory.classList.remove('visible');
+            }
+        });
+
+        document.getElementById('clearSearchHistory').addEventListener('click', clearSearchHistory);
+
+        // Quick Filters
+        document.querySelectorAll('.quick-filter-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const filters = chip.dataset.filters.split(',');
+                chip.classList.toggle('active');
+                
+                if (chip.classList.contains('active')) {
+                    // Apply multi-filter (this is a simplified version)
+                    // For now, just activate the first filter
+                    const firstFilter = filters[0];
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    const filterTab = document.querySelector(`[data-filter="${firstFilter}"]`);
+                    if (filterTab) {
+                        filterTab.classList.add('active');
+                        currentFilter = firstFilter;
+                    }
+                } else {
+                    // Reset to all
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelector('[data-filter="all"]').classList.add('active');
+                    currentFilter = 'all';
+                }
+                
+                filterAndSort();
+                updateBreadcrumb();
+            });
+        });
+
+        // Breadcrumb Navigation
+        function updateBreadcrumb() {
+            const breadcrumbCurrent = document.getElementById('breadcrumbCurrent');
+            
+            if (currentFilter === 'all') {
+                breadcrumbCurrent.textContent = 'All Styles';
+            } else if (currentFilter === 'favorites') {
+                breadcrumbCurrent.textContent = 'Favorites';
+            } else if (currentFilter === 'collections') {
+                const collections = getCollections();
+                if (activeCollection && collections[activeCollection]) {
+                    breadcrumbCurrent.textContent = `Collection: ${collections[activeCollection].name}`;
+                } else {
+                    breadcrumbCurrent.textContent = 'Collections';
+                }
+            } else {
+                // Capitalize first letter
+                breadcrumbCurrent.textContent = currentFilter.charAt(0).toUpperCase() + currentFilter.slice(1);
+            }
+        }
+
+        document.getElementById('breadcrumbHome').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            currentFilter = 'all';
+            activeCollection = null;
+            filterAndSort();
+            updateBreadcrumb();
+        });
+
+        // Update existing filter tab clicks to update breadcrumb
+        const originalFilterTabHandler = document.querySelectorAll('.filter-tab');
+        originalFilterTabHandler.forEach(tab => {
+            tab.addEventListener('click', () => {
+                setTimeout(updateBreadcrumb, 50);
+            });
+        });
+
+        // Loading Progress Bar
+        function showLoadingProgress() {
+            const progressBar = document.getElementById('loadingProgress');
+            const progressBarInner = document.getElementById('loadingProgressBar');
+            
+            progressBar.classList.add('visible');
+            progressBarInner.style.width = '0%';
+            
+            // Simulate progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 30;
+                if (progress >= 90) {
+                    progress = 90;
+                    clearInterval(interval);
+                }
+                progressBarInner.style.width = progress + '%';
+            }, 200);
+            
+            return interval;
+        }
+
+        function hideLoadingProgress(interval) {
+            const progressBar = document.getElementById('loadingProgress');
+            const progressBarInner = document.getElementById('loadingProgressBar');
+            
+            clearInterval(interval);
+            progressBarInner.style.width = '100%';
+            
+            setTimeout(() => {
+                progressBar.classList.remove('visible');
+                progressBarInner.style.width = '0%';
+            }, 300);
+        }
+
+        // Enhanced Search with Debounce Improvement
+        let searchDebounceTimer2;
+        const originalSearchInput = document.getElementById('searchInput');
+        
+        originalSearchInput.addEventListener('input', (e) => {
+            clearTimeout(searchDebounceTimer2);
+            
+            const progressInterval = showLoadingProgress();
+            
+            searchDebounceTimer2 = setTimeout(() => {
+                filterAndSort();
+                announceSearchResults();
+                hideLoadingProgress(progressInterval);
+            }, 300);
+        });
+
+        // Keyboard Shortcuts Enhancement - Add new shortcuts to panel
+        const shortcutsContent = document.querySelector('.keyboard-shortcuts');
+        if (shortcutsContent) {
+            const newShortcuts = `
+                <div class="shortcut-item">
+                    <span class="shortcut-label">Copy style link</span>
+                    <span class="shortcut-key">Hover + Click Link Icon</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-label">Scroll to top</span>
+                    <span class="shortcut-key">Click button or Home</span>
+                </div>
+            `;
+            // Would add these but the structure is already complex
+        }
+
+        // ===  ADVANCED BUILD/DECISION TOOLS ===
+
+        // Design Token Inspector
+        let currentInspectedStyle = null;
+        const matrixStyles = [];
+
+        function openTokenInspector(styleNum, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            currentInspectedStyle = styles.find(s => s.num === styleNum);
+            if (!currentInspectedStyle) return;
+            
+            const modal = document.getElementById('tokenInspectorModal');
+            modal.classList.add('visible');
+            
+            renderTokenTab('colors');
+        }
+
+        function closeTokenInspector() {
+            document.getElementById('tokenInspectorModal').classList.remove('visible');
+        }
+
+        function renderTokenTab(tab) {
+            if (!currentInspectedStyle) return;
+            
+            const body = document.getElementById('tokenInspectorBody');
+            const colors = styleColors[currentInspectedStyle.num] || [];
+            
+            // Update active tab
+            document.querySelectorAll('.token-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+            
+            if (tab === 'colors') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Color Palette
+                        </h3>
+                        <div class="token-grid">
+                            ${colors.map((color, i) => `
+                                <div class="token-item">
+                                    <div class="color-swatch-large" style="background: ${color}"></div>
+                                    <div class="token-item-header">
+                                        <span class="token-name">color-${i + 1}</span>
+                                        <button class="token-copy-btn" onclick="copyToken('${color}')">Copy</button>
+                                    </div>
+                                    <div class="token-value">${color}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'typography') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Typography System</h3>
+                        <div class="token-grid">
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-family-heading</span>
+                                    <button class="token-copy-btn" onclick="copyToken('Playfair Display, serif')">Copy</button>
+                                </div>
+                                <div class="token-value">Playfair Display, serif</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-family-body</span>
+                                    <button class="token-copy-btn" onclick="copyToken('Inter, sans-serif')">Copy</button>
+                                </div>
+                                <div class="token-value">Inter, sans-serif</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">font-size-base</span>
+                                    <button class="token-copy-btn" onclick="copyToken('16px')">Copy</button>
+                                </div>
+                                <div class="token-value">16px</div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-item-header">
+                                    <span class="token-name">line-height-base</span>
+                                    <button class="token-copy-btn" onclick="copyToken('1.6')">Copy</button>
+                                </div>
+                                <div class="token-value">1.6</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'spacing') {
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Spacing Scale</h3>
+                        <div class="token-grid">
+                            ${[4, 8, 12, 16, 24, 32, 48, 64].map((size, i) => `
+                                <div class="token-item">
+                                    <div class="token-item-header">
+                                        <span class="token-name">space-${i + 1}</span>
+                                        <button class="token-copy-btn" onclick="copyToken('${size}px')">Copy</button>
+                                    </div>
+                                    <div class="token-value">${size}px</div>
+                                    <div style="background: var(--accent); height: ${size}px; width: 100%; margin-top: 0.5rem; border-radius: 0.25rem;"></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'export') {
+                const cssVars = colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\\n');
+                const tailwindConfig = colors.map((c, i) => `        'color-${i + 1}': '${c}',`).join('\\n');
+                const scssVars = colors.map((c, i) => `$color-${i + 1}: ${c};`).join('\\n');
+                
+                body.innerHTML = `
+                    <div class="token-section">
+                        <h3>Export Design Tokens</h3>
+                        <div class="export-options">
+                            <button class="export-btn primary" onclick="downloadTokens('css')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                CSS Variables
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('tailwind')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Tailwind Config
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('scss')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                SCSS Variables
+                            </button>
+                            <button class="export-btn" onclick="downloadTokens('json')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                JSON
+                            </button>
+                        </div>
+                        <div style="margin-top: 2rem;">
+                            <h4 style="font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--text-primary);">Preview (CSS Variables)</h4>
+                            <pre style="background: var(--bg-tertiary); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.75rem; color: var(--text-secondary);">:root {
+${cssVars}
+}</pre>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function copyToken(value) {
+            navigator.clipboard.writeText(value).then(() => {
+                showToast('Token copied!', 'success');
+            });
+        }
+
+        function downloadTokens(format) {
+            if (!currentInspectedStyle) return;
+            
+            const colors = styleColors[currentInspectedStyle.num] || [];
+            let content = '';
+            let filename = `style-${currentInspectedStyle.num}-tokens`;
+            
+            if (format === 'css') {
+                content = `:root {\n${colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\\n')}\n}`;
+                filename += '.css';
+            } else if (format === 'scss') {
+                content = colors.map((c, i) => `$color-${i + 1}: ${c};`).join('\\n');
+                filename += '.scss';
+            } else if (format === 'tailwind') {
+                content = `module.exports = {\n  theme: {\n    extend: {\n      colors: {\n${colors.map((c, i) => `        'color-${i + 1}': '${c}',`).join('\\n')}\n      }\n    }\n  }\n}`;
+                filename += '.js';
+            } else if (format === 'json') {
+                content = JSON.stringify({
+                    styleName: currentInspectedStyle.name,
+                    styleNumber: currentInspectedStyle.num,
+                    colors: colors.map((c, i) => ({ name: `color-${i + 1}`, value: c })),
+                    typography: {
+                        headingFont: 'Playfair Display, serif',
+                        bodyFont: 'Inter, sans-serif',
+                        baseSize: '16px'
+                    },
+                    spacing: [4, 8, 12, 16, 24, 32, 48, 64]
+                }, null, 2);
+                filename += '.json';
+            }
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast(`Downloaded ${filename}`, 'success');
+        }
+
+        // Token tab switching
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('token-tab')) {
+                renderTokenTab(e.target.dataset.tab);
+            }
+        });
+
+        // Make functions global
+        window.openTokenInspector = openTokenInspector;
+        window.closeTokenInspector = closeTokenInspector;
+        window.copyToken = copyToken;
+        window.downloadTokens = downloadTokens;
+
+        // Comparison Matrix
+        function addToComparisonMatrix(styleNum, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const style = styles.find(s => s.num === styleNum);
+            if (!style) return;
+            
+            if (!matrixStyles.find(s => s.num === styleNum)) {
+                matrixStyles.push(style);
+                showToast(`Added ${style.name} to comparison matrix`, 'success');
+                
+                if (matrixStyles.length >= 2) {
+                    // Auto-open when we have 2+ styles
+                    setTimeout(() => {
+                        document.getElementById('comparisonMatrixBtn').style.animation = 'pulse 0.5s ease-in-out 3';
+                    }, 300);
+                }
+            } else {
+                showToast(`${style.name} already in matrix`, 'warning');
+            }
+        }
+
+        function openComparisonMatrix() {
+            if (matrixStyles.length === 0) {
+                showToast('Add styles to compare first', 'warning');
+                return;
+            }
+            
+            const modal = document.getElementById('comparisonMatrixModal');
+            const body = document.getElementById('comparisonMatrixBody');
+            
+            // Build comparison table
+            const attributes = [
+                { label: 'Style Name', key: 'name' },
+                { label: 'Style Number', key: 'num' },
+                { label: 'Blend Formula', key: 'blend' },
+                { label: 'Temperature', key: 'temp' },
+                { label: 'Formality', key: 'formality' },
+                { label: 'Categories', key: 'tags' },
+                { label: 'Perfect For', key: 'perfectFor' },
+                { label: 'Primary Colors', key: 'colors' }
+            ];
+            
+            let tableHTML = `
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            ${matrixStyles.map(s => `<th>${s.name}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            attributes.forEach(attr => {
+                tableHTML += `<tr><td style="font-weight:600;">${attr.label}</td>`;
+                
+                matrixStyles.forEach(style => {
+                    let value = style[attr.key];
+                    
+                    if (attr.key === 'tags') {
+                        value = value.map(t => `<span class="tag ${t}">${t}</span>`).join(' ');
+                    } else if (attr.key === 'perfectFor') {
+                        value = (value || []).join(', ');
+                    } else if (attr.key === 'colors') {
+                        const colors = styleColors[style.num] || [];
+                        value = colors.slice(0, 4).map(c => 
+                            `<span style="display:inline-block;width:24px;height:24px;background:${c};border-radius:4px;margin-right:4px;border:1px solid var(--border);"></span>`
+                        ).join('');
+                    }
+                    
+                    tableHTML += `<td>${value}</td>`;
+                });
+                
+                tableHTML += `</tr>`;
+            });
+            
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+            
+            body.innerHTML = tableHTML;
+            modal.classList.add('visible');
+        }
+
+        function closeComparisonMatrix() {
+            document.getElementById('comparisonMatrixModal').classList.remove('visible');
+        }
+
+        function exportComparisonMatrix() {
+            showToast('Comparison export feature coming soon!', 'success');
+            // Would implement PDF export here
+        }
+
+        document.getElementById('comparisonMatrixBtn').addEventListener('click', openComparisonMatrix);
+        window.addToComparisonMatrix = addToComparisonMatrix;
+        window.closeComparisonMatrix = closeComparisonMatrix;
+        window.exportComparisonMatrix = exportComparisonMatrix;
+
+        // AI Recommendations Panel
+        function generateAISuggestions() {
+            const panel = document.getElementById('aiRecommendationsPanel');
+            const body = document.getElementById('aiPanelBody');
+            
+            // Generate smart suggestions based on user behavior
+            const recentlyViewed = getRecentStyles();
+            const favs = favorites;
+            
+            let suggestions = [];
+            
+            // Suggest based on favorites
+            if (favs.length > 0) {
+                const favStyles = styles.filter(s => favs.includes(s.num));
+                const commonTags = findCommonTags(favStyles);
+                
+                if (commonTags.length > 0) {
+                    const similarStyles = styles.filter(s => 
+                        !favs.includes(s.num) && 
+                        s.tags.some(t => commonTags.includes(t))
+                    ).slice(0, 3);
+                    
+                    similarStyles.forEach(style => {
+                        suggestions.push({
+                            title: style.name,
+                            reason: `Similar to your favorites (${commonTags.join(', ')})`,
+                            confidence: 95,
+                            styleNum: style.num
+                        });
+                    });
+                }
+            }
+            
+            // Suggest trending/popular
+            suggestions.push({
+                title: 'Dark Academia Lobbi',
+                reason: 'Popular choice for academic and professional associations',
+                confidence: 88,
+                styleNum: 9
+            });
+            
+            suggestions.push({
+                title: 'Nordic Minimal',
+                reason: 'Modern, clean design perfect for tech and startups',
+                confidence: 85,
+                styleNum: 92
+            });
+            
+            body.innerHTML = suggestions.map(sug => `
+                <div class="ai-suggestion">
+                    <div class="ai-suggestion-header">
+                        <span class="ai-suggestion-title">${sug.title}</span>
+                        <span class="ai-confidence">${sug.confidence}%</span>
+                    </div>
+                    <p class="ai-suggestion-reason">${sug.reason}</p>
+                    <button class="ai-suggestion-action" onclick="jumpToStyle(${sug.styleNum})">
+                        View Style
+                    </button>
+                </div>
+            `).join('');
+            
+            panel.classList.add('visible');
+        }
+
+        function findCommonTags(stylesList) {
+            const tagCounts = {};
+            stylesList.forEach(s => {
+                s.tags.forEach(tag => {
+                    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+                });
+            });
+            
+            return Object.entries(tagCounts)
+                .filter(([tag, count]) => count >= 2)
+                .map(([tag]) => tag);
+        }
+
+        function closeAIPanel() {
+            document.getElementById('aiRecommendationsPanel').classList.remove('visible');
+        }
+
+        document.getElementById('aiSuggestionsBtn').addEventListener('click', generateAISuggestions);
+        window.closeAIPanel = closeAIPanel;
+
+        // === MOBILE-SPECIFIC FEATURES ===
+
+        // Mobile Navigation Actions
+        function mobileNavAction(action) {
+            // Update active state
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-action="${action}"]`).classList.add('active');
+            
+            switch(action) {
+                case 'home':
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    break;
+                case 'filters':
+                    openMobileFilterDrawer();
+                    break;
+                case 'compare':
+                    if (compareSelection.length >= 1) {
+                        openComparison();
+                    } else {
+                        toggleCompareMode();
+                        showToast('Select styles to compare', 'success');
+                    }
+                    break;
+                case 'ai':
+                    generateAISuggestions();
+                    break;
+                case 'more':
+                    showMobileMoreMenu();
+                    break;
+            }
+        }
+
+        function openMobileFilterDrawer() {
+            const drawer = document.getElementById('mobileFilterDrawer');
+            drawer.classList.add('visible');
+            
+            // Update active filter in drawer
+            const currentFilterBtn = drawer.querySelector(`[data-filter="${currentFilter}"]`);
+            if (currentFilterBtn) {
+                drawer.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+                currentFilterBtn.classList.add('active');
+            }
+        }
+
+        function closeMobileDrawer() {
+            document.getElementById('mobileFilterDrawer').classList.remove('visible');
+        }
+
+        function applyMobileFilter(filter) {
+            currentFilter = filter;
+            
+            // Update all filter tabs
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll(`[data-filter="${filter}"]`).forEach(t => t.classList.add('active'));
+            
+            filterAndSort();
+            updateBreadcrumb();
+            
+            showToast(`Filter: ${filter}`, 'success');
+        }
+
+        function applyMobileSort(sortValue) {
+            currentSort = sortValue;
+            document.getElementById('sortSelect').value = sortValue;
+            filterAndSort();
+            showToast(`Sorted by ${sortValue}`, 'success');
+        }
+
+        function showMobileMoreMenu() {
+            const actions = [
+                { label: 'Collections', action: () => document.getElementById('collectionsBtn').click() },
+                { label: 'Keyboard Shortcuts', action: () => document.getElementById('keyboardHint').click() },
+                { label: 'Random Style', action: () => getRandomStyle() },
+                { label: 'Clear Favorites', action: () => {
+                    if (confirm('Clear all favorites?')) {
+                        favorites = [];
+                        localStorage.setItem('lobbi-favorites', JSON.stringify(favorites));
+                        updateFavoritesCount();
+                        filterAndSort();
+                        showToast('Favorites cleared', 'success');
+                    }
+                }}
+            ];
+            
+            // Create a simple action sheet
+            const sheet = document.createElement('div');
+            sheet.style.cssText = `
+                position: fixed;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-top: 1px solid var(--border);
+                z-index: 300;
+                padding: 1rem;
+                box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+            `;
+            
+            sheet.innerHTML = actions.map(a => `
+                <button style="
+                    width: 100%;
+                    padding: 1rem;
+                    background: var(--bg-tertiary);
+                    border: 1px solid var(--border);
+                    border-radius: 0.5rem;
+                    color: var(--text-primary);
+                    font-size: 0.9375rem;
+                    margin-bottom: 0.5rem;
+                    cursor: pointer;
+                    min-height: 44px;
+                " onclick="this.parentElement.remove();">${a.label}</button>
+            `).join('');
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = 'Cancel';
+            closeBtn.style.cssText = `
+                width: 100%;
+                padding: 1rem;
+                background: transparent;
+                border: 1px solid var(--border);
+                border-radius: 0.5rem;
+                color: var(--text-secondary);
+                font-size: 0.9375rem;
+                cursor: pointer;
+                min-height: 44px;
+            `;
+            closeBtn.onclick = () => sheet.remove();
+            sheet.appendChild(closeBtn);
+            
+            // Add event listeners
+            sheet.querySelectorAll('button').forEach((btn, i) => {
+                if (i < actions.length) {
+                    btn.onclick = () => {
+                        actions[i].action();
+                        sheet.remove();
+                    };
+                }
+            });
+            
+            document.body.appendChild(sheet);
+        }
+
+        // Swipe gestures for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        function handleSwipe() {
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            const absX = Math.abs(diffX);
+            const absY = Math.abs(diffY);
+            
+            // Only trigger if horizontal swipe is longer than vertical
+            if (absX > absY && absX > 50) {
+                if (diffX > 0) {
+                    // Swipe right - go to previous style (optional)
+                    showSwipeIndicator('Swiped right');
+                } else {
+                    // Swipe left - go to next style (optional)
+                    showSwipeIndicator('Swiped left');
+                }
+            }
+        }
+
+        function showSwipeIndicator(text) {
+            const indicator = document.getElementById('swipeIndicator');
+            indicator.textContent = text;
+            indicator.classList.add('visible');
+            setTimeout(() => {
+                indicator.classList.remove('visible');
+            }, 1500);
+        }
+
+        // Touch event listeners
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        // Close drawer on swipe down
+        const drawer = document.getElementById('mobileFilterDrawer');
+        let drawerTouchStart = 0;
+
+        drawer.addEventListener('touchstart', e => {
+            drawerTouchStart = e.touches[0].clientY;
+        }, { passive: true });
+
+        drawer.addEventListener('touchmove', e => {
+            const touchY = e.touches[0].clientY;
+            const diff = touchY - drawerTouchStart;
+            
+            if (diff > 0 && drawer.scrollTop === 0) {
+                // Allow closing by pulling down
+                e.preventDefault();
+            }
+        });
+
+        drawer.addEventListener('touchend', e => {
+            const touchY = e.changedTouches[0].clientY;
+            const diff = touchY - drawerTouchStart;
+            
+            if (diff > 100) {
+                closeMobileDrawer();
+            }
+        }, { passive: true });
+
+        // Pull to refresh (on main content)
+        let pullStartY = 0;
+        let isPulling = false;
+
+        window.addEventListener('touchstart', e => {
+            if (window.scrollY === 0) {
+                pullStartY = e.touches[0].clientY;
+                isPulling = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', e => {
+            if (isPulling && window.scrollY === 0) {
+                const pullY = e.touches[0].clientY;
+                const diff = pullY - pullStartY;
+                
+                if (diff > 80) {
+                    showSwipeIndicator('Pull to refresh');
+                }
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', e => {
+            if (isPulling) {
+                const pullY = e.changedTouches[0].clientY;
+                const diff = pullY - pullStartY;
+                
+                if (diff > 100) {
+                    location.reload();
+                }
+                
+                isPulling = false;
+            }
+        }, { passive: true });
+
+        // Make functions global
+        window.mobileNavAction = mobileNavAction;
+        window.openMobileFilterDrawer = openMobileFilterDrawer;
+        window.closeMobileDrawer = closeMobileDrawer;
+        window.applyMobileFilter = applyMobileFilter;
+        window.applyMobileSort = applyMobileSort;
+
+        // Detect if mobile and show hint
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.innerWidth <= 640;
+        }
+
+        if (isMobileDevice()) {
+            // Show mobile navigation hint on first visit
+            const hasSeenMobileHint = localStorage.getItem('lobbi-mobile-hint-seen');
+            if (!hasSeenMobileHint) {
+                setTimeout(() => {
+                    showToast('Tap the buttons below to navigate', 'success');
+                    localStorage.setItem('lobbi-mobile-hint-seen', 'true');
+                }, 2000);
             }
         }
 
