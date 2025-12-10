@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenized Community DAO - Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================================
+           TOKENIZED COMMUNITY DAO DESIGN SYSTEM
+           Style ID: 219
+           ============================================================================
+
+           DESIGN PHILOSOPHY:
+           This design system embodies the decentralized, community-driven ethos of
+           Web3 and blockchain technology. It balances the technical sophistication
+           of cryptocurrency with the luxury and exclusivity of NFT culture, while
+           maintaining accessibility and inclusivity for community governance. The
+           aesthetic is modern, bold, and slightly futuristic without being cold.
+
+           BLEND COMPOSITION:
+           - Web3/NFT Aesthetics (55%): Bold gradients, card-based NFT displays,
+             wallet integration, modern crypto design patterns
+           - Blockchain Patterns (30%): Hexagonal grids, chain-link connections,
+             cryptographic visual elements, technical precision
+           - Crypto Luxury (15%): Premium finishes, gold accents, exclusive feel,
+             high-value asset presentation
+
+           COLOR PSYCHOLOGY:
+           - Ethereum Purple (#627eea): Innovation, smart contracts, DeFi, trust
+           - Bitcoin Gold (#f7931a): Value, wealth, scarcity, pioneering spirit
+           - Blockchain Blue (#0d47a1): Security, stability, deep tech, foundations
+           - Token Silver (#e0e0e0): Neutrality, balance, multiple tokens, utility
+
+           TYPOGRAPHY STRATEGY:
+           - Space Grotesk (Primary): Modern, geometric, slightly futuristic. Perfect
+             for Web3 interfaces. Used for headings, UI elements, and emphasis.
+           - Sora (Secondary): Contemporary Japanese-inspired sans-serif that adds
+             sophistication and global appeal. Used for body text and descriptions.
+
+           TEMPERATURE & FORMALITY:
+           - Temperature: 5/10 (Balanced) - Neither cold nor warm, professional yet
+             approachable, technical yet human
+           - Formality: 5/10 - Community-focused but credible, casual yet organized,
+             democratic governance with structure
+
+           COMPONENT ARCHITECTURE:
+           - Card-based layouts for NFTs and tokens
+           - Grid systems with hexagonal patterns (blockchain reference)
+           - 16px spacing grid for consistency
+           - Rounded corners (12px) for modern, friendly feel
+           - Gradient overlays for premium aesthetic
+           - Wallet connection UI components
+           - Governance voting interfaces
+
+           ACCESSIBILITY NOTES:
+           - WCAG AA contrast ratios maintained (4.5:1 minimum)
+           - Focus states with 3px outlines in brand colors
+           - Semantic HTML for screen readers
+           - Keyboard navigation throughout
+           - Color-blind friendly palette combinations
+           - Status indicators use icons + color + text
+           - Transaction states clearly communicated
+
+           ============================================================================ */
+
+        /* ============================================================================
+           BASE STYLES & RESET
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Crypto Premium */
+            --purple-eth: #627eea;          /* Ethereum brand color */
+            --purple-dark: #4a5cc5;         /* Hover states */
+            --purple-light: #e8ebf9;        /* Backgrounds */
+            --purple-glow: rgba(98, 126, 234, 0.3);
+
+            --gold-btc: #f7931a;            /* Bitcoin brand color */
+            --gold-dark: #d47a0f;           /* Hover states */
+            --gold-light: #fef4e6;          /* Backgrounds */
+            --gold-glow: rgba(247, 147, 26, 0.3);
+
+            --blue-chain: #0d47a1;          /* Blockchain foundation */
+            --blue-dark: #0a3375;           /* Deep tech */
+            --blue-light: #e3f2fd;          /* Backgrounds */
+
+            --silver: #e0e0e0;              /* Neutral tokens */
+            --silver-dark: #9e9e9e;         /* Borders */
+            --silver-light: #f5f5f5;        /* Subtle backgrounds */
+
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #eeeeee;
+            --gray-300: #e0e0e0;
+            --gray-400: #bdbdbd;
+            --gray-500: #9e9e9e;
+            --gray-600: #757575;
+            --gray-700: #616161;
+            --gray-800: #424242;
+            --gray-900: #212121;
+            --white: #ffffff;
+            --black: #000000;
+
+            /* Typography Scale */
+            --font-primary: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            --font-secondary: 'Sora', system-ui, -apple-system, sans-serif;
+
+            /* Spacing Scale (8px base) */
+            --space-xs: 0.5rem;    /* 8px */
+            --space-sm: 1rem;      /* 16px */
+            --space-md: 1.5rem;    /* 24px */
+            --space-lg: 2rem;      /* 32px */
+            --space-xl: 3rem;      /* 48px */
+
+            /* Border Radius - Modern, friendly */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Shadows - Premium depth */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+            --shadow-glow: 0 0 20px var(--purple-glow);
+
+            /* Transitions */
+            --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--purple-light) 100%);
+            min-height: 100vh;
+        }
+
+        /* ============================================================================
+           HEADER & NAVIGATION
+           Web3 aesthetic with wallet connection
+           ============================================================================ */
+
+        .header {
+            background: linear-gradient(135deg, var(--purple-eth) 0%, var(--blue-chain) 100%);
+            color: var(--white);
+            padding: var(--space-md) var(--space-lg);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-btc), var(--gold-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px var(--gold-glow);
+            position: relative;
+        }
+
+        /* Hexagon pattern overlay (blockchain reference) */
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.1) 2px,
+                rgba(255, 255, 255, 0.1) 4px
+            );
+            border-radius: var(--radius-md);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            font-family: var(--font-primary);
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .nav a:focus {
+            outline: 3px solid var(--gold-btc);
+            outline-offset: 2px;
+        }
+
+        /* Wallet connection button */
+        .wallet-button {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--white);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            font-weight: 700;
+            font-family: var(--font-primary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .wallet-button:hover {
+            background: var(--white);
+            color: var(--purple-eth);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .wallet-icon {
+            font-size: 1.25rem;
+        }
+
+        /* ============================================================================
+           MAIN CONTAINER
+           ============================================================================ */
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* ============================================================================
+           HERO SECTION
+           NFT aesthetic with gradient overlay
+           ============================================================================ */
+
+        .hero {
+            background: linear-gradient(135deg, var(--purple-eth), var(--blue-chain));
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hexagonal pattern background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(30deg, transparent 48%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.05) 51%, transparent 52%),
+                linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.05) 51%, transparent 52%),
+                linear-gradient(150deg, transparent 48%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.05) 51%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--white), var(--gold-btc));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* ============================================================================
+           STATS CARDS - Token metrics
+           ============================================================================ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--purple-eth);
+        }
+
+        /* Gradient accent bar */
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple-eth), var(--gold-btc));
+        }
+
+        .stat-card.gold-accent::before {
+            background: linear-gradient(90deg, var(--gold-btc), var(--gold-dark));
+        }
+
+        .stat-card.blue-accent::before {
+            background: linear-gradient(90deg, var(--blue-chain), var(--purple-eth));
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            background: linear-gradient(135deg, var(--purple-light), var(--blue-light));
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-primary);
+        }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-primary);
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-change.positive {
+            color: #10b981;
+        }
+
+        .stat-change.neutral {
+            color: var(--gold-btc);
+        }
+
+        /* ============================================================================
+           MAIN CONTENT GRID
+           ============================================================================ */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        @media (max-width: 1100px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           NFT/TOKEN CARDS - Web3 Aesthetics (55%)
+           Premium card-based display
+           ============================================================================ */
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            font-family: var(--font-primary);
+        }
+
+        /* NFT Grid Display */
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .nft-card {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .nft-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: var(--purple-eth);
+        }
+
+        .nft-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--purple-eth), var(--gold-btc), var(--blue-chain));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient for NFT placeholder */
+        .nft-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .nft-info {
+            padding: var(--space-sm);
+        }
+
+        .nft-name {
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+            font-family: var(--font-primary);
+        }
+
+        .nft-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .nft-price-value {
+            font-weight: 700;
+            color: var(--purple-eth);
+            font-family: var(--font-primary);
+        }
+
+        /* Token list table */
+        .token-list {
+            margin-bottom: var(--space-md);
+        }
+
+        .token-item {
+            display: flex;
+            align-items: center;
+            padding: var(--space-sm);
+            border-bottom: 1px solid var(--gray-200);
+            transition: background-color var(--transition-fast);
+        }
+
+        .token-item:hover {
+            background: var(--purple-light);
+        }
+
+        .token-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple-eth), var(--gold-btc));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--space-sm);
+            font-size: 1.25rem;
+        }
+
+        .token-info {
+            flex: 1;
+        }
+
+        .token-name {
+            font-weight: 700;
+            color: var(--gray-900);
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+        }
+
+        .token-symbol {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            font-family: var(--font-primary);
+        }
+
+        .token-balance {
+            text-align: right;
+        }
+
+        .token-amount {
+            font-weight: 700;
+            color: var(--gray-900);
+            font-family: var(--font-primary);
+        }
+
+        .token-value {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        /* ============================================================================
+           GOVERNANCE VOTING - DAO functionality
+           ============================================================================ */
+
+        .proposal {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            transition: all var(--transition-fast);
+        }
+
+        .proposal:hover {
+            border-color: var(--purple-eth);
+            box-shadow: var(--shadow-md);
+        }
+
+        .proposal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .proposal-title {
+            font-weight: 700;
+            color: var(--gray-900);
+            font-size: 1.125rem;
+            font-family: var(--font-primary);
+        }
+
+        .proposal-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: var(--font-primary);
+        }
+
+        .proposal-status.active {
+            background: var(--purple-light);
+            color: var(--purple-eth);
+        }
+
+        .proposal-status.passed {
+            background: var(--gold-light);
+            color: var(--gold-btc);
+        }
+
+        .proposal-description {
+            color: var(--gray-700);
+            margin-bottom: var(--space-sm);
+            line-height: 1.7;
+        }
+
+        .proposal-votes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .vote-option {
+            padding: var(--space-sm);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: center;
+            font-family: var(--font-primary);
+            font-weight: 600;
+        }
+
+        .vote-option:hover {
+            border-color: var(--purple-eth);
+            background: var(--purple-light);
+        }
+
+        .vote-option.for {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .vote-option.against {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .vote-count {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .vote-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================================================
+           BADGES
+           ============================================================================ */
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: var(--font-primary);
+        }
+
+        .badge.verified {
+            background: var(--purple-light);
+            color: var(--purple-eth);
+        }
+
+        .badge.rare {
+            background: var(--gold-light);
+            color: var(--gold-btc);
+        }
+
+        .badge.common {
+            background: var(--silver-light);
+            color: var(--gray-700);
+        }
+
+        /* ============================================================================
+           FORMS
+           ============================================================================ */
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-xs);
+            font-size: 0.9375rem;
+            font-family: var(--font-primary);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-secondary);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            background: var(--white);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--purple-eth);
+            box-shadow: 0 0 0 4px var(--purple-light);
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ============================================================================
+           BUTTONS
+           ============================================================================ */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, var(--purple-eth), var(--blue-chain));
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .button-secondary {
+            background: linear-gradient(135deg, var(--gold-btc), var(--gold-dark));
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .button-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg), 0 0 20px var(--gold-glow);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--purple-eth);
+            border: 2px solid var(--purple-eth);
+        }
+
+        .button-outline:hover {
+            background: var(--purple-eth);
+            color: var(--white);
+        }
+
+        .button:focus {
+            outline: 3px solid var(--gold-btc);
+            outline-offset: 2px;
+        }
+
+        .button-full {
+            width: 100%;
+        }
+
+        /* ============================================================================
+           FOOTER
+           ============================================================================ */
+
+        .footer {
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+            color: var(--gray-300);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hexagonal pattern in footer */
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(30deg, transparent 48%, rgba(255, 255, 255, 0.02) 49%, rgba(255, 255, 255, 0.02) 51%, transparent 52%),
+                linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.02) 49%, rgba(255, 255, 255, 0.02) 51%, transparent 52%),
+                linear-gradient(150deg, transparent 48%, rgba(255, 255, 255, 0.02) 49%, rgba(255, 255, 255, 0.02) 51%, transparent 52%);
+            background-size: 80px 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+            color: var(--purple-eth);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            margin-top: var(--space-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .social-link:hover {
+            background: var(--purple-eth);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN
+           ============================================================================ */
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nft-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           ACCESSIBILITY
+           ============================================================================ */
+
+        *:focus-visible {
+            outline: 3px solid var(--gold-btc);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (prefers-contrast: high) {
+            .button {
+                border: 3px solid currentColor;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ======================================================================
+         HEADER & NAVIGATION
+         ====================================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">◈</div>
+                <span>TokenDAO</span>
+            </div>
+            <nav class="nav">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#governance">Governance</a>
+                <a href="#treasury">Treasury</a>
+                <a href="#nfts">NFTs</a>
+                <a href="#community">Community</a>
+                <button class="wallet-button">
+                    <span class="wallet-icon">👛</span>
+                    Connect Wallet
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT
+         ====================================================================== -->
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Decentralized Community Governance</h1>
+                <p>Shape the future together. TokenDAO empowers members with governance tokens, NFT voting rights, and transparent treasury management. Your voice matters in our on-chain democracy.</p>
+            </div>
+        </section>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🏛️</div>
+                <div class="stat-label">Treasury Value</div>
+                <div class="stat-value">$2.4M</div>
+                <div class="stat-change positive">↑ 12.5% This Month</div>
+            </div>
+
+            <div class="stat-card gold-accent">
+                <div class="stat-icon">🪙</div>
+                <div class="stat-label">Token Price</div>
+                <div class="stat-value">$47.82</div>
+                <div class="stat-change positive">↑ $3.21 (7.2%)</div>
+            </div>
+
+            <div class="stat-card blue-accent">
+                <div class="stat-icon">👥</div>
+                <div class="stat-label">DAO Members</div>
+                <div class="stat-value">8,472</div>
+                <div class="stat-change positive">↑ 284 New Members</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🗳️</div>
+                <div class="stat-label">Active Proposals</div>
+                <div class="stat-value">12</div>
+                <div class="stat-change neutral">4 Closing Today</div>
+            </div>
+        </section>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- MAIN CONTENT AREA -->
+            <div>
+                <!-- GOVERNANCE PROPOSALS -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title">Active Proposals</h2>
+                        <button class="button button-primary">Create Proposal</button>
+                    </div>
+
+                    <div class="proposal">
+                        <div class="proposal-header">
+                            <div>
+                                <div class="proposal-title">DIP-024: Increase Development Budget</div>
+                                <div style="font-size: 0.75rem; color: var(--gray-600); margin-top: 0.25rem;">
+                                    Proposed by 0x7a9f...3e2b • Ends in 2 days
+                                </div>
+                            </div>
+                            <span class="proposal-status active">Active</span>
+                        </div>
+                        <p class="proposal-description">
+                            Allocate additional 500,000 DAO tokens to development fund for Q2 initiatives including new NFT marketplace integration and governance dashboard upgrade.
+                        </p>
+                        <div class="proposal-votes">
+                            <div class="vote-option for">
+                                <div class="vote-count">5,284</div>
+                                <div class="vote-label">For</div>
+                            </div>
+                            <div class="vote-option against">
+                                <div class="vote-count">1,092</div>
+                                <div class="vote-label">Against</div>
+                            </div>
+                        </div>
+                        <button class="button button-primary button-full">Cast Your Vote</button>
+                    </div>
+
+                    <div class="proposal">
+                        <div class="proposal-header">
+                            <div>
+                                <div class="proposal-title">DIP-023: NFT Staking Rewards Program</div>
+                                <div style="font-size: 0.75rem; color: var(--gray-600); margin-top: 0.25rem;">
+                                    Proposed by 0x4c8d...9a1f • Ends in 5 days
+                                </div>
+                            </div>
+                            <span class="proposal-status active">Active</span>
+                        </div>
+                        <p class="proposal-description">
+                            Implement NFT staking mechanism allowing holders to earn 5% APY in governance tokens. Rewards distributed monthly based on rarity tier.
+                        </p>
+                        <div class="proposal-votes">
+                            <div class="vote-option for">
+                                <div class="vote-count">6,847</div>
+                                <div class="vote-label">For</div>
+                            </div>
+                            <div class="vote-option against">
+                                <div class="vote-count">425</div>
+                                <div class="vote-label">Against</div>
+                            </div>
+                        </div>
+                        <button class="button button-primary button-full">Cast Your Vote</button>
+                    </div>
+
+                    <div class="proposal">
+                        <div class="proposal-header">
+                            <div>
+                                <div class="proposal-title">DIP-022: Community Grant Program</div>
+                                <div style="font-size: 0.75rem; color: var(--gray-600); margin-top: 0.25rem;">
+                                    Proposed by 0x9b2e...7c4d • Ended
+                                </div>
+                            </div>
+                            <span class="proposal-status passed">Passed</span>
+                        </div>
+                        <p class="proposal-description">
+                            Establish quarterly grant program of 250,000 tokens for community-driven projects that enhance the ecosystem.
+                        </p>
+                        <div class="proposal-votes">
+                            <div class="vote-option for">
+                                <div class="vote-count">7,921</div>
+                                <div class="vote-label">For</div>
+                            </div>
+                            <div class="vote-option against">
+                                <div class="vote-count">318</div>
+                                <div class="vote-label">Against</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NFT COLLECTION -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Featured NFTs</h2>
+                        <button class="button button-secondary">Marketplace</button>
+                    </div>
+
+                    <div class="nft-grid">
+                        <div class="nft-card">
+                            <div class="nft-image">💎</div>
+                            <div class="nft-info">
+                                <div class="nft-name">Diamond #127</div>
+                                <div class="nft-price">
+                                    <span class="badge rare">Rare</span>
+                                    <span class="nft-price-value">4.2 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nft-card">
+                            <div class="nft-image">🌟</div>
+                            <div class="nft-info">
+                                <div class="nft-name">Star #342</div>
+                                <div class="nft-price">
+                                    <span class="badge verified">Verified</span>
+                                    <span class="nft-price-value">2.8 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nft-card">
+                            <div class="nft-image">🔥</div>
+                            <div class="nft-info">
+                                <div class="nft-name">Flame #089</div>
+                                <div class="nft-price">
+                                    <span class="badge rare">Rare</span>
+                                    <span class="nft-price-value">5.1 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nft-card">
+                            <div class="nft-image">⚡</div>
+                            <div class="nft-info">
+                                <div class="nft-name">Lightning #456</div>
+                                <div class="nft-price">
+                                    <span class="badge common">Common</span>
+                                    <span class="nft-price-value">1.2 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div>
+                <!-- TOKEN HOLDINGS -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title" style="font-size: 1.125rem;">Your Holdings</h2>
+                    </div>
+
+                    <div class="token-list">
+                        <div class="token-item">
+                            <div class="token-icon">🪙</div>
+                            <div class="token-info">
+                                <div class="token-name">DAO Token</div>
+                                <div class="token-symbol">DAO</div>
+                            </div>
+                            <div class="token-balance">
+                                <div class="token-amount">1,247.50</div>
+                                <div class="token-value">$59,652.75</div>
+                            </div>
+                        </div>
+
+                        <div class="token-item">
+                            <div class="token-icon" style="background: linear-gradient(135deg, #627eea, #4a5cc5);">Ξ</div>
+                            <div class="token-info">
+                                <div class="token-name">Ethereum</div>
+                                <div class="token-symbol">ETH</div>
+                            </div>
+                            <div class="token-balance">
+                                <div class="token-amount">12.84</div>
+                                <div class="token-value">$28,472.16</div>
+                            </div>
+                        </div>
+
+                        <div class="token-item">
+                            <div class="token-icon" style="background: linear-gradient(135deg, #f7931a, #d47a0f);">₿</div>
+                            <div class="token-info">
+                                <div class="token-name">Bitcoin</div>
+                                <div class="token-symbol">BTC</div>
+                            </div>
+                            <div class="token-balance">
+                                <div class="token-amount">0.47</div>
+                                <div class="token-value">$18,942.50</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="button button-outline button-full">Manage Tokens</button>
+                </div>
+
+                <!-- QUICK ACTIONS -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title" style="font-size: 1.125rem;">Quick Actions</h2>
+                    </div>
+
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label" for="action-type">Action Type</label>
+                            <select id="action-type" class="form-select">
+                                <option>Stake Tokens</option>
+                                <option>Unstake Tokens</option>
+                                <option>Claim Rewards</option>
+                                <option>Transfer Tokens</option>
+                                <option>Delegate Voting Power</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="amount">Amount</label>
+                            <input type="number" id="amount" class="form-input" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="recipient">Recipient (if applicable)</label>
+                            <input type="text" id="recipient" class="form-input" placeholder="0x...">
+                        </div>
+
+                        <button type="submit" class="button button-primary button-full">Execute</button>
+                    </form>
+                </div>
+
+                <!-- VOTING POWER -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title" style="font-size: 1.125rem;">Voting Power</h2>
+                    </div>
+
+                    <div style="text-align: center; padding: var(--space-md) 0;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--purple-eth); font-family: var(--font-primary); margin-bottom: var(--space-xs);">
+                            1,247
+                        </div>
+                        <div style="color: var(--gray-600); margin-bottom: var(--space-md);">
+                            Total Votes Available
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                            <div style="padding: var(--space-sm); background: var(--purple-light); border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--purple-eth); font-family: var(--font-primary);">842</div>
+                                <div style="font-size: 0.75rem; color: var(--gray-600);">From Tokens</div>
+                            </div>
+                            <div style="padding: var(--space-sm); background: var(--gold-light); border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold-btc); font-family: var(--font-primary);">405</div>
+                                <div style="font-size: 0.75rem; color: var(--gray-600);">From NFTs</div>
+                            </div>
+                        </div>
+
+                        <button class="button button-secondary button-full">Vote on Proposals</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DAO</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#mission">Mission & Values</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Governance</h3>
+                <ul>
+                    <li><a href="#proposals">All Proposals</a></li>
+                    <li><a href="#voting">Voting Guide</a></li>
+                    <li><a href="#constitution">DAO Constitution</a></li>
+                    <li><a href="#treasury">Treasury</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#forum">Forum</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#grants">Grant Program</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#whitepaper">Whitepaper</a></li>
+                    <li><a href="#audit">Security Audit</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TokenDAO. Decentralized Autonomous Organization.</p>
+            <div class="social-links">
+                <a href="#twitter" class="social-link" aria-label="Twitter">𝕏</a>
+                <a href="#discord" class="social-link" aria-label="Discord">💬</a>
+                <a href="#telegram" class="social-link" aria-label="Telegram">✈️</a>
+                <a href="#github" class="social-link" aria-label="GitHub">⚙️</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
