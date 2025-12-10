@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterans Organization Dashboard - Style 84</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================================
+           ULTRATHINK DESIGN ANALYSIS - STYLE 84: VETERANS ORGANIZATION + SERVICE HONOR
+           ============================================================================
+
+           DESIGN DNA:
+           • Blend: Veterans Organization (80%) + Service Honor (20%)
+           • Temperature: 5/10 (Dignified, Respectful)
+           • Formality: 8/10 (Ceremonial Professionalism)
+           • Target: VFW, American Legion, Military Associations, Veteran Service Orgs
+
+           COLOR PSYCHOLOGY:
+           • Patriot Navy (#0c1445): Service, duty, commitment
+           • Honor Gold (#b8860b): Valor, achievement, recognition
+           • Cream White (#fdfbf7): Peace, purity, new beginnings
+           • Deep Navy (#1a1a2e): Authority, respect, tradition
+           • Courage Red (#991b1b): Sacrifice, bravery, important notices
+
+           TYPOGRAPHY STRATEGY:
+           • Playfair Display: Traditional serif conveying honor and heritage
+           • Source Sans Pro: Clear, accessible body text for all veterans
+           • Military formatting: Ranks, dates, and service records
+
+           VISUAL HIERARCHY:
+           1. Honor and memorial elements - highest priority
+           2. Active service and community engagement
+           3. Benefits and assistance programs
+           4. Administrative and organizational info
+
+           EMOTIONAL RESONANCE:
+           • Respect for service and sacrifice
+           • Community and camaraderie
+           • Dignity without ostentation
+           • Clear communication for all ages
+           • Pride in service and country
+
+           ACCESSIBILITY CONSIDERATIONS:
+           • High contrast for aging eyes
+           • Clear, readable typography
+           • Logical information architecture
+           • Intuitive navigation for all skill levels
+
+           DESIGN PRINCIPLES:
+           • "Service before self" - community impact first
+           • "Honor the fallen, serve the living" - memorial + benefits
+           • "Leave no veteran behind" - comprehensive assistance
+           • "Strength in unity" - organizational cohesion
+
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --patriot-navy: #0c1445;
+            --honor-gold: #b8860b;
+            --cream-white: #fdfbf7;
+            --deep-navy: #1a1a2e;
+            --courage-red: #991b1b;
+            --silver-gray: #9ca3af;
+            --light-gold: #f4e4bc;
+            --navy-light: #1e3a8a;
+            --red-light: #dc2626;
+
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(12, 20, 69, 0.08);
+            --shadow-md: 0 4px 6px rgba(12, 20, 69, 0.12);
+            --shadow-lg: 0 10px 20px rgba(12, 20, 69, 0.15);
+
+            /* Borders */
+            --border-radius: 4px;
+            --border-color: rgba(12, 20, 69, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream-white);
+            color: var(--deep-navy);
+            line-height: 1.6;
+            background-image:
+                linear-gradient(rgba(253, 251, 247, 0.95), rgba(253, 251, 247, 0.95)),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(12, 20, 69, 0.02) 2px, rgba(12, 20, 69, 0.02) 4px);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--patriot-navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: var(--space-lg) var(--space-md);
+            box-shadow: var(--shadow-lg);
+            border-bottom: 4px solid var(--honor-gold);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .org-identity {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .org-emblem {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--honor-gold), #daa520);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--patriot-navy);
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
+            border: 3px solid white;
+        }
+
+        .org-info h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .org-motto {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .header-stat {
+            text-align: center;
+        }
+
+        .header-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--honor-gold);
+        }
+
+        .header-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, var(--courage-red), var(--red-light));
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            text-align: center;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+        }
+
+        .alert-banner-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .metric-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--patriot-navy);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-card.gold {
+            border-left-color: var(--honor-gold);
+        }
+
+        .metric-card.red {
+            border-left-color: var(--courage-red);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--patriot-navy), var(--navy-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .metric-card.gold .metric-icon {
+            background: linear-gradient(135deg, var(--honor-gold), #daa520);
+            color: var(--patriot-navy);
+        }
+
+        .metric-card.red .metric-icon {
+            background: linear-gradient(135deg, var(--courage-red), var(--red-light));
+        }
+
+        .metric-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--patriot-navy);
+            margin-bottom: var(--space-xs);
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--silver-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metric-change {
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .metric-change.positive {
+            color: #16a34a;
+        }
+
+        .metric-change.neutral {
+            color: var(--silver-gray);
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-lg);
+            border-top: 3px solid var(--honor-gold);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--light-gold);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--patriot-navy);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .section-badge {
+            background: var(--honor-gold);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Honor Roll */
+        .honor-roll {
+            background: linear-gradient(135deg, var(--patriot-navy), var(--navy-light));
+            color: white;
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-lg);
+            border: 3px solid var(--honor-gold);
+        }
+
+        .honor-roll-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--honor-gold);
+        }
+
+        .honor-roll-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--space-sm);
+            color: var(--honor-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .honor-roll-subtitle {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .honor-names {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .honor-name {
+            text-align: center;
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .honor-name-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .honor-service {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Service Branches */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .branch-card {
+            background: white;
+            padding: var(--space-md);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .branch-card:hover {
+            border-color: var(--honor-gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .branch-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .branch-name {
+            font-weight: 700;
+            color: var(--patriot-navy);
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .branch-count {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--honor-gold);
+            font-weight: 700;
+        }
+
+        /* Events Calendar */
+        .events-list {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .event-card {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: var(--cream-white);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--patriot-navy);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .event-card.ceremony {
+            border-left-color: var(--courage-red);
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 80px;
+            padding: var(--space-sm);
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-month {
+            font-size: 0.875rem;
+            color: var(--silver-gray);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .event-day {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--patriot-navy);
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--patriot-navy);
+            margin-bottom: var(--space-xs);
+        }
+
+        .event-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--silver-gray);
+            margin-bottom: var(--space-xs);
+        }
+
+        .event-description {
+            color: var(--deep-navy);
+            line-height: 1.5;
+        }
+
+        /* Benefits Programs */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .benefit-card {
+            padding: var(--space-lg);
+            background: var(--cream-white);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--honor-gold);
+            transform: translateY(-2px);
+        }
+
+        .benefit-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--patriot-navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .benefit-title {
+            font-weight: 700;
+            color: var(--patriot-navy);
+            font-size: 1.1rem;
+        }
+
+        .benefit-stat {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--honor-gold);
+            margin-bottom: var(--space-xs);
+        }
+
+        .benefit-label {
+            color: var(--silver-gray);
+            font-size: 0.875rem;
+        }
+
+        .benefit-progress {
+            margin-top: var(--space-md);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: var(--space-xs);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--honor-gold), #daa520);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            color: var(--silver-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Member Table */
+        .table-container {
+            overflow-x: auto;
+            margin-top: var(--space-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        thead {
+            background: var(--patriot-navy);
+            color: white;
+        }
+
+        th {
+            padding: var(--space-md);
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.875rem;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--cream-white);
+        }
+
+        td {
+            padding: var(--space-md);
+        }
+
+        .rank-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--patriot-navy);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.active {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-badge.life {
+            background: var(--light-gold);
+            color: var(--patriot-navy);
+        }
+
+        .branch-badge {
+            font-size: 0.875rem;
+            color: var(--silver-gray);
+        }
+
+        /* Community Service */
+        .service-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-stat {
+            text-align: center;
+            padding: var(--space-lg);
+            background: var(--cream-white);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--border-color);
+        }
+
+        .service-stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--patriot-navy);
+            margin-bottom: var(--space-xs);
+        }
+
+        .service-stat-label {
+            color: var(--silver-gray);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-list {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .project-card {
+            padding: var(--space-md);
+            background: var(--cream-white);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--honor-gold);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: var(--patriot-navy);
+            font-size: 1.1rem;
+        }
+
+        .project-hours {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--honor-gold);
+            font-weight: 700;
+        }
+
+        .project-description {
+            color: var(--deep-navy);
+            margin-bottom: var(--space-sm);
+            line-height: 1.5;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--silver-gray);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--patriot-navy), var(--navy-light));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--patriot-navy);
+            border: 2px solid var(--patriot-navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--patriot-navy);
+            color: white;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--honor-gold), #daa520);
+            color: var(--patriot-navy);
+        }
+
+        .btn-gold:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--patriot-navy);
+            color: white;
+            padding: var(--space-xl) var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-motto {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            color: var(--honor-gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--honor-gold);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .org-identity {
+                flex-direction: column;
+            }
+
+            .header-stats {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: var(--space-md);
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: start;
+                gap: var(--space-sm);
+            }
+
+            .event-card {
+                flex-direction: column;
+            }
+
+            .table-container {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: var(--space-sm);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>84</strong> of 90 &mdash; Veterans Organization</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-83-sports-league.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-85-religious-denomination.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 83) window.location.href = 'style-83-sports-league.html';
+                if (e.key === 'ArrowRight' && 85) window.location.href = 'style-85-religious-denomination.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="org-identity">
+                <div class="org-emblem">★</div>
+                <div class="org-info">
+                    <h1>Veterans of Foreign Wars</h1>
+                    <div class="org-motto">"Honor the dead by helping the living"</div>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-value">4,567</div>
+                    <div class="header-stat-label">Active Members</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value">89</div>
+                    <div class="header-stat-label">Posts/Chapters</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value">12,456</div>
+                    <div class="header-stat-label">Service Hours YTD</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value">$2.4M</div>
+                    <div class="header-stat-label">Benefits Assisted</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+        <div class="alert-banner-content">
+            <span>⚠️</span>
+            <span>Legislative Alert: H.R. 2372 Veterans Healthcare Expansion - Call to Action</span>
+            <span>⚠️</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Metrics -->
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <div class="metric-value">4,567</div>
+                <div class="metric-label">Total Members</div>
+                <div class="metric-change positive">↑ 156 this quarter</div>
+            </div>
+
+            <div class="metric-card gold">
+                <div class="metric-icon">🎖️</div>
+                <div class="metric-value">89</div>
+                <div class="metric-label">Active Posts</div>
+                <div class="metric-change positive">↑ 3 new chapters</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🤝</div>
+                <div class="metric-value">12,456</div>
+                <div class="metric-label">Service Hours YTD</div>
+                <div class="metric-change positive">↑ 18% vs last year</div>
+            </div>
+
+            <div class="metric-card red">
+                <div class="metric-icon">💰</div>
+                <div class="metric-value">$2.4M</div>
+                <div class="metric-label">Benefits Assisted</div>
+                <div class="metric-change positive">↑ $340K this month</div>
+            </div>
+        </div>
+
+        <!-- Honor Roll -->
+        <div class="honor-roll">
+            <div class="honor-roll-header">
+                <div class="honor-roll-title">Memorial Honor Roll</div>
+                <div class="honor-roll-subtitle">"Their sacrifice will never be forgotten"</div>
+            </div>
+            <div class="honor-names">
+                <div class="honor-name">
+                    <div class="honor-name-text">SGT James Mitchell</div>
+                    <div class="honor-service">U.S. Army, Vietnam</div>
+                </div>
+                <div class="honor-name">
+                    <div class="honor-name-text">CPL Maria Rodriguez</div>
+                    <div class="honor-service">U.S. Marine Corps, Iraq</div>
+                </div>
+                <div class="honor-name">
+                    <div class="honor-name-text">LCDR Robert Chen</div>
+                    <div class="honor-service">U.S. Navy, Afghanistan</div>
+                </div>
+                <div class="honor-name">
+                    <div class="honor-name-text">SSGT David Thompson</div>
+                    <div class="honor-service">U.S. Air Force, Korea</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Branch Breakdown -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Service Branch Breakdown
+                    <span class="section-badge">All Branches</span>
+                </h2>
+            </div>
+            <div class="branch-grid">
+                <div class="branch-card">
+                    <div class="branch-icon">🪖</div>
+                    <div class="branch-name">Army</div>
+                    <div class="branch-count">1,892</div>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">⚓</div>
+                    <div class="branch-name">Navy</div>
+                    <div class="branch-count">1,234</div>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">🦅</div>
+                    <div class="branch-name">Air Force</div>
+                    <div class="branch-count">856</div>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">⚔️</div>
+                    <div class="branch-name">Marines</div>
+                    <div class="branch-count">423</div>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">🛡️</div>
+                    <div class="branch-name">Coast Guard</div>
+                    <div class="branch-count">162</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memorial Day Ceremonies -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Memorial Day Ceremonies
+                    <span class="section-badge">8 Events Planned</span>
+                </h2>
+            </div>
+            <div class="events-list">
+                <div class="event-card ceremony">
+                    <div class="event-date">
+                        <div class="event-month">May</div>
+                        <div class="event-day">27</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Memorial Day Ceremony - Arlington National Cemetery</div>
+                        <div class="event-meta">
+                            <span>🕐 10:00 AM</span>
+                            <span>📍 Arlington, VA</span>
+                            <span>👥 2,000+ Expected</span>
+                        </div>
+                        <div class="event-description">
+                            National ceremony honoring all fallen service members. Wreath laying, 21-gun salute, and keynote address by Secretary of Veterans Affairs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card ceremony">
+                    <div class="event-date">
+                        <div class="event-month">May</div>
+                        <div class="event-day">27</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Local Memorial Parade & Service</div>
+                        <div class="event-meta">
+                            <span>🕐 9:00 AM</span>
+                            <span>📍 Downtown</span>
+                            <span>👥 500+ Expected</span>
+                        </div>
+                        <div class="event-description">
+                            Annual parade through downtown followed by memorial service at Veterans Park. Honor guard presentation and community remembrance.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jun</div>
+                        <div class="event-day">14</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Flag Day Celebration</div>
+                        <div class="event-meta">
+                            <span>🕐 6:00 PM</span>
+                            <span>📍 Post 2847</span>
+                            <span>👥 300+ Expected</span>
+                        </div>
+                        <div class="event-description">
+                            Flag retirement ceremony, patriotic music, and community BBQ. Proper disposal of worn American flags.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jul</div>
+                        <div class="event-day">4</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Independence Day Freedom Festival</div>
+                        <div class="event-meta">
+                            <span>🕐 2:00 PM</span>
+                            <span>📍 City Park</span>
+                            <span>👥 1,500+ Expected</span>
+                        </div>
+                        <div class="event-description">
+                            All-day family festival with live music, food vendors, kids activities, and evening fireworks display. Free admission for all veterans and families.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary">View Full Calendar</button>
+                <button class="btn btn-secondary">RSVP for Events</button>
+            </div>
+        </section>
+
+        <!-- Benefits & Assistance Programs -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Benefits & Assistance Programs
+                    <span class="section-badge">$2.4M Assisted YTD</span>
+                </h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🏥</div>
+                        <div class="benefit-title">VA Healthcare</div>
+                    </div>
+                    <div class="benefit-stat">1,234</div>
+                    <div class="benefit-label">Members Enrolled</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Enrollment Goal</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 82%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">💰</div>
+                        <div class="benefit-title">Disability Claims</div>
+                    </div>
+                    <div class="benefit-stat">$1.8M</div>
+                    <div class="benefit-label">Claims Processed</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Average Processing</span>
+                            <span>89 days</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🎓</div>
+                        <div class="benefit-title">Education Benefits</div>
+                    </div>
+                    <div class="benefit-stat">567</div>
+                    <div class="benefit-label">Students Supported</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Scholarship Fund</span>
+                            <span>$450K</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🏠</div>
+                        <div class="benefit-title">Housing Assistance</div>
+                    </div>
+                    <div class="benefit-stat">234</div>
+                    <div class="benefit-label">Families Housed</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Emergency Housing</span>
+                            <span>$275K</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 73%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">💼</div>
+                        <div class="benefit-title">Employment Services</div>
+                    </div>
+                    <div class="benefit-stat">892</div>
+                    <div class="benefit-label">Jobs Placed</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Placement Rate</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🧠</div>
+                        <div class="benefit-title">Mental Health</div>
+                    </div>
+                    <div class="benefit-stat">445</div>
+                    <div class="benefit-label">Veterans in Counseling</div>
+                    <div class="benefit-progress">
+                        <div class="progress-label">
+                            <span>Crisis Support 24/7</span>
+                            <span>Active</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-gold">Apply for Benefits</button>
+                <button class="btn btn-secondary">Volunteer as Advocate</button>
+            </div>
+        </section>
+
+        <!-- Community Service Projects -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Community Service Projects
+                    <span class="section-badge">12,456 Hours YTD</span>
+                </h2>
+            </div>
+
+            <div class="service-stats">
+                <div class="service-stat">
+                    <div class="service-stat-value">12,456</div>
+                    <div class="service-stat-label">Total Hours</div>
+                </div>
+                <div class="service-stat">
+                    <div class="service-stat-value">2,345</div>
+                    <div class="service-stat-label">Volunteers</div>
+                </div>
+                <div class="service-stat">
+                    <div class="service-stat-value">156</div>
+                    <div class="service-stat-label">Projects</div>
+                </div>
+                <div class="service-stat">
+                    <div class="service-stat-value">$890K</div>
+                    <div class="service-stat-label">Value Generated</div>
+                </div>
+            </div>
+
+            <div class="project-list">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Veterans Cemetery Maintenance</div>
+                        <div class="project-hours">2,340 hrs</div>
+                    </div>
+                    <div class="project-description">
+                        Monthly cleanup and maintenance of local veterans cemetery. Placing flags on graves, landscaping, monument restoration, and general upkeep.
+                    </div>
+                    <div class="project-meta">
+                        <span>👥 234 Volunteers</span>
+                        <span>📅 Monthly Event</span>
+                        <span>📍 Memorial Cemetery</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Food Bank Support</div>
+                        <div class="project-hours">1,890 hrs</div>
+                    </div>
+                    <div class="project-description">
+                        Weekly food distribution for veterans and families in need. Sorting donations, packing boxes, and coordinating delivery to homebound veterans.
+                    </div>
+                    <div class="project-meta">
+                        <span>👥 156 Volunteers</span>
+                        <span>📅 Weekly</span>
+                        <span>📍 Community Center</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Youth Mentorship Program</div>
+                        <div class="project-hours">1,560 hrs</div>
+                    </div>
+                    <div class="project-description">
+                        Veterans mentoring at-risk youth through leadership development, life skills training, and educational support. Building character through service.
+                    </div>
+                    <div class="project-meta">
+                        <span>👥 89 Mentors</span>
+                        <span>📅 Year-Round</span>
+                        <span>📍 Multiple Schools</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Homeless Veterans Outreach</div>
+                        <div class="project-hours">1,234 hrs</div>
+                    </div>
+                    <div class="project-description">
+                        Street outreach to homeless veterans, connecting them with VA services, temporary housing, and long-term support programs.
+                    </div>
+                    <div class="project-meta">
+                        <span>👥 67 Volunteers</span>
+                        <span>📅 Weekly</span>
+                        <span>📍 Downtown Area</span>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary">Join a Project</button>
+                <button class="btn btn-secondary">Propose New Project</button>
+            </div>
+        </section>
+
+        <!-- Member Engagement Table -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Recent Member Activity
+                    <span class="section-badge">4,567 Members</span>
+                </h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Rank</th>
+                            <th>Branch</th>
+                            <th>Post</th>
+                            <th>Service Hours</th>
+                            <th>Status</th>
+                            <th>Last Active</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>John Anderson</strong></td>
+                            <td><span class="rank-badge">SGT</span></td>
+                            <td><span class="branch-badge">🪖 Army</span></td>
+                            <td>Post 2847</td>
+                            <td>156 hrs</td>
+                            <td><span class="status-badge life">Life Member</span></td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maria Garcia</strong></td>
+                            <td><span class="rank-badge">CPL</span></td>
+                            <td><span class="branch-badge">⚔️ Marines</span></td>
+                            <td>Post 5623</td>
+                            <td>234 hrs</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>2 days ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Robert Thompson</strong></td>
+                            <td><span class="rank-badge">LCDR</span></td>
+                            <td><span class="branch-badge">⚓ Navy</span></td>
+                            <td>Post 8901</td>
+                            <td>189 hrs</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>1 day ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sarah Mitchell</strong></td>
+                            <td><span class="rank-badge">SSGT</span></td>
+                            <td><span class="branch-badge">🦅 Air Force</span></td>
+                            <td>Post 3456</td>
+                            <td>298 hrs</td>
+                            <td><span class="status-badge life">Life Member</span></td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td><strong>David Chen</strong></td>
+                            <td><span class="rank-badge">PFC</span></td>
+                            <td><span class="branch-badge">🪖 Army</span></td>
+                            <td>Post 2847</td>
+                            <td>67 hrs</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>3 days ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jennifer Williams</strong></td>
+                            <td><span class="rank-badge">PO1</span></td>
+                            <td><span class="branch-badge">🛡️ Coast Guard</span></td>
+                            <td>Post 7234</td>
+                            <td>178 hrs</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>1 day ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Michael Brown</strong></td>
+                            <td><span class="rank-badge">CPT</span></td>
+                            <td><span class="branch-badge">🪖 Army</span></td>
+                            <td>Post 5623</td>
+                            <td>345 hrs</td>
+                            <td><span class="status-badge life">Life Member</span></td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lisa Rodriguez</strong></td>
+                            <td><span class="rank-badge">MAJ</span></td>
+                            <td><span class="branch-badge">🦅 Air Force</span></td>
+                            <td>Post 8901</td>
+                            <td>267 hrs</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>2 days ago</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary">View All Members</button>
+                <button class="btn btn-secondary">Export Roster</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-motto">"No one does more for veterans."</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About VFW</a>
+                <a href="#" class="footer-link">Find a Post</a>
+                <a href="#" class="footer-link">Benefits Resources</a>
+                <a href="#" class="footer-link">Legislative Action</a>
+                <a href="#" class="footer-link">Join VFW</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Veterans of Foreign Wars of the United States. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

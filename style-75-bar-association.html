@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Bar Association - Member Portal | LOBBI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ULTRATHINK DESIGN ANALYSIS
+           Style 75: Bar Association + Legal Authority
+           ============================================
+
+           DESIGN STRATEGY:
+           - Blend: 80% Bar Association + 20% Legal Authority
+           - Temperature: 3/10 (cool, authoritative)
+           - Formality: 10/10 (maximum institutional gravitas)
+           - Target: State bar associations, legal societies, attorney networks
+
+           COLOR PSYCHOLOGY:
+           - Judicial Black (#0d0d0d): Authority, finality, legal tradition
+           - Deep Navy (#0f172a): Institutional trust, professional dignity
+           - Scales Gold (#c9a227): Justice symbolism, honor, achievement
+           - Parchment White (#faf9f6): Historical documents, legal precedent
+           - Burgundy (#7c2d12): Important notices, ethical emphasis
+
+           TYPOGRAPHY HIERARCHY:
+           - Libre Caslon Text: Colonial-era legal tradition, formality
+           - Source Serif Pro: Modern document clarity, readability
+           - Small caps: Legal citations, case law, formal designations
+
+           FUNCTIONAL ELEMENTS:
+           - CLE (Continuing Legal Education) compliance tracking
+           - Ethics status monitoring and guidance access
+           - Pro bono hours contribution tracking
+           - Practice area directory and specialization
+           - Court admission status and multi-jurisdiction tracking
+           - Disciplinary notices (subtle but present)
+           - Committee/section membership management
+
+           INSTITUTIONAL FEATURES:
+           - Annual meeting and election information
+           - Member directory with practice areas
+           - Ethics opinions database access
+           - Professional development calendar
+           - Compliance dashboard with automated tracking
+
+           DESIGN REFERENCES:
+           - American Bar Association (ABA) portal design
+           - State bar association member systems
+           - Law library catalog systems
+           - Court filing systems (PACER aesthetic)
+           - Traditional legal letterhead and briefs
+
+           TARGET USERS:
+           - Licensed attorneys (primary)
+           - Judges and magistrates
+           - Legal administrators
+           - Bar association staff
+           - Committee members and section leaders
+
+           COMPLIANCE CONSIDERATIONS:
+           - ABA Model Rules integration
+           - State-specific CLE requirements
+           - MCLE (Mandatory Continuing Legal Education) tracking
+           - Client trust account compliance
+           - Professional liability insurance verification
+
+           ACCESSIBILITY:
+           - WCAG 2.1 AA compliance for legal documents
+           - High contrast for document review
+           - Screen reader optimization for case citations
+           - Keyboard navigation for form completion
+
+           INNOVATION BALANCE:
+           - Traditional: 85% (institutional continuity)
+           - Modern: 15% (usability enhancements)
+           - Maintain legal profession's conservative aesthetic
+           - Subtle improvements without disrupting familiarity
+
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --judicial-black: #0d0d0d;
+            --deep-navy: #0f172a;
+            --scales-gold: #c9a227;
+            --parchment-white: #faf9f6;
+            --near-black: #111111;
+            --burgundy: #7c2d12;
+
+            /* Supporting Colors */
+            --navy-700: #1e293b;
+            --navy-600: #334155;
+            --navy-500: #475569;
+            --gold-light: #e5d393;
+            --gold-dark: #a0861f;
+            --burgundy-light: #991b1b;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+
+            /* Typography */
+            --font-heading: 'Libre Caslon Text', Georgia, serif;
+            --font-body: 'Source Serif Pro', 'Times New Roman', serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(13, 13, 13, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(13, 13, 13, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(13, 13, 13, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--slate-100);
+            color: var(--near-black);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--judicial-black) 0%, var(--deep-navy) 100%);
+            color: var(--parchment-white);
+            padding: var(--spacing-md) 0;
+            border-bottom: 4px solid var(--scales-gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .scales-icon {
+            width: 60px;
+            height: 60px;
+            color: var(--scales-gold);
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            color: var(--scales-gold);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .member-info {
+            text-align: right;
+            padding-right: var(--spacing-md);
+            border-right: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .member-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-number {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--scales-gold);
+            color: var(--judicial-black);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--parchment-white);
+            border: 1.5px solid var(--scales-gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(201, 162, 39, 0.1);
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--navy-700);
+            border-bottom: 1px solid var(--scales-gold);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-link {
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--parchment-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: rgba(201, 162, 39, 0.1);
+            border-bottom-color: var(--scales-gold);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background-color: var(--burgundy);
+            color: white;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--burgundy-light);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .alert-banner strong {
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 6px;
+            border: 1px solid var(--slate-200);
+            border-top: 3px solid var(--scales-gold);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            color: var(--navy-600);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--judicial-black);
+            font-family: var(--font-heading);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-sublabel {
+            font-size: 0.8rem;
+            color: var(--navy-500);
+        }
+
+        /* Compliance Dashboard */
+        .compliance-section {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 6px;
+            border: 1px solid var(--slate-200);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--scales-gold);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--judicial-black);
+            font-weight: 700;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .compliance-item {
+            padding: var(--spacing-md);
+            background: var(--parchment-white);
+            border: 1px solid var(--slate-200);
+            border-radius: 4px;
+        }
+
+        .compliance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .compliance-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy-700);
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant: small-caps;
+            letter-spacing: 0.5px;
+        }
+
+        .status-compliant {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-pending {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+
+        .status-required {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: var(--slate-200);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: var(--spacing-xs) 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--scales-gold), var(--gold-light));
+            transition: width 0.3s ease;
+        }
+
+        .compliance-details {
+            font-size: 0.85rem;
+            color: var(--navy-600);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Two Column Layout */
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 6px;
+            border: 1px solid var(--slate-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-list {
+            list-style: none;
+        }
+
+        .section-list li {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--slate-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-list li:last-child {
+            border-bottom: none;
+        }
+
+        .list-item-title {
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 0.25rem;
+        }
+
+        .list-item-meta {
+            font-size: 0.85rem;
+            color: var(--navy-500);
+            font-variant: small-caps;
+            letter-spacing: 0.5px;
+        }
+
+        .list-item-date {
+            font-size: 0.85rem;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        /* Member Table */
+        .member-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .member-table thead {
+            background-color: var(--navy-700);
+            color: var(--parchment-white);
+        }
+
+        .member-table th {
+            padding: var(--spacing-sm);
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--scales-gold);
+        }
+
+        .member-table td {
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--slate-200);
+            font-size: 0.9rem;
+        }
+
+        .member-table tbody tr:hover {
+            background-color: var(--parchment-white);
+        }
+
+        .attorney-name {
+            font-weight: 600;
+            color: var(--navy-700);
+        }
+
+        .bar-number {
+            font-variant: small-caps;
+            color: var(--navy-500);
+            font-size: 0.85rem;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 6px;
+            border: 1px solid var(--slate-200);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--judicial-black);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 2px solid var(--scales-gold);
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+
+        .sidebar-list li {
+            padding: var(--spacing-xs) 0;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-list a {
+            color: var(--navy-700);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--scales-gold);
+        }
+
+        .sidebar-list a::before {
+            content: "§ ";
+            color: var(--scales-gold);
+            margin-right: 0.5rem;
+        }
+
+        /* Notice Box */
+        .notice-box {
+            background-color: #fef9f3;
+            border-left: 4px solid var(--scales-gold);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: 4px;
+        }
+
+        .notice-title {
+            font-weight: 700;
+            color: var(--burgundy);
+            margin-bottom: var(--spacing-xs);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--judicial-black);
+            color: var(--parchment-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--scales-gold);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-section a {
+            color: var(--parchment-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--scales-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .two-col-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+
+            .member-info {
+                border-right: none;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .member-table {
+                font-size: 0.85rem;
+            }
+
+            .member-table th,
+            .member-table td {
+                padding: var(--spacing-xs);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>75</strong> of 90 &mdash; Bar Association</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-74-alumni-association.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-76-medical-association.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 74) window.location.href = 'style-74-alumni-association.html';
+                if (e.key === 'ArrowRight' && 76) window.location.href = 'style-76-medical-association.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <svg class="scales-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 3v18M8 21h8M5 6l7-3 7 3M5 6v3c0 2.5 1.5 4 3.5 4S12 11.5 12 9V6M19 6v3c0 2.5-1.5 4-3.5 4S12 11.5 12 9V6"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>State Bar Association</h1>
+                    <p>Member Portal • Powered by LOBBI</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="member-info">
+                    <div class="member-name">Attorney Sarah J. Mitchell, Esq.</div>
+                    <div class="member-number">Bar No. 247851 • Admitted 2015</div>
+                </div>
+                <button class="btn btn-primary">My Account</button>
+                <button class="btn btn-secondary">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#" class="nav-link">CLE Programs</a>
+            <a href="#" class="nav-link">Ethics Opinions</a>
+            <a href="#" class="nav-link">Member Directory</a>
+            <a href="#" class="nav-link">Committees</a>
+            <a href="#" class="nav-link">Resources</a>
+            <a href="#" class="nav-link">Events</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Alert Banner -->
+        <div class="alert-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <span><strong>Important Notice:</strong> Annual membership renewal due by December 31, 2025. Ethics certification required for renewal.</span>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Active Members</div>
+                <div class="stat-value">12,847</div>
+                <div class="stat-sublabel">As of December 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Members in Good Standing</div>
+                <div class="stat-value">12,456</div>
+                <div class="stat-sublabel">97.0% Compliance Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">CLE Hours Required</div>
+                <div class="stat-value">24<span style="font-size: 1rem; opacity: 0.6;">/year</span></div>
+                <div class="stat-sublabel">Including 4 hours Ethics</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pro Bono Hours Contributed</div>
+                <div class="stat-value">48,920</div>
+                <div class="stat-sublabel">This Fiscal Year</div>
+            </div>
+        </div>
+
+        <!-- Compliance Dashboard -->
+        <section class="compliance-section">
+            <div class="section-header">
+                <h2 class="section-title">Your Compliance Dashboard</h2>
+                <span class="status-badge status-compliant">In Good Standing</span>
+            </div>
+
+            <div class="compliance-grid">
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">CLE Credits (2025)</div>
+                        <span class="status-badge status-compliant">24/24</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                    <div class="compliance-details">
+                        General: 20 hrs • Ethics: 4 hrs • Next cycle: Jan 1, 2026
+                    </div>
+                </div>
+
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">Ethics Training</div>
+                        <span class="status-badge status-compliant">Current</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                    <div class="compliance-details">
+                        Last completed: Nov 15, 2025 • Valid through: Dec 31, 2026
+                    </div>
+                </div>
+
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">Pro Bono Hours</div>
+                        <span class="status-badge status-compliant">58 hrs</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                    <div class="compliance-details">
+                        Recommended: 50 hrs/year • Your contribution: 58 hrs
+                    </div>
+                </div>
+
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">Annual Dues</div>
+                        <span class="status-badge status-pending">Due Dec 31</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="compliance-details">
+                        Amount: $475 • Includes section memberships • Pay online
+                    </div>
+                </div>
+
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">Court Admissions</div>
+                        <span class="status-badge status-compliant">3 Active</span>
+                    </div>
+                    <div class="compliance-details" style="margin-top: 0.5rem;">
+                        State Supreme Court • Federal District Court • 9th Circuit
+                    </div>
+                </div>
+
+                <div class="compliance-item">
+                    <div class="compliance-header">
+                        <div class="compliance-title">Trust Account Compliance</div>
+                        <span class="status-badge status-compliant">Verified</span>
+                    </div>
+                    <div class="compliance-details" style="margin-top: 0.5rem;">
+                        Last audit: Aug 2025 • Next audit: Aug 2026 • No findings
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice-box">
+                <div class="notice-title">Reminder: Ethics Certification Required</div>
+                <p>All members must complete the annual ethics certification by December 31, 2025 as a condition of membership renewal. The certification confirms compliance with Model Rules of Professional Conduct.</p>
+            </div>
+        </section>
+
+        <!-- Two Column Layout -->
+        <div class="two-col-layout">
+            <!-- Main Content -->
+            <div>
+                <!-- Annual Meeting Section -->
+                <section class="content-section" style="margin-bottom: 1.5rem;">
+                    <div class="section-header">
+                        <h2 class="section-title">Annual Meeting & Elections</h2>
+                        <button class="btn btn-primary">Register Now</button>
+                    </div>
+                    <ul class="section-list">
+                        <li>
+                            <div>
+                                <div class="list-item-title">2026 Annual Meeting</div>
+                                <div class="list-item-meta">Grand Ballroom, State Convention Center</div>
+                            </div>
+                            <div class="list-item-date">Feb 15-17, 2026</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Board of Governors Election</div>
+                                <div class="list-item-meta">6 Seats Available • Nominations Close Jan 5</div>
+                            </div>
+                            <div class="list-item-date">Voting: Feb 1-14</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Section Leadership Elections</div>
+                                <div class="list-item-meta">All Sections • Electronic Ballot</div>
+                            </div>
+                            <div class="list-item-date">Voting: Jan 15-31</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Annual Meeting CLE Track</div>
+                                <div class="list-item-meta">15 Credit Hours Available • Ethics & General Law</div>
+                            </div>
+                            <div class="list-item-date">Feb 15-16, 2026</div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- CLE Programs Section -->
+                <section class="content-section" style="margin-bottom: 1.5rem;">
+                    <div class="section-header">
+                        <h2 class="section-title">CLE Programs & Compliance</h2>
+                        <button class="btn btn-secondary">Browse Catalog</button>
+                    </div>
+                    <ul class="section-list">
+                        <li>
+                            <div>
+                                <div class="list-item-title">Ethics in the Digital Age</div>
+                                <div class="list-item-meta">Live Webinar • 2 Ethics Credits</div>
+                            </div>
+                            <div class="list-item-date">Dec 18, 2025</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Advanced Trial Advocacy Workshop</div>
+                                <div class="list-item-meta">In-Person • State Courthouse • 6 General Credits</div>
+                            </div>
+                            <div class="list-item-date">Jan 12-13, 2026</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Trust Account Management Fundamentals</div>
+                                <div class="list-item-meta">On-Demand Video • 1.5 Ethics Credits</div>
+                            </div>
+                            <div class="list-item-date">Available Now</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Artificial Intelligence in Legal Practice</div>
+                                <div class="list-item-meta">Hybrid Event • 4 General Credits</div>
+                            </div>
+                            <div class="list-item-date">Feb 8, 2026</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">MCLE Compliance Workshop</div>
+                                <div class="list-item-meta">Free for Members • 1 General Credit</div>
+                            </div>
+                            <div class="list-item-date">Jan 22, 2026</div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Ethics Opinions Section -->
+                <section class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Ethics Opinions & Guidance</h2>
+                        <button class="btn btn-secondary">Search Database</button>
+                    </div>
+                    <ul class="section-list">
+                        <li>
+                            <div>
+                                <div class="list-item-title">Opinion 2025-12: Use of AI Tools in Legal Research</div>
+                                <div class="list-item-meta">Model Rule 1.1 (Competence) • Rule 5.3 (Supervision)</div>
+                            </div>
+                            <div class="list-item-date">Nov 30, 2025</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Opinion 2025-11: Social Media Communications with Clients</div>
+                                <div class="list-item-meta">Model Rule 1.6 (Confidentiality) • Rule 7.1 (Advertising)</div>
+                            </div>
+                            <div class="list-item-date">Oct 15, 2025</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Opinion 2025-10: Cloud Storage of Client Files</div>
+                                <div class="list-item-meta">Model Rule 1.6 (Confidentiality) • Rule 1.15 (Safekeeping)</div>
+                            </div>
+                            <div class="list-item-date">Sep 22, 2025</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="list-item-title">Updated Guidance: Remote Notarization Procedures</div>
+                                <div class="list-item-meta">State-Specific Requirements • Best Practices</div>
+                            </div>
+                            <div class="list-item-date">Aug 8, 2025</div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Member Status Table -->
+                <section class="content-section" style="margin-top: 1.5rem;">
+                    <div class="section-header">
+                        <h2 class="section-title">Member Status & Compliance Summary</h2>
+                    </div>
+                    <table class="member-table">
+                        <thead>
+                            <tr>
+                                <th>Status Category</th>
+                                <th>Current Count</th>
+                                <th>Percentage</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Active - Good Standing</strong></td>
+                                <td>12,456</td>
+                                <td>97.0%</td>
+                                <td>All requirements met</td>
+                            </tr>
+                            <tr>
+                                <td>Active - Pending Compliance</td>
+                                <td>285</td>
+                                <td>2.2%</td>
+                                <td>CLE or dues pending</td>
+                            </tr>
+                            <tr>
+                                <td>Inactive - Voluntary</td>
+                                <td>68</td>
+                                <td>0.5%</td>
+                                <td>No practice, maintained status</td>
+                            </tr>
+                            <tr>
+                                <td>Emeritus Status</td>
+                                <td>32</td>
+                                <td>0.2%</td>
+                                <td>50+ years, retired</td>
+                            </tr>
+                            <tr>
+                                <td>Administrative Suspension</td>
+                                <td>6</td>
+                                <td>0.05%</td>
+                                <td>Non-payment or non-compliance</td>
+                            </tr>
+                            <tr style="font-weight: 600; background-color: var(--parchment-white);">
+                                <td><strong>Total Membership</strong></td>
+                                <td><strong>12,847</strong></td>
+                                <td><strong>100%</strong></td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Quick Links -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Quick Links</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Pay Annual Dues</a></li>
+                        <li><a href="#">Update Contact Information</a></li>
+                        <li><a href="#">Request CLE Certificate</a></li>
+                        <li><a href="#">Ethics Hotline</a></li>
+                        <li><a href="#">Lawyer Referral Service</a></li>
+                        <li><a href="#">Member Benefits</a></li>
+                        <li><a href="#">Lawyer Assistance Program</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Practice Areas -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Your Practice Areas</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Civil Litigation (Primary)</a></li>
+                        <li><a href="#">Commercial Transactions</a></li>
+                        <li><a href="#">Employment Law</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Committee Memberships -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Committee Memberships</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Professional Responsibility</a></li>
+                        <li><a href="#">CLE Committee</a></li>
+                        <li><a href="#">Diversity & Inclusion</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Section Memberships -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Section Memberships</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Litigation Section</a></li>
+                        <li><a href="#">Business Law Section</a></li>
+                        <li><a href="#">Young Lawyers Division</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Resources -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Member Resources</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Law Library Access</a></li>
+                        <li><a href="#">Form Bank</a></li>
+                        <li><a href="#">Practice Management Tools</a></li>
+                        <li><a href="#">Legal Research Discounts</a></li>
+                        <li><a href="#">Malpractice Insurance</a></li>
+                        <li><a href="#">Client Trust Account Guide</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Important Dates -->
+                <aside class="sidebar-section">
+                    <h3 class="sidebar-title">Important Dates</h3>
+                    <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--slate-200);">
+                        <div style="font-weight: 600; color: var(--burgundy); font-size: 0.9rem;">Dec 31, 2025</div>
+                        <div style="font-size: 0.85rem; color: var(--navy-600);">Dues & Ethics Certification Due</div>
+                    </div>
+                    <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--slate-200);">
+                        <div style="font-weight: 600; color: var(--navy-700); font-size: 0.9rem;">Jan 5, 2026</div>
+                        <div style="font-size: 0.85rem; color: var(--navy-600);">Election Nominations Close</div>
+                    </div>
+                    <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--slate-200);">
+                        <div style="font-weight: 600; color: var(--navy-700); font-size: 0.9rem;">Feb 15-17, 2026</div>
+                        <div style="font-size: 0.85rem; color: var(--navy-600);">Annual Meeting</div>
+                    </div>
+                    <div style="padding: 0.5rem 0;">
+                        <div style="font-weight: 600; color: var(--navy-700); font-size: 0.9rem;">Dec 31, 2026</div>
+                        <div style="font-size: 0.85rem; color: var(--navy-600);">CLE Cycle Ends</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About the Bar</h3>
+                    <ul>
+                        <li><a href="#">Mission & History</a></li>
+                        <li><a href="#">Board of Governors</a></li>
+                        <li><a href="#">Sections & Committees</a></li>
+                        <li><a href="#">Annual Reports</a></li>
+                        <li><a href="#">Career Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Member Services</h3>
+                    <ul>
+                        <li><a href="#">CLE Programs</a></li>
+                        <li><a href="#">Ethics Resources</a></li>
+                        <li><a href="#">Practice Management</a></li>
+                        <li><a href="#">Lawyer Assistance</a></li>
+                        <li><a href="#">Member Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Public Services</h3>
+                    <ul>
+                        <li><a href="#">Find a Lawyer</a></li>
+                        <li><a href="#">Pro Bono Programs</a></li>
+                        <li><a href="#">Legal Aid Resources</a></li>
+                        <li><a href="#">File a Grievance</a></li>
+                        <li><a href="#">Public Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact & Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Directory</a></li>
+                        <li><a href="#">Member Support</a></li>
+                        <li><a href="#">Technical Help</a></li>
+                        <li><a href="#">Office Locations</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 State Bar Association. All Rights Reserved. | Powered by LOBBI Legal Platform</p>
+                <p style="margin-top: 0.5rem;">Confidential Attorney-Member Portal | Model Rules of Professional Conduct Apply</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

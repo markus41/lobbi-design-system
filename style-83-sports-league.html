@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 83: Sports League + Athletic Excellence | Lobbi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================
+           ULTRATHINK DESIGN ANALYSIS
+           Style 83: Sports League + Athletic Excellence
+           ================================
+
+           DESIGN SYSTEM SPECIFICATIONS:
+           ----------------------------
+           Blend Ratio: Sports League (80%) + Athletic Excellence (20%)
+           Temperature: 7/10 (energetic but professional)
+           Formality: 6/10 (competitive yet organized)
+           Target Audience: Amateur sports leagues, athletic associations, recreational leagues
+
+           COLOR PSYCHOLOGY:
+           ----------------
+           Primary (#1d4ed8 - Championship Blue): Competition, trust, authority
+           Secondary (#eab308 - Victory Gold): Achievement, success, prestige
+           Background (#ffffff/#f9fafb): Clean, organized, professional
+           Text (#1e293b - Dark Slate): Strong, readable, authoritative
+           Accent (#dc2626 - Energy Red): Urgency, excitement, action
+
+           TYPOGRAPHY STRATEGY:
+           -------------------
+           Headings: Oswald - Athletic impact, competitive spirit, bold presence
+           Body: Roboto - Clear legibility, scoreboard aesthetic, modern professionalism
+           Feature: Tabular numbers for consistent statistics alignment
+
+           LAYOUT ARCHITECTURE:
+           -------------------
+           - Grid-based standings tables for competitive clarity
+           - Card-based schedule layouts for game organization
+           - Badge-driven status indicators for quick recognition
+           - Hierarchical information display for league structure
+
+           FUNCTIONAL ELEMENTS:
+           -------------------
+           ✓ Season standings table with win/loss records
+           ✓ Game/match schedule with venue details
+           ✓ Team registration status tracking
+           ✓ Player eligibility verification
+           ✓ Referee/official assignments
+           ✓ Championship bracket visualization
+           ✓ Award nominations display
+           ✓ Facility booking calendar
+
+           DESIGN PRINCIPLES:
+           -----------------
+           1. Athletic Competition: Visual hierarchy emphasizing rankings and performance
+           2. Organized Management: Clear structure for complex league data
+           3. Achievement Focus: Highlighting excellence and accomplishments
+           4. Real-Time Updates: Dynamic presentation of current standings
+           5. Professional Sport: Maintaining credibility while celebrating competition
+
+           EMOTIONAL RESONANCE:
+           -------------------
+           Evokes: Team spirit, competitive drive, fair play, organized athletics
+           Conveys: Professional league management, transparent standings, achievement recognition
+           Inspires: Participation, excellence, sportsmanship, community engagement
+
+           ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --championship-blue: #1d4ed8;
+            --championship-blue-dark: #1e40af;
+            --championship-blue-light: #3b82f6;
+            --victory-gold: #eab308;
+            --victory-gold-dark: #ca8a04;
+            --energy-red: #dc2626;
+            --energy-red-dark: #b91c1c;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --slate-dark: #1e293b;
+            --slate-medium: #475569;
+            --green-success: #16a34a;
+            --green-light: #dcfce7;
+            --orange-warning: #ea580c;
+            --orange-light: #fed7aa;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-variant-numeric: tabular-nums;
+            background: var(--gray-50);
+            color: var(--slate-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, var(--championship-blue) 0%, var(--championship-blue-dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--victory-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--championship-blue);
+            box-shadow: 0 2px 8px rgba(234, 179, 8, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--victory-gold);
+        }
+
+        .nav-links a.active {
+            background: var(--victory-gold);
+            color: var(--championship-blue);
+            font-weight: 600;
+        }
+
+        /* Hero Stats Banner */
+        .hero-stats {
+            background: linear-gradient(to right, var(--white) 0%, var(--gray-50) 100%);
+            border-bottom: 3px solid var(--victory-gold);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--championship-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--slate-medium);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--championship-blue);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(29, 78, 216, 0.15);
+        }
+
+        .stat-card.gold {
+            border-left-color: var(--victory-gold);
+        }
+
+        .stat-card.red {
+            border-left-color: var(--energy-red);
+        }
+
+        .stat-card.green {
+            border-left-color: var(--green-success);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--championship-blue);
+            font-family: 'Oswald', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card.gold .stat-value {
+            color: var(--victory-gold-dark);
+        }
+
+        .stat-card.red .stat-value {
+            color: var(--energy-red);
+        }
+
+        .stat-card.green .stat-value {
+            color: var(--green-success);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--slate-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--championship-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--victory-gold);
+            border-radius: 2px;
+        }
+
+        .section-badge {
+            background: var(--championship-blue);
+            color: var(--white);
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-badge.gold {
+            background: var(--victory-gold);
+            color: var(--championship-blue);
+        }
+
+        /* Standings Table */
+        .standings-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .standings-table thead {
+            background: var(--gray-50);
+        }
+
+        .standings-table th {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--slate-medium);
+            font-weight: 600;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .standings-table th.center,
+        .standings-table td.center {
+            text-align: center;
+        }
+
+        .standings-table tbody tr {
+            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .standings-table tbody tr:hover {
+            background: var(--gray-50);
+            transform: scale(1.01);
+        }
+
+        .standings-table td {
+            padding: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .rank-cell {
+            font-weight: 700;
+            color: var(--championship-blue);
+            font-size: 1.125rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .rank-cell.champion {
+            color: var(--victory-gold-dark);
+        }
+
+        .rank-cell.playoff {
+            color: var(--green-success);
+        }
+
+        .team-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .team-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--championship-blue);
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .record-highlight {
+            font-weight: 700;
+            color: var(--green-success);
+        }
+
+        .record-lowlight {
+            font-weight: 700;
+            color: var(--energy-red);
+        }
+
+        .streak {
+            padding: 0.25rem 0.625rem;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        .streak.win {
+            background: var(--green-light);
+            color: var(--green-success);
+        }
+
+        .streak.loss {
+            background: #fee2e2;
+            color: var(--energy-red);
+        }
+
+        /* Schedule Cards */
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-card {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--championship-blue);
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateX(4px);
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .game-time {
+            font-size: 0.8125rem;
+            color: var(--slate-medium);
+            font-weight: 500;
+        }
+
+        .game-status {
+            padding: 0.25rem 0.625rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .game-status.upcoming {
+            background: var(--championship-blue);
+            color: var(--white);
+        }
+
+        .game-status.live {
+            background: var(--energy-red);
+            color: var(--white);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .game-matchup {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-info {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+
+        .team-info .team-logo {
+            width: 40px;
+            height: 40px;
+            font-size: 0.875rem;
+        }
+
+        .team-info span {
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .matchup-vs {
+            font-weight: 700;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        .game-venue {
+            font-size: 0.8125rem;
+            color: var(--slate-medium);
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .game-venue::before {
+            content: '📍';
+        }
+
+        /* All-Star Selection */
+        .allstar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .allstar-card {
+            background: linear-gradient(135deg, var(--championship-blue) 0%, var(--championship-blue-dark) 100%);
+            color: var(--white);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .allstar-card::before {
+            content: '⭐';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 4rem;
+            opacity: 0.1;
+        }
+
+        .allstar-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(29, 78, 216, 0.3);
+        }
+
+        .allstar-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.375rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .allstar-team {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .allstar-stats {
+            font-size: 0.8125rem;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.375rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        /* Registration Panel */
+        .registration-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .registration-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .registration-item:hover {
+            background: var(--gray-100);
+        }
+
+        .registration-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .registration-name {
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .registration-details {
+            font-size: 0.8125rem;
+            color: var(--slate-medium);
+        }
+
+        .status-badge {
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.approved {
+            background: var(--green-light);
+            color: var(--green-success);
+        }
+
+        .status-badge.pending {
+            background: var(--orange-light);
+            color: var(--orange-warning);
+        }
+
+        .status-badge.verified {
+            background: #dbeafe;
+            color: var(--championship-blue);
+        }
+
+        /* Championship Bracket Preview */
+        .bracket-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .bracket-round {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bracket-round-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--championship-blue);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .bracket-matchup {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+        }
+
+        .bracket-team {
+            padding: 0.5rem;
+            margin-bottom: 0.25rem;
+            background: var(--white);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bracket-team:last-child {
+            margin-bottom: 0;
+        }
+
+        .bracket-team.winner {
+            background: var(--championship-blue);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .bracket-seed {
+            color: var(--slate-medium);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .bracket-team.winner .bracket-seed {
+            color: var(--victory-gold);
+        }
+
+        .bracket-score {
+            font-weight: 700;
+            color: var(--victory-gold-dark);
+        }
+
+        .bracket-team.winner .bracket-score {
+            color: var(--victory-gold);
+        }
+
+        /* Action Buttons */
+        .action-button {
+            background: var(--championship-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9375rem;
+        }
+
+        .action-button:hover {
+            background: var(--championship-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+        }
+
+        .action-button.gold {
+            background: var(--victory-gold);
+            color: var(--championship-blue);
+        }
+
+        .action-button.gold:hover {
+            background: var(--victory-gold-dark);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--victory-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            font-size: 0.9375rem;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--victory-gold);
+            padding-left: 0.5rem;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bracket-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .standings-table {
+                font-size: 0.8125rem;
+            }
+
+            .standings-table th,
+            .standings-table td {
+                padding: 0.625rem 0.5rem;
+            }
+
+            .bracket-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .allstar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .allstar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>83</strong> of 90 &mdash; Sports League</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-82-nonprofit-alliance.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-84-veterans-org.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 82) window.location.href = 'style-82-nonprofit-alliance.html';
+                if (e.key === 'ArrowRight' && 84) window.location.href = 'style-84-veterans-org.html';
+            });
+        })();
+    </script>
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">L</div>
+                <div class="logo-text">
+                    <h1>Lobbi Sports League</h1>
+                    <p>2025 Championship Season</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Standings</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">Teams</a></li>
+                    <li><a href="#">Players</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Stats Banner -->
+    <section class="hero-stats">
+        <div class="hero-content">
+            <h2 class="hero-title">League Dashboard 2025</h2>
+            <p class="hero-subtitle">Championship Season in Full Swing - 8 Divisions Competing for Glory</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">128</div>
+                    <div class="stat-label">Registered Teams</div>
+                </div>
+                <div class="stat-card gold">
+                    <div class="stat-value">2,456</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-value">892</div>
+                    <div class="stat-label">Games This Season</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Championships</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Content Grid: Standings & Schedule -->
+        <div class="content-grid">
+            <!-- Team Standings -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Division A Standings</h2>
+                    <span class="section-badge">Updated Live</span>
+                </div>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Team</th>
+                            <th class="center">W</th>
+                            <th class="center">L</th>
+                            <th class="center">PCT</th>
+                            <th class="center">GB</th>
+                            <th class="center">Home</th>
+                            <th class="center">Away</th>
+                            <th class="center">Streak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="rank-cell champion">1</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #1d4ed8; color: white;">TC</div>
+                                    <span class="team-name">Thunder Cats</span>
+                                </div>
+                            </td>
+                            <td class="center record-highlight">24</td>
+                            <td class="center">8</td>
+                            <td class="center">.750</td>
+                            <td class="center">-</td>
+                            <td class="center">14-2</td>
+                            <td class="center">10-6</td>
+                            <td class="center"><span class="streak win">W5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell playoff">2</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #dc2626; color: white;">FR</div>
+                                    <span class="team-name">Fire Raptors</span>
+                                </div>
+                            </td>
+                            <td class="center record-highlight">22</td>
+                            <td class="center">10</td>
+                            <td class="center">.688</td>
+                            <td class="center">2.0</td>
+                            <td class="center">13-3</td>
+                            <td class="center">9-7</td>
+                            <td class="center"><span class="streak win">W3</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell playoff">3</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #16a34a; color: white;">SS</div>
+                                    <span class="team-name">Storm Sharks</span>
+                                </div>
+                            </td>
+                            <td class="center record-highlight">20</td>
+                            <td class="center">12</td>
+                            <td class="center">.625</td>
+                            <td class="center">4.0</td>
+                            <td class="center">12-4</td>
+                            <td class="center">8-8</td>
+                            <td class="center"><span class="streak loss">L1</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell playoff">4</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #eab308; color: white;">GE</div>
+                                    <span class="team-name">Golden Eagles</span>
+                                </div>
+                            </td>
+                            <td class="center">18</td>
+                            <td class="center">14</td>
+                            <td class="center">.563</td>
+                            <td class="center">6.0</td>
+                            <td class="center">11-5</td>
+                            <td class="center">7-9</td>
+                            <td class="center"><span class="streak win">W2</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell">5</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #7c3aed; color: white;">IW</div>
+                                    <span class="team-name">Iron Wolves</span>
+                                </div>
+                            </td>
+                            <td class="center">16</td>
+                            <td class="center">16</td>
+                            <td class="center">.500</td>
+                            <td class="center">8.0</td>
+                            <td class="center">10-6</td>
+                            <td class="center">6-10</td>
+                            <td class="center"><span class="streak loss">L2</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell">6</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #ea580c; color: white;">BT</div>
+                                    <span class="team-name">Blaze Tigers</span>
+                                </div>
+                            </td>
+                            <td class="center">14</td>
+                            <td class="center">18</td>
+                            <td class="center">.438</td>
+                            <td class="center">10.0</td>
+                            <td class="center">9-7</td>
+                            <td class="center">5-11</td>
+                            <td class="center"><span class="streak win">W1</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell">7</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #0891b2; color: white;">CC</div>
+                                    <span class="team-name">Coastal Cobras</span>
+                                </div>
+                            </td>
+                            <td class="center">11</td>
+                            <td class="center record-lowlight">21</td>
+                            <td class="center">.344</td>
+                            <td class="center">13.0</td>
+                            <td class="center">7-9</td>
+                            <td class="center">4-12</td>
+                            <td class="center"><span class="streak loss">L4</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-cell">8</span></td>
+                            <td>
+                                <div class="team-cell">
+                                    <div class="team-logo" style="background: #64748b; color: white;">SL</div>
+                                    <span class="team-name">Silver Lions</span>
+                                </div>
+                            </td>
+                            <td class="center">9</td>
+                            <td class="center record-lowlight">23</td>
+                            <td class="center">.281</td>
+                            <td class="center">15.0</td>
+                            <td class="center">6-10</td>
+                            <td class="center">3-13</td>
+                            <td class="center"><span class="streak loss">L3</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Playoff Schedule -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Playoff Schedule 2025</h2>
+                    <span class="section-badge gold">Upcoming</span>
+                </div>
+                <div class="schedule-list">
+                    <div class="game-card">
+                        <div class="game-header">
+                            <span class="game-time">Saturday, March 15 • 7:00 PM</span>
+                            <span class="game-status upcoming">Quarterfinal</span>
+                        </div>
+                        <div class="game-matchup">
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #1d4ed8; color: white;">TC</div>
+                                <span>Thunder Cats</span>
+                            </div>
+                            <span class="matchup-vs">VS</span>
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #eab308; color: white;">GE</div>
+                                <span>Golden Eagles</span>
+                            </div>
+                        </div>
+                        <div class="game-venue">Championship Arena - Court 1</div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-header">
+                            <span class="game-time">Saturday, March 15 • 9:00 PM</span>
+                            <span class="game-status upcoming">Quarterfinal</span>
+                        </div>
+                        <div class="game-matchup">
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #dc2626; color: white;">FR</div>
+                                <span>Fire Raptors</span>
+                            </div>
+                            <span class="matchup-vs">VS</span>
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #16a34a; color: white;">SS</div>
+                                <span>Storm Sharks</span>
+                            </div>
+                        </div>
+                        <div class="game-venue">Championship Arena - Court 1</div>
+                    </div>
+
+                    <div class="game-card">
+                        <div class="game-header">
+                            <span class="game-time">Sunday, March 16 • 6:00 PM</span>
+                            <span class="game-status live">Live Now</span>
+                        </div>
+                        <div class="game-matchup">
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #7c3aed; color: white;">IW</div>
+                                <span>Iron Wolves</span>
+                            </div>
+                            <span class="matchup-vs">VS</span>
+                            <div class="team-info">
+                                <div class="team-logo" style="background: #ea580c; color: white;">BT</div>
+                                <span>Blaze Tigers</span>
+                            </div>
+                        </div>
+                        <div class="game-venue">Riverside Sports Complex - Field 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All-Star Selections -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">2025 All-Star Selections</h2>
+                <span class="section-badge gold">Top Performers</span>
+            </div>
+            <div class="allstar-grid">
+                <div class="allstar-card">
+                    <div class="allstar-name">Marcus Johnson</div>
+                    <div class="allstar-team">Thunder Cats</div>
+                    <div class="allstar-stats">28.4 PPG | 7.2 APG</div>
+                </div>
+                <div class="allstar-card">
+                    <div class="allstar-name">Sarah Chen</div>
+                    <div class="allstar-team">Fire Raptors</div>
+                    <div class="allstar-stats">24.1 PPG | 11.5 RPG</div>
+                </div>
+                <div class="allstar-card">
+                    <div class="allstar-name">James Rodriguez</div>
+                    <div class="allstar-team">Storm Sharks</div>
+                    <div class="allstar-stats">22.8 PPG | 5.6 APG</div>
+                </div>
+                <div class="allstar-card">
+                    <div class="allstar-name">Emily Thompson</div>
+                    <div class="allstar-team">Golden Eagles</div>
+                    <div class="allstar-stats">19.7 PPG | 9.3 RPG</div>
+                </div>
+                <div class="allstar-card">
+                    <div class="allstar-name">David Park</div>
+                    <div class="allstar-team">Iron Wolves</div>
+                    <div class="allstar-stats">21.3 PPG | 6.8 APG</div>
+                </div>
+                <div class="allstar-card">
+                    <div class="allstar-name">Jessica Martinez</div>
+                    <div class="allstar-team">Blaze Tigers</div>
+                    <div class="allstar-stats">18.9 PPG | 10.2 RPG</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration & Eligibility -->
+        <div class="content-grid">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Team Registration Status</h2>
+                    <span class="section-badge">32 Teams</span>
+                </div>
+                <div class="registration-list">
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Thunder Cats</div>
+                            <div class="registration-details">Division A • 18 Players Registered</div>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Fire Raptors</div>
+                            <div class="registration-details">Division A • 16 Players Registered</div>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Storm Sharks</div>
+                            <div class="registration-details">Division A • 17 Players Registered</div>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Golden Eagles</div>
+                            <div class="registration-details">Division A • 15 Players Registered</div>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Mountain Hawks</div>
+                            <div class="registration-details">Division B • 14 Players Registered</div>
+                        </div>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Desert Phoenix</div>
+                            <div class="registration-details">Division B • 19 Players Registered</div>
+                        </div>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="action-button">Register New Team</button>
+                    <button class="action-button gold">View All Teams</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Player Eligibility</h2>
+                    <span class="section-badge">2,456 Players</span>
+                </div>
+                <div class="registration-list">
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Marcus Johnson</div>
+                            <div class="registration-details">Thunder Cats • #24 • Guard</div>
+                        </div>
+                        <span class="status-badge verified">Verified</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Sarah Chen</div>
+                            <div class="registration-details">Fire Raptors • #12 • Forward</div>
+                        </div>
+                        <span class="status-badge verified">Verified</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">James Rodriguez</div>
+                            <div class="registration-details">Storm Sharks • #7 • Center</div>
+                        </div>
+                        <span class="status-badge verified">Verified</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Emily Thompson</div>
+                            <div class="registration-details">Golden Eagles • #33 • Forward</div>
+                        </div>
+                        <span class="status-badge verified">Verified</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Alex Rivera</div>
+                            <div class="registration-details">Iron Wolves • #8 • Guard</div>
+                        </div>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                    <div class="registration-item">
+                        <div class="registration-info">
+                            <div class="registration-name">Taylor Kim</div>
+                            <div class="registration-details">Blaze Tigers • #21 • Center</div>
+                        </div>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="action-button">Verify Players</button>
+                    <button class="action-button gold">Export List</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Championship Bracket Preview -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Championship Bracket Preview</h2>
+                <span class="section-badge gold">2025 Playoffs</span>
+            </div>
+            <div class="bracket-preview">
+                <div class="bracket-round">
+                    <div class="bracket-round-title">Quarterfinals</div>
+                    <div class="bracket-matchup">
+                        <div class="bracket-team winner">
+                            <span><span class="bracket-seed">1</span> Thunder Cats</span>
+                            <span class="bracket-score">78</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span><span class="bracket-seed">8</span> Silver Lions</span>
+                            <span class="bracket-score">65</span>
+                        </div>
+                    </div>
+                    <div class="bracket-matchup">
+                        <div class="bracket-team">
+                            <span><span class="bracket-seed">4</span> Golden Eagles</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span><span class="bracket-seed">5</span> Iron Wolves</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="bracket-round-title">Semifinals</div>
+                    <div class="bracket-matchup">
+                        <div class="bracket-team">
+                            <span><span class="bracket-seed">1</span> Thunder Cats</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span><span class="bracket-seed">4/5</span> TBD</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="bracket-round-title">Championship</div>
+                    <div class="bracket-matchup">
+                        <div class="bracket-team">
+                            <span>TBD</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-team">
+                            <span>TBD</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="bracket-round-title">Champion</div>
+                    <div class="bracket-matchup">
+                        <div class="bracket-team">
+                            <span>TBD</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Award Nominations -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">2025 Award Nominations</h2>
+                <span class="section-badge">Voting Open</span>
+            </div>
+            <div class="registration-list">
+                <div class="registration-item">
+                    <div class="registration-info">
+                        <div class="registration-name">Most Valuable Player (MVP)</div>
+                        <div class="registration-details">Marcus Johnson, Sarah Chen, James Rodriguez</div>
+                    </div>
+                    <button class="action-button">Vote Now</button>
+                </div>
+                <div class="registration-item">
+                    <div class="registration-info">
+                        <div class="registration-name">Defensive Player of the Year</div>
+                        <div class="registration-details">Emily Thompson, David Park, Alex Rivera</div>
+                    </div>
+                    <button class="action-button">Vote Now</button>
+                </div>
+                <div class="registration-item">
+                    <div class="registration-info">
+                        <div class="registration-name">Rookie of the Year</div>
+                        <div class="registration-details">Taylor Kim, Jordan Lee, Sam Patel</div>
+                    </div>
+                    <button class="action-button">Vote Now</button>
+                </div>
+                <div class="registration-item">
+                    <div class="registration-info">
+                        <div class="registration-name">Coach of the Year</div>
+                        <div class="registration-details">Mike Stevens, Lisa Wong, Carlos Mendez</div>
+                    </div>
+                    <button class="action-button">Vote Now</button>
+                </div>
+                <div class="registration-item">
+                    <div class="registration-info">
+                        <div class="registration-name">Sportsmanship Award</div>
+                        <div class="registration-details">Thunder Cats, Fire Raptors, Golden Eagles</div>
+                    </div>
+                    <button class="action-button">Vote Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facility Booking Calendar -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Facility Booking Calendar</h2>
+                <span class="section-badge">March 2025</span>
+            </div>
+            <div class="schedule-list">
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-time">Monday, March 10 • 6:00 PM - 8:00 PM</span>
+                        <span class="game-status upcoming">Reserved</span>
+                    </div>
+                    <div class="game-matchup">
+                        <div class="team-info">
+                            <span style="font-weight: 600;">Thunder Cats Practice</span>
+                        </div>
+                    </div>
+                    <div class="game-venue">Championship Arena - Court 1</div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-time">Tuesday, March 11 • 7:00 PM - 9:00 PM</span>
+                        <span class="game-status upcoming">Reserved</span>
+                    </div>
+                    <div class="game-matchup">
+                        <div class="team-info">
+                            <span style="font-weight: 600;">Fire Raptors vs Storm Sharks</span>
+                        </div>
+                    </div>
+                    <div class="game-venue">Riverside Sports Complex - Field 2</div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-time">Wednesday, March 12 • 5:00 PM - 7:00 PM</span>
+                        <span class="game-status upcoming">Available</span>
+                    </div>
+                    <div class="game-matchup">
+                        <div class="team-info">
+                            <span style="font-weight: 600;">Open Booking</span>
+                        </div>
+                    </div>
+                    <div class="game-venue">Championship Arena - Court 2</div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-time">Thursday, March 13 • 6:30 PM - 8:30 PM</span>
+                        <span class="game-status upcoming">Reserved</span>
+                    </div>
+                    <div class="game-matchup">
+                        <div class="team-info">
+                            <span style="font-weight: 600;">All-Star Practice</span>
+                        </div>
+                    </div>
+                    <div class="game-venue">Championship Arena - Court 1</div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="action-button">Book Facility</button>
+                <button class="action-button gold">View Full Calendar</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>League Information</h3>
+                <ul>
+                    <li><a href="#">About the League</a></li>
+                    <li><a href="#">Rules & Regulations</a></li>
+                    <li><a href="#">Code of Conduct</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Teams & Players</h3>
+                <ul>
+                    <li><a href="#">Team Directory</a></li>
+                    <li><a href="#">Player Stats</a></li>
+                    <li><a href="#">Hall of Fame</a></li>
+                    <li><a href="#">Team Registration</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Schedule</h3>
+                <ul>
+                    <li><a href="#">Game Schedule</a></li>
+                    <li><a href="#">Playoff Bracket</a></li>
+                    <li><a href="#">Championship Finals</a></li>
+                    <li><a href="#">Facility Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Referee Portal</a></li>
+                    <li><a href="#">Official Handbook</a></li>
+                    <li><a href="#">Media & Press</a></li>
+                    <li><a href="#">Sponsorship</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lobbi Sports League. All rights reserved. | Style 83: Sports League + Athletic Excellence</p>
+        </div>
+    </footer>
+
+</body>
+</html>

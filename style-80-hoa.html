@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 80: HOA Management + Community Living | Lobbi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ULTRATHINK DESIGN ANALYSIS
+        ═══════════════════════════════════════════════════════════════════
+        STYLE 80: HOMEOWNERS ASSOCIATION + COMMUNITY MANAGEMENT
+        ═══════════════════════════════════════════════════════════════════
+
+        DESIGN BLEND:
+        → HOA Management (80%): Professional governance, compliance tracking,
+          financial transparency, architectural review processes
+        → Community Living (20%): Neighborhood warmth, social events,
+          resident engagement, sense of belonging
+
+        PSYCHOLOGICAL PROFILE:
+        • Temperature: 6/10 - Welcoming neighborhood feel with professional structure
+        • Formality: 6/10 - Professional but residential, not corporate
+        • Trust Signals: Transparency in finances, clear communication, community focus
+
+        COLOR PSYCHOLOGY:
+        • Sage Green (#4d7c6f): Nature, community, stability, growth
+        • Warm Terracotta (#c2703e): Home warmth, earth, belonging
+        • Soft Cream (#faf8f5): Comfort, residential, approachable
+        • Sky Blue (#0ea5e9): Clear communication, trust, notices
+
+        TYPOGRAPHY STRATEGY:
+        • Raleway (Headings): Modern residential aesthetic, clean, friendly
+        • Lato (Body): Exceptional readability for notices and documents
+        • Clear hierarchy for announcements, deadlines, and action items
+
+        TARGET AUDIENCE:
+        → Primary: HOA management companies, condo boards, property managers
+        → Secondary: Homeowners, residents, board members
+        → Use Cases: Compliance tracking, amenity booking, communication
+
+        CONVERSION ELEMENTS:
+        1. Payment Status Visibility: Transparent dues tracking
+        2. Amenity Booking: Easy reservation system
+        3. Communication Hub: Announcements, meetings, documents
+        4. Maintenance Tracking: Request status and follow-up
+        5. Community Engagement: Events, projects, directory
+
+        DESIGN INNOVATIONS:
+        ✓ Compliance dashboard with visual status indicators
+        ✓ Integrated amenity calendar with real-time availability
+        ✓ Architectural review queue with approval workflow
+        ✓ Community announcements banner for urgent notices
+        ✓ Reserve fund transparency with budget breakdowns
+        ✓ Board meeting schedule with agenda access
+        ✓ Unit-level compliance tracking table
+
+        BRAND PERSONALITY:
+        Organized | Transparent | Community-Focused | Approachable | Efficient
+        ═══════════════════════════════════════════════════════════════════
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #faf8f5;
+            color: #3d3d3d;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #4d7c6f 0%, #3a6256 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Community Announcements Banner */
+        .announcements-banner {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .announcements-banner h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .announcements-banner p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Title */
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            color: #4d7c6f;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid #4d7c6f;
+        }
+
+        .metric-card.terracotta {
+            border-top-color: #c2703e;
+        }
+
+        .metric-card.blue {
+            border-top-color: #0ea5e9;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .metric-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #d1fae5;
+            color: #065f46;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.75rem;
+            color: #4d7c6f;
+        }
+
+        .section-header .btn {
+            padding: 0.5rem 1.25rem;
+            background: #c2703e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .section-header .btn:hover {
+            background: #a85f35;
+        }
+
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.25rem;
+            color: #4d7c6f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Payment Status Tracker */
+        .payment-status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .payment-info h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .payment-info p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .payment-status .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .status-badge.paid {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-badge.overdue {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Amenity Booking Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calendar-day.header {
+            background: #4d7c6f;
+            color: white;
+            font-weight: 600;
+            border: none;
+            cursor: default;
+        }
+
+        .calendar-day.available {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+
+        .calendar-day.booked {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .calendar-day:not(.header):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .day-number {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #3d3d3d;
+        }
+
+        .day-status {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* Maintenance Requests */
+        .request-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #6b7280;
+        }
+
+        .request-item.urgent {
+            border-left-color: #ef4444;
+        }
+
+        .request-item.in-progress {
+            border-left-color: #f59e0b;
+        }
+
+        .request-item.completed {
+            border-left-color: #10b981;
+        }
+
+        .request-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .request-details {
+            flex: 1;
+        }
+
+        .request-details h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .request-details p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .request-status {
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .request-status.urgent {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .request-status.in-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .request-status.completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        /* Board Meeting Schedule */
+        .meeting-item {
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #4d7c6f;
+        }
+
+        .meeting-date {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4d7c6f;
+            margin-bottom: 0.5rem;
+        }
+
+        .meeting-title {
+            font-size: 1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .meeting-meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .meeting-link {
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .meeting-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Architectural Review Queue */
+        .review-item {
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-header h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #3d3d3d;
+        }
+
+        .review-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .review-badge.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .review-badge.approved {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .review-details {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        /* Community Projects */
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid #c2703e;
+        }
+
+        .project-card h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-progress {
+            margin: 1rem 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            color: #6b7280;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #c2703e, #d48350);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Events List */
+        .event-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #4d7c6f;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        .event-month {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .event-day {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-details h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-details p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .event-rsvp {
+            padding: 0.5rem 1rem;
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .event-rsvp:hover {
+            background: #0284c7;
+        }
+
+        /* Compliance Table */
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #4d7c6f;
+            color: white;
+        }
+
+        th {
+            font-family: 'Raleway', sans-serif;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .table-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .table-badge.current {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .table-badge.late {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .table-badge.grace {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Document Library */
+        .document-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .document-item:hover {
+            background: #e5e7eb;
+            transform: translateX(4px);
+        }
+
+        .document-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-info h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #3d3d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .document-info p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .document-size {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            background: #3d3d3d;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #4b5563;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                gap: 0.25rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>80</strong> of 90 &mdash; HOA Management</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-79-credit-union.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-81-teachers-union.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 79) window.location.href = 'style-79-credit-union.html';
+                if (e.key === 'ArrowRight' && 81) window.location.href = 'style-81-teachers-union.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">🏘️</div>
+                <span>Oakwood Estates HOA</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#maintenance">Maintenance</a></li>
+                <li><a href="#documents">Documents</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Community Announcements Banner -->
+    <div class="announcements-banner">
+        <h3>Community Announcement</h3>
+        <p>Pool resurfacing project starts Dec 15th. Estimated completion: Jan 30th. Alternative recreation access available at West Clubhouse.</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Community Management Dashboard</h1>
+            <p>Welcome back! Here's your Oakwood Estates overview for December 2025</p>
+        </div>
+
+        <!-- Dashboard Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Units</div>
+                <div class="metric-value">847</div>
+                <div class="metric-subtitle">Single-family & Condos</div>
+            </div>
+
+            <div class="metric-card terracotta">
+                <div class="metric-label">Current Members</div>
+                <div class="metric-value">812</div>
+                <div class="metric-subtitle">96% compliance rate</div>
+                <div class="metric-badge">+12 this quarter</div>
+            </div>
+
+            <div class="metric-card blue">
+                <div class="metric-label">Monthly Assessments</div>
+                <div class="metric-value">$425</div>
+                <div class="metric-subtitle">Per unit</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-label">Reserve Fund</div>
+                <div class="metric-value">$1.2M</div>
+                <div class="metric-subtitle">125% of target</div>
+                <div class="metric-badge">Fully funded</div>
+            </div>
+        </div>
+
+        <!-- Payment Status & Amenity Booking -->
+        <div class="two-column">
+            <!-- Payment Status Tracker -->
+            <div class="card">
+                <h3><span class="card-icon">💳</span> Your Payment Status</h3>
+
+                <div class="payment-status">
+                    <div class="payment-info">
+                        <h4>December 2025 Assessment</h4>
+                        <p>Due: December 1, 2025</p>
+                    </div>
+                    <div class="status-badge paid">Paid</div>
+                </div>
+
+                <div class="payment-status">
+                    <div class="payment-info">
+                        <h4>January 2026 Assessment</h4>
+                        <p>Due: January 1, 2026</p>
+                    </div>
+                    <div class="status-badge pending">Upcoming</div>
+                </div>
+
+                <div class="payment-status">
+                    <div class="payment-info">
+                        <h4>Special Assessment - Pool</h4>
+                        <p>Due: December 15, 2025</p>
+                    </div>
+                    <div class="status-badge pending">Pending</div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600; color: #3d3d3d;">Year-to-Date Paid</span>
+                        <span style="font-weight: 700; color: #4d7c6f;">$5,100</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280;">
+                        <span>Autopay Status</span>
+                        <span style="color: #10b981; font-weight: 600;">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amenity Booking Calendar -->
+            <div class="card">
+                <h3><span class="card-icon">📅</span> Amenity Booking - December</h3>
+                <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.875rem;">Clubhouse & Recreation Room availability</p>
+
+                <div class="calendar-grid">
+                    <div class="calendar-day header">Sun</div>
+                    <div class="calendar-day header">Mon</div>
+                    <div class="calendar-day header">Tue</div>
+                    <div class="calendar-day header">Wed</div>
+                    <div class="calendar-day header">Thu</div>
+                    <div class="calendar-day header">Fri</div>
+                    <div class="calendar-day header">Sat</div>
+
+                    <div class="calendar-day available">
+                        <div class="day-number">8</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">9</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">10</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">11</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">12</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">13</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">14</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+
+                    <div class="calendar-day available">
+                        <div class="day-number">15</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">16</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">17</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">18</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day available">
+                        <div class="day-number">19</div>
+                        <div class="day-status">Open</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">20</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+                    <div class="calendar-day booked">
+                        <div class="day-number">21</div>
+                        <div class="day-status">Booked</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem; display: flex; gap: 1rem; font-size: 0.875rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="width: 20px; height: 20px; background: #d1fae5; border: 2px solid #10b981; border-radius: 4px;"></div>
+                        <span>Available</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="width: 20px; height: 20px; background: #fee2e2; border: 2px solid #ef4444; border-radius: 4px;"></div>
+                        <span>Booked</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maintenance & Board Meetings -->
+        <div class="two-column">
+            <!-- Maintenance Request Status -->
+            <div class="card">
+                <h3><span class="card-icon">🔧</span> Maintenance Requests</h3>
+
+                <div class="request-item urgent">
+                    <div class="request-icon">⚠️</div>
+                    <div class="request-details">
+                        <h4>Common Area Lighting - East Gate</h4>
+                        <p>Submitted: Dec 5 • Unit 342A</p>
+                    </div>
+                    <div class="request-status urgent">Urgent</div>
+                </div>
+
+                <div class="request-item in-progress">
+                    <div class="request-icon">🛠️</div>
+                    <div class="request-details">
+                        <h4>Irrigation System Repair - Zone 4</h4>
+                        <p>Submitted: Dec 3 • Landscape Committee</p>
+                    </div>
+                    <div class="request-status in-progress">In Progress</div>
+                </div>
+
+                <div class="request-item in-progress">
+                    <div class="request-icon">🚪</div>
+                    <div class="request-details">
+                        <h4>Clubhouse Door Hinge Replacement</h4>
+                        <p>Submitted: Dec 1 • Admin Office</p>
+                    </div>
+                    <div class="request-status in-progress">In Progress</div>
+                </div>
+
+                <div class="request-item completed">
+                    <div class="request-icon">✅</div>
+                    <div class="request-details">
+                        <h4>Tennis Court Net Replacement</h4>
+                        <p>Submitted: Nov 28 • Recreation Committee</p>
+                    </div>
+                    <div class="request-status completed">Completed</div>
+                </div>
+
+                <div style="margin-top: 1rem; text-align: center;">
+                    <a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 600; font-size: 0.875rem;">Submit New Request →</a>
+                </div>
+            </div>
+
+            <!-- Board Meeting Schedule -->
+            <div class="card">
+                <h3><span class="card-icon">📋</span> Board Meeting Schedule</h3>
+
+                <div class="meeting-item">
+                    <div class="meeting-date">Thursday, Dec 14, 2025</div>
+                    <div class="meeting-title">Regular Board Meeting</div>
+                    <div class="meeting-meta">
+                        <span>⏰ 7:00 PM - 9:00 PM</span>
+                        <span>📍 Main Clubhouse</span>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="#" class="meeting-link">View Agenda</a> •
+                        <a href="#" class="meeting-link">Join Virtually</a>
+                    </div>
+                </div>
+
+                <div class="meeting-item">
+                    <div class="meeting-date">Tuesday, Dec 19, 2025</div>
+                    <div class="meeting-title">Architectural Review Committee</div>
+                    <div class="meeting-meta">
+                        <span>⏰ 6:00 PM - 7:30 PM</span>
+                        <span>📍 Admin Office</span>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="#" class="meeting-link">View Agenda</a>
+                    </div>
+                </div>
+
+                <div class="meeting-item">
+                    <div class="meeting-date">Thursday, Jan 11, 2026</div>
+                    <div class="meeting-title">Budget Planning Session</div>
+                    <div class="meeting-meta">
+                        <span>⏰ 7:00 PM - 9:00 PM</span>
+                        <span>📍 Main Clubhouse</span>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="#" class="meeting-link">View Agenda</a> •
+                        <a href="#" class="meeting-link">Join Virtually</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.875rem; color: #6b7280;">
+                    📧 Meeting notifications sent 7 days in advance • Minutes posted within 48 hours
+                </div>
+            </div>
+        </div>
+
+        <!-- Architectural Review Queue -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h3 style="margin: 0;"><span class="card-icon">🏗️</span> Architectural Review Queue</h3>
+                <a href="#" class="btn">Submit Request</a>
+            </div>
+
+            <div class="two-column" style="margin-bottom: 0;">
+                <div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <h4>Unit 567B - Patio Cover Installation</h4>
+                            <div class="review-badge pending">Pending Review</div>
+                        </div>
+                        <div class="review-details">
+                            Submitted: Dec 6, 2025 • Next Review: Dec 14<br>
+                            Homeowner: Johnson Family
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <h4>Unit 234A - Exterior Paint Color Change</h4>
+                            <div class="review-badge approved">Approved</div>
+                        </div>
+                        <div class="review-details">
+                            Approved: Dec 4, 2025 • Completion Deadline: Jan 15, 2026<br>
+                            Homeowner: Martinez Family
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <h4>Unit 891C - Fence Replacement</h4>
+                            <div class="review-badge pending">Pending Review</div>
+                        </div>
+                        <div class="review-details">
+                            Submitted: Dec 8, 2025 • Next Review: Dec 19<br>
+                            Homeowner: Chen Family
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <h4>Unit 445D - Solar Panel Installation</h4>
+                            <div class="review-badge approved">Approved</div>
+                        </div>
+                        <div class="review-details">
+                            Approved: Nov 30, 2025 • Work in Progress<br>
+                            Homeowner: Thompson Family
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Annual Meeting & Elections -->
+        <div class="card" style="margin-bottom: 2rem; background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%); border: 2px solid #4d7c6f;">
+            <h3><span class="card-icon">🗳️</span> 2026 Annual Meeting & Board Elections</h3>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                <div>
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.75rem;">Key Information</h4>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin-bottom: 0.5rem;"><strong>Date:</strong> Saturday, February 15, 2026</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Location:</strong> Main Clubhouse & Virtual (Zoom link to be sent)</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Proxy Deadline:</strong> February 8, 2026</p>
+                    </div>
+
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.75rem;">Positions Open for Election</h4>
+                    <ul style="background: white; padding: 1rem 1rem 1rem 2rem; border-radius: 8px; line-height: 1.8;">
+                        <li>Board President (2-year term)</li>
+                        <li>Treasurer (2-year term)</li>
+                        <li>Member-at-Large (2 positions, 2-year terms)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div style="background: #4d7c6f; color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 3rem; font-weight: 700; font-family: 'Raleway', sans-serif; margin-bottom: 0.5rem;">68</div>
+                        <div style="font-size: 0.875rem; opacity: 0.9;">Days Until Meeting</div>
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem;">7</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Candidates Nominated</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <a href="#" style="display: block; background: #c2703e; color: white; padding: 0.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; margin-bottom: 0.5rem;">Nominate a Candidate</a>
+                        <a href="#" style="display: block; background: #0ea5e9; color: white; padding: 0.75rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Download Proxy Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Improvement Projects -->
+        <div class="section-header">
+            <h2>Community Improvement Projects</h2>
+            <a href="#" class="btn">View All Projects</a>
+        </div>
+
+        <div class="three-column">
+            <div class="project-card">
+                <h4>Pool Resurfacing & Upgrade</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">Complete renovation of main pool with new tile, resurfacing, and energy-efficient heating system.</p>
+
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span style="font-weight: 600; color: #3d3d3d;">35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <div class="project-meta">
+                    <div>
+                        <div style="font-weight: 600; color: #3d3d3d;">$285,000</div>
+                        <div>Total Budget</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: #4d7c6f;">Jan 30, 2026</div>
+                        <div>Target Completion</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h4>Landscape Enhancement - Phase 2</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">Native plant installation, drought-resistant landscaping, and updated irrigation system for common areas.</p>
+
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span style="font-weight: 600; color: #3d3d3d;">72%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 72%;"></div>
+                    </div>
+                </div>
+
+                <div class="project-meta">
+                    <div>
+                        <div style="font-weight: 600; color: #3d3d3d;">$156,000</div>
+                        <div>Total Budget</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: #4d7c6f;">Dec 22, 2025</div>
+                        <div>Target Completion</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h4>Security Gate System Upgrade</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">Installation of new access control systems, cameras, and automated gate hardware at all entry points.</p>
+
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span style="font-weight: 600; color: #3d3d3d;">18%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 18%;"></div>
+                    </div>
+                </div>
+
+                <div class="project-meta">
+                    <div>
+                        <div style="font-weight: 600; color: #3d3d3d;">$425,000</div>
+                        <div>Total Budget</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: #4d7c6f;">Mar 15, 2026</div>
+                        <div>Target Completion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events & Activities -->
+        <div class="section-header">
+            <h2>Upcoming Events & Activities</h2>
+            <a href="#" class="btn">Community Calendar</a>
+        </div>
+
+        <div class="two-column">
+            <div class="card">
+                <h3><span class="card-icon">🎉</span> Community Events</h3>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Dec</div>
+                        <div class="event-day">21</div>
+                    </div>
+                    <div class="event-details">
+                        <h4>Holiday Lights Contest & Neighborhood Tour</h4>
+                        <p>6:00 PM - 9:00 PM • Meet at Main Clubhouse</p>
+                        <p style="margin-top: 0.5rem;">Join us for our annual holiday lights competition with prizes and hot cocoa!</p>
+                    </div>
+                    <button class="event-rsvp">RSVP</button>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Dec</div>
+                        <div class="event-day">31</div>
+                    </div>
+                    <div class="event-details">
+                        <h4>New Year's Eve Family Celebration</h4>
+                        <p>7:00 PM - 11:00 PM • Main Clubhouse</p>
+                        <p style="margin-top: 0.5rem;">Family-friendly celebration with games, food, and countdown!</p>
+                    </div>
+                    <button class="event-rsvp">RSVP</button>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Jan</div>
+                        <div class="event-day">18</div>
+                    </div>
+                    <div class="event-details">
+                        <h4>Community Cleanup Day</h4>
+                        <p>8:00 AM - 12:00 PM • Various Locations</p>
+                        <p style="margin-top: 0.5rem;">Volunteer for neighborhood beautification. Tools and refreshments provided.</p>
+                    </div>
+                    <button class="event-rsvp">RSVP</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">🏃</span> Ongoing Activities</h3>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px; margin-bottom: 1rem;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Walking Club</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280;">Every Tuesday & Thursday, 7:00 AM<br>Meet at East Gate entrance</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px; margin-bottom: 1rem;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Tennis Round Robin</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280;">Saturdays, 9:00 AM - 11:00 AM<br>Tennis Courts (all skill levels welcome)</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px; margin-bottom: 1rem;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Book Club</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280;">First Monday of each month, 7:00 PM<br>Clubhouse Library</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Kids' Pool Party</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280;">Every Friday, 4:00 PM - 6:00 PM<br>Recreation Pool (seasonally adjusted)</p>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 600; font-size: 0.875rem;">View All Activities →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Compliance & Payment Status Table -->
+        <div class="section-header" style="margin-top: 3rem;">
+            <h2>Unit Compliance & Payment Status</h2>
+            <a href="#" class="btn">Export Report</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unit Number</th>
+                        <th>Owner Name</th>
+                        <th>Dec Assessment</th>
+                        <th>Special Assessment</th>
+                        <th>Compliance Status</th>
+                        <th>Last Payment</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 234A</td>
+                        <td>Martinez Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Current</span></td>
+                        <td>Dec 1, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 342A</td>
+                        <td>Johnson Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge grace">Grace Period</span></td>
+                        <td><span class="table-badge grace">Grace Period</span></td>
+                        <td>Dec 1, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 445D</td>
+                        <td>Thompson Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Current</span></td>
+                        <td>Nov 29, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 567B</td>
+                        <td>Johnson Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Current</span></td>
+                        <td>Dec 1, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 678C</td>
+                        <td>Anderson Family</td>
+                        <td><span class="table-badge late">Overdue</span></td>
+                        <td><span class="table-badge late">Overdue</span></td>
+                        <td><span class="table-badge late">Past Due</span></td>
+                        <td>Nov 1, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 789E</td>
+                        <td>Garcia Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Current</span></td>
+                        <td>Dec 2, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Unit 891C</td>
+                        <td>Chen Family</td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Paid</span></td>
+                        <td><span class="table-badge current">Current</span></td>
+                        <td>Dec 1, 2025</td>
+                        <td><a href="#" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">View →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Document Library -->
+        <div class="section-header">
+            <h2>Document Library</h2>
+            <a href="#" class="btn">View All Documents</a>
+        </div>
+
+        <div class="two-column">
+            <div class="card">
+                <h3><span class="card-icon">📄</span> Governing Documents</h3>
+
+                <div class="document-list">
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📋</div>
+                        <div class="document-info">
+                            <h4>CC&Rs (Covenants, Conditions & Restrictions)</h4>
+                            <p>Updated: March 2024</p>
+                        </div>
+                        <div class="document-size">2.4 MB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📘</div>
+                        <div class="document-info">
+                            <h4>HOA Bylaws</h4>
+                            <p>Updated: January 2024</p>
+                        </div>
+                        <div class="document-size">1.8 MB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📕</div>
+                        <div class="document-info">
+                            <h4>Architectural Guidelines</h4>
+                            <p>Updated: June 2025</p>
+                        </div>
+                        <div class="document-size">3.1 MB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📗</div>
+                        <div class="document-info">
+                            <h4>Community Rules & Regulations</h4>
+                            <p>Updated: September 2025</p>
+                        </div>
+                        <div class="document-size">1.2 MB</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">📊</span> Financial Documents</h3>
+
+                <div class="document-list">
+                    <a href="#" class="document-item">
+                        <div class="document-icon">💰</div>
+                        <div class="document-info">
+                            <h4>2025 Operating Budget</h4>
+                            <p>Fiscal Year 2025</p>
+                        </div>
+                        <div class="document-size">856 KB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📈</div>
+                        <div class="document-info">
+                            <h4>Reserve Fund Study</h4>
+                            <p>Updated: October 2025</p>
+                        </div>
+                        <div class="document-size">4.2 MB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">🧾</div>
+                        <div class="document-info">
+                            <h4>Q3 2025 Financial Statement</h4>
+                            <p>July - September 2025</p>
+                        </div>
+                        <div class="document-size">623 KB</div>
+                    </a>
+
+                    <a href="#" class="document-item">
+                        <div class="document-icon">📑</div>
+                        <div class="document-info">
+                            <h4>Annual Audit Report 2024</h4>
+                            <p>Completed: February 2025</p>
+                        </div>
+                        <div class="document-size">2.8 MB</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Directory Preview -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h3 style="margin: 0;"><span class="card-icon">👥</span> Community Directory</h3>
+                <a href="#" class="btn">Full Directory</a>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Board of Directors</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>President:</strong> Robert Wilson</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Vice President:</strong> Maria Rodriguez</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Treasurer:</strong> David Kim</p>
+                    <p style="font-size: 0.875rem; color: #6b7280;"><strong>Secretary:</strong> Sarah Mitchell</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Management Office</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Property Manager:</strong> Jennifer Brown</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">📞 (555) 123-4567</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">📧 manager@oakwoodestates.com</p>
+                    <p style="font-size: 0.875rem; color: #6b7280;">⏰ Mon-Fri: 9AM-5PM</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Emergency Contacts</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Security:</strong> (555) 999-0000</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Maintenance:</strong> (555) 888-1111</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>After Hours:</strong> (555) 777-2222</p>
+                    <p style="font-size: 0.875rem; color: #6b7280;"><strong>Fire/Police:</strong> 911</p>
+                </div>
+
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                    <h4 style="font-family: 'Raleway', sans-serif; color: #3d3d3d; margin-bottom: 0.5rem;">Committee Chairs</h4>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Landscape:</strong> Tom Anderson</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Recreation:</strong> Lisa Chen</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;"><strong>Architecture:</strong> Michael Torres</p>
+                    <p style="font-size: 0.875rem; color: #6b7280;"><strong>Social:</strong> Amanda Garcia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Oakwood Estates HOA</h3>
+                <p style="color: #d1d5db; margin-top: 0.5rem;">
+                    Building a strong, vibrant community where neighbors become friends and every homeowner feels valued.
+                </p>
+                <p style="color: #9ca3af; margin-top: 1rem; font-size: 0.875rem;">
+                    Established 1998<br>
+                    847 Residential Units<br>
+                    Serving 2,400+ Residents
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Pay Assessments</a></li>
+                    <li><a href="#">Book Amenities</a></li>
+                    <li><a href="#">Submit Maintenance Request</a></li>
+                    <li><a href="#">Architectural Review</a></li>
+                    <li><a href="#">Community Calendar</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Governing Documents</a></li>
+                    <li><a href="#">Financial Reports</a></li>
+                    <li><a href="#">Meeting Minutes</a></li>
+                    <li><a href="#">Community Guidelines</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Directory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.75rem;">
+                        <strong>Management Office</strong><br>
+                        1234 Oakwood Boulevard<br>
+                        Suite 100<br>
+                        Pleasant Valley, CA 94123
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        📞 (555) 123-4567
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        📧 info@oakwoodestates.com
+                    </li>
+                    <li>
+                        ⏰ Mon-Fri: 9:00 AM - 5:00 PM
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Oakwood Estates Homeowners Association. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Powered by Lobbi - Professional HOA Management Platform</p>
+        </div>
+    </footer>
+</body>
+</html>

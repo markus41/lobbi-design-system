@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 82: Nonprofit Alliance + Impact Network - Lobbi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================
+           ULTRATHINK DESIGN ANALYSIS
+           ================================
+
+           Style: 82 - Nonprofit Alliance + Impact Network
+           Blend Ratio: 80% Nonprofit Alliance / 20% Impact Network
+
+           DESIGN PHILOSOPHY:
+           This style combines the collaborative spirit of nonprofit alliances
+           with the collective impact framework of network organizations. The
+           design emphasizes shared resources, joint advocacy, and measurable
+           community outcomes while maintaining warmth and accessibility.
+
+           COLOR PSYCHOLOGY:
+           - Impact Purple (#7c3aed): Transformation, dignity, empowerment
+           - Hope Teal (#0d9488): Growth, renewal, community resilience
+           - Soft Lavender (#faf5ff): Compassion, calm, inclusive space
+           - Sunrise Orange (#f97316): Urgency, optimism, action-oriented
+
+           TYPOGRAPHY STRATEGY:
+           - Poppins (headings): Friendly authority, modern purpose
+           - Inter (body): Universal accessibility, clarity
+           - Bold metrics: Impact-first communication
+
+           TARGET USERS:
+           - Nonprofit coalition directors
+           - Community foundation program officers
+           - Collaborative initiative coordinators
+           - Grant-making alliance managers
+           - Advocacy network organizers
+
+           ENGAGEMENT PATTERNS:
+           Temperature: 7/10 - Warm, mission-driven, human-centered
+           Formality: 6/10 - Professional but purpose-led, collaborative tone
+
+           KEY DIFFERENTIATORS:
+           - Collective impact dashboard showing combined reach
+           - Shared resources library for capacity building
+           - Joint grant opportunities with collaborative applications
+           - Advocacy campaign tracking with coalition coordination
+           - Member organization spotlight and impact stories
+           - Capacity building program management
+
+           EMOTIONAL RESONANCE:
+           Creates sense of belonging to something larger than individual
+           organizations. Emphasizes "together we achieve more" while
+           celebrating individual member contributions. Balances urgency
+           of social issues with sustainable, collaborative solutions.
+
+        ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --impact-purple: #7c3aed;
+            --hope-teal: #0d9488;
+            --sunrise-orange: #f97316;
+            --soft-lavender: #faf5ff;
+            --white: #ffffff;
+            --deep-purple-gray: #3f3f46;
+            --light-purple: #ede9fe;
+            --border-color: #e9d5ff;
+            --success-green: #059669;
+            --warning-amber: #f59e0b;
+
+            /* Typography */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(124, 58, 237, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(124, 58, 237, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(124, 58, 237, 0.15);
+            --shadow-impact: 0 20px 25px -5px rgba(124, 58, 237, 0.2);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--soft-lavender) 0%, var(--white) 100%);
+            color: var(--deep-purple-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--impact-purple) 0%, #6d28d9 100%);
+            color: var(--white);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            border-radius: 20px;
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-impact);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .alliance-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Impact Stats Grid */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--impact-purple) 0%, var(--hope-teal) 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--impact-purple);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--deep-purple-gray);
+            margin-bottom: var(--spacing-xs);
+            line-height: 1;
+        }
+
+        .stat-change {
+            font-size: 0.9rem;
+            color: var(--success-green);
+            font-weight: 600;
+        }
+
+        .stat-change.neutral {
+            color: var(--warning-amber);
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--light-purple);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--impact-purple);
+        }
+
+        .card-action {
+            background: var(--sunrise-orange);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .card-action:hover {
+            background: #ea580c;
+            transform: scale(1.05);
+        }
+
+        /* Alert Boxes */
+        .alert {
+            background: linear-gradient(135deg, var(--hope-teal) 0%, #0f766e 100%);
+            color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: start;
+            gap: var(--spacing-md);
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .alert-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .alert-content p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .alert-meta {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Program Cards */
+        .program-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, var(--soft-lavender) 0%, var(--white) 100%);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .program-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .program-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--impact-purple);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .program-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: var(--success-green);
+        }
+
+        .status-upcoming {
+            background: #fef3c7;
+            color: var(--warning-amber);
+        }
+
+        .program-description {
+            font-size: 0.95rem;
+            color: var(--deep-purple-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .program-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--impact-purple);
+        }
+
+        .program-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-weight: 600;
+        }
+
+        /* Member Organization Table */
+        .member-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .member-table thead {
+            background: var(--light-purple);
+        }
+
+        .member-table th {
+            padding: var(--spacing-md);
+            text-align: left;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--impact-purple);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .member-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .member-table tbody tr:hover {
+            background: var(--soft-lavender);
+        }
+
+        .org-name {
+            font-weight: 600;
+            color: var(--impact-purple);
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .impact-high {
+            background: #d1fae5;
+            color: var(--success-green);
+        }
+
+        .impact-medium {
+            background: #fef3c7;
+            color: var(--warning-amber);
+        }
+
+        .impact-growing {
+            background: #ddd6fe;
+            color: var(--impact-purple);
+        }
+
+        /* Campaign Tracker */
+        .campaign-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .campaign-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .campaign-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-purple-gray);
+        }
+
+        .campaign-progress {
+            width: 100%;
+            height: 8px;
+            background: var(--light-purple);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .campaign-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--impact-purple) 0%, var(--hope-teal) 100%);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .campaign-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--deep-purple-gray);
+        }
+
+        .campaign-meta strong {
+            color: var(--impact-purple);
+            font-weight: 700;
+        }
+
+        /* Impact Story */
+        .impact-story {
+            background: linear-gradient(135deg, var(--impact-purple) 0%, #6d28d9 100%);
+            color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-story::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 150px;
+            font-family: Georgia, serif;
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .impact-story-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .impact-story h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .impact-story p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.95;
+        }
+
+        .story-attribution {
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Resource Library */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .resource-item {
+            background: var(--soft-lavender);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-item:hover {
+            background: var(--white);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .resource-name {
+            font-weight: 600;
+            color: var(--impact-purple);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .resource-count {
+            font-size: 0.85rem;
+            color: var(--deep-purple-gray);
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .dashboard-footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            color: var(--deep-purple-gray);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .member-table {
+                font-size: 0.85rem;
+            }
+
+            .member-table th,
+            .member-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>82</strong> of 90 &mdash; Nonprofit Alliance</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-81-teachers-union.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-83-sports-league.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 81) window.location.href = 'style-81-teachers-union.html';
+                if (e.key === 'ArrowRight' && 83) window.location.href = 'style-83-sports-league.html';
+            });
+        })();
+    </script>
+
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Nonprofit Alliance Dashboard</h1>
+                <p class="header-subtitle">Together We Create Lasting Impact Across Communities</p>
+                <span class="alliance-badge">456 Member Organizations | Unified for Change</span>
+            </div>
+        </header>
+
+        <!-- Impact Statistics -->
+        <section class="impact-stats">
+            <div class="stat-card">
+                <div class="stat-label">Member Organizations</div>
+                <div class="stat-value">456</div>
+                <div class="stat-change">↑ 12% from last year</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Combined Reach</div>
+                <div class="stat-value">2.4M</div>
+                <div class="stat-change">People served annually</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Shared Grants</div>
+                <div class="stat-value">$12.8M</div>
+                <div class="stat-change">↑ $2.1M this quarter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Joint Programs</div>
+                <div class="stat-value">34</div>
+                <div class="stat-change neutral">6 launching soon</div>
+            </div>
+        </section>
+
+        <!-- Impact Story Highlight -->
+        <section class="impact-story">
+            <div class="impact-story-content">
+                <h3>Impact Story: Community Food Security Initiative</h3>
+                <p>Through our alliance, 23 member organizations collaborated to establish 12 community food hubs, serving over 45,000 families in food deserts. By pooling resources and sharing logistics infrastructure, we reduced operational costs by 34% while tripling our reach. This is the power of collective action.</p>
+                <div class="story-attribution">— Sarah Martinez, Alliance Impact Director</div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Left Column: Programs & Campaigns -->
+            <div>
+                <!-- Grant Opportunities -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Grant Opportunities</h2>
+                        <button class="card-action">View All Grants</button>
+                    </div>
+
+                    <div class="alert">
+                        <div class="alert-icon">💰</div>
+                        <div class="alert-content">
+                            <h3>NEW: Community Health Equity Fund</h3>
+                            <p>$2.5M available for collaborative health initiatives. Priority for multi-organization partnerships addressing social determinants of health.</p>
+                            <div class="alert-meta">Application Deadline: March 15, 2024 | Min 3 partner orgs required</div>
+                        </div>
+                    </div>
+
+                    <div class="alert">
+                        <div class="alert-icon">🎓</div>
+                        <div class="alert-content">
+                            <h3>Youth Education Alliance Grant</h3>
+                            <p>$850K for after-school programs serving underserved communities. Collaborative applications encouraged with shared evaluation framework.</p>
+                            <div class="alert-meta">Rolling applications | Next review: February 1, 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capacity Building Programs -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Capacity Building Programs</h2>
+                        <button class="card-action">Enroll Now</button>
+                    </div>
+
+                    <div class="program-list">
+                        <div class="program-card">
+                            <div class="program-header">
+                                <div>
+                                    <div class="program-title">Data Analytics for Impact</div>
+                                </div>
+                                <span class="program-status status-active">Active</span>
+                            </div>
+                            <p class="program-description">8-week cohort learning how to measure, analyze, and communicate program outcomes using shared evaluation tools.</p>
+                            <div class="program-meta">
+                                <span>📅 Starts Feb 12</span>
+                                <span>👥 28 enrolled</span>
+                                <span>🎯 15 spots left</span>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-header">
+                                <div>
+                                    <div class="program-title">Fundraising Excellence Workshop</div>
+                                </div>
+                                <span class="program-status status-active">Active</span>
+                            </div>
+                            <p class="program-description">Collaborative fundraising strategies, donor stewardship best practices, and grant writing bootcamp.</p>
+                            <div class="program-meta">
+                                <span>📅 Monthly sessions</span>
+                                <span>👥 67 participants</span>
+                                <span>💡 12 peer mentors</span>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-header">
+                                <div>
+                                    <div class="program-title">Leadership Development Cohort</div>
+                                </div>
+                                <span class="program-status status-upcoming">Upcoming</span>
+                            </div>
+                            <p class="program-description">Year-long program developing next generation of nonprofit leaders with focus on equity and systems change.</p>
+                            <div class="program-meta">
+                                <span>📅 Starts April 1</span>
+                                <span>👥 Applications open</span>
+                                <span>🏆 Full scholarships</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advocacy Campaigns -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Active Advocacy Campaigns</h2>
+                        <button class="card-action">Join Campaign</button>
+                    </div>
+
+                    <div class="campaign-card">
+                        <div class="campaign-header">
+                            <div class="campaign-title">Affordable Housing Coalition</div>
+                            <span class="impact-badge impact-high">High Priority</span>
+                        </div>
+                        <div class="campaign-progress">
+                            <div class="campaign-progress-bar" style="width: 78%;"></div>
+                        </div>
+                        <div class="campaign-meta">
+                            <span><strong>78%</strong> to signature goal</span>
+                            <span><strong>142 orgs</strong> participating</span>
+                            <span><strong>18,450</strong> signatures</span>
+                        </div>
+                    </div>
+
+                    <div class="campaign-card">
+                        <div class="campaign-header">
+                            <div class="campaign-title">Mental Health Access Initiative</div>
+                            <span class="impact-badge impact-medium">Building Momentum</span>
+                        </div>
+                        <div class="campaign-progress">
+                            <div class="campaign-progress-bar" style="width: 56%;"></div>
+                        </div>
+                        <div class="campaign-meta">
+                            <span><strong>56%</strong> to advocacy target</span>
+                            <span><strong>89 orgs</strong> participating</span>
+                            <span><strong>12 legislators</strong> engaged</span>
+                        </div>
+                    </div>
+
+                    <div class="campaign-card">
+                        <div class="campaign-header">
+                            <div class="campaign-title">Climate Justice Action Network</div>
+                            <span class="impact-badge impact-growing">Growing</span>
+                        </div>
+                        <div class="campaign-progress">
+                            <div class="campaign-progress-bar" style="width: 34%;"></div>
+                        </div>
+                        <div class="campaign-meta">
+                            <span><strong>34%</strong> to mobilization goal</span>
+                            <span><strong>67 orgs</strong> participating</span>
+                            <span><strong>Launch:</strong> March 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Resources & Directory -->
+            <div>
+                <!-- Annual Summit -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Annual Summit 2024</h2>
+                        <button class="card-action">Register</button>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem;">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Together We Rise</h3>
+                        <p style="margin-bottom: 1rem; opacity: 0.95;">Three days of learning, networking, and collaborative strategy building</p>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">
+                            <div style="margin-bottom: 0.25rem;">📅 June 14-16, 2024</div>
+                            <div style="margin-bottom: 0.25rem;">📍 Downtown Convention Center</div>
+                            <div>👥 Expected: 800+ attendees</div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--soft-lavender); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                        <strong style="color: var(--impact-purple);">Keynote Speaker:</strong> Dr. Angela Davis, Social Justice Leader
+                    </div>
+
+                    <div style="background: var(--soft-lavender); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: var(--impact-purple);">Early Bird Discount:</strong> Register by Feb 28 - Save 30%
+                    </div>
+                </div>
+
+                <!-- Shared Resources Library -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Resource Library</h2>
+                        <button class="card-action">Browse All</button>
+                    </div>
+
+                    <div class="resource-grid">
+                        <div class="resource-item">
+                            <div class="resource-icon">📊</div>
+                            <div class="resource-name">Impact Reports</div>
+                            <div class="resource-count">127 templates</div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">📝</div>
+                            <div class="resource-name">Grant Proposals</div>
+                            <div class="resource-count">89 examples</div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">🎯</div>
+                            <div class="resource-name">Strategic Plans</div>
+                            <div class="resource-count">45 frameworks</div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">👥</div>
+                            <div class="resource-name">HR Resources</div>
+                            <div class="resource-count">156 tools</div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">💻</div>
+                            <div class="resource-name">Tech Guides</div>
+                            <div class="resource-count">78 tutorials</div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">📚</div>
+                            <div class="resource-name">Best Practices</div>
+                            <div class="resource-count">203 guides</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Actions</h2>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <button style="background: var(--impact-purple); color: white; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#6d28d9'" onmouseout="this.style.background='var(--impact-purple)'">
+                            🤝 Connect with Members
+                        </button>
+                        <button style="background: var(--hope-teal); color: white; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#0f766e'" onmouseout="this.style.background='var(--hope-teal)'">
+                            📢 Share Your Impact Story
+                        </button>
+                        <button style="background: var(--sunrise-orange); color: white; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#ea580c'" onmouseout="this.style.background='var(--sunrise-orange)'">
+                            🎓 Request Technical Assistance
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Organization Impact Table -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Member Organization Impact Highlights</h2>
+                <button class="card-action">View Directory</button>
+            </div>
+
+            <table class="member-table">
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Focus Area</th>
+                        <th>People Served</th>
+                        <th>Programs</th>
+                        <th>Impact Tier</th>
+                        <th>Collaboration Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="org-name">Community Health Partners</td>
+                        <td>Healthcare Access</td>
+                        <td>12,450</td>
+                        <td>8</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>9.2/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Youth Education Alliance</td>
+                        <td>Education Equity</td>
+                        <td>8,920</td>
+                        <td>12</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>8.8/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Housing Justice Collective</td>
+                        <td>Affordable Housing</td>
+                        <td>6,730</td>
+                        <td>5</td>
+                        <td><span class="impact-badge impact-medium">Medium Impact</span></td>
+                        <td>9.5/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Green Future Initiative</td>
+                        <td>Environmental Justice</td>
+                        <td>15,600</td>
+                        <td>7</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>8.4/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Economic Opportunity Network</td>
+                        <td>Job Training</td>
+                        <td>4,280</td>
+                        <td>6</td>
+                        <td><span class="impact-badge impact-medium">Medium Impact</span></td>
+                        <td>7.9/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Cultural Heritage Foundation</td>
+                        <td>Arts & Culture</td>
+                        <td>9,340</td>
+                        <td>11</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>8.6/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Food Security Coalition</td>
+                        <td>Hunger Relief</td>
+                        <td>18,920</td>
+                        <td>9</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>9.7/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Mental Wellness Alliance</td>
+                        <td>Mental Health</td>
+                        <td>5,670</td>
+                        <td>4</td>
+                        <td><span class="impact-badge impact-growing">Growing</span></td>
+                        <td>8.2/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Senior Care Network</td>
+                        <td>Elder Services</td>
+                        <td>7,450</td>
+                        <td>8</td>
+                        <td><span class="impact-badge impact-medium">Medium Impact</span></td>
+                        <td>9.1/10</td>
+                    </tr>
+                    <tr>
+                        <td class="org-name">Immigrant Support Services</td>
+                        <td>Immigration Advocacy</td>
+                        <td>11,230</td>
+                        <td>10</td>
+                        <td><span class="impact-badge impact-high">High Impact</span></td>
+                        <td>9.3/10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p><strong>Nonprofit Alliance Network</strong> | Together We Create Lasting Change</p>
+            <p style="margin-top: 0.5rem;">456 Member Organizations · 2.4M Lives Impacted · $12.8M in Shared Resources</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Powered by Lobbi | Collaborative Impact Platform</p>
+        </footer>
+    </div>
+</body>
+</html>

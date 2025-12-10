@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 5: Swiss + Aurora</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Swiss/International Style (80%) + Aurora UI (20%)                ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Swiss(9) + Aurora(6) = 8.4 - Professional                  ║
+    ║  • Era: Both Contemporary = Perfect match                                 ║
+    ║  • Texture: Flat(Swiss) + Gradient(Aurora) = Dynamic contrast            ║
+    ║  • Temperature: Neutral + Cool = 4.5 - Crisp modern                      ║
+    ║  • Ornamentation: Minimal both = Strong alignment                        ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Swiss rationality provides the structural foundation - mathematical     ║
+    ║  grids, Helvetica-inspired typography, objective hierarchy. Aurora       ║
+    ║  adds visual energy through flowing gradients and atmospheric depth,     ║
+    ║  preventing the Swiss base from feeling cold or sterile.                 ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Swiss grid system, clean typography, precise spacing         ║
+    ║  • Secondary: Aurora gradients, flowing color, atmospheric glow          ║
+    ║                                                                           ║
+    ║  USE CASES: Enterprise SaaS, Data dashboards, Professional services,    ║
+    ║             B2B platforms, Analytics tools, Corporate applications       ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Swiss Neutral Foundation */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+
+            /* Aurora Color System */
+            --aurora-1: #10b981;  /* Emerald */
+            --aurora-2: #06b6d4;  /* Cyan */
+            --aurora-3: #8b5cf6;  /* Violet */
+            --aurora-4: #ec4899;  /* Pink */
+            --aurora-gradient: linear-gradient(135deg, var(--aurora-1) 0%, var(--aurora-2) 35%, var(--aurora-3) 70%, var(--aurora-4) 100%);
+
+            /* Swiss Grid - 8px base */
+            --grid: 8px;
+            --space-1: calc(var(--grid) * 1);
+            --space-2: calc(var(--grid) * 2);
+            --space-3: calc(var(--grid) * 3);
+            --space-4: calc(var(--grid) * 4);
+            --space-5: calc(var(--grid) * 5);
+            --space-6: calc(var(--grid) * 6);
+            --space-8: calc(var(--grid) * 8);
+            --space-10: calc(var(--grid) * 10);
+            --space-12: calc(var(--grid) * 12);
+
+            /* Typography Scale - Modular */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        /* === AURORA GRADIENT HEADER === */
+        .header {
+            background: var(--gray-900);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: var(--aurora-gradient);
+            opacity: 0.15;
+            filter: blur(80px);
+            animation: aurora-shift 15s ease infinite;
+        }
+
+        @keyframes aurora-shift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(5%, 5%) rotate(180deg); }
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: var(--space-4) var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--aurora-gradient);
+            border-radius: 50%;
+            margin-left: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-1);
+        }
+
+        .nav a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            padding: var(--space-1) var(--space-2);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* === MAIN CONTENT === */
+        .main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: var(--space-8);
+        }
+
+        /* Swiss Grid Page Header */
+        .page-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+            align-items: end;
+        }
+
+        .page-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .page-subtitle {
+            color: var(--gray-500);
+            font-size: var(--text-lg);
+            margin-top: var(--space-2);
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-2);
+        }
+
+        /* === STATS GRID - Swiss precision === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: var(--space-5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--aurora-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+
+        .stat-label {
+            color: var(--gray-500);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-2);
+        }
+
+        .stat-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: var(--space-1);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        .stat-change.positive { color: var(--aurora-1); }
+        .stat-change.negative { color: #ef4444; }
+
+        /* === CARD GRID === */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: var(--space-4) var(--space-5);
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--gray-900);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .card-body {
+            padding: var(--space-5);
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-1) var(--space-3);
+            border-radius: 6px;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-aurora {
+            background: var(--aurora-gradient);
+            color: var(--white);
+            position: relative;
+        }
+
+        .btn-aurora::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--aurora-gradient);
+            filter: blur(8px);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-aurora:hover::before {
+            opacity: 0.5;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--gray-600);
+            border: 1px solid var(--gray-200);
+        }
+
+        .btn-ghost:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-300);
+        }
+
+        /* === TABLE === */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: var(--space-3) var(--space-4);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        td {
+            padding: var(--space-3) var(--space-4);
+            font-size: var(--text-sm);
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--gray-50);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-size: var(--text-xs);
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--aurora-1);
+        }
+
+        .status-pending {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--aurora-3);
+        }
+
+        /* === QUICK ACTIONS === */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .action-item:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-200);
+        }
+
+        .action-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .action-icon.emerald { background: rgba(16, 185, 129, 0.1); color: var(--aurora-1); }
+        .action-icon.cyan { background: rgba(6, 182, 212, 0.1); color: var(--aurora-2); }
+        .action-icon.violet { background: rgba(139, 92, 246, 0.1); color: var(--aurora-3); }
+        .action-icon.pink { background: rgba(236, 72, 153, 0.1); color: var(--aurora-4); }
+
+        .action-text {
+            flex: 1;
+        }
+
+        .action-title {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .action-desc {
+            font-size: var(--text-xs);
+            color: var(--gray-500);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: var(--space-8);
+            padding: var(--space-6);
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--gray-500);
+            font-size: var(--text-sm);
+        }
+
+        .footer-meta {
+            margin-top: var(--space-1);
+            font-size: var(--text-xs);
+            color: var(--gray-400);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .content-grid { grid-template-columns: 1fr; }
+            .page-header { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .nav { display: none; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>5</strong> of 70 &mdash; Swiss + Aurora</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-4-japandi-glass.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-6-deco-cyberpunk.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 4) window.location.href = 'style-4-japandi-glass.html';
+                if (e.key === 'ArrowRight' && 6) window.location.href = 'style-6-deco-cyberpunk.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Lobbi<span class="logo-dot"></span></div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+                <a href="#">Communications</a>
+                <a href="#">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back. Here's what's happening with your association.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-ghost">Export</button>
+                <button class="btn btn-aurora">+ New Event</button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Members</div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-change positive">+12.5% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Monthly Revenue</div>
+                <div class="stat-value">$124K</div>
+                <div class="stat-change positive">+8.2% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Events</div>
+                <div class="stat-value">18</div>
+                <div class="stat-change negative">-2 from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Retention Rate</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-change positive">+2.1% from last month</div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Activity</h3>
+                    <button class="btn btn-ghost">View All</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Action</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sarah Mitchell</td>
+                                    <td>Renewed membership (Premium)</td>
+                                    <td>Dec 9, 2025</td>
+                                    <td><span class="status-badge status-active">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>James Chen</td>
+                                    <td>Registered for Annual Conference</td>
+                                    <td>Dec 9, 2025</td>
+                                    <td><span class="status-badge status-active">Confirmed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Emily Rodriguez</td>
+                                    <td>Submitted certification application</td>
+                                    <td>Dec 8, 2025</td>
+                                    <td><span class="status-badge status-pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Michael Thompson</td>
+                                    <td>Updated profile information</td>
+                                    <td>Dec 8, 2025</td>
+                                    <td><span class="status-badge status-active">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Quick Actions</h3>
+                </div>
+                <div class="card-body">
+                    <div class="quick-actions">
+                        <div class="action-item">
+                            <div class="action-icon emerald">+</div>
+                            <div class="action-text">
+                                <div class="action-title">Add New Member</div>
+                                <div class="action-desc">Manually add a member</div>
+                            </div>
+                        </div>
+                        <div class="action-item">
+                            <div class="action-icon cyan">&#9993;</div>
+                            <div class="action-text">
+                                <div class="action-title">Send Newsletter</div>
+                                <div class="action-desc">Create mass communication</div>
+                            </div>
+                        </div>
+                        <div class="action-item">
+                            <div class="action-icon violet">&#9733;</div>
+                            <div class="action-text">
+                                <div class="action-title">Create Event</div>
+                                <div class="action-desc">Schedule new event</div>
+                            </div>
+                        </div>
+                        <div class="action-item">
+                            <div class="action-icon pink">&#8681;</div>
+                            <div class="action-text">
+                                <div class="action-title">Export Data</div>
+                                <div class="action-desc">Download reports</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 5: Swiss + Aurora</p>
+        <p class="footer-meta">Mathematical grids meet flowing gradients | Rational structure, dynamic energy</p>
+    </footer>
+</body>
+</html>

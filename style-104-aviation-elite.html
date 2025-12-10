@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Elite Network - Private Jet Charter & Fleet Management</title>
+    <style>
+        /* ============================================
+           STYLE 104: AVIATION ELITE NETWORK
+           Blend: Private Aviation (60%) + Aerospace Engineering (25%) + VIP Concierge (15%)
+           Temperature: 4 (Cool) | Formality: 9 (Very Formal)
+           Color Palette: Midnight Blue, Silver, Subtle Gold
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Palette - Midnight Blue & Silver */
+            --midnight-blue: #0a1128;
+            --midnight-blue-light: #1a2542;
+            --midnight-blue-medium: #2a3858;
+            --aviation-blue: #001f54;
+            --aviation-blue-light: #003876;
+
+            /* Silver Spectrum */
+            --silver-dark: #6b7280;
+            --silver: #9ca3af;
+            --silver-light: #d1d5db;
+            --silver-bright: #e5e7eb;
+            --silver-shine: #f3f4f6;
+
+            /* Gold Accents */
+            --gold-subtle: #d4af37;
+            --gold-muted: #b8963c;
+            --gold-dark: #9c7e32;
+
+            /* Functional Colors */
+            --white: #ffffff;
+            --off-white: #fafbfc;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --info: #0284c7;
+
+            /* Typography */
+            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-display: 'Georgia', 'Times New Roman', serif;
+            --font-mono: 'Monaco', 'Courier New', monospace;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(10, 17, 40, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(10, 17, 40, 0.1), 0 2px 4px -1px rgba(10, 17, 40, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(10, 17, 40, 0.1), 0 4px 6px -2px rgba(10, 17, 40, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(10, 17, 40, 0.1), 0 10px 10px -5px rgba(10, 17, 40, 0.04);
+            --shadow-gold: 0 4px 12px rgba(212, 175, 55, 0.15);
+
+            /* Borders */
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.375rem;
+            --border-radius-lg: 0.5rem;
+            --border-radius-xl: 0.75rem;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, var(--aviation-blue) 100%);
+            color: var(--silver-bright);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+
+        .header {
+            background: rgba(10, 17, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: var(--space-lg) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-subtle), var(--gold-muted));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-gold);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--silver-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--border-radius-md);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--gold-subtle);
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-muted), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .user-tier {
+            font-size: 0.75rem;
+            color: var(--gold-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        .page-header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--silver);
+            font-weight: 400;
+        }
+
+        /* ============================================
+           DASHBOARD STATS
+           ============================================ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-xl);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-subtle), var(--gold-muted));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--gold-subtle);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .stat-trend.positive {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .stat-trend.neutral {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-subtle);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-mono);
+        }
+
+        .stat-detail {
+            font-size: 0.8125rem;
+            color: var(--silver-light);
+        }
+
+        /* ============================================
+           FLIGHT BOOKING DASHBOARD
+           ============================================ */
+
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .section-title-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-subtle), var(--gold-muted));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--border-radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-subtle), var(--gold-muted));
+            color: var(--midnight-blue);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-subtle);
+        }
+
+        .booking-card {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-label {
+            font-size: 0.8125rem;
+            color: var(--silver-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .form-input,
+        .form-select {
+            padding: var(--space-md);
+            background: rgba(10, 17, 40, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-md);
+            color: var(--white);
+            font-size: 0.9375rem;
+            font-family: var(--font-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--gold-subtle);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--silver-dark);
+        }
+
+        .form-select option {
+            background: var(--midnight-blue);
+            color: var(--white);
+        }
+
+        /* ============================================
+           FLEET MANAGEMENT
+           ============================================ */
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .aircraft-card {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .aircraft-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--gold-subtle);
+        }
+
+        .aircraft-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--aviation-blue), var(--aviation-blue-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .aircraft-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent);
+        }
+
+        .aircraft-status-badge {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .aircraft-status-badge.available {
+            background: rgba(5, 150, 105, 0.9);
+            color: var(--white);
+        }
+
+        .aircraft-status-badge.in-flight {
+            background: rgba(2, 132, 199, 0.9);
+            color: var(--white);
+        }
+
+        .aircraft-status-badge.maintenance {
+            background: rgba(217, 119, 6, 0.9);
+            color: var(--white);
+        }
+
+        .aircraft-content {
+            padding: var(--space-xl);
+        }
+
+        .aircraft-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .aircraft-model {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-xs);
+        }
+
+        .aircraft-registration {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--gold-subtle);
+            letter-spacing: 1px;
+        }
+
+        .aircraft-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-value {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .aircraft-actions {
+            display: flex;
+            gap: var(--space-sm);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* ============================================
+           MEMBER PRIVILEGES
+           ============================================ */
+
+        .privileges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .privilege-card {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privilege-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .privilege-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--gold-subtle), var(--gold-muted));
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .privilege-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+        }
+
+        .privilege-description {
+            font-size: 0.9375rem;
+            color: var(--silver-light);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .privilege-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .privilege-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--silver-light);
+        }
+
+        .privilege-features li::before {
+            content: '✓';
+            color: var(--gold-subtle);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           SAFETY COMPLIANCE TRACKING
+           ============================================ */
+
+        .compliance-dashboard {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: var(--space-xl);
+        }
+
+        .compliance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .compliance-score {
+            text-align: center;
+        }
+
+        .compliance-score-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-subtle);
+            font-family: var(--font-mono);
+        }
+
+        .compliance-score-label {
+            font-size: 0.875rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compliance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--silver-light);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--white);
+            font-family: var(--font-mono);
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(10, 17, 40, 0.5);
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+
+        .metric-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-subtle), var(--gold-muted));
+            border-radius: var(--border-radius-sm);
+            transition: width 0.6s ease;
+        }
+
+        .metric-bar-fill.success {
+            background: linear-gradient(90deg, var(--success), #10b981);
+        }
+
+        .metric-bar-fill.warning {
+            background: linear-gradient(90deg, var(--warning), #f59e0b);
+        }
+
+        .compliance-items {
+            margin-top: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .compliance-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md);
+            background: rgba(10, 17, 40, 0.3);
+            border-radius: var(--border-radius-md);
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .compliance-item:hover {
+            background: rgba(10, 17, 40, 0.5);
+        }
+
+        .compliance-item.compliant {
+            border-left-color: var(--success);
+        }
+
+        .compliance-item.due-soon {
+            border-left-color: var(--warning);
+        }
+
+        .compliance-item.overdue {
+            border-left-color: var(--error);
+        }
+
+        .compliance-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .compliance-item-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .compliance-item-date {
+            font-size: 0.8125rem;
+            color: var(--silver);
+            font-family: var(--font-mono);
+        }
+
+        .compliance-item-status {
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compliance-item-status.compliant {
+            background: rgba(5, 150, 105, 0.15);
+            color: var(--success);
+        }
+
+        .compliance-item-status.due-soon {
+            background: rgba(217, 119, 6, 0.15);
+            color: var(--warning);
+        }
+
+        .compliance-item-status.overdue {
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--error);
+        }
+
+        /* ============================================
+           RECENT FLIGHTS TABLE
+           ============================================ */
+
+        .table-container {
+            background: rgba(26, 37, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: rgba(10, 17, 40, 0.5);
+        }
+
+        .data-table th {
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--silver-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .data-table td {
+            padding: var(--space-md) var(--space-lg);
+            font-size: 0.9375rem;
+            color: var(--silver-bright);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .data-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .flight-route {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        .flight-arrow {
+            color: var(--gold-subtle);
+        }
+
+        .flight-status {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .flight-status.completed {
+            background: rgba(5, 150, 105, 0.15);
+            color: var(--success);
+        }
+
+        .flight-status.active {
+            background: rgba(2, 132, 199, 0.15);
+            color: var(--info);
+        }
+
+        .flight-status.scheduled {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-subtle);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background: rgba(10, 17, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: var(--space-2xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gold-subtle);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--silver-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8125rem;
+            color: var(--silver);
+        }
+
+        .footer-certifications {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .certification-badge {
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gold-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 var(--space-lg);
+            }
+
+            .main-container {
+                padding: var(--space-xl) var(--space-lg);
+            }
+
+            .nav {
+                gap: var(--space-md);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid,
+            .fleet-grid,
+            .privileges-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .footer-certifications {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mt-xl {
+            margin-top: var(--space-xl);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-sm {
+            gap: var(--space-sm);
+        }
+
+        .gap-md {
+            gap: var(--space-md);
+        }
+
+        .gap-lg {
+            gap: var(--space-lg);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>104</strong> of 120 &mdash; Aviation Elite</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-103-artisan-collective.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-105-music-conservatory.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 103) window.location.href = 'style-103-artisan-collective.html';
+                if (e.key === 'ArrowRight' && 105) window.location.href = 'style-105-music-conservatory.html';
+            });
+        })();
+    </script>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">✈</div>
+                <div class="logo-text">
+                    <div class="logo-title">Aviation Elite Network</div>
+                    <div class="logo-subtitle">Private Jet Charter</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Fleet</a>
+                <a href="#" class="nav-link">Book Flight</a>
+                <a href="#" class="nav-link">Safety</a>
+                <a href="#" class="nav-link">Privileges</a>
+            </nav>
+            <div class="user-menu">
+                <div class="user-avatar">JD</div>
+                <div class="user-info">
+                    <div class="user-name">John Doe</div>
+                    <div class="user-tier">Platinum Member</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- PAGE HEADER -->
+        <div class="page-header animate-fade-in">
+            <h1 class="page-title">Flight Operations Center</h1>
+            <p class="page-subtitle">Manage your private aviation experience with precision and luxury</p>
+        </div>
+
+        <!-- DASHBOARD STATS -->
+        <div class="stats-grid">
+            <div class="stat-card animate-fade-in" style="animation-delay: 0.1s">
+                <div class="stat-header">
+                    <div class="stat-icon">🛫</div>
+                    <div class="stat-trend positive">
+                        <span>↑</span>
+                        <span>12%</span>
+                    </div>
+                </div>
+                <div class="stat-label">Total Flight Hours</div>
+                <div class="stat-value">1,847</div>
+                <div class="stat-detail">+186 hours this quarter</div>
+            </div>
+
+            <div class="stat-card animate-fade-in" style="animation-delay: 0.2s">
+                <div class="stat-header">
+                    <div class="stat-icon">✈️</div>
+                    <div class="stat-trend neutral">
+                        <span>—</span>
+                        <span>3</span>
+                    </div>
+                </div>
+                <div class="stat-label">Active Aircraft</div>
+                <div class="stat-value">12</div>
+                <div class="stat-detail">3 in flight, 9 available</div>
+            </div>
+
+            <div class="stat-card animate-fade-in" style="animation-delay: 0.3s">
+                <div class="stat-header">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-trend positive">
+                        <span>✓</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+                <div class="stat-label">Safety Compliance</div>
+                <div class="stat-value">98.7%</div>
+                <div class="stat-detail">All certifications current</div>
+            </div>
+
+            <div class="stat-card animate-fade-in" style="animation-delay: 0.4s">
+                <div class="stat-header">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-trend positive">
+                        <span>↑</span>
+                        <span>8%</span>
+                    </div>
+                </div>
+                <div class="stat-label">Elite Members</div>
+                <div class="stat-value">847</div>
+                <div class="stat-detail">+63 new members this month</div>
+            </div>
+        </div>
+
+        <!-- FLIGHT BOOKING DASHBOARD -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title-icon">📋</span>
+                    Book Your Flight
+                </h2>
+                <button class="btn btn-primary">
+                    <span>Quick Book</span>
+                    <span>→</span>
+                </button>
+            </div>
+
+            <div class="booking-card">
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label class="form-label">Departure Airport</label>
+                        <select class="form-select">
+                            <option>TEB - Teterboro, NJ</option>
+                            <option>VNY - Van Nuys, CA</option>
+                            <option>LGA - LaGuardia, NY</option>
+                            <option>DCA - Reagan National, DC</option>
+                            <option>HPN - Westchester County, NY</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Arrival Airport</label>
+                        <select class="form-select">
+                            <option>MIA - Miami International, FL</option>
+                            <option>LAX - Los Angeles, CA</option>
+                            <option>SFO - San Francisco, CA</option>
+                            <option>ORD - O'Hare, IL</option>
+                            <option>ATL - Hartsfield-Jackson, GA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Departure Date</label>
+                        <input type="date" class="form-input" value="2025-12-15">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Departure Time</label>
+                        <input type="time" class="form-input" value="14:30">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Aircraft Type</label>
+                        <select class="form-select">
+                            <option>Light Jet (6-8 passengers)</option>
+                            <option>Midsize Jet (8-9 passengers)</option>
+                            <option>Super Midsize (9-12 passengers)</option>
+                            <option>Heavy Jet (12-16 passengers)</option>
+                            <option>Ultra Long Range (14-19 passengers)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Passengers</label>
+                        <input type="number" class="form-input" placeholder="Number of passengers" value="4" min="1" max="19">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Special Requests</label>
+                        <input type="text" class="form-input" placeholder="Catering, ground transport, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Return Flight</label>
+                        <select class="form-select">
+                            <option>One-Way</option>
+                            <option>Round Trip</option>
+                            <option>Multi-Leg</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="mt-xl flex gap-md">
+                    <button class="btn btn-primary">Search Available Aircraft</button>
+                    <button class="btn btn-secondary">Save as Template</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLEET MANAGEMENT -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title-icon">✈️</span>
+                    Fleet Overview
+                </h2>
+                <button class="btn btn-secondary">View All Aircraft</button>
+            </div>
+
+            <div class="fleet-grid">
+                <div class="aircraft-card">
+                    <div class="aircraft-image">
+                        <span>🛩️</span>
+                        <div class="aircraft-status-badge available">Available</div>
+                    </div>
+                    <div class="aircraft-content">
+                        <div class="aircraft-header">
+                            <h3 class="aircraft-model">Gulfstream G650ER</h3>
+                            <div class="aircraft-registration">N650AE</div>
+                        </div>
+                        <div class="aircraft-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Range</div>
+                                <div class="spec-value">7,500 nm</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Passengers</div>
+                                <div class="spec-value">14-19</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Speed</div>
+                                <div class="spec-value">Mach 0.925</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Location</div>
+                                <div class="spec-value">TEB</div>
+                            </div>
+                        </div>
+                        <div class="aircraft-actions">
+                            <button class="btn btn-primary" style="flex: 1">Book Now</button>
+                            <button class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aircraft-card">
+                    <div class="aircraft-image">
+                        <span>✈️</span>
+                        <div class="aircraft-status-badge in-flight">In Flight</div>
+                    </div>
+                    <div class="aircraft-content">
+                        <div class="aircraft-header">
+                            <h3 class="aircraft-model">Bombardier Global 7500</h3>
+                            <div class="aircraft-registration">N7500G</div>
+                        </div>
+                        <div class="aircraft-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Range</div>
+                                <div class="spec-value">7,700 nm</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Passengers</div>
+                                <div class="spec-value">10-19</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Speed</div>
+                                <div class="spec-value">Mach 0.925</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">ETA</div>
+                                <div class="spec-value">2h 45m</div>
+                            </div>
+                        </div>
+                        <div class="aircraft-actions">
+                            <button class="btn btn-secondary" style="flex: 1">Track Flight</button>
+                            <button class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aircraft-card">
+                    <div class="aircraft-image">
+                        <span>🛫</span>
+                        <div class="aircraft-status-badge available">Available</div>
+                    </div>
+                    <div class="aircraft-content">
+                        <div class="aircraft-header">
+                            <h3 class="aircraft-model">Dassault Falcon 8X</h3>
+                            <div class="aircraft-registration">N88XF</div>
+                        </div>
+                        <div class="aircraft-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Range</div>
+                                <div class="spec-value">6,450 nm</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Passengers</div>
+                                <div class="spec-value">12-14</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Speed</div>
+                                <div class="spec-value">Mach 0.90</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Location</div>
+                                <div class="spec-value">VNY</div>
+                            </div>
+                        </div>
+                        <div class="aircraft-actions">
+                            <button class="btn btn-primary" style="flex: 1">Book Now</button>
+                            <button class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aircraft-card">
+                    <div class="aircraft-image">
+                        <span>🛩️</span>
+                        <div class="aircraft-status-badge maintenance">Maintenance</div>
+                    </div>
+                    <div class="aircraft-content">
+                        <div class="aircraft-header">
+                            <h3 class="aircraft-model">Cessna Citation X+</h3>
+                            <div class="aircraft-registration">N750CX</div>
+                        </div>
+                        <div class="aircraft-specs">
+                            <div class="spec-item">
+                                <div class="spec-label">Range</div>
+                                <div class="spec-value">3,460 nm</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Passengers</div>
+                                <div class="spec-value">8-12</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Speed</div>
+                                <div class="spec-value">Mach 0.935</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Available</div>
+                                <div class="spec-value">Dec 12</div>
+                            </div>
+                        </div>
+                        <div class="aircraft-actions">
+                            <button class="btn btn-secondary" style="flex: 1">Schedule Inspection</button>
+                            <button class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBER PRIVILEGES -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title-icon">👑</span>
+                    Platinum Member Privileges
+                </h2>
+                <button class="btn btn-secondary">Upgrade Membership</button>
+            </div>
+
+            <div class="privileges-grid">
+                <div class="privilege-card">
+                    <div class="privilege-icon">🌟</div>
+                    <h3 class="privilege-title">Priority Access</h3>
+                    <p class="privilege-description">
+                        Guaranteed aircraft availability with 4-hour notice and priority scheduling for all routes.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>4-hour guaranteed booking</li>
+                        <li>Fleet-wide priority access</li>
+                        <li>Peak time availability</li>
+                        <li>Last-minute accommodations</li>
+                    </ul>
+                </div>
+
+                <div class="privilege-card">
+                    <div class="privilege-icon">🍾</div>
+                    <h3 class="privilege-title">Concierge Services</h3>
+                    <p class="privilege-description">
+                        24/7 white-glove service for all your travel needs, from catering to ground transportation.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>Dedicated concierge team</li>
+                        <li>Custom catering menus</li>
+                        <li>Luxury ground transport</li>
+                        <li>Hotel & dining reservations</li>
+                    </ul>
+                </div>
+
+                <div class="privilege-card">
+                    <div class="privilege-icon">💎</div>
+                    <h3 class="privilege-title">Exclusive Perks</h3>
+                    <p class="privilege-description">
+                        Access to invitation-only events, partner benefits, and special member-only amenities.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>VIP lounge access worldwide</li>
+                        <li>Partner hotel & resort benefits</li>
+                        <li>Exclusive event invitations</li>
+                        <li>Preferred pricing on all flights</li>
+                    </ul>
+                </div>
+
+                <div class="privilege-card">
+                    <div class="privilege-icon">🔒</div>
+                    <h3 class="privilege-title">Safety First</h3>
+                    <p class="privilege-description">
+                        Industry-leading safety protocols with real-time compliance tracking and certified crew.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>IS-BAO Stage 3 certified</li>
+                        <li>ARG/US Platinum rated</li>
+                        <li>Real-time safety monitoring</li>
+                        <li>Experienced crew selection</li>
+                    </ul>
+                </div>
+
+                <div class="privilege-card">
+                    <div class="privilege-icon">📱</div>
+                    <h3 class="privilege-title">Digital Command</h3>
+                    <p class="privilege-description">
+                        Manage your entire aviation experience from our mobile app with real-time flight tracking.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>Mobile booking & management</li>
+                        <li>Live flight tracking</li>
+                        <li>Digital flight logs</li>
+                        <li>Instant itinerary updates</li>
+                    </ul>
+                </div>
+
+                <div class="privilege-card">
+                    <div class="privilege-icon">💰</div>
+                    <h3 class="privilege-title">Flexible Programs</h3>
+                    <p class="privilege-description">
+                        Choose from jet cards, fractional ownership, or pay-per-flight options tailored to your needs.
+                    </p>
+                    <ul class="privilege-features">
+                        <li>Jet card programs</li>
+                        <li>Fractional ownership</li>
+                        <li>No peak day surcharges</li>
+                        <li>Rollover hours</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAFETY COMPLIANCE TRACKING -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title-icon">🛡️</span>
+                    Safety Compliance Dashboard
+                </h2>
+                <button class="btn btn-secondary">Full Report</button>
+            </div>
+
+            <div class="compliance-dashboard">
+                <div class="compliance-header">
+                    <div class="compliance-score">
+                        <div class="compliance-score-value">98.7%</div>
+                        <div class="compliance-score-label">Overall Compliance</div>
+                    </div>
+                    <div class="flex gap-lg">
+                        <div class="compliance-score">
+                            <div class="compliance-score-value" style="font-size: 2rem; color: var(--success)">100%</div>
+                            <div class="compliance-score-label">Aircraft Certified</div>
+                        </div>
+                        <div class="compliance-score">
+                            <div class="compliance-score-value" style="font-size: 2rem; color: var(--success)">100%</div>
+                            <div class="compliance-score-label">Crew Current</div>
+                        </div>
+                        <div class="compliance-score">
+                            <div class="compliance-score-value" style="font-size: 2rem; color: var(--warning)">96.8%</div>
+                            <div class="compliance-score-label">Maintenance On-Time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compliance-metrics">
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Airworthiness Certificates</span>
+                            <span class="metric-value">12/12</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill success" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Pilot Currency</span>
+                            <span class="metric-value">24/24</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill success" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Insurance Coverage</span>
+                            <span class="metric-value">100%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill success" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Safety Audits</span>
+                            <span class="metric-value">11/12</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill warning" style="width: 91.7%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Maintenance Compliance</span>
+                            <span class="metric-value">97.2%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill success" style="width: 97.2%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Regulatory Filings</span>
+                            <span class="metric-value">100%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill success" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compliance-items">
+                    <div class="compliance-item compliant">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">FAA Part 135 Operating Certificate</div>
+                            <div class="compliance-item-date">Valid until: March 15, 2026</div>
+                        </div>
+                        <div class="compliance-item-status compliant">Current</div>
+                    </div>
+
+                    <div class="compliance-item compliant">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">IS-BAO Stage 3 Certification</div>
+                            <div class="compliance-item-date">Next audit: June 8, 2026</div>
+                        </div>
+                        <div class="compliance-item-status compliant">Current</div>
+                    </div>
+
+                    <div class="compliance-item due-soon">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">N650AE - Annual Inspection</div>
+                            <div class="compliance-item-date">Due: December 18, 2025</div>
+                        </div>
+                        <div class="compliance-item-status due-soon">Due Soon</div>
+                    </div>
+
+                    <div class="compliance-item compliant">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">Argus Platinum Safety Rating</div>
+                            <div class="compliance-item-date">Valid until: January 30, 2026</div>
+                        </div>
+                        <div class="compliance-item-status compliant">Current</div>
+                    </div>
+
+                    <div class="compliance-item compliant">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">Wyvern Wingman Certification</div>
+                            <div class="compliance-item-date">Valid until: February 22, 2026</div>
+                        </div>
+                        <div class="compliance-item-status compliant">Current</div>
+                    </div>
+
+                    <div class="compliance-item due-soon">
+                        <div class="compliance-item-info">
+                            <div class="compliance-item-title">Flight Crew Medical Certifications (3 pilots)</div>
+                            <div class="compliance-item-date">Next renewals: December 15, 2025</div>
+                        </div>
+                        <div class="compliance-item-status due-soon">Due Soon</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECENT FLIGHTS TABLE -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title-icon">📊</span>
+                    Recent Flight Activity
+                </h2>
+                <button class="btn btn-secondary">View All Flights</button>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Flight ID</th>
+                            <th>Route</th>
+                            <th>Aircraft</th>
+                            <th>Date & Time</th>
+                            <th>Duration</th>
+                            <th>Passengers</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AEN-2847</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>TEB</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>MIA</span>
+                                </div>
+                            </td>
+                            <td>G650ER (N650AE)</td>
+                            <td>Dec 8, 2025 14:30</td>
+                            <td>2h 45m</td>
+                            <td>8</td>
+                            <td><span class="flight-status completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>AEN-2848</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>LAX</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>HNL</span>
+                                </div>
+                            </td>
+                            <td>Global 7500 (N7500G)</td>
+                            <td>Dec 9, 2025 08:15</td>
+                            <td>5h 30m</td>
+                            <td>12</td>
+                            <td><span class="flight-status active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>AEN-2849</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>DCA</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>BOS</span>
+                                </div>
+                            </td>
+                            <td>Falcon 8X (N88XF)</td>
+                            <td>Dec 9, 2025 16:00</td>
+                            <td>1h 15m</td>
+                            <td>6</td>
+                            <td><span class="flight-status scheduled">Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td>AEN-2850</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>SFO</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>LAS</span>
+                                </div>
+                            </td>
+                            <td>G650ER (N650AE)</td>
+                            <td>Dec 10, 2025 11:30</td>
+                            <td>1h 30m</td>
+                            <td>10</td>
+                            <td><span class="flight-status scheduled">Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td>AEN-2851</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>ORD</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>ATL</span>
+                                </div>
+                            </td>
+                            <td>Global 7500 (N7500G)</td>
+                            <td>Dec 10, 2025 14:45</td>
+                            <td>2h 00m</td>
+                            <td>14</td>
+                            <td><span class="flight-status scheduled">Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td>AEN-2846</td>
+                            <td>
+                                <div class="flight-route">
+                                    <span>MIA</span>
+                                    <span class="flight-arrow">→</span>
+                                    <span>CAR</span>
+                                </div>
+                            </td>
+                            <td>Falcon 8X (N88XF)</td>
+                            <td>Dec 7, 2025 10:00</td>
+                            <td>3h 15m</td>
+                            <td>9</td>
+                            <td><span class="flight-status completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 class="footer-title">Aviation Elite Network</h4>
+                    <p style="color: var(--silver-light); font-size: 0.875rem; line-height: 1.6;">
+                        The pinnacle of private aviation excellence. Delivering unparalleled luxury, safety, and service since 2005.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="#" class="footer-link">Charter Flights</a>
+                    <a href="#" class="footer-link">Jet Card Programs</a>
+                    <a href="#" class="footer-link">Aircraft Management</a>
+                    <a href="#" class="footer-link">Fractional Ownership</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="#" class="footer-link">Safety Information</a>
+                    <a href="#" class="footer-link">Fleet Specifications</a>
+                    <a href="#" class="footer-link">Membership Tiers</a>
+                    <a href="#" class="footer-link">Travel Guides</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact</h4>
+                    <a href="#" class="footer-link">24/7 Concierge: +1 (800) 555-JETS</a>
+                    <a href="#" class="footer-link">Email: elite@aviationnetwork.com</a>
+                    <a href="#" class="footer-link">Operations Center</a>
+                    <a href="#" class="footer-link">Member Portal</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>&copy; 2025 Aviation Elite Network. All rights reserved.</p>
+                </div>
+                <div class="footer-certifications">
+                    <span class="certification-badge">IS-BAO Stage 3</span>
+                    <span class="certification-badge">ARG/US Platinum</span>
+                    <span class="certification-badge">Wyvern Wingman</span>
+                    <span class="certification-badge">FAA Part 135</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate metric bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const metricBars = document.querySelectorAll('.metric-bar-fill');
+            metricBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

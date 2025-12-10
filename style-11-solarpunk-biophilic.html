@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 11: Solarpunk + Biophilic</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Solarpunk (70%) + Biophilic Design (30%)                         ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Both accessible/hopeful = 5-6 (balanced)                   ║
+    ║  • Era: Future-forward + Timeless nature = Harmonious                    ║
+    ║  • Texture: Organic technology + Natural materials = Perfect             ║
+    ║  • Temperature: Warm greens + Golden sunlight = 7 (warm)                 ║
+    ║  • Ornamentation: Both celebrate organic form = Strong alignment         ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  An optimistic vision of sustainable technology where nature and         ║
+    ║  innovation coexist harmoniously. Living walls meet solar panels,        ║
+    ║  organic curves wrap around clean energy aesthetics. This blend          ║
+    ║  represents hope - technology serving the planet, not exploiting it.     ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Lush greens, golden sunlight, organic curves, growth         ║
+    ║  • Secondary: Tech elements, solar gold, sustainable materials           ║
+    ║                                                                           ║
+    ║  USE CASES: Sustainability platforms, Green energy, Wellness tech,       ║
+    ║             Environmental orgs, Conscious consumer brands, ESG tools     ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Solarpunk Nature Palette */
+            --leaf-100: #f0fdf4;
+            --leaf-200: #dcfce7;
+            --leaf-300: #86efac;
+            --leaf-400: #4ade80;
+            --leaf-500: #22c55e;
+            --leaf-600: #16a34a;
+            --leaf-700: #15803d;
+            --leaf-800: #166534;
+
+            /* Solar Gold */
+            --solar-300: #fcd34d;
+            --solar-400: #fbbf24;
+            --solar-500: #f59e0b;
+
+            /* Sky & Earth */
+            --sky-100: #f0f9ff;
+            --sky-400: #38bdf8;
+            --earth-700: #44403c;
+            --earth-800: #292524;
+
+            /* Organic Cream */
+            --cream-50: #fefdfb;
+            --cream-100: #fdf8f0;
+            --cream-200: #f5ebe0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, var(--cream-50) 0%, var(--leaf-100) 50%, var(--cream-100) 100%);
+            color: var(--earth-700);
+            min-height: 100vh;
+        }
+
+        /* Organic pattern background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(134, 239, 172, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: rgba(254, 253, 251, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--leaf-200);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--leaf-700);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--leaf-400), var(--solar-400));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .nav a {
+            color: var(--earth-700);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.625rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: var(--leaf-100);
+            color: var(--leaf-700);
+        }
+
+        /* === MAIN === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--leaf-800);
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            color: var(--earth-700);
+            font-size: 1.0625rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid var(--leaf-200);
+            border-radius: 20px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--leaf-400), var(--solar-400));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(22, 163, 74, 0.12);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.green { background: var(--leaf-100); color: var(--leaf-600); }
+        .stat-icon.gold { background: rgba(251, 191, 36, 0.15); color: var(--solar-500); }
+        .stat-icon.sky { background: var(--sky-100); color: var(--sky-400); }
+        .stat-icon.earth { background: var(--cream-200); color: var(--earth-700); }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--leaf-800);
+        }
+
+        .stat-label {
+            color: var(--earth-700);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            opacity: 0.7;
+        }
+
+        /* === CARDS === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--leaf-200);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: var(--leaf-400);
+            box-shadow: 0 12px 40px rgba(22, 163, 74, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--leaf-800);
+        }
+
+        .card-badge {
+            background: linear-gradient(135deg, var(--leaf-400), var(--leaf-500));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            color: var(--earth-700);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 0.625rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--leaf-500), var(--leaf-600));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--leaf-100);
+            color: var(--leaf-700);
+        }
+
+        .btn-secondary:hover {
+            background: var(--leaf-200);
+        }
+
+        /* === TABLE === */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--leaf-800);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--leaf-400), var(--solar-400));
+            border-radius: 2px;
+        }
+
+        .table-container {
+            background: white;
+            border: 1px solid var(--leaf-200);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--leaf-50);
+            color: var(--leaf-700);
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--leaf-100);
+            color: var(--earth-700);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--leaf-50);
+        }
+
+        .status-active {
+            color: var(--leaf-600);
+            font-weight: 500;
+        }
+
+        .status-pending {
+            color: var(--solar-500);
+            font-weight: 500;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-top: 1px solid var(--leaf-200);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--leaf-700);
+            font-weight: 600;
+        }
+
+        .footer-meta {
+            margin-top: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--earth-700);
+            opacity: 0.7;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .nav { display: none; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>11</strong> of 70 &mdash; Solarpunk + Biophilic</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-10-vaporwave-y2k.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-12-brutalist-concrete.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 10) window.location.href = 'style-10-vaporwave-y2k.html';
+                if (e.key === 'ArrowRight' && 12) window.location.href = 'style-12-brutalist-concrete.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">&#9728;</span>
+                Lobbi
+            </div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+                <a href="#">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Good morning</h1>
+                <p class="page-subtitle">Here's your association overview for today.</p>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon green">&#9679;</div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon gold">&#9679;</div>
+                <div class="stat-value">$124K</div>
+                <div class="stat-label">Monthly Revenue</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon sky">&#9679;</div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Active Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon earth">&#9679;</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Retention Rate</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Annual Conference 2025</h3>
+                    <span class="card-badge">Featured</span>
+                </div>
+                <p class="card-content">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities for industry professionals.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Membership Renewal</h3>
+                    <span class="card-badge">Action</span>
+                </div>
+                <p class="card-content">247 members have renewals coming up this month. Send automated reminders to maintain your retention rate.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Send Reminders</button>
+                    <button class="btn btn-secondary">View List</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Q4 Financial Report</h3>
+                    <span class="card-badge">New</span>
+                </div>
+                <p class="card-content">Your quarterly financial summary is ready for review. Revenue increased 12% compared to last quarter.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-secondary">Share</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Premium)</td>
+                        <td>Dec 9, 2025</td>
+                        <td class="status-active">Completed</td>
+                    </tr>
+                    <tr>
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>Dec 9, 2025</td>
+                        <td class="status-active">Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>Dec 8, 2025</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>Dec 8, 2025</td>
+                        <td class="status-active">Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 11: Solarpunk + Biophilic</p>
+        <p class="footer-meta">Optimistic sustainable futures | Nature-integrated technology, hopeful green</p>
+    </footer>
+</body>
+</html>

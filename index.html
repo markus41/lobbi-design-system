@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobbi Design System - 120 Style Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a24;
+            --bg-card: #16161f;
+            --border: #2a2a3a;
+            --border-hover: #3b82f6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --premium: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* === HEADER === */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        .header-inner {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* === SEARCH === */
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        /* === CONTROLS BAR === */
+        .controls-bar {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 73px;
+            z-index: 99;
+        }
+
+        .controls-inner {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+        }
+
+        .filter-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .filter-count {
+            background: rgba(255,255,255,0.2);
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.6875rem;
+        }
+
+        .view-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .view-btn {
+            padding: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .view-btn:hover, .view-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            color: var(--text-primary);
+            font-size: 0.8125rem;
+            cursor: pointer;
+        }
+
+        /* === MAIN GRID === */
+        .main {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-count {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .results-count strong {
+            color: var(--text-primary);
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .style-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        /* === STYLE CARDS === */
+        .style-card {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .style-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .list-view .style-card {
+            flex-direction: row;
+        }
+
+        .card-preview {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .list-view .card-preview {
+            width: 280px;
+            height: 160px;
+            flex-shrink: 0;
+        }
+
+        .preview-iframe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1400px;
+            height: 900px;
+            transform: scale(0.2);
+            transform-origin: top left;
+            pointer-events: none;
+        }
+
+        .list-view .preview-iframe-container {
+            width: 1400px;
+            height: 800px;
+            transform: scale(0.2);
+        }
+
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        .preview-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .preview-loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .card-preview-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .style-card:hover .card-preview-overlay {
+            opacity: 1;
+        }
+
+        .preview-btn {
+            padding: 0.625rem 1.5rem;
+            background: white;
+            color: #0a0a0f;
+            border: none;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .preview-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .card-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-number {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-temp {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+        }
+
+        .temp-bar {
+            width: 40px;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .temp-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .temp-cool { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .temp-neutral { background: linear-gradient(90deg, #6b7280, #9ca3af); }
+        .temp-warm { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.375rem;
+        }
+
+        .card-blend {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.375rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tag {
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 0.25rem;
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .tag.premium { background: rgba(212, 175, 55, 0.15); color: var(--premium); }
+        .tag.professional { background: rgba(59, 130, 246, 0.15); color: var(--accent-light); }
+        .tag.creative { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+        .tag.tech { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+        .tag.media { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+        .tag.association { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+
+        /* === CATEGORY SECTIONS === */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .category-count {
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* === FALLBACK PREVIEW GRADIENTS (shown while iframe loads) === */
+        .preview-finance { background: linear-gradient(135deg, #1a2744 0%, #2d3a52 100%); }
+        .preview-medical { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); }
+        .preview-consulting { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); }
+        .preview-luxury { background: linear-gradient(135deg, #1c1c1c 0%, #b76e79 100%); }
+        .preview-hospitality { background: linear-gradient(135deg, #fdfbf7 0%, #b8a898 100%); }
+        .preview-tech { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+        .preview-media { background: linear-gradient(135deg, #0a0a0a 0%, #c9a227 100%); }
+        .preview-corporate { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .preview-academic { background: linear-gradient(135deg, #a51c30 0%, #1e3a5f 100%); }
+        .preview-heritage { background: linear-gradient(135deg, #722f37 0%, #c9a227 100%); }
+        .preview-creative { background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); }
+        .preview-nature { background: linear-gradient(135deg, #22c55e 0%, #84cc16 100%); }
+        .preview-dark { background: linear-gradient(135deg, #0f0f0f 0%, #27272a 100%); }
+        .preview-light { background: linear-gradient(135deg, #faf9f6 0%, #e5e7eb 100%); }
+
+        /* Preview frame border for polish */
+        .card-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255,255,255,0.05);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-bar { display: none; }
+            .header-inner { flex-wrap: wrap; }
+            .search-container { order: 3; max-width: 100%; flex-basis: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .controls-inner { flex-direction: column; align-items: stretch; }
+            .filter-tabs { justify-content: center; }
+            .view-controls { justify-content: center; }
+            .style-grid { grid-template-columns: 1fr; }
+            .list-view .style-card { flex-direction: column; }
+            .list-view .card-preview { width: 100%; }
+        }
+
+        /* === LOADING STATE === */
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* === NO RESULTS === */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo-section">
+                <span class="logo">Lobbi Design System</span>
+                <span class="logo-badge">120 Styles</span>
+            </div>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search styles, categories, colors...">
+                </div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value">120</div>
+                    <div class="stat-label">Styles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">13</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2-3</div>
+                    <div class="stat-label">Style Blend</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="controls-bar">
+        <div class="controls-inner">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All <span class="filter-count">120</span></button>
+                <button class="filter-tab" data-filter="association">Association <span class="filter-count">28</span></button>
+                <button class="filter-tab" data-filter="premium">Premium <span class="filter-count">26</span></button>
+                <button class="filter-tab" data-filter="professional">Professional <span class="filter-count">32</span></button>
+                <button class="filter-tab" data-filter="tech">Technology <span class="filter-count">22</span></button>
+                <button class="filter-tab" data-filter="creative">Creative <span class="filter-count">14</span></button>
+                <button class="filter-tab" data-filter="hospitality">Hospitality <span class="filter-count">14</span></button>
+                <button class="filter-tab" data-filter="academic">Academic <span class="filter-count">10</span></button>
+                <button class="filter-tab" data-filter="media">Media <span class="filter-count">11</span></button>
+            </div>
+
+            <div class="view-controls">
+                <select class="sort-select" id="sortSelect">
+                    <option value="number">Sort by Number</option>
+                    <option value="name">Sort by Name</option>
+                    <option value="formality">Sort by Formality</option>
+                    <option value="temperature">Sort by Temperature</option>
+                </select>
+                <button class="view-btn active" id="gridView" title="Grid View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                    </svg>
+                </button>
+                <button class="view-btn" id="listView" title="List View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="results-header">
+            <span class="results-count">Showing <strong id="resultCount">120</strong> styles</span>
+        </div>
+
+        <div class="style-grid" id="styleGrid">
+            <!-- Styles will be dynamically generated -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <h3>No styles found</h3>
+            <p>Try adjusting your search or filters</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-logo">Lobbi Design System</p>
+        <p class="footer-text">120 Ultrathink-powered style blends | 2-3 style methodology | Association management excellence</p>
+    </footer>
+
+    <script>
+        // Style data - comprehensive catalog
+        const styles = [
+            // Original styles 1-20
+            { num: 1, name: "Byzantine Luxury", blend: "Byzantine 80% + Luxury Dark 20%", tags: ["premium", "heritage"], temp: 5, formality: 9, preview: "preview-heritage", file: "style-1-byzantine-luxury.html" },
+            { num: 2, name: "Streamline Moderne", blend: "Art Deco 80% + Streamline 20%", tags: ["creative"], temp: 5, formality: 7, preview: "preview-light", file: "style-2-streamline-moderne.html" },
+            { num: 3, name: "Quiet Luxury", blend: "Quiet Luxury 80% + Minimal 20%", tags: ["premium"], temp: 6, formality: 8, preview: "preview-light", file: "style-3-quiet-luxury.html" },
+            { num: 4, name: "Japandi + Glass", blend: "Japandi 80% + Glassmorphism 20%", tags: ["creative"], temp: 5, formality: 6, preview: "preview-light", file: "style-4-japandi-glass.html" },
+            { num: 5, name: "Swiss + Aurora", blend: "Swiss 80% + Aurora UI 20%", tags: ["professional"], temp: 3, formality: 8, preview: "preview-corporate", file: "style-5-swiss-aurora.html" },
+            { num: 6, name: "Art Deco Cyberpunk", blend: "Art Deco 60% + Cyberpunk 40%", tags: ["creative"], temp: 3, formality: 7, preview: "preview-dark", file: "style-6-deco-cyberpunk.html" },
+            { num: 7, name: "Neubrutalism Memphis", blend: "Neubrutalism 75% + Memphis 25%", tags: ["creative"], temp: 6, formality: 4, preview: "preview-creative", file: "style-7-neubrutalism-memphis.html" },
+            { num: 8, name: "Scandinavian Bento", blend: "Scandinavian 75% + Bento Grid 25%", tags: ["professional"], temp: 6, formality: 6, preview: "preview-light", file: "style-8-scandi-bento.html" },
+            { num: 9, name: "Dark Academia", blend: "Dark Academia 80% + Lobbi Brand 20%", tags: ["premium", "academic"], temp: 4, formality: 8, preview: "preview-dark", file: "style-9-dark-academia-lobbi.html" },
+            { num: 10, name: "Vaporwave Y2K", blend: "Vaporwave 70% + Y2K 30%", tags: ["creative"], temp: 5, formality: 3, preview: "preview-creative", file: "style-10-vaporwave-y2k.html" },
+            { num: 11, name: "Solarpunk Biophilic", blend: "Solarpunk 70% + Biophilic 30%", tags: ["tech"], temp: 7, formality: 5, preview: "preview-nature", file: "style-11-solarpunk-biophilic.html" },
+            { num: 12, name: "Brutalist Concrete", blend: "Web Brutalism 75% + Concrete 25%", tags: ["creative"], temp: 3, formality: 6, preview: "preview-light", file: "style-12-brutalist-concrete.html" },
+            { num: 13, name: "Corporate Refinement", blend: "Quiet Luxury 80% + Corporate 20%", tags: ["premium", "professional"], temp: 5, formality: 9, preview: "preview-light", file: "style-13-quiet-luxury.html" },
+            { num: 14, name: "Editorial Swiss", blend: "Editorial 65% + Swiss 35%", tags: ["professional", "media"], temp: 4, formality: 8, preview: "preview-light", file: "style-14-editorial-swiss.html" },
+            { num: 15, name: "Private Banking", blend: "Private Banking 70% + Classic Editorial 30%", tags: ["premium", "professional"], temp: 4, formality: 9, preview: "preview-finance", file: "style-15-private-banking.html" },
+            { num: 16, name: "Architect Portfolio", blend: "Architect's Portfolio 75% + Swiss Grid 25%", tags: ["professional"], temp: 2, formality: 8, preview: "preview-dark", file: "style-16-architect-portfolio.html" },
+            { num: 17, name: "Executive Suite", blend: "Executive Suite 65% + Material Design 3 35%", tags: ["professional"], temp: 5, formality: 8, preview: "preview-corporate", file: "style-17-executive-suite.html" },
+            { num: 18, name: "Law Firm Premium", blend: "Law Firm Traditional 70% + Modern Conservative 30%", tags: ["premium", "professional"], temp: 4, formality: 10, preview: "preview-heritage", file: "style-18-law-firm-premium.html" },
+            { num: 19, name: "Luxury Hotel", blend: "Luxury Hospitality 75% + Minimalist Japanese 25%", tags: ["premium", "hospitality"], temp: 6, formality: 8, preview: "preview-hospitality", file: "style-19-luxury-hotel.html" },
+            { num: 20, name: "Investment Fund", blend: "Investment Fund 70% + Data Visualization 30%", tags: ["professional", "tech"], temp: 3, formality: 8, preview: "preview-dark", file: "style-20-investment-fund.html" },
+            // New styles 21-70
+            { num: 21, name: "Wealth Management", blend: "Wealth Management 75% + Art Deco Elegance 25%", tags: ["premium", "professional"], temp: 5, formality: 9, preview: "preview-finance", file: "style-21-wealth-management.html" },
+            { num: 22, name: "Fintech Modern", blend: "Fintech Modern 70% + Gradient Mesh 30%", tags: ["tech", "professional"], temp: 4, formality: 7, preview: "preview-tech", file: "style-22-fintech-modern.html" },
+            { num: 23, name: "Trading Terminal", blend: "Trading Terminal 80% + Neon Accents 20%", tags: ["tech", "professional"], temp: 2, formality: 8, preview: "preview-dark", file: "style-23-trading-terminal.html" },
+            { num: 24, name: "Insurance Premium", blend: "Insurance Premium 75% + Corporate Trust 25%", tags: ["professional"], temp: 5, formality: 9, preview: "preview-corporate", file: "style-24-insurance-premium.html" },
+            { num: 25, name: "Crypto Luxury", blend: "Crypto Luxury 70% + Dark Premium 30%", tags: ["tech", "premium"], temp: 3, formality: 8, preview: "preview-dark", file: "style-25-crypto-luxury.html" },
+            { num: 26, name: "Real Estate Luxury", blend: "Real Estate Luxury 75% + Photography Focus 25%", tags: ["premium", "hospitality"], temp: 6, formality: 8, preview: "preview-luxury", file: "style-26-real-estate-luxury.html" },
+            { num: 27, name: "Consulting Elite", blend: "Consulting Elite 80% + Minimal Precision 20%", tags: ["professional"], temp: 3, formality: 9, preview: "preview-consulting", file: "style-27-consulting-elite.html" },
+            { num: 28, name: "Medical Premium", blend: "Medical Premium 75% + Clean Technology 25%", tags: ["professional", "tech"], temp: 4, formality: 8, preview: "preview-medical", file: "style-28-medical-premium.html" },
+            { num: 29, name: "Dental Luxury", blend: "Dental Luxury 75% + Spa Calm 25%", tags: ["hospitality"], temp: 6, formality: 7, preview: "preview-light", file: "style-29-dental-luxury.html" },
+            { num: 30, name: "Pharmaceutical", blend: "Pharmaceutical 80% + Scientific Precision 20%", tags: ["professional", "tech"], temp: 3, formality: 9, preview: "preview-medical", file: "style-30-pharmaceutical.html" },
+            { num: 31, name: "Engineering Firm", blend: "Engineering Firm 75% + Blueprint Technical 25%", tags: ["professional", "tech"], temp: 3, formality: 8, preview: "preview-corporate", file: "style-31-engineering-firm.html" },
+            { num: 32, name: "Accounting Premium", blend: "Accounting Premium 80% + Conservative Trust 20%", tags: ["professional"], temp: 4, formality: 9, preview: "preview-consulting", file: "style-32-accounting-premium.html" },
+            { num: 33, name: "Patent Law", blend: "Patent Law 75% + Technical Documentation 25%", tags: ["professional"], temp: 3, formality: 9, preview: "preview-consulting", file: "style-33-patent-law.html" },
+            { num: 34, name: "HR Enterprise", blend: "HR Enterprise 70% + People First 30%", tags: ["professional", "tech"], temp: 6, formality: 7, preview: "preview-tech", file: "style-34-hr-enterprise.html" },
+            { num: 35, name: "Yacht Club", blend: "Yacht Club 80% + Nautical Heritage 20%", tags: ["premium", "hospitality"], temp: 4, formality: 9, preview: "preview-finance", file: "style-35-yacht-club.html" },
+            { num: 36, name: "Golf Resort", blend: "Golf Resort 75% + Country Club 25%", tags: ["premium", "hospitality"], temp: 5, formality: 8, preview: "preview-nature", file: "style-36-golf-resort.html" },
+            { num: 37, name: "Spa Wellness", blend: "Spa Wellness 80% + Zen Minimalism 20%", tags: ["hospitality"], temp: 7, formality: 6, preview: "preview-nature", file: "style-37-spa-wellness.html" },
+            { num: 38, name: "Fine Dining", blend: "Fine Dining 80% + Michelin Star 20%", tags: ["premium", "hospitality"], temp: 6, formality: 9, preview: "preview-heritage", file: "style-38-fine-dining.html" },
+            { num: 39, name: "Private Aviation", blend: "Private Aviation 75% + Jet Set Luxury 25%", tags: ["premium"], temp: 4, formality: 9, preview: "preview-finance", file: "style-39-private-aviation.html" },
+            { num: 40, name: "Watch Luxury", blend: "Watch Luxury 80% + Swiss Precision 20%", tags: ["premium"], temp: 5, formality: 9, preview: "preview-luxury", file: "style-40-watch-luxury.html" },
+            { num: 41, name: "Jewelry Boutique", blend: "Jewelry Boutique 80% + Glamour 20%", tags: ["premium"], temp: 6, formality: 9, preview: "preview-luxury", file: "style-41-jewelry-boutique.html" },
+            { num: 42, name: "Art Gallery", blend: "Art Gallery 80% + Museum Curation 20%", tags: ["creative", "premium"], temp: 5, formality: 8, preview: "preview-light", file: "style-42-art-gallery.html" },
+            { num: 43, name: "AI Research", blend: "AI Research 75% + Scientific Publication 25%", tags: ["tech", "academic"], temp: 3, formality: 8, preview: "preview-tech", file: "style-43-ai-research.html" },
+            { num: 44, name: "Biotech Lab", blend: "Biotech Lab 75% + Modern Science 25%", tags: ["tech", "professional"], temp: 3, formality: 8, preview: "preview-nature", file: "style-44-biotech-lab.html" },
+            { num: 45, name: "Aerospace", blend: "Aerospace 80% + Mission Control 20%", tags: ["tech", "professional"], temp: 2, formality: 9, preview: "preview-dark", file: "style-45-aerospace.html" },
+            { num: 46, name: "Robotics", blend: "Robotics 75% + Industrial Clean 25%", tags: ["tech"], temp: 3, formality: 8, preview: "preview-dark", file: "style-46-robotics.html" },
+            { num: 47, name: "Quantum Computing", blend: "Quantum Computing 75% + Abstract Science 25%", tags: ["tech", "academic"], temp: 2, formality: 8, preview: "preview-tech", file: "style-47-quantum-computing.html" },
+            { num: 48, name: "Clean Energy", blend: "Clean Energy 75% + Sustainable Tech 25%", tags: ["tech"], temp: 6, formality: 7, preview: "preview-nature", file: "style-48-clean-energy.html" },
+            { num: 49, name: "Space Industry", blend: "Space Industry 80% + Cosmic Wonder 20%", tags: ["tech"], temp: 3, formality: 8, preview: "preview-dark", file: "style-49-space-industry.html" },
+            { num: 50, name: "Cybersecurity", blend: "Cybersecurity 80% + Dark Trust 20%", tags: ["tech", "professional"], temp: 2, formality: 9, preview: "preview-dark", file: "style-50-cybersecurity.html" },
+            { num: 51, name: "News Editorial", blend: "News Editorial 80% + Broadsheet Classic 20%", tags: ["media", "professional"], temp: 5, formality: 8, preview: "preview-light", file: "style-51-news-editorial.html" },
+            { num: 52, name: "Fashion Magazine", blend: "Fashion Magazine 80% + Vogue Elegance 20%", tags: ["media", "creative"], temp: 4, formality: 8, preview: "preview-dark", file: "style-52-fashion-magazine.html" },
+            { num: 53, name: "Literary Journal", blend: "Literary Journal 80% + Academic Publishing 20%", tags: ["media", "academic"], temp: 5, formality: 8, preview: "preview-light", file: "style-53-literary-journal.html" },
+            { num: 54, name: "Music Label", blend: "Music Label 75% + Premium Audio 25%", tags: ["media", "creative"], temp: 6, formality: 7, preview: "preview-dark", file: "style-54-music-label.html" },
+            { num: 55, name: "Film Studio", blend: "Film Studio 80% + Cinematic Drama 20%", tags: ["media", "creative"], temp: 6, formality: 7, preview: "preview-dark", file: "style-55-film-studio.html" },
+            { num: 56, name: "Photography Pro", blend: "Photography Professional 80% + Gallery Minimal 20%", tags: ["media", "creative"], temp: 5, formality: 7, preview: "preview-light", file: "style-56-photography-pro.html" },
+            { num: 57, name: "Podcast Premium", blend: "Podcast Premium 75% + Audio Wave Aesthetic 25%", tags: ["media", "tech"], temp: 6, formality: 6, preview: "preview-tech", file: "style-57-podcast-premium.html" },
+            { num: 58, name: "Streaming Platform", blend: "Streaming Platform 80% + Entertainment Premium 20%", tags: ["media", "tech"], temp: 4, formality: 5, preview: "preview-dark", file: "style-58-streaming-platform.html" },
+            { num: 59, name: "Board Room", blend: "Board Room 80% + Executive Power 20%", tags: ["premium", "professional"], temp: 5, formality: 10, preview: "preview-heritage", file: "style-59-board-room.html" },
+            { num: 60, name: "Fortune 500", blend: "Fortune 500 80% + Annual Report 20%", tags: ["professional"], temp: 4, formality: 9, preview: "preview-corporate", file: "style-60-fortune-500.html" },
+            { num: 61, name: "Startup Unicorn", blend: "Startup Unicorn 75% + VC Pitch Deck 25%", tags: ["tech", "professional"], temp: 6, formality: 7, preview: "preview-creative", file: "style-61-startup-unicorn.html" },
+            { num: 62, name: "Non-Profit Premium", blend: "Non-Profit Premium 80% + Impact Storytelling 20%", tags: ["professional"], temp: 7, formality: 8, preview: "preview-nature", file: "style-62-nonprofit-premium.html" },
+            { num: 63, name: "University Ivy", blend: "University 80% + Ivy League Prestige 20%", tags: ["academic", "premium"], temp: 5, formality: 9, preview: "preview-academic", file: "style-63-university-ivy.html" },
+            { num: 64, name: "Think Tank", blend: "Think Tank 80% + Policy Research 20%", tags: ["academic", "professional"], temp: 4, formality: 9, preview: "preview-consulting", file: "style-64-think-tank.html" },
+            { num: 65, name: "Foundation", blend: "Foundation 80% + Philanthropy Heritage 20%", tags: ["premium", "professional"], temp: 5, formality: 9, preview: "preview-heritage", file: "style-65-foundation.html" },
+            { num: 66, name: "Government Civic", blend: "Government 80% + Civic Trust 20%", tags: ["professional"], temp: 5, formality: 8, preview: "preview-corporate", file: "style-66-government-civic.html" },
+            { num: 67, name: "Auction House", blend: "Auction House 80% + Heritage Prestige 20%", tags: ["premium"], temp: 4, formality: 10, preview: "preview-finance", file: "style-67-auction-house.html" },
+            { num: 68, name: "Wine Estate", blend: "Wine Estate 80% + Vineyard Terroir 20%", tags: ["premium", "hospitality"], temp: 6, formality: 8, preview: "preview-heritage", file: "style-68-wine-estate.html" },
+            { num: 69, name: "Equestrian", blend: "Equestrian 80% + Racing Heritage 20%", tags: ["premium", "hospitality"], temp: 5, formality: 9, preview: "preview-heritage", file: "style-69-equestrian.html" },
+            { num: 70, name: "Luxury Auto", blend: "Luxury Auto 80% + Performance Engineering 20%", tags: ["premium", "tech"], temp: 4, formality: 9, preview: "preview-dark", file: "style-70-luxury-auto.html" },
+            // New Lobbi-focused Association styles 71-90
+            { num: 71, name: "Chamber of Commerce", blend: "Chamber of Commerce 80% + Civic Authority 20%", tags: ["association", "professional"], temp: 5, formality: 8, preview: "preview-corporate", file: "style-71-chamber-commerce.html" },
+            { num: 72, name: "Trade Association", blend: "Trade Association 80% + Industry Standards 20%", tags: ["association", "professional"], temp: 4, formality: 9, preview: "preview-consulting", file: "style-72-trade-association.html" },
+            { num: 73, name: "Professional Society", blend: "Professional Society 80% + Academic Excellence 20%", tags: ["association", "academic"], temp: 4, formality: 9, preview: "preview-heritage", file: "style-73-professional-society.html" },
+            { num: 74, name: "Alumni Association", blend: "Alumni Association 80% + Heritage Pride 20%", tags: ["association", "academic"], temp: 6, formality: 7, preview: "preview-academic", file: "style-74-alumni-association.html" },
+            { num: 75, name: "Bar Association", blend: "Bar Association 80% + Legal Authority 20%", tags: ["association", "professional"], temp: 3, formality: 10, preview: "preview-heritage", file: "style-75-bar-association.html" },
+            { num: 76, name: "Medical Association", blend: "Medical Association 80% + Healthcare Authority 20%", tags: ["association", "professional"], temp: 4, formality: 9, preview: "preview-medical", file: "style-76-medical-association.html" },
+            { num: 77, name: "Realtors Association", blend: "Realtors Association 80% + Property Excellence 20%", tags: ["association", "professional"], temp: 6, formality: 7, preview: "preview-corporate", file: "style-77-realtors-association.html" },
+            { num: 78, name: "Rotary Service Club", blend: "Rotary/Service Club 80% + Community Impact 20%", tags: ["association"], temp: 7, formality: 6, preview: "preview-corporate", file: "style-78-rotary-service.html" },
+            { num: 79, name: "Credit Union League", blend: "Credit Union 80% + Member-Owned Trust 20%", tags: ["association", "professional"], temp: 6, formality: 7, preview: "preview-corporate", file: "style-79-credit-union.html" },
+            { num: 80, name: "HOA Management", blend: "Homeowners Association 80% + Community Management 20%", tags: ["association"], temp: 6, formality: 6, preview: "preview-nature", file: "style-80-hoa.html" },
+            { num: 81, name: "Teachers Union", blend: "Teachers Union 80% + Education Advocacy 20%", tags: ["association", "professional"], temp: 6, formality: 7, preview: "preview-academic", file: "style-81-teachers-union.html" },
+            { num: 82, name: "Nonprofit Alliance", blend: "Nonprofit Alliance 80% + Impact Network 20%", tags: ["association", "professional"], temp: 7, formality: 6, preview: "preview-creative", file: "style-82-nonprofit-alliance.html" },
+            { num: 83, name: "Sports League", blend: "Sports League 80% + Athletic Excellence 20%", tags: ["association"], temp: 7, formality: 6, preview: "preview-corporate", file: "style-83-sports-league.html" },
+            { num: 84, name: "Veterans Organization", blend: "Veterans Organization 80% + Service Honor 20%", tags: ["association", "premium"], temp: 5, formality: 8, preview: "preview-heritage", file: "style-84-veterans-org.html" },
+            { num: 85, name: "Religious Denomination", blend: "Denominational HQ 80% + Faith Community 20%", tags: ["association"], temp: 6, formality: 7, preview: "preview-heritage", file: "style-85-religious-denomination.html" },
+            { num: 86, name: "Fraternal Organization", blend: "Fraternal Order 80% + Brotherhood Heritage 20%", tags: ["association", "premium"], temp: 5, formality: 8, preview: "preview-heritage", file: "style-86-fraternal-org.html" },
+            { num: 87, name: "Industry Council", blend: "Industry Council 80% + Sector Leadership 20%", tags: ["association", "professional"], temp: 4, formality: 9, preview: "preview-consulting", file: "style-87-industry-council.html" },
+            { num: 88, name: "Cooperative Association", blend: "Cooperative Model 80% + Member Ownership 20%", tags: ["association"], temp: 7, formality: 6, preview: "preview-nature", file: "style-88-cooperative.html" },
+            { num: 89, name: "Professional Network", blend: "Professional Network 80% + Career Excellence 20%", tags: ["association", "professional"], temp: 5, formality: 7, preview: "preview-tech", file: "style-89-professional-network.html" },
+            { num: 90, name: "Membership Collective", blend: "Membership Collective 80% + Shared Purpose 20%", tags: ["association", "creative"], temp: 7, formality: 5, preview: "preview-creative", file: "style-90-membership-collective.html" },
+            // New 3-Way Blend Styles 91-120 (60/25/15 ratio)
+            { num: 91, name: "Enterprise SaaS", blend: "Enterprise SaaS 60% + Swiss Typography 25% + Material Design 15%", tags: ["tech", "professional"], temp: 4, formality: 8, preview: "preview-corporate", file: "style-91-enterprise-saas.html" },
+            { num: 92, name: "Nordic Minimal", blend: "Scandinavian 60% + Japanese Minimalism 25% + Swiss Grid 15%", tags: ["creative", "professional"], temp: 6, formality: 6, preview: "preview-light", file: "style-92-nordic-minimal.html" },
+            { num: 93, name: "Luxury Concierge", blend: "Five-Star Hospitality 60% + Art Deco 25% + Editorial 15%", tags: ["premium", "hospitality"], temp: 6, formality: 9, preview: "preview-heritage", file: "style-93-luxury-concierge.html" },
+            { num: 94, name: "Cyber Command", blend: "Mission Control 60% + Cyberpunk 25% + Military Precision 15%", tags: ["tech"], temp: 2, formality: 9, preview: "preview-dark", file: "style-94-cyber-command.html" },
+            { num: 95, name: "Organic Wellness", blend: "Biophilic Design 60% + Spa Serenity 25% + Sustainable Tech 15%", tags: ["hospitality", "creative"], temp: 8, formality: 5, preview: "preview-nature", file: "style-95-organic-wellness.html" },
+            { num: 96, name: "Investment Elite", blend: "Private Wealth 60% + Data Visualization 25% + Bloomberg 15%", tags: ["premium", "professional"], temp: 3, formality: 10, preview: "preview-finance", file: "style-96-investment-elite.html" },
+            { num: 97, name: "Creative Studio", blend: "Design Agency 60% + Memphis 25% + Bauhaus 15%", tags: ["creative"], temp: 6, formality: 4, preview: "preview-creative", file: "style-97-creative-studio.html" },
+            { num: 98, name: "Academic Research", blend: "University Library 60% + Scientific Publishing 25% + Dark Academia 15%", tags: ["academic", "professional"], temp: 4, formality: 9, preview: "preview-academic", file: "style-98-academic-research.html" },
+            { num: 99, name: "Sports Premium", blend: "Athletic Excellence 60% + Broadcast Media 25% + Premium Membership 15%", tags: ["media", "premium"], temp: 7, formality: 6, preview: "preview-dark", file: "style-99-sports-premium.html" },
+            { num: 100, name: "Heritage Society", blend: "Historical Preservation 60% + Genealogy Research 25% + Classical Typography 15%", tags: ["premium", "academic"], temp: 5, formality: 9, preview: "preview-heritage", file: "style-100-heritage-society.html" },
+            { num: 101, name: "Quantum Lab", blend: "Scientific Research 60% + Futuristic Tech 25% + Academic Precision 15%", tags: ["tech", "academic"], temp: 3, formality: 8, preview: "preview-tech", file: "style-101-quantum-lab.html" },
+            { num: 102, name: "Maritime Guild", blend: "Nautical Heritage 60% + Trade Association 25% + Luxury Yacht 15%", tags: ["association", "premium"], temp: 5, formality: 8, preview: "preview-finance", file: "style-102-maritime-guild.html" },
+            { num: 103, name: "Artisan Collective", blend: "Craftsman Guild 60% + E-commerce Modern 25% + Organic Natural 15%", tags: ["creative", "association"], temp: 7, formality: 5, preview: "preview-nature", file: "style-103-artisan-collective.html" },
+            { num: 104, name: "Aviation Elite", blend: "Private Aviation 60% + Aerospace Engineering 25% + VIP Concierge 15%", tags: ["premium", "tech"], temp: 4, formality: 9, preview: "preview-dark", file: "style-104-aviation-elite.html" },
+            { num: 105, name: "Music Conservatory", blend: "Classical Music 60% + Academic Institution 25% + Event Management 15%", tags: ["academic", "creative"], temp: 5, formality: 8, preview: "preview-heritage", file: "style-105-music-conservatory.html" },
+            { num: 106, name: "Green Energy", blend: "Sustainable Energy 60% + Data Dashboard 25% + Advocacy Platform 15%", tags: ["tech", "association"], temp: 7, formality: 6, preview: "preview-nature", file: "style-106-green-energy.html" },
+            { num: 107, name: "Legal Summit", blend: "Law Firm Premium 60% + Conference Platform 25% + Knowledge Base 15%", tags: ["professional", "association"], temp: 3, formality: 10, preview: "preview-heritage", file: "style-107-legal-summit.html" },
+            { num: 108, name: "Culinary Guild", blend: "Fine Dining 60% + Professional Certification 25% + Recipe Archive 15%", tags: ["hospitality", "association"], temp: 6, formality: 7, preview: "preview-heritage", file: "style-108-culinary-guild.html" },
+            { num: 109, name: "Architecture Forum", blend: "Architect Portfolio 60% + Professional Network 25% + Urban Planning 15%", tags: ["professional", "creative"], temp: 3, formality: 8, preview: "preview-light", file: "style-109-architecture-forum.html" },
+            { num: 110, name: "Philanthropy Circle", blend: "Foundation Giving 60% + Donor Network 25% + Nonprofit Excellence 15%", tags: ["premium", "association"], temp: 6, formality: 8, preview: "preview-heritage", file: "style-110-philanthropy-circle.html" },
+            { num: 111, name: "eSports Arena", blend: "Gaming/eSports 60% + Streaming Platform 25% + Tournament Management 15%", tags: ["tech", "media"], temp: 8, formality: 3, preview: "preview-dark", file: "style-111-esports-arena.html" },
+            { num: 112, name: "Wine Society", blend: "Vineyard Estate 60% + Sommelier Certification 25% + Collector's Club 15%", tags: ["premium", "hospitality"], temp: 6, formality: 8, preview: "preview-heritage", file: "style-112-wine-society.html" },
+            { num: 113, name: "Blockchain DAO", blend: "Web3/Crypto 60% + Governance Platform 25% + Community Hub 15%", tags: ["tech"], temp: 4, formality: 5, preview: "preview-dark", file: "style-113-blockchain-dao.html" },
+            { num: 114, name: "Healthcare Network", blend: "Medical Professional 60% + Continuing Education 25% + Peer Collaboration 15%", tags: ["professional", "association"], temp: 4, formality: 9, preview: "preview-medical", file: "style-114-healthcare-network.html" },
+            { num: 115, name: "Fashion Council", blend: "High Fashion 60% + Industry Network 25% + Trend Forecasting 15%", tags: ["creative", "media"], temp: 5, formality: 8, preview: "preview-dark", file: "style-115-fashion-council.html" },
+            { num: 116, name: "Motorsport Club", blend: "Racing Heritage 60% + Collector's Network 25% + Track Day Management 15%", tags: ["premium", "association"], temp: 6, formality: 7, preview: "preview-dark", file: "style-116-motorsport-club.html" },
+            { num: 117, name: "Diplomatic Corps", blend: "Government Formal 60% + International Relations 25% + Secure Communications 15%", tags: ["professional"], temp: 4, formality: 10, preview: "preview-heritage", file: "style-117-diplomatic-corps.html" },
+            { num: 118, name: "Startup Accelerator", blend: "Startup/VC Culture 60% + Mentorship Network 25% + Demo Day 15%", tags: ["tech", "professional"], temp: 7, formality: 5, preview: "preview-creative", file: "style-118-startup-accelerator.html" },
+            { num: 119, name: "Meditation Sangha", blend: "Zen Minimalism 60% + Retreat Center 25% + Practice Tracking 15%", tags: ["hospitality", "creative"], temp: 8, formality: 4, preview: "preview-nature", file: "style-119-meditation-sangha.html" },
+            { num: 120, name: "Space Pioneers", blend: "Space Industry 60% + Scientific Community 25% + Advocacy Platform 15%", tags: ["tech", "academic"], temp: 4, formality: 7, preview: "preview-dark", file: "style-120-space-pioneers.html" },
+        ];
+
+        let currentFilter = 'all';
+        let currentSort = 'number';
+        let isListView = false;
+
+        function getTempClass(temp) {
+            if (temp <= 3) return 'temp-cool';
+            if (temp <= 6) return 'temp-neutral';
+            return 'temp-warm';
+        }
+
+        // Lazy loading for iframe previews - only load when visible
+        let iframeObserver = null;
+
+        function initLazyIframes() {
+            // Disconnect existing observer if any
+            if (iframeObserver) {
+                iframeObserver.disconnect();
+            }
+
+            const iframes = document.querySelectorAll('.preview-iframe[data-src]');
+
+            iframeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        const src = iframe.getAttribute('data-src');
+                        if (src && !iframe.src) {
+                            iframe.src = src;
+                            iframe.onload = () => {
+                                // Hide loading spinner when loaded
+                                const loading = iframe.closest('.card-preview').querySelector('.preview-loading');
+                                if (loading) loading.style.display = 'none';
+                            };
+                        }
+                        iframeObserver.unobserve(iframe);
+                    }
+                });
+            }, {
+                rootMargin: '100px', // Start loading 100px before visible
+                threshold: 0.1
+            });
+
+            iframes.forEach(iframe => iframeObserver.observe(iframe));
+        }
+
+        function renderStyles(filteredStyles) {
+            const grid = document.getElementById('styleGrid');
+            const noResults = document.getElementById('noResults');
+            const resultCount = document.getElementById('resultCount');
+
+            if (filteredStyles.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                resultCount.textContent = '0';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            resultCount.textContent = filteredStyles.length;
+
+            grid.innerHTML = filteredStyles.map(style => `
+                <a href="${style.file}" class="style-card" data-tags="${style.tags.join(' ')}" data-num="${style.num}">
+                    <div class="card-preview">
+                        <div class="preview-loading"></div>
+                        <div class="preview-iframe-container">
+                            <iframe class="preview-iframe" data-src="${style.file}" loading="lazy" scrolling="no"></iframe>
+                        </div>
+                        <div class="card-preview-overlay">
+                            <span class="preview-btn">View Style</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-number">Style ${String(style.num).padStart(2, '0')}</span>
+                            <div class="card-temp">
+                                <div class="temp-bar">
+                                    <div class="temp-fill ${getTempClass(style.temp)}" style="width: ${style.temp * 10}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="card-title">${style.name}</h3>
+                        <p class="card-blend">${style.blend}</p>
+                        <div class="card-tags">
+                            ${style.tags.map(tag => `<span class="tag ${tag}">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+
+            // Lazy load iframes using Intersection Observer
+            initLazyIframes();
+        }
+
+        function filterAndSort() {
+            let filtered = [...styles];
+
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(s => s.tags.includes(currentFilter));
+            }
+
+            // Apply search
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(s =>
+                    s.name.toLowerCase().includes(searchTerm) ||
+                    s.blend.toLowerCase().includes(searchTerm) ||
+                    s.tags.some(t => t.includes(searchTerm))
+                );
+            }
+
+            // Apply sort
+            switch (currentSort) {
+                case 'name':
+                    filtered.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'formality':
+                    filtered.sort((a, b) => b.formality - a.formality);
+                    break;
+                case 'temperature':
+                    filtered.sort((a, b) => a.temp - b.temp);
+                    break;
+                default:
+                    filtered.sort((a, b) => a.num - b.num);
+            }
+
+            renderStyles(filtered);
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                filterAndSort();
+            });
+        });
+
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            filterAndSort();
+        });
+
+        document.getElementById('searchInput').addEventListener('input', filterAndSort);
+
+        document.getElementById('gridView').addEventListener('click', () => {
+            document.getElementById('styleGrid').classList.remove('list-view');
+            document.getElementById('gridView').classList.add('active');
+            document.getElementById('listView').classList.remove('active');
+            isListView = false;
+        });
+
+        document.getElementById('listView').addEventListener('click', () => {
+            document.getElementById('styleGrid').classList.add('list-view');
+            document.getElementById('listView').classList.add('active');
+            document.getElementById('gridView').classList.remove('active');
+            isListView = true;
+        });
+
+        // Initial render
+        renderStyles(styles);
+    </script>
+</body>
+</html>

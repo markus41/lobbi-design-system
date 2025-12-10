@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaceful Path Sangha - Meditation Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Soft sage greens */
+            --sage-primary: #8B9E87;
+            --sage-light: #A8B5A1;
+            --sage-dark: #6B7563;
+
+            /* Warm sand/beige */
+            --sand-light: #FAF8F5;
+            --sand-medium: #E8DED2;
+            --sand-warm: #D4C5B9;
+
+            /* Natural earth tones */
+            --earth-medium: #6B705C;
+            --earth-dark: #4A4E42;
+
+            /* Accents */
+            --gold-accent: #C9A961;
+            --gold-soft: #E5D4A8;
+            --white-cream: #F5F1ED;
+
+            /* Functional colors */
+            --success: #7BA05B;
+            --info: #6B9DAB;
+            --warning: #C4A77D;
+
+            /* Typography */
+            --font-primary: 'Georgia', serif;
+            --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(75, 78, 66, 0.08);
+            --shadow-md: 0 4px 16px rgba(75, 78, 66, 0.12);
+            --shadow-lg: 0 8px 32px rgba(75, 78, 66, 0.15);
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background: var(--sand-light);
+            color: var(--earth-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white-cream);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--sand-medium);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--sage-primary), var(--sage-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            color: var(--earth-dark);
+            font-weight: 400;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--earth-medium);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--sage-primary);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--sage-primary);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sage-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-dark);
+            border-color: var(--sage-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--sand-medium) 0%, var(--white-cream) 100%);
+            padding: var(--space-xl) 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+            opacity: 0.15;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-primary);
+            font-size: 3.5rem;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-md);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--earth-medium);
+            margin-bottom: var(--space-lg);
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--sage-primary);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sage-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sage-primary);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--sand-warm) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Practice Dashboard */
+        .dashboard {
+            max-width: 1400px;
+            margin: calc(-1 * var(--space-xl)) auto var(--space-xl);
+            padding: 0 var(--space-md);
+            position: relative;
+            z-index: 10;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 20px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--sage-light);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-icon.streak {
+            background: linear-gradient(135deg, #FFB84D, #F89D4E);
+        }
+
+        .card-icon.minutes {
+            background: linear-gradient(135deg, var(--sage-primary), var(--sage-light));
+        }
+
+        .card-icon.sessions {
+            background: linear-gradient(135deg, var(--info), #8FB5C0);
+        }
+
+        .card-icon.level {
+            background: linear-gradient(135deg, var(--gold-accent), var(--gold-soft));
+        }
+
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-primary);
+        }
+
+        .card-label {
+            color: var(--earth-medium);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-progress {
+            width: 100%;
+            height: 6px;
+            background: var(--sand-medium);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: var(--space-md);
+        }
+
+        .card-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sage-primary), var(--sage-light));
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-md);
+        }
+
+        .section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            color: var(--earth-dark);
+            font-weight: 400;
+            position: relative;
+            padding-bottom: var(--space-sm);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--sage-primary);
+            border-radius: 2px;
+        }
+
+        .section-link {
+            color: var(--sage-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            transition: all 0.3s ease;
+        }
+
+        .section-link:hover {
+            color: var(--sage-dark);
+            gap: var(--space-sm);
+        }
+
+        /* Today's Practice */
+        .practice-today {
+            background: white;
+            border-radius: 24px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--sand-medium);
+        }
+
+        .practice-timer {
+            text-align: center;
+            padding: var(--space-xl) 0;
+        }
+
+        .timer-display {
+            font-size: 4.5rem;
+            font-family: var(--font-primary);
+            color: var(--earth-dark);
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.05em;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .timer-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timer-btn.play {
+            background: linear-gradient(135deg, var(--sage-primary), var(--sage-light));
+            color: white;
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+
+        .timer-btn.play:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timer-btn.secondary {
+            background: var(--sand-medium);
+            color: var(--earth-medium);
+        }
+
+        .timer-btn.secondary:hover {
+            background: var(--sand-warm);
+            transform: scale(1.05);
+        }
+
+        .practice-presets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+
+        .preset-btn {
+            background: var(--sand-light);
+            border: 2px solid var(--sand-medium);
+            padding: var(--space-md);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .preset-btn:hover {
+            background: var(--sage-light);
+            border-color: var(--sage-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .preset-duration {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+
+        .preset-label {
+            font-size: 0.85rem;
+            color: var(--earth-medium);
+        }
+
+        /* Retreats */
+        .retreats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .retreat-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .retreat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--sage-light);
+        }
+
+        .retreat-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--sage-primary), var(--sand-warm));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .retreat-badge {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: var(--gold-accent);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .retreat-content {
+            padding: var(--space-lg);
+        }
+
+        .retreat-dates {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--sage-primary);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+        }
+
+        .retreat-title {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-sm);
+            font-weight: 400;
+        }
+
+        .retreat-teacher {
+            color: var(--earth-medium);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .retreat-details {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--sand-medium);
+        }
+
+        .retreat-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--earth-medium);
+            font-size: 0.9rem;
+        }
+
+        .retreat-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-md);
+        }
+
+        .retreat-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--earth-dark);
+        }
+
+        .retreat-spots {
+            color: var(--warning);
+            font-size: 0.85rem;
+        }
+
+        /* Teachers */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 20px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--sage-light);
+        }
+
+        .teacher-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-primary), var(--gold-soft));
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            border: 4px solid var(--sand-light);
+        }
+
+        .teacher-name {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-xs);
+            font-weight: 400;
+        }
+
+        .teacher-title {
+            color: var(--sage-primary);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .teacher-bio {
+            color: var(--earth-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .teacher-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            justify-content: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .specialty-tag {
+            background: var(--sand-light);
+            color: var(--earth-medium);
+            padding: 4px var(--space-sm);
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        .teacher-stats {
+            display: flex;
+            justify-content: space-around;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--sand-medium);
+        }
+
+        .teacher-stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--sage-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--earth-medium);
+        }
+
+        /* Community Discussions */
+        .discussions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .discussion-item {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .discussion-item:hover {
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--sage-primary);
+            transform: translateX(4px);
+        }
+
+        .discussion-header {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .discussion-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-light), var(--sand-warm));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .discussion-meta {
+            flex: 1;
+        }
+
+        .discussion-author {
+            font-weight: 600;
+            color: var(--earth-dark);
+            margin-bottom: 2px;
+        }
+
+        .discussion-time {
+            font-size: 0.85rem;
+            color: var(--earth-medium);
+        }
+
+        .discussion-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .discussion-excerpt {
+            color: var(--earth-medium);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .discussion-footer {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .discussion-stat {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--earth-medium);
+            font-size: 0.9rem;
+        }
+
+        .discussion-tags {
+            display: flex;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+            margin-left: auto;
+        }
+
+        .discussion-tag {
+            background: var(--sage-light);
+            color: white;
+            padding: 4px var(--space-sm);
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .resource-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--sage-light);
+            transform: translateY(-2px);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .resource-icon.guided {
+            background: linear-gradient(135deg, #9B8ACF, #B8A8E0);
+        }
+
+        .resource-icon.music {
+            background: linear-gradient(135deg, #6B9DAB, #8FB5C0);
+        }
+
+        .resource-icon.articles {
+            background: linear-gradient(135deg, var(--gold-accent), var(--gold-soft));
+        }
+
+        .resource-icon.courses {
+            background: linear-gradient(135deg, var(--sage-primary), var(--sage-light));
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--earth-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .resource-description {
+            color: var(--earth-medium);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .resource-count {
+            color: var(--sage-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--earth-dark);
+            color: var(--sand-medium);
+            padding: var(--space-xl) 0 var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-about {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            color: var(--sand-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-description {
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sand-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--sage-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-section-title {
+            color: var(--sand-light);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--sand-medium);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--sage-light);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .footer-legal a {
+            color: var(--sand-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--sage-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-xl: 3rem;
+                --space-lg: 2rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .retreats-grid,
+            .teachers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .timer-display {
+                font-size: 3rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-lg {
+            margin-bottom: var(--space-lg);
+        }
+
+        .mt-lg {
+            margin-top: var(--space-lg);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>119</strong> of 120 &mdash; Meditation Sangha</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-118-startup-accelerator.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-120-space-pioneers.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 118) window.location.href = 'style-118-startup-accelerator.html';
+                if (e.key === 'ArrowRight' && 120) window.location.href = 'style-120-space-pioneers.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">☸</div>
+                <span class="logo-text">Peaceful Path Sangha</span>
+            </a>
+            <nav class="nav">
+                <a href="#practice">Practice</a>
+                <a href="#retreats">Retreats</a>
+                <a href="#teachers">Teachers</a>
+                <a href="#community">Community</a>
+                <a href="#resources">Resources</a>
+                <a href="#login" class="btn-primary">Join Sangha</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content animate-fade-in">
+                <h1>Find Peace in Every Breath</h1>
+                <p>Join our compassionate community of practitioners on the path to mindfulness, clarity, and inner peace. Together, we cultivate presence and awaken wisdom.</p>
+                <div class="hero-cta">
+                    <a href="#practice" class="btn-primary">Start Practicing</a>
+                    <a href="#retreats" class="btn-secondary">Upcoming Retreats</a>
+                </div>
+            </div>
+            <div class="hero-image animate-fade-in">
+                <div class="hero-image-placeholder">🧘</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Dashboard -->
+    <section class="dashboard">
+        <div class="dashboard-grid">
+            <div class="dashboard-card animate-fade-in">
+                <div class="card-icon streak">🔥</div>
+                <div class="card-value">28</div>
+                <div class="card-label">Day Streak</div>
+                <div class="card-progress">
+                    <div class="card-progress-bar" style="width: 93%;"></div>
+                </div>
+            </div>
+            <div class="dashboard-card animate-fade-in" style="animation-delay: 0.1s;">
+                <div class="card-icon minutes">⏱</div>
+                <div class="card-value">847</div>
+                <div class="card-label">Total Minutes</div>
+                <div class="card-progress">
+                    <div class="card-progress-bar" style="width: 68%;"></div>
+                </div>
+            </div>
+            <div class="dashboard-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="card-icon sessions">📿</div>
+                <div class="card-value">42</div>
+                <div class="card-label">Sessions This Month</div>
+                <div class="card-progress">
+                    <div class="card-progress-bar" style="width: 84%;"></div>
+                </div>
+            </div>
+            <div class="dashboard-card animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="card-icon level">✨</div>
+                <div class="card-value">5</div>
+                <div class="card-label">Practitioner Level</div>
+                <div class="card-progress">
+                    <div class="card-progress-bar" style="width: 45%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Today's Practice -->
+        <section id="practice" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Today's Practice</h2>
+            </div>
+            <div class="practice-today">
+                <div class="practice-timer">
+                    <div class="timer-display">20:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn secondary">⏮</button>
+                        <button class="timer-btn play">▶</button>
+                        <button class="timer-btn secondary">⏭</button>
+                    </div>
+                    <p style="color: var(--earth-medium); margin-bottom: var(--space-lg);">Mindful Breathing Meditation</p>
+                </div>
+                <div class="practice-presets">
+                    <button class="preset-btn">
+                        <span class="preset-duration">5</span>
+                        <span class="preset-label">Quick</span>
+                    </button>
+                    <button class="preset-btn">
+                        <span class="preset-duration">10</span>
+                        <span class="preset-label">Brief</span>
+                    </button>
+                    <button class="preset-btn">
+                        <span class="preset-duration">20</span>
+                        <span class="preset-label">Standard</span>
+                    </button>
+                    <button class="preset-btn">
+                        <span class="preset-duration">30</span>
+                        <span class="preset-label">Deep</span>
+                    </button>
+                    <button class="preset-btn">
+                        <span class="preset-duration">45</span>
+                        <span class="preset-label">Extended</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Retreats -->
+        <section id="retreats" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Retreats</h2>
+                <a href="#" class="section-link">View All →</a>
+            </div>
+            <div class="retreats-grid">
+                <div class="retreat-card">
+                    <div class="retreat-image">
+                        <span>🏔</span>
+                        <div class="retreat-badge">Featured</div>
+                    </div>
+                    <div class="retreat-content">
+                        <div class="retreat-dates">📅 March 15-22, 2025</div>
+                        <h3 class="retreat-title">Mountain Silence Retreat</h3>
+                        <p class="retreat-teacher">Led by Sarah Chen</p>
+                        <div class="retreat-details">
+                            <div class="retreat-detail">
+                                <span>📍</span>
+                                <span>Blue Ridge Mountains</span>
+                            </div>
+                            <div class="retreat-detail">
+                                <span>⏱</span>
+                                <span>7 Days</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--earth-medium); font-size: 0.95rem; line-height: 1.6;">
+                            Experience deep silence and contemplation in the serene mountain setting. Daily meditation, mindful walking, and dharma talks.
+                        </p>
+                        <div class="retreat-footer">
+                            <div class="retreat-price">$890</div>
+                            <div class="retreat-spots">⚠ Only 5 spots left</div>
+                        </div>
+                        <a href="#" class="btn-primary" style="display: block; text-align: center; margin-top: var(--space-md);">Reserve Your Spot</a>
+                    </div>
+                </div>
+
+                <div class="retreat-card">
+                    <div class="retreat-image">
+                        <span>🌊</span>
+                    </div>
+                    <div class="retreat-content">
+                        <div class="retreat-dates">📅 April 5-9, 2025</div>
+                        <h3 class="retreat-title">Coastal Mindfulness</h3>
+                        <p class="retreat-teacher">Led by Michael Torres</p>
+                        <div class="retreat-details">
+                            <div class="retreat-detail">
+                                <span>📍</span>
+                                <span>Oregon Coast</span>
+                            </div>
+                            <div class="retreat-detail">
+                                <span>⏱</span>
+                                <span>4 Days</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--earth-medium); font-size: 0.95rem; line-height: 1.6;">
+                            Meditation by the ocean, walking meditation on beaches, and exploring the intersection of nature and mindfulness.
+                        </p>
+                        <div class="retreat-footer">
+                            <div class="retreat-price">$520</div>
+                            <div class="retreat-spots" style="color: var(--success);">✓ 12 spots available</div>
+                        </div>
+                        <a href="#" class="btn-secondary" style="display: block; text-align: center; margin-top: var(--space-md);">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="retreat-card">
+                    <div class="retreat-image">
+                        <span>🌸</span>
+                    </div>
+                    <div class="retreat-content">
+                        <div class="retreat-dates">📅 May 1-7, 2025</div>
+                        <h3 class="retreat-title">Spring Awakening</h3>
+                        <p class="retreat-teacher">Led by Emma Johnson</p>
+                        <div class="retreat-details">
+                            <div class="retreat-detail">
+                                <span>📍</span>
+                                <span>Vermont Valley</span>
+                            </div>
+                            <div class="retreat-detail">
+                                <span>⏱</span>
+                                <span>6 Days</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--earth-medium); font-size: 0.95rem; line-height: 1.6;">
+                            Welcome spring with renewal practices, garden meditation, and exploration of growth and transformation themes.
+                        </p>
+                        <div class="retreat-footer">
+                            <div class="retreat-price">$765</div>
+                            <div class="retreat-spots" style="color: var(--success);">✓ 8 spots available</div>
+                        </div>
+                        <a href="#" class="btn-secondary" style="display: block; text-align: center; margin-top: var(--space-md);">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teachers & Guides -->
+        <section id="teachers" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Teachers & Guides</h2>
+                <a href="#" class="section-link">All Teachers →</a>
+            </div>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-avatar">SC</div>
+                    <h3 class="teacher-name">Sarah Chen</h3>
+                    <p class="teacher-title">Senior Teacher & Founder</p>
+                    <p class="teacher-bio">
+                        With 20 years of practice and teaching experience, Sarah brings wisdom from Zen and Vipassana traditions to guide practitioners toward clarity and peace.
+                    </p>
+                    <div class="teacher-specialties">
+                        <span class="specialty-tag">Zen</span>
+                        <span class="specialty-tag">Vipassana</span>
+                        <span class="specialty-tag">Silent Retreats</span>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <span class="stat-value">2.4k</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">48</span>
+                            <span class="stat-label">Retreats</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">4.9</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-avatar">MT</div>
+                    <h3 class="teacher-name">Michael Torres</h3>
+                    <p class="teacher-title">Mindfulness Instructor</p>
+                    <p class="teacher-bio">
+                        Specializing in MBSR and nature-based practices, Michael helps students develop mindfulness skills for everyday life and stress reduction.
+                    </p>
+                    <div class="teacher-specialties">
+                        <span class="specialty-tag">MBSR</span>
+                        <span class="specialty-tag">Nature</span>
+                        <span class="specialty-tag">Beginners</span>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <span class="stat-value">1.8k</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">32</span>
+                            <span class="stat-label">Courses</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">4.8</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-avatar">EJ</div>
+                    <h3 class="teacher-name">Emma Johnson</h3>
+                    <p class="teacher-title">Dharma Teacher</p>
+                    <p class="teacher-bio">
+                        Drawing from Tibetan Buddhist and Western contemplative traditions, Emma offers teachings on compassion, wisdom, and the nature of mind.
+                    </p>
+                    <div class="teacher-specialties">
+                        <span class="specialty-tag">Tibetan</span>
+                        <span class="specialty-tag">Compassion</span>
+                        <span class="specialty-tag">Philosophy</span>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <span class="stat-value">1.2k</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">24</span>
+                            <span class="stat-label">Talks</span>
+                        </div>
+                        <div class="teacher-stat">
+                            <span class="stat-value">4.9</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Discussions -->
+        <section id="community" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Community Discussions</h2>
+                <a href="#" class="section-link">All Discussions →</a>
+            </div>
+            <div class="discussions-list">
+                <div class="discussion-item">
+                    <div class="discussion-header">
+                        <div class="discussion-avatar">AM</div>
+                        <div class="discussion-meta">
+                            <div class="discussion-author">Alex Martinez</div>
+                            <div class="discussion-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <h3 class="discussion-title">Maintaining practice during busy work seasons</h3>
+                    <p class="discussion-excerpt">
+                        I've been struggling to maintain my daily meditation practice during Q4 work rush. Would love to hear how others balance career demands with consistent practice...
+                    </p>
+                    <div class="discussion-footer">
+                        <div class="discussion-stat">💬 12 replies</div>
+                        <div class="discussion-stat">❤ 24 reactions</div>
+                        <div class="discussion-tags">
+                            <span class="discussion-tag">practice-tips</span>
+                            <span class="discussion-tag">balance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-header">
+                        <div class="discussion-avatar">LK</div>
+                        <div class="discussion-meta">
+                            <div class="discussion-author">Lisa Kim</div>
+                            <div class="discussion-time">5 hours ago</div>
+                        </div>
+                    </div>
+                    <h3 class="discussion-title">Book recommendation: The Heart of Buddha's Teaching</h3>
+                    <p class="discussion-excerpt">
+                        Just finished this incredible book by Thich Nhat Hanh. It beautifully explains core Buddhist concepts in accessible language. Highly recommend for anyone wanting deeper understanding...
+                    </p>
+                    <div class="discussion-footer">
+                        <div class="discussion-stat">💬 8 replies</div>
+                        <div class="discussion-stat">❤ 31 reactions</div>
+                        <div class="discussion-tags">
+                            <span class="discussion-tag">books</span>
+                            <span class="discussion-tag">dharma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-header">
+                        <div class="discussion-avatar">RP</div>
+                        <div class="discussion-meta">
+                            <div class="discussion-author">Raj Patel</div>
+                            <div class="discussion-time">1 day ago</div>
+                        </div>
+                    </div>
+                    <h3 class="discussion-title">Reflections from the Mountain Retreat</h3>
+                    <p class="discussion-excerpt">
+                        Just returned from the weekend retreat with Sarah. The experience of three days in silence was transformative. I'd love to share some insights and hear from others who attended...
+                    </p>
+                    <div class="discussion-footer">
+                        <div class="discussion-stat">💬 18 replies</div>
+                        <div class="discussion-stat">❤ 42 reactions</div>
+                        <div class="discussion-tags">
+                            <span class="discussion-tag">retreats</span>
+                            <span class="discussion-tag">insights</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-header">
+                        <div class="discussion-avatar">TH</div>
+                        <div class="discussion-meta">
+                            <div class="discussion-author">Taylor Hayes</div>
+                            <div class="discussion-time">2 days ago</div>
+                        </div>
+                    </div>
+                    <h3 class="discussion-title">Working with difficult emotions in practice</h3>
+                    <p class="discussion-excerpt">
+                        During my sits lately, I've been encountering waves of anxiety and sadness. I'm learning to simply observe rather than suppress. Any guidance on working skillfully with difficult emotions?
+                    </p>
+                    <div class="discussion-footer">
+                        <div class="discussion-stat">💬 15 replies</div>
+                        <div class="discussion-stat">❤ 28 reactions</div>
+                        <div class="discussion-tags">
+                            <span class="discussion-tag">emotions</span>
+                            <span class="discussion-tag">guidance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Practice Resources</h2>
+                <a href="#" class="section-link">Explore All →</a>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon guided">🎧</div>
+                    <h3 class="resource-title">Guided Meditations</h3>
+                    <p class="resource-description">
+                        Collection of guided practices for beginners and experienced practitioners
+                    </p>
+                    <div class="resource-count">142 recordings available</div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon music">🎵</div>
+                    <h3 class="resource-title">Meditation Music</h3>
+                    <p class="resource-description">
+                        Peaceful soundscapes and ambient music to support your practice
+                    </p>
+                    <div class="resource-count">89 tracks available</div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon articles">📖</div>
+                    <h3 class="resource-title">Dharma Articles</h3>
+                    <p class="resource-description">
+                        Teachings and reflections on Buddhist philosophy and practice
+                    </p>
+                    <div class="resource-count">256 articles available</div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon courses">🎓</div>
+                    <h3 class="resource-title">Online Courses</h3>
+                    <p class="resource-description">
+                        Structured programs for deepening your understanding and practice
+                    </p>
+                    <div class="resource-count">18 courses available</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">☸ Peaceful Path Sangha</div>
+                    <p class="footer-description">
+                        A welcoming community dedicated to the practice of mindfulness, meditation, and awakening. We support practitioners at all stages of the path with teachings, retreats, and compassionate guidance.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-icon" aria-label="YouTube">▶</a>
+                        <a href="#" class="social-icon" aria-label="Podcast">🎙</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Practice</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Daily Meditation</a></li>
+                        <li><a href="#">Guided Sessions</a></li>
+                        <li><a href="#">Practice Log</a></li>
+                        <li><a href="#">Beginners Guide</a></li>
+                        <li><a href="#">Advanced Techniques</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Upcoming Retreats</a></li>
+                        <li><a href="#">Teachers</a></li>
+                        <li><a href="#">Discussions</a></li>
+                        <li><a href="#">Events Calendar</a></li>
+                        <li><a href="#">Member Stories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Dharma Talks</a></li>
+                        <li><a href="#">Reading List</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Peaceful Path Sangha. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Timer functionality
+        let timerInterval;
+        let timeRemaining = 1200; // 20 minutes in seconds
+        let isRunning = false;
+
+        const timerDisplay = document.querySelector('.timer-display');
+        const playButton = document.querySelector('.timer-btn.play');
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateDisplay() {
+            timerDisplay.textContent = formatTime(timeRemaining);
+        }
+
+        function startTimer() {
+            if (isRunning) {
+                // Pause
+                clearInterval(timerInterval);
+                playButton.textContent = '▶';
+                playButton.classList.remove('pulse');
+                isRunning = false;
+            } else {
+                // Start
+                timerInterval = setInterval(() => {
+                    if (timeRemaining > 0) {
+                        timeRemaining--;
+                        updateDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                        playButton.textContent = '▶';
+                        playButton.classList.remove('pulse');
+                        isRunning = false;
+                        // Play completion sound or notification here
+                    }
+                }, 1000);
+                playButton.textContent = '⏸';
+                playButton.classList.add('pulse');
+                isRunning = true;
+            }
+        }
+
+        playButton.addEventListener('click', startTimer);
+
+        // Preset buttons
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const minutes = parseInt(this.querySelector('.preset-duration').textContent);
+                timeRemaining = minutes * 60;
+                updateDisplay();
+                if (isRunning) {
+                    startTimer(); // Pause if running
+                }
+
+                // Visual feedback
+                document.querySelectorAll('.preset-btn').forEach(b => b.style.background = 'var(--sand-light)');
+                this.style.background = 'var(--sage-light)';
+                this.style.color = 'white';
+
+                setTimeout(() => {
+                    this.style.background = 'var(--sand-light)';
+                    this.style.color = 'var(--earth-dark)';
+                }, 300);
+            });
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.retreat-card, .teacher-card, .discussion-item, .resource-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Dashboard card animations
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.card-progress-bar').forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease-out';
+                }, index * 100);
+            });
+        });
+
+        // Interactive hover effects for retreat cards
+        document.querySelectorAll('.retreat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.retreat-image').style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.retreat-image').style.transform = 'scale(1)';
+            });
+        });
+
+        // Add transition to retreat images
+        document.querySelectorAll('.retreat-image').forEach(img => {
+            img.style.transition = 'transform 0.3s ease';
+        });
+
+        // Discussion item expand on click
+        document.querySelectorAll('.discussion-item').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('.discussion-footer')) {
+                    // Simulate navigation to full discussion
+                    this.style.borderLeftColor = 'var(--sage-primary)';
+                    setTimeout(() => {
+                        this.style.borderLeftColor = 'transparent';
+                    }, 300);
+                }
+            });
+        });
+
+        // Simulate real-time updates for streak (every minute)
+        setInterval(() => {
+            const streakCard = document.querySelector('.dashboard-card .card-icon.streak');
+            if (streakCard) {
+                streakCard.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    streakCard.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }, 60000);
+
+        // Resource card interaction
+        document.querySelectorAll('.resource-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.resource-title').textContent;
+                console.log(`Opening ${title}...`);
+                // Navigate to resource page
+            });
+        });
+
+        // Add keyboard accessibility for timer
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && e.target === document.body) {
+                e.preventDefault();
+                startTimer();
+            }
+        });
+
+        // Console welcome message
+        console.log('%c☸ Peaceful Path Sangha', 'color: #8B9E87; font-size: 24px; font-weight: bold;');
+        console.log('%cWelcome to your meditation practice dashboard', 'color: #6B705C; font-size: 14px;');
+    </script>
+</body>
+</html>

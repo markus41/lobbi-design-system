@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboFleet Control Center - Advanced Robotics Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                           ULTRATHINK DESIGN ANALYSIS                          ║
+        ║                      Style 46: Robotics Industrial Interface                  ║
+        ╠══════════════════════════════════════════════════════════════════════════════╣
+        ║                                                                              ║
+        ║  DESIGN PHILOSOPHY: Advanced Robotics Platform Control Center                ║
+        ║  Precision automation meets industrial elegance. Inspired by Boston          ║
+        ║  Dynamics, ABB Robotics, and enterprise automation systems.                  ║
+        ║                                                                              ║
+        ║  BLEND COMPOSITION:                                                          ║
+        ║  • 75% Robotics - Technical precision, sensor data, fleet management         ║
+        ║  • 25% Industrial Clean - Modular systems, engineering aesthetics            ║
+        ║                                                                              ║
+        ║  COLOR STRATEGY:                                                             ║
+        ║  • Industrial Gray (#374151) - Primary structural element                    ║
+        ║  • Electric Orange (#f97316) - High-visibility alerts and CTAs               ║
+        ║  • Pure White (#ffffff) - Clean data presentation                            ║
+        ║  • Deep Dark (#111827) - Professional background depth                       ║
+        ║  • Accent Palette - Blue sensors, green operational, amber warnings          ║
+        ║                                                                              ║
+        ║  TYPOGRAPHY SYSTEM:                                                          ║
+        ║  • DM Sans - Industrial sans-serif, functional and technical                 ║
+        ║  • Weight hierarchy: 400 (data), 500 (labels), 600 (headings), 700 (emphasis)║
+        ║  • Monospace for technical readouts and sensor data                          ║
+        ║  • Precise letter spacing for engineering clarity                            ║
+        ║                                                                              ║
+        ║  SPATIAL ARCHITECTURE:                                                       ║
+        ║  • Systematic 8px base grid - engineering precision                          ║
+        ║  • Modular component spacing - 16/24/32/48px increments                      ║
+        ║  • Card-based information hierarchy                                          ║
+        ║  • Dense data presentation with clear visual separation                      ║
+        ║                                                                              ║
+        ║  COMPONENT ECOSYSTEM:                                                        ║
+        ║  • Robot Status Cards - Real-time operational state with health metrics      ║
+        ║  • Sensor Data Displays - Live telemetry and performance monitoring          ║
+        ║  • Fleet Management Grid - Multi-unit coordination and allocation            ║
+        ║  • Maintenance Schedules - Predictive servicing and downtime planning        ║
+        ║  • Technical Data Tables - Precise specification and log presentations       ║
+        ║  • Status Indicators - Color-coded operational states                        ║
+        ║                                                                              ║
+        ║  INTERACTION PATTERNS:                                                       ║
+        ║  • Subtle hover states - 150ms transitions, minimal motion                   ║
+        ║  • Status badges - Immediate visual feedback                                 ║
+        ║  • Progressive disclosure - Expandable technical details                     ║
+        ║  • High-contrast CTAs - Orange for critical actions                          ║
+        ║                                                                              ║
+        ║  VISUAL TEMPERATURE: Cool Industrial (3/10)                                  ║
+        ║  • Precise, technical, engineering-focused                                   ║
+        ║  • Minimal warmth, maximum functional clarity                                ║
+        ║  • Professional automation environment aesthetic                             ║
+        ║                                                                              ║
+        ║  FORMALITY LEVEL: High Technical (8/10)                                      ║
+        ║  • Enterprise-grade robotics platform                                        ║
+        ║  • Technical precision in all communications                                 ║
+        ║  • Professional industrial standards compliance                              ║
+        ║                                                                              ║
+        ║  ACCESSIBILITY FEATURES:                                                     ║
+        ║  • WCAG 2.1 AA compliant color contrasts (minimum 4.5:1)                     ║
+        ║  • Clear visual hierarchies for rapid information processing                 ║
+        ║  • Status colors supplemented with icons and text labels                     ║
+        ║  • Keyboard navigation support throughout                                    ║
+        ║                                                                              ║
+        ║  USE CASES:                                                                  ║
+        ║  • Industrial robotics fleet management platforms                            ║
+        ║  • Manufacturing automation control centers                                  ║
+        ║  • Warehouse robotics coordination systems                                   ║
+        ║  • Autonomous vehicle fleet monitoring                                       ║
+        ║  • Precision manufacturing dashboards                                        ║
+        ║                                                                              ║
+        ║  COMPETITIVE POSITIONING:                                                    ║
+        ║  Targets enterprise robotics operations requiring high-density information   ║
+        ║  presentation with industrial reliability. Competes with specialized         ║
+        ║  automation platforms while maintaining approachable professional aesthetics.║
+        ║                                                                              ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Core Brand Colors */
+            --industrial-gray: #374151;
+            --electric-orange: #f97316;
+            --pure-white: #ffffff;
+            --deep-dark: #111827;
+
+            /* Extended Palette */
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: var(--industrial-gray);
+            --gray-800: #1f2937;
+            --gray-900: var(--deep-dark);
+
+            /* Status Colors */
+            --status-operational: #10b981;
+            --status-warning: #f59e0b;
+            --status-critical: #ef4444;
+            --status-idle: #6b7280;
+            --status-maintenance: #3b82f6;
+
+            /* Sensor Data Colors */
+            --sensor-blue: #3b82f6;
+            --sensor-cyan: #06b6d4;
+            --sensor-green: #10b981;
+
+            /* Typography */
+            --font-primary: 'DM Sans', system-ui, -apple-system, sans-serif;
+            --font-mono: 'SF Mono', 'Consolas', 'Courier New', monospace;
+
+            /* Spacing System */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 200ms ease;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: var(--gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-800);
+            padding: var(--space-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--electric-orange), #ea580c);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--pure-white);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--gray-400);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--status-operational);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .system-status span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--status-operational);
+        }
+
+        .emergency-stop {
+            padding: 10px 20px;
+            background: var(--status-critical);
+            color: var(--pure-white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .emergency-stop:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gray-700);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: var(--transition-base);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--electric-orange);
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.15);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .stat-icon.orange { background: rgba(249, 115, 22, 0.1); color: var(--electric-orange); }
+        .stat-icon.green { background: rgba(16, 185, 129, 0.1); color: var(--status-operational); }
+        .stat-icon.blue { background: rgba(59, 130, 246, 0.1); color: var(--sensor-blue); }
+        .stat-icon.amber { background: rgba(245, 158, 11, 0.1); color: var(--status-warning); }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--pure-white);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: var(--font-mono);
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .stat-change.positive { color: var(--status-operational); }
+        .stat-change.neutral { color: var(--gray-400); }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .card {
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gray-700);
+            border-radius: 12px;
+            padding: var(--space-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--pure-white);
+            letter-spacing: -0.01em;
+        }
+
+        .card-action {
+            font-size: 13px;
+            color: var(--electric-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+
+        .card-action:hover {
+            color: #fb923c;
+        }
+
+        .fleet-card {
+            grid-column: span 8;
+        }
+
+        .alerts-card {
+            grid-column: span 4;
+        }
+
+        /* Robot Fleet */
+        .robot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-sm);
+        }
+
+        .robot-item {
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid var(--gray-700);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            transition: var(--transition-fast);
+        }
+
+        .robot-item:hover {
+            border-color: var(--electric-orange);
+            transform: translateY(-2px);
+        }
+
+        .robot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .robot-id {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--pure-white);
+            font-family: var(--font-mono);
+        }
+
+        .robot-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .robot-status.operational {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--status-operational);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .robot-status.idle {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--status-idle);
+            border: 1px solid rgba(107, 114, 128, 0.2);
+        }
+
+        .robot-status.maintenance {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--status-maintenance);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .robot-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--pure-white);
+            font-family: var(--font-mono);
+        }
+
+        /* Alerts */
+        .alerts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .alert-item {
+            background: rgba(17, 24, 39, 0.5);
+            border-left: 3px solid;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .alert-item.warning {
+            border-color: var(--status-warning);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .alert-item.info {
+            border-color: var(--sensor-blue);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .alert-item.critical {
+            border-color: var(--status-critical);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .alert-type {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .alert-item.warning .alert-type { color: var(--status-warning); }
+        .alert-item.info .alert-type { color: var(--sensor-blue); }
+        .alert-item.critical .alert-type { color: var(--status-critical); }
+
+        .alert-time {
+            font-size: 11px;
+            color: var(--gray-400);
+            font-family: var(--font-mono);
+        }
+
+        .alert-message {
+            font-size: 13px;
+            color: var(--gray-300);
+            line-height: 1.5;
+        }
+
+        /* Sensor Data */
+        .sensor-card {
+            grid-column: span 6;
+        }
+
+        .sensors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+        }
+
+        .sensor-item {
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid var(--gray-700);
+            border-radius: 8px;
+            padding: var(--space-sm);
+        }
+
+        .sensor-name {
+            font-size: 12px;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sensor-reading {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--pure-white);
+            font-family: var(--font-mono);
+            margin-bottom: 6px;
+        }
+
+        .sensor-bar {
+            height: 4px;
+            background: var(--gray-700);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .sensor-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .sensor-fill.blue { background: var(--sensor-blue); }
+        .sensor-fill.green { background: var(--status-operational); }
+        .sensor-fill.cyan { background: var(--sensor-cyan); }
+        .sensor-fill.orange { background: var(--electric-orange); }
+
+        /* Maintenance */
+        .maintenance-card {
+            grid-column: span 6;
+        }
+
+        .maintenance-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .maintenance-item {
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid var(--gray-700);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .maintenance-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--sensor-blue);
+            font-size: 20px;
+        }
+
+        .maintenance-details {
+            flex: 1;
+        }
+
+        .maintenance-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 4px;
+        }
+
+        .maintenance-time {
+            font-size: 12px;
+            color: var(--gray-400);
+            font-family: var(--font-mono);
+        }
+
+        .maintenance-status {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--status-operational);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* Data Table */
+        .table-card {
+            grid-column: span 12;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: rgba(17, 24, 39, 0.5);
+        }
+
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        td {
+            padding: 14px 16px;
+            font-size: 14px;
+            color: var(--gray-300);
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        tbody tr {
+            transition: var(--transition-fast);
+        }
+
+        tbody tr:hover {
+            background: rgba(17, 24, 39, 0.3);
+        }
+
+        .table-robot-id {
+            font-weight: 600;
+            color: var(--pure-white);
+            font-family: var(--font-mono);
+        }
+
+        .table-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 6px;
+            background: var(--gray-700);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--status-operational);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .action-button {
+            padding: 6px 12px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--electric-orange);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .action-button:hover {
+            background: rgba(249, 115, 22, 0.2);
+            border-color: var(--electric-orange);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(17, 24, 39, 0.8);
+            border-top: 1px solid var(--gray-800);
+            padding: var(--space-lg) 0;
+            margin-top: var(--space-xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--electric-orange);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding: var(--space-md) var(--space-md) 0;
+            border-top: 1px solid var(--gray-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .footer-cert {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .cert-badge {
+            padding: 4px 10px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--status-operational);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fleet-card,
+            .alerts-card,
+            .sensor-card,
+            .maintenance-card,
+            .table-card {
+                grid-column: span 12;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .robot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sensors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>46</strong> of 70 &mdash; Robotics</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-45-aerospace.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-47-quantum-computing.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 45) window.location.href = 'style-45-aerospace.html';
+                if (e.key === 'ArrowRight' && 47) window.location.href = 'style-47-quantum-computing.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">R</div>
+                <div class="logo-text">
+                    <h1>RoboFleet Control Center</h1>
+                    <p>Advanced Robotics Platform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="system-status">
+                    <div class="status-dot"></div>
+                    <span>All Systems Operational</span>
+                </div>
+                <button class="emergency-stop">Emergency Stop</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Active Robots</span>
+                    <div class="stat-icon orange">⚙️</div>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-change positive">
+                    <span>↑ 3 units</span>
+                    <span style="color: var(--gray-500)">from yesterday</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Fleet Efficiency</span>
+                    <div class="stat-icon green">📊</div>
+                </div>
+                <div class="stat-value">94.7%</div>
+                <div class="stat-change positive">
+                    <span>↑ 2.3%</span>
+                    <span style="color: var(--gray-500)">this week</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Tasks Completed</span>
+                    <div class="stat-icon blue">✓</div>
+                </div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-change positive">
+                    <span>↑ 187</span>
+                    <span style="color: var(--gray-500)">today</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">System Uptime</span>
+                    <div class="stat-icon amber">⏱️</div>
+                </div>
+                <div class="stat-value">99.8%</div>
+                <div class="stat-change neutral">
+                    <span style="color: var(--gray-400)">Last 30 days</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Fleet Overview -->
+            <div class="card fleet-card">
+                <div class="card-header">
+                    <h2 class="card-title">Active Robot Fleet</h2>
+                    <a href="#" class="card-action">View All →</a>
+                </div>
+                <div class="robot-grid">
+                    <div class="robot-item">
+                        <div class="robot-header">
+                            <span class="robot-id">RBT-001</span>
+                            <span class="robot-status operational">Active</span>
+                        </div>
+                        <div class="robot-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Battery</span>
+                                <span class="metric-value">87%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Tasks</span>
+                                <span class="metric-value">52</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Uptime</span>
+                                <span class="metric-value">6.2h</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Efficiency</span>
+                                <span class="metric-value">96%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="robot-item">
+                        <div class="robot-header">
+                            <span class="robot-id">RBT-002</span>
+                            <span class="robot-status operational">Active</span>
+                        </div>
+                        <div class="robot-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Battery</span>
+                                <span class="metric-value">92%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Tasks</span>
+                                <span class="metric-value">48</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Uptime</span>
+                                <span class="metric-value">5.8h</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Efficiency</span>
+                                <span class="metric-value">94%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="robot-item">
+                        <div class="robot-header">
+                            <span class="robot-id">RBT-003</span>
+                            <span class="robot-status maintenance">Maintenance</span>
+                        </div>
+                        <div class="robot-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Battery</span>
+                                <span class="metric-value">34%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Tasks</span>
+                                <span class="metric-value">—</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Uptime</span>
+                                <span class="metric-value">0.0h</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">ETA</span>
+                                <span class="metric-value">2.5h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="robot-item">
+                        <div class="robot-header">
+                            <span class="robot-id">RBT-004</span>
+                            <span class="robot-status idle">Idle</span>
+                        </div>
+                        <div class="robot-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Battery</span>
+                                <span class="metric-value">100%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Tasks</span>
+                                <span class="metric-value">0</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Ready</span>
+                                <span class="metric-value">Yes</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Status</span>
+                                <span class="metric-value">OK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="card alerts-card">
+                <div class="card-header">
+                    <h2 class="card-title">System Alerts</h2>
+                    <a href="#" class="card-action">View All →</a>
+                </div>
+                <div class="alerts-list">
+                    <div class="alert-item warning">
+                        <div class="alert-header">
+                            <span class="alert-type">Warning</span>
+                            <span class="alert-time">2m ago</span>
+                        </div>
+                        <p class="alert-message">RBT-007 battery level below 20%. Schedule charging soon.</p>
+                    </div>
+
+                    <div class="alert-item info">
+                        <div class="alert-header">
+                            <span class="alert-type">Info</span>
+                            <span class="alert-time">15m ago</span>
+                        </div>
+                        <p class="alert-message">Scheduled maintenance for RBT-003 in progress. ETA: 2.5 hours.</p>
+                    </div>
+
+                    <div class="alert-item critical">
+                        <div class="alert-header">
+                            <span class="alert-type">Critical</span>
+                            <span class="alert-time">1h ago</span>
+                        </div>
+                        <p class="alert-message">RBT-012 navigation sensor malfunction detected. Unit auto-parked.</p>
+                    </div>
+
+                    <div class="alert-item info">
+                        <div class="alert-header">
+                            <span class="alert-type">Info</span>
+                            <span class="alert-time">2h ago</span>
+                        </div>
+                        <p class="alert-message">System software update completed successfully across all units.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensor Data -->
+            <div class="card sensor-card">
+                <div class="card-header">
+                    <h2 class="card-title">Live Sensor Data</h2>
+                    <a href="#" class="card-action">Details →</a>
+                </div>
+                <div class="sensors-grid">
+                    <div class="sensor-item">
+                        <div class="sensor-name">Temperature</div>
+                        <div class="sensor-reading">23.4°C</div>
+                        <div class="sensor-bar">
+                            <div class="sensor-fill blue" style="width: 72%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="sensor-item">
+                        <div class="sensor-name">Humidity</div>
+                        <div class="sensor-reading">45.2%</div>
+                        <div class="sensor-bar">
+                            <div class="sensor-fill cyan" style="width: 45%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="sensor-item">
+                        <div class="sensor-name">Power Draw</div>
+                        <div class="sensor-reading">8.4 kW</div>
+                        <div class="sensor-bar">
+                            <div class="sensor-fill green" style="width: 68%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="sensor-item">
+                        <div class="sensor-name">Network Load</div>
+                        <div class="sensor-reading">234 MB/s</div>
+                        <div class="sensor-bar">
+                            <div class="sensor-fill orange" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance Schedule -->
+            <div class="card maintenance-card">
+                <div class="card-header">
+                    <h2 class="card-title">Maintenance Schedule</h2>
+                    <a href="#" class="card-action">Calendar →</a>
+                </div>
+                <div class="maintenance-list">
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">🔧</div>
+                        <div class="maintenance-details">
+                            <div class="maintenance-title">RBT-003 Drive System Check</div>
+                            <div class="maintenance-time">In Progress • Est. 2.5h remaining</div>
+                        </div>
+                        <span class="maintenance-status">Active</span>
+                    </div>
+
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">🔋</div>
+                        <div class="maintenance-details">
+                            <div class="maintenance-title">Battery Pack Replacement - RBT-018</div>
+                            <div class="maintenance-time">Scheduled: Today 16:00</div>
+                        </div>
+                        <span class="maintenance-status">Pending</span>
+                    </div>
+
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">📡</div>
+                        <div class="maintenance-details">
+                            <div class="maintenance-title">Sensor Calibration - Fleet Wide</div>
+                            <div class="maintenance-time">Scheduled: Tomorrow 02:00</div>
+                        </div>
+                        <span class="maintenance-status">Scheduled</span>
+                    </div>
+
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">⚙️</div>
+                        <div class="maintenance-details">
+                            <div class="maintenance-title">Software Update v4.2.1</div>
+                            <div class="maintenance-time">Completed: 2 hours ago</div>
+                        </div>
+                        <span class="maintenance-status">Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="card table-card">
+                <div class="card-header">
+                    <h2 class="card-title">Fleet Performance Overview</h2>
+                    <a href="#" class="card-action">Export Data →</a>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Robot ID</th>
+                                <th>Status</th>
+                                <th>Tasks Today</th>
+                                <th>Efficiency</th>
+                                <th>Battery</th>
+                                <th>Uptime</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-robot-id">RBT-001</td>
+                                <td><span class="table-status operational">Operational</span></td>
+                                <td>52</td>
+                                <td>96%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 87%;"></div>
+                                    </div>
+                                </td>
+                                <td>6.2h</td>
+                                <td><button class="action-button">Control</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-robot-id">RBT-002</td>
+                                <td><span class="table-status operational">Operational</span></td>
+                                <td>48</td>
+                                <td>94%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 92%;"></div>
+                                    </div>
+                                </td>
+                                <td>5.8h</td>
+                                <td><button class="action-button">Control</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-robot-id">RBT-003</td>
+                                <td><span class="table-status maintenance">Maintenance</span></td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 34%;"></div>
+                                    </div>
+                                </td>
+                                <td>0.0h</td>
+                                <td><button class="action-button">Details</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-robot-id">RBT-004</td>
+                                <td><span class="table-status idle">Idle</span></td>
+                                <td>0</td>
+                                <td>—</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>Ready</td>
+                                <td><button class="action-button">Assign</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-robot-id">RBT-005</td>
+                                <td><span class="table-status operational">Operational</span></td>
+                                <td>61</td>
+                                <td>98%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 76%;"></div>
+                                    </div>
+                                </td>
+                                <td>7.1h</td>
+                                <td><button class="action-button">Control</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-robot-id">RBT-006</td>
+                                <td><span class="table-status operational">Operational</span></td>
+                                <td>44</td>
+                                <td>91%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 68%;"></div>
+                                    </div>
+                                </td>
+                                <td>4.9h</td>
+                                <td><button class="action-button">Control</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Platform</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Fleet Management</a></li>
+                    <li><a href="#">Task Orchestration</a></li>
+                    <li><a href="#">Analytics & Reporting</a></li>
+                    <li><a href="#">System Integration</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Technical Support</a></li>
+                    <li><a href="#">Training Materials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About RoboFleet</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Contact Sales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">System Status</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 RoboFleet Control Center. Advanced Robotics Platform. All rights reserved.</p>
+            <div class="footer-cert">
+                <span class="cert-badge">ISO 9001</span>
+                <span class="cert-badge">CE Certified</span>
+                <span class="cert-badge">RoHS Compliant</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

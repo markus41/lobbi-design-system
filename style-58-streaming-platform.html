@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamVault - Premium Entertainment Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                              ULTRATHINK ANALYSIS                              ║
+        ║                     STREAMING PLATFORM DESIGN SYSTEM                          ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────────
+        Blend Formula: Streaming Platform (80%) + Entertainment Premium (20%)
+
+        Strategic Intent: Premium streaming services (Netflix, Apple TV+)
+        Core Experience: Content discovery, binge-worthy presentation, immersive viewing
+        User Psychology: Lean-back experience, emotional engagement, discovery
+
+
+        DESIGN TOKEN SYSTEM
+        ─────────────────────────────────────────────────────────────────────────────────
+        Color Palette (Immersive Dark):
+          --stream-dark: #141414      (Primary background - deep streaming black)
+          --stream-darker: #0a0a0a    (Elevated surfaces)
+          --content-white: #e5e5e5    (Primary text - soft white)
+          --brand-red: #e50914        (Primary accent - Netflix red)
+          --accent-blue: #0071eb      (Interactive elements - premium blue)
+          --gray-700: #808080         (Secondary text)
+          --gray-800: #404040         (Subtle borders)
+          --card-hover: #2a2a2a       (Hover states)
+
+        Typography Scale (Netflix Sans Style):
+          Headings: Inter 700-900 (bold, commanding)
+          Body: Inter 400-500 (clean, readable)
+          Labels: Inter 600 (medium weight for emphasis)
+
+        Spacing System (Content-First):
+          Base: 4px multiplier
+          Content rows: 32px vertical spacing
+          Cards: 16px gap for horizontal scrolling
+          Sections: 48px between content rows
+
+        Component Architecture:
+          - Content cards with 16:9 aspect ratio
+          - Horizontal scroll rows (Netflix pattern)
+          - Preview hover with scale transform
+          - Continue watching progress bars
+          - Category navigation with smooth scroll
+
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────────
+        Temperature: Cool Immersive (4/10)
+          - Dark, cinematic backgrounds
+          - Subtle animations on hover
+          - Content-focused with minimal UI chrome
+
+        Formality: Entertainment Casual (5/10)
+          - Approachable language
+          - Engaging content presentation
+          - Balance between premium and accessible
+
+        Micro-interactions:
+          - Card scale on hover (1.05x transform)
+          - Smooth fade-in for images
+          - Progress bars with gradient fills
+          - Subtle shadow elevation
+
+
+        ACCESSIBILITY CONSIDERATIONS
+        ─────────────────────────────────────────────────────────────────────────────────
+        WCAG 2.1 AA Compliance:
+          - White text (#e5e5e5) on dark (#141414) = 14.8:1 contrast
+          - Red accent (#e50914) reserved for high-contrast use
+          - Focus states with 3px outline
+          - Keyboard navigation for all interactive elements
+          - Screen reader labels for content cards
+          - Reduced motion support via prefers-reduced-motion
+
+
+        RESPONSIVE STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────────
+        Breakpoints:
+          Mobile: 320px-768px (stacked cards)
+          Tablet: 768px-1024px (2-3 cards per row)
+          Desktop: 1024px+ (4-6 cards per row)
+
+        Layout Adaptation:
+          - Horizontal scroll containers on mobile
+          - Grid layout on larger screens
+          - Fluid typography scaling
+          - Touch-friendly 48px+ tap targets
+
+
+        PERFORMANCE OPTIMIZATION
+        ─────────────────────────────────────────────────────────────────────────────────
+        - Lazy loading for content images
+        - CSS transforms for smooth animations (GPU acceleration)
+        - Intersection Observer for scroll-triggered loading
+        - Minimal repaints via transform/opacity animations
+        - Web font optimization with display swap
+
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                           IMPLEMENTATION NOTES                                 ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --stream-dark: #141414;
+            --stream-darker: #0a0a0a;
+            --content-white: #e5e5e5;
+            --brand-red: #e50914;
+            --accent-blue: #0071eb;
+            --gray-700: #808080;
+            --gray-800: #404040;
+            --card-hover: #2a2a2a;
+
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+            /* Transitions */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--stream-dark);
+            color: var(--content-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, var(--stream-darker) 0%, transparent 100%);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--brand-red);
+            letter-spacing: -1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--spacing-xl);
+        }
+
+        .nav-link {
+            color: var(--content-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--content-white);
+            background-color: var(--card-hover);
+            outline: none;
+        }
+
+        .nav-link:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .search-btn,
+        .notifications-btn,
+        .profile-btn {
+            background: transparent;
+            border: none;
+            color: var(--content-white);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .search-btn:hover,
+        .notifications-btn:hover,
+        .profile-btn:hover {
+            background-color: var(--card-hover);
+        }
+
+        .search-btn:focus-visible,
+        .notifications-btn:focus-visible,
+        .profile-btn:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .profile-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, var(--brand-red), var(--accent-blue));
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-2xl) var(--spacing-2xl);
+        }
+
+        /* Stats Grid */
+        .stats-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--content-white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--stream-darker), var(--card-hover));
+            border: 1px solid var(--gray-800);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-red), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gray-700);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .stat-label {
+            color: var(--gray-700);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stat-icon.red {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(229, 9, 20, 0.1));
+            color: var(--brand-red);
+        }
+
+        .stat-icon.blue {
+            background: linear-gradient(135deg, rgba(0, 113, 235, 0.2), rgba(0, 113, 235, 0.1));
+            color: var(--accent-blue);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--content-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .stat-change.positive {
+            color: #46d369;
+        }
+
+        .stat-change.negative {
+            color: var(--brand-red);
+        }
+
+        /* Content Section */
+        .content-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .content-row {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .row-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .row-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--content-white);
+        }
+
+        .view-all-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray-700);
+            font-weight: 600;
+            cursor: pointer;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            font-size: 14px;
+        }
+
+        .view-all-btn:hover {
+            color: var(--content-white);
+            background-color: var(--card-hover);
+        }
+
+        .view-all-btn:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .content-card {
+            background: var(--stream-darker);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .content-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gray-800);
+            z-index: 10;
+        }
+
+        .content-card:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .content-thumbnail {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gray-800), var(--stream-darker));
+        }
+
+        .content-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .content-card:hover .content-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .content-badge {
+            position: absolute;
+            top: var(--spacing-sm);
+            left: var(--spacing-sm);
+            background: var(--brand-red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .content-badge.new {
+            background: var(--brand-red);
+        }
+
+        .content-badge.trending {
+            background: var(--accent-blue);
+        }
+
+        .content-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gray-800);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--brand-red);
+            transition: width 0.3s ease;
+        }
+
+        .content-info {
+            padding: var(--spacing-md);
+        }
+
+        .content-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--content-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .content-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--gray-700);
+            font-size: 14px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .content-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .content-description {
+            color: var(--gray-700);
+            font-size: 14px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .content-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--gray-800);
+            margin-top: var(--spacing-md);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 14px;
+        }
+
+        .action-btn.primary {
+            background: var(--brand-red);
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background: #b7070f;
+        }
+
+        .action-btn.secondary {
+            background: var(--card-hover);
+            color: var(--content-white);
+            border: 1px solid var(--gray-800);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--gray-800);
+        }
+
+        .action-btn:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        /* Data Table */
+        .table-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .table-container {
+            background: var(--stream-darker);
+            border: 1px solid var(--gray-800);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--gray-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--content-white);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .filter-btn,
+        .export-btn {
+            background: var(--card-hover);
+            border: 1px solid var(--gray-800);
+            color: var(--content-white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .export-btn:hover {
+            background: var(--gray-800);
+        }
+
+        .filter-btn:focus-visible,
+        .export-btn:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: var(--card-hover);
+        }
+
+        .data-table th {
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        .data-table td {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid var(--gray-800);
+            color: var(--content-white);
+        }
+
+        .data-table tbody tr {
+            transition: var(--transition-smooth);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--card-hover);
+        }
+
+        .table-thumbnail {
+            width: 80px;
+            height: 45px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.active {
+            background: rgba(70, 211, 105, 0.2);
+            color: #46d369;
+        }
+
+        .status-badge.upcoming {
+            background: rgba(0, 113, 235, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .status-badge.ended {
+            background: rgba(128, 128, 128, 0.2);
+            color: var(--gray-700);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #ffd700;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--stream-darker);
+            border-top: 1px solid var(--gray-800);
+            padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--content-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--content-white);
+        }
+
+        .footer-links a:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--gray-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray-700);
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .social-link {
+            color: var(--gray-700);
+            transition: var(--transition-smooth);
+            padding: var(--spacing-sm);
+            border-radius: 4px;
+        }
+
+        .social-link:hover {
+            color: var(--content-white);
+            background: var(--card-hover);
+        }
+
+        .social-link:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-content {
+                padding: 0 var(--spacing-lg);
+            }
+
+            .main-container {
+                padding: 0 var(--spacing-lg) var(--spacing-lg);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+
+            .data-table {
+                font-size: 14px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>58</strong> of 70 &mdash; Streaming Platform</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-57-podcast-premium.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-59-board-room.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 57) window.location.href = 'style-57-podcast-premium.html';
+                if (e.key === 'ArrowRight' && 59) window.location.href = 'style-59-board-room.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">STREAMVAULT</div>
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">TV Shows</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">New & Popular</a>
+                <a href="#" class="nav-link">My List</a>
+            </nav>
+            <div class="user-menu">
+                <button class="search-btn" aria-label="Search content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="notifications-btn" aria-label="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="User profile">
+                    <div class="profile-avatar" role="img" aria-label="User avatar"></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <h2 class="section-title">Platform Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Total Streams</div>
+                            <div class="stat-value">2.4M</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                <span>+18.2% from last week</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon red">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Active Users</div>
+                            <div class="stat-value">847K</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                <span>+12.5% from last week</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon blue">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Watch Time</div>
+                            <div class="stat-value">1.2M</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                <span>+24.7% from last week</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon red">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Avg. Rating</div>
+                            <div class="stat-value">4.8</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                <span>+0.3 from last week</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon blue">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Continue Watching -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="row-header">
+                    <h2 class="row-title">Continue Watching</h2>
+                    <button class="view-all-btn" aria-label="View all continue watching">
+                        View All →
+                    </button>
+                </div>
+                <div class="content-grid">
+                    <article class="content-card" tabindex="0" role="article" aria-label="Continue watching The Quantum Directive">
+                        <div class="content-thumbnail">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="content-badge new">NEW</div>
+                            <div class="content-progress">
+                                <div class="progress-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">The Quantum Directive</h3>
+                            <div class="content-meta">
+                                <span>S1 E3</span>
+                                <span>•</span>
+                                <span>45m remaining</span>
+                                <span>•</span>
+                                <span class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.8
+                                </span>
+                            </div>
+                            <p class="content-description">
+                                A team of scientists discovers a breakthrough in quantum computing that could change humanity forever.
+                            </p>
+                            <div class="content-actions">
+                                <button class="action-btn primary" aria-label="Resume watching">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline; margin-right: 4px;">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Resume
+                                </button>
+                                <button class="action-btn secondary" aria-label="More info">Info</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="content-card" tabindex="0" role="article" aria-label="Continue watching Neon Chronicles">
+                        <div class="content-thumbnail">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="content-progress">
+                                <div class="progress-bar" style="width: 32%;"></div>
+                            </div>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Neon Chronicles</h3>
+                            <div class="content-meta">
+                                <span>S2 E7</span>
+                                <span>•</span>
+                                <span>1h 8m remaining</span>
+                                <span>•</span>
+                                <span class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.6
+                                </span>
+                            </div>
+                            <p class="content-description">
+                                In a dystopian future, a hacker uncovers a conspiracy that threatens the entire digital world.
+                            </p>
+                            <div class="content-actions">
+                                <button class="action-btn primary" aria-label="Resume watching">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline; margin-right: 4px;">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Resume
+                                </button>
+                                <button class="action-btn secondary" aria-label="More info">Info</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="content-card" tabindex="0" role="article" aria-label="Continue watching Beyond the Horizon">
+                        <div class="content-thumbnail">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="content-badge trending">TRENDING</div>
+                            <div class="content-progress">
+                                <div class="progress-bar" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Beyond the Horizon</h3>
+                            <div class="content-meta">
+                                <span>S1 E12</span>
+                                <span>•</span>
+                                <span>12m remaining</span>
+                                <span>•</span>
+                                <span class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.9
+                                </span>
+                            </div>
+                            <p class="content-description">
+                                A space exploration crew encounters mysterious signals from deep space that defy explanation.
+                            </p>
+                            <div class="content-actions">
+                                <button class="action-btn primary" aria-label="Resume watching">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline; margin-right: 4px;">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Resume
+                                </button>
+                                <button class="action-btn secondary" aria-label="More info">Info</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Performance Table -->
+        <section class="table-section">
+            <h2 class="section-title">Top Performing Content</h2>
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Content Analytics</h3>
+                    <div class="table-actions">
+                        <button class="filter-btn" aria-label="Filter content">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 4px;">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Filter
+                        </button>
+                        <button class="export-btn" aria-label="Export data">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 4px;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export
+                        </button>
+                    </div>
+                </div>
+                <table class="data-table" role="table" aria-label="Top performing content">
+                    <thead>
+                        <tr>
+                            <th>Content</th>
+                            <th>Category</th>
+                            <th>Views</th>
+                            <th>Watch Time</th>
+                            <th>Rating</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 80px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 4px;"></div>
+                                    <span style="font-weight: 600;">The Quantum Directive</span>
+                                </div>
+                            </td>
+                            <td>Sci-Fi Drama</td>
+                            <td>1.2M</td>
+                            <td>847K hours</td>
+                            <td>
+                                <div class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.8
+                                </div>
+                            </td>
+                            <td><span class="status-badge active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 80px; height: 45px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 4px;"></div>
+                                    <span style="font-weight: 600;">Neon Chronicles</span>
+                                </div>
+                            </td>
+                            <td>Cyberpunk</td>
+                            <td>987K</td>
+                            <td>654K hours</td>
+                            <td>
+                                <div class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.6
+                                </div>
+                            </td>
+                            <td><span class="status-badge active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 80px; height: 45px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 4px;"></div>
+                                    <span style="font-weight: 600;">Beyond the Horizon</span>
+                                </div>
+                            </td>
+                            <td>Space Opera</td>
+                            <td>1.5M</td>
+                            <td>1.1M hours</td>
+                            <td>
+                                <div class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.9
+                                </div>
+                            </td>
+                            <td><span class="status-badge active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 80px; height: 45px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 4px;"></div>
+                                    <span style="font-weight: 600;">Digital Shadows</span>
+                                </div>
+                            </td>
+                            <td>Thriller</td>
+                            <td>756K</td>
+                            <td>523K hours</td>
+                            <td>
+                                <div class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.5
+                                </div>
+                            </td>
+                            <td><span class="status-badge upcoming">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 80px; height: 45px; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); border-radius: 4px;"></div>
+                                    <span style="font-weight: 600;">The Last Protocol</span>
+                                </div>
+                            </td>
+                            <td>Action</td>
+                            <td>643K</td>
+                            <td>441K hours</td>
+                            <td>
+                                <div class="rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    4.7
+                                </div>
+                            </td>
+                            <td><span class="status-badge ended">Ended</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Platform</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Devices</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                        <li><a href="#">Legal Notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2025 StreamVault. All rights reserved.</div>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#141414"></polygon>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

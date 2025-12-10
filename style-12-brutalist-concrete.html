@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 12: Brutalist + Concrete Minimal</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Web Brutalism (75%) + Concrete Material (25%)                    ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Both raw/honest = 4 (intentionally uncomfortable)          ║
+    ║  • Era: Anti-design modern + Brutalist architecture = Strong             ║
+    ║  • Texture: Raw HTML + Concrete textures = Perfect alignment             ║
+    ║  • Temperature: Both cold/neutral = 3 (intentionally stark)              ║
+    ║  • Ornamentation: Both reject decoration = Perfect match                 ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Radical honesty through rawness. No decoration, no polish, no          ║
+    ║  pretense. Exposed structure, monospace type, concrete textures.         ║
+    ║  This is architecture's Brutalism translated to digital - celebrating    ║
+    ║  the raw materials of the web: HTML, CSS, plain text.                    ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Monospace type, stark black/white, raw borders               ║
+    ║  • Secondary: Concrete textures, brutalist gray scale                    ║
+    ║                                                                           ║
+    ║  USE CASES: Avant-garde portfolios, Architecture firms, Art galleries,   ║
+    ║             Developer tools, Open source projects, Anti-corporate brands ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brutalist Concrete Palette */
+            --concrete-100: #f5f5f5;
+            --concrete-200: #e5e5e5;
+            --concrete-300: #d4d4d4;
+            --concrete-400: #a3a3a3;
+            --concrete-500: #737373;
+            --concrete-600: #525252;
+            --concrete-700: #404040;
+            --concrete-800: #262626;
+            --concrete-900: #171717;
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+
+            /* Accent */
+            --accent-red: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--concrete-100);
+            color: var(--pure-black);
+            min-height: 100vh;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Concrete texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 1rem 2rem;
+            border-bottom: 4px solid var(--pure-black);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            gap: 0;
+        }
+
+        .nav a {
+            color: var(--concrete-400);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--pure-white);
+            background: var(--concrete-800);
+            border-color: var(--pure-white);
+        }
+
+        /* === MAIN === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--pure-black);
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .page-subtitle {
+            color: var(--concrete-600);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 2rem;
+            border: 2px solid var(--pure-black);
+        }
+
+        .stat-card {
+            background: var(--pure-white);
+            padding: 1.5rem;
+            border-right: 2px solid var(--pure-black);
+            position: relative;
+        }
+
+        .stat-card:last-child {
+            border-right: none;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--pure-black);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .stat-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--concrete-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* === CARDS === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-bottom: 2rem;
+            border: 2px solid var(--pure-black);
+        }
+
+        .card {
+            background: var(--pure-white);
+            border-right: 2px solid var(--pure-black);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .card:last-child {
+            border-right: none;
+        }
+
+        .card:hover {
+            background: var(--concrete-900);
+            color: var(--pure-white);
+        }
+
+        .card:hover .card-title {
+            color: var(--pure-white);
+        }
+
+        .card:hover .btn-primary {
+            background: var(--pure-white);
+            color: var(--pure-black);
+        }
+
+        .card:hover .btn-ghost {
+            border-color: var(--pure-white);
+            color: var(--pure-white);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--pure-black);
+            transition: color 0.2s ease;
+        }
+
+        .card-badge {
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 0.125rem 0.5rem;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-content {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: inherit;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 0.5rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 2px solid var(--pure-black);
+        }
+
+        .btn-primary {
+            background: var(--pure-black);
+            color: var(--pure-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--pure-black);
+        }
+
+        .btn-ghost:hover {
+            background: var(--pure-black);
+            color: var(--pure-white);
+        }
+
+        /* === TABLE === */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pure-black);
+        }
+
+        .table-container {
+            background: var(--pure-white);
+            border: 2px solid var(--pure-black);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--concrete-300);
+            font-size: 0.8125rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--concrete-100);
+        }
+
+        .status-active {
+            color: var(--pure-black);
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: var(--pure-black);
+            color: var(--pure-white);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-meta {
+            margin-top: 0.5rem;
+            font-size: 0.6875rem;
+            color: var(--concrete-500);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-card:nth-child(2) {
+                border-right: none;
+            }
+            .stat-card:nth-child(1),
+            .stat-card:nth-child(2) {
+                border-bottom: 2px solid var(--pure-black);
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                border-right: none;
+                border-bottom: 2px solid var(--pure-black);
+            }
+            .card:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-card {
+                border-right: none;
+                border-bottom: 2px solid var(--pure-black);
+            }
+            .stat-card:last-child {
+                border-bottom: none;
+            }
+            .nav { display: none; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>12</strong> of 70 &mdash; Brutalist + Concrete Minimal</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-11-solarpunk-biophilic.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-13-quiet-luxury.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 11) window.location.href = 'style-11-solarpunk-biophilic.html';
+                if (e.key === 'ArrowRight' && 13) window.location.href = 'style-13-quiet-luxury.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">LOBBI_</div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+                <a href="#">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Association Management Interface // v2.0.1</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Members</div>
+                <div class="stat-value">2,847</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Monthly Revenue</div>
+                <div class="stat-value">$124K</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Events</div>
+                <div class="stat-value">18</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Retention Rate</div>
+                <div class="stat-value">94%</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Annual Conference 2025</h3>
+                    <span class="card-badge">Featured</span>
+                </div>
+                <p class="card-content">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities for industry professionals.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-ghost">Register</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Membership Renewal</h3>
+                    <span class="card-badge">Action</span>
+                </div>
+                <p class="card-content">247 members have renewals coming up this month. Send automated reminders to maintain your retention rate.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Send Reminders</button>
+                    <button class="btn btn-ghost">View List</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Q4 Financial Report</h3>
+                    <span class="card-badge">New</span>
+                </div>
+                <p class="card-content">Your quarterly financial summary is ready for review. Revenue increased 12% compared to last quarter.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-ghost">Share</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Timestamp</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Premium)</td>
+                        <td>2025-12-09 14:32:15</td>
+                        <td class="status-active">[COMPLETE]</td>
+                    </tr>
+                    <tr>
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>2025-12-09 13:15:42</td>
+                        <td class="status-active">[CONFIRMED]</td>
+                    </tr>
+                    <tr>
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>2025-12-08 16:48:33</td>
+                        <td class="status-pending">[PENDING]</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>2025-12-08 11:22:07</td>
+                        <td class="status-active">[COMPLETE]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 12: Brutalist + Concrete</p>
+        <p class="footer-meta">Raw structure, honest materials // No decoration, no pretense</p>
+    </footer>
+</body>
+</html>

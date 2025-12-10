@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Real Estate Dashboard | Portfolio Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                              ULTRATHINK DESIGN ANALYSIS                       ║
+        ║                         REAL ESTATE LUXURY DASHBOARD                          ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        Inspired by Sotheby's International Realty, Christie's Real Estate, and high-end
+        property platforms. This design establishes aspirational, gallery-like presentation
+        that positions properties as exclusive investment opportunities and lifestyle
+        statements.
+
+        BLEND COMPOSITION:
+        • Real Estate Luxury (75%): Cinematic property presentation, warm elegance,
+          exclusive positioning, high-value aesthetic
+        • Photography Focus (25%): Large visual hierarchy, image-forward layout,
+          gallery-inspired spacing, portfolio presentation
+
+        COLOR PSYCHOLOGY:
+        • Charcoal #2d2d2d: Sophisticated foundation, executive presence
+        • Warm White #faf8f5: Inviting elegance, premium paper quality
+        • Rose Gold #b76e79: Exclusive accent, feminine luxury, aspirational touch
+        • Cream #f5f0e8: Soft warmth, approachable refinement
+
+        TYPOGRAPHY STRATEGY:
+        • Raleway: Modern elegance with geometric precision, light weights create
+          aspirational spaciousness
+        • Cormorant Garamond: Serif accent for property names, editorial sophistication
+        • Weight hierarchy: 200-300 for luxury feel, 500-600 for emphasis
+
+        SPATIAL ARCHITECTURE:
+        • Cinematic margins (60-80px) create gallery-like breathing room
+        • Dramatic negative space positions content as curated selections
+        • Image-to-text ratio favors large visuals (60:40)
+        • Vertical rhythm matches property photography aspect ratios
+
+        COMPONENT HIERARCHY:
+        1. Hero imagery with minimal overlays (photography-first)
+        2. Property cards with dominant image areas (3:2 ratio)
+        3. Elegant CTAs with rose gold accents
+        4. Clean data presentation without visual competition
+        5. Subtle map integration opportunities
+
+        USER PSYCHOLOGY:
+        • Temperature: 6/10 (Warm Aspirational)
+          - Inviting yet exclusive, approachable luxury
+          - Cream tones create comfort without casualness
+          - Rose gold suggests attainability of luxury
+
+        • Formality: 8/10 (High Elegant)
+          - Sophisticated without intimidation
+          - Professional trust-building through restraint
+          - Executive-level presentation
+
+        COMPETITIVE DIFFERENTIATION:
+        vs. Zillow/Realtor.com: Far more sophisticated, curated vs. catalog
+        vs. Sotheby's: Matches elegance, adds modern warmth
+        vs. Douglas Elliman: More photography-focused, less corporate
+
+        CONVERSION OPTIMIZATION:
+        • Large imagery builds emotional connection before data
+        • Rose gold CTAs create gentle urgency without pressure
+        • Spacious layouts reduce cognitive load
+        • Elegant data tables build trust through transparency
+
+        ACCESSIBILITY CONSIDERATIONS:
+        • 4.5:1 contrast ratio maintained (charcoal on cream)
+        • Rose gold used as accent only, never sole indicator
+        • Generous spacing aids readability
+        • Clear hierarchy supports screen readers
+
+        BRAND ALIGNMENT:
+        Positions platform as:
+        • Exclusive yet accessible
+        • Photography-forward storytelling
+        • High-end without pretension
+        • Investment-grade professional presentation
+
+        IMPLEMENTATION NOTES:
+        • Image placeholders sized for property photography (3:2, 16:9)
+        • Hover states subtle (luxury doesn't shout)
+        • Micro-interactions minimal (confidence over cleverness)
+        • Mobile-first would require significant image hierarchy adjustments
+
+        SUCCESS METRICS:
+        • Time on page (visual engagement)
+        • Property detail click-through rate
+        • Contact form conversion
+        • Repeat visitor rate
+
+        EMOTIONAL JOURNEY:
+        Entry → Aspiration (large imagery) → Curiosity (property cards) →
+        Trust (data transparency) → Desire (elegant CTAs) → Action (contact)
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --charcoal: #2d2d2d;
+            --warm-white: #faf8f5;
+            --rose-gold: #b76e79;
+            --cream: #f5f0e8;
+            --divider: rgba(183, 110, 121, 0.15);
+            --shadow-soft: 0 8px 32px rgba(45, 45, 45, 0.08);
+            --shadow-elevated: 0 16px 48px rgba(45, 45, 45, 0.12);
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* Header - Elegant Navigation */
+        .header {
+            background: var(--cream);
+            border-bottom: 1px solid var(--divider);
+            padding: 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--charcoal);
+        }
+
+        .logo-accent {
+            color: var(--rose-gold);
+            font-weight: 400;
+        }
+
+        .nav {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--rose-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--rose-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background: var(--rose-gold);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-cta:hover {
+            background: #a35d68;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 60px 60px 80px;
+        }
+
+        /* Page Title Section */
+        .page-title-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            margin-bottom: 16px;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+
+        .page-description {
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(45, 45, 45, 0.7);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Stats Grid - Premium Metrics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 48px 36px;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--divider);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 300;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, 0.6);
+        }
+
+        .stat-change {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--rose-gold);
+            letter-spacing: 1px;
+        }
+
+        /* Property Cards - Photography Forward */
+        .content-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--charcoal);
+        }
+
+        .view-all-link {
+            color: var(--rose-gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .view-all-link:hover {
+            gap: 12px;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid var(--divider);
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, var(--cream), #e8e0d5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(45, 45, 45, 0.1);
+            border-radius: 50%;
+        }
+
+        .property-image::after {
+            content: '⌂';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: rgba(45, 45, 45, 0.15);
+            font-family: serif;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+        }
+
+        .property-info {
+            padding: 36px 32px;
+        }
+
+        .property-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .property-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .property-location {
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(45, 45, 45, 0.6);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--divider);
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .feature-value {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .feature-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, 0.5);
+        }
+
+        /* Data Table - Elegant Listings */
+        .table-section {
+            margin-bottom: 80px;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--divider);
+        }
+
+        .table-header {
+            padding: 32px 36px;
+            border-bottom: 1px solid var(--divider);
+            background: var(--cream);
+        }
+
+        .table-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .table-subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(45, 45, 45, 0.6);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--warm-white);
+        }
+
+        th {
+            text-align: left;
+            padding: 24px 36px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, 0.7);
+            border-bottom: 2px solid var(--divider);
+        }
+
+        td {
+            padding: 28px 36px;
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--charcoal);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--warm-white);
+        }
+
+        .table-property-name {
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        .table-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .table-status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: rgba(183, 110, 121, 0.1);
+            color: var(--rose-gold);
+        }
+
+        .status-pending {
+            background: rgba(45, 45, 45, 0.08);
+            color: rgba(45, 45, 45, 0.7);
+        }
+
+        .status-sold {
+            background: rgba(45, 45, 45, 0.05);
+            color: rgba(45, 45, 45, 0.5);
+        }
+
+        /* Footer - Refined Presence */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(250, 248, 245, 0.8);
+            padding: 80px 60px 40px;
+            margin-top: 120px;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 360px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--warm-white);
+            margin-bottom: 24px;
+        }
+
+        .footer-description {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(250, 248, 245, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(250, 248, 245, 0.6);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .social-link:hover {
+            background: var(--rose-gold);
+            border-color: var(--rose-gold);
+            color: white;
+        }
+
+        .footer-section-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--warm-white);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-link {
+            color: rgba(250, 248, 245, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-link:hover {
+            color: var(--rose-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(250, 248, 245, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(250, 248, 245, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-legal a {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(250, 248, 245, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-legal a:hover {
+            color: var(--rose-gold);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1400px) {
+            .container {
+                padding: 50px 40px 60px;
+            }
+
+            .header {
+                padding: 0 40px;
+            }
+
+            .footer {
+                padding: 60px 40px 32px;
+            }
+
+            .property-grid {
+                gap: 36px;
+            }
+
+            .stats-grid {
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+
+            .nav {
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 42px;
+            }
+
+            .container {
+                padding: 40px 24px;
+            }
+
+            .header {
+                padding: 0 24px;
+            }
+
+            .footer {
+                padding: 48px 24px 24px;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>26</strong> of 70 &mdash; Real Estate Luxury</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-25-crypto-luxury.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-27-consulting-elite.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 25) window.location.href = 'style-25-crypto-luxury.html';
+                if (e.key === 'ArrowRight' && 27) window.location.href = 'style-27-consulting-elite.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                ESTATE <span class="logo-accent">PORTFOLIO</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Properties</a>
+                <a href="#" class="nav-link">Neighborhoods</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">About</a>
+                <button class="header-cta">Schedule Viewing</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Page Title Section -->
+        <section class="page-title-section">
+            <div class="page-subtitle">Portfolio Dashboard</div>
+            <h1 class="page-title">Curated Luxury Properties</h1>
+            <p class="page-description">
+                Exceptional residences presented with the sophistication they deserve.
+                Explore our carefully selected collection of distinctive properties in the world's most coveted locations.
+            </p>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$847M</div>
+                <div class="stat-label">Portfolio Value</div>
+                <div class="stat-change">↑ 12.4% This Quarter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">142</div>
+                <div class="stat-label">Active Listings</div>
+                <div class="stat-change">↑ 8 New This Week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">38</div>
+                <div class="stat-label">Sales Closed</div>
+                <div class="stat-change">↑ 15.2% vs Last Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$5.9M</div>
+                <div class="stat-label">Average Price</div>
+                <div class="stat-change">↑ 7.1% Year over Year</div>
+            </div>
+        </section>
+
+        <!-- Featured Properties -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Estates</h2>
+                <a href="#" class="view-all-link">
+                    View All Properties →
+                </a>
+            </div>
+            <div class="property-grid">
+                <article class="property-card">
+                    <div class="property-image">
+                        <span class="property-badge">New Listing</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$12,500,000</div>
+                        <h3 class="property-title">Waterfront Estate</h3>
+                        <p class="property-location">Malibu, California</p>
+                        <div class="property-features">
+                            <div class="feature-item">
+                                <span class="feature-value">6</span>
+                                <span class="feature-label">Bedrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">8</span>
+                                <span class="feature-label">Bathrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">9,450</span>
+                                <span class="feature-label">Sq Ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="property-card">
+                    <div class="property-image">
+                        <span class="property-badge">Exclusive</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$8,750,000</div>
+                        <h3 class="property-title">Modern Masterpiece</h3>
+                        <p class="property-location">Beverly Hills, California</p>
+                        <div class="property-features">
+                            <div class="feature-item">
+                                <span class="feature-value">5</span>
+                                <span class="feature-label">Bedrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">7</span>
+                                <span class="feature-label">Bathrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">7,200</span>
+                                <span class="feature-label">Sq Ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="property-card">
+                    <div class="property-image">
+                        <span class="property-badge">Featured</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$6,950,000</div>
+                        <h3 class="property-title">Historic Residence</h3>
+                        <p class="property-location">San Francisco, California</p>
+                        <div class="property-features">
+                            <div class="feature-item">
+                                <span class="feature-value">4</span>
+                                <span class="feature-label">Bedrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">5</span>
+                                <span class="feature-label">Bathrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-value">5,800</span>
+                                <span class="feature-label">Sq Ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Property Listings Table -->
+        <section class="table-section">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title">Complete Portfolio</h2>
+                    <p class="table-subtitle">All active listings and recent transactions</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Beds/Baths</th>
+                            <th>Square Feet</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-property-name">Oceanview Villa</td>
+                            <td>Newport Beach, CA</td>
+                            <td>Single Family</td>
+                            <td class="table-price">$15,200,000</td>
+                            <td>7 / 9</td>
+                            <td>11,250</td>
+                            <td><span class="table-status status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Penthouse Suite</td>
+                            <td>Manhattan, NY</td>
+                            <td>Condominium</td>
+                            <td class="table-price">$22,500,000</td>
+                            <td>4 / 5</td>
+                            <td>6,800</td>
+                            <td><span class="table-status status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Ranch Estate</td>
+                            <td>Aspen, CO</td>
+                            <td>Ranch</td>
+                            <td class="table-price">$18,750,000</td>
+                            <td>6 / 8</td>
+                            <td>12,500</td>
+                            <td><span class="table-status status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Mediterranean Villa</td>
+                            <td>Palm Beach, FL</td>
+                            <td>Single Family</td>
+                            <td class="table-price">$9,850,000</td>
+                            <td>5 / 6</td>
+                            <td>8,200</td>
+                            <td><span class="table-status status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Modern Retreat</td>
+                            <td>Seattle, WA</td>
+                            <td>Single Family</td>
+                            <td class="table-price">$7,200,000</td>
+                            <td>4 / 5</td>
+                            <td>6,500</td>
+                            <td><span class="table-status status-sold">Sold</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Lakefront Manor</td>
+                            <td>Lake Tahoe, CA</td>
+                            <td>Single Family</td>
+                            <td class="table-price">$11,400,000</td>
+                            <td>6 / 7</td>
+                            <td>9,800</td>
+                            <td><span class="table-status status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Urban Loft</td>
+                            <td>Chicago, IL</td>
+                            <td>Loft</td>
+                            <td class="table-price">$4,950,000</td>
+                            <td>3 / 4</td>
+                            <td>4,200</td>
+                            <td><span class="table-status status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td class="table-property-name">Coastal Sanctuary</td>
+                            <td>Charleston, SC</td>
+                            <td>Single Family</td>
+                            <td class="table-price">$8,100,000</td>
+                            <td>5 / 6</td>
+                            <td>7,600</td>
+                            <td><span class="table-status status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">ESTATE PORTFOLIO</div>
+                <p class="footer-description">
+                    Distinguished real estate services for discerning clients.
+                    Representing exceptional properties with unparalleled expertise and discretion.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-link" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">IN</a>
+                    <a href="#" class="social-link" aria-label="Twitter">TW</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Explore</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Luxury Homes</a>
+                    <a href="#" class="footer-link">Waterfront Properties</a>
+                    <a href="#" class="footer-link">New Developments</a>
+                    <a href="#" class="footer-link">Investment Opportunities</a>
+                    <a href="#" class="footer-link">International Properties</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Services</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Property Search</a>
+                    <a href="#" class="footer-link">Market Analysis</a>
+                    <a href="#" class="footer-link">Private Showings</a>
+                    <a href="#" class="footer-link">Concierge Services</a>
+                    <a href="#" class="footer-link">Advisory</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Connect</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Schedule Viewing</a>
+                    <a href="#" class="footer-link">Request Information</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Press</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Estate Portfolio. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

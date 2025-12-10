@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER COMMAND CENTER - Style 94</title>
+    <style>
+        /* ==========================================
+           STYLE 94: CYBER COMMAND CENTER
+           Blend: Mission Control (60%) + Cyberpunk (25%) + Military (15%)
+           Temperature: 2 | Formality: 9
+           ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cyberpunk Color Palette */
+            --cyber-cyan: #00ffff;
+            --cyber-magenta: #ff00ff;
+            --cyber-blue: #0080ff;
+            --cyber-purple: #8000ff;
+            --cyber-green: #00ff80;
+            --cyber-red: #ff0040;
+            --cyber-yellow: #ffff00;
+
+            /* Base Colors */
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #0f1420;
+            --bg-tertiary: #151b2b;
+            --bg-panel: #1a2233;
+            --bg-hover: #1f2840;
+
+            /* Text Colors */
+            --text-primary: #e0e6f0;
+            --text-secondary: #9ca8bc;
+            --text-muted: #6b7894;
+            --text-header: #ffffff;
+
+            /* Border Colors */
+            --border-primary: #2a3548;
+            --border-accent: var(--cyber-cyan);
+            --border-glow: rgba(0, 255, 255, 0.3);
+
+            /* Status Colors */
+            --status-critical: #ff0040;
+            --status-warning: #ffa500;
+            --status-operational: #00ff80;
+            --status-offline: #666666;
+
+            /* Shadows */
+            --shadow-glow: 0 0 20px rgba(0, 255, 255, 0.2);
+            --shadow-glow-magenta: 0 0 20px rgba(255, 0, 255, 0.2);
+            --shadow-text: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Main Container */
+        .command-center {
+            position: relative;
+            z-index: 1;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+            animation: scanLine 3s linear infinite;
+        }
+
+        @keyframes scanLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--cyber-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: var(--shadow-text);
+        }
+
+        .system-badge {
+            background: var(--bg-panel);
+            border: 1px solid var(--cyber-magenta);
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            color: var(--cyber-magenta);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-glow-magenta);
+        }
+
+        .header-status {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .system-time {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .current-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-radius: 3px;
+        }
+
+        .user-badge {
+            width: 8px;
+            height: 8px;
+            background: var(--cyber-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cyber-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .user-info {
+            font-size: 12px;
+            color: var(--text-primary);
+        }
+
+        /* Threat Level Indicators */
+        .threat-levels {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .threat-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-radius: 3px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .threat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--threat-color);
+            box-shadow: 0 0 10px var(--threat-color);
+        }
+
+        .threat-card:hover {
+            border-color: var(--threat-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .threat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .threat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--threat-color);
+            text-shadow: 0 0 10px var(--threat-color);
+        }
+
+        .threat-status {
+            font-size: 9px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Security Monitor Panel */
+        .security-monitor {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .panel-header {
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-accent);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cyber-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-title::before {
+            content: '▶';
+            color: var(--cyber-cyan);
+            font-size: 10px;
+            animation: blink 1.5s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .panel-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-radius: 2px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            border-color: var(--cyber-cyan);
+            color: var(--cyber-cyan);
+            background: var(--bg-hover);
+        }
+
+        .panel-content {
+            padding: 20px;
+        }
+
+        /* Network Visualization */
+        .network-viz {
+            height: 300px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .network-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--node-color);
+            border: 2px solid var(--node-color);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--node-color);
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .network-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+            transform-origin: left center;
+            animation: dataFlow 2s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .metric-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-left: 3px solid var(--metric-color);
+            border-radius: 3px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--metric-color);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+        }
+
+        .metric-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--metric-color);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .metric-change {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .metric-change.positive {
+            color: var(--cyber-green);
+        }
+
+        .metric-change.negative {
+            color: var(--status-critical);
+        }
+
+        /* Access Control Panel */
+        .access-control {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-glow-magenta);
+        }
+
+        .access-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .access-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .access-list::-webkit-scrollbar-track {
+            background: var(--bg-panel);
+        }
+
+        .access-list::-webkit-scrollbar-thumb {
+            background: var(--cyber-magenta);
+            border-radius: 4px;
+        }
+
+        .access-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .access-item:hover {
+            background: var(--bg-hover);
+        }
+
+        .access-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .access-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-magenta));
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+
+        .access-details {
+            flex: 1;
+        }
+
+        .access-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .access-role {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .access-status {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 2px;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid;
+        }
+
+        .status-badge.active {
+            background: rgba(0, 255, 128, 0.1);
+            border-color: var(--cyber-green);
+            color: var(--cyber-green);
+        }
+
+        .status-badge.restricted {
+            background: rgba(255, 165, 0, 0.1);
+            border-color: var(--status-warning);
+            color: var(--status-warning);
+        }
+
+        .status-badge.offline {
+            background: rgba(102, 102, 102, 0.1);
+            border-color: var(--status-offline);
+            color: var(--status-offline);
+        }
+
+        .access-time {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Activity Log Section */
+        .activity-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .activity-log {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .log-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .log-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .log-container::-webkit-scrollbar-track {
+            background: var(--bg-panel);
+        }
+
+        .log-container::-webkit-scrollbar-thumb {
+            background: var(--cyber-cyan);
+            border-radius: 4px;
+        }
+
+        .log-entry {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-primary);
+            display: grid;
+            grid-template-columns: 80px auto 100px;
+            gap: 15px;
+            align-items: start;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .log-entry:hover {
+            background: var(--bg-hover);
+        }
+
+        .log-time {
+            color: var(--text-muted);
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .log-message {
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .log-type {
+            text-align: right;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .log-type.security {
+            color: var(--cyber-magenta);
+        }
+
+        .log-type.system {
+            color: var(--cyber-cyan);
+        }
+
+        .log-type.access {
+            color: var(--cyber-green);
+        }
+
+        .log-type.alert {
+            color: var(--status-critical);
+        }
+
+        /* System Status Panel */
+        .system-status {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .status-grid {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .status-item {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-primary);
+            border-radius: 3px;
+            padding: 15px;
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-name {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--indicator-color);
+            box-shadow: 0 0 10px var(--indicator-color);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .status-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--fill-color), var(--fill-color-light));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--fill-color);
+        }
+
+        .status-percentage {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        /* Bottom Stats Section */
+        .bottom-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--stat-color);
+            box-shadow: 0 0 10px var(--stat-color);
+        }
+
+        .stat-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--stat-color));
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--stat-color);
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px var(--stat-color);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Terminal Output */
+        .terminal-output {
+            background: var(--bg-panel);
+            border: 1px solid var(--cyber-green);
+            border-radius: 3px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: var(--cyber-green);
+            line-height: 1.6;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 128, 0.1);
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+
+        .terminal-prompt {
+            color: var(--cyber-cyan);
+        }
+
+        /* Animations */
+        @keyframes scanLineVertical {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .scanning-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scanning-effect::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(0, 255, 255, 0.1) 50%,
+                transparent 100%);
+            animation: scanLineVertical 4s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-section {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .threat-levels {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .log-entry {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .header-title h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* Critical Alert Banner */
+        .alert-banner {
+            background: linear-gradient(90deg, rgba(255, 0, 64, 0.2), rgba(255, 0, 64, 0.05));
+            border: 1px solid var(--status-critical);
+            border-radius: 4px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: alertPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes alertPulse {
+            0%, 100% { border-color: var(--status-critical); }
+            50% { border-color: rgba(255, 0, 64, 0.3); }
+        }
+
+        .alert-icon {
+            color: var(--status-critical);
+            font-size: 24px;
+            animation: blink 1s step-end infinite;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--status-critical);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .alert-message {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .alert-dismiss {
+            padding: 6px 12px;
+            background: rgba(255, 0, 64, 0.1);
+            border: 1px solid var(--status-critical);
+            border-radius: 2px;
+            color: var(--status-critical);
+            font-size: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .alert-dismiss:hover {
+            background: rgba(255, 0, 64, 0.2);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>94</strong> of 120 &mdash; Cyber Command</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-93-luxury-concierge.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-95-organic-wellness.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 93) window.location.href = 'style-93-luxury-concierge.html';
+                if (e.key === 'ArrowRight' && 95) window.location.href = 'style-95-organic-wellness.html';
+            });
+        })();
+    </script>
+
+    <div class="command-center">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-title">
+                    <h1>Cyber Command Center</h1>
+                    <span class="system-badge">CLASSIFIED//SECURE</span>
+                </div>
+                <div class="header-status">
+                    <div class="system-time" id="systemTime">00:00:00 UTC</div>
+                    <div class="current-user">
+                        <span class="user-badge"></span>
+                        <span class="user-info">ADMIN-001 // CLEARANCE: OMEGA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Threat Level Indicators -->
+            <div class="threat-levels">
+                <div class="threat-card" style="--threat-color: var(--cyber-green);">
+                    <div class="threat-label">Network Security</div>
+                    <div class="threat-value">SECURE</div>
+                    <div class="threat-status">All Systems Operational</div>
+                </div>
+                <div class="threat-card" style="--threat-color: var(--status-warning);">
+                    <div class="threat-label">Active Threats</div>
+                    <div class="threat-value">3</div>
+                    <div class="threat-status">Under Investigation</div>
+                </div>
+                <div class="threat-card" style="--threat-color: var(--cyber-cyan);">
+                    <div class="threat-label">Firewall Status</div>
+                    <div class="threat-value">98.7%</div>
+                    <div class="threat-status">Optimal Performance</div>
+                </div>
+                <div class="threat-card" style="--threat-color: var(--cyber-magenta);">
+                    <div class="threat-label">Active Sessions</div>
+                    <div class="threat-value">247</div>
+                    <div class="threat-status">Within Normal Range</div>
+                </div>
+                <div class="threat-card" style="--threat-color: var(--status-critical);">
+                    <div class="threat-label">Critical Alerts</div>
+                    <div class="threat-value">1</div>
+                    <div class="threat-status">Immediate Attention Required</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Critical Alert Banner -->
+        <div class="alert-banner">
+            <div class="alert-icon">⚠</div>
+            <div class="alert-content">
+                <div class="alert-title">Security Protocol Breach Detected</div>
+                <div class="alert-message">Unauthorized access attempt from IP 192.168.1.247 at sector 7-G. Countermeasures deployed.</div>
+            </div>
+            <button class="alert-dismiss">Acknowledge</button>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Security Monitor Panel -->
+            <div class="security-monitor scanning-effect">
+                <div class="panel-header">
+                    <div class="panel-title">Real-Time Security Monitor</div>
+                    <div class="panel-controls">
+                        <button class="control-btn" title="Refresh">↻</button>
+                        <button class="control-btn" title="Settings">⚙</button>
+                        <button class="control-btn" title="Expand">⛶</button>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <!-- Network Visualization -->
+                    <div class="network-viz">
+                        <div class="network-grid"></div>
+                        <!-- Network Nodes -->
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 20%; left: 15%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-cyan); top: 40%; left: 30%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 60%; left: 25%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 30%; left: 50%;"></div>
+                        <div class="network-node" style="--node-color: var(--status-warning); top: 70%; left: 45%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 50%; left: 65%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-magenta); top: 25%; left: 80%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 65%; left: 75%;"></div>
+                        <div class="network-node" style="--node-color: var(--status-critical); top: 80%; left: 60%;"></div>
+                        <div class="network-node" style="--node-color: var(--cyber-green); top: 15%; left: 90%;"></div>
+                    </div>
+
+                    <!-- Metrics Grid -->
+                    <div class="metrics-grid">
+                        <div class="metric-card" style="--metric-color: var(--cyber-cyan);">
+                            <div class="metric-label">Data Throughput</div>
+                            <div class="metric-value">847 <span style="font-size: 14px;">Gb/s</span></div>
+                            <div class="metric-change positive">↑ 12.4% from baseline</div>
+                        </div>
+                        <div class="metric-card" style="--metric-color: var(--cyber-magenta);">
+                            <div class="metric-label">Encryption Strength</div>
+                            <div class="metric-value">AES-256</div>
+                            <div class="metric-change">Military Grade Protocol</div>
+                        </div>
+                        <div class="metric-card" style="--metric-color: var(--cyber-green);">
+                            <div class="metric-label">System Uptime</div>
+                            <div class="metric-value">99.97<span style="font-size: 14px;">%</span></div>
+                            <div class="metric-change positive">847 days continuous</div>
+                        </div>
+                        <div class="metric-card" style="--metric-color: var(--status-warning);">
+                            <div class="metric-label">Blocked Intrusions</div>
+                            <div class="metric-value">1,247</div>
+                            <div class="metric-change">Last 24 hours</div>
+                        </div>
+                        <div class="metric-card" style="--metric-color: var(--cyber-cyan);">
+                            <div class="metric-label">Database Queries</div>
+                            <div class="metric-value">94K</div>
+                            <div class="metric-change positive">↑ 8.2% efficiency gain</div>
+                        </div>
+                        <div class="metric-card" style="--metric-color: var(--cyber-purple);">
+                            <div class="metric-label">API Response Time</div>
+                            <div class="metric-value">47<span style="font-size: 14px;">ms</span></div>
+                            <div class="metric-change positive">↓ 15ms optimization</div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Output -->
+                    <div class="terminal-output">
+                        <div class="terminal-line"><span class="terminal-prompt">root@command-center:~$</span> systemctl status security-monitor</div>
+                        <div class="terminal-line">● security-monitor.service - Cyber Command Security Monitor</div>
+                        <div class="terminal-line">   Loaded: loaded (/etc/systemd/system/security-monitor.service; enabled)</div>
+                        <div class="terminal-line">   Active: active (running) since Mon 2025-12-09 14:23:47 UTC; 8h 37min ago</div>
+                        <div class="terminal-line">     Docs: https://command-center.mil/security-monitor</div>
+                        <div class="terminal-line"> Main PID: 2847 (security-mon)</div>
+                        <div class="terminal-line">   Status: "Monitoring 247 active connections across 18 zones"</div>
+                        <div class="terminal-line">    Tasks: 84 (limit: 4915)</div>
+                        <div class="terminal-line">   Memory: 2.4G</div>
+                        <div class="terminal-line">   CGroup: /system.slice/security-monitor.service</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Access Control Panel -->
+            <div class="access-control">
+                <div class="panel-header">
+                    <div class="panel-title">Personnel Access Control</div>
+                    <div class="panel-controls">
+                        <button class="control-btn" title="Filter">⚒</button>
+                        <button class="control-btn" title="Export">⤓</button>
+                    </div>
+                </div>
+                <div class="access-list">
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">JD</div>
+                            <div class="access-details">
+                                <div class="access-name">John Doe</div>
+                                <div class="access-role">Security Administrator</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 2 min ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">SC</div>
+                            <div class="access-details">
+                                <div class="access-name">Sarah Chen</div>
+                                <div class="access-role">Network Analyst</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 5 min ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">MR</div>
+                            <div class="access-details">
+                                <div class="access-name">Michael Rodriguez</div>
+                                <div class="access-role">Threat Intelligence</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 12 min ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">EK</div>
+                            <div class="access-details">
+                                <div class="access-name">Emily Kim</div>
+                                <div class="access-role">Database Specialist</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 18 min ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">DW</div>
+                            <div class="access-details">
+                                <div class="access-name">David Wilson</div>
+                                <div class="access-role">Incident Response</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge restricted">Restricted</span>
+                            <span class="access-time">Last: 45 min ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">LT</div>
+                            <div class="access-details">
+                                <div class="access-name">Lisa Thompson</div>
+                                <div class="access-role">Cryptography Lead</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 1 hour ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">RG</div>
+                            <div class="access-details">
+                                <div class="access-name">Robert Garcia</div>
+                                <div class="access-role">Systems Engineer</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge offline">Offline</span>
+                            <span class="access-time">Last: 3 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="access-item">
+                        <div class="access-user">
+                            <div class="access-avatar">AN</div>
+                            <div class="access-details">
+                                <div class="access-name">Anna Novak</div>
+                                <div class="access-role">Penetration Tester</div>
+                            </div>
+                        </div>
+                        <div class="access-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="access-time">Last: 25 min ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Log Section -->
+        <div class="activity-section">
+            <!-- Activity Log -->
+            <div class="activity-log scanning-effect">
+                <div class="panel-header">
+                    <div class="panel-title">Security Activity Log</div>
+                    <div class="panel-controls">
+                        <button class="control-btn" title="Filter">⚑</button>
+                        <button class="control-btn" title="Download">↓</button>
+                        <button class="control-btn" title="Clear">✕</button>
+                    </div>
+                </div>
+                <div class="log-container">
+                    <div class="log-entry">
+                        <div class="log-time">23:47:32</div>
+                        <div class="log-message">Unauthorized access attempt detected from IP 192.168.1.247. Firewall rules updated. Connection terminated.</div>
+                        <div class="log-type alert">ALERT</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:45:18</div>
+                        <div class="log-message">User ADMIN-001 executed privileged command: sudo systemctl restart security-monitor.service</div>
+                        <div class="log-type security">SECURITY</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:43:05</div>
+                        <div class="log-message">Database backup completed successfully. Archive size: 4.7GB. Storage location: /vault/backups/db_20251209_234305.tar.gz</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:41:22</div>
+                        <div class="log-message">Personnel CHEN-SC accessed classified document: OPERATION_NIGHTFALL.pdf [Clearance: OMEGA verified]</div>
+                        <div class="log-type access">ACCESS</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:39:47</div>
+                        <div class="log-message">Intrusion detection system identified suspicious pattern in network traffic. Analysis initiated. Threat level: MEDIUM</div>
+                        <div class="log-type security">SECURITY</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:37:14</div>
+                        <div class="log-message">Encryption key rotation completed for all secure channels. Protocol: AES-256-GCM. Next rotation: 168 hours</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:35:03</div>
+                        <div class="log-message">Failed authentication attempt for user UNKNOWN_USER from workstation WS-7G-042. Account lockout initiated.</div>
+                        <div class="log-type alert">ALERT</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:32:56</div>
+                        <div class="log-message">System health check completed. All subsystems operational. CPU: 34%, Memory: 58%, Network: 67% capacity</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:30:41</div>
+                        <div class="log-message">Personnel RODRIGUEZ-MR initiated threat intelligence scan on sector 4-B. Scan duration: 180 seconds</div>
+                        <div class="log-type access">ACCESS</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:28:19</div>
+                        <div class="log-message">Firewall blocked 47 connection attempts from blacklisted IP range 10.0.0.0/8. Auto-mitigation protocols engaged</div>
+                        <div class="log-type security">SECURITY</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:26:05</div>
+                        <div class="log-message">Data integrity verification completed for critical systems. Status: VERIFIED. Checksum validation: PASSED</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:23:47</div>
+                        <div class="log-message">User KIM-E performed database query on PERSONNEL_RECORDS table. Query execution time: 247ms. Results: 1,847 rows</div>
+                        <div class="log-type access">ACCESS</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:21:33</div>
+                        <div class="log-message">Security patch deployed to all networked systems. Patch ID: SEC-2025-12-09-001. Systems affected: 247. Reboot required: NO</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:19:12</div>
+                        <div class="log-message">Anomaly detected in user behavior profile for WILSON-D. Risk assessment: LOW. Monitoring escalated for 24-hour period</div>
+                        <div class="log-type security">SECURITY</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">23:16:58</div>
+                        <div class="log-message">Automated threat intelligence feed updated. New signatures: 84. Updated signatures: 156. Removed signatures: 12</div>
+                        <div class="log-type system">SYSTEM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status Panel -->
+            <div class="system-status">
+                <div class="panel-header">
+                    <div class="panel-title">System Status</div>
+                    <div class="panel-controls">
+                        <button class="control-btn" title="Details">i</button>
+                    </div>
+                </div>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">CPU Load</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-green);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 34%; --fill-color: var(--cyber-green); --fill-color-light: var(--cyber-cyan);"></div>
+                        </div>
+                        <div class="status-percentage">34% utilization</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Memory Usage</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-cyan);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 58%; --fill-color: var(--cyber-cyan); --fill-color-light: var(--cyber-blue);"></div>
+                        </div>
+                        <div class="status-percentage">58% allocated</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Network Traffic</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-magenta);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 67%; --fill-color: var(--cyber-magenta); --fill-color-light: var(--cyber-purple);"></div>
+                        </div>
+                        <div class="status-percentage">67% capacity</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Disk I/O</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-green);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 42%; --fill-color: var(--cyber-green); --fill-color-light: var(--cyber-cyan);"></div>
+                        </div>
+                        <div class="status-percentage">42% throughput</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Database Load</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-cyan);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 51%; --fill-color: var(--cyber-cyan); --fill-color-light: var(--cyber-blue);"></div>
+                        </div>
+                        <div class="status-percentage">51% queries/sec</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Firewall Efficiency</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-green);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 98.7%; --fill-color: var(--cyber-green); --fill-color-light: var(--cyber-cyan);"></div>
+                        </div>
+                        <div class="status-percentage">98.7% effectiveness</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Backup Systems</span>
+                            <span class="status-indicator" style="--indicator-color: var(--cyber-green);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 100%; --fill-color: var(--cyber-green); --fill-color-light: var(--cyber-cyan);"></div>
+                        </div>
+                        <div class="status-percentage">100% synchronized</div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status-header">
+                            <span class="status-name">Threat Detection</span>
+                            <span class="status-indicator" style="--indicator-color: var(--status-warning);"></span>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 76%; --fill-color: var(--status-warning); --fill-color-light: var(--cyber-yellow);"></div>
+                        </div>
+                        <div class="status-percentage">3 active investigations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Stats Section -->
+        <div class="bottom-stats">
+            <div class="stat-panel" style="--stat-color: var(--cyber-cyan);">
+                <div class="stat-icon">◉</div>
+                <div class="stat-value">247</div>
+                <div class="stat-label">Active Connections</div>
+            </div>
+
+            <div class="stat-panel" style="--stat-color: var(--cyber-magenta);">
+                <div class="stat-icon">▲</div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-label">Threats Blocked (24h)</div>
+            </div>
+
+            <div class="stat-panel" style="--stat-color: var(--cyber-green);">
+                <div class="stat-icon">✓</div>
+                <div class="stat-value">99.97%</div>
+                <div class="stat-label">System Uptime</div>
+            </div>
+
+            <div class="stat-panel" style="--stat-color: var(--cyber-purple);">
+                <div class="stat-icon">◆</div>
+                <div class="stat-value">4.7TB</div>
+                <div class="stat-label">Data Processed (24h)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Real-time Clock
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+            document.getElementById('systemTime').textContent = `${hours}:${minutes}:${seconds} UTC`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Simulate real-time metric updates
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                if (metric.textContent.includes('Gb/s')) {
+                    const currentValue = parseInt(metric.textContent);
+                    const newValue = currentValue + Math.floor(Math.random() * 10 - 5);
+                    metric.innerHTML = `${Math.max(800, Math.min(900, newValue))} <span style="font-size: 14px;">Gb/s</span>`;
+                }
+            });
+        }
+
+        setInterval(updateMetrics, 5000);
+
+        // Simulate network node status changes
+        function updateNetworkNodes() {
+            const nodes = document.querySelectorAll('.network-node');
+            nodes.forEach(node => {
+                if (Math.random() > 0.95) {
+                    const colors = ['var(--cyber-green)', 'var(--cyber-cyan)', 'var(--status-warning)'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    node.style.setProperty('--node-color', randomColor);
+                }
+            });
+        }
+
+        setInterval(updateNetworkNodes, 3000);
+
+        // Alert dismiss functionality
+        document.querySelectorAll('.alert-dismiss').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.alert-banner').style.transition = 'all 0.3s ease';
+                this.closest('.alert-banner').style.opacity = '0';
+                this.closest('.alert-banner').style.transform = 'translateX(-100%)';
+                setTimeout(() => {
+                    this.closest('.alert-banner').style.display = 'none';
+                }, 300);
+            });
+        });
+
+        // Simulate new log entries
+        function addLogEntry() {
+            const logContainer = document.querySelector('.log-container');
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+
+            const messages = [
+                { msg: 'System health check completed. All subsystems operational.', type: 'system' },
+                { msg: 'User authentication successful. Session token generated.', type: 'access' },
+                { msg: 'Firewall blocked suspicious connection attempt.', type: 'security' },
+                { msg: 'Database query executed successfully. Response time: 52ms.', type: 'system' },
+                { msg: 'Encryption key validation completed. Status: VERIFIED.', type: 'security' }
+            ];
+
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.style.opacity = '0';
+            entry.innerHTML = `
+                <div class="log-time">${timeStr}</div>
+                <div class="log-message">${randomMsg.msg}</div>
+                <div class="log-type ${randomMsg.type}">${randomMsg.type.toUpperCase()}</div>
+            `;
+
+            logContainer.insertBefore(entry, logContainer.firstChild);
+
+            setTimeout(() => {
+                entry.style.transition = 'opacity 0.5s ease';
+                entry.style.opacity = '1';
+            }, 10);
+
+            // Remove old entries (keep max 20)
+            while (logContainer.children.length > 20) {
+                logContainer.removeChild(logContainer.lastChild);
+            }
+        }
+
+        setInterval(addLogEntry, 15000);
+
+        // Animate status bars on load
+        window.addEventListener('load', function() {
+            const statusFills = document.querySelectorAll('.status-fill');
+            statusFills.forEach(fill => {
+                const width = fill.style.width;
+                fill.style.width = '0';
+                setTimeout(() => {
+                    fill.style.transition = 'width 1.5s ease';
+                    fill.style.width = width;
+                }, 100);
+            });
+        });
+
+        // Control button interactions
+        document.querySelectorAll('.control-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Simulate threat level changes
+        function updateThreatLevels() {
+            const threatCards = document.querySelectorAll('.threat-card');
+            const activeThreatsCard = threatCards[1]; // Active Threats card
+            const currentValue = parseInt(activeThreatsCard.querySelector('.threat-value').textContent);
+
+            if (Math.random() > 0.7) {
+                const change = Math.random() > 0.5 ? 1 : -1;
+                const newValue = Math.max(0, currentValue + change);
+                activeThreatsCard.querySelector('.threat-value').textContent = newValue;
+            }
+        }
+
+        setInterval(updateThreatLevels, 10000);
+
+        // Add typing effect to terminal
+        function addTerminalLine() {
+            const terminal = document.querySelector('.terminal-output');
+            const commands = [
+                '[INFO] Security scan completed on zone 7-G. Status: CLEAR',
+                '[WARN] High memory usage detected on node-cluster-03',
+                '[INFO] Automated backup initiated for critical databases',
+                '[SUCCESS] Firewall rules updated. New policies: 247 active'
+            ];
+
+            if (Math.random() > 0.8) {
+                const randomCmd = commands[Math.floor(Math.random() * commands.length)];
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.textContent = randomCmd;
+                terminal.appendChild(line);
+
+                // Keep only last 10 lines
+                while (terminal.children.length > 10) {
+                    terminal.removeChild(terminal.firstChild);
+                }
+            }
+        }
+
+        setInterval(addTerminalLine, 12000);
+
+        // System stats counter animation
+        function animateCounter(element, target) {
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Initialize counters on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const statValues = document.querySelectorAll('.stat-value');
+                statValues.forEach(stat => {
+                    if (!stat.textContent.includes('%') && !stat.textContent.includes('TB')) {
+                        const target = parseInt(stat.textContent.replace(/,/g, ''));
+                        if (!isNaN(target)) {
+                            stat.textContent = '0';
+                            animateCounter(stat, target);
+                        }
+                    }
+                });
+            }, 500);
+        });
+
+        console.log('%c[CYBER COMMAND CENTER]', 'color: #00ffff; font-weight: bold; font-size: 14px;');
+        console.log('%cSecurity System v4.7.2 - All Systems Operational', 'color: #00ff80; font-size: 12px;');
+        console.log('%cClearance Level: OMEGA | Access Granted', 'color: #ff00ff; font-size: 12px;');
+    </script>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 3: Quiet Luxury (Old Money)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0c1929;
+            --navy-800: #1a365d;
+            --navy-700: #2a4a7f;
+            --camel-100: #faf6f1;
+            --camel-200: #f5ebe0;
+            --camel-300: #ddd5c9;
+            --camel-500: #c4a77d;
+            --camel-600: #a68a5b;
+            --forest-700: #1e453e;
+            --forest-800: #14342f;
+            --cream: #fdfbf7;
+            --charcoal: #2d3436;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            min-height: 100vh;
+            font-size: 15px;
+        }
+
+        /* Understated Header */
+        .header {
+            background: var(--cream);
+            padding: 1.5rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--camel-300);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            letter-spacing: 0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--navy-800);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .nav a.active {
+            color: var(--navy-800);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--navy-800);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .page-subtitle {
+            color: var(--camel-600);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* Refined Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--camel-300);
+            border: 1px solid var(--camel-300);
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            background: var(--cream);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--camel-600);
+            margin-top: 0.75rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--navy-800);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--camel-300);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards - Minimal Luxury */
+        .card {
+            background: white;
+            border: 1px solid var(--camel-300);
+            padding: 1.75rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--camel-500);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-overline {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--camel-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--camel-200);
+        }
+
+        .card-date {
+            font-size: 0.8125rem;
+            color: var(--camel-600);
+        }
+
+        /* Buttons - Quiet Luxury */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--navy-800);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-700);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy-800);
+            border: 1px solid var(--navy-800);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy-800);
+            color: white;
+        }
+
+        .btn-text {
+            background: transparent;
+            color: var(--camel-600);
+            padding: 0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .btn-text:hover {
+            color: var(--navy-800);
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--camel-100);
+            border: 1px solid var(--camel-300);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--camel-600);
+            margin-bottom: 1rem;
+        }
+
+        .member-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--camel-200);
+        }
+
+        .member-item:last-child {
+            border-bottom: none;
+        }
+
+        .member-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--navy-800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--charcoal);
+        }
+
+        .member-role {
+            font-size: 0.75rem;
+            color: var(--camel-600);
+        }
+
+        /* Table */
+        .table-container {
+            background: white;
+            border: 1px solid var(--camel-300);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--camel-600);
+            background: var(--camel-100);
+            border-bottom: 1px solid var(--camel-300);
+        }
+
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--camel-200);
+            font-size: 0.9375rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--camel-100);
+        }
+
+        .status {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .status-active {
+            color: var(--forest-700);
+        }
+
+        .status-pending {
+            color: var(--camel-600);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 3rem;
+            background: var(--navy-900);
+            color: var(--camel-300);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>3</strong> of 70 &mdash; Quiet Luxury (Old Money)</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-2-streamline-moderne.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-4-japandi-glass.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 2) window.location.href = 'style-2-streamline-moderne.html';
+                if (e.key === 'ArrowRight' && 4) window.location.href = 'style-4-japandi-glass.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="logo">The Association</div>
+        <nav class="nav">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Members</a>
+            <a href="#">Events</a>
+            <a href="#">Finance</a>
+            <a href="#">Communications</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Welcome back, Katherine</h1>
+            <p class="page-subtitle">Here is your association overview for December 2025</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">$124K</div>
+                <div class="stat-label">Monthly Revenue</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Active Events</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Retention Rate</div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="main-content">
+                <h2 class="section-title">Upcoming Events</h2>
+
+                <div class="card">
+                    <div class="card-overline">Featured Event</div>
+                    <h3 class="card-title">Annual Conference 2025</h3>
+                    <p class="card-text">Join us for our flagship event featuring distinguished speakers, intimate workshops, and meaningful networking opportunities for industry leaders.</p>
+                    <div class="card-footer">
+                        <span class="card-date">December 15-17, 2025</span>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-overline">Professional Development</div>
+                    <h3 class="card-title">Leadership Excellence Workshop</h3>
+                    <p class="card-text">An exclusive session on cultivating leadership presence and strategic decision-making for senior professionals.</p>
+                    <div class="card-footer">
+                        <span class="card-date">December 18, 2025</span>
+                        <button class="btn btn-text">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-overline">Members Only</div>
+                    <h3 class="card-title">Holiday Reception</h3>
+                    <p class="card-text">Celebrate the season with fellow members at our annual gathering. Cocktails and hors d'oeuvres will be served.</p>
+                    <div class="card-footer">
+                        <span class="card-date">December 20, 2025</span>
+                        <button class="btn btn-text">RSVP</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">Recent Members</div>
+                    <div class="member-item">
+                        <div class="member-avatar">SM</div>
+                        <div class="member-info">
+                            <div class="member-name">Sarah Mitchell</div>
+                            <div class="member-role">Executive Member</div>
+                        </div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar">JC</div>
+                        <div class="member-info">
+                            <div class="member-name">James Chen</div>
+                            <div class="member-role">Professional Member</div>
+                        </div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar">ER</div>
+                        <div class="member-info">
+                            <div class="member-name">Emily Rodriguez</div>
+                            <div class="member-role">Associate Member</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-title">Quick Actions</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-bottom: 0.75rem;">Add New Member</button>
+                    <button class="btn btn-outline" style="width: 100%;">Create Event</button>
+                </div>
+            </aside>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Executive)</td>
+                        <td>December 9, 2025</td>
+                        <td><span class="status status-active">Complete</span></td>
+                    </tr>
+                    <tr>
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>December 9, 2025</td>
+                        <td><span class="status status-active">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>December 8, 2025</td>
+                        <td><span class="status status-pending">Under Review</span></td>
+                    </tr>
+                    <tr>
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>December 8, 2025</td>
+                        <td><span class="status status-active">Complete</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Style 3: Quiet Luxury - Navy, camel, cream, understated elegance, serif typography
+    </footer>
+</body>
+</html>

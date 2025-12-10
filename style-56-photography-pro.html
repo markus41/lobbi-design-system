@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Professional - Portfolio Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                         ULTRATHINK DESIGN ANALYSIS                           ║
+        ║                  PHOTOGRAPHY PROFESSIONAL UI SYSTEM                          ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Blend: Photography Professional (80%) + Gallery Minimal (20%)
+
+        This design establishes a professional photography platform that prioritizes
+        visual storytelling through gallery-style presentation. Drawing inspiration
+        from Magnum Photos and elite photographer portfolios, the interface recedes
+        to let imagery dominate while maintaining sophisticated organizational tools.
+
+        VISUAL HIERARCHY & COMPOSITION
+        ─────────────────────────────────────────────────────────────────────────────
+        1. Image-First Architecture
+           - Generous white space frames photographic content
+           - Typography remains unobtrusive, using neutral grays
+           - Grid systems inspired by editorial gallery walls
+           - Asymmetric layouts create visual interest without chaos
+
+        2. Gallery Exhibition Model
+           - White gallery walls (#fefefe) as primary background
+           - Shadow black (#1a1a1a) for images and critical text
+           - Neutral gray (#6b7280) for supporting information
+           - Minimal borders and dividers to maintain flow
+
+        3. Professional Credibility
+           - Clean, minimal typography (Inter family)
+           - Sophisticated spacing ratios (1.618 golden ratio influence)
+           - Subtle transitions that don't distract from content
+           - High contrast for accessibility and print-like clarity
+
+        COLOR PSYCHOLOGY & APPLICATION
+        ─────────────────────────────────────────────────────────────────────────────
+        Primary Palette:
+        - Gallery White (#fefefe): Museum-quality backdrop, neutral canvas
+        - Shadow Black (#1a1a1a): Deep contrast, photographic richness
+        - Neutral Gray (#6b7280): Supporting text, metadata, timestamps
+
+        Temperature: 5/10 (Neutral Artistic)
+        - Neither warm nor cool to avoid color bias
+        - Allows photography to dictate emotional temperature
+        - Professional neutrality for diverse image content
+
+        Formality: 7/10 (High Professional)
+        - Editorial sophistication without stuffiness
+        - Approachable to clients, impressive to peers
+        - Balances artistic expression with business credibility
+
+        TYPOGRAPHY STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Font Family: Inter (Variable)
+        - 300 Light: Captions, timestamps, metadata
+        - 400 Regular: Body text, descriptions
+        - 500 Medium: Navigation, labels
+        - 600 Semibold: Section headers, card titles
+        - 700 Bold: Page titles, primary CTAs
+
+        Hierarchy:
+        - Display (42px): Main portfolio title
+        - H1 (32px): Section headers
+        - H2 (24px): Card headers, project titles
+        - H3 (18px): Subsection labels
+        - Body (15px): Standard text
+        - Caption (13px): Metadata, timestamps
+
+        Line Height: 1.6 for optimal reading
+        Letter Spacing: -0.01em for headings (optical tightening)
+
+        SPATIAL SYSTEMS
+        ─────────────────────────────────────────────────────────────────────────────
+        Grid Structure:
+        - 12-column responsive grid
+        - Gallery-style margins: 60px desktop, 24px mobile
+        - Vertical rhythm: 8px base unit (multiples of 8)
+        - Card padding: 32px (4 × base unit)
+
+        Spacing Scale (8px base):
+        - xs: 8px   - Tight elements
+        - sm: 16px  - Related items
+        - md: 24px  - Card internal spacing
+        - lg: 32px  - Section separation
+        - xl: 48px  - Major boundaries
+        - 2xl: 64px - Gallery walls
+
+        COMPONENT ARCHITECTURE
+        ─────────────────────────────────────────────────────────────────────────────
+        1. Header Navigation
+           - Minimal logo/photographer name
+           - Clean horizontal navigation
+           - Subtle search integration
+           - Profile access without visual noise
+
+        2. Stats Grid (4 Cards)
+           - Portfolio Metrics: Projects, Images, Clients, Recognition
+           - Large numbers with subtle icons
+           - Minimal borders, shadow separation
+           - Hover states reveal additional context
+
+        3. Content Gallery (3 Cards)
+           - Featured Projects: Visual-first cards
+           - Large preview images with minimal overlay
+           - Project metadata appears on hover
+           - Gallery-style grid presentation
+
+        4. Data Table
+           - Recent Uploads: Image management interface
+           - Thumbnail previews in table rows
+           - Licensing status, technical metadata
+           - Clean, scannable typography
+
+        5. Footer
+           - Minimal copyright and links
+           - Social proof (awards, publications)
+           - Contact information without clutter
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        Micro-interactions:
+        - Subtle scale on hover (1.02x) for cards
+        - Smooth opacity transitions (300ms ease)
+        - Shadow depth changes for elevation
+        - Image overlays appear on interaction only
+
+        Navigation:
+        - Clear active states with understated indicators
+        - Breadcrumb trails for deep portfolio navigation
+        - Filtering without page reload
+        - Smooth scrolling for single-page sections
+
+        ACCESSIBILITY & PERFORMANCE
+        ─────────────────────────────────────────────────────────────────────────────
+        - WCAG 2.1 AA contrast ratios (4.5:1 minimum)
+        - Semantic HTML5 structure
+        - Keyboard navigation support
+        - Focus indicators match design language
+        - Alt text critical for photography platform
+        - Lazy loading for image-heavy content
+        - Progressive enhancement philosophy
+
+        RESPONSIVE STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        Breakpoints:
+        - Mobile: 320px - 768px (single column, stacked)
+        - Tablet: 769px - 1024px (2-column grid)
+        - Desktop: 1025px+ (3-4 column layouts)
+
+        Image Optimization:
+        - Responsive images with srcset
+        - WebP with fallbacks
+        - Aspect ratio preservation
+        - Lazy loading below fold
+
+        BUSINESS ALIGNMENT
+        ─────────────────────────────────────────────────────────────────────────────
+        Target Users:
+        - Professional photographers managing portfolios
+        - Creative directors reviewing work
+        - Potential clients browsing collections
+        - Photo editors licensing images
+
+        Core Metrics:
+        - Portfolio views and engagement
+        - Project completion tracking
+        - Client acquisition pipeline
+        - Licensing revenue streams
+
+        Success Criteria:
+        - Imagery remains focus, UI recedes
+        - Professional credibility established immediately
+        - Easy navigation to featured work
+        - Client trust through polished presentation
+
+        DESIGN SYSTEM TOKENS
+        ─────────────────────────────────────────────────────────────────────────────
+        Colors:
+        --color-gallery-white: #fefefe
+        --color-shadow-black: #1a1a1a
+        --color-neutral-gray: #6b7280
+        --color-light-gray: #e5e7eb
+        --color-hover-gray: #f9fafb
+
+        Shadows:
+        --shadow-sm: 0 1px 2px rgba(26, 26, 26, 0.05)
+        --shadow-md: 0 4px 6px rgba(26, 26, 26, 0.07)
+        --shadow-lg: 0 10px 15px rgba(26, 26, 26, 0.1)
+
+        Transitions:
+        --transition-fast: 150ms ease
+        --transition-base: 300ms ease
+        --transition-slow: 500ms ease
+
+        COMPETITIVE DIFFERENTIATION
+        ─────────────────────────────────────────────────────────────────────────────
+        vs. Generic Portfolio Platforms:
+        - Museum-quality presentation elevates professionalism
+        - Business metrics integrated with artistic presentation
+        - Client management tools without sacrificing aesthetics
+
+        vs. Social Media Photography:
+        - Controlled environment free from algorithm noise
+        - Professional licensing and rights management
+        - Long-form project storytelling capabilities
+
+        FUTURE SCALABILITY
+        ─────────────────────────────────────────────────────────────────────────────
+        - Component library for consistent portfolio pages
+        - Template system for different photography genres
+        - White-label capability for photography agencies
+        - Integration with stock photography platforms
+        - Client proofing and feedback workflows
+
+        ═══════════════════════════════════════════════════════════════════════════
+        Generated: 2025-12-09
+        Design System: Photography Professional v1.0
+        Temperature: 5 (Neutral Artistic) | Formality: 7 (High Professional)
+        ═══════════════════════════════════════════════════════════════════════════
+        */
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* ROOT VARIABLES & RESET                                           */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        :root {
+            /* Color Tokens */
+            --color-gallery-white: #fefefe;
+            --color-shadow-black: #1a1a1a;
+            --color-neutral-gray: #6b7280;
+            --color-light-gray: #e5e7eb;
+            --color-hover-gray: #f9fafb;
+            --color-border-subtle: #f3f4f6;
+
+            /* Typography Tokens */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Spacing Tokens (8px base) */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+
+            /* Shadow Tokens */
+            --shadow-sm: 0 1px 2px rgba(26, 26, 26, 0.05);
+            --shadow-md: 0 4px 6px rgba(26, 26, 26, 0.07);
+            --shadow-lg: 0 10px 15px rgba(26, 26, 26, 0.1);
+            --shadow-xl: 0 20px 25px rgba(26, 26, 26, 0.12);
+
+            /* Transition Tokens */
+            --transition-fast: 150ms ease;
+            --transition-base: 300ms ease;
+            --transition-slow: 500ms ease;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: 15px;
+            font-weight: var(--font-weight-regular);
+            line-height: 1.6;
+            color: var(--color-shadow-black);
+            background: var(--color-gallery-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* LAYOUT STRUCTURE                                                 */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-md);
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: var(--space-md) var(--space-sm);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* HEADER NAVIGATION                                                */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--color-shadow-black);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-gallery-white);
+            font-size: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-shadow-black);
+            letter-spacing: -0.01em;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--color-neutral-gray);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            font-size: 14px;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-shadow-black);
+            background: var(--color-hover-gray);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 240px;
+            padding: var(--space-xs) var(--space-lg) var(--space-xs) var(--space-sm);
+            border: 1px solid var(--color-light-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: 14px;
+            color: var(--color-shadow-black);
+            background: var(--color-gallery-white);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-neutral-gray);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: var(--space-sm);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-neutral-gray);
+            pointer-events: none;
+        }
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-medium);
+            font-size: 13px;
+            color: var(--color-neutral-gray);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .profile-avatar:hover {
+            background: var(--color-shadow-black);
+            color: var(--color-gallery-white);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-input {
+                width: 180px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* PAGE TITLE SECTION                                               */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .page-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .page-title {
+            font-size: 42px;
+            font-weight: var(--font-weight-light);
+            color: var(--color-shadow-black);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--color-neutral-gray);
+            font-weight: var(--font-weight-regular);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* STATS GRID (4 CARDS)                                             */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--color-gallery-white);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            background: var(--color-hover-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-neutral-gray);
+            font-size: 16px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: var(--font-weight-light);
+            color: var(--color-shadow-black);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-change {
+            font-size: 13px;
+            color: var(--color-neutral-gray);
+            font-weight: var(--font-weight-regular);
+        }
+
+        .stat-change.positive {
+            color: #059669;
+        }
+
+        .stat-change.neutral {
+            color: var(--color-neutral-gray);
+        }
+
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* CONTENT SECTION HEADER                                           */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-shadow-black);
+            letter-spacing: -0.01em;
+        }
+
+        .section-action {
+            font-size: 14px;
+            color: var(--color-neutral-gray);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+        }
+
+        .section-action:hover {
+            color: var(--color-shadow-black);
+            background: var(--color-hover-gray);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* FEATURED PROJECTS GRID (3 CARDS)                                 */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-card {
+            background: var(--color-gallery-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-border-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 280px;
+            background: var(--color-light-gray);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: var(--space-sm);
+            left: var(--space-sm);
+            background: rgba(254, 254, 254, 0.95);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-shadow-black);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: var(--space-md);
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-shadow-black);
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-sm);
+        }
+
+        .meta-item {
+            font-size: 13px;
+            color: var(--color-neutral-gray);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-icon {
+            font-size: 14px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--color-neutral-gray);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* DATA TABLE                                                        */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .table-container {
+            background: var(--color-gallery-white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-subtle);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .table-header {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .table-title {
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-shadow-black);
+        }
+
+        .table-filter {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .filter-button {
+            padding: 6px 12px;
+            border: 1px solid var(--color-light-gray);
+            background: var(--color-gallery-white);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-gray);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-family: var(--font-family);
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background: var(--color-shadow-black);
+            color: var(--color-gallery-white);
+            border-color: var(--color-shadow-black);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: var(--color-hover-gray);
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 12px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-border-subtle);
+            font-size: 14px;
+            color: var(--color-shadow-black);
+        }
+
+        .data-table tbody tr {
+            transition: background var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--color-hover-gray);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-thumbnail {
+            width: 60px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--color-light-gray);
+            object-fit: cover;
+        }
+
+        .table-image-cell {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .image-title {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-shadow-black);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .status-badge.published {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.licensed {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-badge.draft {
+            background: var(--color-light-gray);
+            color: var(--color-neutral-gray);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .action-button {
+            padding: 6px 10px;
+            border: none;
+            background: transparent;
+            color: var(--color-neutral-gray);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+            font-size: 14px;
+        }
+
+        .action-button:hover {
+            background: var(--color-light-gray);
+            color: var(--color-shadow-black);
+        }
+
+        @media (max-width: 768px) {
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .data-table {
+                min-width: 600px;
+            }
+
+            .table-filter {
+                display: none;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* FOOTER                                                            */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .footer {
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-border-subtle);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: var(--color-neutral-gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .footer-link {
+            font-size: 13px;
+            color: var(--color-neutral-gray);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .footer-link:hover {
+            color: var(--color-shadow-black);
+        }
+
+        .footer-recognition {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border-subtle);
+            text-align: center;
+        }
+
+        .recognition-text {
+            font-size: 12px;
+            color: var(--color-neutral-gray);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: var(--space-md);
+                align-items: flex-start;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* UTILITY CLASSES                                                  */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Accessibility: Focus States */
+        *:focus-visible {
+            outline: 2px solid var(--color-shadow-black);
+            outline-offset: 2px;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Colors */
+        ::selection {
+            background: var(--color-shadow-black);
+            color: var(--color-gallery-white);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>56</strong> of 70 &mdash; Photography Pro</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-55-film-studio.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-57-podcast-premium.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 55) window.location.href = 'style-55-film-studio.html';
+                if (e.key === 'ArrowRight' && 57) window.location.href = 'style-57-podcast-premium.html';
+            });
+        })();
+    </script>
+
+    <div class="dashboard-container">
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- HEADER NAVIGATION                                           -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <header class="header">
+            <div class="header-brand">
+                <div class="brand-logo" aria-label="Portfolio Logo">AP</div>
+                <span class="brand-name">Adrian Pierce</span>
+            </div>
+
+            <nav class="header-nav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#portfolio" class="nav-link active">Portfolio</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#collections" class="nav-link">Collections</a></li>
+                    <li><a href="#licensing" class="nav-link">Licensing</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input
+                            type="search"
+                            class="search-input"
+                            placeholder="Search images..."
+                            aria-label="Search portfolio"
+                        />
+                        <span class="search-icon" aria-hidden="true">⌕</span>
+                    </div>
+                    <div class="profile-avatar" role="button" tabindex="0" aria-label="User profile">AP</div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- PAGE TITLE                                                  -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div class="page-header">
+            <h1 class="page-title">Portfolio Dashboard</h1>
+            <p class="page-subtitle">Manage your photography portfolio, track projects, and monitor licensing activity</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- STATS GRID (4 CARDS)                                        -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="stats-grid" aria-label="Portfolio statistics">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Active Projects</span>
+                    <div class="stat-icon" aria-hidden="true">◫</div>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-change positive">+3 this month</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Total Images</span>
+                    <div class="stat-icon" aria-hidden="true">◱</div>
+                </div>
+                <div class="stat-value">1,847</div>
+                <div class="stat-change positive">+156 this month</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Client Views</span>
+                    <div class="stat-icon" aria-hidden="true">◉</div>
+                </div>
+                <div class="stat-value">12.3K</div>
+                <div class="stat-change positive">+2.4K this week</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Recognition</span>
+                    <div class="stat-icon" aria-hidden="true">★</div>
+                </div>
+                <div class="stat-value">18</div>
+                <div class="stat-change neutral">Awards & Features</div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- FEATURED PROJECTS (3 CARDS)                                 -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section aria-labelledby="featured-projects-title">
+            <div class="section-header">
+                <h2 class="section-title" id="featured-projects-title">Featured Projects</h2>
+                <a href="#all-projects" class="section-action">View All Projects →</a>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">Documentary</div>
+                        <img
+                            src="data:image/svg+xml,%3Csvg width='400' height='280' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='280' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23fefefe' font-family='Inter, sans-serif' font-size='14' dy='.3em'%3EUrban Stories%3C/text%3E%3C/svg%3E"
+                            alt="Urban Stories project preview"
+                        />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Urban Stories</h3>
+                        <div class="project-meta">
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◱</span>
+                                <span>42 images</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◷</span>
+                                <span>Updated 2 days ago</span>
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Documentary series capturing daily life in metropolitan environments. Street photography exploring human connection.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">Commercial</div>
+                        <img
+                            src="data:image/svg+xml,%3Csvg width='400' height='280' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='280' fill='%236b7280'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23fefefe' font-family='Inter, sans-serif' font-size='14' dy='.3em'%3EArchitecture 2025%3C/text%3E%3C/svg%3E"
+                            alt="Architecture 2025 project preview"
+                        />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Architecture 2025</h3>
+                        <div class="project-meta">
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◱</span>
+                                <span>68 images</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◷</span>
+                                <span>Updated 1 week ago</span>
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Contemporary architectural photography for leading design firms. Focus on minimalist structures and material textures.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">Portrait Series</div>
+                        <img
+                            src="data:image/svg+xml,%3Csvg width='400' height='280' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='280' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%231a1a1a' font-family='Inter, sans-serif' font-size='14' dy='.3em'%3ECreative Minds%3C/text%3E%3C/svg%3E"
+                            alt="Creative Minds project preview"
+                        />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Creative Minds</h3>
+                        <div class="project-meta">
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◱</span>
+                                <span>35 images</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-icon" aria-hidden="true">◷</span>
+                                <span>Updated 3 days ago</span>
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Portrait series featuring artists, designers, and innovators. Environmental portraits in natural light settings.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- DATA TABLE: RECENT UPLOADS                                  -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section aria-labelledby="recent-uploads-title">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title" id="recent-uploads-title">Recent Uploads</h2>
+                    <div class="table-filter">
+                        <button class="filter-button active">All</button>
+                        <button class="filter-button">Published</button>
+                        <button class="filter-button">Licensed</button>
+                        <button class="filter-button">Draft</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Project</th>
+                            <th>Status</th>
+                            <th>Views</th>
+                            <th>License</th>
+                            <th>Uploaded</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%231a1a1a'/%3E%3C/svg%3E"
+                                        alt="Sunset Boulevard thumbnail"
+                                    />
+                                    <span class="image-title">Sunset Boulevard</span>
+                                </div>
+                            </td>
+                            <td>Urban Stories</td>
+                            <td><span class="status-badge published">Published</span></td>
+                            <td>1,247</td>
+                            <td>Standard</td>
+                            <td>Dec 7, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%236b7280'/%3E%3C/svg%3E"
+                                        alt="Minimal Tower thumbnail"
+                                    />
+                                    <span class="image-title">Minimal Tower</span>
+                                </div>
+                            </td>
+                            <td>Architecture 2025</td>
+                            <td><span class="status-badge licensed">Licensed</span></td>
+                            <td>856</td>
+                            <td>Extended</td>
+                            <td>Dec 6, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%23e5e7eb'/%3E%3C/svg%3E"
+                                        alt="Designer Portrait thumbnail"
+                                    />
+                                    <span class="image-title">Designer Portrait</span>
+                                </div>
+                            </td>
+                            <td>Creative Minds</td>
+                            <td><span class="status-badge published">Published</span></td>
+                            <td>2,103</td>
+                            <td>Standard</td>
+                            <td>Dec 5, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%231a1a1a'/%3E%3C/svg%3E"
+                                        alt="Night Market thumbnail"
+                                    />
+                                    <span class="image-title">Night Market</span>
+                                </div>
+                            </td>
+                            <td>Urban Stories</td>
+                            <td><span class="status-badge draft">Draft</span></td>
+                            <td>42</td>
+                            <td>—</td>
+                            <td>Dec 4, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%236b7280'/%3E%3C/svg%3E"
+                                        alt="Glass Facade thumbnail"
+                                    />
+                                    <span class="image-title">Glass Facade</span>
+                                </div>
+                            </td>
+                            <td>Architecture 2025</td>
+                            <td><span class="status-badge published">Published</span></td>
+                            <td>1,524</td>
+                            <td>Standard</td>
+                            <td>Dec 3, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-image-cell">
+                                    <img
+                                        class="table-thumbnail"
+                                        src="data:image/svg+xml,%3Csvg width='60' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='40' fill='%23e5e7eb'/%3E%3C/svg%3E"
+                                        alt="Artist Studio thumbnail"
+                                    />
+                                    <span class="image-title">Artist Studio</span>
+                                </div>
+                            </td>
+                            <td>Creative Minds</td>
+                            <td><span class="status-badge licensed">Licensed</span></td>
+                            <td>978</td>
+                            <td>Extended</td>
+                            <td>Dec 2, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-button" aria-label="Edit image">✎</button>
+                                    <button class="action-button" aria-label="Share image">↗</button>
+                                    <button class="action-button" aria-label="More options">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- FOOTER                                                      -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2025 Adrian Pierce Photography. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#terms" class="footer-link">Terms of Use</a></li>
+                    <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#licensing" class="footer-link">Licensing</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-recognition">
+                <p class="recognition-text">
+                    Featured in: National Geographic, Magnum Photos, World Press Photo Awards, LensCulture
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

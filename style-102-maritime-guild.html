@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Maritime Guild - Member Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Navy Blue Palette */
+            --navy-dark: #0A1F44;
+            --navy-medium: #1B3A6B;
+            --navy-light: #2E5090;
+            --navy-pale: #4A6FA5;
+
+            /* Brass Gold Palette */
+            --brass-dark: #8B6914;
+            --brass-medium: #B8860B;
+            --brass-light: #DAA520;
+            --brass-pale: #F0E68C;
+
+            /* Cream Palette */
+            --cream-dark: #F5F5DC;
+            --cream-medium: #FFF8DC;
+            --cream-light: #FFFEF7;
+
+            /* Accents */
+            --white: #FFFFFF;
+            --silver: #C0C0C0;
+            --red: #8B0000;
+            --green: #2F5233;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(10, 31, 68, 0.1);
+            --shadow-md: 0 4px 8px rgba(10, 31, 68, 0.15);
+            --shadow-lg: 0 8px 16px rgba(10, 31, 68, 0.2);
+            --shadow-xl: 0 12px 24px rgba(10, 31, 68, 0.25);
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream-medium) 100%);
+            color: var(--navy-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            color: var(--cream-light);
+            padding: 0;
+            box-shadow: var(--shadow-xl);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--brass-medium);
+        }
+
+        .header-top {
+            background: var(--navy-dark);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--brass-dark);
+        }
+
+        .guild-crest {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .crest-icon {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, var(--brass-light) 0%, var(--brass-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--navy-dark);
+            border: 3px solid var(--brass-medium);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.4);
+        }
+
+        .guild-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guild-title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--brass-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .guild-subtitle {
+            font-size: 0.85rem;
+            color: var(--cream-dark);
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .member-status {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .member-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cream-light);
+        }
+
+        .member-rank {
+            font-size: 0.85rem;
+            color: var(--brass-light);
+            font-style: italic;
+        }
+
+        .member-badge {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+            border: 2px solid var(--brass-pale);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            padding: 0;
+            background: var(--navy-medium);
+        }
+
+        .nav-item {
+            padding: 1rem 2rem;
+            color: var(--cream-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-right: 1px solid var(--navy-light);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: var(--navy-light);
+            color: var(--brass-light);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--brass-light);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::after,
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--cream-dark);
+            border-top: 4px solid var(--brass-medium);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass-medium) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .card-action {
+            color: var(--navy-medium);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .card-action:hover {
+            color: var(--brass-medium);
+        }
+
+        /* Certification Dashboard */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--white) 100%);
+            border: 2px solid var(--navy-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--brass-medium);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .cert-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-level {
+            font-size: 0.85rem;
+            color: var(--brass-dark);
+            font-style: italic;
+        }
+
+        .cert-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-status.active {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .cert-status.pending {
+            background: var(--brass-pale);
+            color: var(--brass-dark);
+        }
+
+        .cert-status.expired {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .cert-progress {
+            margin-top: 1rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--navy-medium);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--cream-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brass-dark) 0%, var(--brass-light) 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            box-shadow: 0 2px 4px rgba(184, 134, 11, 0.3);
+        }
+
+        .cert-dates {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--navy-pale);
+        }
+
+        /* Fleet Registry */
+        .fleet-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+        }
+
+        .fleet-table thead {
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            color: var(--cream-light);
+        }
+
+        .fleet-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--brass-medium);
+        }
+
+        .fleet-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .fleet-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .fleet-table tbody tr {
+            background: var(--white);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .fleet-table tbody tr:hover {
+            background: var(--cream-light);
+            transform: scale(1.01);
+            box-shadow: var(--shadow-md);
+        }
+
+        .fleet-table td {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .vessel-name {
+            font-weight: 700;
+            color: var(--navy-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vessel-icon {
+            font-size: 1.2rem;
+        }
+
+        .vessel-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--cream-dark);
+            color: var(--navy-medium);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .vessel-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-indicator.active {
+            background: var(--green);
+            box-shadow: 0 0 10px rgba(47, 82, 51, 0.5);
+        }
+
+        .status-indicator.maintenance {
+            background: var(--brass-medium);
+            box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+        }
+
+        .status-indicator.docked {
+            background: var(--navy-pale);
+        }
+
+        /* Event Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0;
+            margin-top: 1.5rem;
+        }
+
+        .calendar-header {
+            background: var(--navy-medium);
+            color: var(--cream-light);
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calendar-day {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            padding: 0.75rem;
+            min-height: 100px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            background: var(--cream-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .day-number {
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-day.other-month {
+            background: var(--cream-light);
+            color: var(--navy-pale);
+        }
+
+        .calendar-day.today {
+            background: linear-gradient(135deg, var(--brass-pale) 0%, var(--cream-light) 100%);
+            border: 2px solid var(--brass-medium);
+        }
+
+        .event-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.25rem;
+        }
+
+        .event-dot.regatta {
+            background: var(--navy-dark);
+        }
+
+        .event-dot.conference {
+            background: var(--brass-medium);
+        }
+
+        .event-dot.training {
+            background: var(--green);
+        }
+
+        .event-item {
+            font-size: 0.7rem;
+            color: var(--navy-medium);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            color: var(--cream-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--brass-medium);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--brass-light);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cream-dark);
+        }
+
+        /* Training Tracker */
+        .training-list {
+            margin-top: 1.5rem;
+        }
+
+        .training-item {
+            background: var(--cream-light);
+            border-left: 4px solid var(--brass-medium);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .training-item:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
+        }
+
+        .training-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .training-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+        }
+
+        .training-date {
+            font-size: 0.85rem;
+            color: var(--navy-medium);
+            font-style: italic;
+        }
+
+        .training-details {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: var(--navy-medium);
+        }
+
+        .training-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .training-progress {
+            margin-top: 1rem;
+        }
+
+        /* Upcoming Events */
+        .event-list {
+            margin-top: 1.5rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border: 2px solid var(--navy-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+        }
+
+        .event-card.regatta::before {
+            background: var(--navy-dark);
+        }
+
+        .event-card.conference::before {
+            background: var(--brass-medium);
+        }
+
+        .event-card.training::before {
+            background: var(--green);
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: var(--navy-dark);
+            color: var(--brass-light);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-location {
+            font-size: 0.9rem;
+            color: var(--navy-medium);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .event-description {
+            font-size: 0.9rem;
+            color: var(--navy-medium);
+            line-height: 1.6;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--brass-pale);
+            color: var(--brass-dark);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* Member Sidebar */
+        .member-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            color: var(--cream-light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--brass-medium);
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass-dark) 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+            border: 4px solid var(--brass-pale);
+            box-shadow: 0 0 30px rgba(218, 165, 32, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--brass-light);
+        }
+
+        .profile-rank {
+            font-size: 1rem;
+            color: var(--cream-dark);
+            margin-bottom: 0.25rem;
+            font-style: italic;
+        }
+
+        .profile-id {
+            font-size: 0.85rem;
+            color: var(--navy-pale);
+            font-family: 'Courier New', monospace;
+        }
+
+        .profile-stats {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--navy-light);
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .profile-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--brass-light);
+            display: block;
+        }
+
+        .profile-stat-label {
+            font-size: 0.75rem;
+            color: var(--cream-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--brass-medium) 0%, var(--brass-dark) 100%);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass-medium) 100%);
+        }
+
+        .action-btn.secondary {
+            background: var(--white);
+            color: var(--navy-dark);
+            border: 2px solid var(--navy-medium);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--cream-light);
+            border-color: var(--brass-medium);
+            color: var(--brass-dark);
+        }
+
+        /* Announcements */
+        .announcement-list {
+            margin-top: 1.5rem;
+        }
+
+        .announcement-item {
+            background: var(--cream-light);
+            border-left: 4px solid var(--navy-medium);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .announcement-item.urgent {
+            border-left-color: var(--red);
+            background: #FFF5F5;
+        }
+
+        .announcement-title {
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .announcement-text {
+            font-size: 0.9rem;
+            color: var(--navy-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .announcement-date {
+            font-size: 0.75rem;
+            color: var(--navy-pale);
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+            color: var(--cream-light);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--brass-medium);
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--brass-light);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--cream-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--brass-light);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--navy-light);
+            text-align: center;
+            color: var(--cream-dark);
+            font-size: 0.85rem;
+        }
+
+        .footer-motto {
+            font-style: italic;
+            color: var(--brass-light);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-item {
+                border-right: none;
+                border-bottom: 1px solid var(--navy-light);
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(218, 165, 32, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+            }
+        }
+
+        .crest-icon {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>102</strong> of 120 &mdash; Maritime Guild</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-101-quantum-lab.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-103-artisan-collective.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 101) window.location.href = 'style-101-quantum-lab.html';
+                if (e.key === 'ArrowRight' && 103) window.location.href = 'style-103-artisan-collective.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="guild-crest">
+                <div class="crest-icon">⚓</div>
+                <div class="guild-title">
+                    <h1>International Maritime Guild</h1>
+                    <span class="guild-subtitle">Est. 1847 • Honoris Causa Mare</span>
+                </div>
+            </div>
+            <div class="member-info">
+                <div class="member-status">
+                    <span class="member-name">Captain James Morrison</span>
+                    <span class="member-rank">Master Mariner - Class I</span>
+                </div>
+                <div class="member-badge">⚓</div>
+            </div>
+        </div>
+        <nav class="navigation">
+            <a href="#" class="nav-item active">Dashboard</a>
+            <a href="#" class="nav-item">Fleet Registry</a>
+            <a href="#" class="nav-item">Certifications</a>
+            <a href="#" class="nav-item">Events</a>
+            <a href="#" class="nav-item">Training</a>
+            <a href="#" class="nav-item">Resources</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Certification Dashboard -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">🎖️</span>
+                            Certification Dashboard
+                        </h2>
+                        <a href="#" class="card-action">View All →</a>
+                    </div>
+                    <div class="cert-grid">
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div>
+                                    <div class="cert-name">Master Mariner License</div>
+                                    <div class="cert-level">Class I - Unlimited Tonnage</div>
+                                </div>
+                                <span class="cert-status active">Active</span>
+                            </div>
+                            <div class="cert-progress">
+                                <div class="progress-label">
+                                    <span>Renewal Progress</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="cert-dates">
+                                <span>Issued: Jan 2020</span>
+                                <span>Expires: Jan 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div>
+                                    <div class="cert-name">STCW Basic Safety</div>
+                                    <div class="cert-level">Advanced Level</div>
+                                </div>
+                                <span class="cert-status active">Active</span>
+                            </div>
+                            <div class="cert-progress">
+                                <div class="progress-label">
+                                    <span>Course Completion</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="cert-dates">
+                                <span>Issued: Mar 2023</span>
+                                <span>Expires: Mar 2028</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div>
+                                    <div class="cert-name">Navigation Officer</div>
+                                    <div class="cert-level">Senior Grade</div>
+                                </div>
+                                <span class="cert-status pending">Renewal</span>
+                            </div>
+                            <div class="cert-progress">
+                                <div class="progress-label">
+                                    <span>Required Hours</span>
+                                    <span>45%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div class="cert-dates">
+                                <span>Issued: Jun 2019</span>
+                                <span>Expires: Dec 2025</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <div>
+                                    <div class="cert-name">Maritime Security</div>
+                                    <div class="cert-level">Level 3 Certified</div>
+                                </div>
+                                <span class="cert-status active">Active</span>
+                            </div>
+                            <div class="cert-progress">
+                                <div class="progress-label">
+                                    <span>Continuing Education</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="cert-dates">
+                                <span>Issued: Sep 2022</span>
+                                <span>Expires: Sep 2027</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Active Certifications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2,450</div>
+                            <div class="stat-label">Sea Hours Logged</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Vessels Commanded</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fleet Registry -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">🚢</span>
+                            Fleet Registry
+                        </h2>
+                        <a href="#" class="card-action">Full Registry →</a>
+                    </div>
+                    <table class="fleet-table">
+                        <thead>
+                            <tr>
+                                <th>Vessel Name</th>
+                                <th>Type</th>
+                                <th>Registry</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="vessel-name">
+                                        <span class="vessel-icon">🚢</span>
+                                        HMS Endeavour
+                                    </div>
+                                </td>
+                                <td><span class="vessel-type">Container</span></td>
+                                <td>IMO 9876543</td>
+                                <td>
+                                    <span class="vessel-status">
+                                        <span class="status-indicator active"></span>
+                                        At Sea
+                                    </span>
+                                </td>
+                                <td>Pacific Ocean</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vessel-name">
+                                        <span class="vessel-icon">⛴️</span>
+                                        Atlantic Star
+                                    </div>
+                                </td>
+                                <td><span class="vessel-type">Tanker</span></td>
+                                <td>IMO 9876544</td>
+                                <td>
+                                    <span class="vessel-status">
+                                        <span class="status-indicator docked"></span>
+                                        Docked
+                                    </span>
+                                </td>
+                                <td>Rotterdam</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vessel-name">
+                                        <span class="vessel-icon">🛳️</span>
+                                        Northern Lights
+                                    </div>
+                                </td>
+                                <td><span class="vessel-type">Cruise</span></td>
+                                <td>IMO 9876545</td>
+                                <td>
+                                    <span class="vessel-status">
+                                        <span class="status-indicator maintenance"></span>
+                                        Maintenance
+                                    </span>
+                                </td>
+                                <td>Oslo Shipyard</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vessel-name">
+                                        <span class="vessel-icon">⚓</span>
+                                        Southern Cross
+                                    </div>
+                                </td>
+                                <td><span class="vessel-type">Cargo</span></td>
+                                <td>IMO 9876546</td>
+                                <td>
+                                    <span class="vessel-status">
+                                        <span class="status-indicator active"></span>
+                                        At Sea
+                                    </span>
+                                </td>
+                                <td>Indian Ocean</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vessel-name">
+                                        <span class="vessel-icon">🚢</span>
+                                        Pacific Horizon
+                                    </div>
+                                </td>
+                                <td><span class="vessel-type">Bulk Carrier</span></td>
+                                <td>IMO 9876547</td>
+                                <td>
+                                    <span class="vessel-status">
+                                        <span class="status-indicator docked"></span>
+                                        Docked
+                                    </span>
+                                </td>
+                                <td>Singapore</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Training Tracker -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">📚</span>
+                            Training & Development
+                        </h2>
+                        <a href="#" class="card-action">View Schedule →</a>
+                    </div>
+                    <div class="training-list">
+                        <div class="training-item">
+                            <div class="training-header">
+                                <div class="training-title">Advanced Navigation Systems</div>
+                                <div class="training-date">Dec 15-17, 2025</div>
+                            </div>
+                            <div class="training-details">
+                                <div class="training-detail">
+                                    <span>📍</span>
+                                    <span>Southampton Maritime Academy</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>⏱️</span>
+                                    <span>24 Hours</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>👥</span>
+                                    <span>Registered</span>
+                                </div>
+                            </div>
+                            <div class="training-progress">
+                                <div class="progress-label">
+                                    <span>Pre-Course Materials</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="training-item">
+                            <div class="training-header">
+                                <div class="training-title">Emergency Response Protocol</div>
+                                <div class="training-date">Jan 10-12, 2026</div>
+                            </div>
+                            <div class="training-details">
+                                <div class="training-detail">
+                                    <span>📍</span>
+                                    <span>Virtual Training</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>⏱️</span>
+                                    <span>16 Hours</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>👥</span>
+                                    <span>Open Enrollment</span>
+                                </div>
+                            </div>
+                            <div class="training-progress">
+                                <div class="progress-label">
+                                    <span>Enrollment</span>
+                                    <span>0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="training-item">
+                            <div class="training-header">
+                                <div class="training-title">Maritime Law & Regulations Update</div>
+                                <div class="training-date">Feb 5-6, 2026</div>
+                            </div>
+                            <div class="training-details">
+                                <div class="training-detail">
+                                    <span>📍</span>
+                                    <span>London Guild Hall</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>⏱️</span>
+                                    <span>12 Hours</span>
+                                </div>
+                                <div class="training-detail">
+                                    <span>👥</span>
+                                    <span>Required</span>
+                                </div>
+                            </div>
+                            <div class="training-progress">
+                                <div class="progress-label">
+                                    <span>Registration</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Calendar -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">📅</span>
+                            December 2025 - Events Calendar
+                        </h2>
+                        <a href="#" class="card-action">Full Calendar →</a>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-header">Sun</div>
+                        <div class="calendar-header">Mon</div>
+                        <div class="calendar-header">Tue</div>
+                        <div class="calendar-header">Wed</div>
+                        <div class="calendar-header">Thu</div>
+                        <div class="calendar-header">Fri</div>
+                        <div class="calendar-header">Sat</div>
+
+                        <div class="calendar-day other-month">
+                            <div class="day-number">30</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">3</div>
+                            <div class="event-item">
+                                <span class="event-dot conference"></span>
+                                Safety Conf
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">4</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">5</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">6</div>
+                            <div class="event-item">
+                                <span class="event-dot regatta"></span>
+                                Winter Cup
+                            </div>
+                        </div>
+
+                        <div class="calendar-day">
+                            <div class="day-number">7</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">8</div>
+                        </div>
+                        <div class="calendar-day today">
+                            <div class="day-number">9</div>
+                            <div class="event-item">
+                                <span class="event-dot conference"></span>
+                                Annual Meet
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">10</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">11</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">12</div>
+                            <div class="event-item">
+                                <span class="event-dot training"></span>
+                                Navigation
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">13</div>
+                        </div>
+
+                        <div class="calendar-day">
+                            <div class="day-number">14</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">15</div>
+                            <div class="event-item">
+                                <span class="event-dot training"></span>
+                                Adv Nav Sys
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">16</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">17</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">18</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">19</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">20</div>
+                            <div class="event-item">
+                                <span class="event-dot regatta"></span>
+                                Holiday Race
+                            </div>
+                        </div>
+
+                        <div class="calendar-day">
+                            <div class="day-number">21</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">22</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">23</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">24</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">25</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">26</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">27</div>
+                        </div>
+
+                        <div class="calendar-day">
+                            <div class="day-number">28</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">29</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">30</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number">31</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number">1</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number">2</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number">3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="member-sidebar">
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-avatar">⚓</div>
+                    <div class="profile-name">James Morrison</div>
+                    <div class="profile-rank">Master Mariner - Class I</div>
+                    <div class="profile-id">Member #IMO-001847-JM</div>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">15</span>
+                            <span class="profile-stat-label">Years</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">8</span>
+                            <span class="profile-stat-label">Certs</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">12</span>
+                            <span class="profile-stat-label">Vessels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">⚡</span>
+                            Quick Actions
+                        </h3>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn">Request Certification</button>
+                        <button class="action-btn">Register Vessel</button>
+                        <button class="action-btn secondary">Book Training</button>
+                        <button class="action-btn secondary">View Documents</button>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🎯</span>
+                            Upcoming Events
+                        </h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-card conference">
+                            <div class="event-date">Dec 9, 2025</div>
+                            <div class="event-title">Annual Guild Meeting</div>
+                            <div class="event-location">London Guild Hall</div>
+                            <div class="event-description">Quarterly business review and member networking.</div>
+                            <span class="event-badge">Conference</span>
+                        </div>
+
+                        <div class="event-card training">
+                            <div class="event-date">Dec 15-17, 2025</div>
+                            <div class="event-title">Advanced Navigation</div>
+                            <div class="event-location">Southampton Academy</div>
+                            <div class="event-description">Modern navigation systems and techniques.</div>
+                            <span class="event-badge">Training</span>
+                        </div>
+
+                        <div class="event-card regatta">
+                            <div class="event-date">Dec 20, 2025</div>
+                            <div class="event-title">Holiday Regatta</div>
+                            <div class="event-location">Portsmouth Harbor</div>
+                            <div class="event-description">Annual holiday celebration race.</div>
+                            <span class="event-badge">Regatta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">📢</span>
+                            Announcements
+                        </h3>
+                    </div>
+                    <div class="announcement-list">
+                        <div class="announcement-item urgent">
+                            <div class="announcement-title">Certification Renewal Deadline</div>
+                            <div class="announcement-text">Navigation Officer certifications must be renewed by December 31, 2025.</div>
+                            <div class="announcement-date">Posted: Dec 1, 2025</div>
+                        </div>
+
+                        <div class="announcement-item">
+                            <div class="announcement-title">New Training Programs</div>
+                            <div class="announcement-text">Advanced security and crisis management courses now available for 2026.</div>
+                            <div class="announcement-date">Posted: Nov 28, 2025</div>
+                        </div>
+
+                        <div class="announcement-item">
+                            <div class="announcement-title">Fleet Registry Update</div>
+                            <div class="announcement-text">New digital registry system launching January 2026. Migration guide available.</div>
+                            <div class="announcement-date">Posted: Nov 25, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>About the Guild</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our History</a></li>
+                    <li><a href="#">Mission & Values</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Annual Reports</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Membership</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Join the Guild</a></li>
+                    <li><a href="#">Member Benefits</a></li>
+                    <li><a href="#">Certification Programs</a></li>
+                    <li><a href="#">Renewal Process</a></li>
+                    <li><a href="#">Member Directory</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Training Center</a></li>
+                    <li><a href="#">Maritime Library</a></li>
+                    <li><a href="#">Technical Documents</a></li>
+                    <li><a href="#">Industry Standards</a></li>
+                    <li><a href="#">Legal Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">Regional Chapters</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-motto">"Honoris Causa Mare - For the Honor of the Sea"</p>
+            <p>&copy; 2025 International Maritime Guild. Established 1847. All rights reserved.</p>
+            <p>Registered with the International Maritime Organization | Charter #IMO-1847-IMG</p>
+        </div>
+    </footer>
+</body>
+</html>

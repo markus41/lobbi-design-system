@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 4: Japandi + Glassmorphism</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Japandi (80%) + Glassmorphism (20%)                              ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Japandi(6) + Glass(7) = 6.8 - Harmonious                  ║
+    ║  • Era: Both Contemporary = Perfect match                                 ║
+    ║  • Texture: Minimal + Translucent = Complementary                        ║
+    ║  • Temperature: Warm(Japandi) + Cool(Glass) = Balanced 5.5              ║
+    ║  • Ornamentation: Both Minimal = Perfect alignment                       ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Japanese "Ma" (negative space) meets Nordic "Hygge" (coziness),         ║
+    ║  enhanced with modern glassmorphic depth. The result is a serene,        ║
+    ║  premium interface that feels both grounded and ethereal.                ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Japandi earth tones, natural textures, organic curves        ║
+    ║  • Secondary: Glassmorphic blur, subtle borders, layered depth           ║
+    ║                                                                           ║
+    ║  USE CASES: Wellness apps, Mindfulness platforms, Premium SaaS,          ║
+    ║             High-end productivity tools, Sustainable brands              ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Japandi Earth Palette - Primary */
+            --stone-50: #fafaf9;
+            --stone-100: #f5f5f4;
+            --stone-200: #e7e5e4;
+            --stone-300: #d6d3d1;
+            --stone-500: #78716c;
+            --stone-700: #44403c;
+            --stone-900: #1c1917;
+
+            /* Natural Accents */
+            --sage-400: #9dc183;
+            --sage-500: #7c9a5c;
+            --terracotta: #c67d4d;
+            --sand: #d4c4a8;
+            --indigo-ink: #3d4f5f;
+
+            /* Glassmorphic */
+            --glass-white: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: rgba(0, 0, 0, 0.05);
+
+            /* Spacing - 8px base grid */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+
+            /* Radius - Soft organic */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans JP', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--stone-100) 0%, var(--sand) 50%, var(--stone-200) 100%);
+            color: var(--stone-700);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* === GLASSMORPHIC HEADER === */
+        .header {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: var(--space-4) var(--space-8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--stone-900);
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--sage-500);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-6);
+        }
+
+        .nav a {
+            color: var(--stone-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--sage-500);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 60%;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--stone-900);
+        }
+
+        /* === MAIN CONTENT === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-12) var(--space-8);
+        }
+
+        .page-header {
+            margin-bottom: var(--space-12);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--stone-900);
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-2);
+        }
+
+        .page-subtitle {
+            color: var(--stone-500);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* === STATS CARDS - Glassmorphic === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+            margin-bottom: var(--space-12);
+        }
+
+        .stat-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--glass-shadow);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.sage { background: rgba(157, 193, 131, 0.2); color: var(--sage-500); }
+        .stat-icon.terracotta { background: rgba(198, 125, 77, 0.2); color: var(--terracotta); }
+        .stat-icon.indigo { background: rgba(61, 79, 95, 0.2); color: var(--indigo-ink); }
+        .stat-icon.stone { background: rgba(68, 64, 60, 0.2); color: var(--stone-700); }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--stone-900);
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-label {
+            color: var(--stone-500);
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+
+        /* === CARD GRID === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            margin-bottom: var(--space-12);
+        }
+
+        .card {
+            background: var(--glass-white);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sage-400), var(--terracotta));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px var(--glass-shadow);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-4);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--stone-900);
+        }
+
+        .card-badge {
+            background: rgba(157, 193, 131, 0.2);
+            color: var(--sage-500);
+            padding: var(--space-1) var(--space-3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            color: var(--stone-500);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: var(--space-6);
+        }
+
+        .card-footer {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        /* === BUTTONS - Japandi organic === */
+        .btn {
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--stone-900);
+            color: var(--stone-50);
+        }
+
+        .btn-primary:hover {
+            background: var(--stone-700);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--stone-700);
+            border: 1px solid var(--stone-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--stone-100);
+            border-color: var(--stone-500);
+        }
+
+        /* === TABLE - Clean Minimal === */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--stone-900);
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--sage-500);
+            border-radius: 2px;
+        }
+
+        .table-container {
+            background: var(--glass-white);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(120, 113, 108, 0.08);
+            color: var(--stone-500);
+            padding: var(--space-4) var(--space-6);
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: var(--space-4) var(--space-6);
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--stone-700);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(157, 193, 131, 0.05);
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.875rem;
+        }
+
+        .status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-active::before { background: var(--sage-500); }
+        .status-pending::before { background: var(--terracotta); }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: var(--space-12);
+            padding: var(--space-8);
+            background: var(--glass-white);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--stone-500);
+            font-size: 0.875rem;
+        }
+
+        .footer-meta {
+            margin-top: var(--space-2);
+            font-size: 0.75rem;
+            color: var(--stone-400);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .nav { display: none; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>4</strong> of 70 &mdash; Japandi + Glassmorphism</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-3-quiet-luxury.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-5-swiss-aurora.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 3) window.location.href = 'style-3-quiet-luxury.html';
+                if (e.key === 'ArrowRight' && 5) window.location.href = 'style-5-swiss-aurora.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Lobbi<span>.</span></div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+                <a href="#">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Welcome back</h1>
+            <p class="page-subtitle">Here's what's happening with your association today.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon sage">&#9679;</div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon terracotta">&#9679;</div>
+                <div class="stat-value">$124K</div>
+                <div class="stat-label">Monthly Revenue</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon indigo">&#9679;</div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Active Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stone">&#9679;</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Retention Rate</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Annual Conference 2025</h3>
+                    <span class="card-badge">Featured</span>
+                </div>
+                <p class="card-content">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities for industry professionals.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Membership Renewal</h3>
+                    <span class="card-badge">Action</span>
+                </div>
+                <p class="card-content">247 members have renewals coming up this month. Send automated reminders to maintain your retention rate.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Send Reminders</button>
+                    <button class="btn btn-secondary">View List</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Q4 Financial Report</h3>
+                    <span class="card-badge">New</span>
+                </div>
+                <p class="card-content">Your quarterly financial summary is ready for review. Revenue increased 12% compared to last quarter.</p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-secondary">Share</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Mitchell</td>
+                        <td>Renewed membership (Premium)</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status status-active">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>James Chen</td>
+                        <td>Registered for Annual Conference</td>
+                        <td>Dec 9, 2025</td>
+                        <td><span class="status status-active">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Emily Rodriguez</td>
+                        <td>Submitted certification application</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Michael Thompson</td>
+                        <td>Updated profile information</td>
+                        <td>Dec 8, 2025</td>
+                        <td><span class="status status-active">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 4: Japandi + Glassmorphism</p>
+        <p class="footer-meta">Warm minimalism meets frosted depth | Earth tones, organic curves, Ma spacing</p>
+    </footer>
+</body>
+</html>

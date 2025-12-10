@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 91: Enterprise SaaS Dashboard | Member Management Platform</title>
+    <style>
+        /* ============================================================================
+           STYLE 91: ENTERPRISE SAAS DASHBOARD
+           3-Way Blend Architecture: Enterprise SaaS (60%) + Swiss Typography (25%) + Material Design 3 (15%)
+
+           ULTRATHINK DESIGN RATIONALE:
+           ============================================================================
+
+           PRIMARY INFLUENCE (60%): Enterprise SaaS
+           - Dashboard-first design philosophy prioritizing data visibility
+           - Clean, minimal interface reducing cognitive load
+           - Professional color palette (cool blues, grays) for corporate environments
+           - Card-based widget system for modular content organization
+           - Data visualization emphasis with chart placeholders and KPI metrics
+           - Functional hierarchy: most important data gets prominence
+
+           SECONDARY INFLUENCE (25%): Swiss Typography
+           - Precise 8px grid system for mathematical spacing consistency
+           - Clear typographic hierarchy using size, weight, and spacing
+           - Generous whitespace (breathing room) between elements
+           - Systematic spacing using multiples of 8 (8, 16, 24, 32, 48, 64)
+           - Limited color palette with strong contrast ratios for accessibility
+           - Grotesque sans-serif typeface (system fonts) for clarity
+           - Grid-based layout ensuring perfect alignment
+
+           TERTIARY INFLUENCE (15%): Material Design 3
+           - Elevated surfaces with subtle shadows (elevation levels 1-3)
+           - Surface tinting using primary color at low opacity
+           - Rounded corners (4-8px) for modern, approachable feel
+           - State layers for hover/active interactions
+           - Dynamic color tokens adaptable to themes
+           - Floating elements for primary actions
+
+           TEMPERATURE: 4 (Cool-Professional)
+           - Blues: Primary interaction color, trust and professionalism
+           - Cyans: Accent for secondary actions and highlights
+           - Cool Grays: Neutral backgrounds, sophisticated and clean
+           - Minimal warm tones: Only for success/warning states
+
+           FORMALITY: 8 (Highly Formal)
+           - Corporate-grade professional design
+           - Serious, business-oriented tone
+           - Precise, technical language
+           - Formal typographic scale
+           - Conservative interaction patterns
+
+           MEMBER MANAGEMENT CONTEXT:
+           - Association platform for member organizations
+           - KPIs: Total members, active members, renewal rate, engagement
+           - Quick actions: Add member, export data, send communication
+           - Activity feed: Recent member activities and system events
+           - Member directory with search and filters
+           ============================================================================ */
+
+        /* ============================================================================
+           DESIGN TOKENS - 3-Way Blend Color System
+           ============================================================================ */
+
+        :root {
+            /* PRIMARY PALETTE - Enterprise SaaS (Cool-Professional, Temperature 4) */
+            --color-primary-50: #e3f2fd;      /* Lightest blue - Material influence */
+            --color-primary-100: #bbdefb;
+            --color-primary-200: #90caf9;
+            --color-primary-300: #64b5f6;
+            --color-primary-400: #42a5f5;
+            --color-primary-500: #2196f3;     /* Primary brand blue - Enterprise SaaS */
+            --color-primary-600: #1e88e5;
+            --color-primary-700: #1976d2;
+            --color-primary-800: #1565c0;
+            --color-primary-900: #0d47a1;
+
+            /* ACCENT PALETTE - Cyan for secondary actions */
+            --color-accent-400: #26c6da;
+            --color-accent-500: #00bcd4;
+            --color-accent-600: #00acc1;
+
+            /* NEUTRAL PALETTE - Swiss Typography influence (Cool Grays) */
+            --color-neutral-50: #fafafa;       /* Surface backgrounds */
+            --color-neutral-100: #f5f5f5;      /* Card backgrounds */
+            --color-neutral-200: #eeeeee;      /* Borders, dividers */
+            --color-neutral-300: #e0e0e0;
+            --color-neutral-400: #bdbdbd;      /* Disabled states */
+            --color-neutral-500: #9e9e9e;      /* Secondary text */
+            --color-neutral-600: #757575;
+            --color-neutral-700: #616161;      /* Body text */
+            --color-neutral-800: #424242;      /* Headings */
+            --color-neutral-900: #212121;      /* Primary text */
+
+            /* SEMANTIC COLORS - Enterprise SaaS conventions */
+            --color-success: #4caf50;          /* Green for positive metrics */
+            --color-warning: #ff9800;          /* Orange for warnings */
+            --color-error: #f44336;            /* Red for errors/alerts */
+            --color-info: #2196f3;             /* Blue for informational */
+
+            /* SURFACE COLORS - Material Design 3 elevation */
+            --surface-base: #ffffff;
+            --surface-elevated-1: #ffffff;     /* Cards, elevation 1 */
+            --surface-elevated-2: #ffffff;     /* Modals, elevation 2 */
+            --surface-tint: rgba(33, 150, 243, 0.05);  /* Primary tint overlay */
+
+            /* TYPOGRAPHY - Swiss Typography precision */
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-family-mono: "SF Mono", Monaco, "Cascadia Code", "Courier New", monospace;
+
+            /* Type Scale - Mathematical progression */
+            --font-size-xs: 0.75rem;      /* 12px */
+            --font-size-sm: 0.875rem;     /* 14px */
+            --font-size-base: 1rem;       /* 16px */
+            --font-size-lg: 1.125rem;     /* 18px */
+            --font-size-xl: 1.25rem;      /* 20px */
+            --font-size-2xl: 1.5rem;      /* 24px */
+            --font-size-3xl: 2rem;        /* 32px */
+            --font-size-4xl: 2.5rem;      /* 40px */
+
+            /* Font Weights - Clear hierarchy */
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Line Heights - Swiss precision */
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+
+            /* SPACING SYSTEM - Swiss 8px grid */
+            --space-1: 0.25rem;   /* 4px - tight spacing */
+            --space-2: 0.5rem;    /* 8px - base unit */
+            --space-3: 0.75rem;   /* 12px */
+            --space-4: 1rem;      /* 16px - standard spacing */
+            --space-5: 1.5rem;    /* 24px */
+            --space-6: 2rem;      /* 32px - section spacing */
+            --space-8: 3rem;      /* 48px - large spacing */
+            --space-10: 4rem;     /* 64px - extra large */
+
+            /* BORDERS - Subtle definition */
+            --border-width-thin: 1px;
+            --border-width-medium: 2px;
+            --border-radius-sm: 4px;       /* Material influence */
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-full: 9999px;
+
+            /* SHADOWS - Material Design 3 elevation */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+            /* TRANSITIONS - Smooth enterprise interactions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* LAYOUT DIMENSIONS - Dashboard structure */
+            --sidebar-width: 240px;
+            --header-height: 64px;
+            --content-max-width: 1440px;
+        }
+
+        /* ============================================================================
+           BASE STYLES - Swiss Typography foundation
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--line-height-normal);
+            color: var(--color-neutral-700);
+            background-color: var(--color-neutral-50);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================================================
+           LAYOUT STRUCTURE - Enterprise SaaS Dashboard Grid
+           ============================================================================ */
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            grid-template-rows: var(--header-height) 1fr;
+            grid-template-areas:
+                "sidebar header"
+                "sidebar main";
+            min-height: 100vh;
+            background-color: var(--color-neutral-50);
+        }
+
+        /* ============================================================================
+           HEADER - Top navigation bar
+           Material elevation + Enterprise SaaS clean design
+           ============================================================================ */
+
+        .dashboard-header {
+            grid-area: header;
+            background-color: var(--surface-elevated-1);
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-6);
+            gap: var(--space-4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            /* Swiss precision: Exact 64px height */
+            height: var(--header-height);
+        }
+
+        .header-search {
+            flex: 1;
+            max-width: 480px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-2) var(--space-4);
+            border: var(--border-width-thin) solid var(--color-neutral-300);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-family: var(--font-family-sans);
+            background-color: var(--color-neutral-100);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            background-color: var(--surface-base);
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            border: none;
+            background-color: transparent;
+            color: var(--color-neutral-600);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .icon-button:hover {
+            background-color: var(--color-neutral-100);
+            color: var(--color-neutral-900);
+        }
+
+        .icon-button .badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-error);
+            border-radius: var(--border-radius-full);
+            border: 2px solid var(--surface-base);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+
+        .user-profile:hover {
+            background-color: var(--color-neutral-100);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--color-primary-500), var(--color-accent-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-900);
+            line-height: var(--line-height-tight);
+        }
+
+        .user-role {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-500);
+            line-height: var(--line-height-tight);
+        }
+
+        /* ============================================================================
+           SIDEBAR - Navigation menu
+           Swiss precision grid + Enterprise SaaS navigation patterns
+           ============================================================================ */
+
+        .dashboard-sidebar {
+            grid-area: sidebar;
+            background-color: var(--surface-elevated-1);
+            border-right: var(--border-width-thin) solid var(--color-neutral-200);
+            padding: var(--space-6) 0;
+            display: flex;
+            flex-direction: column;
+            /* Swiss precision: Fixed width for consistent grid */
+            width: var(--sidebar-width);
+        }
+
+        .sidebar-brand {
+            padding: 0 var(--space-6) var(--space-6);
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+            margin-bottom: var(--space-4);
+        }
+
+        .brand-logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary-600);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .brand-subtitle {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-500);
+            margin-top: var(--space-1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: var(--space-2) var(--space-3);
+        }
+
+        .nav-section {
+            margin-bottom: var(--space-6);
+        }
+
+        .nav-section-title {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-2);
+        }
+
+        .nav-items {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: var(--space-1);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-3);
+            color: var(--color-neutral-700);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background-color: var(--color-neutral-100);
+            color: var(--color-neutral-900);
+        }
+
+        .nav-link.active {
+            background-color: var(--surface-tint);
+            color: var(--color-primary-700);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--color-primary-600);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-badge {
+            margin-left: auto;
+            background-color: var(--color-primary-100);
+            color: var(--color-primary-700);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            padding: 2px 8px;
+            border-radius: var(--border-radius-full);
+        }
+
+        /* ============================================================================
+           MAIN CONTENT AREA - Dashboard grid system
+           Swiss grid precision + Enterprise SaaS dashboard layout
+           ============================================================================ */
+
+        .dashboard-main {
+            grid-area: main;
+            padding: var(--space-6);
+            overflow-y: auto;
+            /* Swiss precision: Max width for optimal reading */
+            max-width: var(--content-max-width);
+        }
+
+        .page-header {
+            margin-bottom: var(--space-6);
+        }
+
+        .page-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-neutral-900);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--space-2);
+        }
+
+        .page-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--color-neutral-500);
+            line-height: var(--line-height-normal);
+        }
+
+        /* ============================================================================
+           KPI CARDS - Enterprise SaaS metrics display
+           Material elevation + Swiss grid alignment
+           ============================================================================ */
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-5);
+            margin-bottom: var(--space-8);
+        }
+
+        .kpi-card {
+            background-color: var(--surface-elevated-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-5);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: var(--border-width-thin) solid var(--color-neutral-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Material Design 3: Elevated state on hover */
+        .kpi-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        /* Material Design 3: Surface tint overlay */
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--surface-tint), transparent);
+            pointer-events: none;
+        }
+
+        .kpi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-4);
+        }
+
+        .kpi-title {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+        }
+
+        .kpi-icon.primary {
+            background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-50));
+            color: var(--color-primary-700);
+        }
+
+        .kpi-icon.success {
+            background: linear-gradient(135deg, #c8e6c9, #e8f5e9);
+            color: #2e7d32;
+        }
+
+        .kpi-icon.warning {
+            background: linear-gradient(135deg, #ffe0b2, #fff3e0);
+            color: #e65100;
+        }
+
+        .kpi-icon.accent {
+            background: linear-gradient(135deg, #b2ebf2, #e0f7fa);
+            color: #00838f;
+        }
+
+        .kpi-value {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-neutral-900);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--space-2);
+        }
+
+        .kpi-footer {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .kpi-change {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .kpi-change.positive {
+            color: var(--color-success);
+        }
+
+        .kpi-change.negative {
+            color: var(--color-error);
+        }
+
+        .kpi-period {
+            color: var(--color-neutral-500);
+        }
+
+        /* ============================================================================
+           CONTENT GRID - Two-column dashboard layout
+           Swiss grid system for precise alignment
+           ============================================================================ */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+
+        /* ============================================================================
+           CHART CARD - Data visualization container
+           Enterprise SaaS dashboard widget
+           ============================================================================ */
+
+        .chart-card {
+            background-color: var(--surface-elevated-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            border: var(--border-width-thin) solid var(--color-neutral-200);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-5);
+            padding-bottom: var(--space-4);
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-900);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--color-primary-600);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--border-radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .btn-text:hover {
+            background-color: var(--color-primary-50);
+            color: var(--color-primary-700);
+        }
+
+        /* Chart placeholder - would integrate with Chart.js, D3, etc. */
+        .chart-placeholder {
+            background: linear-gradient(180deg, var(--color-neutral-100) 0%, var(--color-neutral-50) 100%);
+            border-radius: var(--border-radius-md);
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-neutral-400);
+            font-size: var(--font-size-sm);
+            border: 2px dashed var(--color-neutral-300);
+        }
+
+        /* ============================================================================
+           ACTIVITY FEED - Recent events timeline
+           Enterprise SaaS real-time updates
+           ============================================================================ */
+
+        .activity-feed {
+            background-color: var(--surface-elevated-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            border: var(--border-width-thin) solid var(--color-neutral-200);
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-4) 0;
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: var(--font-size-base);
+        }
+
+        .activity-icon.member {
+            background-color: var(--color-primary-100);
+            color: var(--color-primary-700);
+        }
+
+        .activity-icon.payment {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .activity-icon.event {
+            background-color: #ffe0b2;
+            color: #e65100;
+        }
+
+        .activity-icon.communication {
+            background-color: #b2ebf2;
+            color: #00838f;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-900);
+            margin-bottom: var(--space-1);
+        }
+
+        .activity-meta {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-500);
+        }
+
+        /* ============================================================================
+           QUICK ACTIONS - Primary action buttons
+           Material Design 3 elevated buttons + Enterprise SaaS CTAs
+           ============================================================================ */
+
+        .quick-actions {
+            background-color: var(--surface-elevated-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            border: var(--border-width-thin) solid var(--color-neutral-200);
+            margin-bottom: var(--space-6);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background-color: var(--surface-base);
+            border: var(--border-width-thin) solid var(--color-neutral-300);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-align: left;
+            font-family: var(--font-family-sans);
+            font-size: var(--font-size-sm);
+        }
+
+        .action-button:hover {
+            border-color: var(--color-primary-500);
+            background-color: var(--surface-tint);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius-md);
+            background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            flex-shrink: 0;
+        }
+
+        .action-content {
+            flex: 1;
+        }
+
+        .action-title {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-900);
+            margin-bottom: var(--space-1);
+        }
+
+        .action-description {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-500);
+        }
+
+        /* ============================================================================
+           MEMBER TABLE - Data table with Swiss precision
+           Enterprise SaaS data grid
+           ============================================================================ */
+
+        .member-table-card {
+            background-color: var(--surface-elevated-1);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: var(--border-width-thin) solid var(--color-neutral-200);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: var(--space-5) var(--space-6);
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-controls {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-600);
+            color: white;
+            border: none;
+            padding: var(--space-3) var(--space-5);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-700);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--surface-base);
+            color: var(--color-neutral-700);
+            border: var(--border-width-thin) solid var(--color-neutral-300);
+            padding: var(--space-3) var(--space-5);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-neutral-400);
+            background-color: var(--color-neutral-50);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background-color: var(--color-neutral-50);
+            border-bottom: var(--border-width-medium) solid var(--color-neutral-300);
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: var(--space-4) var(--space-6);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-700);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: var(--space-4) var(--space-6);
+            border-bottom: var(--border-width-thin) solid var(--color-neutral-200);
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-700);
+        }
+
+        .data-table tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background-color: var(--color-neutral-50);
+        }
+
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .member-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            flex-shrink: 0;
+        }
+
+        .member-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-name {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-900);
+        }
+
+        .member-email {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-500);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: var(--border-radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-badge.active {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-badge.pending {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+
+        .status-badge.inactive {
+            background-color: var(--color-neutral-200);
+            color: var(--color-neutral-700);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            background-color: transparent;
+            color: var(--color-neutral-500);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-icon:hover {
+            background-color: var(--color-neutral-100);
+            color: var(--color-neutral-900);
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN - Mobile-first breakpoints
+           Swiss grid adapts to different viewports
+           ============================================================================ */
+
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: var(--header-height) 1fr;
+                grid-template-areas:
+                    "header"
+                    "main";
+            }
+
+            .dashboard-sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                bottom: 0;
+                z-index: 200;
+                transition: left var(--transition-base);
+            }
+
+            .dashboard-sidebar.open {
+                left: 0;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .dashboard-main {
+                padding: var(--space-4);
+            }
+
+            .page-title {
+                font-size: var(--font-size-2xl);
+            }
+
+            .kpi-value {
+                font-size: var(--font-size-3xl);
+            }
+
+            .header-search {
+                display: none;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           UTILITY CLASSES - Reusable components
+           ============================================================================ */
+
+        .text-muted {
+            color: var(--color-neutral-500);
+        }
+
+        .text-bold {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>91</strong> of 120 &mdash; Enterprise SaaS</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-90-membership-collective.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-92-nordic-minimal.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 90) window.location.href = 'style-90-membership-collective.html';
+                if (e.key === 'ArrowRight' && 92) window.location.href = 'style-92-nordic-minimal.html';
+            });
+        })();
+    </script>
+
+    <!-- ============================================================================
+         DASHBOARD CONTAINER
+         Enterprise SaaS Dashboard Layout
+         ============================================================================ -->
+
+    <div class="dashboard-container">
+
+        <!-- ====================================================================
+             HEADER - Top navigation bar
+             ==================================================================== -->
+        <header class="dashboard-header">
+            <div class="header-search">
+                <input
+                    type="search"
+                    class="search-input"
+                    placeholder="Search members, activities, or settings..."
+                    aria-label="Search dashboard"
+                />
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-button" aria-label="Notifications">
+                    <span>🔔</span>
+                    <span class="badge"></span>
+                </button>
+
+                <button class="icon-button" aria-label="Help">
+                    <span>❓</span>
+                </button>
+
+                <div class="user-profile">
+                    <div class="user-avatar">SA</div>
+                    <div class="user-info">
+                        <div class="user-name">Sarah Anderson</div>
+                        <div class="user-role">System Admin</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ====================================================================
+             SIDEBAR - Navigation menu
+             ==================================================================== -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span>⬡</span>
+                    MemberHub
+                </div>
+                <div class="brand-subtitle">Association Platform</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <span class="nav-icon">📊</span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">👥</span>
+                                Members
+                                <span class="nav-badge">1,247</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">📅</span>
+                                Events
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">💳</span>
+                                Billing
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Tools</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">📧</span>
+                                Communications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">📊</span>
+                                Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">🔌</span>
+                                Integrations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Settings</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">⚙️</span>
+                                Configuration
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">🔒</span>
+                                Security
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- ====================================================================
+             MAIN CONTENT - Dashboard area
+             ==================================================================== -->
+        <main class="dashboard-main">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back, Sarah. Here's what's happening with your association today.</p>
+            </div>
+
+            <!-- ================================================================
+                 KPI METRICS - Key Performance Indicators
+                 Enterprise SaaS dashboard cards
+                 ================================================================ -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Total Members</div>
+                        </div>
+                        <div class="kpi-icon primary">👥</div>
+                    </div>
+                    <div class="kpi-value">1,247</div>
+                    <div class="kpi-footer">
+                        <div class="kpi-change positive">
+                            <span>↑ 8.2%</span>
+                        </div>
+                        <span class="kpi-period">vs. last month</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Active Members</div>
+                        </div>
+                        <div class="kpi-icon success">✓</div>
+                    </div>
+                    <div class="kpi-value">1,089</div>
+                    <div class="kpi-footer">
+                        <div class="kpi-change positive">
+                            <span>↑ 5.4%</span>
+                        </div>
+                        <span class="kpi-period">vs. last month</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Renewal Rate</div>
+                        </div>
+                        <div class="kpi-icon warning">📈</div>
+                    </div>
+                    <div class="kpi-value">87.3%</div>
+                    <div class="kpi-footer">
+                        <div class="kpi-change negative">
+                            <span>↓ 2.1%</span>
+                        </div>
+                        <span class="kpi-period">vs. last month</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div>
+                            <div class="kpi-title">Engagement Score</div>
+                        </div>
+                        <div class="kpi-icon accent">⭐</div>
+                    </div>
+                    <div class="kpi-value">92.1</div>
+                    <div class="kpi-footer">
+                        <div class="kpi-change positive">
+                            <span>↑ 3.7%</span>
+                        </div>
+                        <span class="kpi-period">vs. last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================================================================
+                 QUICK ACTIONS - Primary CTAs
+                 ================================================================ -->
+            <div class="quick-actions">
+                <div class="card-header">
+                    <h2 class="card-title">Quick Actions</h2>
+                </div>
+                <div class="actions-grid">
+                    <button class="action-button">
+                        <div class="action-icon">➕</div>
+                        <div class="action-content">
+                            <div class="action-title">Add Member</div>
+                            <div class="action-description">Register new member</div>
+                        </div>
+                    </button>
+
+                    <button class="action-button">
+                        <div class="action-icon">📊</div>
+                        <div class="action-content">
+                            <div class="action-title">Export Data</div>
+                            <div class="action-description">Download member data</div>
+                        </div>
+                    </button>
+
+                    <button class="action-button">
+                        <div class="action-icon">📧</div>
+                        <div class="action-content">
+                            <div class="action-title">Send Email</div>
+                            <div class="action-description">Broadcast to members</div>
+                        </div>
+                    </button>
+
+                    <button class="action-button">
+                        <div class="action-icon">📅</div>
+                        <div class="action-content">
+                            <div class="action-title">Create Event</div>
+                            <div class="action-description">Schedule new event</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================================================================
+                 CONTENT GRID - Chart + Activity Feed
+                 ================================================================ -->
+            <div class="content-grid">
+
+                <!-- Chart Card -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Member Growth Trend</h2>
+                        <div class="card-actions">
+                            <button class="btn-text">View Report</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        📈 Chart visualization area (integrate with Chart.js, D3.js, or similar)
+                    </div>
+                </div>
+
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <div class="card-actions">
+                            <button class="btn-text">View All</button>
+                        </div>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon member">👤</div>
+                            <div class="activity-content">
+                                <div class="activity-title">New member registered</div>
+                                <div class="activity-meta">Jennifer Martinez joined • 5 minutes ago</div>
+                            </div>
+                        </li>
+
+                        <li class="activity-item">
+                            <div class="activity-icon payment">💳</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Payment received</div>
+                                <div class="activity-meta">Annual renewal: David Chen • 1 hour ago</div>
+                            </div>
+                        </li>
+
+                        <li class="activity-item">
+                            <div class="activity-icon event">📅</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Event registration</div>
+                                <div class="activity-meta">Summer Conference: 12 new registrations • 2 hours ago</div>
+                            </div>
+                        </li>
+
+                        <li class="activity-item">
+                            <div class="activity-icon communication">📧</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Email campaign sent</div>
+                                <div class="activity-meta">Monthly Newsletter delivered to 1,089 members • 3 hours ago</div>
+                            </div>
+                        </li>
+
+                        <li class="activity-item">
+                            <div class="activity-icon member">👤</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Profile updated</div>
+                                <div class="activity-meta">Robert Johnson updated contact information • 5 hours ago</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ================================================================
+                 MEMBER TABLE - Data grid
+                 Enterprise SaaS data table with Swiss precision
+                 ================================================================ -->
+            <div class="member-table-card">
+                <div class="table-header">
+                    <h2 class="card-title">Recent Members</h2>
+                    <div class="table-controls">
+                        <button class="btn-secondary">Filter</button>
+                        <button class="btn-primary">Add Member</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th>Member ID</th>
+                            <th>Status</th>
+                            <th>Join Date</th>
+                            <th>Renewal Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="member-info">
+                                    <div class="member-avatar">JM</div>
+                                    <div class="member-details">
+                                        <div class="member-name">Jennifer Martinez</div>
+                                        <div class="member-email">j.martinez@email.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>MEM-2024-0847</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>Jan 15, 2024</td>
+                            <td>Jan 15, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn-icon" aria-label="View">👁️</button>
+                                    <button class="btn-icon" aria-label="Edit">✏️</button>
+                                    <button class="btn-icon" aria-label="More">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="member-info">
+                                    <div class="member-avatar">DC</div>
+                                    <div class="member-details">
+                                        <div class="member-name">David Chen</div>
+                                        <div class="member-email">d.chen@email.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>MEM-2023-0621</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>Mar 22, 2023</td>
+                            <td>Mar 22, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn-icon" aria-label="View">👁️</button>
+                                    <button class="btn-icon" aria-label="Edit">✏️</button>
+                                    <button class="btn-icon" aria-label="More">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="member-info">
+                                    <div class="member-avatar">SM</div>
+                                    <div class="member-details">
+                                        <div class="member-name">Sarah Mitchell</div>
+                                        <div class="member-email">s.mitchell@email.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>MEM-2024-0201</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>Dec 10, 2023</td>
+                            <td>Dec 10, 2024</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn-icon" aria-label="View">👁️</button>
+                                    <button class="btn-icon" aria-label="Edit">✏️</button>
+                                    <button class="btn-icon" aria-label="More">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="member-info">
+                                    <div class="member-avatar">RJ</div>
+                                    <div class="member-details">
+                                        <div class="member-name">Robert Johnson</div>
+                                        <div class="member-email">r.johnson@email.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>MEM-2022-0314</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>Jun 08, 2022</td>
+                            <td>Jun 08, 2025</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn-icon" aria-label="View">👁️</button>
+                                    <button class="btn-icon" aria-label="Edit">✏️</button>
+                                    <button class="btn-icon" aria-label="More">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="member-info">
+                                    <div class="member-avatar">EW</div>
+                                    <div class="member-details">
+                                        <div class="member-name">Emily Williams</div>
+                                        <div class="member-email">e.williams@email.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>MEM-2023-0892</td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td>Sep 15, 2023</td>
+                            <td>Sep 15, 2024</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn-icon" aria-label="View">👁️</button>
+                                    <button class="btn-icon" aria-label="Edit">✏️</button>
+                                    <button class="btn-icon" aria-label="More">⋯</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

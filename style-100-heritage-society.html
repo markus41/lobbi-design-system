@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Society Portal - Preserving Our Collective Memory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Heritage Color Palette - Sepia & Deep Browns */
+            --parchment-light: #f4f1e8;
+            --parchment-medium: #e8e2d0;
+            --parchment-dark: #d4c9ae;
+            --sepia-light: #c9b593;
+            --sepia-medium: #a68a64;
+            --sepia-dark: #8b7355;
+            --brown-light: #6b5744;
+            --brown-medium: #4a3f2f;
+            --brown-dark: #2d241a;
+            --brown-deepest: #1a140e;
+            --gold-antique: #b8860b;
+            --gold-aged: #9a7510;
+            --red-heritage: #8b4513;
+            --green-archive: #556b2f;
+
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Crimson Text', serif;
+            --font-accent: 'EB Garamond', serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+
+            /* Borders & Shadows */
+            --border-ornate: 2px solid var(--gold-antique);
+            --border-subtle: 1px solid var(--sepia-medium);
+            --shadow-soft: 0 4px 12px rgba(29, 20, 14, 0.15);
+            --shadow-lifted: 0 8px 24px rgba(29, 20, 14, 0.25);
+            --shadow-inset: inset 0 2px 8px rgba(29, 20, 14, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--brown-dark);
+            background: linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment-medium) 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Aged Paper Texture Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 115, 85, 0.03) 2px, rgba(139, 115, 85, 0.03) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 115, 85, 0.03) 2px, rgba(139, 115, 85, 0.03) 4px);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Page Container */
+        .page-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+            color: var(--parchment-light);
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-bottom: 4px double var(--gold-antique);
+            box-shadow: var(--shadow-lifted);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--gold-antique) 20%,
+                var(--gold-aged) 50%,
+                var(--gold-antique) 80%,
+                transparent 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .heritage-emblem {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-md);
+            border: 3px solid var(--gold-antique);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, var(--brown-medium) 0%, var(--brown-dark) 100%);
+            font-size: 2.5rem;
+            font-family: var(--font-display);
+            color: var(--gold-antique);
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.3);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-xs);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-tagline {
+            font-family: var(--font-accent);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--sepia-light);
+            letter-spacing: 0.08em;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--brown-medium);
+            border-bottom: var(--border-ornate);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-family: var(--font-accent);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--parchment-light);
+            text-decoration: none;
+            border-right: 1px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:last-child {
+            border-right: none;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gold-antique);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--brown-light);
+            color: var(--gold-antique);
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-link.active {
+            background: var(--brown-light);
+            color: var(--gold-antique);
+        }
+
+        .nav-link.active::before {
+            width: 80%;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: var(--spacing-xl);
+            background: var(--parchment-light);
+            border: var(--border-ornate);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-lifted);
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: var(--border-subtle);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--sepia-medium);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '❖';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--parchment-light);
+            padding: 0 var(--spacing-md);
+            color: var(--gold-antique);
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: 0.03em;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-accent);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--sepia-dark);
+        }
+
+        /* Archive Browser */
+        .archive-filters {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-family: var(--font-accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--brown-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--brown-dark);
+            background: white;
+            border: 2px solid var(--sepia-medium);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: var(--gold-antique);
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .archive-item {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archive-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold-antique) 0%, var(--gold-aged) 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .archive-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lifted);
+        }
+
+        .archive-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .archive-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            font-family: var(--font-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: var(--sepia-light);
+            color: white;
+            border-radius: 3px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .archive-category.manuscripts { background: var(--red-heritage); }
+        .archive-category.photographs { background: var(--sepia-dark); }
+        .archive-category.maps { background: var(--green-archive); }
+        .archive-category.documents { background: var(--brown-medium); }
+
+        .archive-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .archive-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--sepia-dark);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .archive-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .archive-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--brown-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .archive-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            font-family: var(--font-accent);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--brown-medium);
+            color: var(--parchment-light);
+            border: 2px solid var(--brown-medium);
+        }
+
+        .btn-primary:hover {
+            background: var(--brown-dark);
+            border-color: var(--brown-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 36, 26, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--brown-medium);
+            border: 2px solid var(--sepia-medium);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sepia-light);
+            color: white;
+            border-color: var(--sepia-light);
+        }
+
+        /* Genealogy Tools */
+        .genealogy-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .family-tree-viewer {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .tree-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .tree-visualization {
+            background: linear-gradient(135deg, var(--parchment-light) 0%, white 100%);
+            border: 2px dashed var(--sepia-medium);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            min-height: 400px;
+            position: relative;
+        }
+
+        .tree-node {
+            background: white;
+            border: 2px solid var(--sepia-dark);
+            border-radius: 4px;
+            padding: var(--spacing-sm);
+            margin: var(--spacing-sm) auto;
+            max-width: 200px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .tree-node::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: var(--sepia-dark);
+        }
+
+        .tree-node:first-child::before {
+            display: none;
+        }
+
+        .node-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .node-dates {
+            font-size: 0.85rem;
+            color: var(--sepia-dark);
+            font-style: italic;
+        }
+
+        .research-records {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .records-list {
+            list-style: none;
+        }
+
+        .record-item {
+            padding: var(--spacing-md);
+            border-left: 3px solid var(--gold-antique);
+            background: var(--parchment-light);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .record-item:hover {
+            background: var(--parchment-medium);
+            border-left-width: 5px;
+            padding-left: calc(var(--spacing-md) - 2px);
+        }
+
+        .record-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .record-details {
+            font-size: 0.9rem;
+            color: var(--sepia-dark);
+        }
+
+        /* Event Calendar */
+        .calendar-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .calendar-sidebar {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-soft);
+            height: fit-content;
+        }
+
+        .mini-calendar {
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .calendar-month {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day.header {
+            font-family: var(--font-accent);
+            font-weight: 600;
+            color: var(--sepia-dark);
+            cursor: default;
+        }
+
+        .calendar-day.date:hover {
+            background: var(--parchment-medium);
+        }
+
+        .calendar-day.has-event {
+            background: var(--sepia-light);
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-day.selected {
+            background: var(--gold-antique);
+            color: white;
+            font-weight: 600;
+        }
+
+        .event-types {
+            border-top: var(--border-subtle);
+            padding-top: var(--spacing-md);
+        }
+
+        .event-type-filter {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs);
+            margin-bottom: var(--spacing-xs);
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 0.2s ease;
+        }
+
+        .event-type-filter:hover {
+            background: var(--parchment-light);
+        }
+
+        .event-type-filter input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .events-list {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .event-card {
+            background: var(--parchment-light);
+            border-left: 4px solid var(--gold-antique);
+            border-radius: 0 4px 4px 0;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .event-card.tour { border-left-color: var(--red-heritage); }
+        .event-card.lecture { border-left-color: var(--green-archive); }
+        .event-card.exhibition { border-left-color: var(--gold-antique); }
+
+        .event-date {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--brown-medium);
+            color: var(--parchment-light);
+            font-family: var(--font-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 3px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-details {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.95rem;
+            color: var(--sepia-dark);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .event-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--brown-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Donation Section */
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .donation-content {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .impact-statement {
+            background: linear-gradient(135deg, var(--sepia-light) 0%, var(--sepia-dark) 100%);
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: 4px;
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .impact-statement h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .impact-statement p {
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .preservation-projects {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-item {
+            background: var(--parchment-light);
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+        }
+
+        .project-goal {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold-aged);
+        }
+
+        .progress-bar {
+            background: var(--parchment-medium);
+            border: var(--border-subtle);
+            border-radius: 20px;
+            height: 24px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-antique) 0%, var(--gold-aged) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 var(--spacing-sm);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: width 0.5s ease;
+        }
+
+        .donation-form {
+            background: white;
+            border: var(--border-ornate);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .amount-option {
+            position: relative;
+        }
+
+        .amount-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .amount-option label {
+            display: block;
+            padding: var(--spacing-md);
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--parchment-light);
+            border: 2px solid var(--sepia-medium);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .amount-option input[type="radio"]:checked + label {
+            background: var(--gold-antique);
+            color: white;
+            border-color: var(--gold-antique);
+            transform: scale(1.05);
+        }
+
+        .amount-option label:hover {
+            border-color: var(--gold-antique);
+        }
+
+        .custom-amount {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .custom-amount input {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            border: 2px solid var(--sepia-medium);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-amount input:focus {
+            outline: none;
+            border-color: var(--gold-antique);
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        .donation-frequency {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .frequency-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .frequency-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .frequency-option label {
+            display: block;
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-family: var(--font-accent);
+            font-weight: 600;
+            background: var(--parchment-light);
+            border: 2px solid var(--sepia-medium);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .frequency-option input[type="radio"]:checked + label {
+            background: var(--brown-medium);
+            color: white;
+            border-color: var(--brown-medium);
+        }
+
+        .btn-donate {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--gold-antique) 0%, var(--gold-aged) 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-donate:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lifted);
+        }
+
+        .tax-deductible {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--sepia-dark);
+            margin-top: var(--spacing-sm);
+            font-style: italic;
+        }
+
+        /* Member Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .benefit-card {
+            background: white;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            padding: var(--spacing-lg);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lifted);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--sepia-light) 0%, var(--sepia-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .benefit-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .benefit-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--brown-light);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, var(--brown-medium) 0%, var(--brown-dark) 100%);
+            color: var(--parchment-light);
+            padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+            border-top: 4px double var(--gold-antique);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--gold-antique);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-section a {
+            color: var(--parchment-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold-antique);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(184, 134, 11, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--sepia-light);
+        }
+
+        /* Ornamental Decorations */
+        .ornament {
+            text-align: center;
+            color: var(--gold-antique);
+            font-size: 1.5rem;
+            margin: var(--spacing-lg) 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .genealogy-container {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-container {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-link {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.9rem;
+            }
+
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-amounts {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            nav,
+            footer,
+            .archive-filters,
+            .tree-controls,
+            .btn {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>100</strong> of 120 &mdash; Heritage Society</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-99-sports-premium.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-101-quantum-lab.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 99) window.location.href = 'style-99-sports-premium.html';
+                if (e.key === 'ArrowRight' && 101) window.location.href = 'style-101-quantum-lab.html';
+            });
+        })();
+    </script>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="heritage-emblem">H</div>
+                <h1>The Heritage Society</h1>
+                <p class="header-tagline">Preserving Our Collective Memory Since 1892</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-container">
+                <a href="#archives" class="nav-link active">Archives</a>
+                <a href="#genealogy" class="nav-link">Genealogy</a>
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#preservation" class="nav-link">Preservation</a>
+                <a href="#membership" class="nav-link">Membership</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Historical Archive Browser -->
+            <section id="archives">
+                <div class="section-header">
+                    <h2>Historical Archive Collection</h2>
+                    <p class="section-subtitle">Over 50,000 Documents Spanning Three Centuries</p>
+                </div>
+
+                <div class="archive-filters">
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="manuscripts">Manuscripts</option>
+                            <option value="photographs">Photographs</option>
+                            <option value="maps">Historical Maps</option>
+                            <option value="documents">Legal Documents</option>
+                            <option value="letters">Personal Letters</option>
+                            <option value="journals">Journals & Diaries</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="period-filter">Time Period</label>
+                        <select id="period-filter">
+                            <option value="all">All Periods</option>
+                            <option value="colonial">Colonial Era (1607-1776)</option>
+                            <option value="revolutionary">Revolutionary War (1775-1783)</option>
+                            <option value="early-republic">Early Republic (1783-1815)</option>
+                            <option value="antebellum">Antebellum Period (1815-1861)</option>
+                            <option value="civil-war">Civil War Era (1861-1865)</option>
+                            <option value="reconstruction">Reconstruction (1865-1877)</option>
+                            <option value="gilded">Gilded Age (1877-1900)</option>
+                            <option value="progressive">Progressive Era (1900-1920)</option>
+                            <option value="modern">Modern Era (1920-Present)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="search-archive">Search Archives</label>
+                        <input type="search" id="search-archive" placeholder="Search by keyword...">
+                    </div>
+                </div>
+
+                <div class="archive-grid">
+                    <div class="archive-item">
+                        <span class="archive-category manuscripts">Manuscripts</span>
+                        <h3 class="archive-title">The Johnson Family Letters</h3>
+                        <div class="archive-meta">
+                            <span>📅 1847-1863</span>
+                            <span>📄 127 Documents</span>
+                            <span>🔒 Public Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Extensive correspondence between family members during the westward expansion,
+                            providing intimate perspectives on frontier life and the California Gold Rush.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">View Collection</button>
+                            <button class="btn btn-secondary">Request Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="archive-item">
+                        <span class="archive-category photographs">Photographs</span>
+                        <h3 class="archive-title">Civil War Daguerreotypes</h3>
+                        <div class="archive-meta">
+                            <span>📅 1861-1865</span>
+                            <span>📄 83 Images</span>
+                            <span>🔒 Member Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Rare photographic collection documenting local regiments, including portraits,
+                            camp life, and battlefield scenes from multiple theaters of war.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">View Gallery</button>
+                            <button class="btn btn-secondary">High-Res Request</button>
+                        </div>
+                    </div>
+
+                    <div class="archive-item">
+                        <span class="archive-category maps">Maps</span>
+                        <h3 class="archive-title">Colonial Survey Maps (1720-1775)</h3>
+                        <div class="archive-meta">
+                            <span>📅 1720-1775</span>
+                            <span>📄 41 Maps</span>
+                            <span>🔒 Public Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Hand-drawn survey maps showing property boundaries, indigenous settlements,
+                            and early infrastructure development in the pre-Revolutionary period.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">Explore Maps</button>
+                            <button class="btn btn-secondary">Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="archive-item">
+                        <span class="archive-category documents">Documents</span>
+                        <h3 class="archive-title">Early Municipal Records</h3>
+                        <div class="archive-meta">
+                            <span>📅 1789-1850</span>
+                            <span>📄 312 Documents</span>
+                            <span>🔒 Public Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Official town records including deeds, birth certificates, marriage licenses,
+                            and civic proceedings documenting the growth of early American governance.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">Browse Records</button>
+                            <button class="btn btn-secondary">Search Database</button>
+                        </div>
+                    </div>
+
+                    <div class="archive-item">
+                        <span class="archive-category manuscripts">Manuscripts</span>
+                        <h3 class="archive-title">Revolutionary War Pension Applications</h3>
+                        <div class="archive-meta">
+                            <span>📅 1818-1855</span>
+                            <span>📄 96 Applications</span>
+                            <span>🔒 Member Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Detailed pension applications from veterans and widows, containing biographical
+                            information, service records, and personal testimonies of Revolutionary service.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">View Collection</button>
+                            <button class="btn btn-secondary">Request Access</button>
+                        </div>
+                    </div>
+
+                    <div class="archive-item">
+                        <span class="archive-category photographs">Photographs</span>
+                        <h3 class="archive-title">Industrial Era Photography</h3>
+                        <div class="archive-meta">
+                            <span>📅 1880-1920</span>
+                            <span>📄 234 Images</span>
+                            <span>🔒 Public Access</span>
+                        </div>
+                        <p class="archive-description">
+                            Comprehensive photographic documentation of local factories, mills, and workers
+                            during the height of American industrialization and urbanization.
+                        </p>
+                        <div class="archive-actions">
+                            <button class="btn btn-primary">View Gallery</button>
+                            <button class="btn btn-secondary">Order Prints</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Genealogy Tools -->
+            <section id="genealogy">
+                <div class="section-header">
+                    <h2>Genealogical Research Center</h2>
+                    <p class="section-subtitle">Discover Your Heritage Through Our Comprehensive Records</p>
+                </div>
+
+                <div class="genealogy-container">
+                    <div class="family-tree-viewer">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--spacing-md); color: var(--brown-dark);">
+                            Family Tree Viewer
+                        </h3>
+
+                        <div class="tree-controls">
+                            <button class="btn btn-primary">Upload GEDCOM</button>
+                            <button class="btn btn-secondary">Search Ancestors</button>
+                            <button class="btn btn-secondary">Export Tree</button>
+                        </div>
+
+                        <div class="tree-visualization">
+                            <div class="tree-node">
+                                <div class="node-name">William Harrison</div>
+                                <div class="node-dates">1832 - 1904</div>
+                            </div>
+
+                            <div class="tree-node">
+                                <div class="node-name">Elizabeth Harrison (née Cooper)</div>
+                                <div class="node-dates">1835 - 1912</div>
+                            </div>
+
+                            <div class="tree-node">
+                                <div class="node-name">Thomas Harrison</div>
+                                <div class="node-dates">1858 - 1923</div>
+                            </div>
+
+                            <div class="tree-node">
+                                <div class="node-name">Margaret Harrison (née Davis)</div>
+                                <div class="node-dates">1862 - 1931</div>
+                            </div>
+
+                            <div class="tree-node">
+                                <div class="node-name">Robert Harrison</div>
+                                <div class="node-dates">1889 - 1967</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-records">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--spacing-md); color: var(--brown-dark);">
+                            Available Research Records
+                        </h3>
+
+                        <ul class="records-list">
+                            <li class="record-item">
+                                <div class="record-title">Census Records</div>
+                                <div class="record-details">
+                                    Federal & State Census • 1790-1940 • 2.3M Individuals
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Vital Records</div>
+                                <div class="record-details">
+                                    Birth, Marriage, Death • 1650-1950 • 1.8M Records
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Military Service Records</div>
+                                <div class="record-details">
+                                    Revolutionary War to WWII • 450K Service Members
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Immigration & Naturalization</div>
+                                <div class="record-details">
+                                    Passenger Lists, Citizenship Papers • 1820-1950 • 670K Records
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Land & Property Records</div>
+                                <div class="record-details">
+                                    Deeds, Grants, Transfers • 1640-1930 • 890K Documents
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Church Records</div>
+                                <div class="record-details">
+                                    Baptisms, Marriages, Burials • 1650-1920 • 340K Entries
+                                </div>
+                            </li>
+
+                            <li class="record-item">
+                                <div class="record-title">Newspaper Archives</div>
+                                <div class="record-details">
+                                    Obituaries, Notices, Articles • 1790-1960 • 5.6M Pages
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div style="margin-top: var(--spacing-lg);">
+                            <button class="btn btn-primary" style="width: 100%;">Start Your Research</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Calendar -->
+            <section id="events">
+                <div class="section-header">
+                    <h2>Heritage Events Calendar</h2>
+                    <p class="section-subtitle">Historical Tours, Lectures, and Educational Programs</p>
+                </div>
+
+                <div class="calendar-container">
+                    <div class="calendar-sidebar">
+                        <div class="mini-calendar">
+                            <div class="calendar-month">December 2025</div>
+                            <div class="calendar-grid">
+                                <div class="calendar-day header">S</div>
+                                <div class="calendar-day header">M</div>
+                                <div class="calendar-day header">T</div>
+                                <div class="calendar-day header">W</div>
+                                <div class="calendar-day header">T</div>
+                                <div class="calendar-day header">F</div>
+                                <div class="calendar-day header">S</div>
+
+                                <div class="calendar-day date">1</div>
+                                <div class="calendar-day date">2</div>
+                                <div class="calendar-day date">3</div>
+                                <div class="calendar-day date">4</div>
+                                <div class="calendar-day date">5</div>
+                                <div class="calendar-day date has-event">6</div>
+                                <div class="calendar-day date">7</div>
+
+                                <div class="calendar-day date">8</div>
+                                <div class="calendar-day date selected has-event">9</div>
+                                <div class="calendar-day date">10</div>
+                                <div class="calendar-day date">11</div>
+                                <div class="calendar-day date has-event">12</div>
+                                <div class="calendar-day date">13</div>
+                                <div class="calendar-day date has-event">14</div>
+
+                                <div class="calendar-day date">15</div>
+                                <div class="calendar-day date">16</div>
+                                <div class="calendar-day date">17</div>
+                                <div class="calendar-day date has-event">18</div>
+                                <div class="calendar-day date">19</div>
+                                <div class="calendar-day date has-event">20</div>
+                                <div class="calendar-day date">21</div>
+
+                                <div class="calendar-day date">22</div>
+                                <div class="calendar-day date">23</div>
+                                <div class="calendar-day date">24</div>
+                                <div class="calendar-day date">25</div>
+                                <div class="calendar-day date">26</div>
+                                <div class="calendar-day date">27</div>
+                                <div class="calendar-day date">28</div>
+
+                                <div class="calendar-day date">29</div>
+                                <div class="calendar-day date">30</div>
+                                <div class="calendar-day date">31</div>
+                            </div>
+                        </div>
+
+                        <div class="event-types">
+                            <h4 style="font-family: var(--font-accent); font-size: 1rem; margin-bottom: var(--spacing-sm); color: var(--brown-dark);">
+                                Filter by Type
+                            </h4>
+
+                            <label class="event-type-filter">
+                                <input type="checkbox" checked>
+                                <span>Historical Tours</span>
+                            </label>
+
+                            <label class="event-type-filter">
+                                <input type="checkbox" checked>
+                                <span>Lectures & Talks</span>
+                            </label>
+
+                            <label class="event-type-filter">
+                                <input type="checkbox" checked>
+                                <span>Exhibitions</span>
+                            </label>
+
+                            <label class="event-type-filter">
+                                <input type="checkbox" checked>
+                                <span>Workshops</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="events-list">
+                        <div class="event-card tour">
+                            <span class="event-date">Saturday, December 6, 2025</span>
+                            <h3 class="event-title">Colonial Architecture Walking Tour</h3>
+                            <div class="event-details">
+                                <span>⏰ 10:00 AM - 1:00 PM</span>
+                                <span>📍 Historic District</span>
+                                <span>👥 Limited to 20 Participants</span>
+                            </div>
+                            <p class="event-description">
+                                Explore the architectural heritage of our colonial past with expert historian Dr. Margaret
+                                Sullivan. This guided tour covers 12 significant buildings dating from 1720-1775, including
+                                rarely-seen private residences and commercial structures.
+                            </p>
+                            <button class="btn btn-primary">Register Now ($25)</button>
+                        </div>
+
+                        <div class="event-card lecture">
+                            <span class="event-date">Tuesday, December 9, 2025</span>
+                            <h3 class="event-title">Lecture: Women's Roles in the Revolutionary War</h3>
+                            <div class="event-details">
+                                <span>⏰ 7:00 PM - 8:30 PM</span>
+                                <span>📍 Heritage Hall</span>
+                                <span>👥 Open Seating</span>
+                            </div>
+                            <p class="event-description">
+                                Professor Eleanor Hayes presents groundbreaking research on the often-overlooked contributions
+                                of women to the Revolutionary cause, drawing from primary sources in our archives. Q&A session
+                                and book signing to follow.
+                            </p>
+                            <button class="btn btn-primary">Free Admission - RSVP</button>
+                        </div>
+
+                        <div class="event-card tour">
+                            <span class="event-date">Thursday, December 12, 2025</span>
+                            <h3 class="event-title">Cemetery Heritage Tour</h3>
+                            <div class="event-details">
+                                <span>⏰ 2:00 PM - 4:00 PM</span>
+                                <span>📍 Old Burial Ground</span>
+                                <span>👥 Limited to 15 Participants</span>
+                            </div>
+                            <p class="event-description">
+                                A respectful exploration of our historic cemetery, featuring gravestone art, genealogical
+                                insights, and stories of notable citizens from the 18th and 19th centuries. Suitable for
+                                ages 12 and up.
+                            </p>
+                            <button class="btn btn-primary">Register Now ($20)</button>
+                        </div>
+
+                        <div class="event-card exhibition">
+                            <span class="event-date">Saturday, December 14, 2025</span>
+                            <h3 class="event-title">Opening: "Letters from the Front" Exhibition</h3>
+                            <div class="event-details">
+                                <span>⏰ 6:00 PM - 9:00 PM</span>
+                                <span>📍 Heritage Society Gallery</span>
+                                <span>👥 Open to Members & Guests</span>
+                            </div>
+                            <p class="event-description">
+                                Grand opening of our new exhibition featuring Civil War correspondence from local soldiers.
+                                The collection includes over 150 letters, providing intimate glimpses into the experiences
+                                of ordinary people during extraordinary times. Light refreshments served.
+                            </p>
+                            <button class="btn btn-primary">Free for Members</button>
+                        </div>
+
+                        <div class="event-card lecture">
+                            <span class="event-date">Wednesday, December 18, 2025</span>
+                            <h3 class="event-title">Workshop: Introduction to Genealogical Research</h3>
+                            <div class="event-details">
+                                <span>⏰ 6:30 PM - 8:30 PM</span>
+                                <span>📍 Research Library</span>
+                                <span>👥 Limited to 12 Participants</span>
+                            </div>
+                            <p class="event-description">
+                                Learn the fundamentals of family history research from our expert genealogists. Topics include
+                                census records, vital records, immigration documents, and effective use of digital archives.
+                                Hands-on practice with our resources.
+                            </p>
+                            <button class="btn btn-primary">Register Now ($35)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preservation Fund -->
+            <section id="preservation">
+                <div class="section-header">
+                    <h2>Preservation & Conservation Fund</h2>
+                    <p class="section-subtitle">Supporting the Care and Protection of Our Historical Legacy</p>
+                </div>
+
+                <div class="donation-grid">
+                    <div class="donation-content">
+                        <div class="impact-statement">
+                            <h3>Your Support Preserves History</h3>
+                            <p>Every contribution helps protect irreplaceable documents and artifacts for future generations</p>
+                        </div>
+
+                        <div class="preservation-projects">
+                            <h3 style="font-family: var(--font-display); font-size: 1.6rem; margin-bottom: var(--spacing-md); color: var(--brown-dark);">
+                                Current Preservation Projects
+                            </h3>
+
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-title">Daguerreotype Restoration</div>
+                                    <div class="project-goal">$15,000</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 73%;">73%</div>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--sepia-dark);">
+                                    $10,950 raised • Professional restoration of 83 Civil War-era daguerreotypes
+                                </p>
+                            </div>
+
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-title">Climate-Controlled Storage Expansion</div>
+                                    <div class="project-goal">$45,000</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 42%;">42%</div>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--sepia-dark);">
+                                    $18,900 raised • New archival storage facility for sensitive documents
+                                </p>
+                            </div>
+
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-title">Digital Preservation Initiative</div>
+                                    <div class="project-goal">$28,000</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 58%;">58%</div>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--sepia-dark);">
+                                    $16,240 raised • High-resolution scanning of fragile documents and maps
+                                </p>
+                            </div>
+
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-title">1820s Manuscript Conservation</div>
+                                    <div class="project-goal">$12,500</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 89%;">89%</div>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--sepia-dark);">
+                                    $11,125 raised • Stabilization and repair of water-damaged historical records
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">📚</div>
+                                <h4 class="benefit-title">Archive Access</h4>
+                                <p class="benefit-description">
+                                    Members receive unlimited access to our research library and digital archives
+                                </p>
+                            </div>
+
+                            <div class="benefit-card">
+                                <div class="benefit-icon">🎟️</div>
+                                <h4 class="benefit-title">Event Privileges</h4>
+                                <p class="benefit-description">
+                                    Free or discounted admission to all lectures, tours, and special exhibitions
+                                </p>
+                            </div>
+
+                            <div class="benefit-card">
+                                <div class="benefit-icon">📖</div>
+                                <h4 class="benefit-title">Quarterly Journal</h4>
+                                <p class="benefit-description">
+                                    Receive our acclaimed Heritage Quarterly featuring scholarly articles and news
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="donation-form">
+                        <h3 style="font-family: var(--font-display); font-size: 1.6rem; margin-bottom: var(--spacing-md); color: var(--brown-dark); text-align: center;">
+                            Make a Donation
+                        </h3>
+
+                        <div class="donation-amounts">
+                            <div class="amount-option">
+                                <input type="radio" id="amount-50" name="amount" value="50">
+                                <label for="amount-50">$50</label>
+                            </div>
+
+                            <div class="amount-option">
+                                <input type="radio" id="amount-100" name="amount" value="100" checked>
+                                <label for="amount-100">$100</label>
+                            </div>
+
+                            <div class="amount-option">
+                                <input type="radio" id="amount-250" name="amount" value="250">
+                                <label for="amount-250">$250</label>
+                            </div>
+
+                            <div class="amount-option">
+                                <input type="radio" id="amount-500" name="amount" value="500">
+                                <label for="amount-500">$500</label>
+                            </div>
+
+                            <div class="amount-option">
+                                <input type="radio" id="amount-1000" name="amount" value="1000">
+                                <label for="amount-1000">$1,000</label>
+                            </div>
+
+                            <div class="amount-option">
+                                <input type="radio" id="amount-custom" name="amount" value="custom">
+                                <label for="amount-custom">Other</label>
+                            </div>
+                        </div>
+
+                        <div class="custom-amount">
+                            <input type="number" placeholder="Enter custom amount" min="1" step="1">
+                        </div>
+
+                        <div class="donation-frequency">
+                            <div class="frequency-option">
+                                <input type="radio" id="freq-once" name="frequency" value="once" checked>
+                                <label for="freq-once">One-Time</label>
+                            </div>
+
+                            <div class="frequency-option">
+                                <input type="radio" id="freq-monthly" name="frequency" value="monthly">
+                                <label for="freq-monthly">Monthly</label>
+                            </div>
+
+                            <div class="frequency-option">
+                                <input type="radio" id="freq-annual" name="frequency" value="annual">
+                                <label for="freq-annual">Annually</label>
+                            </div>
+                        </div>
+
+                        <button class="btn-donate">Contribute to Preservation</button>
+
+                        <p class="tax-deductible">
+                            Tax-deductible to the fullest extent allowed by law. EIN: 12-3456789
+                        </p>
+
+                        <div class="ornament">❖ ❖ ❖</div>
+
+                        <div style="background: var(--parchment-light); padding: var(--spacing-md); border-radius: 4px; border: var(--border-subtle); margin-top: var(--spacing-md);">
+                            <h4 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: var(--spacing-sm); color: var(--brown-dark);">
+                                Other Ways to Give
+                            </h4>
+                            <ul style="list-style: none; font-size: 0.95rem; color: var(--brown-light);">
+                                <li style="margin-bottom: var(--spacing-xs);">📜 Planned Giving & Bequests</li>
+                                <li style="margin-bottom: var(--spacing-xs);">🏛️ Endowment Contributions</li>
+                                <li style="margin-bottom: var(--spacing-xs);">📚 Artifact & Document Donations</li>
+                                <li style="margin-bottom: var(--spacing-xs);">🎁 Memorial & Honor Gifts</li>
+                                <li>💼 Corporate Sponsorship</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p style="line-height: 1.8; color: var(--parchment-medium);">
+                        Established in 1892, The Heritage Society is dedicated to preserving,
+                        protecting, and promoting our shared historical and cultural legacy through
+                        education, research, and conservation.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#archives">Browse Archives</a></li>
+                        <li><a href="#genealogy">Research Genealogy</a></li>
+                        <li><a href="#events">Upcoming Events</a></li>
+                        <li><a href="#preservation">Support Preservation</a></li>
+                        <li><a href="#membership">Become a Member</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Research Guidelines</a></li>
+                        <li><a href="#">Publication Archive</a></li>
+                        <li><a href="#">Educational Programs</a></li>
+                        <li><a href="#">Volunteer Opportunities</a></li>
+                        <li><a href="#">Donation Information</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-sm); color: var(--parchment-medium);">
+                            123 Heritage Lane<br>
+                            Historic District<br>
+                            Your City, ST 12345
+                        </li>
+                        <li style="margin-bottom: var(--spacing-xs);">
+                            <a href="tel:555-123-4567">(555) 123-4567</a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@heritagesociety.org">info@heritagesociety.org</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 The Heritage Society. All rights reserved. •
+                    <a href="#" style="color: var(--parchment-medium); text-decoration: none;">Privacy Policy</a> •
+                    <a href="#" style="color: var(--parchment-medium); text-decoration: none;">Terms of Use</a>
+                </p>
+                <p style="margin-top: var(--spacing-xs); font-style: italic;">
+                    Preserving the past, enriching the present, inspiring the future.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Archive filtering simulation
+        const categoryFilter = document.getElementById('category-filter');
+        const periodFilter = document.getElementById('period-filter');
+        const searchInput = document.getElementById('search-archive');
+
+        [categoryFilter, periodFilter, searchInput].forEach(element => {
+            element?.addEventListener('change', () => {
+                console.log('Filters applied:', {
+                    category: categoryFilter.value,
+                    period: periodFilter.value,
+                    search: searchInput.value
+                });
+                // In production, this would trigger AJAX request to filter archive items
+            });
+        });
+
+        // Calendar date selection
+        document.querySelectorAll('.calendar-day.date').forEach(day => {
+            day.addEventListener('click', function() {
+                document.querySelectorAll('.calendar-day.selected').forEach(selected => {
+                    selected.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                console.log('Selected date:', this.textContent);
+                // In production, this would filter events by date
+            });
+        });
+
+        // Donation amount selection
+        document.querySelectorAll('.amount-option input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const customInput = document.querySelector('.custom-amount input');
+                if (this.value === 'custom') {
+                    customInput.focus();
+                } else {
+                    customInput.value = '';
+                }
+                console.log('Selected donation amount:', this.value);
+            });
+        });
+
+        // Donation frequency selection
+        document.querySelectorAll('.frequency-option input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                console.log('Selected frequency:', this.value);
+            });
+        });
+
+        // Donate button action
+        document.querySelector('.btn-donate')?.addEventListener('click', function() {
+            const selectedAmount = document.querySelector('.amount-option input[type="radio"]:checked');
+            const customAmount = document.querySelector('.custom-amount input').value;
+            const frequency = document.querySelector('.frequency-option input[type="radio"]:checked');
+
+            const amount = selectedAmount?.value === 'custom' ? customAmount : selectedAmount?.value;
+
+            console.log('Processing donation:', {
+                amount: amount,
+                frequency: frequency?.value
+            });
+
+            alert(`Thank you for your generous ${frequency?.value} donation of $${amount} to preserve our heritage!`);
+            // In production, this would proceed to payment processing
+        });
+
+        // Archive item actions
+        document.querySelectorAll('.archive-item .btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = this.closest('.archive-item');
+                const title = item.querySelector('.archive-title').textContent;
+                console.log('Viewing collection:', title);
+                alert(`Opening collection: ${title}\n\nThis would load the detailed archive viewer in production.`);
+            });
+        });
+
+        // Event registration
+        document.querySelectorAll('.event-card .btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                const event = this.closest('.event-card');
+                const title = event.querySelector('.event-title').textContent;
+                console.log('Registering for event:', title);
+                alert(`Registration for: ${title}\n\nThis would open the registration form in production.`);
+            });
+        });
+
+        // Genealogy tree controls
+        document.querySelectorAll('.tree-controls .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Tree action:', this.textContent);
+                alert(`${this.textContent}\n\nThis feature would be fully functional in production.`);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Event type filters
+        document.querySelectorAll('.event-type-filter input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                console.log('Event filter toggled:', this.nextElementSibling.textContent, this.checked);
+                // In production, this would filter the events list
+            });
+        });
+
+        // Progress bar animation on scroll
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressFill = entry.target.querySelector('.progress-fill');
+                    const targetWidth = progressFill.style.width;
+                    progressFill.style.width = '0%';
+
+                    setTimeout(() => {
+                        progressFill.style.width = targetWidth;
+                    }, 200);
+
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.project-item').forEach(project => {
+            progressObserver.observe(project);
+        });
+
+        // Research records interaction
+        document.querySelectorAll('.record-item').forEach(record => {
+            record.addEventListener('click', function() {
+                const title = this.querySelector('.record-title').textContent;
+                console.log('Accessing records:', title);
+                alert(`Accessing: ${title}\n\nThis would open the records database in production.`);
+            });
+        });
+
+        console.log('Heritage Society Portal initialized');
+        console.log('Style 100: Heritage Society Portal - Production Ready');
+        console.log('BLEND: Historical Preservation (60%) + Genealogy Research (25%) + Classical Typography (15%)');
+        console.log('Temperature: 5 (Balanced) | Formality: 9 (Highly Formal)');
+    </script>
+</body>
+</html>

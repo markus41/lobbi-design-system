@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 113: Blockchain DAO Governance Platform</title>
+    <style>
+        /* ==========================================
+           STYLE 113: BLOCKCHAIN DAO GOVERNANCE
+           ==========================================
+           Blend Architecture (60/25/15):
+           - Web3/Crypto (60%): Decentralized, token-gated
+           - Governance Platform (25%): Voting, proposals
+           - Community Hub (15%): Discord-like, profiles
+
+           Temperature: 4 (cool-tech)
+           Formality: 5 (professional)
+           ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Dark Purple, Electric Blue, Neon */
+            --bg-primary: #0a0614;
+            --bg-secondary: #1a0f2e;
+            --bg-tertiary: #2d1b4e;
+            --surface-card: #3a2563;
+            --surface-hover: #4a3175;
+
+            --electric-blue: #0066ff;
+            --electric-blue-light: #00d4ff;
+            --neon-purple: #b366ff;
+            --neon-pink: #ff00ff;
+            --neon-green: #00ff88;
+            --neon-yellow: #ffed00;
+
+            --text-primary: #ffffff;
+            --text-secondary: #b8b3c9;
+            --text-tertiary: #8075a1;
+            --text-accent: #00d4ff;
+
+            --border-color: rgba(179, 102, 255, 0.2);
+            --glow-blue: 0 0 20px rgba(0, 212, 255, 0.5);
+            --glow-purple: 0 0 20px rgba(179, 102, 255, 0.5);
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Typography */
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-mono: 'Courier New', monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(179, 102, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================
+           HEADER & NAVIGATION
+           ========================================== */
+        header {
+            background: rgba(26, 15, 46, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--glow-blue);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow-purple);
+        }
+
+        nav {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+            box-shadow: var(--glow-purple);
+        }
+
+        .wallet-connect {
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            color: var(--text-primary);
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--glow-blue);
+            transition: all 0.3s ease;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .wallet-connect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+        }
+
+        .wallet-connected {
+            background: var(--surface-card);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .wallet-address {
+            font-family: var(--font-mono);
+            color: var(--text-accent);
+            font-size: 0.9rem;
+        }
+
+        .wallet-balance {
+            background: var(--bg-tertiary);
+            padding: 4px var(--spacing-xs);
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--neon-green);
+        }
+
+        /* ==========================================
+           DASHBOARD STATS
+           ========================================== */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .stat-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--glow-purple);
+            border-color: var(--neon-purple);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-subtitle {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        .stat-change {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: var(--spacing-xs);
+        }
+
+        .stat-change.positive {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--neon-green);
+        }
+
+        .stat-change.negative {
+            background: rgba(255, 0, 255, 0.1);
+            color: var(--neon-pink);
+        }
+
+        /* ==========================================
+           MAIN CONTENT LAYOUT
+           ========================================== */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* ==========================================
+           GOVERNANCE PROPOSALS
+           ========================================== */
+        .proposals-section {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: var(--spacing-xs);
+            background: var(--bg-tertiary);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .filter-tab {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            background: var(--surface-card);
+            color: var(--text-primary);
+            box-shadow: var(--glow-blue);
+        }
+
+        .proposal-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .proposal-card:hover {
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue);
+            transform: translateX(4px);
+        }
+
+        .proposal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .proposal-id {
+            font-family: var(--font-mono);
+            color: var(--text-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .proposal-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .proposal-status.active {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+        }
+
+        .proposal-status.closed {
+            background: rgba(184, 179, 201, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid var(--text-tertiary);
+        }
+
+        .proposal-status.pending {
+            background: rgba(255, 237, 0, 0.1);
+            color: var(--neon-yellow);
+            border: 1px solid var(--neon-yellow);
+        }
+
+        .proposal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .proposal-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .proposal-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .proposal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .voting-bar {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .voting-progress {
+            display: flex;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .voting-for {
+            background: linear-gradient(90deg, var(--neon-green), var(--electric-blue-light));
+            transition: width 0.5s ease;
+        }
+
+        .voting-against {
+            background: linear-gradient(90deg, var(--neon-pink), #ff4444);
+            transition: width 0.5s ease;
+        }
+
+        .voting-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .voting-for-text {
+            color: var(--neon-green);
+        }
+
+        .voting-against-text {
+            color: var(--neon-pink);
+        }
+
+        .proposal-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            color: var(--text-primary);
+            box-shadow: var(--glow-blue);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: var(--surface-hover);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-card);
+            border-color: var(--electric-blue);
+        }
+
+        .btn-danger {
+            background: rgba(255, 0, 255, 0.1);
+            color: var(--neon-pink);
+            border: 1px solid var(--neon-pink);
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 0, 255, 0.2);
+        }
+
+        /* ==========================================
+           SIDEBAR
+           ========================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .sidebar-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+        }
+
+        /* Token Holdings */
+        .token-holdings {
+            text-align: center;
+        }
+
+        .token-balance {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .token-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .token-stats {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .token-stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs);
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+        }
+
+        .token-stat-label {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        .token-stat-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Treasury Overview */
+        .treasury-total {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: var(--spacing-md) 0;
+            color: var(--neon-green);
+        }
+
+        .treasury-allocation {
+            margin-top: var(--spacing-md);
+        }
+
+        .allocation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .allocation-item:last-child {
+            border-bottom: none;
+        }
+
+        .allocation-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--text-secondary);
+        }
+
+        .allocation-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .allocation-amount {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .allocation-percentage {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        /* Community Members */
+        .community-members {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .member-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs);
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .member-item:hover {
+            background: var(--surface-hover);
+            transform: translateX(4px);
+        }
+
+        .member-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: var(--glow-purple);
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .member-role {
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+        }
+
+        .member-tokens {
+            font-family: var(--font-mono);
+            color: var(--text-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           VOTING HISTORY
+           ========================================== */
+        .voting-history-section {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .history-table th {
+            text-align: left;
+            padding: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .history-table td {
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .history-table tr:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .vote-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .vote-badge.for {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+        }
+
+        .vote-badge.against {
+            background: rgba(255, 0, 255, 0.1);
+            color: var(--neon-pink);
+            border: 1px solid var(--neon-pink);
+        }
+
+        .vote-badge.abstain {
+            background: rgba(184, 179, 201, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid var(--text-tertiary);
+        }
+
+        /* ==========================================
+           COMMUNITY CHAT
+           ========================================== */
+        .community-chat {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: var(--spacing-md);
+            padding-right: var(--spacing-xs);
+        }
+
+        .chat-message {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-message:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .chat-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .chat-content {
+            flex: 1;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: baseline;
+            gap: var(--spacing-xs);
+            margin-bottom: 4px;
+        }
+
+        .chat-username {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chat-timestamp {
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+        }
+
+        .chat-text {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--spacing-sm);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            resize: none;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue);
+        }
+
+        .chat-send {
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--glow-blue);
+            transition: all 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+        }
+
+        /* Scrollbar Styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--neon-purple);
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--electric-blue);
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            margin-bottom: var(--spacing-sm);
+            background: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-accent);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--surface-hover);
+            border-color: var(--electric-blue);
+            color: var(--electric-blue-light);
+            box-shadow: var(--glow-blue);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            nav {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .proposal-header {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+
+            .proposal-actions {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .history-table {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ==========================================
+           ANIMATIONS
+           ========================================== */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* ==========================================
+           UTILITY CLASSES
+           ========================================== */
+        .text-accent {
+            color: var(--text-accent);
+        }
+
+        .text-success {
+            color: var(--neon-green);
+        }
+
+        .text-danger {
+            color: var(--neon-pink);
+        }
+
+        .text-warning {
+            color: var(--neon-yellow);
+        }
+
+        .glow-effect {
+            box-shadow: var(--glow-blue);
+        }
+
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: var(--spacing-sm); }
+        .mb-2 { margin-bottom: var(--spacing-md); }
+        .mb-3 { margin-bottom: var(--spacing-lg); }
+
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: var(--spacing-sm); }
+        .mt-2 { margin-top: var(--spacing-md); }
+        .mt-3 { margin-top: var(--spacing-lg); }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>113</strong> of 120 &mdash; Blockchain DAO</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-112-wine-society.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-114-healthcare-network.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 112) window.location.href = 'style-112-wine-society.html';
+                if (e.key === 'ArrowRight' && 114) window.location.href = 'style-114-healthcare-network.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white" opacity="0.8"/>
+                            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" opacity="0.6"/>
+                            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <span>NEXUS DAO</span>
+                </div>
+
+                <nav>
+                    <a href="#" class="active">Governance</a>
+                    <a href="#">Treasury</a>
+                    <a href="#">Community</a>
+                    <a href="#">Docs</a>
+                </nav>
+
+                <div class="wallet-connected">
+                    <span class="wallet-address">0x742d...c3a9</span>
+                    <span class="wallet-balance">2,847 NXS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats slide-in">
+            <div class="stat-card">
+                <div class="stat-label">Active Proposals</div>
+                <div class="stat-value">12</div>
+                <div class="stat-subtitle">3 ending within 24h</div>
+                <span class="stat-change positive">+2 this week</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Your Voting Power</div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-subtitle">0.28% of total supply</div>
+                <span class="stat-change positive">+147 NXS</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Treasury Value</div>
+                <div class="stat-value">$12.4M</div>
+                <div class="stat-subtitle">Across 8 assets</div>
+                <span class="stat-change positive">+8.3%</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Participation Rate</div>
+                <div class="stat-value">67.2%</div>
+                <div class="stat-subtitle">Last 30 days average</div>
+                <span class="stat-change negative">-2.1%</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Proposals Section -->
+            <div class="proposals-section">
+                <div class="section-header">
+                    <h2 class="section-title">Governance Proposals</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">Active</button>
+                        <button class="filter-tab">Pending</button>
+                        <button class="filter-tab">Closed</button>
+                    </div>
+                </div>
+
+                <!-- Active Proposals -->
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <span class="proposal-id">NIP-047</span>
+                        <span class="proposal-status active">Active</span>
+                    </div>
+                    <h3 class="proposal-title">Increase Developer Grant Budget to $500K</h3>
+                    <p class="proposal-description">
+                        This proposal seeks to increase the quarterly developer grant budget from $300K to $500K to accelerate ecosystem growth and attract high-quality projects building on the NEXUS protocol.
+                    </p>
+                    <div class="proposal-meta">
+                        <span class="proposal-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 2C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/>
+                                <path d="M8 5v3.5l2.5 1.5"/>
+                            </svg>
+                            Ends in 2d 14h
+                        </span>
+                        <span class="proposal-meta-item">Created by @treasury_committee</span>
+                    </div>
+                    <div class="voting-bar">
+                        <div class="voting-progress">
+                            <div class="voting-for" style="width: 73%;"></div>
+                            <div class="voting-against" style="width: 27%;"></div>
+                        </div>
+                        <div class="voting-stats">
+                            <span class="voting-for-text">For: 584,293 NXS (73%)</span>
+                            <span class="voting-against-text">Against: 216,107 NXS (27%)</span>
+                        </div>
+                    </div>
+                    <div class="proposal-actions">
+                        <button class="btn btn-primary">Vote For</button>
+                        <button class="btn btn-danger">Vote Against</button>
+                        <button class="btn btn-secondary">Details</button>
+                    </div>
+                </div>
+
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <span class="proposal-id">NIP-046</span>
+                        <span class="proposal-status active">Active</span>
+                    </div>
+                    <h3 class="proposal-title">Implement Dynamic Fee Mechanism for Network Congestion</h3>
+                    <p class="proposal-description">
+                        Proposal to implement an adaptive fee structure that adjusts based on network congestion, improving user experience during high-traffic periods while maintaining protocol sustainability.
+                    </p>
+                    <div class="proposal-meta">
+                        <span class="proposal-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 2C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/>
+                                <path d="M8 5v3.5l2.5 1.5"/>
+                            </svg>
+                            Ends in 5d 8h
+                        </span>
+                        <span class="proposal-meta-item">Created by @core_devs</span>
+                    </div>
+                    <div class="voting-bar">
+                        <div class="voting-progress">
+                            <div class="voting-for" style="width: 61%;"></div>
+                            <div class="voting-against" style="width: 39%;"></div>
+                        </div>
+                        <div class="voting-stats">
+                            <span class="voting-for-text">For: 489,430 NXS (61%)</span>
+                            <span class="voting-against-text">Against: 312,770 NXS (39%)</span>
+                        </div>
+                    </div>
+                    <div class="proposal-actions">
+                        <button class="btn btn-primary">Vote For</button>
+                        <button class="btn btn-danger">Vote Against</button>
+                        <button class="btn btn-secondary">Details</button>
+                    </div>
+                </div>
+
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <span class="proposal-id">NIP-045</span>
+                        <span class="proposal-status pending">Pending</span>
+                    </div>
+                    <h3 class="proposal-title">Establish Marketing & Community Growth Fund</h3>
+                    <p class="proposal-description">
+                        Create a dedicated $750K fund for marketing initiatives, community events, and ecosystem expansion efforts managed by the community growth committee.
+                    </p>
+                    <div class="proposal-meta">
+                        <span class="proposal-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 2C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/>
+                                <path d="M8 5v3.5l2.5 1.5"/>
+                            </svg>
+                            Voting starts in 18h
+                        </span>
+                        <span class="proposal-meta-item">Created by @marketing_guild</span>
+                    </div>
+                    <div class="proposal-actions">
+                        <button class="btn btn-secondary" disabled>Voting Not Started</button>
+                    </div>
+                </div>
+
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <span class="proposal-id">NIP-044</span>
+                        <span class="proposal-status closed">Closed</span>
+                    </div>
+                    <h3 class="proposal-title">Upgrade Protocol to v3.2 with Enhanced Security</h3>
+                    <p class="proposal-description">
+                        Protocol upgrade implementing enhanced security features, gas optimizations, and improved cross-chain compatibility. Passed with 89% approval.
+                    </p>
+                    <div class="proposal-meta">
+                        <span class="proposal-meta-item">Ended 3 days ago</span>
+                        <span class="proposal-meta-item">Created by @security_team</span>
+                    </div>
+                    <div class="voting-bar">
+                        <div class="voting-progress">
+                            <div class="voting-for" style="width: 89%;"></div>
+                            <div class="voting-against" style="width: 11%;"></div>
+                        </div>
+                        <div class="voting-stats">
+                            <span class="voting-for-text">For: 712,800 NXS (89%)</span>
+                            <span class="voting-against-text">Against: 88,000 NXS (11%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Token Holdings -->
+                <div class="sidebar-card token-holdings">
+                    <h3 class="section-title mb-2">Your Token Holdings</h3>
+                    <div class="token-balance">2,847</div>
+                    <div class="token-label">NXS Tokens</div>
+
+                    <div class="token-stats">
+                        <div class="token-stat-row">
+                            <span class="token-stat-label">Total Balance</span>
+                            <span class="token-stat-value">2,847 NXS</span>
+                        </div>
+                        <div class="token-stat-row">
+                            <span class="token-stat-label">Staked</span>
+                            <span class="token-stat-value text-success">1,500 NXS</span>
+                        </div>
+                        <div class="token-stat-row">
+                            <span class="token-stat-label">Available</span>
+                            <span class="token-stat-value">1,347 NXS</span>
+                        </div>
+                        <div class="token-stat-row">
+                            <span class="token-stat-label">Voting Power</span>
+                            <span class="token-stat-value text-accent">2,847 VP</span>
+                        </div>
+                        <div class="token-stat-row">
+                            <span class="token-stat-label">USD Value</span>
+                            <span class="token-stat-value">$28,470</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary mt-2" style="width: 100%;">Stake Tokens</button>
+                </div>
+
+                <!-- Treasury Overview -->
+                <div class="sidebar-card">
+                    <h3 class="section-title mb-2">Treasury Overview</h3>
+                    <div class="treasury-total">$12,437,892</div>
+                    <div class="token-label">Total Treasury Value</div>
+
+                    <div class="treasury-allocation">
+                        <div class="allocation-item">
+                            <div class="allocation-label">
+                                <span class="allocation-dot" style="background: var(--electric-blue);"></span>
+                                <span>USDC</span>
+                            </div>
+                            <div>
+                                <div class="allocation-amount">$5.2M</div>
+                                <div class="allocation-percentage">42%</div>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-label">
+                                <span class="allocation-dot" style="background: var(--neon-purple);"></span>
+                                <span>ETH</span>
+                            </div>
+                            <div>
+                                <div class="allocation-amount">$3.8M</div>
+                                <div class="allocation-percentage">31%</div>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-label">
+                                <span class="allocation-dot" style="background: var(--neon-green);"></span>
+                                <span>NXS</span>
+                            </div>
+                            <div>
+                                <div class="allocation-amount">$2.1M</div>
+                                <div class="allocation-percentage">17%</div>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-label">
+                                <span class="allocation-dot" style="background: var(--neon-yellow);"></span>
+                                <span>Other</span>
+                            </div>
+                            <div>
+                                <div class="allocation-amount">$1.3M</div>
+                                <div class="allocation-percentage">10%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Members -->
+                <div class="sidebar-card">
+                    <h3 class="section-title mb-2">Active Members</h3>
+                    <div class="community-members">
+                        <div class="member-item">
+                            <div class="member-avatar">AK</div>
+                            <div class="member-info">
+                                <div class="member-name">AlexKnight</div>
+                                <div class="member-role">Core Contributor</div>
+                            </div>
+                            <div class="member-tokens">45.2K</div>
+                        </div>
+                        <div class="member-item">
+                            <div class="member-avatar">SM</div>
+                            <div class="member-info">
+                                <div class="member-name">SarahMoon</div>
+                                <div class="member-role">Treasury Committee</div>
+                            </div>
+                            <div class="member-tokens">38.7K</div>
+                        </div>
+                        <div class="member-item">
+                            <div class="member-avatar">JC</div>
+                            <div class="member-info">
+                                <div class="member-name">JohnCrypto</div>
+                                <div class="member-role">Developer</div>
+                            </div>
+                            <div class="member-tokens">32.1K</div>
+                        </div>
+                        <div class="member-item">
+                            <div class="member-avatar">LW</div>
+                            <div class="member-info">
+                                <div class="member-name">LindaWei</div>
+                                <div class="member-role">Community Mod</div>
+                            </div>
+                            <div class="member-tokens">28.5K</div>
+                        </div>
+                        <div class="member-item">
+                            <div class="member-avatar">MD</div>
+                            <div class="member-info">
+                                <div class="member-name">MikeDev</div>
+                                <div class="member-role">Security Auditor</div>
+                            </div>
+                            <div class="member-tokens">24.9K</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voting History -->
+        <div class="voting-history-section">
+            <div class="section-header">
+                <h2 class="section-title">Your Voting History</h2>
+                <span class="text-secondary">Last 30 days</span>
+            </div>
+
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Proposal</th>
+                        <th>Your Vote</th>
+                        <th>Voting Power</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-044:</strong> Protocol v3.2 Security Upgrade</div>
+                        </td>
+                        <td><span class="vote-badge for">For</span></td>
+                        <td>2,847 VP</td>
+                        <td>Dec 6, 2025</td>
+                        <td><span class="proposal-status closed">Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-043:</strong> Liquidity Mining Program Extension</div>
+                        </td>
+                        <td><span class="vote-badge for">For</span></td>
+                        <td>2,700 VP</td>
+                        <td>Dec 1, 2025</td>
+                        <td><span class="proposal-status closed">Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-042:</strong> Reduce Governance Quorum to 3%</div>
+                        </td>
+                        <td><span class="vote-badge against">Against</span></td>
+                        <td>2,700 VP</td>
+                        <td>Nov 28, 2025</td>
+                        <td><span class="proposal-status closed">Failed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-041:</strong> Partnership with DeFi Alliance</div>
+                        </td>
+                        <td><span class="vote-badge for">For</span></td>
+                        <td>2,553 VP</td>
+                        <td>Nov 24, 2025</td>
+                        <td><span class="proposal-status closed">Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-040:</strong> Increase Block Size Limit</div>
+                        </td>
+                        <td><span class="vote-badge abstain">Abstain</span></td>
+                        <td>2,553 VP</td>
+                        <td>Nov 20, 2025</td>
+                        <td><span class="proposal-status closed">Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><strong>NIP-039:</strong> Community Events Budget Q1 2026</div>
+                        </td>
+                        <td><span class="vote-badge for">For</span></td>
+                        <td>2,400 VP</td>
+                        <td>Nov 15, 2025</td>
+                        <td><span class="proposal-status closed">Passed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Community Chat -->
+        <div class="community-chat">
+            <div class="section-header">
+                <h2 class="section-title">Community Discussion</h2>
+                <span class="text-secondary">284 members online</span>
+            </div>
+
+            <div class="chat-messages">
+                <div class="chat-message">
+                    <div class="chat-avatar">AK</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">AlexKnight</span>
+                            <span class="chat-timestamp">2:34 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            Just reviewed NIP-047 - the increased developer grant budget makes a lot of sense given the number of quality applications we've been seeing lately. Strong vote FOR from me.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-avatar">SM</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">SarahMoon</span>
+                            <span class="chat-timestamp">2:36 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            Agreed! The treasury committee has reviewed this thoroughly. We're currently at 78% budget utilization and the ROI on previous grants has been excellent. The $500K allocation is sustainable.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-avatar">JC</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">JohnCrypto</span>
+                            <span class="chat-timestamp">2:38 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            Anyone concerned about NIP-046? The dynamic fee mechanism sounds good in theory but I'd like to see more technical details on the implementation.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-avatar">MD</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">MikeDev</span>
+                            <span class="chat-timestamp">2:41 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            The core devs shared a detailed technical spec in the governance forum. TLDR: it's based on Ethereum's EIP-1559 model with modifications for our specific throughput characteristics. Looks solid to me after review.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-avatar">LW</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">LindaWei</span>
+                            <span class="chat-timestamp">2:43 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            Reminder: We're hosting a community call tomorrow at 3 PM UTC to discuss all active proposals. Core contributors and proposal authors will be there to answer questions!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="chat-avatar">AK</div>
+                    <div class="chat-content">
+                        <div class="chat-header">
+                            <span class="chat-username">AlexKnight</span>
+                            <span class="chat-timestamp">2:45 PM</span>
+                        </div>
+                        <div class="chat-text">
+                            Perfect timing! I'll be there. Thanks for organizing Linda!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <textarea class="chat-input" placeholder="Share your thoughts on governance proposals..." rows="2"></textarea>
+                <button class="chat-send">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NEXUS DAO</h3>
+                    <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                        A decentralized autonomous organization building the future of on-chain governance and community-driven protocol development.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="Discord">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="Medium">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Governance</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Active Proposals</a></li>
+                        <li><a href="#">Proposal Guidelines</a></li>
+                        <li><a href="#">Voting History</a></li>
+                        <li><a href="#">Create Proposal</a></li>
+                        <li><a href="#">Delegate Votes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">Tokenomics</a></li>
+                        <li><a href="#">Governance Forum</a></li>
+                        <li><a href="#">Developer Grants</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Community Calls</a></li>
+                        <li><a href="#">Ambassador Program</a></li>
+                        <li><a href="#">Bug Bounty</a></li>
+                        <li><a href="#">Media Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 NEXUS DAO. Decentralized Governance Platform. All rights reserved.</p>
+                <p style="margin-top: var(--spacing-xs);">
+                    Smart Contract: 0x742d35Cc6634C0532925a3b844Bc9e7595f11c3a9 | Network: Ethereum Mainnet
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter tabs
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Vote buttons
+            const voteButtons = document.querySelectorAll('.btn-primary, .btn-danger');
+            voteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!this.disabled) {
+                        const action = this.textContent.includes('For') ? 'For' : 'Against';
+                        alert(`Vote ${action} recorded! Transaction submitted to blockchain.`);
+                    }
+                });
+            });
+
+            // Chat send button
+            const chatSend = document.querySelector('.chat-send');
+            const chatInput = document.querySelector('.chat-input');
+            if (chatSend && chatInput) {
+                chatSend.addEventListener('click', function() {
+                    if (chatInput.value.trim()) {
+                        alert('Message sent to community chat!');
+                        chatInput.value = '';
+                    }
+                });
+            }
+
+            // Animate stats on load
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

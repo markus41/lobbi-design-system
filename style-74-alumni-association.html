@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 74: Alumni Association + Heritage Pride | Lobbi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           ULTRATHINK DESIGN ANALYSIS
+           ==========================================
+           Style ID: 74
+           Name: Alumni Association + Heritage Pride
+           Blend: Alumni Association (80%) + Heritage Pride (20%)
+
+           DESIGN PSYCHOLOGY:
+           - Temperature: 6/10 (warm, nostalgic but modern)
+           - Formality: 7/10 (proud but approachable)
+           - Target: University alumni groups, school associations, class reunions
+
+           COLOR STRATEGY:
+           - Primary: Deep crimson (#990000) - school spirit and tradition
+           - Secondary: Warm gold (#d4a843) - achievement and excellence
+           - Background: Cream (#fdfbf7) - warmth and nostalgia
+           - Text: Dark brown (#2d2926) - classic readability
+           - Accent: Navy (#1a365d) - trustworthiness
+
+           TYPOGRAPHY HIERARCHY:
+           - Headings: Playfair Display (serif) - prestige and tradition
+           - Body: Open Sans (sans-serif) - modern readability
+           - Class year styling with decorative numerals
+
+           UNIQUE FEATURES:
+           - Class year reunion countdown timers
+           - Donation progress thermometer with visual appeal
+           - Regional chapter map visualization
+           - Notable alumni spotlight carousel
+           - Homecoming event emphasis
+           - Mentorship matching interface
+           - Career networking connections
+           - Class giving competition leaderboard
+
+           EMOTIONAL RESPONSE:
+           Pride, nostalgia, community, achievement, connection, tradition
+
+           USE CASES:
+           - University alumni relations
+           - High school reunions
+           - Professional school networks
+           - Fraternity/sorority chapters
+           - Military academy alumni
+           ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --crimson: #990000;
+            --crimson-dark: #6d0000;
+            --crimson-light: #b30000;
+            --gold: #d4a843;
+            --gold-light: #e5c66f;
+            --gold-dark: #b8903a;
+            --cream: #fdfbf7;
+            --white: #ffffff;
+            --brown: #2d2926;
+            --brown-light: #5a5651;
+            --navy: #1a365d;
+            --navy-light: #2d4a7c;
+            --gray: #e8e5e1;
+            --gray-dark: #c4c0bb;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--cream);
+            color: var(--brown);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(153, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--crimson);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .brand-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text p {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--crimson);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            padding: 1rem 1.5rem;
+            color: var(--brown-light);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--crimson);
+            border-bottom-color: var(--gold);
+        }
+
+        .nav-item.active {
+            color: var(--crimson);
+            border-bottom-color: var(--crimson);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--brown);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--crimson);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(153, 0, 0, 0.15);
+        }
+
+        .stat-card.gold-accent {
+            border-top-color: var(--gold);
+        }
+
+        .stat-card.navy-accent {
+            border-top-color: var(--navy);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-icon.crimson {
+            background: linear-gradient(135deg, var(--crimson-light), var(--crimson));
+            color: white;
+        }
+
+        .stat-icon.gold {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+        }
+
+        .stat-icon.navy {
+            background: linear-gradient(135deg, var(--navy-light), var(--navy));
+            color: white;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--crimson);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            color: var(--brown-light);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-change {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .stat-change.positive {
+            background: rgba(34, 139, 34, 0.1);
+            color: #228b22;
+        }
+
+        /* Progress Thermometer */
+        .progress-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .progress-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .progress-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-subtitle {
+            color: var(--brown-light);
+            font-size: 1.1rem;
+        }
+
+        .thermometer-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .thermometer {
+            position: relative;
+            height: 350px;
+            width: 80px;
+            margin: 0 auto;
+            background: var(--gray);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .thermometer-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, var(--crimson) 0%, var(--crimson-light) 100%);
+            border-radius: 40px;
+            transition: height 1s ease;
+        }
+
+        .thermometer-bulb {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(153, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 4px solid var(--gold);
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 0 2rem;
+        }
+
+        .progress-label {
+            text-align: center;
+        }
+
+        .progress-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--crimson);
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--brown-light);
+            margin-top: 0.3rem;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--crimson);
+        }
+
+        .card-action {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .card-action:hover {
+            color: var(--crimson);
+        }
+
+        /* Event Card */
+        .event-card {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--brown);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .event-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-badge {
+            background: var(--crimson);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .event-date {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-detail-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+
+        .event-detail-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .event-button {
+            display: inline-block;
+            background: var(--crimson);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .event-button:hover {
+            background: var(--crimson-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(153, 0, 0, 0.3);
+        }
+
+        /* Class Challenge */
+        .challenge-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .challenge-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 8px;
+            border-left: 4px solid var(--crimson);
+            transition: all 0.3s ease;
+        }
+
+        .challenge-item:hover {
+            background: white;
+            transform: translateX(4px);
+        }
+
+        .challenge-rank {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .challenge-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--crimson);
+            min-width: 80px;
+        }
+
+        .challenge-progress {
+            flex: 1;
+        }
+
+        .challenge-bar {
+            height: 12px;
+            background: var(--gray);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.3rem;
+        }
+
+        .challenge-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--crimson) 0%, var(--crimson-light) 100%);
+            border-radius: 6px;
+            transition: width 1s ease;
+        }
+
+        .challenge-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--brown-light);
+        }
+
+        .challenge-amount {
+            font-weight: 700;
+            color: var(--crimson);
+        }
+
+        /* Alumni Spotlight */
+        .spotlight-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .spotlight-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--navy);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .spotlight-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .spotlight-class {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .spotlight-title {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .spotlight-quote {
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            padding: 1rem;
+            border-left: 3px solid var(--gold);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* Mentorship Section */
+        .mentorship-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .mentor-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .mentor-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-light));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .mentor-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--crimson);
+            margin-bottom: 0.2rem;
+        }
+
+        .mentor-info p {
+            font-size: 0.85rem;
+            color: var(--brown-light);
+        }
+
+        .mentor-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .mentor-tag {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: var(--cream);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--crimson);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .data-table tr:hover {
+            background: var(--cream);
+        }
+
+        .table-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .table-badge.event {
+            background: rgba(212, 168, 67, 0.2);
+            color: var(--gold-dark);
+        }
+
+        .table-badge.donation {
+            background: rgba(153, 0, 0, 0.1);
+            color: var(--crimson);
+        }
+
+        .table-badge.mentorship {
+            background: rgba(26, 54, 93, 0.1);
+            color: var(--navy);
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .countdown-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+        }
+
+        .countdown-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--crimson);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--brown);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            border-top: 4px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--gold-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mentorship-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-item {
+                border-bottom: 1px solid var(--gray);
+                border-left: 3px solid transparent;
+            }
+
+            .nav-item.active {
+                border-left-color: var(--crimson);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .stat-card {
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>74</strong> of 90 &mdash; Alumni Association</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-73-professional-society.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-75-bar-association.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 73) window.location.href = 'style-73-professional-society.html';
+                if (e.key === 'ArrowRight' && 75) window.location.href = 'style-75-bar-association.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">L</div>
+                <div class="brand-text">
+                    <h1>Lobbi Alumni Network</h1>
+                    <p>Connecting Generations of Excellence</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div style="text-align: right; font-weight: 600;">Robert Mitchell</div>
+                    <div style="text-align: right; font-size: 0.85rem; opacity: 0.9;">Class of 1995</div>
+                </div>
+                <div class="user-avatar">RM</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item active">Dashboard</a>
+            <a href="#" class="nav-item">Events</a>
+            <a href="#" class="nav-item">Directory</a>
+            <a href="#" class="nav-item">Giving</a>
+            <a href="#" class="nav-item">Mentorship</a>
+            <a href="#" class="nav-item">Career Network</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome Back, Class of 1995!</h1>
+                <p class="hero-subtitle">Your 30th reunion is approaching - reconnect with your classmates and celebrate three decades of achievement</p>
+                <span class="hero-badge">30th Reunion • October 12-14, 2025</span>
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">28,450</div>
+                        <div class="stat-label">Registered Alumni</div>
+                    </div>
+                    <div class="stat-icon crimson">👥</div>
+                </div>
+                <div class="stat-change positive">↑ 485 new this year</div>
+            </div>
+
+            <div class="stat-card gold-accent">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">8,234</div>
+                        <div class="stat-label">Active Members</div>
+                    </div>
+                    <div class="stat-icon gold">⭐</div>
+                </div>
+                <div class="stat-change positive">↑ 12% engagement rate</div>
+            </div>
+
+            <div class="stat-card navy-accent">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">$1.2M</div>
+                        <div class="stat-label">Annual Fund Progress</div>
+                    </div>
+                    <div class="stat-icon navy">💎</div>
+                </div>
+                <div class="stat-change positive">60% of $2M goal</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Upcoming Reunions</div>
+                    </div>
+                    <div class="stat-icon crimson">🎉</div>
+                </div>
+                <div class="stat-change positive">1,247 RSVPs received</div>
+            </div>
+        </div>
+
+        <!-- Homecoming Countdown -->
+        <div class="countdown-section">
+            <div class="countdown-header">
+                <div class="countdown-title">Homecoming 2025 Countdown</div>
+                <p style="color: var(--brown-light);">October 12-14, 2025 • Campus Commons</p>
+            </div>
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <div class="countdown-value">152</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value">08</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value">42</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value">19</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Annual Fund Progress Thermometer -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <h2 class="progress-title">Annual Fund Campaign 2025</h2>
+                <p class="progress-subtitle">Supporting scholarships, facilities, and academic excellence</p>
+            </div>
+            <div class="thermometer-container">
+                <div class="thermometer">
+                    <div class="thermometer-fill"></div>
+                    <div class="thermometer-bulb">60%</div>
+                </div>
+                <div class="progress-labels">
+                    <div class="progress-label">
+                        <div class="progress-amount">$1.2M</div>
+                        <div class="progress-text">Raised</div>
+                    </div>
+                    <div class="progress-label">
+                        <div class="progress-amount">$2.0M</div>
+                        <div class="progress-text">Goal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Main Column -->
+            <div>
+                <!-- Homecoming Event -->
+                <div class="event-card">
+                    <div class="event-content">
+                        <div class="event-badge">Featured Event</div>
+                        <h2 class="event-title">Homecoming Weekend 2025</h2>
+                        <p class="event-date">October 12-14, 2025 • Main Campus</p>
+                        <p style="margin-bottom: 1rem; line-height: 1.6;">
+                            Join us for three days of celebration, connection, and tradition. Featuring the homecoming game, class reunions, campus tours, and the annual gala dinner.
+                        </p>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <span class="event-detail-label">Registered</span>
+                                <span class="event-detail-value">847 Alumni</span>
+                            </div>
+                            <div class="event-detail">
+                                <span class="event-detail-label">Events</span>
+                                <span class="event-detail-value">12 Activities</span>
+                            </div>
+                            <div class="event-detail">
+                                <span class="event-detail-label">Early Bird</span>
+                                <span class="event-detail-value">Ends May 31</span>
+                            </div>
+                        </div>
+                        <a href="#" class="event-button">Register Now</a>
+                    </div>
+                </div>
+
+                <!-- Class Giving Challenge -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Class Giving Challenge</h3>
+                        <a href="#" class="card-action">View All →</a>
+                    </div>
+                    <div class="challenge-list">
+                        <div class="challenge-item">
+                            <div class="challenge-rank">🥇</div>
+                            <div class="challenge-year">1975</div>
+                            <div class="challenge-progress">
+                                <div class="challenge-bar">
+                                    <div class="challenge-bar-fill" style="width: 92%;"></div>
+                                </div>
+                                <div class="challenge-stats">
+                                    <span class="challenge-amount">$284,750</span>
+                                    <span>287 donors • 46% participation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-item">
+                            <div class="challenge-rank">🥈</div>
+                            <div class="challenge-year">1985</div>
+                            <div class="challenge-progress">
+                                <div class="challenge-bar">
+                                    <div class="challenge-bar-fill" style="width: 86%;"></div>
+                                </div>
+                                <div class="challenge-stats">
+                                    <span class="challenge-amount">$267,420</span>
+                                    <span>312 donors • 41% participation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-item">
+                            <div class="challenge-rank">🥉</div>
+                            <div class="challenge-year">1995</div>
+                            <div class="challenge-progress">
+                                <div class="challenge-bar">
+                                    <div class="challenge-bar-fill" style="width: 78%;"></div>
+                                </div>
+                                <div class="challenge-stats">
+                                    <span class="challenge-amount">$245,890</span>
+                                    <span>294 donors • 38% participation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-item">
+                            <div class="challenge-rank">4</div>
+                            <div class="challenge-year">2005</div>
+                            <div class="challenge-progress">
+                                <div class="challenge-bar">
+                                    <div class="challenge-bar-fill" style="width: 65%;"></div>
+                                </div>
+                                <div class="challenge-stats">
+                                    <span class="challenge-amount">$198,560</span>
+                                    <span>256 donors • 34% participation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-item">
+                            <div class="challenge-rank">5</div>
+                            <div class="challenge-year">2015</div>
+                            <div class="challenge-progress">
+                                <div class="challenge-bar">
+                                    <div class="challenge-bar-fill" style="width: 58%;"></div>
+                                </div>
+                                <div class="challenge-stats">
+                                    <span class="challenge-amount">$156,340</span>
+                                    <span>189 donors • 28% participation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Engagement Table -->
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Alumni Engagement</h3>
+                        <a href="#" class="card-action">View All →</a>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Alumni</th>
+                                <th>Class</th>
+                                <th>Activity</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sarah Chen</strong></td>
+                                <td>2008</td>
+                                <td>Homecoming Registration</td>
+                                <td><span class="table-badge event">Event</span></td>
+                                <td>Today</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Michael Torres</strong></td>
+                                <td>1992</td>
+                                <td>Annual Fund Contribution - $5,000</td>
+                                <td><span class="table-badge donation">Donation</span></td>
+                                <td>Today</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Jennifer Williams</strong></td>
+                                <td>2001</td>
+                                <td>Mentorship Program - New Mentor</td>
+                                <td><span class="table-badge mentorship">Mentorship</span></td>
+                                <td>Yesterday</td>
+                            </tr>
+                            <tr>
+                                <td><strong>David Park</strong></td>
+                                <td>1988</td>
+                                <td>Regional Chapter Event - Houston</td>
+                                <td><span class="table-badge event">Event</span></td>
+                                <td>2 days ago</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lisa Anderson</strong></td>
+                                <td>2012</td>
+                                <td>Career Services - Job Posting</td>
+                                <td><span class="table-badge mentorship">Mentorship</span></td>
+                                <td>3 days ago</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Robert Garcia</strong></td>
+                                <td>1978</td>
+                                <td>Legacy Scholarship Endowment - $25,000</td>
+                                <td><span class="table-badge donation">Donation</span></td>
+                                <td>3 days ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Alumni Spotlight -->
+                <div class="spotlight-card">
+                    <div class="spotlight-image">JK</div>
+                    <h3 class="spotlight-name">Dr. Jennifer Kim</h3>
+                    <p class="spotlight-class">Class of 2003</p>
+                    <p class="spotlight-title">Chief Medical Officer, Global Health Initiative</p>
+                    <p class="spotlight-quote">
+                        "My time at our university shaped my commitment to global health equity. The mentorship I received continues to inspire my work today."
+                    </p>
+                </div>
+
+                <!-- Mentorship Network -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Mentorship Network</h3>
+                        <a href="#" class="card-action">Join →</a>
+                    </div>
+                    <div class="mentorship-grid">
+                        <div class="mentor-card">
+                            <div class="mentor-header">
+                                <div class="mentor-avatar">TC</div>
+                                <div class="mentor-info">
+                                    <h4>Tom Chen</h4>
+                                    <p>Class of 1995</p>
+                                </div>
+                            </div>
+                            <div class="mentor-tags">
+                                <span class="mentor-tag">Technology</span>
+                                <span class="mentor-tag">Startups</span>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-header">
+                                <div class="mentor-avatar">MJ</div>
+                                <div class="mentor-info">
+                                    <h4>Maria Johnson</h4>
+                                    <p>Class of 2001</p>
+                                </div>
+                            </div>
+                            <div class="mentor-tags">
+                                <span class="mentor-tag">Finance</span>
+                                <span class="mentor-tag">Leadership</span>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-header">
+                                <div class="mentor-avatar">RW</div>
+                                <div class="mentor-info">
+                                    <h4>Rachel Wong</h4>
+                                    <p>Class of 2008</p>
+                                </div>
+                            </div>
+                            <div class="mentor-tags">
+                                <span class="mentor-tag">Marketing</span>
+                                <span class="mentor-tag">Brand</span>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-header">
+                                <div class="mentor-avatar">DM</div>
+                                <div class="mentor-info">
+                                    <h4>David Martinez</h4>
+                                    <p>Class of 1998</p>
+                                </div>
+                            </div>
+                            <div class="mentor-tags">
+                                <span class="mentor-tag">Law</span>
+                                <span class="mentor-tag">Policy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Card -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="#" style="display: block; padding: 1rem; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--brown); font-weight: 600; border-left: 4px solid var(--crimson); transition: all 0.3s ease;">
+                            📅 Register for Homecoming
+                        </a>
+                        <a href="#" style="display: block; padding: 1rem; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--brown); font-weight: 600; border-left: 4px solid var(--gold); transition: all 0.3s ease;">
+                            💝 Make a Gift
+                        </a>
+                        <a href="#" style="display: block; padding: 1rem; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--brown); font-weight: 600; border-left: 4px solid var(--navy); transition: all 0.3s ease;">
+                            🤝 Become a Mentor
+                        </a>
+                        <a href="#" style="display: block; padding: 1rem; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--brown); font-weight: 600; border-left: 4px solid var(--crimson); transition: all 0.3s ease;">
+                            📍 Find Your Chapter
+                        </a>
+                        <a href="#" style="display: block; padding: 1rem; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--brown); font-weight: 600; border-left: 4px solid var(--gold); transition: all 0.3s ease;">
+                            📧 Update Your Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Lobbi Alumni Network. Connecting generations of excellence since 1885.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Alumni Directory</a>
+                <a href="#" class="footer-link">Give Now</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">
+                Powered by Lobbi - Dashboard Style 74: Alumni Association + Heritage Pride
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-10-12T09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.querySelectorAll('.countdown-value')[0].textContent = days.toString().padStart(3, '0');
+            document.querySelectorAll('.countdown-value')[1].textContent = hours.toString().padStart(2, '0');
+            document.querySelectorAll('.countdown-value')[2].textContent = minutes.toString().padStart(2, '0');
+            document.querySelectorAll('.countdown-value')[3].textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add hover effects to quick action links
+        document.querySelectorAll('a[style*="border-left"]').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(8px)';
+                this.style.background = 'white';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.background = 'var(--cream)';
+            });
+        });
+
+        // Console branding
+        console.log('%c🎓 Lobbi Alumni Network Dashboard', 'color: #990000; font-size: 20px; font-weight: bold; font-family: Playfair Display, serif;');
+        console.log('%cStyle 74: Alumni Association + Heritage Pride', 'color: #d4a843; font-size: 14px; font-family: Open Sans, sans-serif;');
+        console.log('%cDesigned for university alumni groups and school associations', 'color: #2d2926; font-size: 12px;');
+    </script>
+</body>
+</html>

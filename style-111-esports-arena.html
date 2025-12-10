@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 111: eSports Arena Hub - ULTRATHINK Design System</title>
+    <style>
+        /* ============================================
+           STYLE 111: ESPORTS ARENA HUB
+           ULTRATHINK Design System Implementation
+
+           BLEND ARCHITECTURE (3-Way - 60/25/15):
+           - Primary (60%): Gaming/eSports - Dynamic, energetic, competitive
+           - Secondary (25%): Streaming Platform - Live content, chat integration
+           - Tertiary (15%): Tournament Management - Brackets, rankings, prizes
+
+           TEMPERATURE: 8 (High Energy)
+           FORMALITY: 3 (Casual Gaming Culture)
+
+           COLOR PALETTE:
+           - Neon Purple: #B026FF, #8B1FD9
+           - Electric Cyan: #00F0FF, #00D9E8
+           - Dark Base: #0A0A0F, #141419, #1E1E28
+           - Accent Gold: #FFD700, #FFA500
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System - Gaming Neon Palette */
+            --neon-purple: #B026FF;
+            --neon-purple-dark: #8B1FD9;
+            --neon-purple-glow: rgba(176, 38, 255, 0.5);
+
+            --electric-cyan: #00F0FF;
+            --electric-cyan-dark: #00D9E8;
+            --electric-cyan-glow: rgba(0, 240, 255, 0.5);
+
+            --dark-base: #0A0A0F;
+            --dark-surface: #141419;
+            --dark-elevated: #1E1E28;
+            --dark-border: #2A2A35;
+
+            --accent-gold: #FFD700;
+            --accent-orange: #FFA500;
+            --accent-red: #FF2D55;
+            --accent-green: #00FF88;
+
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0C8;
+            --text-muted: #6E6E8C;
+
+            /* Spacing System */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Animation Timing */
+            --anim-fast: 0.15s;
+            --anim-normal: 0.3s;
+            --anim-slow: 0.5s;
+
+            /* Effects */
+            --glow-small: 0 0 10px;
+            --glow-medium: 0 0 20px;
+            --glow-large: 0 0 30px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(90deg, rgba(176, 38, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Glow Effects */
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px currentColor); }
+            50% { filter: drop-shadow(0 0 20px currentColor); }
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Header Navigation */
+        .header {
+            background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-elevated) 100%);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 0 20px var(--neon-purple-glow);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: pulseGlow 2s infinite;
+            box-shadow: var(--glow-medium) var(--neon-purple-glow);
+        }
+
+        .logo-text {
+            background: linear-gradient(90deg, var(--neon-purple), var(--electric-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+            transition: all var(--anim-normal);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--electric-cyan);
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 15px var(--electric-cyan-glow);
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .btn {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--anim-normal);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-purple-dark));
+            color: white;
+            box-shadow: 0 4px 15px var(--neon-purple-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--neon-purple-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric-cyan);
+            border: 2px solid var(--electric-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px var(--electric-cyan-glow);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--dark-elevated) 0%, var(--dark-surface) 100%);
+            border: 2px solid var(--neon-purple);
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px var(--neon-purple-glow);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--neon-purple-glow) 0%, transparent 70%);
+            animation: heroGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20%, 20%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--electric-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: neonFlicker 3s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--electric-cyan);
+            display: block;
+            text-shadow: 0 0 10px var(--electric-cyan-glow);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Live Tournaments Section */
+        .section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--dark-border);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-purple);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--accent-red);
+            animation: pulseGlow 1.5s infinite;
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-red);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Tournament Grid */
+        .tournament-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .tournament-card {
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all var(--anim-normal);
+            position: relative;
+        }
+
+        .tournament-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 10px 30px var(--neon-purple-glow);
+        }
+
+        .tournament-header {
+            padding: var(--spacing-md);
+            background: linear-gradient(135deg, var(--neon-purple-dark) 0%, var(--electric-cyan-dark) 100%);
+            position: relative;
+        }
+
+        .tournament-game {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .tournament-name {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tournament-body {
+            padding: var(--spacing-md);
+        }
+
+        .tournament-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--electric-cyan);
+        }
+
+        .prize-pool {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: var(--spacing-sm);
+            text-align: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .prize-amount {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .tournament-progress {
+            margin: var(--spacing-sm) 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--dark-elevated);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-purple), var(--electric-cyan));
+            border-radius: 10px;
+            transition: width var(--anim-slow);
+            box-shadow: 0 0 10px var(--electric-cyan-glow);
+        }
+
+        .tournament-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn-tournament {
+            flex: 1;
+            padding: var(--spacing-sm);
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--anim-normal);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .btn-join {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-purple-dark));
+            color: white;
+            box-shadow: 0 4px 15px var(--neon-purple-glow);
+        }
+
+        .btn-join:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--neon-purple-glow);
+        }
+
+        .btn-watch {
+            background: transparent;
+            color: var(--electric-cyan);
+            border: 2px solid var(--electric-cyan);
+        }
+
+        .btn-watch:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 15px var(--electric-cyan-glow);
+        }
+
+        /* Stream Section */
+        .stream-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .main-stream {
+            background: var(--dark-surface);
+            border: 2px solid var(--neon-purple);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px var(--neon-purple-glow);
+        }
+
+        .stream-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--dark-elevated) 0%, var(--dark-surface) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .stream-overlay {
+            position: absolute;
+            top: var(--spacing-sm);
+            left: var(--spacing-sm);
+            background: rgba(255, 45, 85, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 15px rgba(255, 45, 85, 0.5);
+        }
+
+        .viewer-count {
+            position: absolute;
+            bottom: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stream-info {
+            padding: var(--spacing-md);
+        }
+
+        .stream-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .streamer-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .streamer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            border: 2px solid var(--electric-cyan);
+        }
+
+        .streamer-name {
+            font-weight: 600;
+            color: var(--electric-cyan);
+        }
+
+        .stream-chat {
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        .chat-header {
+            padding: var(--spacing-md);
+            background: var(--dark-elevated);
+            border-bottom: 2px solid var(--dark-border);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: var(--spacing-md);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .chat-message {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: flex-start;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .chat-content {
+            flex: 1;
+        }
+
+        .chat-username {
+            font-weight: 700;
+            color: var(--electric-cyan);
+            font-size: 0.9rem;
+        }
+
+        .chat-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .chat-input-container {
+            padding: var(--spacing-md);
+            background: var(--dark-elevated);
+            border-top: 2px solid var(--dark-border);
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all var(--anim-normal);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--electric-cyan);
+            box-shadow: 0 0 10px var(--electric-cyan-glow);
+        }
+
+        /* Bracket Section */
+        .bracket-container {
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            overflow-x: auto;
+        }
+
+        .bracket-rounds {
+            display: flex;
+            gap: var(--spacing-xl);
+            min-width: max-content;
+        }
+
+        .bracket-round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            min-width: 250px;
+        }
+
+        .round-title {
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-md);
+            color: var(--neon-purple);
+            font-size: 0.95rem;
+        }
+
+        .bracket-match {
+            background: var(--dark-elevated);
+            border: 2px solid var(--dark-border);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            transition: all var(--anim-normal);
+        }
+
+        .bracket-match:hover {
+            border-color: var(--electric-cyan);
+            box-shadow: 0 0 15px var(--electric-cyan-glow);
+        }
+
+        .bracket-team {
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--anim-fast);
+        }
+
+        .bracket-team:first-child {
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .bracket-team.winner {
+            background: rgba(176, 38, 255, 0.1);
+            font-weight: 700;
+        }
+
+        .team-name {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .team-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .team-score {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--electric-cyan);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        /* Rankings Section */
+        .rankings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .ranking-card {
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ranking-header {
+            padding: var(--spacing-md);
+            background: var(--dark-elevated);
+            border-bottom: 2px solid var(--dark-border);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ranking-list {
+            padding: var(--spacing-md);
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            background: var(--dark-elevated);
+            border-radius: 8px;
+            transition: all var(--anim-normal);
+            border: 2px solid transparent;
+        }
+
+        .ranking-item:hover {
+            border-color: var(--electric-cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .rank-position {
+            font-size: 1.5rem;
+            font-weight: 900;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .rank-1 { color: var(--accent-gold); }
+        .rank-2 { color: #C0C0C0; }
+        .rank-3 { color: #CD7F32; }
+        .rank-other { color: var(--text-muted); }
+
+        .player-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .player-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid var(--electric-cyan);
+        }
+
+        .player-details {
+            flex: 1;
+        }
+
+        .player-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .player-team {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .player-stats {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--electric-cyan);
+        }
+
+        .stat-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Gaming Profile Cards */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .profile-card {
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            transition: all var(--anim-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--electric-cyan));
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 10px 30px var(--neon-purple-glow);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            border: 3px solid var(--electric-cyan);
+            box-shadow: 0 0 20px var(--electric-cyan-glow);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .profile-role {
+            color: var(--electric-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .profile-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .profile-stat {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--dark-elevated);
+            border-radius: 8px;
+        }
+
+        .profile-stat-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--neon-purple);
+            display: block;
+        }
+
+        .profile-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .profile-achievements {
+            display: flex;
+            gap: var(--spacing-xs);
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+        }
+
+        .achievement-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            transition: all var(--anim-normal);
+        }
+
+        .achievement-badge:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-elevated);
+            border-top: 2px solid var(--neon-purple);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            color: var(--neon-purple);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--anim-normal);
+        }
+
+        .footer-links a:hover {
+            color: var(--electric-cyan);
+            text-shadow: 0 0 10px var(--electric-cyan-glow);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--dark-surface);
+            border: 2px solid var(--dark-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--anim-normal);
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            border-color: var(--electric-cyan);
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 15px var(--electric-cyan-glow);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--spacing-lg) auto 0;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--dark-border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .stream-section {
+                grid-template-columns: 1fr;
+            }
+
+            .bracket-rounds {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .tournament-grid,
+            .rankings-grid,
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-surface);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-purple);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--electric-cyan);
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(90deg, var(--neon-purple), var(--electric-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 20px var(--neon-purple-glow);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px var(--electric-cyan-glow);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>111</strong> of 120 &mdash; eSports Arena</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-110-philanthropy-circle.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-112-wine-society.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 110) window.location.href = 'style-110-philanthropy-circle.html';
+                if (e.key === 'ArrowRight' && 112) window.location.href = 'style-112-wine-society.html';
+            });
+        })();
+    </script>
+
+    <!-- Animated Background -->
+    <div class="background-grid"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span class="logo-text">ARENA HUB</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">Tournaments</a></li>
+                <li><a href="#" class="nav-link">Streams</a></li>
+                <li><a href="#" class="nav-link">Rankings</a></li>
+                <li><a href="#" class="nav-link">Teams</a></li>
+            </ul>
+            <div class="user-controls">
+                <button class="btn btn-secondary">Sign In</button>
+                <button class="btn btn-primary">Join Arena</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Championship Season 2025</h1>
+                <p class="hero-subtitle">Compete. Stream. Dominate. Rise through the ranks.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">48</span>
+                        <span class="stat-label">Live Tournaments</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">2.4M</span>
+                        <span class="stat-label">Prize Pool</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">127K</span>
+                        <span class="stat-label">Active Players</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">892</span>
+                        <span class="stat-label">Live Streams</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Tournaments -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    🔥 Live Tournaments
+                    <span class="live-indicator">
+                        <span class="live-dot"></span>
+                        LIVE NOW
+                    </span>
+                </h2>
+                <button class="btn btn-secondary">View All</button>
+            </div>
+            <div class="tournament-grid">
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <div class="tournament-game">VALORANT</div>
+                        <div class="tournament-name">Champions Tour Finals</div>
+                    </div>
+                    <div class="tournament-body">
+                        <div class="prize-pool">
+                            <div class="prize-amount">$500,000</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Prize Pool</div>
+                        </div>
+                        <div class="tournament-info">
+                            <div class="info-item">
+                                <span class="info-label">Teams</span>
+                                <span class="info-value">16/16</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Format</span>
+                                <span class="info-value">Single Elim</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Region</span>
+                                <span class="info-value">International</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value" style="color: var(--accent-red);">Quarterfinals</span>
+                            </div>
+                        </div>
+                        <div class="tournament-progress">
+                            <div class="progress-label">
+                                <span>Tournament Progress</span>
+                                <span>62%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div class="tournament-actions">
+                            <button class="btn-tournament btn-watch">Watch Live</button>
+                            <button class="btn-tournament btn-join" style="opacity: 0.5; cursor: not-allowed;">Full</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <div class="tournament-game">LEAGUE OF LEGENDS</div>
+                        <div class="tournament-name">Arena Invitational</div>
+                    </div>
+                    <div class="tournament-body">
+                        <div class="prize-pool">
+                            <div class="prize-amount">$250,000</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Prize Pool</div>
+                        </div>
+                        <div class="tournament-info">
+                            <div class="info-item">
+                                <span class="info-label">Teams</span>
+                                <span class="info-value">12/16</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Format</span>
+                                <span class="info-value">Double Elim</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Region</span>
+                                <span class="info-value">NA</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value" style="color: var(--accent-green);">Registration</span>
+                            </div>
+                        </div>
+                        <div class="tournament-progress">
+                            <div class="progress-label">
+                                <span>Registrations</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="tournament-actions">
+                            <button class="btn-tournament btn-join">Register Now</button>
+                            <button class="btn-tournament btn-watch">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <div class="tournament-game">CS2</div>
+                        <div class="tournament-name">Global Offensive Masters</div>
+                    </div>
+                    <div class="tournament-body">
+                        <div class="prize-pool">
+                            <div class="prize-amount">$750,000</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Prize Pool</div>
+                        </div>
+                        <div class="tournament-info">
+                            <div class="info-item">
+                                <span class="info-label">Teams</span>
+                                <span class="info-value">24/24</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Format</span>
+                                <span class="info-value">Swiss + Playoffs</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Region</span>
+                                <span class="info-value">EU</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value" style="color: var(--accent-red);">Semifinals</span>
+                            </div>
+                        </div>
+                        <div class="tournament-progress">
+                            <div class="progress-label">
+                                <span>Tournament Progress</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="tournament-actions">
+                            <button class="btn-tournament btn-watch">Watch Live</button>
+                            <button class="btn-tournament btn-join" style="opacity: 0.5; cursor: not-allowed;">Full</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Stream Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">📺 Featured Stream</h2>
+            </div>
+            <div class="stream-section">
+                <div class="main-stream">
+                    <div class="stream-video">
+                        <div class="stream-overlay">
+                            <span class="live-dot"></span>
+                            LIVE
+                        </div>
+                        <div class="viewer-count">
+                            👁️ 45,892 viewers
+                        </div>
+                        🎮
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">VALORANT Champions Tour - Grand Finals</h3>
+                        <p style="color: var(--text-secondary); margin: 0.5rem 0;">Team Phantom vs Team Eclipse - Best of 5 Series</p>
+                        <div class="streamer-info">
+                            <div class="streamer-avatar">AR</div>
+                            <div>
+                                <div class="streamer-name">ArenaHub Official</div>
+                                <div style="font-size: 0.85rem; color: var(--text-muted);">Official Tournament Stream</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-chat">
+                    <div class="chat-header">Live Chat</div>
+                    <div class="chat-messages">
+                        <div class="chat-message">
+                            <div class="chat-avatar">P1</div>
+                            <div class="chat-content">
+                                <div class="chat-username">ProGamer99</div>
+                                <div class="chat-text">That clutch was insane! 🔥</div>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-avatar">TC</div>
+                            <div class="chat-content">
+                                <div class="chat-username">TacticalCommander</div>
+                                <div class="chat-text">Team Phantom dominating right now</div>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-avatar">SN</div>
+                            <div class="chat-content">
+                                <div class="chat-username">SniperNinja</div>
+                                <div class="chat-text">Eclipse needs to ban that agent next map</div>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-avatar">GX</div>
+                            <div class="chat-content">
+                                <div class="chat-username">GamingXpert</div>
+                                <div class="chat-text">Best tournament of the year so far!</div>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-avatar">VK</div>
+                            <div class="chat-content">
+                                <div class="chat-username">ValKing</div>
+                                <div class="chat-text">Who you got winning this?</div>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-avatar">FR</div>
+                            <div class="chat-content">
+                                <div class="chat-username">FragRanger</div>
+                                <div class="chat-text">Phantom 3-1 calling it now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" placeholder="Send a message...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Bracket -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Tournament Bracket</h2>
+                <select style="background: var(--dark-elevated); color: var(--text-primary); border: 2px solid var(--dark-border); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600;">
+                    <option>VALORANT Champions Tour</option>
+                    <option>League of Legends Arena</option>
+                    <option>CS2 Masters</option>
+                </select>
+            </div>
+            <div class="bracket-container">
+                <div class="bracket-rounds">
+                    <div class="bracket-round">
+                        <div class="round-title">Quarterfinals</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team winner">
+                                <div class="team-name">
+                                    <div class="team-logo">TP</div>
+                                    Team Phantom
+                                </div>
+                                <div class="team-score">2</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">NV</div>
+                                    Nova Force
+                                </div>
+                                <div class="team-score">0</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team winner">
+                                <div class="team-name">
+                                    <div class="team-logo">TE</div>
+                                    Team Eclipse
+                                </div>
+                                <div class="team-score">2</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">VX</div>
+                                    Vertex Gaming
+                                </div>
+                                <div class="team-score">1</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">CG</div>
+                                    Cyber Gods
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">AX</div>
+                                    Apex Legends
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TS</div>
+                                    Titan Squad
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">RB</div>
+                                    Rogue Bandits
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bracket-round">
+                        <div class="round-title">Semifinals</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TP</div>
+                                    Team Phantom
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TE</div>
+                                    Team Eclipse
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TBD</div>
+                                    TBD
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TBD</div>
+                                    TBD
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bracket-round">
+                        <div class="round-title">Grand Final</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TBD</div>
+                                    TBD
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="team-name">
+                                    <div class="team-logo">TBD</div>
+                                    TBD
+                                </div>
+                                <div class="team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rankings -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">📊 Player Rankings</h2>
+            </div>
+            <div class="rankings-grid">
+                <div class="ranking-card">
+                    <div class="ranking-header">
+                        <span>Global Leaderboard</span>
+                        <span style="color: var(--electric-cyan);">All Games</span>
+                    </div>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <div class="rank-position rank-1">1</div>
+                            <div class="player-info">
+                                <div class="player-avatar">SN</div>
+                                <div class="player-details">
+                                    <div class="player-name">ShadowNinja</div>
+                                    <div class="player-team">Team Phantom</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">2,847</div>
+                                    <div class="stat-text">ELO</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-2">2</div>
+                            <div class="player-info">
+                                <div class="player-avatar">QS</div>
+                                <div class="player-details">
+                                    <div class="player-name">QuickShot</div>
+                                    <div class="player-team">Team Eclipse</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">2,791</div>
+                                    <div class="stat-text">ELO</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-3">3</div>
+                            <div class="player-info">
+                                <div class="player-avatar">AL</div>
+                                <div class="player-details">
+                                    <div class="player-name">ApexLegend</div>
+                                    <div class="player-team">Cyber Gods</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">2,735</div>
+                                    <div class="stat-text">ELO</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-other">4</div>
+                            <div class="player-info">
+                                <div class="player-avatar">TK</div>
+                                <div class="player-details">
+                                    <div class="player-name">TitanKiller</div>
+                                    <div class="player-team">Nova Force</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">2,698</div>
+                                    <div class="stat-text">ELO</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-other">5</div>
+                            <div class="player-info">
+                                <div class="player-avatar">FR</div>
+                                <div class="player-details">
+                                    <div class="player-name">FragRanger</div>
+                                    <div class="player-team">Vertex Gaming</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">2,654</div>
+                                    <div class="stat-text">ELO</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="ranking-header">
+                        <span>Top Teams</span>
+                        <span style="color: var(--neon-purple);">Power Rankings</span>
+                    </div>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <div class="rank-position rank-1">1</div>
+                            <div class="player-info">
+                                <div class="player-avatar">TP</div>
+                                <div class="player-details">
+                                    <div class="player-name">Team Phantom</div>
+                                    <div class="player-team">International</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">94</div>
+                                    <div class="stat-text">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-2">2</div>
+                            <div class="player-info">
+                                <div class="player-avatar">TE</div>
+                                <div class="player-details">
+                                    <div class="player-name">Team Eclipse</div>
+                                    <div class="player-team">NA</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">91</div>
+                                    <div class="stat-text">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-3">3</div>
+                            <div class="player-info">
+                                <div class="player-avatar">CG</div>
+                                <div class="player-details">
+                                    <div class="player-name">Cyber Gods</div>
+                                    <div class="player-team">EU</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">89</div>
+                                    <div class="stat-text">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-other">4</div>
+                            <div class="player-info">
+                                <div class="player-avatar">NF</div>
+                                <div class="player-details">
+                                    <div class="player-name">Nova Force</div>
+                                    <div class="player-team">APAC</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">87</div>
+                                    <div class="stat-text">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="rank-position rank-other">5</div>
+                            <div class="player-info">
+                                <div class="player-avatar">VG</div>
+                                <div class="player-details">
+                                    <div class="player-name">Vertex Gaming</div>
+                                    <div class="player-team">SA</div>
+                                </div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat">
+                                    <div class="stat-number">85</div>
+                                    <div class="stat-text">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Profiles -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">⭐ Featured Players</h2>
+                <button class="btn btn-secondary">Browse All</button>
+            </div>
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">SN</div>
+                        <div class="profile-info">
+                            <div class="profile-name">ShadowNinja</div>
+                            <div class="profile-role">Duelist • Team Phantom</div>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">2,847</span>
+                            <span class="profile-stat-label">ELO</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">1.42</span>
+                            <span class="profile-stat-label">K/D</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">68%</span>
+                            <span class="profile-stat-label">Win Rate</span>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <div class="achievement-badge" title="Champion">🏆</div>
+                        <div class="achievement-badge" title="MVP">⭐</div>
+                        <div class="achievement-badge" title="Ace">🎯</div>
+                        <div class="achievement-badge" title="Clutch Master">💎</div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">QS</div>
+                        <div class="profile-info">
+                            <div class="profile-name">QuickShot</div>
+                            <div class="profile-role">AWPer • Team Eclipse</div>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">2,791</span>
+                            <span class="profile-stat-label">ELO</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">1.38</span>
+                            <span class="profile-stat-label">K/D</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">65%</span>
+                            <span class="profile-stat-label">Win Rate</span>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <div class="achievement-badge" title="Champion">🏆</div>
+                        <div class="achievement-badge" title="Sniper">🎯</div>
+                        <div class="achievement-badge" title="Legend">💎</div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">AL</div>
+                        <div class="profile-info">
+                            <div class="profile-name">ApexLegend</div>
+                            <div class="profile-role">IGL • Cyber Gods</div>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">2,735</span>
+                            <span class="profile-stat-label">ELO</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">1.35</span>
+                            <span class="profile-stat-label">K/D</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">63%</span>
+                            <span class="profile-stat-label">Win Rate</span>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <div class="achievement-badge" title="Strategist">🧠</div>
+                        <div class="achievement-badge" title="Leader">👑</div>
+                        <div class="achievement-badge" title="Veteran">⚔️</div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">TK</div>
+                        <div class="profile-info">
+                            <div class="profile-name">TitanKiller</div>
+                            <div class="profile-role">Controller • Nova Force</div>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">2,698</span>
+                            <span class="profile-stat-label">ELO</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">1.29</span>
+                            <span class="profile-stat-label">K/D</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">61%</span>
+                            <span class="profile-stat-label">Win Rate</span>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <div class="achievement-badge" title="Utility Master">🛡️</div>
+                        <div class="achievement-badge" title="Support">🎯</div>
+                        <div class="achievement-badge" title="Clutch">💎</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Arena Hub</h3>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    The premier eSports platform for competitive gaming, live streaming, and tournament management.
+                </p>
+                <div class="social-links">
+                    <div class="social-icon">📱</div>
+                    <div class="social-icon">🎮</div>
+                    <div class="social-icon">💬</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Tournaments</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Browse Tournaments</a></li>
+                    <li><a href="#">Create Tournament</a></li>
+                    <li><a href="#">Tournament Rules</a></li>
+                    <li><a href="#">Prize Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Find Teams</a></li>
+                    <li><a href="#">Player Rankings</a></li>
+                    <li><a href="#">Forums</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Arena Hub - ULTRATHINK Design System - Style 111: eSports Arena Hub</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Temperature: 8 (High Energy) | Formality: 3 (Casual Gaming) | Blend: 60% Gaming / 25% Streaming / 15% Tournament</p>
+        </div>
+    </footer>
+</body>
+</html>

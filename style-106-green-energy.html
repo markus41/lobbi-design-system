@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Energy Coalition - Powering a Sustainable Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Green Palette */
+            --green-900: #064E3B;
+            --green-700: #047857;
+            --green-600: #059669;
+            --green-500: #10B981;
+            --green-400: #34D399;
+            --green-300: #6EE7B7;
+            --green-100: #D1FAE5;
+            --green-50: #ECFDF5;
+
+            /* Sky Blue Palette */
+            --blue-700: #0369A1;
+            --blue-600: #0284C7;
+            --blue-500: #0EA5E9;
+            --blue-400: #38BDF8;
+            --blue-300: #7DD3FC;
+            --blue-100: #E0F2FE;
+            --blue-50: #F0F9FF;
+
+            /* Neutral Palette */
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-900: #0F172A;
+
+            /* Semantic Colors */
+            --success: var(--green-500);
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --info: var(--blue-500);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-700);
+            background: var(--gray-50);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--green-700) 0%, var(--green-600) 100%);
+            color: var(--white);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--green-400), var(--blue-400));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-join {
+            background: var(--white);
+            color: var(--green-700);
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--white);
+        }
+
+        .btn-join:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--green-600) 0%, var(--blue-600) 100%);
+            color: var(--white);
+            padding: 5rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Live Dashboard Section */
+        .dashboard {
+            background: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-500), var(--blue-500));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15);
+            border-color: var(--green-400);
+        }
+
+        .metric-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-icon.solar {
+            background: linear-gradient(135deg, var(--warning), #FBBF24);
+        }
+
+        .metric-icon.wind {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+        }
+
+        .metric-icon.hydro {
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+        }
+
+        .metric-icon.carbon {
+            background: linear-gradient(135deg, var(--green-600), var(--green-500));
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-change {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .metric-change.positive {
+            color: var(--success);
+        }
+
+        .metric-change.negative {
+            color: var(--danger);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green-500), var(--blue-500));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Energy Mix Chart */
+        .energy-mix {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .energy-mix-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .energy-sources {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .energy-source {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .source-info {
+            flex: 1;
+        }
+
+        .source-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .source-bar {
+            width: 100%;
+            height: 30px;
+            background: var(--gray-200);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .source-bar-fill {
+            height: 100%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 1rem;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: width 1.5s ease;
+        }
+
+        .source-bar-fill.solar {
+            background: linear-gradient(90deg, var(--warning), #FBBF24);
+        }
+
+        .source-bar-fill.wind {
+            background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+        }
+
+        .source-bar-fill.hydro {
+            background: linear-gradient(90deg, var(--blue-700), var(--blue-600));
+        }
+
+        .source-bar-fill.geothermal {
+            background: linear-gradient(90deg, #DC2626, #EF4444);
+        }
+
+        .source-bar-fill.biomass {
+            background: linear-gradient(90deg, var(--green-700), var(--green-600));
+        }
+
+        /* Carbon Footprint Tracker */
+        .carbon-tracker {
+            background: linear-gradient(135deg, var(--green-50) 0%, var(--blue-50) 100%);
+            padding: 4rem 2rem;
+        }
+
+        .tracker-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .tracker-visual {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .circular-progress {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .circular-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring {
+            fill: none;
+            stroke: var(--gray-200);
+            stroke-width: 20;
+        }
+
+        .progress-ring-fill {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 20;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .progress-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .progress-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green-600);
+        }
+
+        .progress-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+
+        .tracker-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tracker-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--green-500);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tracker-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .tracker-item-title {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .tracker-item-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green-600);
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--green-100);
+            color: var(--green-700);
+        }
+
+        /* Project Showcase */
+        .projects {
+            background: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid var(--gray-200);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15);
+            border-color: var(--green-400);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--green-100);
+            color: var(--green-700);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-tag.blue {
+            background: var(--blue-100);
+            color: var(--blue-700);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .project-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green-600);
+            display: block;
+        }
+
+        .project-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+
+        /* Legislative Action Center */
+        .legislative {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-700) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .legislative::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hex" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M50 0 L100 25 L100 75 L50 100 L0 75 L0 25 Z" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23hex)"/></svg>');
+        }
+
+        .legislative .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .legislative .section-title,
+        .legislative .section-subtitle {
+            color: var(--white);
+        }
+
+        .legislative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .bill-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .bill-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .bill-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bill-status.active {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .bill-status.pending {
+            background: var(--warning);
+            color: var(--gray-900);
+        }
+
+        .bill-status.passed {
+            background: var(--blue-500);
+            color: var(--white);
+        }
+
+        .bill-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .bill-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .bill-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green-500), var(--green-600));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Impact Metrics */
+        .impact {
+            background: var(--gray-50);
+            padding: 4rem 2rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            border-color: var(--green-400);
+            transform: translateY(-5px);
+        }
+
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--green-600) 0%, var(--blue-600) 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--green-700);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green-400);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gray-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--green-600);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tracker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Real-time Animation */
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #10B981;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Utility Classes */
+        .text-green {
+            color: var(--green-600);
+        }
+
+        .text-blue {
+            color: var(--blue-600);
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>106</strong> of 120 &mdash; Green Energy</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-105-music-conservatory.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-107-legal-summit.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 105) window.location.href = 'style-105-music-conservatory.html';
+                if (e.key === 'ArrowRight' && 107) window.location.href = 'style-107-legal-summit.html';
+            });
+        })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span>Green Energy Coalition</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#legislation">Legislation</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#join" class="btn-join">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Powering a Sustainable Future Together</h1>
+                <p class="hero-subtitle">
+                    Join thousands of members driving the clean energy revolution. Track real-time renewable energy production, reduce your carbon footprint, and advocate for progressive climate policies.
+                </p>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">847 MW</span>
+                    <span class="hero-stat-label">Clean Energy Generated Today</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">12,450</span>
+                    <span class="hero-stat-label">Active Coalition Members</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">3.2M</span>
+                    <span class="hero-stat-label">Tons CO₂ Offset This Year</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">28</span>
+                    <span class="hero-stat-label">Bills Supported & Passed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Dashboard -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="live-indicator"></span>
+                    Live Energy Dashboard
+                </h2>
+                <p class="section-subtitle">
+                    Real-time monitoring of renewable energy production and environmental impact across our coalition network
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="metric-card">
+                    <div class="metric-icon solar">☀️</div>
+                    <div class="metric-label">Solar Energy Production</div>
+                    <div class="metric-value">428 MW</div>
+                    <div class="metric-change positive">
+                        <span>↑ 18.5%</span>
+                        <span>vs yesterday</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon wind">💨</div>
+                    <div class="metric-label">Wind Energy Production</div>
+                    <div class="metric-value">312 MW</div>
+                    <div class="metric-change positive">
+                        <span>↑ 12.3%</span>
+                        <span>vs yesterday</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon hydro">💧</div>
+                    <div class="metric-label">Hydro Energy Production</div>
+                    <div class="metric-value">107 MW</div>
+                    <div class="metric-change positive">
+                        <span>↑ 5.2%</span>
+                        <span>vs yesterday</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 54%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon carbon">🌍</div>
+                    <div class="metric-label">Carbon Offset Today</div>
+                    <div class="metric-value">8,740 t</div>
+                    <div class="metric-change positive">
+                        <span>↑ 22.1%</span>
+                        <span>vs yesterday</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Energy Mix Breakdown -->
+            <div class="energy-mix">
+                <h3 class="energy-mix-title">Current Energy Mix - Renewable Sources</h3>
+                <div class="energy-sources">
+                    <div class="energy-source">
+                        <div class="source-info">
+                            <div class="source-name">☀️ Solar Power</div>
+                            <div class="source-bar">
+                                <div class="source-bar-fill solar" style="width: 50.5%;">50.5%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-source">
+                        <div class="source-info">
+                            <div class="source-name">💨 Wind Power</div>
+                            <div class="source-bar">
+                                <div class="source-bar-fill wind" style="width: 36.8%;">36.8%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-source">
+                        <div class="source-info">
+                            <div class="source-name">💧 Hydroelectric</div>
+                            <div class="source-bar">
+                                <div class="source-bar-fill hydro" style="width: 12.6%;">12.6%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-source">
+                        <div class="source-info">
+                            <div class="source-name">🌋 Geothermal</div>
+                            <div class="source-bar">
+                                <div class="source-bar-fill geothermal" style="width: 8.3%;">8.3%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-source">
+                        <div class="source-info">
+                            <div class="source-name">🌾 Biomass</div>
+                            <div class="source-bar">
+                                <div class="source-bar-fill biomass" style="width: 5.2%;">5.2%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Footprint Tracker -->
+    <section class="carbon-tracker">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Carbon Footprint Tracker</h2>
+                <p class="section-subtitle">
+                    Monitor and reduce your environmental impact with personalized tracking and actionable insights
+                </p>
+            </div>
+
+            <div class="tracker-grid">
+                <div class="tracker-visual">
+                    <div class="circular-progress">
+                        <svg width="300" height="300">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-ring" cx="150" cy="150" r="130"></circle>
+                            <circle class="progress-ring-fill" cx="150" cy="150" r="130"
+                                    stroke-dasharray="817" stroke-dashoffset="204"></circle>
+                        </svg>
+                        <div class="progress-center">
+                            <div class="progress-value">75%</div>
+                            <div class="progress-label">Goal Achieved</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tracker-details">
+                    <div class="tracker-item">
+                        <div class="tracker-item-header">
+                            <span class="tracker-item-title">🚗 Transportation</span>
+                            <span class="impact-badge">-32% vs last month</span>
+                        </div>
+                        <div class="tracker-item-value">2.4 tons CO₂</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 48%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="tracker-item">
+                        <div class="tracker-item-header">
+                            <span class="tracker-item-title">⚡ Energy Usage</span>
+                            <span class="impact-badge">-18% vs last month</span>
+                        </div>
+                        <div class="tracker-item-value">1.8 tons CO₂</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 36%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="tracker-item">
+                        <div class="tracker-item-header">
+                            <span class="tracker-item-title">🍔 Food & Consumption</span>
+                            <span class="impact-badge">-25% vs last month</span>
+                        </div>
+                        <div class="tracker-item-value">0.9 tons CO₂</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 18%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="tracker-item">
+                        <div class="tracker-item-header">
+                            <span class="tracker-item-title">♻️ Waste Management</span>
+                            <span class="impact-badge">-41% vs last month</span>
+                        </div>
+                        <div class="tracker-item-value">0.3 tons CO₂</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 12%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Projects Showcase -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Member Project Showcase</h2>
+                <p class="section-subtitle">
+                    Inspiring renewable energy initiatives from our coalition members making a real difference
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">☀️</div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Solar</span>
+                            <span class="project-tag blue">Community</span>
+                        </div>
+                        <h3 class="project-title">Sunnyvale Community Solar Farm</h3>
+                        <p class="project-description">
+                            A 50-acre solar farm providing clean energy to 2,400 homes while creating 85 local jobs and reducing community carbon emissions by 15,000 tons annually.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value">150 MW</span>
+                                <span class="project-stat-label">Capacity</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">2,400</span>
+                                <span class="project-stat-label">Homes Powered</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">15K</span>
+                                <span class="project-stat-label">Tons CO₂ Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #0EA5E9, #38BDF8);">💨</div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Wind</span>
+                            <span class="project-tag blue">Offshore</span>
+                        </div>
+                        <h3 class="project-title">Atlantic Breeze Wind Array</h3>
+                        <p class="project-description">
+                            Offshore wind installation featuring 45 turbines generating enough electricity for 180,000 homes with minimal environmental impact on marine ecosystems.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value">675 MW</span>
+                                <span class="project-stat-label">Capacity</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">180K</span>
+                                <span class="project-stat-label">Homes Powered</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">520K</span>
+                                <span class="project-stat-label">Tons CO₂ Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #059669, #10B981);">🔋</div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Storage</span>
+                            <span class="project-tag blue">Innovation</span>
+                        </div>
+                        <h3 class="project-title">Grid-Scale Battery Storage Hub</h3>
+                        <p class="project-description">
+                            State-of-the-art energy storage facility enabling 24/7 renewable power delivery, stabilizing the grid and maximizing clean energy utilization efficiency.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="project-stat-value">400 MWh</span>
+                                <span class="project-stat-label">Storage</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">98%</span>
+                                <span class="project-stat-label">Efficiency</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="project-stat-value">95K</span>
+                                <span class="project-stat-label">Homes Supported</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legislative Action Center -->
+    <section id="legislation" class="legislative">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Legislative Action Center</h2>
+                <p class="section-subtitle">
+                    Track climate bills, support progressive policies, and make your voice heard on critical environmental legislation
+                </p>
+            </div>
+
+            <div class="legislative-grid">
+                <div class="bill-card">
+                    <span class="bill-status active">ACTIVE - Vote This Week</span>
+                    <h3 class="bill-title">Clean Energy Investment Act (SB-2847)</h3>
+                    <p class="bill-description">
+                        $500B federal investment in renewable energy infrastructure, creating 2M+ jobs and targeting 80% clean energy by 2035.
+                    </p>
+                    <div class="bill-actions">
+                        <a href="#" class="btn btn-primary">Support This Bill</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="bill-card">
+                    <span class="bill-status pending">PENDING - Committee Review</span>
+                    <h3 class="bill-title">Carbon Tax & Dividend Program (HR-4129)</h3>
+                    <p class="bill-description">
+                        Progressive carbon pricing mechanism returning revenue to citizens while incentivizing corporate emissions reductions.
+                    </p>
+                    <div class="bill-actions">
+                        <a href="#" class="btn btn-primary">Support This Bill</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="bill-card">
+                    <span class="bill-status passed">PASSED - Implementation Phase</span>
+                    <h3 class="bill-title">Grid Modernization & Resilience Act</h3>
+                    <p class="bill-description">
+                        Upgrading national electrical infrastructure for renewable integration, improving reliability and climate resilience.
+                    </p>
+                    <div class="bill-actions">
+                        <a href="#" class="btn btn-primary">Track Progress</a>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <div class="bill-card">
+                    <span class="bill-status active">ACTIVE - Public Comment</span>
+                    <h3 class="bill-title">Environmental Justice Equity Bill (SB-3156)</h3>
+                    <p class="bill-description">
+                        Ensures disadvantaged communities receive 40% of clean energy investment benefits and protections from pollution.
+                    </p>
+                    <div class="bill-actions">
+                        <a href="#" class="btn btn-primary">Submit Comment</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Collective Impact</h2>
+                <p class="section-subtitle">
+                    Together we're driving measurable change in the fight against climate change
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🌍</div>
+                    <div class="impact-number">3.2M</div>
+                    <div class="impact-label">Tons CO₂ Offset This Year</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">⚡</div>
+                    <div class="impact-number">847</div>
+                    <div class="impact-label">Megawatts Clean Energy</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">🏘️</div>
+                    <div class="impact-number">425K</div>
+                    <div class="impact-label">Homes Powered Sustainably</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">👥</div>
+                    <div class="impact-number">12,450</div>
+                    <div class="impact-label">Active Coalition Members</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">📜</div>
+                    <div class="impact-number">28</div>
+                    <div class="impact-label">Climate Bills Passed</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">💼</div>
+                    <div class="impact-number">18,200</div>
+                    <div class="impact-label">Green Jobs Created</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="join" class="cta">
+        <div class="cta-content">
+            <h2>Ready to Make a Difference?</h2>
+            <p>
+                Join the Green Energy Coalition today and become part of the clean energy revolution. Together, we can build a sustainable future for generations to come.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white btn-large">Become a Member</a>
+                <a href="#" class="btn btn-secondary btn-large">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Green Energy Coalition</h3>
+                <p>Building a sustainable future through clean energy advocacy, innovation, and collective action.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">𝕏</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">📧</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Energy Dashboard</a></li>
+                    <li><a href="#">Carbon Calculator</a></li>
+                    <li><a href="#">Project Gallery</a></li>
+                    <li><a href="#">Research Library</a></li>
+                    <li><a href="#">Best Practices</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Get Involved</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Membership</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Start a Chapter</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Annual Report</a></li>
+                    <li><a href="#">Press Kit</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Green Energy Coalition. All rights reserved. | Temperature: 7 (Warm) | Formality: 6 (Professional-Accessible)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animate progress bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width') || entry.target.style.width;
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.progress-fill, .source-bar-fill').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Simulate real-time data updates
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                const currentValue = parseFloat(metric.textContent);
+                const variation = (Math.random() - 0.5) * 5;
+                const newValue = Math.max(0, currentValue + variation);
+                metric.textContent = Math.round(newValue) + ' ' + metric.textContent.split(' ').slice(1).join(' ');
+            });
+        }
+
+        // Update metrics every 5 seconds
+        setInterval(updateMetrics, 5000);
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate numbers on scroll
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Trigger number animations
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    const target = entry.target;
+                    const value = parseInt(target.textContent.replace(/[^0-9]/g, ''));
+                    target.classList.add('animated');
+                    animateValue(target, 0, value, 2000);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.impact-number, .hero-stat-value').forEach(el => {
+            numberObserver.observe(el);
+        });
+    </script>
+</body>
+</html>

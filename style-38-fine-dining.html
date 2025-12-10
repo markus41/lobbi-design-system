@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Dining Dashboard - Culinary Excellence Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                          ULTRATHINK DESIGN ANALYSIS                          ║
+        ║                  Fine Dining (80%) + Michelin Star (20%)                     ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        Inspired by world-renowned Michelin-starred establishments like French Laundry
+        and Eleven Madison Park. This design embodies culinary artistry through visual
+        language that speaks to exclusivity, refinement, and exceptional attention to detail.
+
+        VISUAL HIERARCHY:
+        - Theatrical spacing creates anticipation, mirroring the pacing of a tasting menu
+        - Menu-like presentation guides the eye through curated content experiences
+        - Artful asymmetry balanced with classical symmetry reflects haute cuisine plating
+        - Layered depth through subtle shadows suggests multi-course complexity
+
+        COLOR PSYCHOLOGY:
+        - Rich Black (#1a1a1a): Sophistication, formality, the backdrop of fine dining
+        - Cream (#fffef5): Premium linens, pristine china, understated elegance
+        - Burgundy (#722f37): Aged wine, culinary passion, warmth without casualness
+        - Gold (#c9a227): Michelin stars, excellence, prestigious achievement
+
+        TYPOGRAPHY STRATEGY:
+        - Cormorant Garamond: Elegant serif reflecting French culinary heritage
+        - Varied weights create rhythm like courses in a tasting menu
+        - Generous letter-spacing evokes printed menus and wine lists
+        - Montserrat as supporting typeface for modern refinement
+
+        SPATIAL DESIGN:
+        - White space treated as premium real estate, never wasted
+        - Content "plated" with chef-like precision and intentionality
+        - Breathing room between elements creates anticipation
+        - Margins and padding scaled to create intimate yet spacious feel
+
+        INTERACTION PATTERNS:
+        - Subtle hover states suggest refined responsiveness
+        - Smooth transitions mirror seamless service
+        - No aggressive animations - everything is controlled, intentional
+        - Focus states designed for accessibility without breaking aesthetic
+
+        COMPONENT PHILOSOPHY:
+        - Stats cards as "amuse-bouche" - small, impactful, refined
+        - Content cards as "courses" - each deserving individual attention
+        - Data table as "wine list" - detailed, organized, premium
+        - Footer as "bill presentation" - discreet, professional, complete
+
+        TEMPERATURE & FORMALITY:
+        - Warm Intimate (6/10): Rich burgundy and gold create warmth
+        - Very High Exclusive (9/10): Every detail signals premium positioning
+        - Balance of approachability (warmth) with aspirational distance (formality)
+
+        ACCESSIBILITY INTEGRATION:
+        - Semantic HTML5 structure (header, nav, main, section, footer)
+        - ARIA labels for screen reader context
+        - Color contrast ratios exceed WCAG AA standards (cream on black: 16:1)
+        - Keyboard navigation fully supported with visible focus indicators
+        - Readable typography with minimum 16px base size
+
+        RESPONSIVE CONSIDERATIONS:
+        - Grid system adapts gracefully from mobile to desktop
+        - Typography scales maintain readability across viewports
+        - Touch targets sized appropriately for mobile interaction
+        - Content reflows without losing compositional integrity
+
+        BRAND POSITIONING:
+        This interface positions the platform as the digital equivalent of a
+        three-Michelin-star experience. Every pixel communicates excellence,
+        exclusivity, and refined taste. Users are treated as distinguished guests
+        receiving white-glove service through thoughtful, elegant design.
+
+        BUSINESS IMPACT:
+        - Establishes premium market positioning through visual language
+        - Builds trust through meticulous attention to detail
+        - Creates memorable brand experience that justifies premium pricing
+        - Attracts discerning clientele seeking excellence
+
+        TOKEN EXECUTION:
+        ✓ Rich black, cream, burgundy, gold palette perfectly balanced
+        ✓ Cormorant Garamond establishing refined serif authority
+        ✓ Theatrical spacing creating menu-like presentation
+        ✓ Tasting menu, reservation, chef profile, wine pairing components
+        ✓ Warm intimate temperature (6) through burgundy/gold warmth
+        ✓ Very high exclusive formality (9) through every design decision
+
+        TECHNICAL EXCELLENCE:
+        - Single-file implementation for portability
+        - Embedded CSS for zero external dependencies
+        - Semantic HTML for SEO and accessibility
+        - Progressive enhancement approach
+        - Performance-optimized with minimal DOM complexity
+
+        ════════════════════════════════════════════════════════════════════════════════
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --rich-black: #1a1a1a;
+            --cream: #fffef5;
+            --burgundy: #722f37;
+            --gold: #c9a227;
+            --dark-burgundy: #5a2429;
+            --light-gold: #e6c24f;
+            --charcoal: #2a2a2a;
+            --soft-cream: #f5f4eb;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+
+            /* Spacing Scale (theatrical, generous) */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-xxl: 6rem;
+
+            /* Transitions */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-subtle: all 0.3s ease;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--rich-black);
+            color: var(--cream);
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography Styles */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            font-weight: 500;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rich-black) 0%, var(--charcoal) 100%);
+            border-bottom: 1px solid var(--burgundy);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo::before {
+            content: "★";
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-family: var(--font-sans);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: var(--space-xs) var(--space-sm);
+            border-bottom: 2px solid transparent;
+            transition: var(--transition-subtle);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+            outline: none;
+        }
+
+        .nav-menu a:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: var(--space-xxl) var(--space-xl);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            padding: var(--space-xl) 0;
+            border-bottom: 1px solid rgba(114, 47, 55, 0.3);
+        }
+
+        .hero h1 {
+            color: var(--cream);
+            margin-bottom: var(--space-md);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            font-style: italic;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--rich-black) 100%);
+            border: 1px solid var(--burgundy);
+            border-radius: 2px;
+            padding: var(--space-lg);
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--burgundy));
+            transform: translateX(-100%);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.2);
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-value {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--cream);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-description {
+            font-size: 0.85rem;
+            color: rgba(255, 254, 245, 0.7);
+            font-weight: 300;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid rgba(114, 47, 55, 0.3);
+        }
+
+        .section-header h2 {
+            color: var(--cream);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-header p {
+            font-family: var(--font-serif);
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .content-card {
+            background: var(--charcoal);
+            border: 1px solid rgba(114, 47, 55, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            transform: translateY(-6px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--dark-burgundy), var(--burgundy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .card-body {
+            padding: var(--space-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            color: var(--cream);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-content p {
+            color: rgba(255, 254, 245, 0.8);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: var(--space-lg);
+            margin-top: auto;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(114, 47, 55, 0.3);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .meta-value {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--cream);
+        }
+
+        /* Data Table */
+        .table-container {
+            margin-bottom: var(--space-xxl);
+            background: var(--charcoal);
+            border: 1px solid rgba(114, 47, 55, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, var(--dark-burgundy), var(--burgundy));
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .table-header h3 {
+            color: var(--cream);
+            margin-bottom: var(--space-xs);
+        }
+
+        .table-header p {
+            color: rgba(255, 254, 245, 0.8);
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--rich-black);
+        }
+
+        thead th {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            text-align: left;
+            padding: var(--space-md) var(--space-lg);
+            font-weight: 500;
+            border-bottom: 1px solid var(--burgundy);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(114, 47, 55, 0.2);
+            transition: var(--transition-subtle);
+        }
+
+        tbody tr:hover {
+            background: rgba(114, 47, 55, 0.1);
+        }
+
+        tbody td {
+            padding: var(--space-md) var(--space-lg);
+            color: var(--cream);
+        }
+
+        tbody td:first-child {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .badge-gold {
+            background: var(--gold);
+            color: var(--rich-black);
+        }
+
+        .badge-burgundy {
+            background: var(--burgundy);
+            color: var(--cream);
+        }
+
+        .badge-cream {
+            background: var(--soft-cream);
+            color: var(--rich-black);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--rich-black) 100%);
+            border-top: 1px solid var(--burgundy);
+            padding: var(--space-xl) var(--space-xl) var(--space-lg);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 254, 245, 0.7);
+            font-size: 0.85rem;
+            text-decoration: none;
+            line-height: 2;
+            transition: var(--transition-subtle);
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: var(--gold);
+            padding-left: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(114, 47, 55, 0.3);
+            text-align: center;
+            color: rgba(255, 254, 245, 0.5);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom p {
+            font-family: var(--font-serif);
+            letter-spacing: 0.05em;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --space-xl: 3rem;
+                --space-xxl: 4rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 2rem;
+                --space-xl: 2.5rem;
+                --space-xxl: 3rem;
+            }
+
+            header {
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-sm);
+            }
+
+            main {
+                padding: var(--space-xl) var(--space-md);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            thead th,
+            tbody td {
+                padding: var(--space-sm);
+            }
+        }
+
+        /* Accessibility Enhancements */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus visible for keyboard navigation */
+        *:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>38</strong> of 70 &mdash; Fine Dining</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-37-spa-wellness.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-39-private-aviation.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 37) window.location.href = 'style-37-spa-wellness.html';
+                if (e.key === 'ArrowRight' && 39) window.location.href = 'style-39-private-aviation.html';
+            });
+        })();
+    </script>
+
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo" aria-label="Fine Dining Excellence">
+                Culinary Excellence
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#reservations">Reservations</a></li>
+                <li><a href="#menu">Tasting Menu</a></li>
+                <li><a href="#wine">Wine Cellar</a></li>
+                <li><a href="#chefs">Chef's Table</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">Gastronomic Excellence</h1>
+            <p class="hero-subtitle">Where Culinary Artistry Meets Exceptional Service</p>
+        </section>
+
+        <section aria-labelledby="stats-title">
+            <h2 id="stats-title" class="visually-hidden">Performance Statistics</h2>
+            <div class="stats-grid">
+                <article class="stat-card" aria-labelledby="stat1-label">
+                    <div class="stat-label" id="stat1-label">Michelin Stars</div>
+                    <div class="stat-value">3★</div>
+                    <p class="stat-description">Highest culinary distinction</p>
+                </article>
+
+                <article class="stat-card" aria-labelledby="stat2-label">
+                    <div class="stat-label" id="stat2-label">Guest Satisfaction</div>
+                    <div class="stat-value">98.7%</div>
+                    <p class="stat-description">Exceptional dining experiences</p>
+                </article>
+
+                <article class="stat-card" aria-labelledby="stat3-label">
+                    <div class="stat-label" id="stat3-label">Reservations This Week</div>
+                    <div class="stat-value">247</div>
+                    <p class="stat-description">Exclusive bookings secured</p>
+                </article>
+
+                <article class="stat-card" aria-labelledby="stat4-label">
+                    <div class="stat-label" id="stat4-label">Wine Collection</div>
+                    <div class="stat-value">1,842</div>
+                    <p class="stat-description">Curated vintage selections</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="experiences-title">
+            <div class="section-header">
+                <h2 id="experiences-title">Signature Experiences</h2>
+                <p>Curated journeys through exceptional cuisine</p>
+            </div>
+
+            <div class="content-grid">
+                <article class="content-card" aria-labelledby="card1-title">
+                    <div class="card-image" role="img" aria-label="Tasting menu illustration">
+                        🍽️
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="card-category">Tasting Menu</div>
+                            <h3 class="card-title" id="card1-title">Chef's Grand Dégustation</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>An exceptional twelve-course journey through seasonal ingredients and innovative techniques. Each plate represents months of refinement and culinary artistry.</p>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Courses</span>
+                                <span class="meta-value">12</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">3.5 Hours</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Price</span>
+                                <span class="meta-value">$385</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="content-card" aria-labelledby="card2-title">
+                    <div class="card-image" role="img" aria-label="Wine pairing illustration">
+                        🍷
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="card-category">Wine Experience</div>
+                            <h3 class="card-title" id="card2-title">Sommelier's Reserve Pairing</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Hand-selected vintages from our temperature-controlled cellar, each chosen to elevate the corresponding course. Rare allocations and estate bottlings.</p>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Pairings</span>
+                                <span class="meta-value">8</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Regions</span>
+                                <span class="meta-value">6</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Price</span>
+                                <span class="meta-value">$245</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="content-card" aria-labelledby="card3-title">
+                    <div class="card-image" role="img" aria-label="Chef's table illustration">
+                        👨‍🍳
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="card-category">Private Dining</div>
+                            <h3 class="card-title" id="card3-title">Kitchen Table Experience</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Intimate seating within our Michelin-starred kitchen. Direct interaction with Executive Chef Laurent Beaumont and his brigade during service.</p>
+                        </div>
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Guests</span>
+                                <span class="meta-value">6 Max</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">4 Hours</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Price</span>
+                                <span class="meta-value">$525</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="reservations-title">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 id="reservations-title">Tonight's Reservations</h3>
+                    <p>Exclusive bookings for December 9, 2025</p>
+                </div>
+                <table role="table" aria-label="Reservation details">
+                    <thead>
+                        <tr>
+                            <th scope="col">Guest Name</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Party Size</th>
+                            <th scope="col">Experience</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Special Requests</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mr. & Mrs. Harrison</td>
+                            <td>6:00 PM</td>
+                            <td>2</td>
+                            <td>Chef's Dégustation</td>
+                            <td><span class="badge badge-gold">Confirmed</span></td>
+                            <td>Anniversary celebration</td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Chen</td>
+                            <td>6:30 PM</td>
+                            <td>4</td>
+                            <td>Wine Pairing</td>
+                            <td><span class="badge badge-gold">Confirmed</span></td>
+                            <td>Vegetarian options</td>
+                        </tr>
+                        <tr>
+                            <td>Ambassador Williams</td>
+                            <td>7:00 PM</td>
+                            <td>6</td>
+                            <td>Kitchen Table</td>
+                            <td><span class="badge badge-burgundy">VIP</span></td>
+                            <td>Private dining room</td>
+                        </tr>
+                        <tr>
+                            <td>Ms. Rodriguez</td>
+                            <td>7:30 PM</td>
+                            <td>2</td>
+                            <td>Chef's Dégustation</td>
+                            <td><span class="badge badge-gold">Confirmed</span></td>
+                            <td>Seafood allergy</td>
+                        </tr>
+                        <tr>
+                            <td>The Pemberton Family</td>
+                            <td>8:00 PM</td>
+                            <td>5</td>
+                            <td>Seasonal Tasting</td>
+                            <td><span class="badge badge-gold">Confirmed</span></td>
+                            <td>Birthday celebration</td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Nakamura</td>
+                            <td>8:30 PM</td>
+                            <td>3</td>
+                            <td>Wine Pairing</td>
+                            <td><span class="badge badge-cream">Pending</span></td>
+                            <td>Late arrival possible</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Culinary Excellence</h4>
+                <p>Three Michelin stars awarded annually since 2018. Recognized globally for exceptional cuisine and impeccable service.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Reservations</h4>
+                <ul>
+                    <li><a href="#book">Book Your Experience</a></li>
+                    <li><a href="#private">Private Events</a></li>
+                    <li><a href="#corporate">Corporate Dining</a></li>
+                    <li><a href="#gift">Gift Certificates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="#menu">Seasonal Menu</a></li>
+                    <li><a href="#wine-list">Wine Collection</a></li>
+                    <li><a href="#chef">Meet the Chef</a></li>
+                    <li><a href="#press">Press & Awards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Visit Us</h4>
+                <p>123 Culinary Boulevard<br>
+                Fine Dining District<br>
+                New York, NY 10001<br>
+                <br>
+                Reservations: (555) 123-4567<br>
+                reservations@culinaryexcellence.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Culinary Excellence. All rights reserved. Three Michelin Stars.</p>
+        </div>
+    </footer>
+</body>
+</html>

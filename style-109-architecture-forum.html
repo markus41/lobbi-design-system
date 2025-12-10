@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchForum - Professional Architecture Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --concrete-gray: #6B7280;
+            --dark-concrete: #4B5563;
+            --light-concrete: #9CA3AF;
+            --blueprint-blue: #1E40AF;
+            --light-blue: #3B82F6;
+            --accent-blue: #60A5FA;
+            --white: #FFFFFF;
+            --off-white: #F9FAFB;
+            --border-gray: #E5E7EB;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--off-white);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--blueprint-blue) 0%, var(--dark-concrete) 100%);
+            color: var(--white);
+            padding: 0;
+            box-shadow: 0 4px 6px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .header-top-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-top-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-main {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            color: var(--blueprint-blue);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--blueprint-blue);
+            padding: 0.625rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 64, 175, 0.85), rgba(75, 85, 99, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%234B5563" width="1200" height="400"/><path fill="%236B7280" opacity="0.3" d="M0,200 L300,100 L600,250 L900,50 L1200,200 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--blueprint-blue);
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .view-all-link {
+            color: var(--blueprint-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px var(--shadow);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--light-concrete) 0%, var(--concrete-gray) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .portfolio-architect {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .portfolio-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .portfolio-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .portfolio-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Credentials Section */
+        .credentials-section {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .credential-card {
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--off-white);
+            transition: border-color 0.3s;
+        }
+
+        .credential-card:hover {
+            border-color: var(--blueprint-blue);
+        }
+
+        .credential-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .credential-badge {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blueprint-blue), var(--light-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .credential-status {
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-expiring {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+
+        .credential-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .credential-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .credential-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .credential-detail {
+            font-size: 0.85rem;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Competition Section */
+        .competition-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .competition-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .competition-item:hover {
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .competition-date {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            border-radius: 8px;
+        }
+
+        .competition-day {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .competition-month {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .competition-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .competition-organizer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .competition-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--off-white);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-gray);
+        }
+
+        .competition-prize {
+            text-align: right;
+        }
+
+        .prize-amount {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--blueprint-blue);
+            display: block;
+        }
+
+        .prize-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Event Calendar */
+        .calendar-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .calendar-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border: 2px solid var(--border-gray);
+            background-color: var(--white);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            border-color: var(--blueprint-blue);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--blueprint-blue);
+            color: var(--blueprint-blue);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--off-white);
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            border-color: var(--blueprint-blue);
+            background-color: var(--white);
+        }
+
+        .event-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .type-conference {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .type-workshop {
+            background-color: #E0E7FF;
+            color: #4338CA;
+        }
+
+        .type-webinar {
+            background-color: #F3E8FF;
+            color: #6B21A8;
+        }
+
+        .type-education {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+
+        .event-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .event-meta {
+            display: grid;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-ceu {
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Urban Planning Section */
+        .urban-planning-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .planning-projects {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .planning-project-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .planning-project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title-area h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .project-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .sustainability-badge {
+            background-color: #D1FAE5;
+            color: #065F46;
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .project-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label-small {
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value-small {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .sustainability-metrics {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .sustainability-metrics h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .metric-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .metric-bar {
+            height: 8px;
+            background-color: var(--border-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blueprint-blue), var(--light-blue));
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--blueprint-blue);
+        }
+
+        .featured-members {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .member-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: var(--off-white);
+            transition: background-color 0.3s;
+        }
+
+        .member-item:hover {
+            background-color: var(--border-gray);
+        }
+
+        .member-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blueprint-blue), var(--light-blue));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .member-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .member-credentials {
+            font-size: 0.75rem;
+            color: var(--blueprint-blue);
+            font-weight: 600;
+        }
+
+        /* Resources Section */
+        .resources-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background-color: var(--off-white);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+        }
+
+        .resource-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .resource-item:hover .resource-icon {
+            background-color: var(--white);
+            color: var(--blueprint-blue);
+        }
+
+        .resource-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-concrete);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: var(--light-concrete);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--light-concrete);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--light-concrete);
+            font-size: 0.875rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--blueprint-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .urban-planning-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competition-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .competition-prize {
+                text-align: center;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: transparent;
+            color: var(--blueprint-blue);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            border: 2px solid var(--blueprint-blue);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--blueprint-blue);
+            color: var(--white);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>109</strong> of 120 &mdash; Architecture Forum</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-108-culinary-guild.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-110-philanthropy-circle.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 108) window.location.href = 'style-108-culinary-guild.html';
+                if (e.key === 'ArrowRight' && 110) window.location.href = 'style-110-philanthropy-circle.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-left">
+                <span>Professional Architecture Network</span>
+                <span>|</span>
+                <span>Serving 45,000+ Licensed Architects</span>
+            </div>
+            <div class="header-top-right">
+                <span>Member Login</span>
+                <span>|</span>
+                <span>Support</span>
+            </div>
+        </div>
+        <nav class="nav-main">
+            <div class="logo">
+                <div class="logo-icon">A</div>
+                <span>ArchForum</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#competitions">Competitions</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#urban-planning">Urban Planning</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#" class="btn-primary">Submit Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Professional Architecture Network</h1>
+        <p>Connecting licensed architects, showcasing exceptional design, and advancing sustainable urban development through collaborative excellence and continuous professional development.</p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="stat-number">45,000+</span>
+                <span class="stat-label">Licensed Members</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">12,500</span>
+                <span class="stat-label">Projects Showcased</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">850</span>
+                <span class="stat-label">Active Competitions</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">3,200</span>
+                <span class="stat-label">CEU Courses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Featured Portfolio Section (60% - Primary) -->
+        <section id="portfolio">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <a href="#" class="view-all-link">View All Projects →</a>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Commercial</span>
+                        <h3 class="portfolio-title">Metropolitan Tower Complex</h3>
+                        <p class="portfolio-architect">By Marcus Chen, AIA, LEED AP</p>
+                        <p class="portfolio-description">A 45-story mixed-use development integrating sustainable design principles with contemporary urban aesthetics. Features advanced climate control and renewable energy systems.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>12.5K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🏛</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Cultural</span>
+                        <h3 class="portfolio-title">National Arts Museum Extension</h3>
+                        <p class="portfolio-architect">By Sarah Williams, FAIA, RIBA</p>
+                        <p class="portfolio-description">Contemporary addition respecting historical context while introducing innovative gallery spaces with natural lighting optimization and climate-responsive facades.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>5.0</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>18.2K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🏘</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Residential</span>
+                        <h3 class="portfolio-title">Sustainable Housing Collective</h3>
+                        <p class="portfolio-architect">By David Kumar, AIA, NCARB</p>
+                        <p class="portfolio-description">Net-zero energy residential complex featuring passive solar design, rainwater harvesting, and community-focused planning for 250 units across 15 acres.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>9.8K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🎓</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Educational</span>
+                        <h3 class="portfolio-title">Innovation Campus Learning Hub</h3>
+                        <p class="portfolio-architect">By Jennifer Park, AIA, LEED Fellow</p>
+                        <p class="portfolio-description">State-of-the-art educational facility emphasizing flexible learning environments, biophilic design principles, and advanced sustainable technologies.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>15.3K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Healthcare</span>
+                        <h3 class="portfolio-title">Regional Medical Center</h3>
+                        <p class="portfolio-architect">By Robert Martinez, FAIA, NCARB</p>
+                        <p class="portfolio-description">Comprehensive healthcare facility prioritizing patient experience through evidence-based design, natural light integration, and advanced medical infrastructure.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>5.0</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>21.7K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🌳</div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Landscape</span>
+                        <h3 class="portfolio-title">Urban Green Corridor</h3>
+                        <p class="portfolio-architect">By Lisa Anderson, ASLA, PLA</p>
+                        <p class="portfolio-description">3.5-mile linear park integrating native ecosystems, pedestrian infrastructure, and stormwater management within dense urban fabric.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-stats">
+                                <div class="portfolio-stat">
+                                    <span>⭐</span>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="portfolio-stat">
+                                    <span>👁</span>
+                                    <span>11.2K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credentials & Licensing Section (25% - Secondary) -->
+        <section id="credentials" class="credentials-section">
+            <div class="section-header">
+                <h2>Professional Credentials & Licensing</h2>
+                <a href="#" class="view-all-link">Manage Credentials →</a>
+            </div>
+            <div class="credentials-grid">
+                <div class="credential-card">
+                    <div class="credential-header">
+                        <div class="credential-badge">AIA</div>
+                        <span class="credential-status status-active">Active</span>
+                    </div>
+                    <h4 class="credential-title">Architect Registration</h4>
+                    <p class="credential-issuer">National Council of Architectural Registration Boards (NCARB)</p>
+                    <div class="credential-details">
+                        <div class="credential-detail">
+                            <span class="detail-label">License Number</span>
+                            <span class="detail-value">AR-2024-45892</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Issue Date</span>
+                            <span class="detail-value">Jan 15, 2020</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Expiration</span>
+                            <span class="detail-value">Jan 15, 2026</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">CEU Credits</span>
+                            <span class="detail-value">18/24 Required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="credential-card">
+                    <div class="credential-header">
+                        <div class="credential-badge">LE</div>
+                        <span class="credential-status status-active">Active</span>
+                    </div>
+                    <h4 class="credential-title">LEED Accredited Professional</h4>
+                    <p class="credential-issuer">U.S. Green Building Council (USGBC)</p>
+                    <div class="credential-details">
+                        <div class="credential-detail">
+                            <span class="detail-label">Credential ID</span>
+                            <span class="detail-value">LEED-10234567</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Specialty</span>
+                            <span class="detail-value">BD+C</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Awarded</span>
+                            <span class="detail-value">Mar 22, 2021</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Renewal</span>
+                            <span class="detail-value">Mar 22, 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="credential-card">
+                    <div class="credential-header">
+                        <div class="credential-badge">WE</div>
+                        <span class="credential-status status-active">Active</span>
+                    </div>
+                    <h4 class="credential-title">WELL AP Certification</h4>
+                    <p class="credential-issuer">International WELL Building Institute (IWBI)</p>
+                    <div class="credential-details">
+                        <div class="credential-detail">
+                            <span class="detail-label">Credential ID</span>
+                            <span class="detail-value">WELL-AP-8934</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Issue Date</span>
+                            <span class="detail-value">Jun 10, 2022</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Valid Until</span>
+                            <span class="detail-value">Jun 10, 2025</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value">Current</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="credential-card">
+                    <div class="credential-header">
+                        <div class="credential-badge">CE</div>
+                        <span class="credential-status status-expiring">Renewal Due</span>
+                    </div>
+                    <h4 class="credential-title">Continuing Education Credits</h4>
+                    <p class="credential-issuer">AIA Continuing Education System (CES)</p>
+                    <div class="credential-details">
+                        <div class="credential-detail">
+                            <span class="detail-label">Current Period</span>
+                            <span class="detail-value">2024-2025</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Earned</span>
+                            <span class="detail-value">18 HSW Credits</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Required</span>
+                            <span class="detail-value">24 Credits</span>
+                        </div>
+                        <div class="credential-detail">
+                            <span class="detail-label">Deadline</span>
+                            <span class="detail-value">Dec 31, 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitions Section -->
+        <section id="competitions">
+            <div class="section-header">
+                <h2>Active Design Competitions</h2>
+                <a href="#" class="view-all-link">Browse All Competitions →</a>
+            </div>
+            <div class="competition-list">
+                <div class="competition-item">
+                    <div class="competition-date">
+                        <span class="competition-day">15</span>
+                        <span class="competition-month">FEB</span>
+                    </div>
+                    <div class="competition-info">
+                        <h3>International Sustainable Housing Design Award</h3>
+                        <p class="competition-organizer">World Architecture Foundation</p>
+                        <div class="competition-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">International</span>
+                            <span class="tag">Open Submission</span>
+                        </div>
+                    </div>
+                    <div class="competition-prize">
+                        <span class="prize-amount">$50,000</span>
+                        <span class="prize-label">First Prize</span>
+                    </div>
+                </div>
+
+                <div class="competition-item">
+                    <div class="competition-date">
+                        <span class="competition-day">28</span>
+                        <span class="competition-month">FEB</span>
+                    </div>
+                    <div class="competition-info">
+                        <h3>Urban Regeneration Challenge</h3>
+                        <p class="competition-organizer">Global Cities Initiative</p>
+                        <div class="competition-tags">
+                            <span class="tag">Urban Planning</span>
+                            <span class="tag">Mixed-Use</span>
+                            <span class="tag">Team Entry</span>
+                        </div>
+                    </div>
+                    <div class="competition-prize">
+                        <span class="prize-amount">$75,000</span>
+                        <span class="prize-label">Total Prize Pool</span>
+                    </div>
+                </div>
+
+                <div class="competition-item">
+                    <div class="competition-date">
+                        <span class="competition-day">10</span>
+                        <span class="competition-month">MAR</span>
+                    </div>
+                    <div class="competition-info">
+                        <h3>Next Generation Museum Design</h3>
+                        <p class="competition-organizer">International Museum Association</p>
+                        <div class="competition-tags">
+                            <span class="tag">Cultural</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Professional</span>
+                        </div>
+                    </div>
+                    <div class="competition-prize">
+                        <span class="prize-amount">$100,000</span>
+                        <span class="prize-label">First Prize + Commission</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Events Calendar -->
+        <section id="education" class="calendar-section">
+            <div class="section-header">
+                <h2>Continuing Education & Events</h2>
+                <a href="#" class="view-all-link">View Full Calendar →</a>
+            </div>
+            <div class="calendar-filters">
+                <button class="filter-btn active">All Events</button>
+                <button class="filter-btn">Conferences</button>
+                <button class="filter-btn">Workshops</button>
+                <button class="filter-btn">Webinars</button>
+                <button class="filter-btn">CEU Courses</button>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <span class="event-type type-conference">Conference</span>
+                    <h4 class="event-title">AIA National Convention 2025</h4>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <span>📅</span>
+                            <span>March 18-20, 2025</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>📍</span>
+                            <span>San Francisco, CA</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>👥</span>
+                            <span>15,000 Expected Attendees</span>
+                        </div>
+                    </div>
+                    <span class="event-ceu">24 LU/HSW Credits</span>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-type type-workshop">Workshop</span>
+                    <h4 class="event-title">Advanced BIM Implementation</h4>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <span>📅</span>
+                            <span>February 12-13, 2025</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>📍</span>
+                            <span>Online (Live)</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>👥</span>
+                            <span>Limited to 50 Participants</span>
+                        </div>
+                    </div>
+                    <span class="event-ceu">12 LU Credits</span>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-type type-webinar">Webinar</span>
+                    <h4 class="event-title">Sustainable Design Strategies 2025</h4>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <span>📅</span>
+                            <span>February 8, 2025</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>📍</span>
+                            <span>Online (Recorded)</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>👥</span>
+                            <span>Open Registration</span>
+                        </div>
+                    </div>
+                    <span class="event-ceu">2 LU/HSW Credits</span>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-type type-education">CEU Course</span>
+                    <h4 class="event-title">Building Envelope Performance</h4>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <span>📅</span>
+                            <span>Self-Paced (Available Now)</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>📍</span>
+                            <span>Online Course</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span>👥</span>
+                            <span>1,245 Enrolled</span>
+                        </div>
+                    </div>
+                    <span class="event-ceu">8 LU/HSW Credits</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Urban Planning Section (15% - Tertiary) -->
+        <section id="urban-planning">
+            <div class="section-header">
+                <h2>Urban Planning & Sustainable Development</h2>
+                <a href="#" class="view-all-link">Explore Planning Projects →</a>
+            </div>
+            <div class="urban-planning-grid">
+                <div class="planning-projects">
+                    <div class="planning-project-item">
+                        <div class="project-header">
+                            <div class="project-title-area">
+                                <h4>Downtown Revitalization Initiative</h4>
+                                <p class="project-location">Portland, OR</p>
+                            </div>
+                            <div class="sustainability-badge">
+                                <span>🌱</span>
+                                <span>LEED Platinum</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Comprehensive urban renewal project transforming 45-acre industrial site into mixed-use sustainable district. Incorporates transit-oriented development, green infrastructure, and community engagement strategies.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="stat-label-small">Project Size</span>
+                                <span class="stat-value-small">45 Acres</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Timeline</span>
+                                <span class="stat-value-small">2024-2030</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Investment</span>
+                                <span class="stat-value-small">$850M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="planning-project-item">
+                        <div class="project-header">
+                            <div class="project-title-area">
+                                <h4>Coastal Resilience Framework</h4>
+                                <p class="project-location">Miami, FL</p>
+                            </div>
+                            <div class="sustainability-badge">
+                                <span>🌊</span>
+                                <span>Climate Adaptive</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Climate adaptation strategy addressing sea-level rise through integrated infrastructure improvements, natural barriers, and adaptive zoning regulations for vulnerable coastal communities.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="stat-label-small">Coverage Area</span>
+                                <span class="stat-value-small">12 Miles</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Duration</span>
+                                <span class="stat-value-small">2023-2028</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Budget</span>
+                                <span class="stat-value-small">$1.2B</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="planning-project-item">
+                        <div class="project-header">
+                            <div class="project-title-area">
+                                <h4>Transit-Oriented Development Hub</h4>
+                                <p class="project-location">Denver, CO</p>
+                            </div>
+                            <div class="sustainability-badge">
+                                <span>🚇</span>
+                                <span>Net Zero Carbon</span>
+                            </div>
+                        </div>
+                        <p class="project-description">High-density mixed-use development centered on regional transit station. Features pedestrian-priority design, affordable housing integration, and zero-carbon building standards.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <span class="stat-label-small">Development Area</span>
+                                <span class="stat-value-small">28 Acres</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Completion</span>
+                                <span class="stat-value-small">2025-2029</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-label-small">Investment</span>
+                                <span class="stat-value-small">$625M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sustainability-metrics">
+                    <h3>Sustainability Metrics</h3>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Carbon Reduction</span>
+                            <span class="metric-value">78%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Green Space Integration</span>
+                            <span class="metric-value">65%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Water Conservation</span>
+                            <span class="metric-value">82%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Energy Efficiency</span>
+                            <span class="metric-value">91%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 91%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <span class="metric-label">Transit Accessibility</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar Resources -->
+        <div class="sidebar">
+            <h3>Featured Members</h3>
+            <div class="featured-members">
+                <div class="member-item">
+                    <div class="member-avatar">MC</div>
+                    <div class="member-info">
+                        <div class="member-name">Marcus Chen</div>
+                        <div class="member-title">Principal Architect</div>
+                        <div class="member-credentials">AIA, LEED AP BD+C</div>
+                    </div>
+                </div>
+                <div class="member-item">
+                    <div class="member-avatar">SW</div>
+                    <div class="member-info">
+                        <div class="member-name">Sarah Williams</div>
+                        <div class="member-title">Design Director</div>
+                        <div class="member-credentials">FAIA, RIBA</div>
+                    </div>
+                </div>
+                <div class="member-item">
+                    <div class="member-avatar">DK</div>
+                    <div class="member-info">
+                        <div class="member-name">David Kumar</div>
+                        <div class="member-title">Sustainable Design Lead</div>
+                        <div class="member-credentials">AIA, NCARB, WELL AP</div>
+                    </div>
+                </div>
+                <div class="member-item">
+                    <div class="member-avatar">JP</div>
+                    <div class="member-info">
+                        <div class="member-name">Jennifer Park</div>
+                        <div class="member-title">Urban Design Partner</div>
+                        <div class="member-credentials">AIA, LEED Fellow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h3>Professional Resources</h3>
+            <div class="resources-list">
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">📚</div>
+                    <div class="resource-name">Building Code Library</div>
+                </a>
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">📊</div>
+                    <div class="resource-name">Project Templates</div>
+                </a>
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">🎓</div>
+                    <div class="resource-name">CEU Course Catalog</div>
+                </a>
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">⚖️</div>
+                    <div class="resource-name">Licensing Requirements</div>
+                </a>
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">🔧</div>
+                    <div class="resource-name">Technical Standards</div>
+                </a>
+                <a href="#" class="resource-item">
+                    <div class="resource-icon">💼</div>
+                    <div class="resource-name">Contract Documents</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ArchForum</h4>
+                <p>Professional architecture network dedicated to advancing design excellence, fostering professional development, and promoting sustainable urban planning practices.</p>
+                <p>&copy; 2025 ArchForum. All rights reserved.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Platform</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Portfolio Showcase</a></li>
+                    <li><a href="#">Competitions</a></li>
+                    <li><a href="#">Credential Management</a></li>
+                    <li><a href="#">Event Calendar</a></li>
+                    <li><a href="#">Resource Library</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Professional</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Licensing Information</a></li>
+                    <li><a href="#">CEU Courses</a></li>
+                    <li><a href="#">Urban Planning</a></li>
+                    <li><a href="#">Building Codes</a></li>
+                    <li><a href="#">Technical Standards</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Membership</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Serving the global architecture community since 1995</p>
+            <div class="social-links">
+                <a href="#" class="social-link">f</a>
+                <a href="#" class="social-link">𝕏</a>
+                <a href="#" class="social-link">in</a>
+                <a href="#" class="social-link">ig</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

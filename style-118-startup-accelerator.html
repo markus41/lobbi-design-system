@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 118: Startup Accelerator Hub | LaunchPad Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Colors - Startup/VC Culture (60%) */
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --accent-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+
+            /* Secondary Colors - Mentorship Network (25%) */
+            --mentor-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --network-gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+
+            /* Tertiary Colors - Demo Day (15%) */
+            --demo-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --investor-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+
+            /* Neutral Colors */
+            --bg-primary: #0f0f1e;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8d1;
+            --text-muted: #7e7e9f;
+            --border-color: #2a2a4a;
+
+            /* Metrics Colors */
+            --growth-up: #00ff88;
+            --growth-down: #ff4757;
+            --metric-yellow: #ffd93d;
+            --metric-blue: #4facfe;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--secondary-gradient);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        /* Dashboard Hero */
+        .dashboard-hero {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-gradient);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cohort-info {
+            display: flex;
+            gap: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .cohort-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--success-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: #667eea;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-size: 1.25rem;
+        }
+
+        /* Portfolio Companies */
+        .company-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .company-card:hover {
+            border-color: #667eea;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .company-header {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .company-info {
+            flex: 1;
+        }
+
+        .company-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .company-tagline {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .company-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .metric {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .metric-value.up {
+            color: var(--growth-up);
+        }
+
+        .metric-value.down {
+            color: var(--growth-down);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .company-stage {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stage-seed {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: var(--bg-primary);
+        }
+
+        .stage-series-a {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: var(--bg-primary);
+        }
+
+        .stage-growth {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        /* Mentor Matching */
+        .mentor-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+
+        .mentor-card:hover {
+            border-color: #fa709a;
+            box-shadow: 0 0 20px rgba(250, 112, 154, 0.3);
+        }
+
+        .mentor-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--mentor-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .mentor-info {
+            flex: 1;
+        }
+
+        .mentor-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .mentor-title {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .mentor-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .expertise-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .mentor-stats {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.875rem;
+        }
+
+        .mentor-stat {
+            color: var(--text-muted);
+        }
+
+        .mentor-stat strong {
+            color: var(--text-primary);
+            background: var(--mentor-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mentor-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        /* Milestone Tracking */
+        .milestone-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .milestone-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .milestone-item.completed {
+            border-left-color: var(--growth-up);
+            opacity: 0.7;
+        }
+
+        .milestone-item.active {
+            border-left-color: #667eea;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+        }
+
+        .milestone-item.upcoming {
+            border-left-color: var(--metric-yellow);
+        }
+
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .milestone-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .milestone-date {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .milestone-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--growth-up);
+        }
+
+        .status-active {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+        }
+
+        .status-upcoming {
+            background: rgba(255, 217, 61, 0.2);
+            color: var(--metric-yellow);
+        }
+
+        .milestone-progress {
+            margin-top: var(--spacing-sm);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Demo Day Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .calendar-day {
+            background: var(--bg-card);
+            padding: var(--spacing-sm);
+            min-height: 100px;
+            position: relative;
+        }
+
+        .calendar-day.header {
+            background: var(--bg-secondary);
+            min-height: auto;
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .calendar-day.other-month {
+            opacity: 0.3;
+        }
+
+        .day-number {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-event {
+            background: var(--demo-gradient);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-event:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .calendar-event.demo-day {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-event.pitch-practice {
+            background: var(--mentor-gradient);
+            color: white;
+        }
+
+        .calendar-event.investor-meeting {
+            background: var(--investor-gradient);
+            color: var(--bg-primary);
+        }
+
+        /* Event List */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .event-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border-left: 4px solid #667eea;
+            display: flex;
+            gap: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .event-date {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .event-month {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .event-day {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .event-time {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .event-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Investor Matching */
+        .investor-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .investor-card:hover {
+            border-color: #ff9a9e;
+            box-shadow: 0 0 20px rgba(255, 154, 158, 0.3);
+        }
+
+        .investor-header {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .investor-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--investor-gradient);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .investor-info h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .investor-type {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .investor-focus {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .focus-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 154, 158, 0.2);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: #ff9a9e;
+        }
+
+        .investor-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .investor-stat {
+            text-align: center;
+        }
+
+        .investor-stat-value {
+            font-weight: 700;
+            color: #ff9a9e;
+        }
+
+        .investor-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .match-score {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.2) 0%, transparent 100%);
+            border-radius: var(--radius-sm);
+        }
+
+        .match-percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .match-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .action-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .action-btn:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            transform: translateY(-4px);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .action-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .action-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            color: var(--text-primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Stats Dashboard */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--primary-gradient);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .stat-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-change {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-card-change.positive {
+            color: var(--growth-up);
+        }
+
+        .stat-card-change.negative {
+            color: var(--growth-down);
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .section-title-icon {
+            font-size: 2rem;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .footer-section h3 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cohort-info {
+                flex-direction: column;
+            }
+
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+                gap: 2px;
+            }
+
+            .calendar-day {
+                min-height: 60px;
+                padding: 0.25rem;
+            }
+
+            .calendar-event {
+                font-size: 0.625rem;
+                padding: 0.125rem 0.25rem;
+            }
+
+            .mentor-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mentor-actions {
+                flex-direction: row;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .company-card, .mentor-card, .investor-card {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-gradient-primary {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-success {
+            background: var(--success-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-mentor {
+            background: var(--mentor-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mb-0 { margin-bottom: 0; }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+        .mb-xl { margin-bottom: var(--spacing-xl); }
+
+        .mt-0 { margin-top: 0; }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mt-xl { margin-top: var(--spacing-xl); }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>118</strong> of 120 &mdash; Startup Accelerator</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-117-diplomatic-corps.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-119-meditation-sangha.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 117) window.location.href = 'style-117-diplomatic-corps.html';
+                if (e.key === 'ArrowRight' && 119) window.location.href = 'style-119-meditation-sangha.html';
+            });
+        })();
+    </script>
+
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>LaunchPad Ventures</span>
+            </div>
+            <nav>
+                <a href="#dashboard" class="active">Dashboard</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#mentors">Mentors</a>
+                <a href="#resources">Resources</a>
+                <a href="#demo-day">Demo Day</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">Office Hours</button>
+                <button class="btn btn-primary">Submit Update</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Hero -->
+        <div class="dashboard-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome back, TechFlow AI!</h1>
+                <p class="hero-subtitle">Cohort 2024 - Winter Batch • Week 8 of 12</p>
+                <div class="cohort-info">
+                    <div class="cohort-stat">
+                        <span class="stat-label">Cohort Size</span>
+                        <span class="stat-value">24</span>
+                    </div>
+                    <div class="cohort-stat">
+                        <span class="stat-label">Total Raised</span>
+                        <span class="stat-value">$48M</span>
+                    </div>
+                    <div class="cohort-stat">
+                        <span class="stat-label">Avg. Growth</span>
+                        <span class="stat-value">287%</span>
+                    </div>
+                    <div class="cohort-stat">
+                        <span class="stat-label">Demo Day</span>
+                        <span class="stat-value">28d</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="#" class="action-btn">
+                <div class="action-icon">📊</div>
+                <div class="action-title">Weekly Update</div>
+                <div class="action-subtitle">Submit metrics</div>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon">🎯</div>
+                <div class="action-title">Book Mentor</div>
+                <div class="action-subtitle">Schedule session</div>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon">📈</div>
+                <div class="action-title">Pitch Deck</div>
+                <div class="action-subtitle">Update slides</div>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon">💰</div>
+                <div class="action-title">Investor Intro</div>
+                <div class="action-subtitle">Request connection</div>
+            </a>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Monthly Revenue</div>
+                    <div class="stat-card-value text-gradient-primary">$84,200</div>
+                    <div class="stat-card-change positive">↑ 34% from last month</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Active Users</div>
+                    <div class="stat-card-value text-gradient-success">12,847</div>
+                    <div class="stat-card-change positive">↑ 22% growth</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Mentor Sessions</div>
+                    <div class="stat-card-value text-gradient-mentor">18</div>
+                    <div class="stat-card-change positive">↑ 3 this week</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Runway</div>
+                    <div class="stat-card-value">14 mo</div>
+                    <div class="stat-card-change">Seed funded</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Companies Section -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">🏢</span>
+                Portfolio Companies
+            </h2>
+            <div class="section-actions">
+                <button class="btn btn-outline btn-sm">Filter</button>
+                <button class="btn btn-primary btn-sm">View All</button>
+            </div>
+        </div>
+
+        <div class="grid-3 mb-xl">
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-logo">TF</div>
+                    <div class="company-info">
+                        <h3 class="company-name">TechFlow AI</h3>
+                        <p class="company-tagline">AI-powered workflow automation</p>
+                    </div>
+                </div>
+                <div class="company-metrics">
+                    <div class="metric">
+                        <div class="metric-value up">+34% ↑</div>
+                        <div class="metric-label">MRR</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value up">+22% ↑</div>
+                        <div class="metric-label">Users</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">92%</div>
+                        <div class="metric-label">Retention</div>
+                    </div>
+                </div>
+                <span class="company-stage stage-seed">Seed</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-logo" style="background: var(--secondary-gradient);">HC</div>
+                    <div class="company-info">
+                        <h3 class="company-name">HealthConnect</h3>
+                        <p class="company-tagline">Telemedicine platform</p>
+                    </div>
+                </div>
+                <div class="company-metrics">
+                    <div class="metric">
+                        <div class="metric-value up">+56% ↑</div>
+                        <div class="metric-label">MRR</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value up">+41% ↑</div>
+                        <div class="metric-label">Users</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">88%</div>
+                        <div class="metric-label">Retention</div>
+                    </div>
+                </div>
+                <span class="company-stage stage-series-a">Series A</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-logo" style="background: var(--accent-gradient);">GF</div>
+                    <div class="company-info">
+                        <h3 class="company-name">GreenFin</h3>
+                        <p class="company-tagline">Sustainable investing app</p>
+                    </div>
+                </div>
+                <div class="company-metrics">
+                    <div class="metric">
+                        <div class="metric-value up">+28% ↑</div>
+                        <div class="metric-label">MRR</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value up">+19% ↑</div>
+                        <div class="metric-label">Users</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label">Retention</div>
+                    </div>
+                </div>
+                <span class="company-stage stage-seed">Seed</span>
+            </div>
+        </div>
+
+        <!-- Mentor Matching Section -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">👥</span>
+                Recommended Mentors
+            </h2>
+            <div class="section-actions">
+                <button class="btn btn-outline btn-sm">Browse All</button>
+            </div>
+        </div>
+
+        <div class="grid-2 mb-xl">
+            <div class="mentor-card">
+                <div class="mentor-avatar">SJ</div>
+                <div class="mentor-info">
+                    <h3 class="mentor-name">Sarah Johnson</h3>
+                    <p class="mentor-title">Former VP Engineering @ Stripe</p>
+                    <div class="mentor-expertise">
+                        <span class="expertise-tag">Scaling Teams</span>
+                        <span class="expertise-tag">SaaS</span>
+                        <span class="expertise-tag">Infrastructure</span>
+                    </div>
+                    <div class="mentor-stats">
+                        <span class="mentor-stat"><strong>24</strong> startups mentored</span>
+                        <span class="mentor-stat"><strong>4.9</strong> rating</span>
+                    </div>
+                </div>
+                <div class="mentor-actions">
+                    <button class="btn btn-primary btn-sm">Book Session</button>
+                    <button class="btn btn-outline btn-sm">View Profile</button>
+                </div>
+            </div>
+
+            <div class="mentor-card">
+                <div class="mentor-avatar" style="background: var(--secondary-gradient);">MC</div>
+                <div class="mentor-info">
+                    <h3 class="mentor-name">Michael Chen</h3>
+                    <p class="mentor-title">Founder @ TechCrunch Acquired Startup</p>
+                    <div class="mentor-expertise">
+                        <span class="expertise-tag">Fundraising</span>
+                        <span class="expertise-tag">Growth</span>
+                        <span class="expertise-tag">Product-Market Fit</span>
+                    </div>
+                    <div class="mentor-stats">
+                        <span class="mentor-stat"><strong>18</strong> startups mentored</span>
+                        <span class="mentor-stat"><strong>4.8</strong> rating</span>
+                    </div>
+                </div>
+                <div class="mentor-actions">
+                    <button class="btn btn-primary btn-sm">Book Session</button>
+                    <button class="btn btn-outline btn-sm">View Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Milestone Tracking -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">🎯</span>
+                Program Milestones
+            </h2>
+        </div>
+
+        <div class="card mb-xl">
+            <div class="milestone-list">
+                <div class="milestone-item completed">
+                    <div class="milestone-header">
+                        <div>
+                            <h3 class="milestone-title">Kickoff & Team Formation</h3>
+                            <p class="milestone-date">Week 1-2 • Jan 2-15, 2024</p>
+                        </div>
+                        <span class="milestone-status status-completed">Completed</span>
+                    </div>
+                    <div class="milestone-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <p class="progress-text">All onboarding tasks completed</p>
+                    </div>
+                </div>
+
+                <div class="milestone-item completed">
+                    <div class="milestone-header">
+                        <div>
+                            <h3 class="milestone-title">Product-Market Fit Workshop</h3>
+                            <p class="milestone-date">Week 3-4 • Jan 16-29, 2024</p>
+                        </div>
+                        <span class="milestone-status status-completed">Completed</span>
+                    </div>
+                    <div class="milestone-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <p class="progress-text">Validated hypothesis with 50 customer interviews</p>
+                    </div>
+                </div>
+
+                <div class="milestone-item active">
+                    <div class="milestone-header">
+                        <div>
+                            <h3 class="milestone-title">MVP Development & Testing</h3>
+                            <p class="milestone-date">Week 5-8 • Jan 30 - Feb 26, 2024</p>
+                        </div>
+                        <span class="milestone-status status-active">In Progress</span>
+                    </div>
+                    <div class="milestone-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <p class="progress-text">75% complete • Beta launching next week</p>
+                    </div>
+                </div>
+
+                <div class="milestone-item upcoming">
+                    <div class="milestone-header">
+                        <div>
+                            <h3 class="milestone-title">Pitch Deck Refinement</h3>
+                            <p class="milestone-date">Week 9-10 • Feb 27 - Mar 11, 2024</p>
+                        </div>
+                        <span class="milestone-status status-upcoming">Upcoming</span>
+                    </div>
+                    <div class="milestone-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <p class="progress-text">Scheduled mentor sessions with 3 VCs</p>
+                    </div>
+                </div>
+
+                <div class="milestone-item upcoming">
+                    <div class="milestone-header">
+                        <div>
+                            <h3 class="milestone-title">Demo Day Preparation</h3>
+                            <p class="milestone-date">Week 11-12 • Mar 12-25, 2024</p>
+                        </div>
+                        <span class="milestone-status status-upcoming">Upcoming</span>
+                    </div>
+                    <div class="milestone-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <p class="progress-text">Final pitch practice with 200+ investors attending</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investor Matching -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">💰</span>
+                Matched Investors
+            </h2>
+            <div class="section-actions">
+                <button class="btn btn-outline btn-sm">Update Preferences</button>
+            </div>
+        </div>
+
+        <div class="grid-3 mb-xl">
+            <div class="investor-card">
+                <div class="investor-header">
+                    <div class="investor-logo">VC</div>
+                    <div class="investor-info">
+                        <h3>Velocity Capital</h3>
+                        <p class="investor-type">Seed & Series A</p>
+                    </div>
+                </div>
+                <div class="investor-focus">
+                    <span class="focus-tag">AI/ML</span>
+                    <span class="focus-tag">SaaS</span>
+                    <span class="focus-tag">B2B</span>
+                </div>
+                <div class="investor-stats">
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$200M</div>
+                        <div class="investor-stat-label">AUM</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">34</div>
+                        <div class="investor-stat-label">Portfolio</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$2-8M</div>
+                        <div class="investor-stat-label">Check Size</div>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span class="match-percentage">92%</span>
+                    <span class="match-label">Match Score</span>
+                </div>
+            </div>
+
+            <div class="investor-card">
+                <div class="investor-header">
+                    <div class="investor-logo" style="background: var(--secondary-gradient);">GP</div>
+                    <div class="investor-info">
+                        <h3>Growth Partners</h3>
+                        <p class="investor-type">Series A & B</p>
+                    </div>
+                </div>
+                <div class="investor-focus">
+                    <span class="focus-tag">Enterprise</span>
+                    <span class="focus-tag">Automation</span>
+                    <span class="focus-tag">Analytics</span>
+                </div>
+                <div class="investor-stats">
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$450M</div>
+                        <div class="investor-stat-label">AUM</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">28</div>
+                        <div class="investor-stat-label">Portfolio</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$5-15M</div>
+                        <div class="investor-stat-label">Check Size</div>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span class="match-percentage">88%</span>
+                    <span class="match-label">Match Score</span>
+                </div>
+            </div>
+
+            <div class="investor-card">
+                <div class="investor-header">
+                    <div class="investor-logo" style="background: var(--accent-gradient);">IF</div>
+                    <div class="investor-info">
+                        <h3>Innovation Fund</h3>
+                        <p class="investor-type">Seed Stage</p>
+                    </div>
+                </div>
+                <div class="investor-focus">
+                    <span class="focus-tag">Deep Tech</span>
+                    <span class="focus-tag">AI</span>
+                    <span class="focus-tag">Future of Work</span>
+                </div>
+                <div class="investor-stats">
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$150M</div>
+                        <div class="investor-stat-label">AUM</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">42</div>
+                        <div class="investor-stat-label">Portfolio</div>
+                    </div>
+                    <div class="investor-stat">
+                        <div class="investor-stat-value">$1-3M</div>
+                        <div class="investor-stat-label">Check Size</div>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span class="match-percentage">85%</span>
+                    <span class="match-label">Match Score</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Day Calendar -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">📅</span>
+                Demo Day Schedule
+            </h2>
+        </div>
+
+        <div class="grid-2 mb-xl">
+            <div class="card">
+                <div class="event-list">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-month">Mar</div>
+                            <div class="event-day">05</div>
+                            <div class="event-time">2:00 PM</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Pitch Practice Session</h3>
+                            <p class="event-description">Practice your 3-minute pitch with feedback from mentors</p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Virtual</span>
+                                <span class="event-meta-item">👥 Sarah Johnson</span>
+                                <span class="event-meta-item">⏱️ 60 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-month">Mar</div>
+                            <div class="event-day">12</div>
+                            <div class="event-time">10:00 AM</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Investor Office Hours</h3>
+                            <p class="event-description">1-on-1 meeting with Velocity Capital partner</p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 SF Office</span>
+                                <span class="event-meta-item">💰 Velocity Capital</span>
+                                <span class="event-meta-item">⏱️ 30 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card" style="border-left-color: #f5576c;">
+                        <div class="event-date">
+                            <div class="event-month">Mar</div>
+                            <div class="event-day">25</div>
+                            <div class="event-time">1:00 PM</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">🎉 Demo Day 2024</h3>
+                            <p class="event-description">Present to 200+ investors and ecosystem partners</p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Convention Center</span>
+                                <span class="event-meta-item">👥 200+ attendees</span>
+                                <span class="event-meta-item">⏱️ 4 hours</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-month">Mar</div>
+                            <div class="event-day">26</div>
+                            <div class="event-time">9:00 AM</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Post-Demo Networking</h3>
+                            <p class="event-description">Follow-up meetings with interested investors</p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 LaunchPad HQ</span>
+                                <span class="event-meta-item">☕ Breakfast included</span>
+                                <span class="event-meta-item">⏱️ 3 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title mb-md">March 2024</h3>
+                <div class="calendar-grid">
+                    <div class="calendar-day header">Sun</div>
+                    <div class="calendar-day header">Mon</div>
+                    <div class="calendar-day header">Tue</div>
+                    <div class="calendar-day header">Wed</div>
+                    <div class="calendar-day header">Thu</div>
+                    <div class="calendar-day header">Fri</div>
+                    <div class="calendar-day header">Sat</div>
+
+                    <div class="calendar-day other-month"><div class="day-number">25</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">26</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">27</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">28</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">29</div></div>
+                    <div class="calendar-day"><div class="day-number">1</div></div>
+                    <div class="calendar-day"><div class="day-number">2</div></div>
+
+                    <div class="calendar-day"><div class="day-number">3</div></div>
+                    <div class="calendar-day"><div class="day-number">4</div></div>
+                    <div class="calendar-day">
+                        <div class="day-number">5</div>
+                        <div class="calendar-event pitch-practice">Pitch Practice</div>
+                    </div>
+                    <div class="calendar-day"><div class="day-number">6</div></div>
+                    <div class="calendar-day"><div class="day-number">7</div></div>
+                    <div class="calendar-day"><div class="day-number">8</div></div>
+                    <div class="calendar-day"><div class="day-number">9</div></div>
+
+                    <div class="calendar-day"><div class="day-number">10</div></div>
+                    <div class="calendar-day"><div class="day-number">11</div></div>
+                    <div class="calendar-day">
+                        <div class="day-number">12</div>
+                        <div class="calendar-event investor-meeting">Investor Meeting</div>
+                    </div>
+                    <div class="calendar-day"><div class="day-number">13</div></div>
+                    <div class="calendar-day"><div class="day-number">14</div></div>
+                    <div class="calendar-day"><div class="day-number">15</div></div>
+                    <div class="calendar-day"><div class="day-number">16</div></div>
+
+                    <div class="calendar-day"><div class="day-number">17</div></div>
+                    <div class="calendar-day"><div class="day-number">18</div></div>
+                    <div class="calendar-day">
+                        <div class="day-number">19</div>
+                        <div class="calendar-event pitch-practice">Final Practice</div>
+                    </div>
+                    <div class="calendar-day"><div class="day-number">20</div></div>
+                    <div class="calendar-day"><div class="day-number">21</div></div>
+                    <div class="calendar-day"><div class="day-number">22</div></div>
+                    <div class="calendar-day"><div class="day-number">23</div></div>
+
+                    <div class="calendar-day"><div class="day-number">24</div></div>
+                    <div class="calendar-day">
+                        <div class="day-number">25</div>
+                        <div class="calendar-event demo-day">DEMO DAY</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">26</div>
+                        <div class="calendar-event investor-meeting">Networking</div>
+                    </div>
+                    <div class="calendar-day"><div class="day-number">27</div></div>
+                    <div class="calendar-day"><div class="day-number">28</div></div>
+                    <div class="calendar-day"><div class="day-number">29</div></div>
+                    <div class="calendar-day"><div class="day-number">30</div></div>
+
+                    <div class="calendar-day"><div class="day-number">31</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">1</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">2</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">3</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">4</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">5</div></div>
+                    <div class="calendar-day other-month"><div class="day-number">6</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>LaunchPad Ventures</h3>
+                <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                    Accelerating the world's most ambitious startups from idea to Series A and beyond.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="#">Apply Now</a></li>
+                    <li><a href="#">Cohort Schedule</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Mentor Network</a></li>
+                    <li><a href="#">Investor Directory</a></li>
+                    <li><a href="#">Startup Toolkit</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 LaunchPad Ventures. Empowering founders to build the future. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabGroup = tab.parentElement;
+                const tabId = tab.dataset.tab;
+
+                tabGroup.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                    if (content.dataset.tab === tabId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.company-card, .mentor-card, .investor-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simulate real-time metric updates
+        setInterval(() => {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                if (Math.random() > 0.7) {
+                    metric.style.animation = 'pulse 0.5s ease';
+                    setTimeout(() => {
+                        metric.style.animation = '';
+                    }, 500);
+                }
+            });
+        }, 5000);
+
+        // Console easter egg
+        console.log('%c🚀 LaunchPad Ventures', 'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
+        console.log('%cJoin the next cohort of world-changing startups!', 'font-size: 14px; color: #667eea;');
+        console.log('%cApply now: launchpadventures.com/apply', 'font-size: 12px; color: #888;');
+    </script>
+</body>
+</html>

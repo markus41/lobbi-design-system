@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Premium Dashboard - Big Four Inspired</title>
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                          ULTRATHINK DESIGN ANALYSIS                          ║
+        ║                    Style 32: Accounting Premium Dashboard                    ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY: Big Four Accounting Firms (Deloitte, PwC, EY, KPMG)
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BLEND COMPOSITION:
+        ├─ 80% Accounting Premium: Professional financial reporting aesthetics
+        └─ 20% Conservative Trust: Established institutional credibility
+
+        COLOR STRATEGY (Cool Professional - Temperature: 4/10):
+        ═══════════════════════════════════════════════════════════════════════════════
+        PRIMARY PALETTE:
+        ├─ Accounting Green (#166534): Authority, growth, financial stability
+        ├─ Navy (#1e3a5f): Trust, corporate professionalism, depth
+        ├─ Warm White (#fafaf9): Clean backgrounds, spacious breathing room
+        └─ Charcoal (#27272a): Text hierarchy, structured information
+
+        SUPPORTING TONES:
+        ├─ Success Green (#15803d): Positive metrics, profitable indicators
+        ├─ Alert Amber (#d97706): Attention items, pending reviews
+        ├─ Neutral Gray (#71717a): Secondary information, metadata
+        └─ Soft Gray (#f4f4f5): Card backgrounds, subtle separation
+
+        TYPOGRAPHY HIERARCHY (Formality: 9/10):
+        ═══════════════════════════════════════════════════════════════════════════════
+        HEADINGS: Serif (Georgia, "Playfair Display", Garamond)
+        ├─ Purpose: Authoritative, established, prestigious
+        ├─ H1: 32px/40px, weight 600, letter-spacing -0.02em
+        ├─ H2: 24px/32px, weight 600, conservative spacing
+        └─ H3: 18px/28px, weight 600, section headers
+
+        BODY: Sans-serif (Inter, -apple-system, "Segoe UI")
+        ├─ Purpose: Readable, modern, efficient information consumption
+        ├─ Base: 15px/24px, weight 400, optimal readability
+        ├─ Labels: 13px/20px, weight 500, uppercase tracking
+        └─ Data: Tabular nums, monospace for financial figures
+
+        SPACING SYSTEM (Ledger-like Organization):
+        ═══════════════════════════════════════════════════════════════════════════════
+        Conservative Grid: 8px base unit
+        ├─ Micro: 8px (tight components)
+        ├─ Small: 16px (related elements)
+        ├─ Medium: 24px (section spacing)
+        ├─ Large: 32px (major divisions)
+        └─ XLarge: 48px (page sections)
+
+        COMPONENT ARCHITECTURE:
+        ═══════════════════════════════════════════════════════════════════════════════
+        1. FINANCIAL SUMMARY CARDS
+           ├─ Clean metric presentation
+           ├─ Percentage change indicators
+           ├─ Conservative borders
+           └─ Structured data hierarchy
+
+        2. AUDIT STATUS INDICATORS
+           ├─ Progress tracking
+           ├─ Compliance checkmarks
+           ├─ Status badges
+           └─ Timeline visualization
+
+        3. COMPLIANCE CHECKLISTS
+           ├─ Checkbox interactions
+           ├─ Completion percentages
+           ├─ Priority markers
+           └─ Regulatory references
+
+        4. QUARTERLY REPORT TABLES
+           ├─ Tabular financial data
+           ├─ Sortable columns
+           ├─ Row striping
+           └─ Precise alignment
+
+        VISUAL LANGUAGE:
+        ═══════════════════════════════════════════════════════════════════════════════
+        ├─ Borders: 1px solid, subtle dividers, structured containment
+        ├─ Shadows: Minimal (0 1px 3px), conservative elevation
+        ├─ Radius: 6px (professional, not playful)
+        ├─ Icons: Line-based, 20px, consistent stroke weight
+        └─ Hover States: Subtle background shifts, no aggressive transforms
+
+        INTERACTION PATTERNS:
+        ═══════════════════════════════════════════════════════════════════════════════
+        ├─ Hover: Background tint changes, border emphasis
+        ├─ Active: Slight scale (0.98), no bounce
+        ├─ Focus: 2px outline, accessibility-first
+        └─ Transitions: 150ms ease, professional tempo
+
+        ACCESSIBILITY COMMITMENTS:
+        ═══════════════════════════════════════════════════════════════════════════════
+        ├─ WCAG AAA contrast ratios (7:1 for body text)
+        ├─ Semantic HTML structure
+        ├─ ARIA labels for status indicators
+        ├─ Keyboard navigation support
+        ├─ Screen reader optimized tables
+        └─ Focus indicators on all interactive elements
+
+        BRAND ALIGNMENT:
+        ═══════════════════════════════════════════════════════════════════════════════
+        This design establishes credibility through:
+        ├─ Precision: Exact alignment, consistent spacing
+        ├─ Authority: Serif headings, structured layouts
+        ├─ Trust: Conservative color palette, proven patterns
+        ├─ Professionalism: Clean information hierarchy
+        └─ Excellence: Attention to typographic detail
+
+        TARGET AUDIENCE: CFOs, Controllers, Audit Partners, Finance Directors
+        EMOTIONAL RESPONSE: Confident, Secure, Professional, Trustworthy
+        DESIGN TEMPERATURE: Cool (4/10) - Objective, analytical, measured
+        FORMALITY LEVEL: Very High (9/10) - Corporate, institutional, prestigious
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* RESET & BASE STYLES                                                      */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Tokens */
+            --color-green-primary: #166534;
+            --color-green-success: #15803d;
+            --color-green-light: #dcfce7;
+            --color-navy-primary: #1e3a5f;
+            --color-navy-dark: #0f1f3a;
+            --color-white-warm: #fafaf9;
+            --color-charcoal: #27272a;
+            --color-gray-700: #3f3f46;
+            --color-gray-500: #71717a;
+            --color-gray-300: #d4d4d8;
+            --color-gray-100: #f4f4f5;
+            --color-amber: #d97706;
+            --color-amber-light: #fef3c7;
+
+            /* Typography */
+            --font-serif: Georgia, "Playfair Display", Garamond, "Times New Roman", serif;
+            --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: "SF Mono", Monaco, "Cascadia Code", "Courier New", monospace;
+
+            /* Spacing Scale (8px base) */
+            --space-1: 8px;
+            --space-2: 16px;
+            --space-3: 24px;
+            --space-4: 32px;
+            --space-5: 40px;
+            --space-6: 48px;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.07);
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 200ms ease;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background: var(--color-gray-100);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* TYPOGRAPHY                                                               */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: var(--space-2);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: var(--space-2);
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: var(--space-2);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* LAYOUT STRUCTURE                                                         */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-4);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* HEADER                                                                   */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .header {
+            background: white;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3);
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-green-primary), var(--color-green-success));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .header-text h1 {
+            color: var(--color-navy-primary);
+            margin-bottom: 4px;
+        }
+
+        .header-subtitle {
+            font-size: 13px;
+            color: var(--color-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-300);
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-sans);
+        }
+
+        .btn:hover {
+            background: var(--color-gray-100);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: var(--color-green-primary);
+            color: white;
+            border-color: var(--color-green-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-green-success);
+            border-color: var(--color-green-success);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--space-4);
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--color-gray-300);
+        }
+
+        .nav-link {
+            font-size: 14px;
+            color: var(--color-gray-700);
+            text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-fast);
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-green-primary);
+            border-bottom-color: var(--color-green-primary);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* STATS GRID (4 CARDS)                                                     */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-3);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-2);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--color-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stat-icon.green {
+            background: var(--color-green-light);
+            color: var(--color-green-primary);
+        }
+
+        .stat-icon.navy {
+            background: rgba(30, 58, 95, 0.1);
+            color: var(--color-navy-primary);
+        }
+
+        .stat-icon.amber {
+            background: var(--color-amber-light);
+            color: var(--color-amber);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            color: var(--color-navy-primary);
+            margin-bottom: var(--space-1);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+        }
+
+        .stat-change.positive {
+            background: var(--color-green-light);
+            color: var(--color-green-success);
+        }
+
+        .stat-change.negative {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .stat-change.neutral {
+            background: var(--color-gray-100);
+            color: var(--color-gray-500);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* CONTENT SECTION (3 CARDS)                                                */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .content-card {
+            background: white;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header {
+            padding: var(--space-3);
+            border-bottom: 1px solid var(--color-gray-300);
+            background: var(--color-white-warm);
+        }
+
+        .card-header h3 {
+            color: var(--color-navy-primary);
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--color-gray-500);
+        }
+
+        .card-body {
+            padding: var(--space-3);
+        }
+
+        /* Audit Progress */
+        .progress-item {
+            margin-bottom: var(--space-3);
+        }
+
+        .progress-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-1);
+        }
+
+        .progress-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-charcoal);
+        }
+
+        .progress-percentage {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-green-primary);
+            font-family: var(--font-mono);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--color-gray-100);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-green-primary), var(--color-green-success));
+            border-radius: 4px;
+            transition: width var(--transition-base);
+        }
+
+        /* Compliance Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2);
+            border-bottom: 1px solid var(--color-gray-300);
+            transition: background var(--transition-fast);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item:hover {
+            background: var(--color-gray-100);
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .checkbox.checked {
+            background: var(--color-green-primary);
+            border-color: var(--color-green-primary);
+            color: white;
+        }
+
+        .checklist-text {
+            flex: 1;
+            font-size: 14px;
+            color: var(--color-charcoal);
+        }
+
+        .checklist-item.completed .checklist-text {
+            color: var(--color-gray-500);
+            text-decoration: line-through;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .badge.priority-high {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .badge.priority-medium {
+            background: var(--color-amber-light);
+            color: var(--color-amber);
+        }
+
+        .badge.priority-low {
+            background: var(--color-gray-100);
+            color: var(--color-gray-500);
+        }
+
+        .badge.status-complete {
+            background: var(--color-green-light);
+            color: var(--color-green-success);
+        }
+
+        .badge.status-pending {
+            background: var(--color-amber-light);
+            color: var(--color-amber);
+        }
+
+        /* Financial Summary */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--color-gray-300);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-weight: 600;
+            font-size: 16px;
+            border-top: 2px solid var(--color-navy-primary);
+            padding-top: var(--space-2);
+            margin-top: var(--space-1);
+        }
+
+        .summary-label {
+            font-size: 14px;
+            color: var(--color-gray-700);
+        }
+
+        .summary-value {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--color-navy-primary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* DATA TABLE                                                               */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .table-container {
+            background: white;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-header {
+            padding: var(--space-3);
+            border-bottom: 1px solid var(--color-gray-300);
+            background: var(--color-white-warm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-header h3 {
+            color: var(--color-navy-primary);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .icon-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--color-gray-300);
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .icon-btn:hover {
+            background: var(--color-gray-100);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--color-white-warm);
+            border-bottom: 2px solid var(--color-gray-300);
+        }
+
+        th {
+            text-align: left;
+            padding: var(--space-2) var(--space-3);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: var(--font-sans);
+        }
+
+        th.align-right {
+            text-align: right;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--color-gray-300);
+            transition: background var(--transition-fast);
+        }
+
+        tbody tr:hover {
+            background: var(--color-gray-100);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        td {
+            padding: var(--space-2) var(--space-3);
+            font-size: 14px;
+            color: var(--color-charcoal);
+        }
+
+        td.align-right {
+            text-align: right;
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+
+        td.font-medium {
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* FOOTER                                                                   */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .footer {
+            background: white;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--color-navy-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--color-gray-500);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-4);
+        }
+
+        .footer-link {
+            font-size: 13px;
+            color: var(--color-gray-700);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            color: var(--color-green-primary);
+        }
+
+        .footer-info {
+            font-size: 12px;
+            color: var(--color-gray-500);
+            text-align: center;
+            margin-top: var(--space-2);
+            padding-top: var(--space-2);
+            border-top: 1px solid var(--color-gray-300);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* RESPONSIVE DESIGN                                                        */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: var(--space-2);
+            }
+
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-2);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════ */
+        /* UTILITY CLASSES                                                          */
+        /* ═══════════════════════════════════════════════════════════════════════ */
+
+        .text-green {
+            color: var(--color-green-success);
+        }
+
+        .text-red {
+            color: #dc2626;
+        }
+
+        .text-navy {
+            color: var(--color-navy-primary);
+        }
+
+        .font-mono {
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>32</strong> of 70 &mdash; Accounting Premium</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-31-engineering-firm.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-33-patent-law.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 31) window.location.href = 'style-31-engineering-firm.html';
+                if (e.key === 'ArrowRight' && 33) window.location.href = 'style-33-patent-law.html';
+            });
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- DASHBOARD CONTAINER                                                      -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <div class="dashboard">
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- HEADER                                                           -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-title">
+                    <div class="logo">A</div>
+                    <div class="header-text">
+                        <h1>Accounting Premium</h1>
+                        <div class="header-subtitle">Financial Intelligence Dashboard</div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn">Export Report</button>
+                    <button class="btn">Settings</button>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link active">Overview</a>
+                <a href="#" class="nav-link">Financial Reports</a>
+                <a href="#" class="nav-link">Compliance</a>
+                <a href="#" class="nav-link">Audit Trail</a>
+                <a href="#" class="nav-link">Analytics</a>
+            </nav>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STATS GRID (4 CARDS)                                             -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section class="stats-grid">
+            <!-- Stat Card 1: Total Revenue -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-value">$24.8M</div>
+                        <div class="stat-change positive">
+                            ↑ 12.5% vs Q3
+                        </div>
+                    </div>
+                    <div class="stat-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat Card 2: Operating Expenses -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Operating Expenses</div>
+                        <div class="stat-value">$18.2M</div>
+                        <div class="stat-change negative">
+                            ↓ 3.2% vs Q3
+                        </div>
+                    </div>
+                    <div class="stat-icon navy">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <path d="M9 10h6M9 14h6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat Card 3: Net Profit Margin -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Net Profit Margin</div>
+                        <div class="stat-value">26.6%</div>
+                        <div class="stat-change positive">
+                            ↑ 4.8% vs Q3
+                        </div>
+                    </div>
+                    <div class="stat-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat Card 4: Pending Audits -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Pending Audits</div>
+                        <div class="stat-value">7</div>
+                        <div class="stat-change neutral">
+                            2 due this week
+                        </div>
+                    </div>
+                    <div class="stat-icon amber">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- CONTENT SECTION (3 CARDS)                                        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section class="content-grid">
+            <!-- Card 1: Audit Progress -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Audit Progress</h3>
+                    <div class="card-subtitle">Q4 2025 Fiscal Year Audit</div>
+                </div>
+                <div class="card-body">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Financial Statement Review</span>
+                            <span class="progress-percentage">100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Internal Controls Testing</span>
+                            <span class="progress-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Risk Assessment</span>
+                            <span class="progress-percentage">72%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Compliance Documentation</span>
+                            <span class="progress-percentage">58%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 58%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Compliance Checklist -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Compliance Checklist</h3>
+                    <div class="card-subtitle">Regulatory Requirements - December 2025</div>
+                </div>
+                <div class="card-body">
+                    <div class="checklist-item completed">
+                        <div class="checkbox checked">✓</div>
+                        <div class="checklist-text">SOX 404 Internal Controls Report</div>
+                        <span class="badge status-complete">Complete</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <div class="checkbox checked">✓</div>
+                        <div class="checklist-text">GAAP Compliance Review</div>
+                        <span class="badge status-complete">Complete</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div class="checklist-text">Tax Filing Preparation - Q4</div>
+                        <span class="badge priority-high">High</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div class="checklist-text">SEC 10-K Annual Report</div>
+                        <span class="badge priority-high">High</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div class="checklist-text">IFRS Reconciliation</div>
+                        <span class="badge priority-medium">Medium</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div class="checklist-text">Budget Variance Analysis</div>
+                        <span class="badge priority-low">Low</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Financial Summary -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Quarterly Financial Summary</h3>
+                    <div class="card-subtitle">Q4 2025 Performance Metrics</div>
+                </div>
+                <div class="card-body">
+                    <div class="summary-row">
+                        <span class="summary-label">Gross Revenue</span>
+                        <span class="summary-value">$24,850,000</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Cost of Goods Sold</span>
+                        <span class="summary-value text-red">($12,420,000)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Gross Profit</span>
+                        <span class="summary-value text-green">$12,430,000</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Operating Expenses</span>
+                        <span class="summary-value text-red">($5,815,000)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Operating Income</span>
+                        <span class="summary-value text-green">$6,615,000</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Interest & Taxes</span>
+                        <span class="summary-value text-red">($1,005,000)</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Net Income</span>
+                        <span class="summary-value text-navy font-mono">$5,610,000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- DATA TABLE                                                       -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <div class="table-container">
+            <div class="table-header">
+                <h3>Quarterly Performance Comparison</h3>
+                <div class="table-actions">
+                    <button class="icon-btn" title="Filter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" title="Download">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" title="More">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quarter</th>
+                        <th class="align-right">Revenue</th>
+                        <th class="align-right">Expenses</th>
+                        <th class="align-right">Net Income</th>
+                        <th class="align-right">Profit Margin</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-medium">Q4 2025</td>
+                        <td class="align-right text-green">$24,850,000</td>
+                        <td class="align-right text-red">$18,235,000</td>
+                        <td class="align-right text-navy">$6,615,000</td>
+                        <td class="align-right font-mono">26.6%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Q3 2025</td>
+                        <td class="align-right text-green">$22,100,000</td>
+                        <td class="align-right text-red">$18,840,000</td>
+                        <td class="align-right text-navy">$3,260,000</td>
+                        <td class="align-right font-mono">14.7%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Q2 2025</td>
+                        <td class="align-right text-green">$26,450,000</td>
+                        <td class="align-right text-red">$19,125,000</td>
+                        <td class="align-right text-navy">$7,325,000</td>
+                        <td class="align-right font-mono">27.7%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Q1 2025</td>
+                        <td class="align-right text-green">$23,890,000</td>
+                        <td class="align-right text-red">$17,950,000</td>
+                        <td class="align-right text-navy">$5,940,000</td>
+                        <td class="align-right font-mono">24.9%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Q4 2024</td>
+                        <td class="align-right text-green">$21,750,000</td>
+                        <td class="align-right text-red">$17,200,000</td>
+                        <td class="align-right text-navy">$4,550,000</td>
+                        <td class="align-right font-mono">20.9%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Q3 2024</td>
+                        <td class="align-right text-green">$19,820,000</td>
+                        <td class="align-right text-red">$16,450,000</td>
+                        <td class="align-right text-navy">$3,370,000</td>
+                        <td class="align-right font-mono">17.0%</td>
+                        <td><span class="badge status-complete">Audited</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- FOOTER                                                           -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">A</div>
+                    <div class="footer-text">
+                        © 2025 Accounting Premium. All rights reserved.
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Compliance</a>
+                    <a href="#" class="footer-link">Contact Support</a>
+                </div>
+            </div>
+            <div class="footer-info">
+                Financial data presented is for demonstration purposes. All figures are audited and compliant with GAAP standards.
+                For detailed reports, contact your account manager or download quarterly statements from the Reports section.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

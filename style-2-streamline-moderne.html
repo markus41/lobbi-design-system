@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 2: Streamline Moderne</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --chrome-100: #f8fafc;
+            --chrome-200: #e2e8f0;
+            --chrome-300: #cbd5e1;
+            --chrome-400: #94a3b8;
+            --chrome-500: #64748b;
+            --chrome-600: #475569;
+            --chrome-800: #1e293b;
+            --chrome-900: #0f172a;
+            --platinum: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 50%, #cbd5e1 100%);
+            --quicksilver: linear-gradient(135deg, #475569 0%, #64748b 50%, #334155 100%);
+            --accent-teal: #14b8a6;
+            --accent-blue: #3b82f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--chrome-800);
+            min-height: 100vh;
+        }
+
+        /* Streamline Header */
+        .header {
+            background: linear-gradient(135deg, var(--chrome-800) 0%, var(--chrome-900) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 4px solid var(--accent-teal);
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue), var(--accent-teal));
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--accent-teal);
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav a {
+            color: var(--chrome-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.625rem 1rem;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav a.active {
+            color: var(--chrome-900);
+            background: var(--accent-teal);
+        }
+
+        /* Main Layout */
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 72px);
+        }
+
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid var(--chrome-200);
+            padding: 1.5rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--chrome-500);
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 0.75rem;
+            color: var(--chrome-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            background: var(--chrome-100);
+            color: var(--chrome-800);
+        }
+
+        .sidebar-link.active {
+            background: linear-gradient(135deg, var(--accent-teal), #0d9488);
+            color: white;
+        }
+
+        .main {
+            flex: 1;
+            padding: 2rem;
+            background: var(--chrome-100);
+        }
+
+        /* Page Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--chrome-900);
+        }
+
+        .page-subtitle {
+            color: var(--chrome-500);
+            margin-top: 0.25rem;
+        }
+
+        /* Streamline Buttons */
+        .btn {
+            padding: 0.625rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), #0d9488);
+            color: white;
+            box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--chrome-700);
+            border: 1px solid var(--chrome-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--chrome-100);
+            border-color: var(--chrome-400);
+        }
+
+        /* Stats Cards - Streamline */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--chrome-200);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue));
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--chrome-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--chrome-900);
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--accent-teal);
+            margin-top: 0.5rem;
+        }
+
+        /* Cards Grid */
+        .cards-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--chrome-800);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--chrome-200);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 140px;
+            background: linear-gradient(135deg, var(--chrome-600), var(--chrome-800));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--chrome-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.875rem;
+            color: var(--chrome-500);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--chrome-400);
+        }
+
+        .tag {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1));
+            color: var(--accent-teal);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        /* Table */
+        .table-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--chrome-200);
+        }
+
+        .table-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--chrome-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--chrome-500);
+            background: var(--chrome-100);
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--chrome-100);
+            font-size: 0.875rem;
+        }
+
+        tr:hover td {
+            background: rgba(20, 184, 166, 0.05);
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--accent-teal);
+        }
+
+        .status-pending {
+            background: rgba(251, 191, 36, 0.1);
+            color: #d97706;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 1.5rem 2rem;
+            background: var(--chrome-800);
+            color: var(--chrome-400);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>2</strong> of 70 &mdash; Streamline Moderne</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-1-byzantine-luxury.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-3-quiet-luxury.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 1) window.location.href = 'style-1-byzantine-luxury.html';
+                if (e.key === 'ArrowRight' && 3) window.location.href = 'style-3-quiet-luxury.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="logo">Assoc<span>Hub</span></div>
+        <nav class="nav">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Members</a>
+            <a href="#">Events</a>
+            <a href="#">Finance</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Main Menu</div>
+                <a href="#" class="sidebar-link active">Dashboard</a>
+                <a href="#" class="sidebar-link">Members</a>
+                <a href="#" class="sidebar-link">Events</a>
+                <a href="#" class="sidebar-link">Campaigns</a>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Management</div>
+                <a href="#" class="sidebar-link">Finance</a>
+                <a href="#" class="sidebar-link">Reports</a>
+                <a href="#" class="sidebar-link">Automations</a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Dashboard</h1>
+                    <p class="page-subtitle">Welcome back! Here's your association overview.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="btn btn-secondary">Export</button>
+                    <button class="btn btn-primary">+ Add Member</button>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-label">Total Members</div>
+                    <div class="stat-value">2,847</div>
+                    <div class="stat-change">+12% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Monthly Revenue</div>
+                    <div class="stat-value">$124,500</div>
+                    <div class="stat-change">+8% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Events</div>
+                    <div class="stat-value">18</div>
+                    <div class="stat-change">4 upcoming this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Retention Rate</div>
+                    <div class="stat-value">94%</div>
+                    <div class="stat-change">+2% from last quarter</div>
+                </div>
+            </div>
+
+            <div class="cards-section">
+                <div class="section-header">
+                    <h2 class="section-title">Upcoming Events</h2>
+                    <button class="btn btn-secondary">View All</button>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image">Conference</div>
+                        <div class="card-body">
+                            <h3 class="card-title">Annual Conference 2025</h3>
+                            <p class="card-text">Join industry leaders for our flagship networking and educational event.</p>
+                            <div class="card-meta">
+                                <span class="tag">Featured</span>
+                                <span>Dec 15, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">Webinar</div>
+                        <div class="card-body">
+                            <h3 class="card-title">Leadership Workshop</h3>
+                            <p class="card-text">Interactive session on effective leadership strategies for professionals.</p>
+                            <div class="card-meta">
+                                <span class="tag">Virtual</span>
+                                <span>Dec 18, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">Networking</div>
+                        <div class="card-body">
+                            <h3 class="card-title">Holiday Mixer</h3>
+                            <p class="card-text">Celebrate the season with fellow members at our annual holiday gathering.</p>
+                            <div class="card-meta">
+                                <span class="tag">In-Person</span>
+                                <span>Dec 20, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <div class="table-header">
+                    <h2 class="section-title">Recent Activity</h2>
+                    <button class="btn btn-secondary">View All</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th>Action</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sarah Mitchell</td>
+                            <td>Renewed membership (Premium)</td>
+                            <td>Dec 9, 2025</td>
+                            <td><span class="status-badge status-active">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>James Chen</td>
+                            <td>Registered for Annual Conference</td>
+                            <td>Dec 9, 2025</td>
+                            <td><span class="status-badge status-active">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Emily Rodriguez</td>
+                            <td>Submitted certification application</td>
+                            <td>Dec 8, 2025</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        Style 2: Streamline Moderne - Chrome, platinum, teal accents, aerodynamic curves
+    </footer>
+</body>
+</html>

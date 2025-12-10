@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Pioneers Alliance | Advancing Humanity Beyond Earth</title>
+    <style>
+        /* ============================================
+           STYLE 120: SPACE PIONEERS ALLIANCE
+           Blend: Space Industry (60%) + Scientific Community (25%) + Advocacy Platform (15%)
+           Temperature: 4 (Cosmic Cool) | Formality: 7
+           ============================================ */
+
+        :root {
+            /* Deep Space Color Palette */
+            --space-black: #0a0e27;
+            --deep-space: #0d1117;
+            --cosmic-void: #161b22;
+            --nebula-purple: #7c3aed;
+            --nebula-light: #a78bfa;
+            --nebula-dark: #5b21b6;
+            --star-white: #f0f6fc;
+            --star-blue: #58a6ff;
+            --star-cyan: #39d0d8;
+            --comet-orange: #ff7b00;
+            --galaxy-pink: #ff6ec7;
+            --mission-green: #3fb950;
+            --alert-red: #ff4444;
+
+            /* Gradients */
+            --nebula-gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 50%, #2d1b69 100%);
+            --cosmic-gradient: linear-gradient(180deg, #0a0e27 0%, #161b22 100%);
+            --star-glow: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+
+            /* Typography */
+            --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-mono: 'Consolas', 'Monaco', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--space-black);
+            color: var(--star-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Starfield Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent);
+            background-size: 200% 200%;
+            animation: stars-drift 120s linear infinite;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes stars-drift {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--star-white);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--nebula-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--star-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--nebula-purple);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--nebula-gradient);
+            color: var(--star-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: var(--star-glow);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--star-white) 0%, var(--star-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--nebula-light);
+            margin-bottom: var(--space-lg);
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .stat-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--nebula-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--nebula-light);
+            font-family: var(--font-mono);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--star-white);
+            opacity: 0.8;
+            margin-top: var(--space-xs);
+        }
+
+        /* Mission Tracking Dashboard */
+        .section {
+            padding: var(--space-xl) 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--star-white);
+            position: relative;
+            padding-left: var(--space-md);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background: var(--nebula-gradient);
+            border-radius: 2px;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: var(--space-xs);
+            background: rgba(22, 27, 34, 0.6);
+            padding: 0.25rem;
+            border-radius: 8px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            color: var(--star-white);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .view-btn.active {
+            background: var(--nebula-purple);
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .mission-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--nebula-gradient);
+        }
+
+        .mission-card:hover {
+            border-color: var(--nebula-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .mission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .mission-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--star-white);
+            margin-bottom: 0.25rem;
+        }
+
+        .mission-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--mission-green);
+            border: 1px solid var(--mission-green);
+        }
+
+        .status-planning {
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--nebula-light);
+            border: 1px solid var(--nebula-light);
+        }
+
+        .status-completed {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--star-blue);
+            border: 1px solid var(--star-blue);
+        }
+
+        .mission-description {
+            color: rgba(240, 246, 252, 0.8);
+            margin-bottom: var(--space-md);
+            font-size: 0.95rem;
+        }
+
+        .mission-meta {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            font-size: 0.85rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(240, 246, 252, 0.7);
+        }
+
+        .meta-icon {
+            color: var(--nebula-light);
+        }
+
+        .progress-section {
+            margin-top: var(--space-md);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .progress-label {
+            color: rgba(240, 246, 252, 0.8);
+        }
+
+        .progress-value {
+            color: var(--nebula-light);
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(124, 58, 237, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--nebula-gradient);
+            border-radius: 10px;
+            transition: width 1s ease;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        }
+
+        .mission-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: var(--space-sm);
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--nebula-light);
+        }
+
+        /* Research Collaboration Hub */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .research-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            border-color: var(--nebula-purple);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .research-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--nebula-gradient);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+        }
+
+        .research-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--star-white);
+        }
+
+        .research-authors {
+            color: var(--nebula-light);
+            margin-bottom: var(--space-sm);
+            font-size: 0.9rem;
+        }
+
+        .research-abstract {
+            color: rgba(240, 246, 252, 0.8);
+            margin-bottom: var(--space-md);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .research-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-sm);
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .research-date {
+            color: rgba(240, 246, 252, 0.6);
+            font-size: 0.85rem;
+        }
+
+        .research-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--nebula-purple);
+            color: var(--nebula-light);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--nebula-purple);
+            color: var(--star-white);
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Project Showcase */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .project-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--nebula-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--cosmic-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+            background: var(--star-glow);
+        }
+
+        .project-content {
+            padding: var(--space-md);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--star-white);
+        }
+
+        .project-lead {
+            color: var(--nebula-light);
+            font-size: 0.85rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .project-description {
+            color: rgba(240, 246, 252, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .project-stats {
+            display: flex;
+            gap: var(--space-md);
+            padding-top: var(--space-sm);
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .project-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .project-stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nebula-light);
+            font-family: var(--font-mono);
+        }
+
+        .project-stat-label {
+            font-size: 0.75rem;
+            color: rgba(240, 246, 252, 0.6);
+            text-transform: uppercase;
+        }
+
+        /* Event Calendar */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .calendar-month {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--star-white);
+        }
+
+        .calendar-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--nebula-purple);
+            border-radius: 50%;
+            color: var(--nebula-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-btn:hover {
+            background: var(--nebula-purple);
+            color: var(--star-white);
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+        }
+
+        .events-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .event-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            display: flex;
+            gap: var(--space-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--nebula-gradient);
+        }
+
+        .event-card:hover {
+            border-color: var(--nebula-purple);
+            transform: translateX(10px);
+            box-shadow: 0 5px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .event-date {
+            min-width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--nebula-gradient);
+            border-radius: 8px;
+            padding: var(--space-sm);
+        }
+
+        .event-day {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--star-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            color: rgba(240, 246, 252, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .event-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.85rem;
+            color: rgba(240, 246, 252, 0.7);
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Advocacy Section */
+        .advocacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .advocacy-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .advocacy-card:hover {
+            border-color: var(--nebula-purple);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .advocacy-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--nebula-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: var(--space-md);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+        }
+
+        .advocacy-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--star-white);
+        }
+
+        .advocacy-description {
+            color: rgba(240, 246, 252, 0.8);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .advocacy-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--nebula-purple);
+            color: var(--nebula-light);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .advocacy-cta:hover {
+            background: var(--nebula-purple);
+            color: var(--star-white);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(13, 17, 23, 0.95);
+            border-top: 1px solid rgba(124, 58, 237, 0.3);
+            padding: var(--space-xl) 0 var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            color: var(--star-white);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: rgba(240, 246, 252, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--nebula-light);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+            text-align: center;
+            color: rgba(240, 246, 252, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nebula-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--nebula-purple);
+            color: var(--star-white);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6); }
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .missions-grid,
+            .research-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: var(--space-md);
+                align-items: flex-start;
+            }
+
+            .event-card {
+                flex-direction: column;
+            }
+
+            .calendar-header {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--nebula-light) 0%, var(--star-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow {
+            animation: pulse-glow 3s infinite;
+        }
+
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--space-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--nebula-gradient);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--nebula-light);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>120</strong> of 120 &mdash; Space Pioneers</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-119-meditation-sangha.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="#" class="gallery-nav-arrow disabled" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 119) window.location.href = 'style-119-meditation-sangha.html';
+                if (e.key === 'ArrowRight' && 0) window.location.href = '#';
+            });
+        })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>Space Pioneers Alliance</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#missions">Missions</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#advocacy">Advocacy</a></li>
+            </ul>
+            <button class="nav-cta">Join Alliance</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Advancing Humanity Beyond Earth</h1>
+                    <p class="hero-subtitle">Uniting scientists, engineers, and visionaries to pioneer the final frontier</p>
+
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">847</div>
+                            <div class="stat-label">Alliance Members</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">Active Missions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">156</div>
+                            <div class="stat-label">Research Papers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$2.4B</div>
+                            <div class="stat-label">Funding Secured</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Tracking Dashboard -->
+        <section id="missions" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mission Control Dashboard</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active">Grid</button>
+                        <button class="view-btn">Timeline</button>
+                        <button class="view-btn">Map</button>
+                    </div>
+                </div>
+
+                <div class="missions-grid">
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">Project Artemis II</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🌍</span>
+                                        <span>Lunar Orbit</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>2025 Q4</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-active">Active</span>
+                        </div>
+                        <p class="mission-description">
+                            Crewed lunar flyby mission testing deep space exploration systems and life support capabilities for future Mars missions.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Mission Readiness</span>
+                                <span class="progress-value">76%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 76%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Crewed</span>
+                            <span class="tag">Lunar</span>
+                            <span class="tag">NASA</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">Europa Clipper</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🪐</span>
+                                        <span>Jupiter System</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>2030 Arrival</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-active">Active</span>
+                        </div>
+                        <p class="mission-description">
+                            Investigating Europa's subsurface ocean and potential habitability through detailed composition and ice shell analysis.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Transit Progress</span>
+                                <span class="progress-value">42%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Astrobiology</span>
+                            <span class="tag">Robotic</span>
+                            <span class="tag">JPL</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">Starship HLS</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🌙</span>
+                                        <span>Lunar Surface</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>2026 Q2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-planning">Planning</span>
+                        </div>
+                        <p class="mission-description">
+                            Human Landing System for Artemis program, enabling sustainable lunar surface operations and infrastructure development.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Development</span>
+                                <span class="progress-value">58%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Crewed</span>
+                            <span class="tag">Lander</span>
+                            <span class="tag">SpaceX</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">Mars Sample Return</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🔴</span>
+                                        <span>Mars</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>2033 Return</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-active">Active</span>
+                        </div>
+                        <p class="mission-description">
+                            Multi-mission campaign to collect and return Martian samples for detailed laboratory analysis on Earth.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Sample Collection</span>
+                                <span class="progress-value">34%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 34%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Sample Return</span>
+                            <span class="tag">Multi-Phase</span>
+                            <span class="tag">ESA/NASA</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">Lunar Gateway</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🛰️</span>
+                                        <span>Lunar Orbit</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>2027 Launch</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-planning">Planning</span>
+                        </div>
+                        <p class="mission-description">
+                            International lunar orbital station serving as staging point for lunar surface missions and deep space exploration.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Construction</span>
+                                <span class="progress-value">28%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 28%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Station</span>
+                            <span class="tag">International</span>
+                            <span class="tag">Infrastructure</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-header">
+                            <div>
+                                <h3 class="mission-title">JWST Deep Field Survey</h3>
+                                <div class="mission-meta">
+                                    <div class="meta-item">
+                                        <span class="meta-icon">🔭</span>
+                                        <span>L2 Orbit</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-icon">📅</span>
+                                        <span>Ongoing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="mission-status status-completed">Completed</span>
+                        </div>
+                        <p class="mission-description">
+                            Comprehensive infrared survey of early universe galaxies, revealing unprecedented detail of cosmic evolution.
+                        </p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Data Analysis</span>
+                                <span class="progress-value">100%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="mission-tags">
+                            <span class="tag">Observatory</span>
+                            <span class="tag">Cosmology</span>
+                            <span class="tag">Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Collaboration Hub -->
+        <section id="research" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research Collaboration Hub</h2>
+                    <button class="nav-cta">Submit Research</button>
+                </div>
+
+                <div class="research-grid">
+                    <div class="research-card">
+                        <span class="research-type">Propulsion</span>
+                        <h3 class="research-title">Nuclear Thermal Propulsion for Mars Transit</h3>
+                        <p class="research-authors">Dr. Sarah Chen, Dr. James Mitchell, et al.</p>
+                        <p class="research-abstract">
+                            Analysis of advanced nuclear thermal propulsion systems demonstrating 45% reduction in Mars transit time.
+                            Comprehensive safety protocols and fuel efficiency metrics included. Collaborative study between JPL and
+                            Los Alamos National Laboratory.
+                        </p>
+                        <div class="research-footer">
+                            <span class="research-date">Published: Nov 15, 2025</span>
+                            <div class="research-actions">
+                                <button class="action-btn">Read Paper</button>
+                                <button class="action-btn">Collaborate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <span class="research-type">Astrobiology</span>
+                        <h3 class="research-title">Biosignature Detection in Enceladus Plumes</h3>
+                        <p class="research-authors">Dr. Maria Rodriguez, Dr. Kevin Park, Dr. Lisa Zhang</p>
+                        <p class="research-abstract">
+                            Novel spectroscopic techniques for detecting organic molecules and potential biosignatures in Saturn's
+                            moon Enceladus. Results indicate high probability of subsurface oceanic hydrothermal activity.
+                            Implications for future sample return missions discussed.
+                        </p>
+                        <div class="research-footer">
+                            <span class="research-date">Published: Nov 8, 2025</span>
+                            <div class="research-actions">
+                                <button class="action-btn">Read Paper</button>
+                                <button class="action-btn">Collaborate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-card">
+                        <span class="research-type">Life Support</span>
+                        <h3 class="research-title">Closed-Loop ECLSS for Deep Space Habitats</h3>
+                        <p class="research-authors">Dr. Robert Kim, Dr. Emily Thompson</p>
+                        <p class="research-abstract">
+                            Development of 98% efficient closed-loop Environmental Control and Life Support System for multi-year
+                            deep space missions. Advanced water recycling and atmospheric regeneration systems tested in simulated
+                            Mars transit conditions with exceptional reliability.
+                        </p>
+                        <div class="research-footer">
+                            <span class="research-date">Published: Oct 28, 2025</span>
+                            <div class="research-actions">
+                                <button class="action-btn">Read Paper</button>
+                                <button class="action-btn">Collaborate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Showcase -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Member Project Showcase</h2>
+                    <button class="nav-cta">Submit Project</button>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Lunar Regolith 3D Printing</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. Alexandra Santos</p>
+                            <p class="project-description">
+                                Revolutionary in-situ resource utilization technology for constructing habitats directly from lunar soil.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">94%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">12</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$2.1M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">AI Navigation for Asteroid Mining</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. Marcus Chen</p>
+                            <p class="project-description">
+                                Autonomous navigation system for precision docking with near-Earth asteroids for resource extraction.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">67%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">8</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$1.5M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Martian Greenhouse Prototype</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. Elena Volkov</p>
+                            <p class="project-description">
+                                Self-sustaining greenhouse system for food production in Mars-analog conditions with 89% efficiency.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">82%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">15</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$3.2M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Deep Space Communication Array</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. Thomas Anderson</p>
+                            <p class="project-description">
+                                Next-generation laser communication network for interplanetary data transmission at 10 Gbps.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">56%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">20</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$4.8M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Zero-G Medical Research</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. Jennifer Walsh</p>
+                            <p class="project-description">
+                                Comprehensive study of long-duration spaceflight health impacts and countermeasure development.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">73%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">18</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$2.9M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Fusion Propulsion Test Reactor</h3>
+                            </div>
+                            <p class="project-lead">Led by Dr. David Kumar</p>
+                            <p class="project-description">
+                                Experimental fusion reactor for future interstellar propulsion systems with breakthrough efficiency.
+                            </p>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <div class="project-stat-value">41%</div>
+                                    <div class="project-stat-label">Complete</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">25</div>
+                                    <div class="project-stat-label">Team</div>
+                                </div>
+                                <div class="project-stat">
+                                    <div class="project-stat-value">$8.5M</div>
+                                    <div class="project-stat-label">Funding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Calendar -->
+        <section id="events" class="section">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events Calendar</h2>
+
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button class="calendar-btn">←</button>
+                        <span class="calendar-month">December 2025</span>
+                        <button class="calendar-btn">→</button>
+                    </div>
+                    <button class="nav-cta">Add to Calendar</button>
+                </div>
+
+                <div class="events-timeline">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-day">12</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type">Launch</span>
+                            <h3 class="event-title">Artemis II Crew Announcement</h3>
+                            <p class="event-description">
+                                Official announcement of the four-person crew for the Artemis II lunar flyby mission, including international astronauts.
+                            </p>
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <span>⏰</span>
+                                    <span>14:00 UTC</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>📍</span>
+                                    <span>Kennedy Space Center</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>👥</span>
+                                    <span>Live Broadcast</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-day">18</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type">Conference</span>
+                            <h3 class="event-title">International Space Exploration Summit 2025</h3>
+                            <p class="event-description">
+                                Three-day conference bringing together space agencies, private companies, and researchers to discuss future of deep space exploration.
+                            </p>
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <span>⏰</span>
+                                    <span>09:00 - 18:00 UTC</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>📍</span>
+                                    <span>Geneva, Switzerland</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>👥</span>
+                                    <span>2,500+ Attendees</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-day">22</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type">Launch</span>
+                            <h3 class="event-title">Europa Clipper Trajectory Correction</h3>
+                            <p class="event-description">
+                                Critical trajectory correction maneuver to refine Europa Clipper's path to Jupiter system. Mission control open house for alliance members.
+                            </p>
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <span>⏰</span>
+                                    <span>11:30 UTC</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>📍</span>
+                                    <span>JPL Mission Control</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>👥</span>
+                                    <span>Virtual + In-Person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="event-day">28</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type">Workshop</span>
+                            <h3 class="event-title">Lunar Infrastructure Development Workshop</h3>
+                            <p class="event-description">
+                                Collaborative workshop on lunar base construction, ISRU, and sustainable lunar economy. Hands-on sessions with industry experts.
+                            </p>
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <span>⏰</span>
+                                    <span>10:00 - 16:00 UTC</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>📍</span>
+                                    <span>Virtual Event</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span>👥</span>
+                                    <span>Members Only</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advocacy Section -->
+        <section id="advocacy" class="section">
+            <div class="container">
+                <h2 class="section-title">Space Advocacy Initiatives</h2>
+
+                <div class="advocacy-grid">
+                    <div class="advocacy-card">
+                        <div class="advocacy-icon">📜</div>
+                        <h3 class="advocacy-title">Policy Advocacy</h3>
+                        <p class="advocacy-description">
+                            Working with government agencies and legislators to promote science-based space policy, increased funding for exploration,
+                            and international cooperation frameworks. Active engagement with NASA, ESA, and congressional committees.
+                        </p>
+                        <a href="#" class="advocacy-cta">
+                            View Policy Briefs
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <div class="advocacy-card">
+                        <div class="advocacy-icon">💰</div>
+                        <h3 class="advocacy-title">Funding Initiatives</h3>
+                        <p class="advocacy-description">
+                            Securing public and private funding for critical space research and mission development. Successfully advocated for
+                            $2.4B in additional funding across multiple programs in 2025. Grant writing support for member projects.
+                        </p>
+                        <a href="#" class="advocacy-cta">
+                            Funding Resources
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <div class="advocacy-card">
+                        <div class="advocacy-icon">🌍</div>
+                        <h3 class="advocacy-title">Public Engagement</h3>
+                        <p class="advocacy-description">
+                            Inspiring the next generation through educational programs, public lectures, and media outreach. Reaching 5M+ people
+                            annually with compelling space content. STEM education partnerships with 200+ schools.
+                        </p>
+                        <a href="#" class="advocacy-cta">
+                            Outreach Programs
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Space Pioneers Alliance</h3>
+                    <p style="color: rgba(240, 246, 252, 0.7); margin-top: 1rem; line-height: 1.6;">
+                        Uniting the global space community to advance humanity's presence beyond Earth through
+                        collaboration, research, and advocacy.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Missions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Active Missions</a></li>
+                        <li><a href="#">Mission Archive</a></li>
+                        <li><a href="#">Upcoming Launches</a></li>
+                        <li><a href="#">Mission Proposals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Data Repository</a></li>
+                        <li><a href="#">Research Grants</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Space Pioneers Alliance. Advancing humanity beyond Earth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress bar animation on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.style.width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mission-card').forEach(card => {
+            progressObserver.observe(card);
+        });
+
+        // View toggle functionality
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Calendar navigation
+        const calendarBtns = document.querySelectorAll('.calendar-btn');
+        const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+        let currentMonth = 11; // December
+
+        calendarBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                if (index === 0) {
+                    currentMonth = (currentMonth - 1 + 12) % 12;
+                } else {
+                    currentMonth = (currentMonth + 1) % 12;
+                }
+                document.querySelector('.calendar-month').textContent = `${months[currentMonth]} 2025`;
+            });
+        });
+    </script>
+</body>
+</html>

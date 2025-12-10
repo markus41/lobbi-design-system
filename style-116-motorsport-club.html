@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Club | Elite Motorsport Community</title>
+    <style>
+        /* ULTRATHINK METHODOLOGY - Style 116: Motorsport Club Portal
+         * BLEND: Racing Heritage (60%) + Collector's Network (25%) + Track Day Management (15%)
+         * Temperature: 6 (Dynamic) | Formality: 7 (Professional)
+         * Colors: Racing Red, Carbon Black, Silver
+         */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Racing Color Palette */
+            --racing-red: #E10600;
+            --racing-red-dark: #B30500;
+            --racing-red-light: #FF1F1A;
+            --carbon-black: #0D0D0D;
+            --carbon-dark: #000000;
+            --carbon-light: #1A1A1A;
+            --silver: #C0C0C0;
+            --silver-light: #E8E8E8;
+            --silver-dark: #8C8C8C;
+            --platinum: #F5F5F5;
+            --gold-accent: #D4AF37;
+            --checkered: #FFFFFF;
+
+            /* Typography */
+            --font-display: 'Arial Black', sans-serif;
+            --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-technical: 'Courier New', monospace;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+
+            /* Effects */
+            --shadow-sm: 0 2px 8px rgba(225, 6, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(225, 6, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(225, 6, 0, 0.3);
+            --shadow-carbon: 0 4px 16px rgba(0, 0, 0, 0.6);
+            --glow-red: 0 0 20px rgba(225, 6, 0, 0.5);
+            --glow-silver: 0 0 15px rgba(192, 192, 192, 0.3);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--carbon-black) 0%, var(--carbon-light) 100%);
+            color: var(--silver-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Carbon Fiber Texture Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.02) 2px,
+                    rgba(255, 255, 255, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(180deg, var(--carbon-black) 0%, rgba(13, 13, 13, 0.98) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--racing-red);
+            box-shadow: var(--shadow-carbon);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--checkered);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+            border: 3px solid var(--silver);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: var(--glow-red);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: var(--glow-red); }
+            50% { box-shadow: 0 0 30px rgba(225, 6, 0, 0.8); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--silver-light);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--racing-red);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--checkered);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(135deg, rgba(225, 6, 0, 0.3) 0%, rgba(13, 13, 13, 0.8) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230D0D0D" width="1200" height="600"/><path fill="%23E10600" opacity="0.1" d="M0 300L100 280L200 320L300 290L400 310L500 285L600 305L700 295L800 315L900 290L1000 310L1100 295L1200 305V600H0Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            color: var(--checkered);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 40px rgba(225, 6, 0, 0.5);
+            animation: slide-in-top 1s ease-out;
+        }
+
+        @keyframes slide-in-top {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--silver);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            animation: fade-in 1.5s ease-out;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--racing-red);
+            display: block;
+            text-shadow: var(--glow-red);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--racing-red);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--silver);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--checkered);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--silver-dark);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Track Day Calendar Section */
+        .track-calendar-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .track-event-card {
+            background: linear-gradient(135deg, var(--carbon-light) 0%, var(--carbon-black) 100%);
+            border: 2px solid var(--silver-dark);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .track-event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--racing-red);
+            transition: width 0.3s ease;
+        }
+
+        .track-event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--racing-red);
+        }
+
+        .track-event-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .event-date {
+            background: var(--racing-red);
+            color: var(--checkered);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .event-date-day {
+            font-size: 2rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .event-date-month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .event-status {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .event-status.open {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00FF00;
+        }
+
+        .event-status.full {
+            background: rgba(255, 0, 0, 0.2);
+            color: var(--racing-red);
+        }
+
+        .event-details h3 {
+            font-size: 1.5rem;
+            color: var(--checkered);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-track {
+            color: var(--silver);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--silver-dark);
+        }
+
+        .event-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-info-label {
+            font-size: 0.8rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-info-value {
+            font-size: 1.1rem;
+            color: var(--silver-light);
+            font-weight: 600;
+        }
+
+        /* Lap Time Leaderboard */
+        .leaderboard-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .leaderboard-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: var(--carbon-light);
+            color: var(--silver-light);
+            border: 2px solid var(--silver-dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--racing-red);
+            border-color: var(--racing-red);
+            color: var(--checkered);
+            box-shadow: var(--glow-red);
+        }
+
+        .leaderboard-table {
+            background: var(--carbon-light);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--silver-dark);
+        }
+
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px 150px 150px 120px;
+            background: linear-gradient(90deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+            padding: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--checkered);
+        }
+
+        .leaderboard-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px 150px 150px 120px;
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .leaderboard-row:hover {
+            background: rgba(225, 6, 0, 0.1);
+        }
+
+        .leaderboard-row:nth-child(2) {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, transparent 100%);
+        }
+
+        .leaderboard-row:nth-child(3) {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%);
+        }
+
+        .leaderboard-row:nth-child(4) {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.2) 0%, transparent 100%);
+        }
+
+        .rank {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--silver);
+            text-align: center;
+        }
+
+        .rank.gold { color: var(--gold-accent); }
+        .rank.silver { color: var(--silver-light); }
+        .rank.bronze { color: #CD7F32; }
+
+        .driver-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .driver-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--silver-dark) 0%, var(--silver) 100%);
+            border: 2px solid var(--racing-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--carbon-black);
+        }
+
+        .driver-name {
+            font-weight: 600;
+            color: var(--checkered);
+            font-size: 1.1rem;
+        }
+
+        .lap-time {
+            font-family: var(--font-technical);
+            font-size: 1.3rem;
+            color: var(--racing-red);
+            font-weight: bold;
+        }
+
+        .vehicle-name {
+            color: var(--silver);
+            font-size: 0.95rem;
+        }
+
+        .speed {
+            color: var(--silver-light);
+            font-weight: 600;
+        }
+
+        .track-name {
+            color: var(--silver-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Garage Showcase */
+        .garage-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .garage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .car-card {
+            background: var(--carbon-light);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--silver-dark);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .car-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(225, 6, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--racing-red);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .car-card:hover::after {
+            opacity: 1;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--silver-dark) 0%, var(--carbon-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 3px solid var(--racing-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            transition: left 0.5s ease;
+        }
+
+        .car-card:hover .car-image::before {
+            left: 100%;
+        }
+
+        .car-details {
+            padding: 1.5rem;
+        }
+
+        .car-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .car-title {
+            font-size: 1.4rem;
+            color: var(--checkered);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .car-year {
+            color: var(--silver-dark);
+            font-size: 0.9rem;
+        }
+
+        .car-badge {
+            background: var(--gold-accent);
+            color: var(--carbon-black);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .car-badge.classic {
+            background: var(--gold-accent);
+        }
+
+        .car-badge.modern {
+            background: var(--racing-red);
+            color: var(--checkered);
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            color: var(--silver-light);
+            font-weight: 600;
+            font-family: var(--font-technical);
+        }
+
+        .car-owner {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .owner-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+            border: 2px solid var(--silver);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--checkered);
+            font-size: 0.9rem;
+        }
+
+        .owner-name {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        /* Member Profiles */
+        .members-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, var(--carbon-light) 0%, var(--carbon-black) 100%);
+            border: 2px solid var(--silver-dark);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--racing-red) 0%, var(--gold-accent) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--racing-red);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--silver) 0%, var(--silver-dark) 100%);
+            border: 4px solid var(--racing-red);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--carbon-black);
+            box-shadow: var(--glow-red);
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            color: var(--checkered);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-title {
+            color: var(--silver-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .member-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+        }
+
+        .member-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-stat-value {
+            font-size: 1.5rem;
+            color: var(--racing-red);
+            font-weight: 700;
+            font-family: var(--font-technical);
+        }
+
+        .member-stat-label {
+            font-size: 0.75rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+        }
+
+        .member-cars {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+        }
+
+        .member-cars-label {
+            font-size: 0.8rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-cars-list {
+            color: var(--silver-light);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* Auction Section */
+        .auction-section {
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(13, 13, 13, 0.5) 100%);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            border: 2px solid var(--gold-accent);
+        }
+
+        .auction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .auction-card {
+            background: var(--carbon-black);
+            border: 2px solid var(--gold-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .auction-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .auction-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gold-accent) 0%, var(--carbon-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 3px solid var(--gold-accent);
+        }
+
+        .auction-details {
+            padding: 1.5rem;
+        }
+
+        .auction-title {
+            font-size: 1.3rem;
+            color: var(--checkered);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .auction-description {
+            color: var(--silver-dark);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .auction-bid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .current-bid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bid-label {
+            font-size: 0.75rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+        }
+
+        .bid-amount {
+            font-size: 1.8rem;
+            color: var(--gold-accent);
+            font-weight: 700;
+            font-family: var(--font-technical);
+        }
+
+        .auction-timer {
+            text-align: right;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            color: var(--silver-dark);
+            text-transform: uppercase;
+        }
+
+        .timer-value {
+            font-size: 1.2rem;
+            color: var(--racing-red);
+            font-weight: 700;
+            font-family: var(--font-technical);
+        }
+
+        /* Racing News/Heritage */
+        .heritage-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .heritage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .heritage-card {
+            background: var(--carbon-light);
+            border: 2px solid var(--silver-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .heritage-card:hover {
+            border-color: var(--racing-red);
+            box-shadow: var(--shadow-md);
+        }
+
+        .heritage-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--racing-red) 0%, var(--carbon-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 3px solid var(--racing-red);
+        }
+
+        .heritage-content {
+            padding: 2rem;
+        }
+
+        .heritage-tag {
+            display: inline-block;
+            background: var(--racing-red);
+            color: var(--checkered);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .heritage-title {
+            font-size: 1.5rem;
+            color: var(--checkered);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .heritage-text {
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .heritage-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+            font-size: 0.85rem;
+            color: var(--silver-dark);
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+            color: var(--checkered);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--racing-red);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--racing-red-light) 0%, var(--racing-red) 100%);
+            box-shadow: var(--glow-red);
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--silver);
+            color: var(--silver-light);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--silver);
+            color: var(--carbon-black);
+            box-shadow: var(--glow-silver);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--carbon-black);
+            border-top: 3px solid var(--racing-red);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--checkered);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--silver);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--racing-red);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid var(--silver-dark);
+            text-align: center;
+            color: var(--silver-dark);
+        }
+
+        .checkered-flag {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background:
+                linear-gradient(45deg, var(--carbon-black) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--carbon-black) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--carbon-black) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--carbon-black) 75%);
+            background-size: 10px 10px;
+            background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+            background-color: var(--checkered);
+            border: 2px solid var(--silver-dark);
+            border-radius: 4px;
+            margin: 0 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .leaderboard-header,
+            .leaderboard-row {
+                grid-template-columns: 60px 1fr 180px 120px 120px 100px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.7rem;
+            }
+
+            .leaderboard-header,
+            .leaderboard-row {
+                grid-template-columns: 50px 1fr 150px 100px 100px;
+                font-size: 0.8rem;
+            }
+
+            .leaderboard-header :nth-child(6),
+            .leaderboard-row :nth-child(6) {
+                display: none;
+            }
+
+            .garage-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .calendar-grid,
+            .garage-grid,
+            .members-grid,
+            .auction-grid,
+            .heritage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leaderboard-header,
+            .leaderboard-row {
+                grid-template-columns: 40px 1fr 100px 90px;
+                padding: 0.8rem 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .leaderboard-header :nth-child(5),
+            .leaderboard-row :nth-child(5) {
+                display: none;
+            }
+
+            .driver-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes speed-lines {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .speed-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speed-effect::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--racing-red) 50%, transparent 100%);
+            animation: speed-lines 2s linear infinite;
+        }
+
+        /* Performance Indicator */
+        .performance-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 255, 0, 0.9);
+            color: var(--carbon-black);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .performance-badge.record {
+            background: var(--gold-accent);
+        }
+
+        .performance-badge.fast {
+            background: var(--racing-red);
+            color: var(--checkered);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>116</strong> of 120 &mdash; Motorsport Club</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-115-fashion-council.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-117-diplomatic-corps.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 115) window.location.href = 'style-115-fashion-council.html';
+                if (e.key === 'ArrowRight' && 117) window.location.href = 'style-117-diplomatic-corps.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">VC</div>
+                <span>Velocity Club</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#calendar">Track Days</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+                <li><a href="#garage">Garage</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#auctions">Auctions</a></li>
+                <li><a href="#heritage">Heritage</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Elite Motorsport Community</h1>
+            <p class="hero-subtitle">Where Racing Heritage Meets Modern Performance</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">487</span>
+                    <span class="stat-label">Active Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,249</span>
+                    <span class="stat-label">Vehicles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">156</span>
+                    <span class="stat-label">Track Days/Year</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24</span>
+                    <span class="stat-label">Circuits</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Track Day Calendar -->
+        <section id="calendar" class="track-calendar-section">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Track Days</h2>
+                <p class="section-subtitle">Reserve your spot on legendary circuits</p>
+            </div>
+            <div class="calendar-grid">
+                <div class="track-event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">18</span>
+                            <span class="event-date-month">DEC</span>
+                        </div>
+                        <span class="event-status open">Open</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grand Prix Experience</h3>
+                        <div class="event-track">
+                            <span class="checkered-flag"></span>
+                            Silverstone Circuit
+                        </div>
+                        <div class="event-info">
+                            <div class="event-info-item">
+                                <span class="event-info-label">Sessions</span>
+                                <span class="event-info-value">4 x 25min</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Spots Left</span>
+                                <span class="event-info-value">12/30</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Entry Fee</span>
+                                <span class="event-info-value">£450</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Track Limit</span>
+                                <span class="event-info-value">105 dB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">22</span>
+                            <span class="event-date-month">DEC</span>
+                        </div>
+                        <span class="event-status">Limited</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Classic Car Showcase</h3>
+                        <div class="event-track">
+                            <span class="checkered-flag"></span>
+                            Goodwood Circuit
+                        </div>
+                        <div class="event-info">
+                            <div class="event-info-item">
+                                <span class="event-info-label">Sessions</span>
+                                <span class="event-info-value">3 x 30min</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Spots Left</span>
+                                <span class="event-info-value">5/20</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Entry Fee</span>
+                                <span class="event-info-value">£550</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Era</span>
+                                <span class="event-info-value">Pre-1980</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">28</span>
+                            <span class="event-date-month">DEC</span>
+                        </div>
+                        <span class="event-status open">Open</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>New Year Sprint Challenge</h3>
+                        <div class="event-track">
+                            <span class="checkered-flag"></span>
+                            Brands Hatch
+                        </div>
+                        <div class="event-info">
+                            <div class="event-info-item">
+                                <span class="event-info-label">Sessions</span>
+                                <span class="event-info-value">5 x 20min</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Spots Left</span>
+                                <span class="event-info-value">18/40</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Entry Fee</span>
+                                <span class="event-info-value">£395</span>
+                            </div>
+                            <div class="event-info-item">
+                                <span class="event-info-label">Prize</span>
+                                <span class="event-info-value">Trophy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lap Time Leaderboard -->
+        <section id="leaderboard" class="leaderboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Lap Time Leaderboard</h2>
+                <p class="section-subtitle">The fastest drivers of Velocity Club</p>
+            </div>
+            <div class="leaderboard-filters">
+                <button class="filter-btn active">All Tracks</button>
+                <button class="filter-btn">Silverstone</button>
+                <button class="filter-btn">Brands Hatch</button>
+                <button class="filter-btn">Goodwood</button>
+                <button class="filter-btn">This Month</button>
+            </div>
+            <div class="leaderboard-table">
+                <div class="leaderboard-header">
+                    <div>Rank</div>
+                    <div>Driver</div>
+                    <div>Lap Time</div>
+                    <div>Vehicle</div>
+                    <div>Avg Speed</div>
+                    <div>Track</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank gold">1st</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">JH</div>
+                        <span class="driver-name">James Hamilton</span>
+                    </div>
+                    <div class="lap-time">1:42.385</div>
+                    <div class="vehicle-name">Porsche 911 GT3 RS</div>
+                    <div class="speed">168.4 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank silver">2nd</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">SC</div>
+                        <span class="driver-name">Sarah Chen</span>
+                    </div>
+                    <div class="lap-time">1:43.127</div>
+                    <div class="vehicle-name">Ferrari 488 Pista</div>
+                    <div class="speed">166.9 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank bronze">3rd</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">MR</div>
+                        <span class="driver-name">Marcus Rodriguez</span>
+                    </div>
+                    <div class="lap-time">1:43.891</div>
+                    <div class="vehicle-name">McLaren 720S</div>
+                    <div class="speed">165.2 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">4th</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">EW</div>
+                        <span class="driver-name">Emma Wilson</span>
+                    </div>
+                    <div class="lap-time">1:44.526</div>
+                    <div class="vehicle-name">Lamborghini Huracán</div>
+                    <div class="speed">164.1 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">5th</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">TP</div>
+                        <span class="driver-name">Thomas Patel</span>
+                    </div>
+                    <div class="lap-time">1:45.204</div>
+                    <div class="vehicle-name">Aston Martin Vantage</div>
+                    <div class="speed">162.7 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">6th</div>
+                    <div class="driver-info">
+                        <div class="driver-avatar">LK</div>
+                        <span class="driver-name">Lisa Kowalski</span>
+                    </div>
+                    <div class="lap-time">1:45.783</div>
+                    <div class="vehicle-name">BMW M4 GT4</div>
+                    <div class="speed">161.3 mph</div>
+                    <div class="track-name">Silverstone</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garage Showcase -->
+        <section id="garage" class="garage-section">
+            <div class="section-header">
+                <h2 class="section-title">Member Garage</h2>
+                <p class="section-subtitle">Extraordinary machines from our community</p>
+            </div>
+            <div class="garage-grid">
+                <div class="car-card">
+                    <div class="car-image">🏎️</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">Ferrari F40</h3>
+                                <p class="car-year">1989</p>
+                            </div>
+                            <span class="car-badge classic">Classic</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">478 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">3.8s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">201 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,100 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">MR</div>
+                            <span class="owner-name">Marcus Rodriguez</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🏁</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">Porsche 911 GT3 RS</h3>
+                                <p class="car-year">2023</p>
+                            </div>
+                            <span class="car-badge modern">Modern</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">525 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">3.0s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">184 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,450 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">JH</div>
+                            <span class="owner-name">James Hamilton</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">⚡</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">McLaren P1</h3>
+                                <p class="car-year">2015</p>
+                            </div>
+                            <span class="car-badge modern">Modern</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">903 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">2.8s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">217 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,547 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">SC</div>
+                            <span class="owner-name">Sarah Chen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🔥</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">Shelby Cobra 427</h3>
+                                <p class="car-year">1966</p>
+                            </div>
+                            <span class="car-badge classic">Classic</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">425 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">4.2s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">164 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,020 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">TP</div>
+                            <span class="owner-name">Thomas Patel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">💨</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">Lamborghini Countach</h3>
+                                <p class="car-year">1985</p>
+                            </div>
+                            <span class="car-badge classic">Classic</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">455 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">4.9s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">183 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,490 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">EW</div>
+                            <span class="owner-name">Emma Wilson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🚀</div>
+                    <div class="car-details">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">Koenigsegg Jesko</h3>
+                                <p class="car-year">2024</p>
+                            </div>
+                            <span class="car-badge modern">Modern</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">1,600 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-60 MPH</span>
+                                <span class="spec-value">2.5s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">330 MPH</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">1,420 kg</span>
+                            </div>
+                        </div>
+                        <div class="car-owner">
+                            <div class="owner-avatar">LK</div>
+                            <span class="owner-name">Lisa Kowalski</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Member Profiles -->
+        <section id="members" class="members-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Members</h2>
+                <p class="section-subtitle">The heart of our motorsport community</p>
+            </div>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-avatar-large">JH</div>
+                    <h3 class="member-name">James Hamilton</h3>
+                    <p class="member-title">Track Champion</p>
+                    <div class="member-stats">
+                        <div class="member-stat">
+                            <span class="member-stat-value">156</span>
+                            <span class="member-stat-label">Laps</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">12</span>
+                            <span class="member-stat-label">Records</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">3</span>
+                            <span class="member-stat-label">Cars</span>
+                        </div>
+                    </div>
+                    <div class="member-cars">
+                        <div class="member-cars-label">Garage</div>
+                        <div class="member-cars-list">
+                            Porsche 911 GT3 RS<br>
+                            Ferrari 458 Speciale<br>
+                            Audi R8 V10 Plus
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-large">SC</div>
+                    <h3 class="member-name">Sarah Chen</h3>
+                    <p class="member-title">Classic Collector</p>
+                    <div class="member-stats">
+                        <div class="member-stat">
+                            <span class="member-stat-value">203</span>
+                            <span class="member-stat-label">Laps</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">8</span>
+                            <span class="member-stat-label">Records</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">5</span>
+                            <span class="member-stat-label">Cars</span>
+                        </div>
+                    </div>
+                    <div class="member-cars">
+                        <div class="member-cars-label">Garage</div>
+                        <div class="member-cars-list">
+                            McLaren P1<br>
+                            Jaguar E-Type<br>
+                            Porsche 356 Speedster
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-large">MR</div>
+                    <h3 class="member-name">Marcus Rodriguez</h3>
+                    <p class="member-title">Heritage Expert</p>
+                    <div class="member-stats">
+                        <div class="member-stat">
+                            <span class="member-stat-value">189</span>
+                            <span class="member-stat-label">Laps</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">15</span>
+                            <span class="member-stat-label">Records</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">7</span>
+                            <span class="member-stat-label">Cars</span>
+                        </div>
+                    </div>
+                    <div class="member-cars">
+                        <div class="member-cars-label">Garage</div>
+                        <div class="member-cars-list">
+                            Ferrari F40<br>
+                            Lamborghini Miura<br>
+                            Ford GT40
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar-large">EW</div>
+                    <h3 class="member-name">Emma Wilson</h3>
+                    <p class="member-title">Performance Driver</p>
+                    <div class="member-stats">
+                        <div class="member-stat">
+                            <span class="member-stat-value">142</span>
+                            <span class="member-stat-label">Laps</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">6</span>
+                            <span class="member-stat-label">Records</span>
+                        </div>
+                        <div class="member-stat">
+                            <span class="member-stat-value">4</span>
+                            <span class="member-stat-label">Cars</span>
+                        </div>
+                    </div>
+                    <div class="member-cars">
+                        <div class="member-cars-label">Garage</div>
+                        <div class="member-cars-list">
+                            Lamborghini Huracán<br>
+                            Nissan GT-R Nismo<br>
+                            BMW M3 CSL
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auction Section -->
+        <section id="auctions" class="auction-section">
+            <div class="section-header">
+                <h2 class="section-title">Live Auctions</h2>
+                <p class="section-subtitle">Rare classics from discerning collectors</p>
+            </div>
+            <div class="auction-grid">
+                <div class="auction-card">
+                    <div class="auction-image">🏆</div>
+                    <div class="auction-details">
+                        <h3 class="auction-title">1967 Ford GT40 Mk III</h3>
+                        <p class="auction-description">
+                            One of only 7 road-legal GT40 Mark IIIs ever produced. Complete restoration with original components.
+                        </p>
+                        <div class="auction-bid">
+                            <div class="current-bid">
+                                <span class="bid-label">Current Bid</span>
+                                <span class="bid-amount">£4.2M</span>
+                            </div>
+                            <div class="auction-timer">
+                                <span class="timer-label">Ends In</span>
+                                <span class="timer-value">2d 14h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auction-card">
+                    <div class="auction-image">💎</div>
+                    <div class="auction-details">
+                        <h3 class="auction-title">1973 Porsche 911 Carrera RS</h3>
+                        <p class="auction-description">
+                            Matching numbers RS in Light Yellow. 22,000 original miles. Documented racing history.
+                        </p>
+                        <div class="auction-bid">
+                            <div class="current-bid">
+                                <span class="bid-label">Current Bid</span>
+                                <span class="bid-amount">£875K</span>
+                            </div>
+                            <div class="auction-timer">
+                                <span class="timer-label">Ends In</span>
+                                <span class="timer-value">5d 8h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auction-card">
+                    <div class="auction-image">⭐</div>
+                    <div class="auction-details">
+                        <h3 class="auction-title">1955 Mercedes-Benz 300 SL Gullwing</h3>
+                        <p class="auction-description">
+                            Exceptional example in Fire Engine Red. Recent concours winner. Extensively documented provenance.
+                        </p>
+                        <div class="auction-bid">
+                            <div class="current-bid">
+                                <span class="bid-label">Current Bid</span>
+                                <span class="bid-amount">£1.8M</span>
+                            </div>
+                            <div class="auction-timer">
+                                <span class="timer-label">Ends In</span>
+                                <span class="timer-value">1d 3h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Racing Heritage/News -->
+        <section id="heritage" class="heritage-section">
+            <div class="section-header">
+                <h2 class="section-title">Racing Heritage</h2>
+                <p class="section-subtitle">Stories from the track and our community</p>
+            </div>
+            <div class="heritage-grid">
+                <div class="heritage-card">
+                    <div class="heritage-image">🏁</div>
+                    <div class="heritage-content">
+                        <span class="heritage-tag">Track History</span>
+                        <h3 class="heritage-title">50 Years of Silverstone Excellence</h3>
+                        <p class="heritage-text">
+                            Celebrating half a century of motorsport heritage at Britain's premier racing circuit. From the first Grand Prix in 1950 to modern-day track days, Silverstone remains the spiritual home of British motorsport.
+                        </p>
+                        <div class="heritage-meta">
+                            <span>Dec 5, 2025</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heritage-card">
+                    <div class="heritage-image">🔧</div>
+                    <div class="heritage-content">
+                        <span class="heritage-tag">Tech Feature</span>
+                        <h3 class="heritage-title">The Art of Perfect Lap Times</h3>
+                        <p class="heritage-text">
+                            Professional racing driver Sarah Chen shares her insights on achieving consistent lap times. Learn the techniques used by champions to extract maximum performance from both car and circuit.
+                        </p>
+                        <div class="heritage-meta">
+                            <span>Dec 3, 2025</span>
+                            <span>12 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heritage-card">
+                    <div class="heritage-image">🎖️</div>
+                    <div class="heritage-content">
+                        <span class="heritage-tag">Member Spotlight</span>
+                        <h3 class="heritage-title">Marcus Rodriguez: A Lifetime of Passion</h3>
+                        <p class="heritage-text">
+                            From his first track day in 1995 to becoming one of our most accomplished members, Marcus shares his journey through motorsport and the incredible machines he's collected along the way.
+                        </p>
+                        <div class="heritage-meta">
+                            <span>Nov 28, 2025</span>
+                            <span>15 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section style="text-align: center; padding: 4rem 0;">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Join Velocity Club</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">
+                Experience the ultimate motorsport community. Track days, exclusive events, and a network of passionate enthusiasts.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="cta-button">Apply for Membership</a>
+                <a href="#" class="cta-button secondary">View Track Calendar</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Velocity Club</h3>
+                <p style="color: var(--silver-dark); margin-top: 1rem; line-height: 1.8;">
+                    The premier motorsport community for track enthusiasts, collectors, and racing heritage preservation.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#calendar">Track Days</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#garage">Member Garage</a></li>
+                    <li><a href="#auctions">Auctions</a></li>
+                    <li><a href="#heritage">Heritage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Track Guide</a></li>
+                    <li><a href="#">Safety Protocols</a></li>
+                    <li><a href="#">Technical Specs</a></li>
+                    <li><a href="#">Event Insurance</a></li>
+                    <li><a href="#">Membership Tiers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:info@velocityclub.racing">info@velocityclub.racing</a></li>
+                    <li><a href="tel:+441234567890">+44 1234 567890</a></li>
+                    <li>Silverstone Circuit<br>Northamptonshire, UK</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <span class="checkered-flag"></span>
+                &copy; 2025 Velocity Club. All rights reserved. | Racing Heritage Since 1975
+                <span class="checkered-flag"></span>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

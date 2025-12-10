@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control - Aerospace Command Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                        ULTRATHINK DESIGN ANALYSIS                            ║
+        ║                   AEROSPACE MISSION CONTROL INTERFACE                        ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY: Aerospace & Defense Systems
+        Blend: Aerospace Engineering (80%) + Mission Control Operations (20%)
+
+        DESIGN PRINCIPLES:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        1. PRECISION ENGINEERING AESTHETIC
+           - Military-grade interface precision
+           - SpaceX/Lockheed Martin design language
+           - Zero-tolerance visual accuracy
+           - Technical blueprint inspiration
+
+        2. MISSION-CRITICAL DATA ARCHITECTURE
+           - Telemetry-first information hierarchy
+           - System status at-a-glance readability
+           - Real-time monitoring capabilities
+           - Failure mode visualization
+
+        3. AEROSPACE COLOR PSYCHOLOGY
+           - Space Black (#0a0a0f): Deep space, command center ambiance
+           - Technical Silver (#c0c0c0): Aerospace aluminum, precision instruments
+           - Warning Orange (#f97316): Mission-critical alerts, system warnings
+           - Status Blue (#0ea5e9): Active systems, operational indicators
+
+        4. TYPOGRAPHY STRATEGY
+           - Roboto Mono: Technical data, telemetry readings, system codes
+           - Roboto: Control labels, navigation, operational text
+           - Monospace for precision alignment of numerical data
+           - Clear hierarchy for mission-critical information
+
+        5. CONTROL PANEL DENSITY
+           - High information density without clutter
+           - Organized grid systems for rapid scanning
+           - Modular component architecture
+           - Professional console-grade layout
+
+        6. COMPONENT DESIGN LANGUAGE
+           - Mission Status Indicators: Real-time operational states
+           - Telemetry Cards: Live system readings and metrics
+           - Timeline Trackers: Mission phase monitoring
+           - System Health Monitors: Component status grids
+           - Alert Panels: Warning and critical notification systems
+
+        7. TEMPERATURE & FORMALITY
+           - Cool Technical (2/10): Professional, calculated, precise
+           - Very High Formality (9/10): Mission-critical operations tone
+           - Zero frivolous design elements
+           - Military-grade professionalism
+
+        TECHNICAL IMPLEMENTATION:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        - CSS Grid for precision control panel layouts
+        - Subtle animations for live data updates (respectful of mission focus)
+        - Monospace number alignment for telemetry accuracy
+        - Status indicator color coding (green=nominal, blue=active, orange=caution, red=critical)
+        - Console-grade contrast ratios for extended monitoring sessions
+        - Scalable vector indicators for system health visualization
+
+        AEROSPACE INDUSTRY BENCHMARKS:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        Reference Standards:
+        - NASA Mission Control interface design
+        - SpaceX Dragon capsule UI elements
+        - Lockheed Martin F-35 cockpit displays
+        - Boeing 787 flight deck aesthetics
+        - ESA ground control systems
+
+        ACCESSIBILITY & USABILITY:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        - WCAG 2.1 AA compliant contrast ratios for mission-critical readability
+        - Color-blind safe status indicators (shape + color redundancy)
+        - Keyboard navigation for hands-on-controls environments
+        - Screen reader semantic structure for accessibility compliance
+        - High-contrast mode support for various lighting conditions
+
+        BRAND POSITIONING:
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        This design establishes authority through:
+        - Military-grade precision and reliability
+        - Aerospace engineering visual language
+        - Mission-critical operational credibility
+        - Technical excellence and attention to detail
+        - Professional command center aesthetics
+
+        Perfect for: Defense contractors, aerospace platforms, mission control systems,
+        satellite operations, flight management, engineering dashboards, technical
+        monitoring systems, industrial control interfaces
+
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                          END DESIGN ANALYSIS                                 ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Aerospace Color Palette */
+            --space-black: #0a0a0f;
+            --deep-space: #12121a;
+            --command-gray: #1a1a24;
+            --panel-gray: #22222e;
+            --border-gray: #2a2a38;
+
+            --technical-silver: #c0c0c0;
+            --light-silver: #d8d8d8;
+            --dim-silver: #a0a0a8;
+            --muted-silver: #808088;
+
+            --warning-orange: #f97316;
+            --warning-dim: #ea580c;
+            --status-blue: #0ea5e9;
+            --status-bright: #38bdf8;
+
+            --success-green: #10b981;
+            --critical-red: #ef4444;
+            --caution-yellow: #f59e0b;
+
+            /* Typography */
+            --font-technical: 'Roboto Mono', monospace;
+            --font-label: 'Roboto', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 6px;
+        }
+
+        body {
+            font-family: var(--font-label);
+            background: var(--space-black);
+            color: var(--technical-silver);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header - Mission Control Bar */
+        .header {
+            background: var(--deep-space);
+            border-bottom: 1px solid var(--status-blue);
+            padding: var(--spacing-md) var(--spacing-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(14, 165, 233, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .mission-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--command-gray);
+            border: 1px solid var(--status-blue);
+            border-radius: var(--radius-md);
+        }
+
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--status-blue);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .mission-title {
+            font-family: var(--font-technical);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--light-silver);
+        }
+
+        .mission-code {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--status-blue);
+            letter-spacing: 2px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .nav-item {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--command-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-label);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--technical-silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: var(--panel-gray);
+            border-color: var(--status-blue);
+            color: var(--light-silver);
+        }
+
+        .nav-item.active {
+            background: var(--status-blue);
+            border-color: var(--status-blue);
+            color: var(--space-black);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .mission-timer {
+            text-align: right;
+        }
+
+        .timer-label {
+            font-family: var(--font-label);
+            font-size: 0.625rem;
+            color: var(--dim-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timer-value {
+            font-family: var(--font-technical);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--status-blue);
+            letter-spacing: 2px;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--command-gray);
+            border: 1px solid var(--success-green);
+            border-radius: var(--radius-md);
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--success-green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-text {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--success-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+        }
+
+        /* Stats Grid - Telemetry Overview */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--deep-space);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--status-blue), transparent);
+        }
+
+        .stat-card:hover {
+            border-color: var(--status-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .stat-label {
+            font-family: var(--font-label);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--dim-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-badge {
+            font-family: var(--font-technical);
+            font-size: 0.625rem;
+            padding: 2px 6px;
+            background: var(--command-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            color: var(--status-blue);
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-family: var(--font-technical);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light-silver);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-unit {
+            font-size: 1rem;
+            color: var(--dim-silver);
+            margin-left: var(--spacing-xs);
+        }
+
+        .stat-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .stat-change.positive {
+            color: var(--success-green);
+        }
+
+        .stat-change.negative {
+            color: var(--critical-red);
+        }
+
+        .stat-change.neutral {
+            color: var(--status-blue);
+        }
+
+        .stat-timestamp {
+            color: var(--muted-silver);
+        }
+
+        /* Content Grid - Mission Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .mission-card {
+            background: var(--deep-space);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover {
+            border-color: var(--status-blue);
+            box-shadow: 0 4px 16px rgba(14, 165, 233, 0.12);
+        }
+
+        .card-header {
+            padding: var(--spacing-lg);
+            background: var(--command-gray);
+            border-bottom: 1px solid var(--border-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-family: var(--font-label);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--light-silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .card-status.operational .card-status-dot {
+            background: var(--success-green);
+        }
+
+        .card-status.active .card-status-dot {
+            background: var(--status-blue);
+        }
+
+        .card-status.caution .card-status-dot {
+            background: var(--warning-orange);
+        }
+
+        .card-body {
+            padding: var(--spacing-lg);
+        }
+
+        .telemetry-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .telemetry-row:last-child {
+            border-bottom: none;
+        }
+
+        .telemetry-label {
+            font-family: var(--font-label);
+            font-size: 0.875rem;
+            color: var(--dim-silver);
+        }
+
+        .telemetry-value {
+            font-family: var(--font-technical);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--light-silver);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--command-gray);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-top: var(--spacing-sm);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--status-blue), var(--status-bright));
+            border-radius: var(--radius-sm);
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.success {
+            background: linear-gradient(90deg, var(--success-green), #34d399);
+        }
+
+        .progress-fill.warning {
+            background: linear-gradient(90deg, var(--warning-orange), #fb923c);
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .system-item {
+            padding: var(--spacing-sm);
+            background: var(--command-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+        }
+
+        .system-name {
+            color: var(--dim-silver);
+        }
+
+        .system-value {
+            font-weight: 600;
+            color: var(--light-silver);
+        }
+
+        /* Data Table - Mission Log */
+        .data-table-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            background: var(--deep-space);
+            border: 1px solid var(--border-gray);
+            border-bottom: none;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .section-title {
+            font-family: var(--font-label);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--light-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .control-button {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--command-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--technical-silver);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-button:hover {
+            background: var(--panel-gray);
+            border-color: var(--status-blue);
+            color: var(--light-silver);
+        }
+
+        .table-container {
+            background: var(--deep-space);
+            border: 1px solid var(--border-gray);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table thead {
+            background: var(--command-gray);
+            border-bottom: 2px solid var(--status-blue);
+        }
+
+        .data-table th {
+            padding: var(--spacing-md);
+            text-align: left;
+            font-family: var(--font-label);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--dim-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .data-table td {
+            padding: var(--spacing-md);
+            font-family: var(--font-technical);
+            font-size: 0.875rem;
+            color: var(--technical-silver);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--command-gray);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .event-id {
+            font-weight: 600;
+            color: var(--status-blue);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .priority-critical {
+            background: var(--critical-red);
+            color: var(--space-black);
+        }
+
+        .priority-high {
+            background: var(--warning-orange);
+            color: var(--space-black);
+        }
+
+        .priority-normal {
+            background: var(--status-blue);
+            color: var(--space-black);
+        }
+
+        .priority-low {
+            background: var(--muted-silver);
+            color: var(--space-black);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-complete {
+            background: var(--success-green);
+            color: var(--space-black);
+        }
+
+        .status-active {
+            background: var(--status-blue);
+            color: var(--space-black);
+        }
+
+        .status-pending {
+            background: var(--caution-yellow);
+            color: var(--space-black);
+        }
+
+        /* Footer - Mission Info */
+        .footer {
+            background: var(--deep-space);
+            border-top: 1px solid var(--border-gray);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-title {
+            font-family: var(--font-label);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--light-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-text {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--dim-silver);
+            line-height: 1.6;
+        }
+
+        .footer-link {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--status-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--status-bright);
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: var(--spacing-xl) auto 0;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            color: var(--muted-silver);
+        }
+
+        .mission-classification {
+            font-family: var(--font-technical);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--warning-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .header-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-item {
+                flex: 1;
+                text-align: center;
+                font-size: 0.75rem;
+            }
+
+            .stats-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>45</strong> of 70 &mdash; Aerospace</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-44-biotech-lab.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-46-robotics.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 44) window.location.href = 'style-44-biotech-lab.html';
+                if (e.key === 'ArrowRight' && 46) window.location.href = 'style-46-robotics.html';
+            });
+        })();
+    </script>
+
+    <!-- Header - Mission Control Bar -->
+    <header class="header">
+        <div class="header-left">
+            <div class="mission-badge">
+                <div class="badge-icon"></div>
+                <div>
+                    <div class="mission-title">ODYSSEY</div>
+                    <div class="mission-code">MC-2749</div>
+                </div>
+            </div>
+
+            <nav class="header-nav">
+                <button class="nav-item active">Overview</button>
+                <button class="nav-item">Telemetry</button>
+                <button class="nav-item">Systems</button>
+                <button class="nav-item">Alerts</button>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="mission-timer">
+                <div class="timer-label">Mission Elapsed Time</div>
+                <div class="timer-value">127:42:18</div>
+            </div>
+
+            <div class="system-status">
+                <div class="status-indicator"></div>
+                <span class="status-text">All Systems Nominal</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Stats Grid - Telemetry Overview -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Orbital Velocity</span>
+                    <span class="stat-badge">REAL-TIME</span>
+                </div>
+                <div class="stat-value">
+                    7.82
+                    <span class="stat-unit">km/s</span>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-change positive">▲ 0.03 km/s</span>
+                    <span class="stat-timestamp">T+127:42:18</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Altitude</span>
+                    <span class="stat-badge">GPS-LOCK</span>
+                </div>
+                <div class="stat-value">
+                    408.7
+                    <span class="stat-unit">km</span>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-change neutral">● Stable</span>
+                    <span class="stat-timestamp">T+127:42:18</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Power Generation</span>
+                    <span class="stat-badge">SOLAR</span>
+                </div>
+                <div class="stat-value">
+                    94.2
+                    <span class="stat-unit">%</span>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-change positive">▲ 2.1%</span>
+                    <span class="stat-timestamp">T+127:42:18</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Communication Signal</span>
+                    <span class="stat-badge">TDRSS</span>
+                </div>
+                <div class="stat-value">
+                    -82.4
+                    <span class="stat-unit">dBm</span>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-change positive">▲ 3.2 dBm</span>
+                    <span class="stat-timestamp">T+127:42:18</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Grid - Mission Cards -->
+        <section class="content-grid">
+            <div class="mission-card">
+                <div class="card-header">
+                    <h3 class="card-title">Propulsion Systems</h3>
+                    <div class="card-status operational">
+                        <div class="card-status-dot"></div>
+                        <span>OPERATIONAL</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Main Engine Thrust</span>
+                        <span class="telemetry-value">4,448 kN</span>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Fuel Remaining</span>
+                        <span class="telemetry-value">67.3%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 67.3%;"></div>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Oxidizer Remaining</span>
+                        <span class="telemetry-value">71.8%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill success" style="width: 71.8%;"></div>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Chamber Pressure</span>
+                        <span class="telemetry-value">6.89 MPa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card">
+                <div class="card-header">
+                    <h3 class="card-title">Environmental Control</h3>
+                    <div class="card-status operational">
+                        <div class="card-status-dot"></div>
+                        <span>OPERATIONAL</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="system-grid">
+                        <div class="system-item">
+                            <span class="system-name">Cabin Temp</span>
+                            <span class="system-value">21.4°C</span>
+                        </div>
+                        <div class="system-item">
+                            <span class="system-name">Humidity</span>
+                            <span class="system-value">45.2%</span>
+                        </div>
+                        <div class="system-item">
+                            <span class="system-name">Pressure</span>
+                            <span class="system-value">101.3 kPa</span>
+                        </div>
+                        <div class="system-item">
+                            <span class="system-name">O₂ Level</span>
+                            <span class="system-value">20.9%</span>
+                        </div>
+                        <div class="system-item">
+                            <span class="system-name">CO₂ Level</span>
+                            <span class="system-value">0.4%</span>
+                        </div>
+                        <div class="system-item">
+                            <span class="system-name">Air Flow</span>
+                            <span class="system-value">Normal</span>
+                        </div>
+                    </div>
+                    <div class="telemetry-row" style="margin-top: 1rem;">
+                        <span class="telemetry-label">Life Support Status</span>
+                        <span class="telemetry-value" style="color: var(--success-green);">NOMINAL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card">
+                <div class="card-header">
+                    <h3 class="card-title">Guidance & Navigation</h3>
+                    <div class="card-status active">
+                        <div class="card-status-dot"></div>
+                        <span>ACTIVE</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Inertial Measurement</span>
+                        <span class="telemetry-value" style="color: var(--success-green);">LOCKED</span>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Star Tracker Accuracy</span>
+                        <span class="telemetry-value">0.002°</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill success" style="width: 99.8%;"></div>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Gyroscope Drift</span>
+                        <span class="telemetry-value">0.0015°/hr</span>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Position Uncertainty</span>
+                        <span class="telemetry-value">±2.3 m</span>
+                    </div>
+                    <div class="telemetry-row">
+                        <span class="telemetry-label">Attitude Control</span>
+                        <span class="telemetry-value" style="color: var(--success-green);">STABLE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Table - Mission Log -->
+        <section class="data-table-section">
+            <div class="section-header">
+                <h2 class="section-title">Mission Event Log</h2>
+                <div class="section-controls">
+                    <button class="control-button">Filter</button>
+                    <button class="control-button">Export</button>
+                    <button class="control-button">Refresh</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Timestamp (MET)</th>
+                            <th>System</th>
+                            <th>Description</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Action Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1847</span></td>
+                            <td>T+127:42:18</td>
+                            <td>Communication</td>
+                            <td>TDRSS signal strength improved</td>
+                            <td><span class="priority-badge priority-low">LOW</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1846</span></td>
+                            <td>T+127:38:42</td>
+                            <td>Power</td>
+                            <td>Solar array optimization completed</td>
+                            <td><span class="priority-badge priority-normal">NORMAL</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1845</span></td>
+                            <td>T+127:35:07</td>
+                            <td>Navigation</td>
+                            <td>Star tracker recalibration initiated</td>
+                            <td><span class="priority-badge priority-normal">NORMAL</span></td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>Monitor Progress</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1844</span></td>
+                            <td>T+127:29:33</td>
+                            <td>Propulsion</td>
+                            <td>Fuel cell pressure fluctuation detected</td>
+                            <td><span class="priority-badge priority-high">HIGH</span></td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>Engineering Review</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1843</span></td>
+                            <td>T+127:24:15</td>
+                            <td>Thermal</td>
+                            <td>Radiator deployment sequence verified</td>
+                            <td><span class="priority-badge priority-normal">NORMAL</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1842</span></td>
+                            <td>T+127:18:09</td>
+                            <td>Environmental</td>
+                            <td>CO₂ scrubber cycle completed</td>
+                            <td><span class="priority-badge priority-low">LOW</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1841</span></td>
+                            <td>T+127:12:54</td>
+                            <td>Communication</td>
+                            <td>Ground station handover to Madrid DSN</td>
+                            <td><span class="priority-badge priority-normal">NORMAL</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><span class="event-id">EVT-2749-1840</span></td>
+                            <td>T+127:08:27</td>
+                            <td>Guidance</td>
+                            <td>Attitude adjustment for solar optimization</td>
+                            <td><span class="priority-badge priority-normal">NORMAL</span></td>
+                            <td><span class="status-badge status-complete">Complete</span></td>
+                            <td>None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Mission Info -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4 class="footer-title">Mission Control</h4>
+                <p class="footer-text">Mission: ODYSSEY MC-2749</p>
+                <p class="footer-text">Launch: 2024-11-04 14:22:00 UTC</p>
+                <p class="footer-text">Mission Duration: 127d 18h 42m</p>
+                <p class="footer-text">Next Milestone: Orbital Adjustment Burn</p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-title">Ground Stations</h4>
+                <a href="#" class="footer-link">Madrid Deep Space Network</a>
+                <a href="#" class="footer-link">Goldstone Complex (Backup)</a>
+                <a href="#" class="footer-link">Canberra Station (Scheduled)</a>
+                <a href="#" class="footer-link">TDRSS Relay System</a>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-title">System Documentation</h4>
+                <a href="#" class="footer-link">Flight Operations Manual</a>
+                <a href="#" class="footer-link">Emergency Procedures</a>
+                <a href="#" class="footer-link">Telemetry Data Archive</a>
+                <a href="#" class="footer-link">Mission Timeline</a>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-title">Support Resources</h4>
+                <a href="#" class="footer-link">Engineering Support (24/7)</a>
+                <a href="#" class="footer-link">Flight Director Contact</a>
+                <a href="#" class="footer-link">Incident Reporting</a>
+                <a href="#" class="footer-link">System Status Dashboard</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2025 Aerospace Command & Control Systems. Mission-Critical Operations.
+            </div>
+            <div class="mission-classification">
+                CLASSIFIED: CONFIDENTIAL
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

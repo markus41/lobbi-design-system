@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Services Portal - Government Digital Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DESIGN ANALYSIS: STYLE-66-GOVERNMENT-CIVIC
+        ═══════════════════════════════════════════════════════════════════════════
+
+        DESIGN SYSTEM ARCHITECTURE
+        ───────────────────────────────────────────────────────────────────────────
+        Blend Composition: Government Digital Services (80%) + Civic Trust (20%)
+
+        Design Philosophy: Accessible government services prioritizing citizen needs
+        through WCAG AA compliance, clear information hierarchy, and trustworthy
+        visual language. Inspired by GOV.UK Design System and U.S. Digital Service.
+
+        CORE DESIGN TOKENS
+        ───────────────────────────────────────────────────────────────────────────
+        Color Palette (Accessibility-First):
+          Primary:    #003087 (Government Blue) - Official identity
+          Surface:    #ffffff (White) - Maximum readability
+          Success:    #00703c (Accessible Green) - Status confirmation
+          Alert:      #b91c1c (Status Red) - Critical notifications
+          Neutral:    #f3f4f6 (Light Gray) - Section backgrounds
+          Text:       #0b0c0c (Near Black) - Optimal contrast
+          Border:     #b1b4b6 (Mid Gray) - Subtle separators
+
+        Typography System:
+          Font Family: 'Source Sans Pro' (sans-serif) - Accessible, readable
+          Scale: Modular (16px base, 1.25 ratio)
+          Line Height: 1.5-1.6 (enhanced readability)
+          Letter Spacing: Standard (no tracking adjustments)
+
+        Spatial System (8px Grid):
+          Micro:      8px  - Tight element spacing
+          Small:      16px - Component padding
+          Medium:     24px - Section spacing
+          Large:      32px - Major divisions
+          XLarge:     48px - Page sections
+
+        COMPONENT ARCHITECTURE
+        ───────────────────────────────────────────────────────────────────────────
+        Service Cards: Clean layouts with clear calls-to-action
+        Application Trackers: Step-based progress visualization
+        Document Portals: Organized access to citizen resources
+        Notification Banners: High-contrast status communication
+        Data Tables: Accessible, scannable information display
+
+        ACCESSIBILITY COMPLIANCE (WCAG 2.1 AA)
+        ───────────────────────────────────────────────────────────────────────────
+        - Minimum 4.5:1 contrast ratio for all text
+        - Focus indicators visible on all interactive elements
+        - Semantic HTML structure for screen readers
+        - Skip navigation links for keyboard users
+        - Clear visual hierarchy with proper heading levels
+        - Touch targets minimum 44x44px
+        - Form labels explicitly associated with inputs
+        - Error messages linked via aria-describedby
+
+        INTERACTION PATTERNS
+        ───────────────────────────────────────────────────────────────────────────
+        Temperature: Neutral Trustworthy (5/10)
+          - Professional without being cold
+          - Helpful without being casual
+          - Efficient without being rushed
+
+        Formality: High Official (8/10)
+          - Authoritative language patterns
+          - Formal terminology and structure
+          - Official government tone
+
+        Hover States: Subtle darkening (10-15%) with 200ms transitions
+        Focus States: 3px solid outline with 2px offset
+        Active States: Slightly darker with subtle inset shadow
+        Loading States: Subtle pulse animation, accessible to motion-sensitive users
+
+        RESPONSIVE STRATEGY
+        ───────────────────────────────────────────────────────────────────────────
+        Mobile-First: Base styles optimized for 320px viewports
+        Breakpoints: 640px (tablet), 1024px (desktop), 1280px (wide)
+        Grid: Flexbox-based responsive layouts
+        Images: Not used (text-first government approach)
+
+        TRUST INDICATORS
+        ───────────────────────────────────────────────────────────────────────────
+        - Official government blue establishes authority
+        - High contrast ensures transparency
+        - Clear status indicators build confidence
+        - Consistent spacing creates reliability
+        - Simple language promotes understanding
+
+        PERFORMANCE CONSIDERATIONS
+        ───────────────────────────────────────────────────────────────────────────
+        - Single web font family (Source Sans Pro)
+        - No images or icons (text-based approach)
+        - Minimal CSS complexity
+        - No JavaScript dependencies
+        - Fast initial paint for government networks
+
+        BRAND ALIGNMENT: BROOKSIDE BI
+        ───────────────────────────────────────────────────────────────────────────
+        This design establishes scalable, accessible patterns for government and
+        civic sector clients requiring WCAG compliance and public sector trust.
+        Professional execution demonstrates enterprise-grade accessibility expertise.
+
+        ═══════════════════════════════════════════════════════════════════════════
+        */
+
+        /* CSS RESET & BASE STYLES */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Color Tokens */
+            --color-primary: #003087;
+            --color-primary-dark: #002060;
+            --color-surface: #ffffff;
+            --color-success: #00703c;
+            --color-success-light: #e8f5e9;
+            --color-alert: #b91c1c;
+            --color-alert-light: #fef2f2;
+            --color-neutral: #f3f4f6;
+            --color-text: #0b0c0c;
+            --color-text-secondary: #505a5f;
+            --color-border: #b1b4b6;
+
+            /* Typography Tokens */
+            --font-sans: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 0.875rem;
+            --font-size-sm: 1rem;
+            --font-size-base: 1.125rem;
+            --font-size-lg: 1.375rem;
+            --font-size-xl: 1.75rem;
+            --font-size-2xl: 2.25rem;
+            --line-height-tight: 1.3;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.6;
+
+            /* Spacing Tokens */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+
+            /* Border Tokens */
+            --border-width: 1px;
+            --border-radius: 0;
+
+            /* Shadow Tokens (Minimal) */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            /* Transition Tokens */
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 200ms ease-in-out;
+        }
+
+        /* GLOBAL STYLES */
+        body {
+            font-family: var(--font-sans);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-relaxed);
+            color: var(--color-text);
+            background: var(--color-neutral);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Skip to Main Content (Accessibility) */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--color-primary);
+            color: var(--color-surface);
+            padding: var(--space-sm) var(--space-md);
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--color-primary);
+            color: var(--color-surface);
+            border-bottom: 4px solid var(--color-primary-dark);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-sm);
+        }
+
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--space-xs);
+        }
+
+        .header-subtitle {
+            font-size: var(--font-size-sm);
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* NOTIFICATION BANNER */
+        .notification-banner {
+            background: var(--color-success-light);
+            border-left: 4px solid var(--color-success);
+            padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .notification-banner.alert {
+            background: var(--color-alert-light);
+            border-left-color: var(--color-alert);
+        }
+
+        .notification-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-xs);
+        }
+
+        .notification-message {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-sm);
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-border);
+            padding: var(--space-md);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: var(--line-height-tight);
+        }
+
+        .stat-change {
+            font-size: var(--font-size-xs);
+            margin-top: var(--space-xs);
+            color: var(--color-text-secondary);
+        }
+
+        .stat-change.positive {
+            color: var(--color-success);
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* SERVICE CARDS GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-border);
+            padding: var(--space-md);
+            transition: border-color var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .service-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-card:focus-within {
+            outline: 3px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .service-status {
+            display: inline-block;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            background: var(--color-neutral);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+            letter-spacing: 0.025em;
+        }
+
+        .service-status.active {
+            background: var(--color-success-light);
+            color: var(--color-success);
+        }
+
+        .service-status.pending {
+            background: var(--color-alert-light);
+            color: var(--color-alert);
+        }
+
+        .service-title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .service-meta {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-action {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-surface);
+            padding: var(--space-sm) var(--space-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            transition: background-color var(--transition-base);
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .service-action:hover {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+        }
+
+        .service-action:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 2px;
+        }
+
+        .service-action:active {
+            transform: translateY(1px);
+        }
+
+        /* APPLICATION TRACKER */
+        .tracker-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .tracker-card {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-border);
+            padding: var(--space-md);
+        }
+
+        .tracker-steps {
+            margin-top: var(--space-md);
+        }
+
+        .tracker-step {
+            display: flex;
+            align-items: flex-start;
+            padding: var(--space-sm) 0;
+            border-left: 4px solid var(--color-border);
+            padding-left: var(--space-md);
+            position: relative;
+        }
+
+        .tracker-step.completed {
+            border-left-color: var(--color-success);
+        }
+
+        .tracker-step.active {
+            border-left-color: var(--color-primary);
+            background: rgba(0, 48, 135, 0.02);
+        }
+
+        .tracker-step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-border);
+            border: 3px solid var(--color-surface);
+        }
+
+        .tracker-step.completed::before {
+            background: var(--color-success);
+        }
+
+        .tracker-step.active::before {
+            background: var(--color-primary);
+        }
+
+        .tracker-step-content {
+            flex: 1;
+        }
+
+        .tracker-step-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .tracker-step-date {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+        }
+
+        /* DATA TABLE */
+        .table-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .table-container {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-border);
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-size-sm);
+        }
+
+        .data-table thead {
+            background: var(--color-neutral);
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-md);
+            font-weight: 700;
+            color: var(--color-text);
+            border-bottom: 2px solid var(--color-border);
+            white-space: nowrap;
+        }
+
+        .data-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: var(--border-width) solid var(--color-border);
+            color: var(--color-text-secondary);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--color-neutral);
+        }
+
+        .data-table tbody tr:focus-within {
+            outline: 2px solid var(--color-primary);
+            outline-offset: -2px;
+        }
+
+        .table-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .table-badge.approved {
+            background: var(--color-success-light);
+            color: var(--color-success);
+        }
+
+        .table-badge.pending {
+            background: var(--color-alert-light);
+            color: var(--color-alert);
+        }
+
+        .table-badge.review {
+            background: var(--color-neutral);
+            color: var(--color-text-secondary);
+        }
+
+        .table-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .table-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .table-link:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 2px;
+            background: #ffdd00;
+            color: var(--color-text);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--color-neutral);
+            border-top: var(--border-width) solid var(--color-border);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-sm);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .footer-link:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 2px;
+            background: #ffdd00;
+            color: var(--color-text);
+        }
+
+        .footer-bottom {
+            border-top: var(--border-width) solid var(--color-border);
+            padding-top: var(--space-md);
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+        }
+
+        .footer-bottom p {
+            margin-bottom: var(--space-xs);
+        }
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>66</strong> of 70 &mdash; Government Civic</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-65-foundation.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-67-auction-house.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 65) window.location.href = 'style-65-foundation.html';
+                if (e.key === 'ArrowRight' && 67) window.location.href = 'style-67-auction-house.html';
+            });
+        })();
+    </script>
+
+    <!-- Skip to Main Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <h1 class="header-title">Citizen Services Portal</h1>
+            <p class="header-subtitle">Government Digital Services - Official Portal</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container" role="main">
+
+        <!-- Notification Banner -->
+        <div class="notification-banner" role="alert">
+            <h2 class="notification-title">Service Update</h2>
+            <p class="notification-message">Tax filing deadline extended to April 18, 2025. All online services remain fully operational.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <section aria-labelledby="stats-heading">
+            <h2 id="stats-heading" class="sr-only">Service Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-label">Active Applications</p>
+                    <p class="stat-value">2,847</p>
+                    <p class="stat-change positive">+127 this week</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Documents Processed</p>
+                    <p class="stat-value">18,392</p>
+                    <p class="stat-change positive">+8.3% from last month</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Average Processing Time</p>
+                    <p class="stat-value">5.2 days</p>
+                    <p class="stat-change">Within service standard</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Citizen Satisfaction</p>
+                    <p class="stat-value">94.7%</p>
+                    <p class="stat-change positive">+2.1 points</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Cards Section -->
+        <section aria-labelledby="services-heading">
+            <div class="section-header">
+                <h2 id="services-heading" class="section-title">Your Services</h2>
+                <p class="section-description">Access and manage your government services and applications</p>
+            </div>
+
+            <div class="services-grid">
+                <article class="service-card">
+                    <span class="service-status active">Active</span>
+                    <h3 class="service-title">Tax Return Filing</h3>
+                    <p class="service-description">Submit your annual tax return online. Secure, fast, and verified by the Internal Revenue Service.</p>
+                    <p class="service-meta">Last updated: March 15, 2025</p>
+                    <a href="#" class="service-action">Continue Application</a>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-status pending">Pending Review</span>
+                    <h3 class="service-title">Business License Renewal</h3>
+                    <p class="service-description">Renew your business operating license. Application submitted and under review by licensing department.</p>
+                    <p class="service-meta">Submitted: March 10, 2025</p>
+                    <a href="#" class="service-action">View Status</a>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-status">Available</span>
+                    <h3 class="service-title">Vital Records Request</h3>
+                    <p class="service-description">Request certified copies of birth certificates, marriage licenses, and other vital records.</p>
+                    <p class="service-meta">Processing time: 7-10 business days</p>
+                    <a href="#" class="service-action">Start New Request</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Application Tracker Section -->
+        <section aria-labelledby="tracker-heading" class="tracker-section">
+            <div class="section-header">
+                <h2 id="tracker-heading" class="section-title">Application Progress</h2>
+                <p class="section-description">Track the status of your business license renewal application</p>
+            </div>
+
+            <div class="tracker-card">
+                <h3 class="service-title">Business License Renewal - Application #BL-2025-08471</h3>
+
+                <div class="tracker-steps">
+                    <div class="tracker-step completed">
+                        <div class="tracker-step-content">
+                            <h4 class="tracker-step-title">Application Submitted</h4>
+                            <p class="tracker-step-date">March 10, 2025 at 2:34 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="tracker-step completed">
+                        <div class="tracker-step-content">
+                            <h4 class="tracker-step-title">Documents Verified</h4>
+                            <p class="tracker-step-date">March 12, 2025 at 10:15 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="tracker-step active">
+                        <div class="tracker-step-content">
+                            <h4 class="tracker-step-title">Under Department Review</h4>
+                            <p class="tracker-step-date">In progress - Expected completion: March 18, 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="tracker-step">
+                        <div class="tracker-step-content">
+                            <h4 class="tracker-step-title">Final Approval</h4>
+                            <p class="tracker-step-date">Pending</p>
+                        </div>
+                    </div>
+
+                    <div class="tracker-step">
+                        <div class="tracker-step-content">
+                            <h4 class="tracker-step-title">License Issued</h4>
+                            <p class="tracker-step-date">Pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Table Section -->
+        <section aria-labelledby="documents-heading" class="table-section">
+            <div class="section-header">
+                <h2 id="documents-heading" class="section-title">Recent Document Requests</h2>
+                <p class="section-description">View and manage your document request history</p>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table" role="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Request ID</th>
+                            <th scope="col">Document Type</th>
+                            <th scope="col">Submitted Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DR-2025-3847</td>
+                            <td>Birth Certificate</td>
+                            <td>March 14, 2025</td>
+                            <td><span class="table-badge approved">Approved</span></td>
+                            <td><a href="#" class="table-link">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>DR-2025-3821</td>
+                            <td>Business Tax Certificate</td>
+                            <td>March 12, 2025</td>
+                            <td><span class="table-badge approved">Approved</span></td>
+                            <td><a href="#" class="table-link">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>DR-2025-3794</td>
+                            <td>Property Tax Assessment</td>
+                            <td>March 8, 2025</td>
+                            <td><span class="table-badge pending">Pending</span></td>
+                            <td><a href="#" class="table-link">View Status</a></td>
+                        </tr>
+                        <tr>
+                            <td>DR-2025-3756</td>
+                            <td>Marriage License</td>
+                            <td>March 5, 2025</td>
+                            <td><span class="table-badge review">Under Review</span></td>
+                            <td><a href="#" class="table-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>DR-2025-3729</td>
+                            <td>Vehicle Registration</td>
+                            <td>March 1, 2025</td>
+                            <td><span class="table-badge approved">Approved</span></td>
+                            <td><a href="#" class="table-link">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>DR-2025-3701</td>
+                            <td>Building Permit</td>
+                            <td>February 28, 2025</td>
+                            <td><span class="table-badge approved">Approved</span></td>
+                            <td><a href="#" class="table-link">Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h2 class="footer-section-title">Services</h2>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Tax Services</a></li>
+                        <li><a href="#" class="footer-link">Business Licenses</a></li>
+                        <li><a href="#" class="footer-link">Vital Records</a></li>
+                        <li><a href="#" class="footer-link">Public Records</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="footer-section-title">Support</h2>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                        <li><a href="#" class="footer-link">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="footer-section-title">Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">FOIA Requests</a></li>
+                        <li><a href="#" class="footer-link">Public Notices</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Official Government Portal - All services provided by authorized government agencies</p>
+                <p>Built with accessibility in mind - WCAG 2.1 AA Compliant</p>
+                <p>&copy; 2025 Government Digital Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Screen Reader Only Styles -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</body>
+</html>

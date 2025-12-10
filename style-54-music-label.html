@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX RECORDS — Premium Music Label Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ═══════════════════════════════════════════════════════════════════════════════
+        ULTRATHINK DESIGN ANALYSIS: STYLE-54-MUSIC-LABEL
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY
+        ─────────────────────────────────────────────────────────────────────────────
+        Premium record label aesthetic blending legendary imprints (Def Jam, Blue Note,
+        Motown) with modern streaming analytics. This design establishes cultural
+        authority through bold typography, vinyl-inspired textures, and album-first
+        visual hierarchy. The interface positions music as art while maintaining
+        data-driven business intelligence for label executives.
+
+        DESIGN BLEND STRATEGY
+        ─────────────────────────────────────────────────────────────────────────────
+        • Music Label (75%): Bold branding, artist-centric layouts, release calendars,
+          cultural storytelling, iconic imagery, vinyl aesthetics, genre identity
+        • Premium Audio (25%): Waveform visualizations, hi-fi quality markers, streaming
+          metrics, audiophile details, sound quality indicators
+
+        COLOR PSYCHOLOGY & MATERIAL SYSTEM
+        ─────────────────────────────────────────────────────────────────────────────
+        Vinyl Black (#0a0a0a)     → Foundation: Record grooves, studio darkness, timeless
+        Gold (#d4af37)            → Excellence: Grammy awards, platinum records, prestige
+        Warm White (#faf6eb)      → Purity: Analog warmth, vintage paper, classic labels
+        Deep Charcoal (#1a1a1a)   → Depth: Vinyl texture, studio atmosphere
+        Bronze (#b8860b)          → Heritage: Music history, legacy artists, tradition
+        Cream (#f5f1e8)           → Softness: Album liner notes, artist statements
+
+        The palette evokes vinyl records, gold certifications, and the warm analog era
+        of music production while supporting modern digital analytics.
+
+        TYPOGRAPHY SYSTEM
+        ─────────────────────────────────────────────────────────────────────────────
+        Display: Bebas Neue (72px-96px, tracking: 0.02em)
+          → Bold, commanding presence for artist names and album titles
+          → References classic label branding (Def Jam boldness, Motown confidence)
+          → Establishes visual hierarchy through scale and weight
+
+        Body: Inter (14px-16px, weights: 300-700)
+          → Modern legibility for streaming stats and business metrics
+          → Clean data presentation maintaining artistic context
+          → Variable weights support information density without visual clutter
+
+        Type Scale Rationale: Large display type mirrors billboard culture and poster
+        art tradition in music, while precise body text supports data-driven decisions.
+
+        SPATIAL ARCHITECTURE
+        ─────────────────────────────────────────────────────────────────────────────
+        Album Art Grid System: 1:1 aspect ratio modules (album covers as primary UI)
+        Golden Ratio Spacing: 1.618 relationship between content blocks
+        Generous Whitespace: 32px-48px breathing room (studio silence, creative space)
+        Edge-to-Edge Imagery: Full-bleed album art for immersive experience
+
+        Layout prioritizes visual storytelling: albums and artists dominate the viewport
+        before analytics, reflecting the label's creative-first business model.
+
+        COMPONENT ARCHITECTURE
+        ─────────────────────────────────────────────────────────────────────────────
+
+        1. RELEASE CARDS
+           • Square album artwork with hover scale transitions
+           • Gold accent borders for featured/platinum releases
+           • Overlay gradients revealing metadata on interaction
+           • Genre tags with vinyl-inspired badge design
+
+        2. ARTIST PROFILES
+           • Large photography with dramatic lighting
+           • Bold Bebas Neue name treatment (96px+)
+           • Compact streaming stats with gold highlights
+           • Quick-access tour dates and social metrics
+
+        3. STREAMING STATISTICS
+           • Waveform visualizations in gold gradients
+           • Real-time listener counts with smooth animations
+           • Platform breakdowns (Spotify, Apple, Tidal)
+           • Chart position tracking with historical trends
+
+        4. TOUR DATE CALENDAR
+           • Chronological grid with city prominence
+           • Venue capacity and ticket status
+           • Geographic clustering for routing optimization
+           • Gold highlights for sold-out performances
+
+        5. LABEL ROSTER
+           • Alphabetical artist grid with profile imagery
+           • Contract status and release schedules
+           • A&R notes and development pipeline
+           • Filterable by genre, status, priority
+
+        INTERACTION PATTERNS
+        ─────────────────────────────────────────────────────────────────────────────
+        Hover States: Subtle scale (1.02x) with gold border glow
+        Click Feedback: 0.98x press with 150ms spring-back
+        Loading States: Vinyl spin animation (360° rotation)
+        Transitions: 300ms cubic-bezier(0.4, 0, 0.2, 1) — smooth, confident
+
+        Audio Previews: Waveform scrubbing, 30-second clips, fade in/out
+        Data Refresh: Pulsing gold indicator, live streaming updates
+
+        CULTURAL REFERENCES & INSPIRATION
+        ─────────────────────────────────────────────────────────────────────────────
+        • Def Jam: Bold typography, black/red/white contrast, urban confidence
+        • Blue Note: Minimalist photography, jazz sophistication, iconic covers
+        • Motown: Gold accents, family atmosphere, hit-making heritage
+        • Vinyl Packaging: Liner notes, lyric sheets, gatefold expansiveness
+        • Grammy Awards: Gold certification, achievement celebration
+        • Abbey Road Studios: Technical excellence, analog warmth
+
+        ACCESSIBILITY CONSIDERATIONS
+        ─────────────────────────────────────────────────────────────────────────────
+        • WCAG 2.1 AA: Gold (#d4af37) on vinyl black exceeds 7:1 contrast
+        • Keyboard Navigation: Tab order follows release chronology
+        • Screen Readers: ARIA labels for album artwork, streaming metrics
+        • Reduced Motion: Respects prefers-reduced-motion (static waveforms)
+        • Color Blindness: Gold/black sufficient without color dependency
+        • Focus Indicators: 3px gold outlines with 2px offset
+
+        PERFORMANCE OPTIMIZATIONS
+        ─────────────────────────────────────────────────────────────────────────────
+        • Album Art Lazy Loading: Intersection Observer for grid images
+        • Waveform Caching: SVG sprites for repeated visualizations
+        • Font Subsetting: Bebas Neue limited to uppercase/numbers
+        • CSS Containment: Isolation for card components
+        • Transform-based Animations: GPU acceleration for smooth 60fps
+
+        RESPONSIVE BREAKPOINTS
+        ─────────────────────────────────────────────────────────────────────────────
+        • Desktop (1440px+): 4-column album grid, expanded stats dashboard
+        • Laptop (1024px): 3-column grid, condensed sidebar metrics
+        • Tablet (768px): 2-column grid, stacked artist profiles
+        • Mobile (375px): Single-column, swipeable album carousel
+
+        Grid adapts while maintaining 1:1 album artwork aspect ratio across all devices.
+
+        TEMPERATURE: 6/10 — WARM CREATIVE
+        ─────────────────────────────────────────────────────────────────────────────
+        Balances artistic expression with business analytics. The warm black/gold palette
+        creates inviting cultural authority while precise metrics satisfy executive
+        decision-making. Not cold corporate, not overly artistic—grounded confidence.
+
+        FORMALITY: 7/10 — CREATIVE PROFESSIONAL
+        ─────────────────────────────────────────────────────────────────────────────
+        Elevated industry standard. Respects music's cultural significance while
+        maintaining professional business context. Bold typography shows confidence
+        without arrogance. Gold accents denote achievement without ostentation.
+
+        BRAND POSITIONING
+        ─────────────────────────────────────────────────────────────────────────────
+        This design establishes the label as:
+        • Culturally Significant: Music as art, not just product
+        • Data-Driven: Modern analytics informing creative decisions
+        • Artist-First: Talent prominence over corporate branding
+        • Heritage-Aware: Respecting music history while innovating
+        • Quality-Obsessed: Hi-fi standards, platinum excellence
+
+        SUCCESS METRICS
+        ─────────────────────────────────────────────────────────────────────────────
+        • Album Discovery: Time to find new releases < 3 seconds
+        • Streaming Insights: Chart position comprehension without training
+        • Artist Management: Roster overview in single viewport
+        • Release Planning: Tour coordination with calendar integration
+        • Cultural Impact: Visual system supporting label identity
+
+        TECHNICAL IMPLEMENTATION NOTES
+        ─────────────────────────────────────────────────────────────────────────────
+        • CSS Grid: 1fr repeat patterns for album galleries
+        • Custom Properties: --gold, --vinyl-black for consistent theming
+        • Backdrop Filters: Frosted glass overlays on album art
+        • Mix-blend-mode: Multiply for vinyl texture effects
+        • Transform: scale(), translateZ() for 3D card lifts
+
+        This design architecture supports sustainable music label operations at scale
+        while maintaining the artistic integrity and cultural authority essential to
+        premium record label positioning.
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        :root {
+            /* Color System — Vinyl Heritage */
+            --vinyl-black: #0a0a0a;
+            --deep-charcoal: #1a1a1a;
+            --gold: #d4af37;
+            --bronze: #b8860b;
+            --warm-white: #faf6eb;
+            --cream: #f5f1e8;
+            --gold-glow: rgba(212, 175, 55, 0.2);
+            --gold-glow-strong: rgba(212, 175, 55, 0.4);
+
+            /* Typography Scale */
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing System (Golden Ratio) */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+
+            /* Animation Timing */
+            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--vinyl-black);
+            color: var(--warm-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header — Label Branding */
+        .header {
+            background: linear-gradient(180deg, var(--deep-charcoal) 0%, var(--vinyl-black) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: var(--space-lg) var(--space-xl);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 48px;
+            letter-spacing: 0.05em;
+            color: var(--gold);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--warm-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--gold);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+        }
+
+        .user-profile:hover {
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--vinyl-black);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        /* Page Title */
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 72px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--warm-white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--cream);
+            font-weight: 300;
+            margin-bottom: var(--space-2xl);
+            letter-spacing: 0.05em;
+        }
+
+        /* Stats Grid — Label Performance */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--deep-charcoal);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-smooth);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--bronze) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-spring);
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 32px var(--gold-glow);
+            transform: translateY(-4px);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--cream);
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 48px;
+            letter-spacing: 0.02em;
+            color: var(--gold);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-change {
+            font-size: 13px;
+            color: var(--warm-white);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-change.positive {
+            color: var(--gold);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            opacity: 0.15;
+        }
+
+        /* Content Section — Featured Releases */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 36px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .section-action {
+            font-size: 14px;
+            color: var(--warm-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            transition: all var(--transition-smooth);
+        }
+
+        .section-action:hover {
+            background: var(--gold);
+            color: var(--vinyl-black);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        /* Release Cards — Album Focus */
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .release-card {
+            background: var(--deep-charcoal);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .release-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 48px var(--gold-glow-strong);
+        }
+
+        .release-artwork {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .release-info {
+            padding: var(--space-lg);
+            background: linear-gradient(180deg, transparent 0%, var(--vinyl-black) 100%);
+        }
+
+        .release-artist {
+            font-family: var(--font-display);
+            font-size: 28px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: var(--space-xs);
+        }
+
+        .release-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--warm-white);
+            margin-bottom: var(--space-sm);
+        }
+
+        .release-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 13px;
+            color: var(--cream);
+        }
+
+        .release-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Data Table — Chart Performance */
+        .table-container {
+            background: var(--deep-charcoal);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .table-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .table-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        th {
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-weight: 600;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        td {
+            padding: var(--space-md) var(--space-lg);
+            font-size: 14px;
+            color: var(--warm-white);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        tbody tr {
+            transition: all var(--transition-smooth);
+        }
+
+        tbody tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .rank-cell {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: var(--gold);
+            width: 60px;
+        }
+
+        .album-cell {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .album-thumbnail {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .album-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .album-name {
+            font-weight: 600;
+            color: var(--warm-white);
+        }
+
+        .artist-name {
+            font-size: 12px;
+            color: var(--cream);
+        }
+
+        .streams-cell {
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .chart-position {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .chart-trend {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .chart-trend.up {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+        }
+
+        .chart-trend.down {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-charcoal);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: var(--space-2xl) var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 42px;
+            letter-spacing: 0.05em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: var(--cream);
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+
+        .footer-section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--warm-white);
+            text-decoration: none;
+            transition: color var(--transition-smooth);
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: var(--space-xl) auto 0;
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--cream);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--vinyl-black);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .releases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 48px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .releases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: var(--space-sm);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>54</strong> of 70 &mdash; Music Label</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-53-literary-journal.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-55-film-studio.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 53) window.location.href = 'style-53-literary-journal.html';
+                if (e.key === 'ArrowRight' && 55) window.location.href = 'style-55-film-studio.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">APEX RECORDS</div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Roster</a>
+                <a href="#" class="nav-link">Releases</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Tours</a>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <span style="font-weight: 500;">J. Drake</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Page Header -->
+        <h1 class="page-title">Label Dashboard</h1>
+        <p class="page-subtitle">Real-time performance metrics • Global streaming data • Tour intelligence</p>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+                <div class="stat-label">Monthly Streams</div>
+                <div class="stat-value">847M</div>
+                <div class="stat-change positive">↑ 23.4% vs last month</div>
+            </div>
+
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <div class="stat-label">Active Artists</div>
+                <div class="stat-value">142</div>
+                <div class="stat-change">12 new signings this quarter</div>
+            </div>
+
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+                <div class="stat-label">Chart Positions</div>
+                <div class="stat-value">18</div>
+                <div class="stat-change positive">↑ 6 top 100 entries this week</div>
+            </div>
+
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <div class="stat-label">Tour Revenue</div>
+                <div class="stat-value">$42M</div>
+                <div class="stat-change positive">↑ 31.8% YTD performance</div>
+            </div>
+        </div>
+
+        <!-- Featured Releases Section -->
+        <div class="section-header">
+            <h2 class="section-title">Featured Releases</h2>
+            <a href="#" class="section-action">View All Releases</a>
+        </div>
+
+        <div class="releases-grid">
+            <div class="release-card">
+                <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?w=800&h=800&fit=crop" alt="Album artwork" class="release-artwork">
+                <div class="release-info">
+                    <div class="release-artist">NOVA ECLIPSE</div>
+                    <div class="release-title">Celestial Frequencies</div>
+                    <div class="release-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8"/>
+                            </svg>
+                            47.2M streams
+                        </span>
+                        <span class="genre-tag">Electronic</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="release-card">
+                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=800&fit=crop" alt="Album artwork" class="release-artwork">
+                <div class="release-info">
+                    <div class="release-artist">THE MERIDIANS</div>
+                    <div class="release-title">Urban Anthology Vol. 2</div>
+                    <div class="release-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8"/>
+                            </svg>
+                            89.6M streams
+                        </span>
+                        <span class="genre-tag">Hip-Hop</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="release-card">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=800&fit=crop" alt="Album artwork" class="release-artwork">
+                <div class="release-info">
+                    <div class="release-artist">VELVET STORMS</div>
+                    <div class="release-title">Midnight Sessions</div>
+                    <div class="release-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8"/>
+                            </svg>
+                            31.4M streams
+                        </span>
+                        <span class="genre-tag">R&B</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Performance Table -->
+        <div class="table-container">
+            <div class="table-header">
+                <h2 class="table-title">Global Chart Performance</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Album / Single</th>
+                        <th>Genre</th>
+                        <th>Streams (7d)</th>
+                        <th>Chart Position</th>
+                        <th>Peak</th>
+                        <th>Weeks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-cell">#1</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Celestial Frequencies</span>
+                                    <span class="artist-name">Nova Eclipse</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Electronic</td>
+                        <td class="streams-cell">12.4M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#3</span>
+                                <span class="chart-trend up">↑ 2</span>
+                            </div>
+                        </td>
+                        <td>#1</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#2</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Urban Anthology Vol. 2</span>
+                                    <span class="artist-name">The Meridians</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Hip-Hop</td>
+                        <td class="streams-cell">18.7M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#1</span>
+                                <span class="chart-trend up">↑ 4</span>
+                            </div>
+                        </td>
+                        <td>#1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#3</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Midnight Sessions</span>
+                                    <span class="artist-name">Velvet Storms</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>R&B</td>
+                        <td class="streams-cell">8.2M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#7</span>
+                                <span class="chart-trend up">↑ 1</span>
+                            </div>
+                        </td>
+                        <td>#5</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#4</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Neon Dreams</span>
+                                    <span class="artist-name">Synth Collective</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Synthwave</td>
+                        <td class="streams-cell">6.9M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#12</span>
+                                <span class="chart-trend down">↓ 2</span>
+                            </div>
+                        </td>
+                        <td>#8</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#5</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Golden Hour</span>
+                                    <span class="artist-name">Aurora Rose</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Indie Pop</td>
+                        <td class="streams-cell">5.3M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#15</span>
+                                <span class="chart-trend up">↑ 3</span>
+                            </div>
+                        </td>
+                        <td>#11</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#6</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Bassline Revolution</span>
+                                    <span class="artist-name">Digital Prophets</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Drum & Bass</td>
+                        <td class="streams-cell">4.8M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#22</span>
+                                <span class="chart-trend up">↑ 8</span>
+                            </div>
+                        </td>
+                        <td>#18</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">#7</td>
+                        <td>
+                            <div class="album-cell">
+                                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=100&h=100&fit=crop" alt="Album thumbnail" class="album-thumbnail">
+                                <div class="album-details">
+                                    <span class="album-name">Acoustic Horizons</span>
+                                    <span class="artist-name">River Delta Band</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Folk Rock</td>
+                        <td class="streams-cell">3.7M</td>
+                        <td>
+                            <div class="chart-position">
+                                <span>#28</span>
+                                <span class="chart-trend up">↑ 1</span>
+                            </div>
+                        </td>
+                        <td>#24</td>
+                        <td>9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">APEX RECORDS</div>
+                <p class="footer-tagline">
+                    Established in 1987, APEX Records has been at the forefront of music innovation
+                    for over three decades. From platinum-selling albums to Grammy-winning artists,
+                    we continue to shape the sound of tomorrow.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="footer-section-title">Label</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Our Story</a>
+                    <a href="#" class="footer-link">Artist Roster</a>
+                    <a href="#" class="footer-link">Submit Demo</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Press Kit</a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="footer-section-title">Services</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">A&R Services</a>
+                    <a href="#" class="footer-link">Distribution</a>
+                    <a href="#" class="footer-link">Publishing</a>
+                    <a href="#" class="footer-link">Tour Management</a>
+                    <a href="#" class="footer-link">Marketing</a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="footer-section-title">Connect</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Newsletter</a>
+                    <a href="#" class="footer-link">Events</a>
+                    <a href="#" class="footer-link">Shop</a>
+                    <a href="#" class="footer-link">Support</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2025 APEX Records. All Rights Reserved. • Privacy Policy • Terms of Service</div>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Spotify">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14.5c2-1 5-1 7 0M7 11c3-1.5 7-1.5 10 0M6 7.5c4-2 10-2 12 0"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 72: Trade Association + Industry Standards | Lobbi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔════════════════════════════════════════════════════════════════════════════╗
+        ║                          ULTRATHINK DESIGN ANALYSIS                        ║
+        ║                 Style 72: Trade Association + Industry Standards           ║
+        ╚════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        This design embodies the authoritative presence of professional trade
+        associations and standards-setting bodies. It balances institutional
+        credibility with technical precision, creating an interface that serves both
+        regulatory oversight and member engagement.
+
+        VISUAL STRATEGY:
+        - Blend: Trade Association (80%) + Industry Standards (20%)
+        - Temperature: 4/10 (cool, authoritative, institutional)
+        - Formality: 9/10 (highly professional, regulatory feel)
+        - Target: Industry trade groups, standards bodies, professional federations
+
+        COLOR PSYCHOLOGY:
+        - Steel Blue (#3d5a80): Industry strength, technical authority
+        - Slate Gray (#4a5568): Precision, neutrality, standards
+        - Teal (#0d9488): Innovation within tradition, forward-thinking
+        - Amber (#d97706): Important notices, compliance alerts
+        - White/Light Gray: Clean, professional backdrop
+
+        TYPOGRAPHY HIERARCHY:
+        - IBM Plex Serif: Technical authority for headings
+        - IBM Plex Sans: Clear, standardized body text
+        - IBM Plex Mono: Standards codes, technical references
+
+        DESIGN PATTERNS:
+        1. Industry Sector Badges: Visual categorization
+        2. Compliance Indicators: Status tracking
+        3. Member Tier System: Gold/Silver/Bronze hierarchy
+        4. Standards References: Code-style formatting
+        5. Certification Tracking: Progress visualization
+        6. Committee Listings: Organizational structure
+        7. Technical Resources: Document library preview
+
+        UX PRINCIPLES:
+        - Authoritative navigation with clear hierarchy
+        - Standards-compliant data presentation
+        - Member-centric dashboarding
+        - Industry news integration
+        - Certification pathways visibility
+        - Policy advocacy transparency
+
+        ACCESSIBILITY:
+        - WCAG 2.1 AA compliant contrast ratios
+        - Semantic HTML structure
+        - Clear visual hierarchy
+        - Professional typography scales
+        - Status indicators with icons and text
+
+        IMPLEMENTATION NOTES:
+        - Responsive grid system for multi-device access
+        - Hover states for interactive elements
+        - Badge system for quick identification
+        - Table-based member activity tracking
+        - Card-based content organization
+        - Modal-ready for detailed standards views
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --primary: #3d5a80;
+            --primary-dark: #2d4460;
+            --primary-light: #4d6a90;
+            --secondary: #4a5568;
+            --secondary-dark: #3a4558;
+            --accent: #0d9488;
+            --accent-dark: #0a7a70;
+            --warning: #d97706;
+            --success: #059669;
+            --danger: #dc2626;
+
+            /* Neutrals */
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #868e96;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+
+            /* Typography */
+            --font-serif: 'IBM Plex Serif', serif;
+            --font-sans: 'IBM Plex Sans', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.12);
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: var(--space-md) 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .header-logo {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .header-tagline {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            font-weight: 300;
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: var(--space-md);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: opacity 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .user-badge {
+            background: rgba(255,255,255,0.15);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .page-subtitle {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-card:hover::before {
+            width: 6px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.primary {
+            background: rgba(61, 90, 128, 0.1);
+            color: var(--primary);
+        }
+
+        .stat-icon.accent {
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--accent);
+        }
+
+        .stat-icon.success {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .stat-icon.warning {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+        }
+
+        .stat-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+
+        .stat-trend.up {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .stat-trend.down {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--danger);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Section Card */
+        .section-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--gray-50);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .section-action {
+            font-size: 0.875rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .section-action:hover {
+            color: var(--accent-dark);
+        }
+
+        .section-content {
+            padding: var(--space-md);
+        }
+
+        /* Standards List */
+        .standards-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .standard-item {
+            padding: var(--space-md);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            background: var(--white);
+        }
+
+        .standard-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .standard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .standard-code {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: rgba(61, 90, 128, 0.1);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .standard-status {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .standard-status.active {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .standard-status.draft {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+        }
+
+        .standard-status.review {
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--accent);
+        }
+
+        .standard-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+        }
+
+        .standard-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .standard-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        /* Certification Programs */
+        .certification-grid {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .certification-card {
+            padding: var(--space-md);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            transition: all 0.2s ease;
+        }
+
+        .certification-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .certification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .certification-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .certification-level {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .certification-level.gold {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #9a6f00;
+        }
+
+        .certification-level.silver {
+            background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+            color: #666666;
+        }
+
+        .certification-level.bronze {
+            background: linear-gradient(135deg, #cd7f32 0%, #e89a6b 100%);
+            color: #6b3e1a;
+        }
+
+        .certification-progress {
+            margin-top: var(--space-sm);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            margin-bottom: var(--space-xs);
+            color: var(--gray-600);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: var(--radius-sm);
+            transition: width 0.3s ease;
+        }
+
+        /* Policy Updates */
+        .policy-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .policy-item {
+            padding: var(--space-md);
+            border-left: 4px solid var(--gray-300);
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .policy-item:hover {
+            border-left-color: var(--primary);
+            background: var(--white);
+        }
+
+        .policy-item.high-priority {
+            border-left-color: var(--warning);
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+        }
+
+        .policy-date {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-xs);
+        }
+
+        .policy-description {
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .policy-tags {
+            display: flex;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .policy-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: var(--gray-200);
+            color: var(--gray-700);
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+
+        /* Industry News */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .news-item {
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .news-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            font-size: 0.9375rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Member Activity Table */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        .data-table thead {
+            background: var(--gray-50);
+            border-bottom: 2px solid var(--gray-300);
+        }
+
+        .data-table th {
+            padding: var(--space-sm) var(--space-md);
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .data-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--gray-50);
+        }
+
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .member-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .member-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .member-org {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-badge.gold {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #9a6f00;
+        }
+
+        .tier-badge.silver {
+            background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+            color: #666666;
+        }
+
+        .tier-badge.bronze {
+            background: linear-gradient(135deg, #cd7f32 0%, #e89a6b 100%);
+            color: #6b3e1a;
+        }
+
+        .certification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Sector Badges */
+        .sector-badges {
+            display: flex;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+        }
+
+        .sector-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid;
+        }
+
+        .sector-badge.manufacturing {
+            background: rgba(61, 90, 128, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .sector-badge.technology {
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .sector-badge.healthcare {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .sector-badge.finance {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+            border-color: var(--warning);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-lg) 0;
+            margin-top: var(--space-xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+        }
+
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-tagline {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md);
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>72</strong> of 90 &mdash; Trade Association</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-71-chamber-commerce.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-73-professional-society.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 71) window.location.href = 'style-71-chamber-commerce.html';
+                if (e.key === 'ArrowRight' && 73) window.location.href = 'style-73-professional-society.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="header-logo">Lobbi</div>
+                <div class="header-tagline">Professional Association Management Platform</div>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Standards</a>
+                <a href="#" class="nav-link">Certifications</a>
+                <a href="#" class="nav-link">Members</a>
+                <a href="#" class="nav-link">Resources</a>
+                <div class="user-badge">Admin Portal</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Association Dashboard</h1>
+            <p class="page-subtitle">Comprehensive overview of member engagement, standards development, and industry initiatives</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Total Members</div>
+                        <div class="stat-value">1,247</div>
+                    </div>
+                    <div class="stat-icon primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-trend up">↑ 8.3%</span>
+                    <span>vs. last quarter</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Certified Members</div>
+                        <div class="stat-value">892</div>
+                    </div>
+                    <div class="stat-icon success">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-trend up">↑ 12.5%</span>
+                    <span>certification rate: 71.5%</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Active Standards</div>
+                        <div class="stat-value">34</div>
+                    </div>
+                    <div class="stat-icon accent">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-meta">
+                    <span class="stat-trend up">↑ 2</span>
+                    <span>new in 2025</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Industry Events</div>
+                        <div class="stat-value">8</div>
+                    </div>
+                    <div class="stat-icon warning">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-meta">
+                    <span>Next: Standards Summit</span>
+                    <span>• Mar 15, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Main Content -->
+            <div>
+                <!-- Industry Standards Updates -->
+                <div class="section-card" style="margin-bottom: var(--space-lg);">
+                    <div class="section-header">
+                        <h2 class="section-title">Industry Standards Updates</h2>
+                        <a href="#" class="section-action">View All Standards →</a>
+                    </div>
+                    <div class="section-content">
+                        <div class="standards-list">
+                            <div class="standard-item">
+                                <div class="standard-header">
+                                    <div>
+                                        <div class="standard-code">ISO-9001:2025</div>
+                                    </div>
+                                    <div class="standard-status active">Active</div>
+                                </div>
+                                <div class="standard-title">Quality Management Systems - Requirements Update</div>
+                                <div class="standard-meta">
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        <span>Published: Jan 10, 2025</span>
+                                    </div>
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        </svg>
+                                        <span>342 Compliant Members</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="standard-item">
+                                <div class="standard-header">
+                                    <div>
+                                        <div class="standard-code">ASTM-D4169</div>
+                                    </div>
+                                    <div class="standard-status review">Under Review</div>
+                                </div>
+                                <div class="standard-title">Standard Practice for Performance Testing of Shipping Containers</div>
+                                <div class="standard-meta">
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        <span>Review Period Ends: Mar 30, 2025</span>
+                                    </div>
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                        </svg>
+                                        <span>18 Comments</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="standard-item">
+                                <div class="standard-header">
+                                    <div>
+                                        <div class="standard-code">IEEE-802.11be</div>
+                                    </div>
+                                    <div class="standard-status draft">Draft</div>
+                                </div>
+                                <div class="standard-title">Wireless LAN Medium Access Control and Physical Layer Specifications</div>
+                                <div class="standard-meta">
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        <span>Expected: Q2 2025</span>
+                                    </div>
+                                    <div class="standard-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        </svg>
+                                        <span>Working Group: 47 Members</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification Programs -->
+                <div class="section-card" style="margin-bottom: var(--space-lg);">
+                    <div class="section-header">
+                        <h2 class="section-title">Certification Programs</h2>
+                        <a href="#" class="section-action">Manage Programs →</a>
+                    </div>
+                    <div class="section-content">
+                        <div class="certification-grid">
+                            <div class="certification-card">
+                                <div class="certification-header">
+                                    <div class="certification-name">Professional Quality Auditor (PQA)</div>
+                                    <div class="certification-level gold">Gold</div>
+                                </div>
+                                <div class="certification-progress">
+                                    <div class="progress-label">
+                                        <span>Active Certifications</span>
+                                        <span><strong>287</strong> / 350 capacity</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 82%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="certification-card">
+                                <div class="certification-header">
+                                    <div class="certification-name">Certified Manufacturing Engineer (CMfgE)</div>
+                                    <div class="certification-level silver">Silver</div>
+                                </div>
+                                <div class="certification-progress">
+                                    <div class="progress-label">
+                                        <span>Active Certifications</span>
+                                        <span><strong>412</strong> / 500 capacity</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 82.4%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="certification-card">
+                                <div class="certification-header">
+                                    <div class="certification-name">Associate Safety Professional (ASP)</div>
+                                    <div class="certification-level bronze">Bronze</div>
+                                </div>
+                                <div class="certification-progress">
+                                    <div class="progress-label">
+                                        <span>Active Certifications</span>
+                                        <span><strong>193</strong> / 300 capacity</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 64.3%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy & Advocacy -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Policy & Advocacy</h2>
+                        <a href="#" class="section-action">View All Updates →</a>
+                    </div>
+                    <div class="section-content">
+                        <div class="policy-list">
+                            <div class="policy-item high-priority">
+                                <div class="policy-title">Federal Manufacturing Modernization Act - Position Statement</div>
+                                <div class="policy-date">Published: December 5, 2025</div>
+                                <div class="policy-description">
+                                    Our association supports H.R. 3847, which provides tax incentives for advanced manufacturing technology adoption. We recommend amendments to expand eligibility for small manufacturers.
+                                </div>
+                                <div class="policy-tags">
+                                    <span class="policy-tag">Federal Legislation</span>
+                                    <span class="policy-tag">Tax Policy</span>
+                                    <span class="policy-tag">Action Required</span>
+                                </div>
+                            </div>
+
+                            <div class="policy-item">
+                                <div class="policy-title">EPA Emissions Standards Update - Industry Impact Analysis</div>
+                                <div class="policy-date">Published: November 28, 2025</div>
+                                <div class="policy-description">
+                                    Comprehensive analysis of proposed EPA emissions standards for industrial facilities. Includes cost-benefit analysis and recommended compliance strategies for members.
+                                </div>
+                                <div class="policy-tags">
+                                    <span class="policy-tag">Environmental</span>
+                                    <span class="policy-tag">Compliance</span>
+                                </div>
+                            </div>
+
+                            <div class="policy-item">
+                                <div class="policy-title">Workforce Development Partnership with Technical Colleges</div>
+                                <div class="policy-date">Published: November 15, 2025</div>
+                                <div class="policy-description">
+                                    New partnership program connecting member companies with accredited technical colleges to develop skilled workforce pipeline. Grant funding available.
+                                </div>
+                                <div class="policy-tags">
+                                    <span class="policy-tag">Workforce</span>
+                                    <span class="policy-tag">Education</span>
+                                    <span class="policy-tag">Partnership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Industry News -->
+                <div class="section-card" style="margin-bottom: var(--space-lg);">
+                    <div class="section-header">
+                        <h2 class="section-title">Industry News</h2>
+                        <a href="#" class="section-action">View All →</a>
+                    </div>
+                    <div class="section-content">
+                        <div class="news-list">
+                            <div class="news-item">
+                                <div class="news-date">Dec 8, 2025</div>
+                                <div class="news-title">Annual Standards Summit Registration Opens</div>
+                                <div class="news-excerpt">
+                                    Early bird registration now available for our flagship March event featuring keynotes on AI in manufacturing.
+                                </div>
+                            </div>
+
+                            <div class="news-item">
+                                <div class="news-date">Dec 6, 2025</div>
+                                <div class="news-title">New ISO 14001 Environmental Certification Track</div>
+                                <div class="news-excerpt">
+                                    Members can now pursue environmental management certification through our expanded program.
+                                </div>
+                            </div>
+
+                            <div class="news-item">
+                                <div class="news-date">Dec 3, 2025</div>
+                                <div class="news-title">Q4 Industry Survey Results Released</div>
+                                <div class="news-excerpt">
+                                    Manufacturing confidence index reaches 5-year high; detailed analysis available to members.
+                                </div>
+                            </div>
+
+                            <div class="news-item">
+                                <div class="news-date">Nov 30, 2025</div>
+                                <div class="news-title">Technical Committee Elections Underway</div>
+                                <div class="news-excerpt">
+                                    Voting open through December 15 for next year's committee leadership positions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Member Breakdown</h2>
+                    </div>
+                    <div class="section-content">
+                        <div style="margin-bottom: var(--space-md);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                                <span style="font-weight: 600;">Gold Tier</span>
+                                <span style="color: var(--gray-600);">158 members</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12.7%; background: linear-gradient(90deg, #ffd700, #ffed4e);"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--space-md);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                                <span style="font-weight: 600;">Silver Tier</span>
+                                <span style="color: var(--gray-600);">423 members</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33.9%; background: linear-gradient(90deg, #c0c0c0, #e8e8e8);"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--space-md);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                                <span style="font-weight: 600;">Bronze Tier</span>
+                                <span style="color: var(--gray-600);">666 members</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 53.4%; background: linear-gradient(90deg, #cd7f32, #e89a6b);"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--gray-200);">
+                            <h3 style="font-size: 0.875rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--gray-700);">Industry Sectors</h3>
+                            <div class="sector-badges">
+                                <div class="sector-badge manufacturing">Manufacturing (487)</div>
+                                <div class="sector-badge technology">Technology (312)</div>
+                                <div class="sector-badge healthcare">Healthcare (241)</div>
+                                <div class="sector-badge finance">Finance (207)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Activity Table -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2 class="section-title">Recent Member Activity</h2>
+                <a href="#" class="section-action">View All Members →</a>
+            </div>
+            <div class="section-content">
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Organization</th>
+                                <th>Tier</th>
+                                <th>Certifications</th>
+                                <th>Sectors</th>
+                                <th>Last Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar">SM</div>
+                                        <div class="member-details">
+                                            <div class="member-name">Sarah Martinez</div>
+                                            <div class="member-org">Precision Manufacturing Inc.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Precision Manufacturing Inc.</td>
+                                <td><span class="tier-badge gold">Gold</span></td>
+                                <td><span class="certification-badge">✓ PQA, CMfgE</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge manufacturing">Manufacturing</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">2 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background: var(--accent);">JC</div>
+                                        <div class="member-details">
+                                            <div class="member-name">James Chen</div>
+                                            <div class="member-org">TechSolutions Global</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TechSolutions Global</td>
+                                <td><span class="tier-badge silver">Silver</span></td>
+                                <td><span class="certification-badge">✓ ASP</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge technology">Technology</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">5 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background: var(--secondary);">EP</div>
+                                        <div class="member-details">
+                                            <div class="member-name">Emily Patterson</div>
+                                            <div class="member-org">HealthFirst Systems</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>HealthFirst Systems</td>
+                                <td><span class="tier-badge gold">Gold</span></td>
+                                <td><span class="certification-badge">✓ PQA, CMfgE, ASP</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge healthcare">Healthcare</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">1 day ago</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background: var(--warning);">MR</div>
+                                        <div class="member-details">
+                                            <div class="member-name">Michael Roberts</div>
+                                            <div class="member-org">Industrial Dynamics LLC</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Industrial Dynamics LLC</td>
+                                <td><span class="tier-badge bronze">Bronze</span></td>
+                                <td><span style="color: var(--gray-500);">No certifications</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge manufacturing">Manufacturing</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">1 day ago</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background: var(--success);">LT</div>
+                                        <div class="member-details">
+                                            <div class="member-name">Lisa Thompson</div>
+                                            <div class="member-org">Capital Finance Group</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Capital Finance Group</td>
+                                <td><span class="tier-badge silver">Silver</span></td>
+                                <td><span class="certification-badge">✓ PQA</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge finance">Finance</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">2 days ago</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background: var(--danger);">DK</div>
+                                        <div class="member-details">
+                                            <div class="member-name">David Kim</div>
+                                            <div class="member-org">Advanced Materials Corp</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Advanced Materials Corp</td>
+                                <td><span class="tier-badge gold">Gold</span></td>
+                                <td><span class="certification-badge">✓ CMfgE, ASP</span></td>
+                                <td>
+                                    <div class="sector-badges">
+                                        <div class="sector-badge manufacturing">Manufacturing</div>
+                                        <div class="sector-badge technology">Technology</div>
+                                    </div>
+                                </td>
+                                <td style="color: var(--gray-600);">3 days ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-text">
+                &copy; 2025 Lobbi Dashboard - Style 72: Trade Association + Industry Standards
+                | Design by <a href="#" class="footer-link">ULTRATHINK Design System</a>
+                | Temperature: 4/10 (Cool, Authoritative) | Formality: 9/10 (Highly Professional)
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Lab Interface - Advanced Research Platform</title>
+    <style>
+        /* ================================================
+           STYLE 101: QUANTUM LAB INTERFACE
+           Blend: Scientific Research (60%) + Futuristic Tech (25%) + Academic Precision (15%)
+           Temperature: 3 (Cool) | Formality: 8 (Highly Formal)
+           Color Palette: Deep Purple, Electric Blue, White
+           ================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Cool, Scientific */
+            --quantum-purple-deep: #5B21B6;
+            --quantum-purple: #6B46C1;
+            --quantum-purple-light: #8B5CF6;
+            --quantum-blue-electric: #06B6D4;
+            --quantum-blue: #0EA5E9;
+            --quantum-blue-light: #38BDF8;
+            --quantum-white: #FFFFFF;
+            --quantum-gray-light: #F3F4F6;
+            --quantum-gray: #E5E7EB;
+            --quantum-gray-dark: #9CA3AF;
+            --quantum-black: #111827;
+            --quantum-success: #10B981;
+            --quantum-warning: #F59E0B;
+            --quantum-danger: #EF4444;
+
+            /* Holographic Effects */
+            --glow-purple: rgba(139, 92, 246, 0.4);
+            --glow-blue: rgba(56, 189, 248, 0.4);
+
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+
+            /* Typography */
+            --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            --font-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: var(--quantum-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Quantum Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, var(--glow-purple) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--glow-blue) 0%, transparent 50%);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            animation: quantumPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes quantumPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        /* ================================================
+           HEADER - Quantum Branding
+           ================================================ */
+
+        header {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--quantum-purple);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            border-radius: 12px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue-electric));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 30px var(--glow-purple);
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 30px var(--glow-purple); }
+            50% { box-shadow: 0 0 40px var(--glow-blue); }
+        }
+
+        .logo h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--quantum-purple-light), var(--quantum-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-subtitle {
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+            font-weight: 400;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .btn {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-purple-deep));
+            color: var(--quantum-white);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--quantum-blue-light);
+            border: 1px solid var(--quantum-blue-electric);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--quantum-blue-light);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--quantum-blue-electric), var(--quantum-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* ================================================
+           MAIN LAYOUT - Dashboard Grid
+           ================================================ */
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================================
+           EXPERIMENT TRACKING - Primary Feature (Scientific Research)
+           ================================================ */
+
+        .experiments-section {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        .card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-xl);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--quantum-white);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .card-title-icon {
+            font-size: 1.75rem;
+        }
+
+        .status-badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--quantum-success);
+            border: 1px solid var(--quantum-success);
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--quantum-warning);
+            border: 1px solid var(--quantum-warning);
+        }
+
+        .status-completed {
+            background: rgba(56, 189, 248, 0.2);
+            color: var(--quantum-blue-light);
+            border: 1px solid var(--quantum-blue-electric);
+        }
+
+        /* Experiment Grid */
+        .experiment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .experiment-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experiment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--quantum-purple), var(--quantum-blue-electric));
+        }
+
+        .experiment-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--quantum-purple-light);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .experiment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .experiment-id {
+            font-family: var(--font-mono);
+            color: var(--quantum-blue-electric);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .experiment-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--quantum-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .experiment-meta {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .experiment-meta-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .experiment-meta-label {
+            color: var(--quantum-gray-dark);
+        }
+
+        .experiment-meta-value {
+            color: var(--quantum-white);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--quantum-purple), var(--quantum-blue-electric));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--glow-purple);
+        }
+
+        .progress-label {
+            font-size: 0.75rem;
+            color: var(--quantum-gray-dark);
+            text-align: right;
+        }
+
+        /* ================================================
+           DATA VISUALIZATION - Primary Feature (Scientific Research)
+           ================================================ */
+
+        .data-viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            position: relative;
+        }
+
+        .chart-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .chart-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--quantum-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .chart-subtitle {
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+        }
+
+        /* Simulated Chart - Quantum Wave Pattern */
+        .quantum-chart {
+            height: 200px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quantum-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, var(--glow-purple) 100%);
+            clip-path: polygon(
+                0% 70%, 10% 65%, 20% 68%, 30% 55%, 40% 60%,
+                50% 45%, 60% 50%, 70% 40%, 80% 45%, 90% 35%, 100% 40%,
+                100% 100%, 0% 100%
+            );
+            animation: waveShift 4s ease-in-out infinite;
+        }
+
+        @keyframes waveShift {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .data-point {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .data-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--quantum-blue-light);
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--font-mono);
+        }
+
+        .data-label {
+            font-size: 0.75rem;
+            color: var(--quantum-gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ================================================
+           HOLOGRAPHIC EFFECTS - Secondary Feature (Futuristic Tech)
+           ================================================ */
+
+        .holographic-panel {
+            background: linear-gradient(
+                135deg,
+                rgba(139, 92, 246, 0.1) 0%,
+                rgba(56, 189, 248, 0.1) 100%
+            );
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 70%
+            );
+            animation: holographicScan 6s linear infinite;
+        }
+
+        @keyframes holographicScan {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .quantum-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--quantum-blue-electric);
+            box-shadow: 0 0 20px var(--glow-blue);
+            animation: quantumBlink 2s ease-in-out infinite;
+        }
+
+        @keyframes quantumBlink {
+            0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--glow-blue); }
+            50% { opacity: 0.3; box-shadow: 0 0 5px var(--glow-blue); }
+        }
+
+        /* ================================================
+           COLLABORATION SIDEBAR - Secondary Feature (Scientific Research)
+           ================================================ */
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .collaborators-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: var(--spacing-lg);
+        }
+
+        .panel-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--quantum-white);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .collaborator-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .collaborator-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .collaborator-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .collaborator-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue-electric));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            position: relative;
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--quantum-success);
+            border: 2px solid rgba(17, 24, 39, 0.9);
+            border-radius: 50%;
+        }
+
+        .collaborator-info {
+            flex: 1;
+        }
+
+        .collaborator-name {
+            font-weight: 600;
+            color: var(--quantum-white);
+            font-size: 0.875rem;
+        }
+
+        .collaborator-role {
+            font-size: 0.75rem;
+            color: var(--quantum-gray-dark);
+        }
+
+        /* ================================================
+           PUBLICATION METRICS - Tertiary Feature (Academic Precision)
+           ================================================ */
+
+        .metrics-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-lg);
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-info {
+            flex: 1;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--quantum-purple-light);
+            font-family: var(--font-mono);
+        }
+
+        .metric-trend {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 0.75rem;
+            color: var(--quantum-success);
+        }
+
+        .trend-icon {
+            font-size: 1rem;
+        }
+
+        /* ================================================
+           PEER REVIEW SECTION - Tertiary Feature (Academic Precision)
+           ================================================ */
+
+        .review-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: var(--spacing-xl);
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .review-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--quantum-blue-electric);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .review-title {
+            font-weight: 600;
+            color: var(--quantum-white);
+            font-size: 0.875rem;
+        }
+
+        .review-status {
+            font-size: 0.75rem;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 12px;
+        }
+
+        .review-content {
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+            line-height: 1.5;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--quantum-gray-dark);
+        }
+
+        /* ================================================
+           CITATION SYSTEM - Tertiary Feature (Academic Precision)
+           ================================================ */
+
+        .citation-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-xl);
+        }
+
+        .citation-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.875rem;
+            border-left: 3px solid var(--quantum-purple);
+        }
+
+        .citation-authors {
+            color: var(--quantum-white);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .citation-title {
+            color: var(--quantum-blue-light);
+            font-style: italic;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .citation-details {
+            color: var(--quantum-gray-dark);
+            font-size: 0.75rem;
+        }
+
+        .citation-doi {
+            color: var(--quantum-blue-electric);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* ================================================
+           QUANTUM ACTIVITY FEED
+           ================================================ */
+
+        .activity-feed {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-lg);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .activity-feed::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .activity-feed::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .activity-feed::-webkit-scrollbar-thumb {
+            background: var(--quantum-purple);
+            border-radius: 3px;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+            color: var(--quantum-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--quantum-gray-dark);
+        }
+
+        /* ================================================
+           STATS OVERVIEW
+           ================================================ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(56, 189, 248, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--glow-purple) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--quantum-white);
+            font-family: var(--font-mono);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-change {
+            font-size: 0.75rem;
+            color: var(--quantum-success);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* ================================================
+           QUANTUM TOOLBAR
+           ================================================ */
+
+        .quantum-toolbar {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-md);
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .toolbar-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--quantum-white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .toolbar-btn:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--quantum-purple-light);
+        }
+
+        .toolbar-btn.active {
+            background: var(--quantum-purple);
+            border-color: var(--quantum-purple-light);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--quantum-white);
+            font-size: 0.875rem;
+        }
+
+        .search-box::placeholder {
+            color: var(--quantum-gray-dark);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--quantum-purple-light);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ================================================
+           FOOTER
+           ================================================ */
+
+        footer {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            font-size: 0.875rem;
+            color: var(--quantum-gray-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-link {
+            color: var(--quantum-blue-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--quantum-white);
+        }
+
+        /* ================================================
+           RESPONSIVE DESIGN
+           ================================================ */
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experiment-grid,
+            .data-viz-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .quantum-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+        }
+
+        /* ================================================
+           UTILITY CLASSES
+           ================================================ */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .mt-1 { margin-top: var(--spacing-sm); }
+        .mt-2 { margin-top: var(--spacing-md); }
+        .mt-3 { margin-top: var(--spacing-lg); }
+
+        .mb-1 { margin-bottom: var(--spacing-sm); }
+        .mb-2 { margin-bottom: var(--spacing-md); }
+        .mb-3 { margin-bottom: var(--spacing-lg); }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gap-1 { gap: var(--spacing-sm); }
+        .gap-2 { gap: var(--spacing-md); }
+        .gap-3 { gap: var(--spacing-lg); }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>101</strong> of 120 &mdash; Quantum Lab</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-100-heritage-society.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-102-maritime-guild.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 100) window.location.href = 'style-100-heritage-society.html';
+                if (e.key === 'ArrowRight' && 102) window.location.href = 'style-102-maritime-guild.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">Q</div>
+                    <div>
+                        <h1>Quantum Lab Interface</h1>
+                        <div class="logo-subtitle">Advanced Research Platform v4.2.0</div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">Export Data</button>
+                    <button class="btn btn-primary">New Experiment</button>
+                    <div class="user-profile">
+                        <div class="user-avatar">DR</div>
+                        <div>
+                            <div style="font-size: 0.875rem; font-weight: 600;">Dr. Rachel Chen</div>
+                            <div style="font-size: 0.75rem; color: var(--quantum-gray-dark);">Principal Investigator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🔬</div>
+                <div class="stat-value">47</div>
+                <div class="stat-label">Active Experiments</div>
+                <div class="stat-change">↑ 12% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value">1,284</div>
+                <div class="stat-label">Data Points Collected</div>
+                <div class="stat-change">↑ 23% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-value">15</div>
+                <div class="stat-label">Publications</div>
+                <div class="stat-change">↑ 3 this quarter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">28</div>
+                <div class="stat-label">Collaborators</div>
+                <div class="stat-change">↑ 5 new this month</div>
+            </div>
+        </div>
+
+        <!-- Quantum Toolbar -->
+        <div class="quantum-toolbar">
+            <div class="toolbar-group">
+                <button class="toolbar-btn active">
+                    <span>🔬</span>
+                    <span>All Experiments</span>
+                </button>
+                <button class="toolbar-btn">
+                    <span>⚡</span>
+                    <span>Quantum</span>
+                </button>
+                <button class="toolbar-btn">
+                    <span>🧬</span>
+                    <span>Biology</span>
+                </button>
+                <button class="toolbar-btn">
+                    <span>⚛️</span>
+                    <span>Physics</span>
+                </button>
+            </div>
+            <input type="text" class="search-box" placeholder="Search experiments, data, publications...">
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Main Content Area -->
+            <div class="experiments-section">
+                <!-- Experiment Tracking -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-title-icon">🔬</span>
+                            Active Experiments
+                        </h2>
+                        <span class="status-badge status-active">47 Running</span>
+                    </div>
+
+                    <div class="experiment-grid">
+                        <div class="experiment-card">
+                            <div class="experiment-header">
+                                <span class="experiment-id">QNT-2024-001</span>
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                            <h3 class="experiment-title">Quantum Entanglement Coherence</h3>
+                            <div class="experiment-meta">
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Started:</span>
+                                    <span class="experiment-meta-value">Dec 1, 2024</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Lead:</span>
+                                    <span class="experiment-meta-value">Dr. Chen</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Samples:</span>
+                                    <span class="experiment-meta-value">2,847</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                            <div class="progress-label">78% Complete</div>
+                        </div>
+
+                        <div class="experiment-card">
+                            <div class="experiment-header">
+                                <span class="experiment-id">BIO-2024-012</span>
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                            <h3 class="experiment-title">Protein Folding Analysis</h3>
+                            <div class="experiment-meta">
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Started:</span>
+                                    <span class="experiment-meta-value">Nov 28, 2024</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Lead:</span>
+                                    <span class="experiment-meta-value">Dr. Kumar</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Samples:</span>
+                                    <span class="experiment-meta-value">1,523</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="progress-label">45% Complete</div>
+                        </div>
+
+                        <div class="experiment-card">
+                            <div class="experiment-header">
+                                <span class="experiment-id">PHY-2024-008</span>
+                                <span class="status-badge status-pending">Pending</span>
+                            </div>
+                            <h3 class="experiment-title">Dark Matter Simulation</h3>
+                            <div class="experiment-meta">
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Started:</span>
+                                    <span class="experiment-meta-value">Dec 5, 2024</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Lead:</span>
+                                    <span class="experiment-meta-value">Dr. Thompson</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Samples:</span>
+                                    <span class="experiment-meta-value">892</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%"></div>
+                            </div>
+                            <div class="progress-label">15% Complete</div>
+                        </div>
+
+                        <div class="experiment-card">
+                            <div class="experiment-header">
+                                <span class="experiment-id">QNT-2024-002</span>
+                                <span class="status-badge status-completed">Completed</span>
+                            </div>
+                            <h3 class="experiment-title">Superposition State Measurement</h3>
+                            <div class="experiment-meta">
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Started:</span>
+                                    <span class="experiment-meta-value">Nov 15, 2024</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Lead:</span>
+                                    <span class="experiment-meta-value">Dr. Lee</span>
+                                </div>
+                                <div class="experiment-meta-item">
+                                    <span class="experiment-meta-label">Samples:</span>
+                                    <span class="experiment-meta-value">4,156</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <div class="progress-label">100% Complete</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Visualization -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-title-icon">📊</span>
+                            Data Visualization
+                        </h2>
+                        <span class="quantum-indicator"></span>
+                    </div>
+
+                    <div class="data-viz-grid">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3 class="chart-title">Quantum Coherence Over Time</h3>
+                                <p class="chart-subtitle">Last 7 days - Real-time monitoring</p>
+                            </div>
+                            <div class="quantum-chart">
+                                <div class="quantum-wave"></div>
+                            </div>
+                            <div class="data-grid">
+                                <div class="data-point">
+                                    <div class="data-value">92.4%</div>
+                                    <div class="data-label">Coherence</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">1.8ms</div>
+                                    <div class="data-label">Decay Time</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">99.2%</div>
+                                    <div class="data-label">Fidelity</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">5.2K</div>
+                                    <div class="data-label">Samples</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container holographic-panel">
+                            <div class="chart-header">
+                                <h3 class="chart-title">Experiment Success Rate</h3>
+                                <p class="chart-subtitle">Across all categories</p>
+                            </div>
+                            <div class="data-grid" style="grid-template-columns: 1fr;">
+                                <div class="data-point">
+                                    <div class="data-value">87.3%</div>
+                                    <div class="data-label">Quantum Physics</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">94.1%</div>
+                                    <div class="data-label">Biology</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">91.7%</div>
+                                    <div class="data-label">Chemistry</div>
+                                </div>
+                                <div class="data-point">
+                                    <div class="data-value">89.5%</div>
+                                    <div class="data-label">Materials Science</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peer Review Section -->
+                <div class="review-panel">
+                    <div class="card-header" style="border: none; padding-bottom: var(--spacing-md);">
+                        <h2 class="card-title">
+                            <span class="card-title-icon">📝</span>
+                            Peer Review Queue
+                        </h2>
+                        <span class="status-badge status-pending">8 Pending</span>
+                    </div>
+
+                    <div class="review-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <h4 class="review-title">Quantum Entanglement Paper - Nature Physics</h4>
+                                <span class="status-badge status-pending">Under Review</span>
+                            </div>
+                            <p class="review-content">
+                                Novel approach to maintaining quantum coherence at room temperature. Methodology section requires clarification on measurement protocols. Statistical analysis is robust.
+                            </p>
+                            <div class="review-meta">
+                                <span>Reviewer: Dr. Sarah Martinez</span>
+                                <span>Due: Dec 15, 2024</span>
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <h4 class="review-title">Protein Structure Prediction - Cell</h4>
+                                <span class="status-badge status-active">In Progress</span>
+                            </div>
+                            <p class="review-content">
+                                Impressive application of ML to protein folding. Recommend acceptance with minor revisions to computational methods section.
+                            </p>
+                            <div class="review-meta">
+                                <span>Reviewer: Dr. James Peterson</span>
+                                <span>Due: Dec 12, 2024</span>
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <h4 class="review-title">Dark Matter Detection Methods - Physical Review D</h4>
+                                <span class="status-badge status-completed">Approved</span>
+                            </div>
+                            <p class="review-content">
+                                Groundbreaking experimental design. All reviewer comments addressed. Ready for publication.
+                            </p>
+                            <div class="review-meta">
+                                <span>Reviewer: Dr. Emily Chang</span>
+                                <span>Completed: Dec 8, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Citation System -->
+                <div class="citation-panel">
+                    <div class="card-header" style="border: none; padding-bottom: var(--spacing-md);">
+                        <h2 class="card-title">
+                            <span class="card-title-icon">📚</span>
+                            Recent Citations
+                        </h2>
+                    </div>
+
+                    <div class="citation-item">
+                        <div class="citation-authors">Chen, R., Kumar, S., Thompson, M.</div>
+                        <div class="citation-title">"Quantum coherence preservation in ambient conditions: A breakthrough in scalable quantum computing"</div>
+                        <div class="citation-details">Nature Physics, vol. 20, no. 4, pp. 423-438, 2024</div>
+                        <div class="citation-doi">DOI: 10.1038/s41567-024-02384-1</div>
+                    </div>
+
+                    <div class="citation-item">
+                        <div class="citation-authors">Lee, J., Martinez, A., Chen, R.</div>
+                        <div class="citation-title">"Machine learning approaches to protein structure prediction with quantum-enhanced algorithms"</div>
+                        <div class="citation-details">Cell, vol. 187, no. 12, pp. 3245-3262, 2024</div>
+                        <div class="citation-doi">DOI: 10.1016/j.cell.2024.05.012</div>
+                    </div>
+
+                    <div class="citation-item">
+                        <div class="citation-authors">Peterson, H., Chen, R., Wong, L.</div>
+                        <div class="citation-title">"Novel dark matter detection methods using quantum entangled particles"</div>
+                        <div class="citation-details">Physical Review D, vol. 109, no. 8, pp. 082001, 2024</div>
+                        <div class="citation-doi">DOI: 10.1103/PhysRevD.109.082001</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Collaborators Panel -->
+                <div class="collaborators-panel">
+                    <h3 class="panel-title">
+                        <span>👥</span>
+                        Active Collaborators
+                    </h3>
+                    <div class="collaborator-list">
+                        <div class="collaborator-item">
+                            <div class="collaborator-avatar">
+                                SK
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <div class="collaborator-name">Dr. Sanjay Kumar</div>
+                                <div class="collaborator-role">Quantum Physicist</div>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-item">
+                            <div class="collaborator-avatar">
+                                MT
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <div class="collaborator-name">Dr. Maria Thompson</div>
+                                <div class="collaborator-role">Molecular Biologist</div>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-item">
+                            <div class="collaborator-avatar">JL</div>
+                            <div class="collaborator-info">
+                                <div class="collaborator-name">Dr. James Lee</div>
+                                <div class="collaborator-role">Data Scientist</div>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-item">
+                            <div class="collaborator-avatar">
+                                SM
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <div class="collaborator-name">Dr. Sarah Martinez</div>
+                                <div class="collaborator-role">Astrophysicist</div>
+                            </div>
+                        </div>
+
+                        <div class="collaborator-item">
+                            <div class="collaborator-avatar">HP</div>
+                            <div class="collaborator-info">
+                                <div class="collaborator-name">Dr. Henry Peterson</div>
+                                <div class="collaborator-role">Research Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication Metrics -->
+                <div class="metrics-panel">
+                    <h3 class="panel-title">
+                        <span>📈</span>
+                        Publication Metrics
+                    </h3>
+                    <div class="metric-item">
+                        <div class="metric-info">
+                            <div class="metric-label">H-Index</div>
+                            <div class="metric-value">42</div>
+                            <div class="metric-trend">
+                                <span class="trend-icon">↑</span>
+                                <span>+3 this year</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-info">
+                            <div class="metric-label">Total Citations</div>
+                            <div class="metric-value">2,847</div>
+                            <div class="metric-trend">
+                                <span class="trend-icon">↑</span>
+                                <span>+247 this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-info">
+                            <div class="metric-label">Impact Factor</div>
+                            <div class="metric-value">8.9</div>
+                            <div class="metric-trend">
+                                <span class="trend-icon">↑</span>
+                                <span>+0.4 this quarter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-item">
+                        <div class="metric-info">
+                            <div class="metric-label">Publications</div>
+                            <div class="metric-value">156</div>
+                            <div class="metric-trend">
+                                <span class="trend-icon">↑</span>
+                                <span>+8 this year</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <h3 class="panel-title">
+                        <span>⚡</span>
+                        Recent Activity
+                    </h3>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">🔬</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>QNT-2024-001</strong> reached 78% completion</div>
+                            <div class="activity-time">12 minutes ago</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Dr. Martinez</strong> submitted peer review</div>
+                            <div class="activity-time">1 hour ago</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">📊</div>
+                        <div class="activity-content">
+                            <div class="activity-text">New data visualization created for <strong>BIO-2024-012</strong></div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">👥</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Dr. Kumar</strong> joined the team</div>
+                            <div class="activity-time">3 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">📚</div>
+                        <div class="activity-content">
+                            <div class="activity-text">Paper cited in <strong>Nature Physics</strong></div>
+                            <div class="activity-time">5 hours ago</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>PHY-2024-008</strong> validation complete</div>
+                            <div class="activity-time">6 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>&copy; 2024 Quantum Lab Interface. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">API Reference</a>
+                    <a href="#" class="footer-link">Support</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div>Version 4.2.0 | Build 20241209</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulate real-time updates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate quantum indicators
+            const indicators = document.querySelectorAll('.quantum-indicator');
+            indicators.forEach(indicator => {
+                setInterval(() => {
+                    indicator.style.opacity = Math.random() * 0.5 + 0.5;
+                }, 2000);
+            });
+
+            // Simulate progress updates
+            const progressBars = document.querySelectorAll('.progress-fill');
+            setInterval(() => {
+                progressBars.forEach(bar => {
+                    const currentWidth = parseInt(bar.style.width);
+                    if (currentWidth < 100 && Math.random() > 0.7) {
+                        const newWidth = Math.min(currentWidth + Math.random() * 2, 100);
+                        bar.style.width = newWidth + '%';
+                        const label = bar.parentElement.nextElementSibling;
+                        if (label) {
+                            label.textContent = Math.round(newWidth) + '% Complete';
+                        }
+                    }
+                });
+            }, 5000);
+
+            // Add interactivity to experiment cards
+            const experimentCards = document.querySelectorAll('.experiment-card');
+            experimentCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    console.log('Experiment card clicked:', this.querySelector('.experiment-title').textContent);
+                });
+            });
+
+            // Console welcome message
+            console.log('%c🔬 Quantum Lab Interface', 'font-size: 20px; font-weight: bold; color: #8B5CF6;');
+            console.log('%cAdvanced Research Platform v4.2.0', 'font-size: 14px; color: #06B6D4;');
+            console.log('%cStyle 101: Scientific Research (60%) + Futuristic Tech (25%) + Academic Precision (15%)', 'font-size: 12px; color: #9CA3AF;');
+        });
+    </script>
+</body>
+</html>

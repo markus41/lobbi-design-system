@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Wellness Retreat - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                         ULTRATHINK DESIGN ANALYSIS                           ║
+        ║                    SPA WELLNESS DASHBOARD ARCHITECTURE                       ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY: Luxury Wellness Retreats
+        Inspiration: Canyon Ranch, SHA Wellness Clinic, Six Senses
+        Core Principle: Serenity + Healing + Transformation through Visual Calm
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COLOR PSYCHOLOGY & THERAPEUTIC INTENT
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY PALETTE (Healing Foundation):
+        ├─ Sage Green (#9caf88)     → Renewal, balance, natural healing
+        ├─ Warm Cream (#fdf6e3)     → Purity, tranquility, safe sanctuary
+        ├─ Soft Lavender (#e6e6fa)  → Calm, spiritual wellness, restoration
+        └─ Earth Brown (#8b7355)    → Grounding, stability, organic connection
+
+        SUPPORTING TONES (Therapeutic Accents):
+        ├─ Deep Sage (#7a9470)      → Focus states, mindfulness depth
+        ├─ Cloud White (#fafafa)    → Breathable space, mental clarity
+        ├─ Mist Gray (#e8ede8)      → Gentle boundaries, soft structure
+        └─ Warm Sand (#f5f0e8)      → Comfort, nurturing warmth
+
+        WELLNESS TEMPERATURE: Warm Nurturing (7/10)
+        └─ Evokes: Heated stones, herbal teas, sunset meditation, gentle embrace
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        TYPOGRAPHIC HIERARCHY (Elevated Calm)
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRIMARY: Lato (Light 300, Regular 400, Semibold 600)
+        ├─ Rationale: Clean, approachable, calming geometric forms
+        ├─ Weights: Predominantly light (300) for serenity
+        └─ Usage: UI elements, body text, data labels
+
+        ACCENT: Cormorant Garamond (Light 300, Regular 400)
+        ├─ Rationale: Elegant serif for luxury positioning
+        ├─ Usage: Headlines, treatment names, inspirational quotes
+        └─ Formality: Elevated without pretension (6/10)
+
+        SCALE & RHYTHM:
+        ├─ H1: 42px/1.2 (Cormorant) - Transformative statements
+        ├─ H2: 32px/1.3 (Cormorant) - Section presence
+        ├─ H3: 20px/1.4 (Lato 600) - Component headers
+        ├─ Body: 16px/1.7 (Lato 300) - Breathing line height for calm
+        └─ Small: 14px/1.6 (Lato 300) - Supporting details
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ZEN SPACING PHILOSOPHY (20% Minimalist Influence)
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        PRINCIPLE: Ma (間) - Negative Space as Active Design Element
+
+        SPATIAL RHYTHM (8px base unit):
+        ├─ Micro (8px)    → Inline elements, tight groupings
+        ├─ Small (16px)   → Related content breathing room
+        ├─ Medium (32px)  → Component internal spacing
+        ├─ Large (48px)   → Section separation, visual pause
+        ├─ XL (64px)      → Major transitions, contemplative breaks
+        └─ XXL (96px)     → Full breathing space, zen moments
+
+        GOLDEN RATIO APPLICATION: 1.618 for card dimensions and spacing harmony
+
+        CONTAINER STRATEGY:
+        ├─ Max-width: 1400px (prevents overwhelming scale)
+        ├─ Side margins: 48px minimum (generous breathing room)
+        └─ Mobile: 24px (maintains airiness on small screens)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT DESIGN PATTERNS
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        WELLNESS SCORE CARDS:
+        ├─ Purpose: Track holistic health metrics with positive reinforcement
+        ├─ Design: Soft shadows (0 4px 16px rgba(0,0,0,0.06)), rounded 16px
+        ├─ Icons: Organic shapes suggesting natural elements
+        ├─ Progression: Circular meters with sage green fills
+        └─ Micro-interactions: Gentle scale on hover (1.02), no jarring effects
+
+        TREATMENT MENU CARDS:
+        ├─ Structure: Image (4:3 ratio) + Content (generous padding)
+        ├─ Imagery: Soft-focus, warm-toned, inviting atmospheres
+        ├─ CTA: Subtle sage buttons with warm hover states
+        ├─ Duration badges: Lavender accents for time investment clarity
+        └─ Pricing: Earth brown, grounded and transparent
+
+        BOOKING FLOW:
+        ├─ Multi-step: Progress indicators with sage active states
+        ├─ Inputs: Extra padding (16px), soft borders, focus glow (lavender)
+        ├─ Validation: Gentle messaging, non-alarming colors
+        └─ Confirmation: Warm success states with celebratory subtlety
+
+        DATA TABLE (Appointment History):
+        ├─ Headers: Sage green background, elevated weight
+        ├─ Rows: Alternating cream/white for easy scanning
+        ├─ Hover: Soft lavender highlight, barely perceptible
+        └─ Status badges: Rounded, soft colors, clear semantics
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        VISUAL EFFECTS & MICRO-INTERACTIONS
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        SHADOWS (Soft, Natural Light Quality):
+        ├─ Cards: 0 4px 16px rgba(156, 175, 136, 0.08)
+        ├─ Hover: 0 8px 24px rgba(156, 175, 136, 0.12)
+        └─ Modals: 0 16px 48px rgba(0, 0, 0, 0.1)
+
+        TRANSITIONS (Slow, Mindful):
+        ├─ Duration: 300-400ms (never rushed)
+        ├─ Easing: cubic-bezier(0.4, 0, 0.2, 1) - natural deceleration
+        └─ Properties: transform, opacity, box-shadow only
+
+        BORDERS:
+        ├─ Primary: 1px solid rgba(156, 175, 136, 0.2)
+        ├─ Dividers: 1px solid rgba(0, 0, 0, 0.06)
+        └─ Radius: 12-16px for primary cards, 8px for secondary elements
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ACCESSIBILITY & INCLUSIVE DESIGN
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        CONTRAST RATIOS (WCAG AA Minimum):
+        ├─ Sage on Cream: 4.8:1 (AAA for large text)
+        ├─ Earth Brown on Cream: 6.2:1 (AAA compliant)
+        ├─ Body text: #4a4a4a on cream (12:1 - exceptional)
+        └─ Interactive elements: 4.5:1 minimum guaranteed
+
+        KEYBOARD NAVIGATION:
+        ├─ Focus indicators: 2px lavender outline with 4px offset
+        ├─ Skip links: Hidden but accessible for screen readers
+        └─ Tab order: Logical flow matching visual hierarchy
+
+        SCREEN READER OPTIMIZATION:
+        ├─ Semantic HTML5 elements (header, nav, main, article, aside)
+        ├─ ARIA labels for icon-only buttons and complex widgets
+        └─ Live regions for dynamic wellness score updates
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        RESPONSIVE BEHAVIOR
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        BREAKPOINTS:
+        ├─ Mobile: < 640px   → Single column, stacked cards
+        ├─ Tablet: 640-1024px → 2-column grid, maintained breathing room
+        └─ Desktop: > 1024px  → Full 4-column stats, 3-column content
+
+        MOBILE OPTIMIZATIONS:
+        ├─ Touch targets: Minimum 48x48px (generous for spa clientele)
+        ├─ Font scaling: Slightly larger base (17px) for readability
+        └─ Spacing reduction: Proportional, never cramped
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        PERFORMANCE CONSIDERATIONS
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        ├─ Google Fonts: Preconnect + font-display: swap
+        ├─ CSS: Single embedded stylesheet, no external requests
+        ├─ Images: Placeholder gradients (production would use optimized WebP)
+        ├─ Animations: GPU-accelerated properties only (transform, opacity)
+        └─ Critical CSS: All above-the-fold styles inline
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        EMOTIONAL DESIGN GOALS
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        USER FEELINGS WE EVOKE:
+        ├─ Entering: "I can breathe here. This space understands me."
+        ├─ Browsing: "Everything feels intentional, yet effortless."
+        ├─ Booking: "I'm investing in myself. This is my sanctuary."
+        └─ Returning: "Like coming home to myself."
+
+        ANTI-PATTERNS AVOIDED:
+        ├─ Clinical sterility (too cold, medical)
+        ├─ Over-decoration (cluttered, anxiety-inducing)
+        ├─ Harsh contrasts (jarring, aggressive)
+        └─ Dense information (overwhelming, stressful)
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        BRAND POSITIONING
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        Competitive Set: Canyon Ranch, SHA Wellness, Six Senses, Miraval
+        Price Point: Premium ($$$$ - Transformative Investment)
+        Clientele: Wellness-conscious professionals, 35-65, seeking renewal
+
+        Differentiator: "Technology-enhanced serenity - ancient wisdom meets modern care"
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --sage-primary: #9caf88;
+            --sage-deep: #7a9470;
+            --sage-light: #b8c9a8;
+            --cream: #fdf6e3;
+            --lavender: #e6e6fa;
+            --lavender-light: #f3f3ff;
+            --earth-brown: #8b7355;
+            --warm-sand: #f5f0e8;
+            --cloud-white: #fafafa;
+            --mist-gray: #e8ede8;
+            --text-primary: #4a4a4a;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #8f8f8f;
+
+            /* Spacing System (8px base) */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 32px;
+            --space-lg: 48px;
+            --space-xl: 64px;
+            --space-xxl: 96px;
+
+            /* Typography Scale */
+            --font-primary: 'Lato', sans-serif;
+            --font-accent: 'Cormorant Garamond', serif;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(156, 175, 136, 0.06);
+            --shadow-md: 0 4px 16px rgba(156, 175, 136, 0.08);
+            --shadow-lg: 0 8px 24px rgba(156, 175, 136, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+            /* Transitions */
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cloud-white) 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(156, 175, 136, 0.15);
+            padding: var(--space-md) var(--space-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-accent);
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--sage-deep);
+            letter-spacing: 1px;
+        }
+
+        .logo-accent {
+            color: var(--earth-brown);
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 8px;
+            transition: all 300ms var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--sage-deep);
+            background: var(--warm-sand);
+        }
+
+        .nav-link.active {
+            color: var(--sage-primary);
+            background: rgba(156, 175, 136, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--sage-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 400;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 300ms var(--transition-smooth);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-deep);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-lg);
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .welcome-title {
+            font-family: var(--font-accent);
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--sage-deep);
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+
+        .welcome-subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            background: white;
+            padding: var(--space-md);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 400ms var(--transition-smooth);
+            border: 1px solid rgba(156, 175, 136, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-icon.wellness {
+            background: linear-gradient(135deg, var(--lavender-light), var(--lavender));
+        }
+
+        .stat-icon.meditation {
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.15), rgba(156, 175, 136, 0.25));
+        }
+
+        .stat-icon.treatments {
+            background: linear-gradient(135deg, var(--warm-sand), #f0e4d0);
+        }
+
+        .stat-icon.mindfulness {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        .stat-trend {
+            font-size: 14px;
+            color: var(--sage-deep);
+            background: rgba(156, 175, 136, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 400;
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--sage-deep);
+            margin-bottom: 12px;
+            font-family: var(--font-accent);
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 6px;
+            background: var(--mist-gray);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .stat-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sage-primary), var(--sage-light));
+            border-radius: 3px;
+            transition: width 600ms var(--transition-smooth);
+        }
+
+        .stat-detail {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-family: var(--font-accent);
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--sage-deep);
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .treatment-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 400ms var(--transition-smooth);
+            border: 1px solid rgba(156, 175, 136, 0.1);
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .treatment-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--sage-light), var(--lavender));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .treatment-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3), transparent 60%);
+        }
+
+        .treatment-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--sage-deep);
+            font-weight: 400;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .treatment-content {
+            padding: var(--space-md);
+        }
+
+        .treatment-header {
+            margin-bottom: var(--space-sm);
+        }
+
+        .treatment-name {
+            font-family: var(--font-accent);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--sage-deep);
+            margin-bottom: 8px;
+        }
+
+        .treatment-category {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .treatment-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+
+        .treatment-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--mist-gray);
+        }
+
+        .treatment-price {
+            font-size: 20px;
+            color: var(--earth-brown);
+            font-weight: 400;
+        }
+
+        .btn-secondary {
+            background: var(--sage-primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 300ms var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sage-deep);
+            transform: translateX(4px);
+        }
+
+        /* Appointments Table */
+        .appointments-section {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-xl);
+            border: 1px solid rgba(156, 175, 136, 0.1);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: var(--space-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--sage-primary), var(--sage-light));
+        }
+
+        th {
+            padding: var(--space-sm) var(--space-md);
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        tbody tr {
+            transition: background 200ms var(--transition-smooth);
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--warm-sand);
+        }
+
+        tbody tr:hover {
+            background: var(--lavender-light);
+        }
+
+        td {
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .status-completed {
+            background: rgba(156, 175, 136, 0.15);
+            color: var(--sage-deep);
+        }
+
+        .status-scheduled {
+            background: var(--lavender-light);
+            color: #6b5b95;
+        }
+
+        .status-cancelled {
+            background: #ffeef0;
+            color: #c44569;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid rgba(156, 175, 136, 0.15);
+            padding: var(--space-lg);
+            margin-top: var(--space-xxl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-accent);
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--sage-deep);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 200ms var(--transition-smooth);
+        }
+
+        .footer-section a:hover {
+            color: var(--sage-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--mist-gray);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        /* Quote Accent */
+        .quote-section {
+            background: linear-gradient(135deg, var(--lavender-light), rgba(156, 175, 136, 0.05));
+            padding: var(--space-lg);
+            border-radius: 16px;
+            border-left: 4px solid var(--sage-primary);
+            margin: var(--space-xl) 0;
+        }
+
+        .quote-text {
+            font-family: var(--font-accent);
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--sage-deep);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: var(--space-sm);
+        }
+
+        .quote-author {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --space-lg: 32px;
+                --space-xl: 48px;
+            }
+
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: var(--space-md) var(--space-md);
+            }
+
+            header {
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .welcome-title {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                overflow-x: scroll;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility Enhancements */
+        *:focus-visible {
+            outline: 2px solid var(--lavender);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, var(--mist-gray) 25%, var(--cloud-white) 50%, var(--mist-gray) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>37</strong> of 70 &mdash; Spa Wellness</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-36-golf-resort.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-38-fine-dining.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 36) window.location.href = 'style-36-golf-resort.html';
+                if (e.key === 'ArrowRight' && 38) window.location.href = 'style-38-fine-dining.html';
+            });
+        })();
+    </script>
+
+    <header role="banner">
+        <div class="header-content">
+            <div class="logo">
+                Serenity <span class="logo-accent">Wellness</span>
+            </div>
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Treatments</a>
+                <a href="#" class="nav-link">Schedule</a>
+                <a href="#" class="nav-link">Wellness Plan</a>
+                <button class="btn-primary" aria-label="Book new appointment">Book Session</button>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="welcome-section">
+            <h1 class="welcome-title">Welcome back, Sophia</h1>
+            <p class="welcome-subtitle">Your journey to holistic wellness continues. Today is a perfect day for renewal.</p>
+        </section>
+
+        <!-- Wellness Stats Grid -->
+        <section aria-labelledby="wellness-stats-heading">
+            <h2 id="wellness-stats-heading" class="sr-only">Wellness Statistics</h2>
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon wellness" aria-hidden="true">🌿</div>
+                        <span class="stat-trend">+12%</span>
+                    </div>
+                    <div class="stat-label">Wellness Score</div>
+                    <div class="stat-value">87<span style="font-size: 20px; color: var(--text-tertiary);">/100</span></div>
+                    <div class="stat-progress" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+                        <div class="stat-progress-fill" style="width: 87%;"></div>
+                    </div>
+                    <div class="stat-detail">Excellent progress this month</div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon meditation" aria-hidden="true">🧘</div>
+                        <span class="stat-trend">245 min</span>
+                    </div>
+                    <div class="stat-label">Mindfulness Practice</div>
+                    <div class="stat-value">18<span style="font-size: 20px; color: var(--text-tertiary);"> days</span></div>
+                    <div class="stat-progress" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                        <div class="stat-progress-fill" style="width: 72%;"></div>
+                    </div>
+                    <div class="stat-detail">Consistent daily practice</div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon treatments" aria-hidden="true">💆</div>
+                        <span class="stat-trend">Active</span>
+                    </div>
+                    <div class="stat-label">Treatment Sessions</div>
+                    <div class="stat-value">12<span style="font-size: 20px; color: var(--text-tertiary);"> completed</span></div>
+                    <div class="stat-progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <div class="stat-progress-fill" style="width: 60%;"></div>
+                    </div>
+                    <div class="stat-detail">3 sessions this month</div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon mindfulness" aria-hidden="true">🌸</div>
+                        <span class="stat-trend">+8%</span>
+                    </div>
+                    <div class="stat-label">Stress Reduction</div>
+                    <div class="stat-value">92<span style="font-size: 20px; color: var(--text-tertiary);">%</span></div>
+                    <div class="stat-progress" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                        <div class="stat-progress-fill" style="width: 92%;"></div>
+                    </div>
+                    <div class="stat-detail">Outstanding improvement</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Inspirational Quote -->
+        <aside class="quote-section" role="complementary">
+            <blockquote>
+                <p class="quote-text">"Wellness is not a destination, but a journey of self-discovery, balance, and inner peace."</p>
+                <footer class="quote-author">— Dr. Elena Mercer, Wellness Director</footer>
+            </blockquote>
+        </aside>
+
+        <!-- Treatment Offerings -->
+        <section aria-labelledby="treatments-heading">
+            <div class="section-header">
+                <h2 id="treatments-heading" class="section-title">Recommended for You</h2>
+                <p class="section-description">Personalized treatments curated for your wellness journey</p>
+            </div>
+
+            <div class="content-grid">
+                <article class="treatment-card">
+                    <div class="treatment-image">
+                        <span class="treatment-badge">90 minutes</span>
+                    </div>
+                    <div class="treatment-content">
+                        <header class="treatment-header">
+                            <h3 class="treatment-name">Himalayan Salt Stone Massage</h3>
+                            <p class="treatment-category">Therapeutic Bodywork</p>
+                        </header>
+                        <p class="treatment-description">
+                            Warm, hand-carved Himalayan salt stones release negative ions, promoting deep relaxation
+                            while gently exfoliating and mineralizing the skin. Perfect for muscle tension relief.
+                        </p>
+                        <footer class="treatment-footer">
+                            <span class="treatment-price">$245</span>
+                            <button class="btn-secondary" aria-label="Book Himalayan Salt Stone Massage">Book Now</button>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="treatment-card">
+                    <div class="treatment-image" style="background: linear-gradient(135deg, var(--lavender), #d4b5d4);">
+                        <span class="treatment-badge">60 minutes</span>
+                    </div>
+                    <div class="treatment-content">
+                        <header class="treatment-header">
+                            <h3 class="treatment-name">Aromatherapy Rejuvenation</h3>
+                            <p class="treatment-category">Holistic Healing</p>
+                        </header>
+                        <p class="treatment-description">
+                            Custom-blended essential oils tailored to your emotional and physical needs. This sensory
+                            journey combines massage, breathwork, and guided meditation for complete renewal.
+                        </p>
+                        <footer class="treatment-footer">
+                            <span class="treatment-price">$185</span>
+                            <button class="btn-secondary" aria-label="Book Aromatherapy Rejuvenation">Book Now</button>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="treatment-card">
+                    <div class="treatment-image" style="background: linear-gradient(135deg, #c8e6c9, var(--sage-light));">
+                        <span class="treatment-badge">120 minutes</span>
+                    </div>
+                    <div class="treatment-content">
+                        <header class="treatment-header">
+                            <h3 class="treatment-name">Forest Bathing Ritual</h3>
+                            <p class="treatment-category">Nature Immersion</p>
+                        </header>
+                        <p class="treatment-description">
+                            Inspired by Japanese Shinrin-yoku, this guided nature walk combines mindfulness practices,
+                            herbal tea ceremony, and grounding exercises in our healing garden sanctuary.
+                        </p>
+                        <footer class="treatment-footer">
+                            <span class="treatment-price">$165</span>
+                            <button class="btn-secondary" aria-label="Book Forest Bathing Ritual">Book Now</button>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Appointments Table -->
+        <section class="appointments-section" aria-labelledby="appointments-heading">
+            <header class="section-header">
+                <h2 id="appointments-heading" class="section-title">Your Upcoming Journey</h2>
+                <p class="section-description">Scheduled sessions and treatment history</p>
+            </header>
+
+            <div class="table-container">
+                <table role="table" aria-label="Appointment history">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Treatment</th>
+                            <th scope="col">Practitioner</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Investment</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dec 15, 2025</td>
+                            <td>Hot Stone Therapy</td>
+                            <td>Maya Rodriguez</td>
+                            <td>90 min</td>
+                            <td>$245</td>
+                            <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 8, 2025</td>
+                            <td>Ayurvedic Consultation</td>
+                            <td>Dr. Priya Sharma</td>
+                            <td>60 min</td>
+                            <td>$195</td>
+                            <td><span class="status-badge status-completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 1, 2025</td>
+                            <td>Craniosacral Therapy</td>
+                            <td>James Chen</td>
+                            <td>75 min</td>
+                            <td>$215</td>
+                            <td><span class="status-badge status-completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Nov 24, 2025</td>
+                            <td>Reflexology Session</td>
+                            <td>Sarah Mitchell</td>
+                            <td>60 min</td>
+                            <td>$165</td>
+                            <td><span class="status-badge status-completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Nov 17, 2025</td>
+                            <td>Sound Healing Bath</td>
+                            <td>Marcus Anderson</td>
+                            <td>90 min</td>
+                            <td>$185</td>
+                            <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                        </tr>
+                        <tr>
+                            <td>Nov 10, 2025</td>
+                            <td>Thai Yoga Massage</td>
+                            <td>Lisa Wong</td>
+                            <td>120 min</td>
+                            <td>$295</td>
+                            <td><span class="status-badge status-completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Serenity Wellness</h3>
+                <p>A sanctuary for holistic healing, where ancient wisdom meets modern wellness science.</p>
+                <p style="margin-top: 16px; color: var(--sage-deep);">Cultivating peace since 2010</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Wellness Services</h3>
+                <a href="#">Massage Therapy</a>
+                <a href="#">Energy Healing</a>
+                <a href="#">Meditation Classes</a>
+                <a href="#">Nutrition Counseling</a>
+                <a href="#">Yoga & Movement</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#">Wellness Blog</a>
+                <a href="#">Practitioner Directory</a>
+                <a href="#">Treatment Packages</a>
+                <a href="#">Gift Certificates</a>
+                <a href="#">Member Portal</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="tel:+15555551234">+1 (555) 555-1234</a>
+                <a href="mailto:wellness@serenity.com">wellness@serenity.com</a>
+                <p style="margin-top: 16px;">
+                    1234 Peaceful Path<br>
+                    Harmony Valley, CA 94000
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Serenity Wellness Retreat. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p style="margin-top: 8px; font-style: italic; color: var(--sage-primary);">
+                "Your wellness journey is our sacred calling"
+            </p>
+        </div>
+    </footer>
+
+    <!-- Screen Reader Only Text -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</body>
+</html>

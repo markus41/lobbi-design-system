@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 88: Cooperative Association + Member Ownership | LOBBI Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ULTRATHINK DESIGN ANALYSIS
+        ═══════════════════════════════════════════════════════════════════
+        Style ID: 88 - Cooperative Association + Member Ownership
+        ═══════════════════════════════════════════════════════════════════
+
+        DESIGN PHILOSOPHY:
+        - Cooperative Model: 80% (Democratic governance, shared prosperity)
+        - Member Ownership: 20% (Active participation, shared benefits)
+        - Temperature: 7/10 (Warm, inclusive, community-focused)
+        - Formality: 6/10 (Professional but grassroots, approachable)
+
+        TARGET AUDIENCE:
+        - Agricultural cooperatives
+        - Retail cooperatives
+        - Worker-owned businesses
+        - Mutual aid organizations
+        - Credit unions
+        - Community-owned enterprises
+
+        COLOR PSYCHOLOGY:
+        - Cooperative Green (#15803d): Growth, sustainability, prosperity
+        - Harvest Gold (#ca8a04): Abundance, value creation, reward
+        - Natural Cream (#fefce8): Warmth, organic, earthiness
+        - Forest Brown (#422006): Stability, groundedness, tradition
+        - Community Blue (#0284c7): Connection, trust, collaboration
+
+        TYPOGRAPHY STRATEGY:
+        - Cabin: Democratic strength, accessibility, clarity
+        - Source Sans Pro: Universal readability, inclusive design
+        - Member-first language: "Your co-op", "Our members", "Together"
+
+        KEY DESIGN ELEMENTS:
+        1. Patronage dividend tracker (member returns)
+        2. Member voting dashboard (democratic governance)
+        3. Annual meeting countdown (engagement)
+        4. Board election status (participation)
+        5. Local sourcing metrics (community support)
+        6. Community impact statistics (shared value)
+        7. Member education resources (capacity building)
+        8. Cooperative principles display (values alignment)
+
+        INFORMATION HIERARCHY:
+        1. Member benefits and returns (patronage dividends)
+        2. Democratic participation opportunities
+        3. Collective impact metrics
+        4. Individual member engagement
+        5. Educational and development resources
+
+        INTERACTION PATTERNS:
+        - Emphasize member voice and participation
+        - Highlight collective achievements
+        - Promote democratic engagement
+        - Celebrate local and community connections
+        - Transparent financial and governance information
+
+        EMOTIONAL RESONANCE:
+        - Belonging and ownership
+        - Shared prosperity
+        - Democratic empowerment
+        - Community pride
+        - Sustainable growth
+        ═══════════════════════════════════════════════════════════════════
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cooperative Color System */
+            --coop-green-primary: #15803d;
+            --coop-green-dark: #14532d;
+            --coop-green-light: #22c55e;
+            --harvest-gold: #ca8a04;
+            --harvest-gold-light: #fde047;
+            --natural-cream: #fefce8;
+            --natural-cream-dark: #fef9c3;
+            --forest-brown: #422006;
+            --forest-brown-light: #78350f;
+            --community-blue: #0284c7;
+            --community-blue-light: #38bdf8;
+
+            /* Semantic Colors */
+            --bg-primary: var(--natural-cream);
+            --bg-secondary: #ffffff;
+            --bg-accent: var(--natural-cream-dark);
+            --text-primary: var(--forest-brown);
+            --text-secondary: var(--forest-brown-light);
+            --border-color: #d4d4d4;
+            --shadow-sm: 0 1px 3px rgba(66, 32, 6, 0.1);
+            --shadow-md: 0 4px 6px rgba(66, 32, 6, 0.12);
+            --shadow-lg: 0 10px 25px rgba(66, 32, 6, 0.15);
+
+            /* Typography */
+            --font-heading: 'Cabin', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--coop-green-primary) 0%, var(--coop-green-dark) 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .member-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--harvest-gold);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b47803;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Cooperative Principles Banner */
+        .principles-banner {
+            background: var(--bg-secondary);
+            border-bottom: 3px solid var(--coop-green-primary);
+            padding: 1.5rem 2rem;
+        }
+
+        .principles-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .principles-title {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--coop-green-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+        }
+
+        .principle-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .principle-number {
+            width: 32px;
+            height: 32px;
+            background: var(--coop-green-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin: 0 auto 0.5rem;
+        }
+
+        .principle-text {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--coop-green-primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card.gold {
+            border-left-color: var(--harvest-gold);
+        }
+
+        .stat-card.blue {
+            border-left-color: var(--community-blue);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card .stat-icon {
+            background: linear-gradient(135deg, var(--coop-green-primary), var(--coop-green-light));
+        }
+
+        .stat-card.gold .stat-icon {
+            background: linear-gradient(135deg, var(--harvest-gold), var(--harvest-gold-light));
+        }
+
+        .stat-card.blue .stat-icon {
+            background: linear-gradient(135deg, var(--community-blue), var(--community-blue-light));
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-trend {
+            font-size: 0.75rem;
+            color: var(--coop-green-primary);
+            font-weight: 600;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card */
+        .card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-accent);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--coop-green-primary);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* Patronage Dividend Tracker */
+        .dividend-summary {
+            background: linear-gradient(135deg, var(--coop-green-primary), var(--coop-green-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .dividend-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dividend-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .dividend-amount {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .dividend-period {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .dividend-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .dividend-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dividend-item-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .dividend-item-value {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Member Voting Dashboard */
+        .voting-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .voting-item {
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--community-blue);
+        }
+
+        .voting-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .voting-item-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .voting-item-type {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .voting-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .voting-status.open {
+            background: var(--coop-green-light);
+            color: var(--coop-green-dark);
+        }
+
+        .voting-status.pending {
+            background: var(--harvest-gold-light);
+            color: #713f12;
+        }
+
+        .voting-progress {
+            margin-bottom: 0.5rem;
+        }
+
+        .voting-progress-bar {
+            height: 8px;
+            background: #e5e5e5;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .voting-progress-fill {
+            height: 100%;
+            background: var(--community-blue);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .voting-progress-text {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .voting-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.875rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--community-blue);
+            color: var(--community-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--community-blue);
+            color: white;
+        }
+
+        /* Annual Meeting Countdown */
+        .countdown-display {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--harvest-gold), #b47803);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown-unit {
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-unit-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meeting-details {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .meeting-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meeting-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .meeting-detail-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .meeting-detail-value {
+            font-weight: 600;
+        }
+
+        /* Board Election */
+        .election-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .election-stat {
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .election-stat-value {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--coop-green-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .election-stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Impact Metrics */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .impact-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-top: 3px solid var(--coop-green-primary);
+        }
+
+        .impact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--coop-green-primary), var(--coop-green-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 1rem;
+        }
+
+        .impact-value {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .impact-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Member Co-ops Table */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--bg-accent);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--coop-green-primary);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
+        }
+
+        tbody tr:hover {
+            background: var(--bg-accent);
+        }
+
+        .coop-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .coop-type {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            background: var(--bg-accent);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .performance-badge {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .performance-badge.excellent {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .performance-badge.good {
+            background: #fef9c3;
+            color: #713f12;
+        }
+
+        .performance-badge.fair {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Education Resources */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            background: var(--natural-cream-dark);
+            transform: translateX(4px);
+        }
+
+        .resource-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--coop-green-primary);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-description {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .resource-action {
+            font-size: 0.875rem;
+            color: var(--community-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 3px solid var(--coop-green-primary);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-principles {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--coop-green-primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .principles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dividend-breakdown {
+                grid-template-columns: 1fr;
+            }
+
+            .election-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>88</strong> of 90 &mdash; Cooperative Association</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-87-industry-council.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-89-professional-network.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 87) window.location.href = 'style-87-industry-council.html';
+                if (e.key === 'ArrowRight' && 89) window.location.href = 'style-89-professional-network.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🤝</div>
+                <div class="logo-text">
+                    <h1>LOBBI Cooperative Network</h1>
+                    <p>Owned by Members, Governed by Members</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="member-badge">Member-Owner #42,891</div>
+                <button class="btn btn-primary">Member Portal</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cooperative Principles Banner -->
+    <div class="principles-banner">
+        <div class="principles-content">
+            <div class="principles-title">Seven Cooperative Principles</div>
+            <div class="principles-grid">
+                <div class="principle-item">
+                    <div class="principle-number">1</div>
+                    <div class="principle-text">Voluntary & Open Membership</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">2</div>
+                    <div class="principle-text">Democratic Member Control</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">3</div>
+                    <div class="principle-text">Member Economic Participation</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">4</div>
+                    <div class="principle-text">Autonomy & Independence</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">5</div>
+                    <div class="principle-text">Education, Training & Information</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">6</div>
+                    <div class="principle-text">Cooperation Among Cooperatives</div>
+                </div>
+                <div class="principle-item">
+                    <div class="principle-number">7</div>
+                    <div class="principle-text">Concern for Community</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Stats -->
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-icon">🏪</div>
+                <div class="stat-label">Member Co-ops</div>
+                <div class="stat-value">456</div>
+                <div class="stat-trend">↑ 12 new this quarter</div>
+            </div>
+            <div class="stat-card gold">
+                <div class="stat-icon">👥</div>
+                <div class="stat-label">Individual Members</div>
+                <div class="stat-value">2.4M</div>
+                <div class="stat-trend">↑ 8% growth YoY</div>
+            </div>
+            <div class="stat-card gold">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">Annual Patronage</div>
+                <div class="stat-value">$89M</div>
+                <div class="stat-trend">↑ $12M returned to members</div>
+            </div>
+            <div class="stat-card blue">
+                <div class="stat-icon">🌾</div>
+                <div class="stat-label">Local Suppliers</div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-trend">↑ Supporting local economy</div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Patronage Dividend Tracker -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-title-icon">💵</div>
+                            Your Patronage Dividends
+                        </div>
+                    </div>
+
+                    <div class="dividend-summary">
+                        <div class="dividend-header">
+                            <h3>2024 Patronage Dividend Allocation</h3>
+                            <div class="dividend-amount">$3,847</div>
+                            <div class="dividend-period">Based on your annual purchases</div>
+                        </div>
+
+                        <div class="dividend-breakdown">
+                            <div class="dividend-item">
+                                <div class="dividend-item-label">Cash Payout</div>
+                                <div class="dividend-item-value">$1,539</div>
+                            </div>
+                            <div class="dividend-item">
+                                <div class="dividend-item-label">Equity Credits</div>
+                                <div class="dividend-item-value">$1,924</div>
+                            </div>
+                            <div class="dividend-item">
+                                <div class="dividend-item-label">Community Fund</div>
+                                <div class="dividend-item-value">$384</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;">
+                        <div style="text-align: center; padding: 1rem; background: var(--bg-accent); border-radius: 6px;">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--coop-green-primary); margin-bottom: 0.25rem;">$12,458</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Total Purchases</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: var(--bg-accent); border-radius: 6px;">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--coop-green-primary); margin-bottom: 0.25rem;">30.9%</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Dividend Rate</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: var(--bg-accent); border-radius: 6px;">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--coop-green-primary); margin-bottom: 0.25rem;">$8,942</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Lifetime Dividends</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member Voting Dashboard -->
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-title-icon">🗳️</div>
+                            Active Member Votes
+                        </div>
+                    </div>
+
+                    <div class="voting-items">
+                        <div class="voting-item">
+                            <div class="voting-item-header">
+                                <div>
+                                    <div class="voting-item-title">2025 Board of Directors Election</div>
+                                    <div class="voting-item-type">Board Election • 5 seats available</div>
+                                </div>
+                                <div class="voting-status open">Open</div>
+                            </div>
+                            <div class="voting-progress">
+                                <div class="voting-progress-bar">
+                                    <div class="voting-progress-fill" style="width: 68%;"></div>
+                                </div>
+                                <div class="voting-progress-text">1,632 of 2,400 members voted (68%)</div>
+                            </div>
+                            <div class="voting-actions">
+                                <button class="btn btn-primary btn-sm">Cast Your Vote</button>
+                                <button class="btn btn-outline btn-sm">View Candidates</button>
+                            </div>
+                        </div>
+
+                        <div class="voting-item">
+                            <div class="voting-item-header">
+                                <div>
+                                    <div class="voting-item-title">Bylaw Amendment: Equity Share Increase</div>
+                                    <div class="voting-item-type">Bylaw Vote • Requires 2/3 majority</div>
+                                </div>
+                                <div class="voting-status open">Open</div>
+                            </div>
+                            <div class="voting-progress">
+                                <div class="voting-progress-bar">
+                                    <div class="voting-progress-fill" style="width: 42%;"></div>
+                                </div>
+                                <div class="voting-progress-text">1,008 of 2,400 members voted (42%)</div>
+                            </div>
+                            <div class="voting-actions">
+                                <button class="btn btn-primary btn-sm">Cast Your Vote</button>
+                                <button class="btn btn-outline btn-sm">Read Proposal</button>
+                            </div>
+                        </div>
+
+                        <div class="voting-item">
+                            <div class="voting-item-header">
+                                <div>
+                                    <div class="voting-item-title">Sustainability Initiative Funding</div>
+                                    <div class="voting-item-type">Budget Vote • $2.4M allocation</div>
+                                </div>
+                                <div class="voting-status pending">Upcoming</div>
+                            </div>
+                            <div class="voting-progress">
+                                <div class="voting-progress-bar">
+                                    <div class="voting-progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <div class="voting-progress-text">Voting opens March 15, 2025</div>
+                            </div>
+                            <div class="voting-actions">
+                                <button class="btn btn-outline btn-sm">Set Reminder</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Annual Meeting Countdown -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-title-icon">📅</div>
+                            Annual Delegate Assembly
+                        </div>
+                    </div>
+
+                    <div class="countdown-display">
+                        <div class="countdown-label">Countdown to 2025 Annual Meeting</div>
+                        <div class="countdown-timer">
+                            <div class="countdown-unit">
+                                <span class="countdown-value">42</span>
+                                <span class="countdown-unit-label">Days</span>
+                            </div>
+                            <div class="countdown-unit">
+                                <span class="countdown-value">7</span>
+                                <span class="countdown-unit-label">Hours</span>
+                            </div>
+                            <div class="countdown-unit">
+                                <span class="countdown-value">23</span>
+                                <span class="countdown-unit-label">Minutes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="meeting-details">
+                        <div class="meeting-detail-item">
+                            <span class="meeting-detail-label">Date</span>
+                            <span class="meeting-detail-value">Saturday, March 15, 2025</span>
+                        </div>
+                        <div class="meeting-detail-item">
+                            <span class="meeting-detail-label">Time</span>
+                            <span class="meeting-detail-value">9:00 AM - 3:00 PM</span>
+                        </div>
+                        <div class="meeting-detail-item">
+                            <span class="meeting-detail-label">Location</span>
+                            <span class="meeting-detail-value">Community Center Hall</span>
+                        </div>
+                        <div class="meeting-detail-item">
+                            <span class="meeting-detail-label">Expected Delegates</span>
+                            <span class="meeting-detail-value">847 registered</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Register to Attend</button>
+                </div>
+
+                <!-- Board Election Status -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-title-icon">👔</div>
+                            Board Election Status
+                        </div>
+                    </div>
+
+                    <div class="election-grid">
+                        <div class="election-stat">
+                            <div class="election-stat-value">12</div>
+                            <div class="election-stat-label">Candidates</div>
+                        </div>
+                        <div class="election-stat">
+                            <div class="election-stat-value">5</div>
+                            <div class="election-stat-label">Open Seats</div>
+                        </div>
+                        <div class="election-stat">
+                            <div class="election-stat-value">68%</div>
+                            <div class="election-stat-label">Voter Turnout</div>
+                        </div>
+                        <div class="election-stat">
+                            <div class="election-stat-value">6</div>
+                            <div class="election-stat-label">Days Remaining</div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">View All Candidates</button>
+                </div>
+
+                <!-- Member Education Resources -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="card-title-icon">📚</div>
+                            Member Education
+                        </div>
+                    </div>
+
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-icon">🎓</div>
+                            <div class="resource-content">
+                                <div class="resource-title">Cooperative Governance 101</div>
+                                <div class="resource-description">2-hour online course</div>
+                            </div>
+                            <a href="#" class="resource-action">Enroll →</a>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">💡</div>
+                            <div class="resource-content">
+                                <div class="resource-title">Financial Literacy Workshop</div>
+                                <div class="resource-description">March 8, 6:00 PM</div>
+                            </div>
+                            <a href="#" class="resource-action">Register →</a>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">📖</div>
+                            <div class="resource-content">
+                                <div class="resource-title">Member Handbook 2025</div>
+                                <div class="resource-description">PDF download</div>
+                            </div>
+                            <a href="#" class="resource-action">Download →</a>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">🎤</div>
+                            <div class="resource-content">
+                                <div class="resource-title">Monthly Member Q&A</div>
+                                <div class="resource-description">Next: Feb 20, 7:00 PM</div>
+                            </div>
+                            <a href="#" class="resource-action">Join →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Impact Metrics -->
+        <div style="margin-bottom: 2rem;">
+            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">Collective Community Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🌱</div>
+                    <div class="impact-value">$47.2M</div>
+                    <div class="impact-label">Local Economic Impact</div>
+                    <div class="impact-description">Direct spending with 1,247 local suppliers, keeping wealth circulating in our communities</div>
+                </div>
+
+                <div class="impact-card" style="border-top-color: var(--harvest-gold);">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--harvest-gold), var(--harvest-gold-light));">🏘️</div>
+                    <div class="impact-value">892</div>
+                    <div class="impact-label">Jobs Created</div>
+                    <div class="impact-description">Living-wage employment opportunities provided across our cooperative network</div>
+                </div>
+
+                <div class="impact-card" style="border-top-color: var(--community-blue);">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--community-blue), var(--community-blue-light));">♻️</div>
+                    <div class="impact-value">2,847</div>
+                    <div class="impact-label">Tons CO₂ Reduced</div>
+                    <div class="impact-description">Environmental impact through local sourcing and sustainable practices</div>
+                </div>
+
+                <div class="impact-card" style="border-top-color: var(--harvest-gold);">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, var(--harvest-gold), var(--harvest-gold-light));">🎓</div>
+                    <div class="impact-value">3,428</div>
+                    <div class="impact-label">Members Trained</div>
+                    <div class="impact-description">Education and capacity-building programs completed by member-owners</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cooperative Development Grants -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="card-title-icon">💼</div>
+                    Cooperative Development Grants
+                </div>
+                <button class="btn btn-outline btn-sm">View All Programs</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
+                <div style="padding: 1.5rem; background: var(--bg-accent); border-radius: 8px; border-left: 4px solid var(--coop-green-primary);">
+                    <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">Startup Grants</div>
+                    <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">$2.4M</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Available for new cooperative formation</div>
+                    <button class="btn btn-primary btn-sm" style="margin-top: 1rem; width: 100%;">Apply Now</button>
+                </div>
+
+                <div style="padding: 1.5rem; background: var(--bg-accent); border-radius: 8px; border-left: 4px solid var(--harvest-gold);">
+                    <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">Expansion Grants</div>
+                    <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">$1.8M</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Supporting existing co-op growth</div>
+                    <button class="btn btn-primary btn-sm" style="margin-top: 1rem; width: 100%;">Learn More</button>
+                </div>
+
+                <div style="padding: 1.5rem; background: var(--bg-accent); border-radius: 8px; border-left: 4px solid var(--community-blue);">
+                    <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">Technical Assistance</div>
+                    <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">$950K</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Consulting and development support</div>
+                    <button class="btn btn-primary btn-sm" style="margin-top: 1rem; width: 100%;">Get Help</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Co-ops Performance Table -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="card-title-icon">📊</div>
+                    Member Co-op Performance Dashboard
+                </div>
+                <button class="btn btn-outline btn-sm">Export Report</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cooperative Name</th>
+                            <th>Type</th>
+                            <th>Members</th>
+                            <th>Annual Revenue</th>
+                            <th>Patronage Returned</th>
+                            <th>Local Suppliers</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="coop-name">Heartland Harvest Co-op</td>
+                            <td><span class="coop-type">Agricultural</span></td>
+                            <td>847</td>
+                            <td>$12.4M</td>
+                            <td>$3.8M (30.6%)</td>
+                            <td>124</td>
+                            <td><span class="performance-badge excellent">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Green Valley Food Co-op</td>
+                            <td><span class="coop-type">Retail</span></td>
+                            <td>2,341</td>
+                            <td>$8.7M</td>
+                            <td>$2.4M (27.6%)</td>
+                            <td>89</td>
+                            <td><span class="performance-badge excellent">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Artisan Collective Works</td>
+                            <td><span class="coop-type">Worker-Owned</span></td>
+                            <td>156</td>
+                            <td>$4.2M</td>
+                            <td>$1.3M (31.0%)</td>
+                            <td>47</td>
+                            <td><span class="performance-badge excellent">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Community Energy Co-op</td>
+                            <td><span class="coop-type">Utility</span></td>
+                            <td>5,628</td>
+                            <td>$18.9M</td>
+                            <td>$4.7M (24.9%)</td>
+                            <td>31</td>
+                            <td><span class="performance-badge good">Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Downtown Housing Co-op</td>
+                            <td><span class="coop-type">Housing</span></td>
+                            <td>412</td>
+                            <td>$6.8M</td>
+                            <td>$1.7M (25.0%)</td>
+                            <td>56</td>
+                            <td><span class="performance-badge good">Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Regional Credit Union Co-op</td>
+                            <td><span class="coop-type">Financial</span></td>
+                            <td>12,847</td>
+                            <td>$34.5M</td>
+                            <td>$8.6M (24.9%)</td>
+                            <td>18</td>
+                            <td><span class="performance-badge excellent">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Sunshine Childcare Co-op</td>
+                            <td><span class="coop-type">Service</span></td>
+                            <td>284</td>
+                            <td>$2.1M</td>
+                            <td>$420K (20.0%)</td>
+                            <td>23</td>
+                            <td><span class="performance-badge fair">Fair</span></td>
+                        </tr>
+                        <tr>
+                            <td class="coop-name">Platform Workers United</td>
+                            <td><span class="coop-type">Worker-Owned</span></td>
+                            <td>1,923</td>
+                            <td>$11.2M</td>
+                            <td>$3.4M (30.4%)</td>
+                            <td>67</td>
+                            <td><span class="performance-badge excellent">Excellent</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-principles">One Member, One Vote • Democratic Ownership • Shared Prosperity</div>
+            <div class="footer-text">
+                LOBBI Cooperative Network | Governed by 2.4M Member-Owners | Building Economic Democracy Together<br>
+                © 2025 LOBBI Cooperative Association | All members have equal voting rights regardless of share ownership
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

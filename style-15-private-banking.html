@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 15: Private Banking + Classic Editorial</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Private Banking (70%) + Classic Editorial (30%)                  ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Both extremely formal = 9 (institutional trustworthiness)  ║
+    ║  • Era: Financial tradition + Editorial heritage = Timeless elegance     ║
+    ║  • Texture: Premium materials, refined typography = Perfect alignment    ║
+    ║  • Temperature: Cool/neutral = 3-4 (rational, composed, professional)    ║
+    ║  • Ornamentation: Minimal with purpose = Sophisticated restraint         ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Ultra-premium financial aesthetic. Think Swiss private banks, family    ║
+    ║  offices, wealth management portals. Understated sophistication with     ║
+    ║  absolute trustworthiness. Every detail conveys discretion, stability,   ║
+    ║  and generational wealth preservation. Think Credit Suisse meets         ║
+    ║  Financial Times meets Rothschild & Co.                                  ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Deep navy foundations, warm cream backgrounds, generous      ║
+    ║    whitespace, serif typography for gravitas                             ║
+    ║  • Secondary: Muted gold accents (never flashy), subtle borders,         ║
+    ║    refined hover states, editorial number presentation                   ║
+    ║                                                                           ║
+    ║  PSYCHOLOGICAL TRIGGERS:                                                  ║
+    ║  • Trust: Navy conveys stability, cream suggests heritage paper          ║
+    ║  • Exclusivity: Generous spacing = premium positioning                   ║
+    ║  • Sophistication: Serif headings = intellectual credibility             ║
+    ║  • Discretion: Muted palette = quiet confidence, no ostentation          ║
+    ║                                                                           ║
+    ║  USE CASES: Private banking portals, Wealth management platforms,        ║
+    ║             Family offices, Investment advisory, Trust services,         ║
+    ║             Premium financial publications, Executive dashboards         ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Private Banking Palette */
+            --navy-deep: #1a2744;
+            --navy-medium: #2a3a5a;
+            --navy-light: #3d4f6f;
+            --cream-base: #faf8f5;
+            --cream-white: #ffffff;
+            --gold-muted: #b8a369;
+            --gold-dark: #9a8556;
+            --charcoal: #333333;
+            --charcoal-light: #555555;
+            --border-subtle: #e8e4dd;
+            --border-fine: #d4cfc4;
+
+            /* Typography */
+            --serif: 'Cormorant Garamond', 'Georgia', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--cream-base);
+            color: var(--charcoal);
+            min-height: 100vh;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: var(--cream-white);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.75rem 3rem;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy-deep);
+            letter-spacing: 0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-muted);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--navy-deep);
+        }
+
+        .nav a.active::after,
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* === MAIN === */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+        }
+
+        /* Premium Page Header */
+        .page-header {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-fine);
+        }
+
+        .page-title {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--navy-deep);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--charcoal-light);
+            line-height: 1.8;
+            max-width: 65ch;
+            font-weight: 300;
+        }
+
+        /* === STATS - Premium Metrics === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .stat-card {
+            background: var(--cream-white);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold-muted);
+            box-shadow: 0 4px 16px rgba(26, 39, 68, 0.06);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--charcoal-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-family: var(--serif);
+            font-size: 2.75rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--gold-dark);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        /* === CONTENT SECTION === */
+        .content-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+            letter-spacing: -0.01em;
+        }
+
+        .section-link {
+            font-size: 0.8125rem;
+            color: var(--gold-dark);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .section-link:hover {
+            color: var(--navy-deep);
+        }
+
+        /* Premium Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--cream-white);
+            padding: 2.5rem;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--gold-muted);
+            box-shadow: 0 8px 24px rgba(26, 39, 68, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card-category {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-dark);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+            line-height: 1.4;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card-content {
+            color: var(--charcoal-light);
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 0.875rem 2rem;
+            font-family: var(--sans);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+
+        .btn-primary {
+            background: var(--navy-deep);
+            color: var(--cream-white);
+            border-color: var(--navy-deep);
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-medium);
+            border-color: var(--navy-medium);
+            box-shadow: 0 4px 12px rgba(26, 39, 68, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy-deep);
+            border-color: var(--border-fine);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-muted);
+            color: var(--gold-dark);
+        }
+
+        /* === TABLE === */
+        .table-section {
+            background: var(--cream-white);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2rem;
+        }
+
+        .table-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--charcoal-light);
+            border-bottom: 1px solid var(--border-fine);
+        }
+
+        td {
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--charcoal);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--cream-base);
+        }
+
+        .table-amount {
+            font-family: var(--serif);
+            font-size: 1.0625rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+        }
+
+        .status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.375rem 0.875rem;
+            border-radius: 2px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .status-completed {
+            background: rgba(184, 163, 105, 0.12);
+            color: var(--gold-dark);
+        }
+
+        .status-pending {
+            background: rgba(26, 39, 68, 0.08);
+            color: var(--navy-medium);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem;
+            border-top: 1px solid var(--border-fine);
+            text-align: center;
+            background: var(--cream-white);
+        }
+
+        .footer-text {
+            font-family: var(--serif);
+            font-size: 1.125rem;
+            color: var(--navy-deep);
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+
+        .footer-meta {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--charcoal-light);
+            letter-spacing: 0.08em;
+            font-weight: 300;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .main { padding: 3rem 2rem; }
+            .header { padding: 1.5rem 2rem; }
+            .page-title { font-size: 2.75rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .nav { display: none; }
+            .page-title { font-size: 2.25rem; }
+            .table-section { padding: 1.5rem; }
+            th, td { padding: 1rem; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>15</strong> of 70 &mdash; Private Banking + Classic Editorial</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-14-editorial-swiss.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-16-architect-portfolio.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 14) window.location.href = 'style-14-editorial-swiss.html';
+                if (e.key === 'ArrowRight' && 16) window.location.href = 'style-16-architect-portfolio.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Lobbi</div>
+            <nav class="nav">
+                <a href="#" class="active">Portfolio</a>
+                <a href="#">Transactions</a>
+                <a href="#">Reports</a>
+                <a href="#">Advisory</a>
+                <a href="#">Settings</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Portfolio Overview</h1>
+            <p class="page-subtitle">Your comprehensive wealth management dashboard. Monitoring assets, performance metrics, and strategic positioning across diversified holdings with institutional-grade insights.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Assets</div>
+                <div class="stat-value">$12.4M</div>
+                <div class="stat-change">+8.7% YTD</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Return</div>
+                <div class="stat-value">14.2%</div>
+                <div class="stat-change">Annualized</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Positions</div>
+                <div class="stat-value">47</div>
+                <div class="stat-change">Across 8 sectors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Risk Score</div>
+                <div class="stat-value">6.8</div>
+                <div class="stat-change">Moderate-High</div>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Insights</h2>
+                <a href="#" class="section-link">View Full Analysis &rarr;</a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-category">Market Analysis</div>
+                    <h3 class="card-title">Q4 Positioning Strategy</h3>
+                    <p class="card-content">Our advisory team recommends strategic rebalancing with increased allocation to emerging market debt and infrastructure assets for optimal risk-adjusted returns.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Read Report</button>
+                        <button class="btn btn-secondary">Schedule Call</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-category">Portfolio Update</div>
+                    <h3 class="card-title">Dividend Optimization</h3>
+                    <p class="card-content">Annual dividend income projected at $287K. Tax-efficient distribution strategies available through our fiduciary planning services.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                        <button class="btn btn-secondary">Optimize</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-category">Advisory Service</div>
+                    <h3 class="card-title">Estate Planning Review</h3>
+                    <p class="card-content">Recommended annual review of trust structures and succession planning. Our private client advisors are available for consultation.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Book Session</button>
+                        <button class="btn btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="table-section">
+                <div class="table-header">
+                    <h2 class="table-title">Recent Transactions</h2>
+                    <a href="#" class="section-link">Full History &rarr;</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dec 9, 2025</td>
+                            <td>Municipal Bond Purchase - Series AAA</td>
+                            <td>Fixed Income</td>
+                            <td class="table-amount">$250,000</td>
+                            <td><span class="status status-completed">Settled</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 8, 2025</td>
+                            <td>Equity Distribution - Tech Growth Fund</td>
+                            <td>Dividend</td>
+                            <td class="table-amount">$12,450</td>
+                            <td><span class="status status-completed">Credited</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 7, 2025</td>
+                            <td>Real Estate Investment Trust Allocation</td>
+                            <td>Alternative</td>
+                            <td class="table-amount">$500,000</td>
+                            <td><span class="status status-pending">Processing</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 6, 2025</td>
+                            <td>International Equity Rebalancing</td>
+                            <td>Portfolio Mgmt</td>
+                            <td class="table-amount">$185,000</td>
+                            <td><span class="status status-completed">Executed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 5, 2025</td>
+                            <td>Structured Note Maturity - Series 2020-B</td>
+                            <td>Fixed Income</td>
+                            <td class="table-amount">$300,000</td>
+                            <td><span class="status status-completed">Settled</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Style 15: Private Banking + Classic Editorial</p>
+        <p class="footer-meta">Ultra-premium financial aesthetic | Institutional trustworthiness | Generational wealth preservation</p>
+    </footer>
+</body>
+</html>

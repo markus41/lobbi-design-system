@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Elite - Strategic Intelligence Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔════════════════════════════════════════════════════════════════════════════╗
+        ║                        ULTRATHINK DESIGN ANALYSIS                          ║
+        ║                    CONSULTING ELITE + MINIMAL PRECISION                    ║
+        ╚════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        This interface embodies the strategic rigor and intellectual authority of
+        top-tier management consulting firms (McKinsey, BCG, Bain). Every element
+        serves a clear analytical purpose while maintaining executive-level polish.
+
+        BLEND BREAKDOWN:
+        ├─ 80% CONSULTING ELITE
+        │  ├─ Structured grid systems (2x2 matrices, framework layouts)
+        │  ├─ Executive-level information hierarchy
+        │  ├─ Strategic insight presentation
+        │  ├─ Data-driven visualization emphasis
+        │  └─ Authoritative color palette (navy, white, blue)
+        │
+        └─ 20% MINIMAL PRECISION
+           ├─ Clean geometric typography (Inter family)
+           ├─ Generous whitespace for clarity
+           ├─ Subtle micro-interactions
+           └─ Reduction to essential elements only
+
+        COLOR PSYCHOLOGY:
+        • Dark Blue (#0f172a) - Authority, trust, strategic depth
+        • White (#ffffff) - Clarity, professional distance
+        • Accent Blue (#2563eb) - Insight, intelligence, precision
+        • Light Gray (#f1f5f9) - Organizational structure, frameworks
+
+        TYPOGRAPHY STRATEGY:
+        • Inter (Google Fonts) - Geometric precision, professional neutrality
+        • Weight hierarchy: 300 (data), 400 (body), 500 (labels), 600 (headings), 700 (emphasis)
+        • Consistent scale: 12px/14px/16px/20px/24px/32px
+
+        SPATIAL ORGANIZATION:
+        • 24px base grid system - all spacing multiples of 8 or 12
+        • Consistent 24px padding for all containers
+        • 16px gaps in grids for visual clarity
+        • Maximum content width: 1400px (executive readability)
+
+        INTERACTION PATTERNS:
+        • Hover states reveal secondary information layers
+        • Subtle elevation changes indicate interactivity
+        • Blue accent line appears on focus (strategic emphasis)
+        • Smooth 200ms transitions maintain professional feel
+
+        COMPONENT ARCHITECTURE:
+        1. Header: Executive navigation, global search, user context
+        2. Stats Grid: 4 KPI cards with trend indicators
+        3. Insight Cards: 3 strategic analysis summaries
+        4. Data Table: Sortable performance metrics
+        5. Footer: Structured organizational information
+
+        TEMPERATURE: 3 (Cool Analytical)
+        FORMALITY: 9 (Executive Professional)
+
+        TARGET AUDIENCE:
+        C-suite executives, senior strategists, board members, management consultants
+
+        COMPETITIVE POSITIONING:
+        Designed to compete with enterprise platforms like Tableau, PowerBI,
+        SAP Analytics Cloud - but with consulting-grade polish and strategic focus.
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-900: #0f172a;
+            --navy-800: #1e293b;
+            --navy-700: #334155;
+            --white: #ffffff;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --green-500: #10b981;
+            --red-500: #ef4444;
+
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+            --transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--navy-800);
+            background-color: var(--gray-50);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* HEADER - Executive Navigation */
+        .header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            color: var(--navy-700);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background-color: var(--gray-100);
+            color: var(--navy-900);
+        }
+
+        .nav-link.active {
+            color: var(--blue-600);
+            background-color: rgba(37, 99, 235, 0.08);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background-color: var(--blue-600);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 240px;
+            padding: 8px 36px 8px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+            background-color: var(--gray-50);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--blue-600);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        .user-profile {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .user-profile:hover {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        /* MAIN CONTAINER */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--gray-600);
+            font-weight: 400;
+        }
+
+        /* STATS GRID - 4 KPI Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-600), var(--blue-700));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--blue-600);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .stat-change.positive {
+            color: var(--green-500);
+        }
+
+        .stat-change.negative {
+            color: var(--red-500);
+        }
+
+        .stat-change-icon {
+            font-size: 12px;
+        }
+
+        /* INSIGHT CARDS - Strategic Analysis */
+        .insights-section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy-900);
+        }
+
+        .section-action {
+            font-size: 14px;
+            color: var(--blue-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .section-action:hover {
+            color: var(--blue-700);
+            text-decoration: underline;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .insight-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .insight-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(90deg, var(--blue-600), var(--blue-700));
+            transition: var(--transition);
+        }
+
+        .insight-card:hover {
+            border-color: var(--blue-600);
+            box-shadow: var(--shadow-md);
+        }
+
+        .insight-card:hover::after {
+            height: 3px;
+        }
+
+        .insight-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .insight-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(29, 78, 216, 0.15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--blue-600);
+        }
+
+        .insight-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--blue-600);
+        }
+
+        .insight-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy-900);
+            margin-bottom: 8px;
+        }
+
+        .insight-description {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .insight-metrics {
+            display: flex;
+            gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .insight-metric {
+            flex: 1;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--gray-600);
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy-900);
+        }
+
+        /* DATA TABLE - Performance Metrics */
+        .table-section {
+            margin-bottom: 32px;
+        }
+
+        .table-container {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .table-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy-900);
+        }
+
+        .table-filters {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-button {
+            padding: 6px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            background-color: var(--white);
+            color: var(--navy-700);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-primary);
+        }
+
+        .filter-button:hover {
+            border-color: var(--blue-600);
+            color: var(--blue-600);
+        }
+
+        .filter-button.active {
+            background-color: var(--blue-600);
+            border-color: var(--blue-600);
+            color: var(--white);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: var(--gray-50);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        th {
+            padding: 16px 24px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy-700);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        th.sortable:hover {
+            color: var(--blue-600);
+        }
+
+        th.sortable::after {
+            content: '⇅';
+            margin-left: 6px;
+            color: var(--gray-400);
+            font-size: 10px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        tbody tr:hover {
+            background-color: var(--gray-50);
+        }
+
+        td {
+            padding: 16px 24px;
+            font-size: 14px;
+            color: var(--navy-800);
+        }
+
+        .cell-primary {
+            font-weight: 600;
+            color: var(--navy-900);
+        }
+
+        .cell-numeric {
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+        }
+
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .trend-indicator.up {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--green-500);
+        }
+
+        .trend-indicator.down {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--red-500);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .status-badge.active {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--green-500);
+        }
+
+        .status-badge.pending {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--blue-600);
+        }
+
+        .status-badge.review {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-200);
+            margin-top: 48px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 24px 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy-900);
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--blue-600);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-input {
+                width: 180px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>27</strong> of 70 &mdash; Consulting Elite</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-26-real-estate-luxury.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-28-medical-premium.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 26) window.location.href = 'style-26-real-estate-luxury.html';
+                if (e.key === 'ArrowRight' && 28) window.location.href = 'style-28-medical-premium.html';
+            });
+        })();
+    </script>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-mark">S</div>
+                <span>Strategic Intelligence</span>
+            </div>
+
+            <nav class="nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Insights</a>
+                <a href="#" class="nav-link">Reports</a>
+                <a href="#" class="nav-link">Portfolio</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="search" class="search-input" placeholder="Search frameworks...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-profile">JD</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <h1 class="page-title">Executive Overview</h1>
+            <p class="page-subtitle">Strategic performance metrics and business intelligence</p>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Revenue Growth</div>
+                <div class="stat-value">$2.4M</div>
+                <div class="stat-change positive">
+                    <span class="stat-change-icon">▲</span>
+                    <span>12.5% from last quarter</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Operating Margin</div>
+                <div class="stat-value">34.2%</div>
+                <div class="stat-change positive">
+                    <span class="stat-change-icon">▲</span>
+                    <span>2.8% improvement</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Client Retention</div>
+                <div class="stat-value">94.7%</div>
+                <div class="stat-change negative">
+                    <span class="stat-change-icon">▼</span>
+                    <span>1.2% from target</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Market Share</div>
+                <div class="stat-value">18.3%</div>
+                <div class="stat-change positive">
+                    <span class="stat-change-icon">▲</span>
+                    <span>0.9% expansion</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- INSIGHTS SECTION -->
+        <section class="insights-section">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Insights</h2>
+                <a href="#" class="section-action">View all insights →</a>
+            </div>
+
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <div class="insight-icon">📊</div>
+                        <div class="insight-badge">High Priority</div>
+                    </div>
+                    <h3 class="insight-title">Market Opportunity Analysis</h3>
+                    <p class="insight-description">
+                        Emerging markets in APAC region show 23% compound annual growth rate.
+                        Strategic entry recommendations developed for Q3 expansion.
+                    </p>
+                    <div class="insight-metrics">
+                        <div class="insight-metric">
+                            <div class="metric-label">Potential ROI</div>
+                            <div class="metric-value">187%</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="metric-label">Timeline</div>
+                            <div class="metric-value">6-9M</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <div class="insight-icon">⚡</div>
+                        <div class="insight-badge">Action Required</div>
+                    </div>
+                    <h3 class="insight-title">Operational Efficiency Gains</h3>
+                    <p class="insight-description">
+                        Process optimization framework identified $1.2M in annual cost reduction
+                        opportunities across supply chain and operational workflows.
+                    </p>
+                    <div class="insight-metrics">
+                        <div class="insight-metric">
+                            <div class="metric-label">Cost Savings</div>
+                            <div class="metric-value">$1.2M</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="metric-label">Impact Score</div>
+                            <div class="metric-value">9.2/10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <div class="insight-icon">🎯</div>
+                        <div class="insight-badge">Strategic</div>
+                    </div>
+                    <h3 class="insight-title">Customer Experience Excellence</h3>
+                    <p class="insight-description">
+                        NPS score increased to 72, placing organization in top quartile.
+                        Customer journey mapping reveals three high-impact touchpoint enhancements.
+                    </p>
+                    <div class="insight-metrics">
+                        <div class="insight-metric">
+                            <div class="metric-label">NPS Score</div>
+                            <div class="metric-value">72</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="metric-label">Quartile</div>
+                            <div class="metric-value">Top 25%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATA TABLE -->
+        <section class="table-section">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio Performance</h2>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Business Unit Metrics</h3>
+                    <div class="table-filters">
+                        <button class="filter-button active">All Units</button>
+                        <button class="filter-button">Top Performers</button>
+                        <button class="filter-button">Needs Review</button>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="sortable">Business Unit</th>
+                            <th class="sortable">Revenue</th>
+                            <th class="sortable">Growth Rate</th>
+                            <th class="sortable">Margin</th>
+                            <th class="sortable">Trend</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="cell-primary">Enterprise Solutions</td>
+                            <td class="cell-numeric">$847,230</td>
+                            <td class="cell-numeric">+18.4%</td>
+                            <td class="cell-numeric">42.1%</td>
+                            <td>
+                                <span class="trend-indicator up">↗ Strong</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Active</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell-primary">Digital Transformation</td>
+                            <td class="cell-numeric">$623,480</td>
+                            <td class="cell-numeric">+24.7%</td>
+                            <td class="cell-numeric">38.5%</td>
+                            <td>
+                                <span class="trend-indicator up">↗ Strong</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Active</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell-primary">Advisory Services</td>
+                            <td class="cell-numeric">$512,340</td>
+                            <td class="cell-numeric">+9.2%</td>
+                            <td class="cell-numeric">51.3%</td>
+                            <td>
+                                <span class="trend-indicator up">↗ Moderate</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Active</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell-primary">Cloud Infrastructure</td>
+                            <td class="cell-numeric">$441,190</td>
+                            <td class="cell-numeric">+31.8%</td>
+                            <td class="cell-numeric">28.4%</td>
+                            <td>
+                                <span class="trend-indicator up">↗ Strong</span>
+                            </td>
+                            <td>
+                                <span class="status-badge pending">Scaling</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell-primary">Analytics Platform</td>
+                            <td class="cell-numeric">$389,560</td>
+                            <td class="cell-numeric">+15.3%</td>
+                            <td class="cell-numeric">33.7%</td>
+                            <td>
+                                <span class="trend-indicator up">↗ Moderate</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Active</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell-primary">Security Solutions</td>
+                            <td class="cell-numeric">$298,440</td>
+                            <td class="cell-numeric">+6.1%</td>
+                            <td class="cell-numeric">45.2%</td>
+                            <td>
+                                <span class="trend-indicator down">↘ Stable</span>
+                            </td>
+                            <td>
+                                <span class="status-badge review">Review</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 class="footer-title">Strategic Intelligence Platform</h4>
+                    <p class="footer-text">
+                        Delivering actionable insights and data-driven decision frameworks
+                        for executive leadership and strategic planning teams.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Platform</h4>
+                    <a href="#" class="footer-link">Analytics</a>
+                    <a href="#" class="footer-link">Insights</a>
+                    <a href="#" class="footer-link">Reports</a>
+                    <a href="#" class="footer-link">Integrations</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">Frameworks</a>
+                    <a href="#" class="footer-link">Best Practices</a>
+                    <a href="#" class="footer-link">Support</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 Strategic Intelligence. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

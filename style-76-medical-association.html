@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Medical Association - Member Portal | Style 76</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔══════════════════════════════════════════════════════════════════════════════╗
+        ║                           ULTRATHINK DESIGN ANALYSIS                          ║
+        ║                  Style 76: Medical Association + Healthcare Authority         ║
+        ╚══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN GENETICS:
+        ├─ Medical Association DNA (80%):
+          │  ├─ Professional credentials tracking
+          │  ├─ CME (Continuing Medical Education) dashboard
+          │  ├─ Specialty section organization
+          │  ├─ Scientific meeting coordination
+          │  └─ Peer network emphasis
+        ├─ Healthcare Authority DNA (20%):
+          │  ├─ Board certification standards
+          │  ├─ Policy and advocacy leadership
+          │  ├─ Quality and safety oversight
+          │  └─ Regulatory compliance monitoring
+
+        DESIGN PARAMETERS:
+        ├─ Temperature: 4/10 (Clinical Precision with Care)
+        │  └─ Balanced between warm empathy and scientific rigor
+        ├─ Formality: 9/10 (Professional Medical Standards)
+        │  └─ Maintains highest professional credibility
+        ├─ Target Audience: State medical associations, specialty societies, physician networks
+        └─ Use Case: Member engagement, credential tracking, professional development
+
+        COLOR PSYCHOLOGY:
+        ├─ Medical Blue (#0369a1): Trust, care, medical professionalism
+        ├─ Clinical White (#ffffff): Cleanliness, precision, clarity
+        ├─ Soft Gray (#f8fafc): Comfortable clinical environment
+        ├─ Deep Navy (#0c4a6e): Authority, expertise, stability
+        ├─ Healing Green (#059669): Positive outcomes, growth, certification
+        └─ Clinical Red (#dc2626): Urgent attention, critical alerts
+
+        TYPOGRAPHY STRATEGY:
+        ├─ Nunito Sans: Modern medical sans-serif for headings
+        │  └─ Approachable yet professional medical communication
+        ├─ Inter: Clinical clarity for body text
+        │  └─ High readability for complex medical information
+        └─ Monospace: Medical codes, credentials, certification numbers
+
+        FUNCTIONAL COMPONENTS:
+        ├─ CME Credits Tracking: Real-time continuing education monitoring
+        ├─ Board Certification Dashboard: Status and renewal tracking
+        ├─ Practice Statistics: Data visualization for member insights
+        ├─ Legislative Updates: Healthcare policy advocacy
+        ├─ Specialty Sections: Sub-organization membership
+        ├─ Patient Safety Resources: Clinical quality improvement
+        └─ Research Grants: Professional advancement opportunities
+
+        LOBBI INTEGRATION CONTEXT:
+        ├─ Primary Metrics:
+        │  ├─ Active Physicians: 8,456 (membership scale)
+        │  ├─ Board Certified: 7,892 (93.3% certification rate)
+        │  ├─ CME Hours Completed: 156,780 (professional development)
+        │  └─ Policy Initiatives: 12 (advocacy engagement)
+        ├─ Featured Sections:
+        │  ├─ Annual Scientific Meeting (conference coordination)
+        │  ├─ CME & Certification Programs (professional development)
+        │  └─ Healthcare Policy Updates (advocacy engagement)
+        └─ Data Tables: Member certification status tracking
+
+        INTERACTION PATTERNS:
+        ├─ Status Indicators: Visual certification/compliance badges
+        ├─ Progress Tracking: CME completion visualization
+        ├─ Alert System: Renewal deadlines, policy changes
+        └─ Credential Verification: Professional standing confirmation
+
+        DESIGN DIFFERENTIATION:
+        This style balances the collegial nature of a professional association with
+        the authoritative standards of a healthcare regulatory body. It emphasizes
+        peer collaboration while maintaining rigorous professional standards.
+
+        VERSION: 1.0.0
+        CREATED: 2025-12-09
+        FRAMEWORK: Standalone HTML/CSS
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --primary-blue: #0369a1;
+            --primary-blue-dark: #075985;
+            --primary-blue-light: #0ea5e9;
+            --clinical-white: #ffffff;
+            --soft-gray: #f8fafc;
+            --light-gray: #f1f5f9;
+            --medium-gray: #e2e8f0;
+            --text-navy: #0c4a6e;
+            --text-gray: #475569;
+            --healing-green: #059669;
+            --healing-green-light: #d1fae5;
+            --clinical-red: #dc2626;
+            --clinical-red-light: #fee2e2;
+            --warning-amber: #f59e0b;
+            --info-blue: #3b82f6;
+
+            /* Typography */
+            --font-heading: 'Nunito Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Courier New', monospace;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--soft-gray);
+            color: var(--text-navy);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            color: var(--clinical-white);
+            padding: var(--spacing-md) 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--clinical-white);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .org-info h1 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .org-tagline {
+            font-size: 0.875rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--healing-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-credentials {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-family: var(--font-mono);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--clinical-white);
+            border-bottom: 1px solid var(--medium-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .nav-link {
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue-light);
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-navy);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .page-subtitle {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background: var(--clinical-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .stat-card.green {
+            border-left-color: var(--healing-green);
+        }
+
+        .stat-card.amber {
+            border-left-color: var(--warning-amber);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.blue {
+            background: rgba(3, 105, 161, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .stat-icon.green {
+            background: var(--healing-green-light);
+            color: var(--healing-green);
+        }
+
+        .stat-icon.amber {
+            background: #fef3c7;
+            color: var(--warning-amber);
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-navy);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 0.875rem;
+        }
+
+        .trend-positive {
+            color: var(--healing-green);
+            font-weight: 600;
+        }
+
+        .trend-neutral {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Card */
+        .card {
+            background: var(--clinical-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-navy);
+        }
+
+        .card-action {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .card-action:hover {
+            color: var(--primary-blue-dark);
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+        }
+
+        /* Alert */
+        .alert {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: start;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            border-left: 4px solid var(--info-blue);
+            color: #1e40af;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning-amber);
+            color: #92400e;
+        }
+
+        .alert-success {
+            background: var(--healing-green-light);
+            border-left: 4px solid var(--healing-green);
+            color: #065f46;
+        }
+
+        .alert-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .alert-text {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Event List */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .event-item {
+            padding: var(--spacing-md);
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+
+        .event-item:hover {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--clinical-white);
+            padding: 0.25rem var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-title {
+            font-weight: 700;
+            color: var(--text-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .event-details {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .event-cme {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: var(--healing-green-light);
+            color: var(--healing-green);
+            padding: 0.25rem var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Resources List */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .resource-item {
+            padding: var(--spacing-sm);
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .resource-item:hover {
+            background: var(--light-gray);
+            border-color: var(--primary-blue);
+        }
+
+        .resource-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .resource-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--soft-gray);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.125rem;
+        }
+
+        .resource-name {
+            font-weight: 600;
+            color: var(--text-navy);
+            font-size: 0.9375rem;
+        }
+
+        .resource-type {
+            font-size: 0.8125rem;
+            color: var(--text-gray);
+        }
+
+        .resource-badge {
+            padding: 0.25rem var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-new {
+            background: #dbeafe;
+            color: var(--info-blue);
+        }
+
+        .badge-updated {
+            background: var(--healing-green-light);
+            color: var(--healing-green);
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        thead {
+            background: var(--soft-gray);
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        th {
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 700;
+            color: var(--text-navy);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid var(--medium-gray);
+            color: var(--text-gray);
+        }
+
+        tbody tr:hover {
+            background: var(--soft-gray);
+        }
+
+        .credential-code {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            color: var(--text-navy);
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.375rem var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .status-active {
+            background: var(--healing-green-light);
+            color: var(--healing-green);
+        }
+
+        .status-expiring {
+            background: #fef3c7;
+            color: var(--warning-amber);
+        }
+
+        .status-pending {
+            background: #dbeafe;
+            color: var(--info-blue);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.25rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--healing-green);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .progress-fill.warning {
+            background: var(--warning-amber);
+        }
+
+        /* Policy Updates */
+        .policy-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .policy-item {
+            padding: var(--spacing-md);
+            border-left: 4px solid var(--primary-blue);
+            background: var(--soft-gray);
+            border-radius: var(--radius-md);
+        }
+
+        .policy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .policy-title {
+            font-weight: 700;
+            color: var(--text-navy);
+            font-size: 1rem;
+        }
+
+        .policy-status {
+            padding: 0.25rem var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #dbeafe;
+            color: var(--info-blue);
+        }
+
+        .policy-status.urgent {
+            background: var(--clinical-red-light);
+            color: var(--clinical-red);
+        }
+
+        .policy-description {
+            color: var(--text-gray);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.6;
+        }
+
+        .policy-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.8125rem;
+            color: var(--text-gray);
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--clinical-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--clinical-white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--soft-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--clinical-white);
+            border-top: 1px solid var(--medium-gray);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-navy);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            background: var(--soft-gray);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.875rem;
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-link {
+                border-bottom: 1px solid var(--medium-gray);
+                border-left: 3px solid transparent;
+            }
+
+            .nav-link.active {
+                border-left-color: var(--primary-blue);
+                border-bottom-color: var(--medium-gray);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>76</strong> of 90 &mdash; Medical Association</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-75-bar-association.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-77-realtors-association.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 75) window.location.href = 'style-75-bar-association.html';
+                if (e.key === 'ArrowRight' && 77) window.location.href = 'style-77-realtors-association.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">⚕️</div>
+                <div class="org-info">
+                    <h1>State Medical Association</h1>
+                    <p class="org-tagline">Advancing Physician Excellence Since 1847</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="user-profile">
+                    <div class="user-avatar">SC</div>
+                    <div class="user-info">
+                        <div class="user-name">Dr. Sarah Chen</div>
+                        <div class="user-credentials">MD, FACP #245891</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#" class="nav-link">CME & Certification</a>
+            <a href="#" class="nav-link">Advocacy & Policy</a>
+            <a href="#" class="nav-link">Resources</a>
+            <a href="#" class="nav-link">Events</a>
+            <a href="#" class="nav-link">Membership</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2 class="page-title">Member Dashboard</h2>
+            <p class="page-subtitle">Welcome back, Dr. Chen. Your professional development at a glance.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Active Physicians</span>
+                    <div class="stat-icon blue">👥</div>
+                </div>
+                <div class="stat-value">8,456</div>
+                <div class="stat-trend">
+                    <span class="trend-positive">↑ 3.2%</span>
+                    <span class="trend-neutral">vs. last year</span>
+                </div>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-header">
+                    <span class="stat-label">Board Certified</span>
+                    <div class="stat-icon green">✓</div>
+                </div>
+                <div class="stat-value">7,892</div>
+                <div class="stat-trend">
+                    <span class="trend-positive">93.3%</span>
+                    <span class="trend-neutral">certification rate</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">CME Hours Completed</span>
+                    <div class="stat-icon blue">📚</div>
+                </div>
+                <div class="stat-value">156,780</div>
+                <div class="stat-trend">
+                    <span class="trend-positive">↑ 12.4%</span>
+                    <span class="trend-neutral">this quarter</span>
+                </div>
+            </div>
+
+            <div class="stat-card amber">
+                <div class="stat-header">
+                    <span class="stat-label">Active Policy Initiatives</span>
+                    <div class="stat-icon amber">📋</div>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-trend">
+                    <span class="trend-neutral">4 pending action</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alert alert-warning">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+                <div class="alert-title">CME Renewal Reminder</div>
+                <div class="alert-text">Your board certification expires in 90 days. You need 15 more CME credits to meet renewal requirements.</div>
+            </div>
+        </div>
+
+        <div class="alert alert-info">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+                <div class="alert-title">Annual Scientific Meeting - Early Bird Registration Open</div>
+                <div class="alert-text">Save $200 when you register before January 15. Over 50 CME credits available.</div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Main Column -->
+            <div>
+                <!-- Annual Scientific Meeting -->
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Annual Scientific Meeting 2026</h3>
+                        <a href="#" class="card-action">Full Program →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="event-list">
+                            <div class="event-item">
+                                <span class="event-date">MAR 15-18, 2026</span>
+                                <div class="event-title">125th Annual Scientific Meeting</div>
+                                <div class="event-details">
+                                    <span class="event-detail">📍 Convention Center, State Capitol</span>
+                                    <span class="event-detail">👥 2,500+ Expected Attendees</span>
+                                </div>
+                                <span class="event-cme">⭐ 52 CME Credits Available</span>
+                            </div>
+
+                            <div style="padding: 1rem; background: #f8fafc; border-radius: 0.5rem; margin-top: 0.5rem;">
+                                <div style="font-weight: 700; margin-bottom: 0.5rem; color: #0c4a6e;">Featured Tracks:</div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.875rem;">
+                                    <div>🧬 Precision Medicine & Genomics</div>
+                                    <div>💊 Value-Based Care Models</div>
+                                    <div>🏥 Hospital Medicine Updates</div>
+                                    <div>🧠 Mental Health Integration</div>
+                                    <div>⚡ Digital Health Innovation</div>
+                                    <div>🎯 Quality Improvement</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CME & Certification -->
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">CME & Certification Programs</h3>
+                        <a href="#" class="card-action">View All →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="event-list">
+                            <div class="event-item">
+                                <span class="event-date">JAN 20, 2026</span>
+                                <div class="event-title">Cardiovascular Disease Updates 2026</div>
+                                <div class="event-details">
+                                    <span class="event-detail">🌐 Virtual Live Webinar</span>
+                                    <span class="event-detail">⏰ 2:00 PM - 5:00 PM EST</span>
+                                </div>
+                                <span class="event-cme">⭐ 3.0 CME Credits</span>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">FEB 8, 2026</span>
+                                <div class="event-title">Board Certification Prep Course - Internal Medicine</div>
+                                <div class="event-details">
+                                    <span class="event-detail">📍 Medical Education Center</span>
+                                    <span class="event-detail">👥 Limited to 50 Participants</span>
+                                </div>
+                                <span class="event-cme">⭐ 24.0 CME Credits</span>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">FEB 22, 2026</span>
+                                <div class="event-title">Opioid Prescribing: Evidence-Based Guidelines</div>
+                                <div class="event-details">
+                                    <span class="event-detail">🌐 On-Demand Course</span>
+                                    <span class="event-detail">⏰ Complete at Your Pace</span>
+                                </div>
+                                <span class="event-cme">⭐ 2.0 CME Credits</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Policy Updates -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Healthcare Policy Updates</h3>
+                        <a href="#" class="card-action">Policy Center →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="policy-list">
+                            <div class="policy-item">
+                                <div class="policy-header">
+                                    <div class="policy-title">SB-142: Prior Authorization Reform Act</div>
+                                    <span class="policy-status urgent">Action Required</span>
+                                </div>
+                                <div class="policy-description">
+                                    Legislation to streamline prior authorization processes and reduce administrative burden. Contact your state representative by Jan 25.
+                                </div>
+                                <div class="policy-meta">
+                                    <span>📅 Vote Expected: Feb 1, 2026</span>
+                                    <span>👥 487 Members Engaged</span>
+                                </div>
+                            </div>
+
+                            <div class="policy-item">
+                                <div class="policy-header">
+                                    <div class="policy-title">Medicare Physician Fee Schedule 2026</div>
+                                    <span class="policy-status">Monitoring</span>
+                                </div>
+                                <div class="policy-description">
+                                    CMS proposes 2.8% payment reduction. Association submitted comments opposing cuts and requesting budget neutrality adjustments.
+                                </div>
+                                <div class="policy-meta">
+                                    <span>📅 Comment Period Closed: Dec 15, 2025</span>
+                                    <span>📋 Final Rule Expected: March 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="policy-item">
+                                <div class="policy-header">
+                                    <div class="policy-title">Telemedicine Parity Legislation</div>
+                                    <span class="policy-status">Active Support</span>
+                                </div>
+                                <div class="policy-description">
+                                    Bill to extend telehealth coverage parity and remove geographic restrictions for Medicare beneficiaries.
+                                </div>
+                                <div class="policy-meta">
+                                    <span>📅 Committee Hearing: Jan 18, 2026</span>
+                                    <span>👥 Coalition of 12 Medical Organizations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Your CME Progress -->
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Your CME Progress</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-weight: 600; color: #0c4a6e;">Current Cycle Progress</span>
+                                <span style="font-weight: 700; color: #059669;">35 / 50 Credits</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-weight: 600; color: #0c4a6e;">Category 1 Credits</span>
+                                <span style="font-weight: 700; color: #059669;">28 / 30</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-weight: 600; color: #0c4a6e;">Patient Safety Module</span>
+                                <span style="font-weight: 700; color: #f59e0b;">0 / 3</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <div style="padding: 0.75rem; background: #fef3c7; border-radius: 0.5rem; margin-top: 1rem;">
+                            <div style="font-weight: 700; color: #92400e; font-size: 0.875rem; margin-bottom: 0.25rem;">
+                                ⏰ Deadline: March 31, 2026
+                            </div>
+                            <div style="font-size: 0.8125rem; color: #92400e;">
+                                15 credits needed for renewal
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            Find CME Courses →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Resources -->
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Patient Safety Resources</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">📋</div>
+                                    <div>
+                                        <div class="resource-name">Clinical Practice Guidelines</div>
+                                        <div class="resource-type">Evidence-Based Protocols</div>
+                                    </div>
+                                </div>
+                                <span class="resource-badge badge-updated">Updated</span>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">🛡️</div>
+                                    <div>
+                                        <div class="resource-name">Risk Management Toolkit</div>
+                                        <div class="resource-type">Liability Prevention</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">💊</div>
+                                    <div>
+                                        <div class="resource-name">Drug Interaction Database</div>
+                                        <div class="resource-type">Clinical Decision Support</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">📊</div>
+                                    <div>
+                                        <div class="resource-name">Quality Metrics Dashboard</div>
+                                        <div class="resource-type">Performance Benchmarking</div>
+                                    </div>
+                                </div>
+                                <span class="resource-badge badge-new">New</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Grants -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Research Opportunities</h3>
+                        <a href="#" class="card-action">View All →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" style="margin-bottom: 1rem;">
+                            <span class="alert-icon">💰</span>
+                            <div class="alert-content">
+                                <div class="alert-title">$2.4M Available</div>
+                                <div class="alert-text">in research grants for 2026</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">🔬</div>
+                                    <div>
+                                        <div class="resource-name">Clinical Research Grants</div>
+                                        <div class="resource-type">Up to $150,000</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">🎓</div>
+                                    <div>
+                                        <div class="resource-name">Early Career Physician Awards</div>
+                                        <div class="resource-type">Up to $50,000</div>
+                                    </div>
+                                </div>
+                                <span class="resource-badge badge-new">New</span>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon">🏥</div>
+                                    <div>
+                                        <div class="resource-name">Quality Improvement Grants</div>
+                                        <div class="resource-type">Up to $25,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                            Application Guidelines
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Certification Status Table -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Your Certification Status</h3>
+                <a href="#" class="card-action">Full Credential History →</a>
+            </div>
+            <div class="card-body">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Certification</th>
+                                <th>Board</th>
+                                <th>Credential ID</th>
+                                <th>Issue Date</th>
+                                <th>Expiration</th>
+                                <th>Status</th>
+                                <th>CME Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Internal Medicine</strong></td>
+                                <td>ABIM</td>
+                                <td><span class="credential-code">ABIM-245891</span></td>
+                                <td>March 2016</td>
+                                <td>March 2026</td>
+                                <td><span class="status-badge status-expiring">Expiring Soon</span></td>
+                                <td>
+                                    <div>35 / 50 Credits</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill warning" style="width: 70%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cardiovascular Disease</strong></td>
+                                <td>ABIM</td>
+                                <td><span class="credential-code">ABIM-245892</span></td>
+                                <td>June 2018</td>
+                                <td>June 2028</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div>18 / 50 Credits</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 36%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>ACLS Certification</strong></td>
+                                <td>American Heart Association</td>
+                                <td><span class="credential-code">AHA-567234</span></td>
+                                <td>January 2024</td>
+                                <td>January 2026</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BLS Provider</strong></td>
+                                <td>American Heart Association</td>
+                                <td><span class="credential-code">AHA-567235</span></td>
+                                <td>January 2024</td>
+                                <td>January 2026</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DEA Registration</strong></td>
+                                <td>U.S. DEA</td>
+                                <td><span class="credential-code">FC1234567</span></td>
+                                <td>August 2023</td>
+                                <td>August 2026</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medical License - State</strong></td>
+                                <td>State Medical Board</td>
+                                <td><span class="credential-code">MD-089456</span></td>
+                                <td>May 2015</td>
+                                <td>May 2027</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div>35 / 40 Credits</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 87.5%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>For Members</h3>
+                <ul class="footer-links">
+                    <li><a href="#">CME & Education</a></li>
+                    <li><a href="#">Membership Benefits</a></li>
+                    <li><a href="#">Specialty Sections</a></li>
+                    <li><a href="#">Career Center</a></li>
+                    <li><a href="#">Practice Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Advocacy & Policy</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Legislative Updates</a></li>
+                    <li><a href="#">Grassroots Action</a></li>
+                    <li><a href="#">Policy Positions</a></li>
+                    <li><a href="#">Healthcare Reform</a></li>
+                    <li><a href="#">Regulatory Affairs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quality & Safety</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Clinical Guidelines</a></li>
+                    <li><a href="#">Patient Safety Toolkit</a></li>
+                    <li><a href="#">Quality Improvement</a></li>
+                    <li><a href="#">Risk Management</a></li>
+                    <li><a href="#">Peer Review</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Join Our Association</a></li>
+                    <li><a href="#">Foundation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 State Medical Association. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Use</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.8125rem;">Advancing Physician Excellence and Patient Care Since 1847</p>
+        </div>
+    </footer>
+</body>
+</html>

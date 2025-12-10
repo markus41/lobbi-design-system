@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Dashboard - Neural Intelligence Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ╔═══════════════════════════════════════════════════════════════════════════════╗
+        ║                         ULTRATHINK DESIGN ANALYSIS                            ║
+        ║                    AI Research Dashboard - Style 43                           ║
+        ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+        DESIGN PHILOSOPHY:
+        ─────────────────
+        This interface embodies the intellectual rigor and cutting-edge innovation of
+        premier AI research laboratories (DeepMind, OpenAI, Anthropic). The design
+        establishes trust through academic credibility while maintaining accessibility
+        for technical audiences.
+
+        BLEND COMPOSITION:
+        ──────────────────
+        • AI Research Labs (75%): Neural blue accents, model metrics, benchmark
+          comparisons, research-grade data visualization
+        • Scientific Publication (25%): Citation formatting, paper-style typography,
+          academic hierarchy, publication metadata
+
+        COLOR PSYCHOLOGY:
+        ─────────────────
+        • Deep Purple (#4c1d95): Intellectual depth, innovation, premium research
+        • Neural Blue (#3b82f6): Trust, intelligence, computational precision
+        • White (#ffffff): Clinical clarity, scientific objectivity
+        • Soft Gray (#f3f4f6): Subtle backgrounds, reduced cognitive load
+
+        TYPOGRAPHY STRATEGY:
+        ────────────────────
+        Inter font family provides:
+        • Technical precision with excellent readability at all sizes
+        • Modern geometric forms suggesting computational accuracy
+        • Wide character set supporting mathematical notation
+        • Variable weights establishing clear information hierarchy
+
+        COMPONENT ARCHITECTURE:
+        ───────────────────────
+        1. Header: Institutional branding with research navigation
+        2. Metric Cards: Model performance indicators with trend analysis
+        3. Research Cards: Paper summaries with citation metadata
+        4. Benchmark Table: Comparative performance data across models
+        5. Footer: Academic links and institutional information
+
+        SPATIAL HIERARCHY:
+        ──────────────────
+        • 24px base spacing unit (research paper line height)
+        • 16px grid system aligning with academic publishing standards
+        • Generous whitespace reducing visual complexity
+        • Clear sectioning supporting scannable content
+
+        INTERACTION DESIGN:
+        ───────────────────
+        • Subtle hover states preserving professional demeanor
+        • Smooth transitions suggesting computational precision
+        • Accessible focus indicators meeting WCAG 2.1 AA standards
+        • Card-based organization supporting modular content
+
+        EMOTIONAL TEMPERATURE:
+        ──────────────────────
+        Cool Intellectual (3/10):
+        • Subdued color palette minimizing emotional reaction
+        • Data-first presentation supporting objective analysis
+        • Academic formality establishing credibility
+        • Restrained visual flourishes prioritizing content
+
+        FORMALITY LEVEL:
+        ────────────────
+        High Academic (8/10):
+        • Citation-style metadata and attribution
+        • Formal language patterns and terminology
+        • Institutional branding and credibility markers
+        • Professional distance appropriate for research context
+
+        ACCESSIBILITY CONSIDERATIONS:
+        ─────────────────────────────
+        • WCAG 2.1 AA compliant contrast ratios (4.5:1 minimum)
+        • Semantic HTML structure supporting screen readers
+        • Keyboard navigation throughout interactive elements
+        • Focus indicators for all actionable components
+        • Sufficient touch targets (44x44px minimum)
+
+        PERFORMANCE OPTIMIZATION:
+        ─────────────────────────
+        • System font stack with Inter as primary typeface
+        • Embedded CSS eliminating additional HTTP requests
+        • CSS Grid for efficient layout calculations
+        • Minimal DOM complexity supporting fast rendering
+
+        BRAND ALIGNMENT:
+        ────────────────
+        Establishes credibility through:
+        • Academic visual language signaling research rigor
+        • Data transparency building trust with technical audiences
+        • Institutional design patterns suggesting stability
+        • Scientific objectivity over marketing persuasion
+
+        USE CASES:
+        ──────────
+        • AI model benchmarking dashboards
+        • Research laboratory websites
+        • Technical documentation portals
+        • Academic conference platforms
+        • Machine learning competition leaderboards
+
+        COMPETITIVE DIFFERENTIATION:
+        ────────────────────────────
+        Unlike consumer AI products, this design prioritizes:
+        • Intellectual credibility over emotional engagement
+        • Data transparency over simplified messaging
+        • Academic standards over marketing conventions
+        • Technical precision over broad accessibility
+
+        SCALABILITY:
+        ────────────
+        Component system supports:
+        • Additional metric cards without layout disruption
+        • Dynamic content loading maintaining visual consistency
+        • Responsive breakpoints preserving information hierarchy
+        • Theme variations for different research domains
+
+        ═════════════════════════════════════════════════════════════════════════════
+        */
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           FOUNDATION STYLES
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --color-deep-purple: #4c1d95;
+            --color-neural-blue: #3b82f6;
+            --color-white: #ffffff;
+            --color-soft-gray: #f3f4f6;
+            --color-medium-gray: #9ca3af;
+            --color-dark-gray: #374151;
+            --color-purple-light: #7c3aed;
+            --color-purple-dark: #2e1065;
+            --color-blue-light: #60a5fa;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+
+            /* Typography Scale */
+            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;      /* 12px */
+            --font-size-sm: 0.875rem;     /* 14px */
+            --font-size-base: 1rem;       /* 16px */
+            --font-size-lg: 1.125rem;     /* 18px */
+            --font-size-xl: 1.25rem;      /* 20px */
+            --font-size-2xl: 1.5rem;      /* 24px */
+            --font-size-3xl: 1.875rem;    /* 30px */
+            --font-size-4xl: 2.25rem;     /* 36px */
+
+            /* Spacing Scale (8px base unit) */
+            --spacing-1: 0.5rem;   /* 8px */
+            --spacing-2: 1rem;     /* 16px */
+            --spacing-3: 1.5rem;   /* 24px */
+            --spacing-4: 2rem;     /* 32px */
+            --spacing-6: 3rem;     /* 48px */
+            --spacing-8: 4rem;     /* 64px */
+
+            /* Layout Constants */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            /* Transitions */
+            --transition-base: all 0.2s ease;
+            --transition-slow: all 0.3s ease;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            background-color: var(--color-soft-gray);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           HEADER COMPONENT
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .header {
+            background-color: var(--color-white);
+            border-bottom: 1px solid #e5e7eb;
+            padding: var(--spacing-3) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+
+        .header-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-deep-purple), var(--color-purple-light));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+        }
+
+        .header-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title h1 {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+            letter-spacing: -0.025em;
+        }
+
+        .header-title p {
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+            font-weight: 400;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: var(--spacing-4);
+        }
+
+        .nav-link {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-dark-gray);
+            text-decoration: none;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition-base);
+        }
+
+        .nav-link:hover {
+            background-color: var(--color-soft-gray);
+            color: var(--color-deep-purple);
+        }
+
+        .nav-link.active {
+            color: var(--color-neural-blue);
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           MAIN CONTAINER
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-4);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           METRICS GRID
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .metrics-section {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-3);
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--color-medium-gray);
+            font-weight: 400;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-3);
+        }
+
+        .metric-card {
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-3);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            border: 1px solid #e5e7eb;
+        }
+
+        .metric-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .metric-label {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-badge {
+            font-size: var(--font-size-xs);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+        }
+
+        .metric-badge.success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--color-success);
+        }
+
+        .metric-badge.warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--color-warning);
+        }
+
+        .metric-badge.info {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--color-neural-blue);
+        }
+
+        .metric-value {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+            margin-bottom: var(--spacing-1);
+            line-height: 1.2;
+        }
+
+        .metric-change {
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .change-positive {
+            color: var(--color-success);
+            font-weight: 600;
+        }
+
+        .change-negative {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .metric-footer {
+            margin-top: var(--spacing-2);
+            padding-top: var(--spacing-2);
+            border-top: 1px solid var(--color-soft-gray);
+            font-size: var(--font-size-xs);
+            color: var(--color-medium-gray);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           RESEARCH CARDS SECTION
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .research-section {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--spacing-4);
+        }
+
+        .research-card {
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-4);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            border: 1px solid #e5e7eb;
+        }
+
+        .research-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-neural-blue);
+        }
+
+        .research-meta {
+            display: flex;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-2);
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            font-size: var(--font-size-xs);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            background-color: var(--color-soft-gray);
+            color: var(--color-dark-gray);
+        }
+
+        .meta-tag.primary {
+            background-color: rgba(76, 29, 149, 0.1);
+            color: var(--color-deep-purple);
+        }
+
+        .research-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+            margin-bottom: var(--spacing-2);
+            line-height: 1.3;
+        }
+
+        .research-authors {
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+            margin-bottom: var(--spacing-2);
+            font-style: italic;
+        }
+
+        .research-abstract {
+            font-size: var(--font-size-sm);
+            color: var(--color-dark-gray);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .research-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-2);
+            padding: var(--spacing-2);
+            background-color: var(--color-soft-gray);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .research-metric-item {
+            text-align: center;
+        }
+
+        .research-metric-value {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-neural-blue);
+            display: block;
+        }
+
+        .research-metric-label {
+            font-size: var(--font-size-xs);
+            color: var(--color-medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .research-actions {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-base);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-neural-blue);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-neural-blue);
+            border: 1px solid var(--color-neural-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           BENCHMARK TABLE
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .benchmark-section {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .table-container {
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .table-header {
+            padding: var(--spacing-3);
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+        }
+
+        .table-filter {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .filter-btn {
+            font-size: var(--font-size-xs);
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--border-radius-sm);
+            background-color: var(--color-soft-gray);
+            color: var(--color-dark-gray);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-base);
+        }
+
+        .filter-btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        .filter-btn.active {
+            background-color: var(--color-neural-blue);
+            color: var(--color-white);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: var(--color-soft-gray);
+        }
+
+        th {
+            padding: var(--spacing-2) var(--spacing-3);
+            text-align: left;
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            color: var(--color-dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        th.text-right {
+            text-align: right;
+        }
+
+        td {
+            padding: var(--spacing-2) var(--spacing-3);
+            font-size: var(--font-size-sm);
+            color: var(--color-dark-gray);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        td.text-right {
+            text-align: right;
+        }
+
+        tbody tr {
+            transition: var(--transition-base);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .model-name {
+            font-weight: 600;
+            color: var(--color-deep-purple);
+        }
+
+        .model-version {
+            font-size: var(--font-size-xs);
+            color: var(--color-medium-gray);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .score-high {
+            color: var(--color-success);
+            font-weight: 700;
+        }
+
+        .score-medium {
+            color: var(--color-warning);
+            font-weight: 700;
+        }
+
+        .score-low {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .benchmark-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+
+        .rank-1 {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--color-success);
+        }
+
+        .rank-2 {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--color-neural-blue);
+        }
+
+        .rank-3 {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--color-warning);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        .footer {
+            background-color: var(--color-white);
+            border-top: 1px solid #e5e7eb;
+            margin-top: var(--spacing-8);
+            padding: var(--spacing-6) 0;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-4);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .footer-section h3 {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-deep-purple);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-1);
+        }
+
+        .footer-links a {
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-neural-blue);
+        }
+
+        .footer-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+            line-height: 1.7;
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-4);
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--font-size-sm);
+            color: var(--color-medium-gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--color-soft-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-dark-gray);
+            text-decoration: none;
+            transition: var(--transition-base);
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background-color: var(--color-neural-blue);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════
+           RESPONSIVE DESIGN
+           ═══════════════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--spacing-2);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container {
+                padding: var(--spacing-2);
+            }
+
+            .section-title {
+                font-size: var(--font-size-xl);
+            }
+
+            .research-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>43</strong> of 70 &mdash; AI Research</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-42-art-gallery.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-44-biotech-lab.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 42) window.location.href = 'style-42-art-gallery.html';
+                if (e.key === 'ArrowRight' && 44) window.location.href = 'style-44-biotech-lab.html';
+            });
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         HEADER COMPONENT
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="header-logo">Ν</div>
+                <div class="header-title">
+                    <h1>Neural Intelligence Lab</h1>
+                    <p>Advanced AI Research & Model Development</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="nav-link active">Research</a>
+                <a href="#" class="nav-link">Models</a>
+                <a href="#" class="nav-link">Benchmarks</a>
+                <a href="#" class="nav-link">Publications</a>
+                <a href="#" class="nav-link">Team</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <main class="main-container">
+
+        <!-- METRICS SECTION -->
+        <section class="metrics-section">
+            <div class="section-header">
+                <h2 class="section-title">Model Performance Overview</h2>
+                <p class="section-subtitle">Real-time metrics from our latest training runs and evaluations</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Model Accuracy</span>
+                        <span class="metric-badge success">Live</span>
+                    </div>
+                    <div class="metric-value">94.7%</div>
+                    <div class="metric-change">
+                        <span class="change-positive">↑ 2.3%</span>
+                        <span>vs. previous epoch</span>
+                    </div>
+                    <div class="metric-footer">
+                        Updated 12 minutes ago • Training epoch 847/1000
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Inference Speed</span>
+                        <span class="metric-badge info">Optimized</span>
+                    </div>
+                    <div class="metric-value">23.4ms</div>
+                    <div class="metric-change">
+                        <span class="change-positive">↓ 8.2ms</span>
+                        <span>latency reduction</span>
+                    </div>
+                    <div class="metric-footer">
+                        Batch size: 32 • GPU: A100 80GB • FP16 precision
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Parameters</span>
+                        <span class="metric-badge warning">Large</span>
+                    </div>
+                    <div class="metric-value">175B</div>
+                    <div class="metric-change">
+                        <span>Active parameters</span>
+                    </div>
+                    <div class="metric-footer">
+                        Architecture: Transformer • Layers: 96 • Hidden: 12,288
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Training Loss</span>
+                        <span class="metric-badge success">Converging</span>
+                    </div>
+                    <div class="metric-value">0.0847</div>
+                    <div class="metric-change">
+                        <span class="change-positive">↓ 0.0231</span>
+                        <span>from baseline</span>
+                    </div>
+                    <div class="metric-footer">
+                        Cross-entropy loss • Learning rate: 1.2e-4
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH PAPERS SECTION -->
+        <section class="research-section">
+            <div class="section-header">
+                <h2 class="section-title">Recent Publications</h2>
+                <p class="section-subtitle">Peer-reviewed research advancing the state of artificial intelligence</p>
+            </div>
+            <div class="research-grid">
+                <article class="research-card">
+                    <div class="research-meta">
+                        <span class="meta-tag primary">NeurIPS 2024</span>
+                        <span class="meta-tag">Transformers</span>
+                        <span class="meta-tag">Attention</span>
+                    </div>
+                    <h3 class="research-title">Sparse Attention Mechanisms for Efficient Large Language Models</h3>
+                    <p class="research-authors">Zhang, L., Kumar, R., Chen, M., et al.</p>
+                    <p class="research-abstract">
+                        We introduce a novel sparse attention mechanism that reduces computational complexity
+                        from O(n²) to O(n log n) while maintaining 99.4% of dense attention performance.
+                        Our approach enables training models with 2× longer context windows using equivalent
+                        computational resources.
+                    </p>
+                    <div class="research-metrics">
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">2,847</span>
+                            <span class="research-metric-label">Citations</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">94.2%</span>
+                            <span class="research-metric-label">Accuracy</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">3.2×</span>
+                            <span class="research-metric-label">Speedup</span>
+                        </div>
+                    </div>
+                    <div class="research-actions">
+                        <a href="#" class="btn btn-primary">Read Paper</a>
+                        <a href="#" class="btn btn-secondary">View Code</a>
+                    </div>
+                </article>
+
+                <article class="research-card">
+                    <div class="research-meta">
+                        <span class="meta-tag primary">ICML 2024</span>
+                        <span class="meta-tag">Reinforcement Learning</span>
+                        <span class="meta-tag">Alignment</span>
+                    </div>
+                    <h3 class="research-title">Constitutional AI: Harmlessness from AI Feedback</h3>
+                    <p class="research-authors">Anderson, T., Park, J., Williams, S., et al.</p>
+                    <p class="research-abstract">
+                        This work presents a scalable approach to training helpful, harmless, and honest AI
+                        systems using a constitution of principles rather than human feedback alone. We achieve
+                        state-of-the-art results on safety benchmarks while maintaining task performance.
+                    </p>
+                    <div class="research-metrics">
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">1,523</span>
+                            <span class="research-metric-label">Citations</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">97.8%</span>
+                            <span class="research-metric-label">Safety</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">91.5%</span>
+                            <span class="research-metric-label">Helpfulness</span>
+                        </div>
+                    </div>
+                    <div class="research-actions">
+                        <a href="#" class="btn btn-primary">Read Paper</a>
+                        <a href="#" class="btn btn-secondary">Dataset</a>
+                    </div>
+                </article>
+
+                <article class="research-card">
+                    <div class="research-meta">
+                        <span class="meta-tag primary">arXiv 2024</span>
+                        <span class="meta-tag">Multimodal</span>
+                        <span class="meta-tag">Vision-Language</span>
+                    </div>
+                    <h3 class="research-title">Unified Vision-Language Pre-training with Contrastive Learning</h3>
+                    <p class="research-authors">Liu, X., Thompson, K., Martinez, E., et al.</p>
+                    <p class="research-abstract">
+                        We present a unified framework for vision-language pre-training that achieves
+                        state-of-the-art performance on 12 downstream tasks including image captioning,
+                        VQA, and visual reasoning. Our model demonstrates strong zero-shot transfer capabilities.
+                    </p>
+                    <div class="research-metrics">
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">892</span>
+                            <span class="research-metric-label">Citations</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">89.7%</span>
+                            <span class="research-metric-label">VQA Acc</span>
+                        </div>
+                        <div class="research-metric-item">
+                            <span class="research-metric-value">12</span>
+                            <span class="research-metric-label">Benchmarks</span>
+                        </div>
+                    </div>
+                    <div class="research-actions">
+                        <a href="#" class="btn btn-primary">Read Paper</a>
+                        <a href="#" class="btn btn-secondary">Demo</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- BENCHMARK COMPARISON TABLE -->
+        <section class="benchmark-section">
+            <div class="section-header">
+                <h2 class="section-title">Model Benchmark Leaderboard</h2>
+                <p class="section-subtitle">Comparative performance across standard evaluation benchmarks</p>
+            </div>
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Language Understanding Benchmarks</h3>
+                    <div class="table-filter">
+                        <button class="filter-btn active">All Tasks</button>
+                        <button class="filter-btn">MMLU</button>
+                        <button class="filter-btn">HellaSwag</button>
+                        <button class="filter-btn">GSM8K</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model</th>
+                            <th class="text-right">MMLU</th>
+                            <th class="text-right">HellaSwag</th>
+                            <th class="text-right">GSM8K</th>
+                            <th class="text-right">TruthfulQA</th>
+                            <th class="text-right">Average</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="benchmark-badge rank-1">1st</span></td>
+                            <td>
+                                <span class="model-name">Neural-GPT-175B</span>
+                                <span class="model-version">v4.2 • Dec 2024</span>
+                            </td>
+                            <td class="text-right score-high">89.4</td>
+                            <td class="text-right score-high">95.3</td>
+                            <td class="text-right score-high">92.7</td>
+                            <td class="text-right score-high">87.2</td>
+                            <td class="text-right score-high">91.2</td>
+                        </tr>
+                        <tr>
+                            <td><span class="benchmark-badge rank-2">2nd</span></td>
+                            <td>
+                                <span class="model-name">Claude-Opus-3.5</span>
+                                <span class="model-version">Anthropic • Nov 2024</span>
+                            </td>
+                            <td class="text-right score-high">88.7</td>
+                            <td class="text-right score-high">94.8</td>
+                            <td class="text-right score-high">91.4</td>
+                            <td class="text-right score-high">86.9</td>
+                            <td class="text-right score-high">90.5</td>
+                        </tr>
+                        <tr>
+                            <td><span class="benchmark-badge rank-3">3rd</span></td>
+                            <td>
+                                <span class="model-name">GPT-4-Turbo</span>
+                                <span class="model-version">OpenAI • Oct 2024</span>
+                            </td>
+                            <td class="text-right score-high">86.4</td>
+                            <td class="text-right score-high">93.6</td>
+                            <td class="text-right score-high">89.8</td>
+                            <td class="text-right score-medium">82.1</td>
+                            <td class="text-right score-high">88.0</td>
+                        </tr>
+                        <tr>
+                            <td><span class="benchmark-badge">4th</span></td>
+                            <td>
+                                <span class="model-name">Gemini-Ultra-1.5</span>
+                                <span class="model-version">Google • Sep 2024</span>
+                            </td>
+                            <td class="text-right score-high">85.2</td>
+                            <td class="text-right score-high">92.9</td>
+                            <td class="text-right score-high">88.3</td>
+                            <td class="text-right score-medium">81.7</td>
+                            <td class="text-right score-high">87.0</td>
+                        </tr>
+                        <tr>
+                            <td><span class="benchmark-badge">5th</span></td>
+                            <td>
+                                <span class="model-name">LLaMA-3-70B</span>
+                                <span class="model-version">Meta • Aug 2024</span>
+                            </td>
+                            <td class="text-right score-medium">79.8</td>
+                            <td class="text-right score-high">88.6</td>
+                            <td class="text-right score-medium">76.4</td>
+                            <td class="text-right score-medium">74.2</td>
+                            <td class="text-right score-medium">79.8</td>
+                        </tr>
+                        <tr>
+                            <td><span class="benchmark-badge">6th</span></td>
+                            <td>
+                                <span class="model-name">Mistral-Large</span>
+                                <span class="model-version">Mistral AI • Jul 2024</span>
+                            </td>
+                            <td class="text-right score-medium">77.3</td>
+                            <td class="text-right score-high">86.2</td>
+                            <td class="text-right score-medium">73.9</td>
+                            <td class="text-right score-medium">71.8</td>
+                            <td class="text-right score-medium">77.3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Neural Intelligence Lab</h3>
+                    <p class="footer-description">
+                        We are a leading artificial intelligence research laboratory focused on developing
+                        safe, beneficial, and interpretable AI systems. Our work spans natural language
+                        processing, computer vision, reinforcement learning, and AI alignment.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Research Areas</a></li>
+                        <li><a href="#">Technical Reports</a></li>
+                        <li><a href="#">Preprints</a></li>
+                        <li><a href="#">Datasets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Models</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Model Repository</a></li>
+                        <li><a href="#">API Access</a></li>
+                        <li><a href="#">Benchmarks</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Licensing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Join Our Team</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Academic Partners</a></li>
+                        <li><a href="#">News & Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neural Intelligence Lab. All rights reserved. | Ethics Policy | Terms of Use</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Twitter">T</a>
+                    <a href="#" class="social-link" aria-label="GitHub">G</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">L</a>
+                    <a href="#" class="social-link" aria-label="arXiv">A</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

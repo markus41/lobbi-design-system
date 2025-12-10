@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Society Portal - Cultivating Excellence in Wine Culture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy-dark: #6B1B2E;
+            --burgundy-medium: #8B2635;
+            --burgundy-light: #A03447;
+            --gold-dark: #B8860B;
+            --gold-medium: #D4AF37;
+            --gold-light: #E6C84F;
+            --cream-dark: #F5E6D3;
+            --cream-medium: #FFF8DC;
+            --cream-light: #FFFEF9;
+            --text-dark: #2A1810;
+            --text-medium: #5C4033;
+            --shadow: rgba(107, 27, 46, 0.15);
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream-dark) 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-medium) 100%);
+            color: var(--cream-light);
+            padding: 0;
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold-medium);
+        }
+
+        .header-top {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-main {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        nav a {
+            color: var(--cream-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-medium);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(107, 27, 46, 0.85), rgba(139, 38, 53, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%236B1B2E" width="1200" height="600"/><circle cx="200" cy="150" r="100" fill="%238B2635" opacity="0.3"/><circle cx="800" cy="400" r="150" fill="%238B2635" opacity="0.3"/><circle cx="1000" cy="200" r="120" fill="%238B2635" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--cream-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" fill="%23D4AF37" opacity="0.05">🍷</text></svg>');
+            background-size: 200px;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 248, 220, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold-medium);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--gold-light);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--cream-light);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--cream-light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px var(--shadow);
+            border: 2px solid var(--gold-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gold-medium);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--burgundy-dark);
+            font-weight: 700;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--gold-medium);
+        }
+
+        /* Wine Collection Tracker */
+        .collection-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy-medium) 0%, var(--burgundy-dark) 100%);
+            color: var(--cream-light);
+            box-shadow: 0 4px 15px rgba(107, 27, 46, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-medium) 100%);
+            box-shadow: 0 6px 20px rgba(107, 27, 46, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--cream-dark);
+            color: var(--burgundy-dark);
+            border: 2px solid var(--gold-medium);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold-light);
+            color: var(--burgundy-dark);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gold-medium);
+            border-radius: 8px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95rem;
+            background: var(--cream-light);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--burgundy-medium);
+            box-shadow: 0 0 0 3px rgba(107, 27, 46, 0.1);
+        }
+
+        .wine-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .wine-item {
+            background: linear-gradient(135deg, var(--cream-medium) 0%, var(--cream-light) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--burgundy-medium);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .wine-item:hover {
+            background: var(--cream-light);
+            border-left-color: var(--gold-medium);
+            transform: translateX(5px);
+        }
+
+        .wine-bottle {
+            width: 50px;
+            height: 50px;
+            background: var(--burgundy-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            font-size: 1.5rem;
+        }
+
+        .wine-details h4 {
+            color: var(--burgundy-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .wine-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .wine-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .wine-rating {
+            display: flex;
+            gap: 0.2rem;
+            color: var(--gold-medium);
+        }
+
+        .wine-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            background: var(--cream-dark);
+            color: var(--burgundy-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background: var(--gold-medium);
+            color: var(--cream-light);
+            transform: scale(1.1);
+        }
+
+        /* Tasting Events Calendar */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-medium) 100%);
+            border-radius: 10px;
+            color: var(--cream-light);
+        }
+
+        .month-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .month-nav button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: var(--gold-medium);
+            color: var(--burgundy-dark);
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .month-nav button:hover {
+            background: var(--gold-light);
+            transform: scale(1.1);
+        }
+
+        .event-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .event-item {
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream-medium) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--gold-medium);
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .event-date {
+            background: var(--burgundy-medium);
+            color: var(--cream-light);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .event-day {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-title {
+            color: var(--burgundy-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 0.75rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .event-description {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--gold-light);
+            color: var(--burgundy-dark);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Certification Progress */
+        .certification-levels {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .cert-level {
+            background: linear-gradient(135deg, var(--cream-medium) 0%, var(--cream-light) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold-medium);
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            color: var(--burgundy-dark);
+            font-weight: 700;
+        }
+
+        .cert-status {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .status-active {
+            background: var(--gold-medium);
+            color: var(--burgundy-dark);
+        }
+
+        .status-completed {
+            background: var(--burgundy-medium);
+            color: var(--cream-light);
+        }
+
+        .status-locked {
+            background: var(--cream-dark);
+            color: var(--text-medium);
+        }
+
+        .progress-bar {
+            height: 30px;
+            background: var(--cream-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--burgundy-medium) 0%, var(--burgundy-light) 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cert-modules {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .module-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--cream-light);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .module-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--burgundy-medium);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            background: var(--cream-light);
+        }
+
+        .module-checkbox.checked {
+            background: var(--burgundy-medium);
+        }
+
+        /* Cellar Management */
+        .cellar-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cellar-stat {
+            background: linear-gradient(135deg, var(--burgundy-medium) 0%, var(--burgundy-dark) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            color: var(--cream-light);
+        }
+
+        .cellar-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .cellar-stat-label {
+            font-size: 0.9rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cellar-conditions {
+            background: linear-gradient(135deg, var(--cream-medium) 0%, var(--cream-light) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .condition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .condition-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .condition-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--burgundy-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            font-size: 1.3rem;
+        }
+
+        .condition-info h4 {
+            color: var(--burgundy-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .condition-value {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .condition-status {
+            font-size: 0.8rem;
+            color: var(--gold-dark);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .storage-zones {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .zone-item {
+            background: var(--cream-light);
+            padding: 1.25rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--burgundy-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .zone-info h4 {
+            color: var(--burgundy-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .zone-capacity {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .capacity-bar {
+            width: 200px;
+            height: 10px;
+            background: var(--cream-dark);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .capacity-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-medium) 100%);
+            transition: width 0.5s ease;
+        }
+
+        /* Collector's Section */
+        .auction-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .auction-item {
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream-medium) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold-medium);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .auction-image {
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--burgundy-medium) 0%, var(--burgundy-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            font-size: 2rem;
+        }
+
+        .auction-details h4 {
+            color: var(--burgundy-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .auction-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .auction-price {
+            background: var(--burgundy-dark);
+            color: var(--gold-light);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .price-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .bid-btn {
+            background: var(--gold-medium);
+            color: var(--burgundy-dark);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .bid-btn:hover {
+            background: var(--gold-light);
+            transform: scale(1.05);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gold-medium);
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .tab.active {
+            color: var(--burgundy-dark);
+            border-bottom-color: var(--burgundy-medium);
+        }
+
+        .tab:hover {
+            color: var(--burgundy-dark);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-medium) 100%);
+            color: var(--cream-light);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--gold-medium);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--cream-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--cream-dark);
+            font-size: 0.9rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-main {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .wine-item {
+                grid-template-columns: 1fr;
+            }
+
+            .auction-item {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--burgundy-medium);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--burgundy-dark);
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>112</strong> of 120 &mdash; Wine Society</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-111-esports-arena.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-113-blockchain-dao.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 111) window.location.href = 'style-111-esports-arena.html';
+                if (e.key === 'ArrowRight' && 113) window.location.href = 'style-113-blockchain-dao.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-info">
+                <span>📞 +1 (555) WINE-123</span>
+                <span>✉️ concierge@winesociety.com</span>
+            </div>
+            <div class="header-info">
+                <span>Member Since: 2018</span>
+                <span>Tier: Platinum</span>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <div class="logo-icon">🍷</div>
+                <span>WINE SOCIETY</span>
+            </div>
+            <nav>
+                <a href="#collection">My Collection</a>
+                <a href="#events">Events</a>
+                <a href="#certification">Certification</a>
+                <a href="#cellar">Cellar</a>
+                <a href="#auctions">Auctions</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cultivating Wine Excellence</h1>
+            <p class="hero-subtitle">Where Passion Meets Expertise in Every Vintage</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">347</div>
+                    <div class="stat-label">Bottles in Collection</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Tastings Attended</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Level 2</div>
+                    <div class="stat-label">WSET Certification</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$84K</div>
+                    <div class="stat-label">Collection Value</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Wine Collection Tracker -->
+            <div class="card" style="grid-column: span 2;" id="collection">
+                <div class="card-header">
+                    <h2 class="card-title">Wine Collection</h2>
+                    <span class="card-icon">🍷</span>
+                </div>
+
+                <div class="collection-controls">
+                    <button class="btn btn-primary">+ Add Bottle</button>
+                    <button class="btn btn-secondary">Import from Excel</button>
+                    <input type="text" class="search-box" placeholder="Search by name, region, vintage...">
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'red-wines')">Red Wines (198)</button>
+                    <button class="tab" onclick="switchTab(event, 'white-wines')">White Wines (112)</button>
+                    <button class="tab" onclick="switchTab(event, 'sparkling')">Sparkling (37)</button>
+                </div>
+
+                <div id="red-wines" class="tab-content active">
+                    <div class="wine-grid">
+                        <div class="wine-item">
+                            <div class="wine-bottle">🍷</div>
+                            <div class="wine-details">
+                                <h4>Château Margaux 2015</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Bordeaux, France</span>
+                                    <span>📅 2015</span>
+                                    <span>🔢 6 bottles</span>
+                                    <span>💰 $850/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★★</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+
+                        <div class="wine-item">
+                            <div class="wine-bottle">🍷</div>
+                            <div class="wine-details">
+                                <h4>Screaming Eagle Cabernet 2018</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Napa Valley, USA</span>
+                                    <span>📅 2018</span>
+                                    <span>🔢 2 bottles</span>
+                                    <span>💰 $3,200/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★★</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+
+                        <div class="wine-item">
+                            <div class="wine-bottle">🍷</div>
+                            <div class="wine-details">
+                                <h4>Penfolds Grange 2016</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Barossa Valley, Australia</span>
+                                    <span>📅 2016</span>
+                                    <span>🔢 4 bottles</span>
+                                    <span>💰 $625/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★☆</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+
+                        <div class="wine-item">
+                            <div class="wine-bottle">🍷</div>
+                            <div class="wine-details">
+                                <h4>Domaine de la Romanée-Conti 2017</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Burgundy, France</span>
+                                    <span>📅 2017</span>
+                                    <span>🔢 1 bottle</span>
+                                    <span>💰 $18,500/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★★</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="white-wines" class="tab-content">
+                    <div class="wine-grid">
+                        <div class="wine-item">
+                            <div class="wine-bottle" style="background: var(--gold-medium);">🥂</div>
+                            <div class="wine-details">
+                                <h4>Cloudy Bay Sauvignon Blanc 2022</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Marlborough, New Zealand</span>
+                                    <span>📅 2022</span>
+                                    <span>🔢 12 bottles</span>
+                                    <span>💰 $35/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★☆</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sparkling" class="tab-content">
+                    <div class="wine-grid">
+                        <div class="wine-item">
+                            <div class="wine-bottle" style="background: var(--gold-light);">🍾</div>
+                            <div class="wine-details">
+                                <h4>Dom Pérignon Vintage 2012</h4>
+                                <div class="wine-meta">
+                                    <span>📍 Champagne, France</span>
+                                    <span>📅 2012</span>
+                                    <span>🔢 8 bottles</span>
+                                    <span>💰 $220/bottle</span>
+                                </div>
+                                <div class="wine-rating">★★★★★</div>
+                            </div>
+                            <div class="wine-actions">
+                                <button class="icon-btn" title="Edit">✏️</button>
+                                <button class="icon-btn" title="Drink">🥂</button>
+                                <button class="icon-btn" title="Notes">📝</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasting Events Calendar -->
+            <div class="card" id="events">
+                <div class="card-header">
+                    <h2 class="card-title">Tasting Events</h2>
+                    <span class="card-icon">📅</span>
+                </div>
+
+                <div class="calendar-header">
+                    <div class="month-nav">
+                        <button>&lt;</button>
+                        <h3 style="margin: 0; font-size: 1.3rem;">December 2025</h3>
+                        <button>&gt;</button>
+                    </div>
+                    <button class="btn btn-secondary" style="background: var(--gold-medium); border: none;">+ New Event</button>
+                </div>
+
+                <div class="event-list">
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">12</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-info">
+                            <h3 class="event-title">Bordeaux Grand Tasting</h3>
+                            <div class="event-details">
+                                <span>⏰ 18:00 - 21:00</span>
+                                <span>📍 Society Hall</span>
+                                <span>👥 24 attendees</span>
+                            </div>
+                            <p class="event-description">Explore premier Bordeaux vintages from 2015-2020. Expert sommelier-led tasting featuring Château Margaux, Lafite Rothschild, and more.</p>
+                            <span class="event-badge">PREMIUM</span>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">18</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-info">
+                            <h3 class="event-title">Burgundy Masterclass</h3>
+                            <div class="event-details">
+                                <span>⏰ 14:00 - 17:00</span>
+                                <span>📍 Private Cellar</span>
+                                <span>👥 12 attendees</span>
+                            </div>
+                            <p class="event-description">Deep dive into terroir-driven Burgundy. Learn to distinguish Premier Cru from Grand Cru with hands-on tasting exercises.</p>
+                            <span class="event-badge">CERTIFICATION</span>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">28</div>
+                            <div class="event-month">DEC</div>
+                        </div>
+                        <div class="event-info">
+                            <h3 class="event-title">New Year's Champagne Soirée</h3>
+                            <div class="event-details">
+                                <span>⏰ 19:00 - 23:00</span>
+                                <span>📍 Grand Ballroom</span>
+                                <span>👥 50 attendees</span>
+                            </div>
+                            <p class="event-description">Celebrate with rare vintage Champagnes. Special auction featuring Krug Collection and Dom Pérignon P2.</p>
+                            <span class="event-badge">SPECIAL EVENT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification Progress -->
+            <div class="card" id="certification">
+                <div class="card-header">
+                    <h2 class="card-title">Certification Progress</h2>
+                    <span class="card-icon">🎓</span>
+                </div>
+
+                <div class="certification-levels">
+                    <div class="cert-level">
+                        <div class="cert-header">
+                            <h3 class="cert-title">WSET Level 1 - Wines</h3>
+                            <span class="cert-status status-completed">✓ COMPLETED</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;">100%</div>
+                        </div>
+                        <div class="cert-modules">
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Introduction to Wine Types</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Wine Production Basics</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Food & Wine Pairing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-level">
+                        <div class="cert-header">
+                            <h3 class="cert-title">WSET Level 2 - Wines & Spirits</h3>
+                            <span class="cert-status status-active">IN PROGRESS</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;">65%</div>
+                        </div>
+                        <div class="cert-modules">
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Viticulture & Winemaking</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Wine Regions of France</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox checked">✓</div>
+                                <span>Italian Wine Regions</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox">○</div>
+                                <span>New World Wine Regions</span>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-checkbox">○</div>
+                                <span>Spirits & Fortified Wines</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-level">
+                        <div class="cert-header">
+                            <h3 class="cert-title">WSET Level 3 - Wines</h3>
+                            <span class="cert-status status-locked">🔒 LOCKED</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;">0%</div>
+                        </div>
+                        <p style="color: var(--text-medium); font-size: 0.9rem; margin-top: 0.5rem; font-family: 'Arial', sans-serif;">Complete Level 2 to unlock advanced certification</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Continue Learning</button>
+            </div>
+
+            <!-- Cellar Management -->
+            <div class="card" id="cellar">
+                <div class="card-header">
+                    <h2 class="card-title">Cellar Management</h2>
+                    <span class="card-icon">🏛️</span>
+                </div>
+
+                <div class="cellar-stats">
+                    <div class="cellar-stat">
+                        <div class="cellar-stat-value">347</div>
+                        <div class="cellar-stat-label">Total Bottles</div>
+                    </div>
+                    <div class="cellar-stat">
+                        <div class="cellar-stat-value">84%</div>
+                        <div class="cellar-stat-label">Capacity</div>
+                    </div>
+                    <div class="cellar-stat">
+                        <div class="cellar-stat-value">$84K</div>
+                        <div class="cellar-stat-label">Total Value</div>
+                    </div>
+                </div>
+
+                <div class="cellar-conditions">
+                    <h3 style="color: var(--burgundy-dark); margin-bottom: 1rem;">Environmental Conditions</h3>
+                    <div class="condition-grid">
+                        <div class="condition-item">
+                            <div class="condition-icon">🌡️</div>
+                            <div class="condition-info">
+                                <h4>Temperature</h4>
+                                <div class="condition-value">55°F</div>
+                                <div class="condition-status">✓ Optimal</div>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">💧</div>
+                            <div class="condition-info">
+                                <h4>Humidity</h4>
+                                <div class="condition-value">68%</div>
+                                <div class="condition-status">✓ Optimal</div>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">💡</div>
+                            <div class="condition-info">
+                                <h4>Light Level</h4>
+                                <div class="condition-value">Low</div>
+                                <div class="condition-status">✓ Optimal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--burgundy-dark); margin-bottom: 1rem;">Storage Zones</h3>
+                <div class="storage-zones">
+                    <div class="zone-item">
+                        <div class="zone-info">
+                            <h4>Red Wine Vault</h4>
+                            <div class="zone-capacity">198 of 250 bottles</div>
+                        </div>
+                        <div class="capacity-bar">
+                            <div class="capacity-fill" style="width: 79%;"></div>
+                        </div>
+                    </div>
+                    <div class="zone-item">
+                        <div class="zone-info">
+                            <h4>White Wine Cooler</h4>
+                            <div class="zone-capacity">112 of 150 bottles</div>
+                        </div>
+                        <div class="capacity-bar">
+                            <div class="capacity-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="zone-item">
+                        <div class="zone-info">
+                            <h4>Champagne Reserve</h4>
+                            <div class="zone-capacity">37 of 50 bottles</div>
+                        </div>
+                        <div class="capacity-bar">
+                            <div class="capacity-fill" style="width: 74%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">View Full Inventory</button>
+            </div>
+
+            <!-- Collector's Auctions -->
+            <div class="card" style="grid-column: span 2;" id="auctions">
+                <div class="card-header">
+                    <h2 class="card-title">Rare Bottles & Auctions</h2>
+                    <span class="card-icon">🔨</span>
+                </div>
+
+                <div class="collection-controls">
+                    <button class="btn btn-primary">Live Auctions</button>
+                    <button class="btn btn-secondary">My Bids</button>
+                    <button class="btn btn-secondary">Watchlist (12)</button>
+                </div>
+
+                <div class="auction-grid">
+                    <div class="auction-item">
+                        <div class="auction-image">🍷</div>
+                        <div class="auction-details">
+                            <h4>1982 Château Lafite Rothschild</h4>
+                            <div class="auction-info">
+                                <span><strong>Region:</strong> Pauillac, Bordeaux</span>
+                                <span><strong>Condition:</strong> Excellent</span>
+                                <span><strong>Provenance:</strong> Verified</span>
+                                <span><strong>Lot:</strong> 3 bottles</span>
+                            </div>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">Legendary vintage from one of Bordeaux's finest estates. Perfect cellar conditions, original wooden case.</p>
+                            <div style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--burgundy-medium); font-weight: 600;">⏱️ Auction ends in 2 days, 14 hours</div>
+                        </div>
+                        <div>
+                            <div class="auction-price">
+                                <div class="price-label">Current Bid</div>
+                                <div class="price-value">$8,200</div>
+                            </div>
+                            <button class="bid-btn" style="margin-top: 1rem; width: 100%;">Place Bid</button>
+                        </div>
+                    </div>
+
+                    <div class="auction-item">
+                        <div class="auction-image">🍷</div>
+                        <div class="auction-details">
+                            <h4>2010 Sassicaia Bolgheri</h4>
+                            <div class="auction-info">
+                                <span><strong>Region:</strong> Tuscany, Italy</span>
+                                <span><strong>Condition:</strong> Mint</span>
+                                <span><strong>Provenance:</strong> Estate Direct</span>
+                                <span><strong>Lot:</strong> 6 bottles</span>
+                            </div>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">Super Tuscan excellence. 98 Parker points. Perfect investment-grade wine with exceptional aging potential.</p>
+                            <div style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--burgundy-medium); font-weight: 600;">⏱️ Auction ends in 5 days, 8 hours</div>
+                        </div>
+                        <div>
+                            <div class="auction-price">
+                                <div class="price-label">Current Bid</div>
+                                <div class="price-value">$2,400</div>
+                            </div>
+                            <button class="bid-btn" style="margin-top: 1rem; width: 100%;">Place Bid</button>
+                        </div>
+                    </div>
+
+                    <div class="auction-item">
+                        <div class="auction-image" style="background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-medium) 100%);">🍾</div>
+                        <div class="auction-details">
+                            <h4>1996 Dom Pérignon Rosé</h4>
+                            <div class="auction-info">
+                                <span><strong>Region:</strong> Champagne, France</span>
+                                <span><strong>Condition:</strong> Perfect</span>
+                                <span><strong>Provenance:</strong> Private Collection</span>
+                                <span><strong>Lot:</strong> 2 bottles</span>
+                            </div>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">Rare vintage rosé from legendary year. Impeccable storage, ready to drink or hold for appreciation.</p>
+                            <div style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--burgundy-medium); font-weight: 600;">⏱️ Auction ends in 1 day, 3 hours</div>
+                        </div>
+                        <div>
+                            <div class="auction-price">
+                                <div class="price-label">Current Bid</div>
+                                <div class="price-value">$1,850</div>
+                            </div>
+                            <button class="bid-btn" style="margin-top: 1rem; width: 100%;">Place Bid</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Wine Society</h3>
+                <p style="color: var(--cream-dark); margin-top: 0.5rem; line-height: 1.6;">Dedicated to advancing wine education, appreciation, and collecting excellence since 1987.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Member Resources</h3>
+                <div class="footer-links">
+                    <a href="#">Tasting Calendar</a>
+                    <a href="#">Education Programs</a>
+                    <a href="#">Cellar Services</a>
+                    <a href="#">Auction House</a>
+                    <a href="#">Concierge Support</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Certification</h3>
+                <div class="footer-links">
+                    <a href="#">WSET Courses</a>
+                    <a href="#">Sommelier Training</a>
+                    <a href="#">Masterclasses</a>
+                    <a href="#">Online Learning</a>
+                    <a href="#">Exam Schedules</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="footer-links">
+                    <a href="#">Member Services</a>
+                    <a href="#">Event Inquiries</a>
+                    <a href="#">Private Tastings</a>
+                    <a href="#">Partnerships</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Wine Society Portal. All rights reserved. | Privacy Policy | Terms of Service | Member Agreement</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching
+        function switchTab(event, tabId) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Simulate real-time updates
+        setInterval(() => {
+            const timeElements = document.querySelectorAll('[style*="color: var(--burgundy-medium)"]');
+            // Auction countdown simulation (placeholder for real implementation)
+        }, 60000);
+
+        // Add interactive hover effects
+        document.querySelectorAll('.wine-item, .event-item, .auction-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Initialize progress animations
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.progress-fill').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+
+            document.querySelectorAll('.capacity-fill').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

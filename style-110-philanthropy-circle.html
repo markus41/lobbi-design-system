@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philanthropy Circle - Foundation Giving & Impact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Warm Purple, Gold, Cream Palette */
+            --primary-purple: #7B4B94;
+            --primary-purple-light: #9B6BB4;
+            --primary-purple-dark: #5B2B74;
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #E8C970;
+            --accent-gold-dark: #B8941F;
+            --cream-bg: #FFF8E7;
+            --cream-light: #FFFCF5;
+            --cream-dark: #F5EDD6;
+            --text-primary: #2C1810;
+            --text-secondary: #5C4835;
+            --text-muted: #8C7860;
+            --border-color: #E8DCC8;
+            --success-green: #6B8E23;
+            --warning-amber: #DAA520;
+            --info-blue: #6A7B94;
+            --shadow-sm: 0 2px 8px rgba(123, 75, 148, 0.08);
+            --shadow-md: 0 4px 16px rgba(123, 75, 148, 0.12);
+            --shadow-lg: 0 8px 32px rgba(123, 75, 148, 0.16);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--cream-bg) 0%, var(--cream-light) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-purple-dark);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .site-title h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .site-tagline {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--primary-purple-dark);
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .user-role {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            background: white;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab:hover {
+            color: var(--primary-purple);
+            background: var(--cream-bg);
+        }
+
+        .nav-tab.active {
+            color: var(--primary-purple);
+            border-bottom-color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-gold));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .metric-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .metric-change {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .metric-change.positive {
+            color: var(--success-green);
+        }
+
+        .metric-change.neutral {
+            color: var(--text-muted);
+        }
+
+        .metric-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
+            color: white;
+            box-shadow: 0 4px 12px rgba(123, 75, 148, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(123, 75, 148, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--accent-gold);
+            color: var(--primary-purple-dark);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-purple);
+            color: var(--primary-purple);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        /* Grant Cards */
+        .grants-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grant-card {
+            background: var(--cream-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .grant-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .grant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .grant-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .grant-organization {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .grant-status {
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-pending {
+            background: #FFF3CD;
+            color: #856404;
+        }
+
+        .status-approved {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .status-review {
+            background: #D1ECF1;
+            color: #0C5460;
+        }
+
+        .status-declined {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .grant-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .grant-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .grant-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .grant-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Member Cards */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .member-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .member-avatar-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--accent-gold);
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 0.25rem;
+        }
+
+        .member-tier {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--accent-gold);
+            color: var(--primary-purple-dark);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--cream-bg);
+            border-radius: 8px;
+        }
+
+        .member-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Calendar Styles */
+        .calendar-container {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .calendar-month {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            background: var(--cream-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .calendar-day:hover {
+            background: var(--cream-dark);
+            transform: scale(1.05);
+        }
+
+        .calendar-day.has-event {
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple));
+            color: white;
+            border-color: var(--primary-purple);
+        }
+
+        .calendar-day.today {
+            border: 2px solid var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .day-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .event-indicator {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 4px;
+        }
+
+        /* Events List */
+        .events-list {
+            margin-top: 2rem;
+        }
+
+        .event-card {
+            background: var(--cream-light);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .event-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--cream-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-gold));
+            border-radius: 10px;
+            transition: width 0.6s ease;
+        }
+
+        /* Impact Chart */
+        .impact-chart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .impact-item {
+            background: var(--cream-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .impact-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.75rem;
+        }
+
+        .impact-bar {
+            height: 6px;
+            background: var(--cream-dark);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .impact-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-purple));
+            border-radius: 10px;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+        }
+
+        .data-table thead {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
+            color: white;
+        }
+
+        .data-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .data-table tbody tr {
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--cream-light);
+            transform: scale(1.01);
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(123, 75, 148, 0.1);
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: white;
+        }
+
+        .badge-purple {
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple));
+            color: white;
+        }
+
+        .badge-outline {
+            background: transparent;
+            border: 2px solid var(--primary-purple);
+            color: var(--primary-purple);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .site-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                padding: 0 1rem;
+            }
+
+            .nav-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                gap: 0.25rem;
+            }
+
+            .calendar-day {
+                padding: 0.25rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-purple-dark);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--cream-dark);
+            border-top-color: var(--primary-purple);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>110</strong> of 120 &mdash; Philanthropy Circle</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-109-architecture-forum.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-111-esports-arena.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 109) window.location.href = 'style-109-architecture-forum.html';
+                if (e.key === 'ArrowRight' && 111) window.location.href = 'style-111-esports-arena.html';
+            });
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">PC</div>
+                <div class="site-title">
+                    <h1>Philanthropy Circle</h1>
+                    <p class="site-tagline">Empowering Impact Through Collaborative Giving</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name">Jane Donovan</div>
+                        <div class="user-role">Foundation Director</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <div class="nav-container">
+            <button class="nav-tab active" onclick="switchTab('dashboard')">Impact Dashboard</button>
+            <button class="nav-tab" onclick="switchTab('grants')">Grant Management</button>
+            <button class="nav-tab" onclick="switchTab('members')">Donor Network</button>
+            <button class="nav-tab" onclick="switchTab('events')">Events & Calendar</button>
+            <button class="nav-tab" onclick="switchTab('excellence')">Nonprofit Excellence</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <!-- Key Metrics -->
+            <div class="dashboard-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div>
+                            <div class="metric-title">Total Impact</div>
+                            <div class="metric-value">$2.4M</div>
+                            <div class="metric-change positive">
+                                <span>↑ 18% from last year</span>
+                            </div>
+                        </div>
+                        <div class="metric-icon">💰</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div>
+                            <div class="metric-title">Active Grants</div>
+                            <div class="metric-value">42</div>
+                            <div class="metric-subtitle">Across 12 focus areas</div>
+                        </div>
+                        <div class="metric-icon">📋</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div>
+                            <div class="metric-title">Member Donors</div>
+                            <div class="metric-value">127</div>
+                            <div class="metric-change positive">
+                                <span>+12 this quarter</span>
+                            </div>
+                        </div>
+                        <div class="metric-icon">👥</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div>
+                            <div class="metric-title">Lives Impacted</div>
+                            <div class="metric-value">15.8K</div>
+                            <div class="metric-subtitle">Direct beneficiaries</div>
+                        </div>
+                        <div class="metric-icon">❤️</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 88%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact by Focus Area -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">📊</span>
+                        Impact by Focus Area
+                    </h2>
+                    <button class="btn btn-outline">Download Report</button>
+                </div>
+                <div class="impact-chart">
+                    <div class="impact-item">
+                        <div class="impact-label">Education & Youth</div>
+                        <div class="impact-value">$685K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Health & Wellness</div>
+                        <div class="impact-value">$520K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Community Development</div>
+                        <div class="impact-value">$445K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Arts & Culture</div>
+                        <div class="impact-value">$380K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Environmental</div>
+                        <div class="impact-value">$275K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Emergency Relief</div>
+                        <div class="impact-value">$195K</div>
+                        <div class="impact-bar">
+                            <div class="impact-bar-fill" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">⚡</span>
+                        Recent Activity
+                    </h2>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity</th>
+                            <th>Organization</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dec 8, 2025</td>
+                            <td>Grant Approved</td>
+                            <td>Youth Leadership Foundation</td>
+                            <td>$50,000</td>
+                            <td><span class="status-approved grant-status">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 7, 2025</td>
+                            <td>Application Received</td>
+                            <td>Community Health Center</td>
+                            <td>$75,000</td>
+                            <td><span class="status-review grant-status">Under Review</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 6, 2025</td>
+                            <td>Member Donation</td>
+                            <td>General Fund</td>
+                            <td>$25,000</td>
+                            <td><span class="status-approved grant-status">Processed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 5, 2025</td>
+                            <td>Impact Report Published</td>
+                            <td>Arts Education Coalition</td>
+                            <td>-</td>
+                            <td><span class="status-approved grant-status">Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 4, 2025</td>
+                            <td>Grant Disbursement</td>
+                            <td>Environmental Alliance</td>
+                            <td>$40,000</td>
+                            <td><span class="status-approved grant-status">Disbursed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Grants Tab -->
+        <div id="grants" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">📝</span>
+                        Grant Applications
+                    </h2>
+                    <button class="btn btn-primary">New Application</button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Status</label>
+                        <select class="filter-select">
+                            <option>All Statuses</option>
+                            <option>Pending Review</option>
+                            <option>Under Review</option>
+                            <option>Approved</option>
+                            <option>Declined</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Focus Area</label>
+                        <select class="filter-select">
+                            <option>All Areas</option>
+                            <option>Education & Youth</option>
+                            <option>Health & Wellness</option>
+                            <option>Community Development</option>
+                            <option>Arts & Culture</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Amount Range</label>
+                        <select class="filter-select">
+                            <option>All Amounts</option>
+                            <option>Under $25K</option>
+                            <option>$25K - $50K</option>
+                            <option>$50K - $100K</option>
+                            <option>Over $100K</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grants-grid">
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">STEM Education Initiative</h3>
+                                <p class="grant-organization">Youth Leadership Foundation</p>
+                            </div>
+                            <span class="grant-status status-review">Under Review</span>
+                        </div>
+                        <p class="grant-description">
+                            Comprehensive STEM program serving 500 underserved middle school students with hands-on
+                            robotics, coding, and engineering workshops. Includes mentorship from industry professionals
+                            and college prep support.
+                        </p>
+                        <div class="grant-details">
+                            <div class="grant-detail">
+                                <span class="detail-label">Requested Amount</span>
+                                <span class="detail-value">$75,000</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Project Duration</span>
+                                <span class="detail-value">18 months</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Beneficiaries</span>
+                                <span class="detail-value">500 students</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Submitted</span>
+                                <span class="detail-value">Dec 7, 2025</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Review Application</button>
+                            <button class="btn btn-outline">View Organization</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Mobile Health Clinic Expansion</h3>
+                                <p class="grant-organization">Community Health Center</p>
+                            </div>
+                            <span class="grant-status status-pending">Pending Review</span>
+                        </div>
+                        <p class="grant-description">
+                            Expanding mobile health services to reach rural communities with limited access to healthcare.
+                            Provides preventive care, screenings, vaccinations, and chronic disease management for 2,000
+                            residents annually.
+                        </p>
+                        <div class="grant-details">
+                            <div class="grant-detail">
+                                <span class="detail-label">Requested Amount</span>
+                                <span class="detail-value">$125,000</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Project Duration</span>
+                                <span class="detail-value">24 months</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Beneficiaries</span>
+                                <span class="detail-value">2,000 people</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Submitted</span>
+                                <span class="detail-value">Dec 6, 2025</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Start Review</button>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">After-School Arts Program</h3>
+                                <p class="grant-organization">Arts Education Coalition</p>
+                            </div>
+                            <span class="grant-status status-approved">Approved</span>
+                        </div>
+                        <p class="grant-description">
+                            Free after-school program offering visual arts, music, dance, and theater classes to 300
+                            elementary students. Culminates in community showcases and professional artist mentorship.
+                        </p>
+                        <div class="grant-details">
+                            <div class="grant-detail">
+                                <span class="detail-label">Approved Amount</span>
+                                <span class="detail-value">$60,000</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Project Duration</span>
+                                <span class="detail-value">12 months</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Beneficiaries</span>
+                                <span class="detail-value">300 students</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Start Date</span>
+                                <span class="detail-value">Jan 15, 2026</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-secondary">View Agreement</button>
+                            <button class="btn btn-outline">Track Progress</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Urban Garden Initiative</h3>
+                                <p class="grant-organization">Environmental Alliance</p>
+                            </div>
+                            <span class="grant-status status-approved">Active</span>
+                        </div>
+                        <p class="grant-description">
+                            Creating 10 community gardens in underserved neighborhoods, providing fresh produce access,
+                            environmental education, and community building spaces. Includes sustainable farming workshops.
+                        </p>
+                        <div class="grant-details">
+                            <div class="grant-detail">
+                                <span class="detail-label">Grant Amount</span>
+                                <span class="detail-value">$40,000</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Completion</span>
+                                <span class="detail-value">68%</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">Beneficiaries</span>
+                                <span class="detail-value">1,200 families</span>
+                            </div>
+                            <div class="grant-detail">
+                                <span class="detail-label">End Date</span>
+                                <span class="detail-value">Mar 31, 2026</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 68%;"></div>
+                        </div>
+                        <div class="grant-actions" style="margin-top: 1rem;">
+                            <button class="btn btn-primary">View Progress</button>
+                            <button class="btn btn-outline">Request Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Members Tab -->
+        <div id="members" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">👥</span>
+                        Donor Network Members
+                    </h2>
+                    <button class="btn btn-primary">Invite Member</button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Member Tier</label>
+                        <select class="filter-select">
+                            <option>All Tiers</option>
+                            <option>Platinum Circle</option>
+                            <option>Gold Circle</option>
+                            <option>Silver Circle</option>
+                            <option>Bronze Circle</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Giving Focus</label>
+                        <select class="filter-select">
+                            <option>All Focus Areas</option>
+                            <option>Education</option>
+                            <option>Health</option>
+                            <option>Environment</option>
+                            <option>Arts</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-avatar-large">JD</div>
+                        <h3 class="member-name">Jane Donovan</h3>
+                        <span class="member-tier">Platinum Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$250K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">18</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">5 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar-large">MS</div>
+                        <h3 class="member-name">Michael Sterling</h3>
+                        <span class="member-tier">Gold Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$150K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">3 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar-large">SC</div>
+                        <h3 class="member-name">Sarah Chen</h3>
+                        <span class="member-tier">Platinum Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$320K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">24</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">7 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">18</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar-large">RP</div>
+                        <h3 class="member-name">Robert Patterson</h3>
+                        <span class="member-tier">Gold Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$125K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">10</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">4 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">9</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar-large">EW</div>
+                        <h3 class="member-name">Emily Washington</h3>
+                        <span class="member-tier">Silver Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$75K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">7</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">2 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar-large">DM</div>
+                        <h3 class="member-name">David Martinez</h3>
+                        <span class="member-tier">Gold Circle</span>
+                        <div class="member-stats">
+                            <div class="member-stat">
+                                <span class="stat-value">$180K</span>
+                                <span class="stat-label">Lifetime Giving</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">14</span>
+                                <span class="stat-label">Grants Funded</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">6 yrs</span>
+                                <span class="stat-label">Member Since</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="stat-value">11</span>
+                                <span class="stat-label">Events Attended</span>
+                            </div>
+                        </div>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Tab -->
+        <div id="events" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">📅</span>
+                        Events Calendar
+                    </h2>
+                    <button class="btn btn-primary">Schedule Event</button>
+                </div>
+
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button class="btn btn-outline">← Previous</button>
+                        <h3 class="calendar-month">December 2025</h3>
+                        <button class="btn btn-outline">Next →</button>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+
+                        <div class="calendar-day"><span class="day-number">1</span></div>
+                        <div class="calendar-day"><span class="day-number">2</span></div>
+                        <div class="calendar-day"><span class="day-number">3</span></div>
+                        <div class="calendar-day"><span class="day-number">4</span></div>
+                        <div class="calendar-day"><span class="day-number">5</span></div>
+                        <div class="calendar-day"><span class="day-number">6</span></div>
+                        <div class="calendar-day"><span class="day-number">7</span></div>
+                        <div class="calendar-day"><span class="day-number">8</span></div>
+                        <div class="calendar-day today"><span class="day-number">9</span><span class="event-indicator"></span></div>
+                        <div class="calendar-day"><span class="day-number">10</span></div>
+                        <div class="calendar-day"><span class="day-number">11</span></div>
+                        <div class="calendar-day has-event"><span class="day-number">12</span><span class="event-indicator"></span></div>
+                        <div class="calendar-day"><span class="day-number">13</span></div>
+                        <div class="calendar-day"><span class="day-number">14</span></div>
+                        <div class="calendar-day has-event"><span class="day-number">15</span><span class="event-indicator"></span></div>
+                        <div class="calendar-day"><span class="day-number">16</span></div>
+                        <div class="calendar-day"><span class="day-number">17</span></div>
+                        <div class="calendar-day has-event"><span class="day-number">18</span><span class="event-indicator"></span></div>
+                        <div class="calendar-day"><span class="day-number">19</span></div>
+                        <div class="calendar-day"><span class="day-number">20</span></div>
+                        <div class="calendar-day"><span class="day-number">21</span></div>
+                        <div class="calendar-day"><span class="day-number">22</span></div>
+                        <div class="calendar-day"><span class="day-number">23</span></div>
+                        <div class="calendar-day"><span class="day-number">24</span></div>
+                        <div class="calendar-day"><span class="day-number">25</span></div>
+                        <div class="calendar-day"><span class="day-number">26</span></div>
+                        <div class="calendar-day"><span class="day-number">27</span></div>
+                        <div class="calendar-day"><span class="day-number">28</span></div>
+                        <div class="calendar-day"><span class="day-number">29</span></div>
+                        <div class="calendar-day"><span class="day-number">30</span></div>
+                        <div class="calendar-day"><span class="day-number">31</span></div>
+                    </div>
+                </div>
+
+                <div class="events-list">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-purple); font-size: 1.3rem;">Upcoming Events</h3>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            📅 December 12, 2025 | 6:00 PM - 9:00 PM
+                        </div>
+                        <div class="event-title">Annual Impact Gala</div>
+                        <div class="event-details">
+                            <span>📍 Grand Ballroom, Metropolitan Hotel</span>
+                            <span>👥 250 attendees expected</span>
+                            <span>🎯 Fundraising & Recognition</span>
+                        </div>
+                        <div class="grant-actions" style="margin-top: 1rem;">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">RSVP</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            📅 December 15, 2025 | 10:00 AM - 12:00 PM
+                        </div>
+                        <div class="event-title">Grant Review Committee Meeting</div>
+                        <div class="event-details">
+                            <span>📍 Foundation Boardroom</span>
+                            <span>👥 15 committee members</span>
+                            <span>🎯 Q4 Grant Applications Review</span>
+                        </div>
+                        <div class="grant-actions" style="margin-top: 1rem;">
+                            <button class="btn btn-primary">Join Meeting</button>
+                            <button class="btn btn-outline">View Agenda</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            📅 December 18, 2025 | 2:00 PM - 4:00 PM
+                        </div>
+                        <div class="event-title">Nonprofit Leadership Workshop</div>
+                        <div class="event-details">
+                            <span>📍 Virtual Event (Zoom)</span>
+                            <span>👥 75 nonprofit leaders</span>
+                            <span>🎯 Best Practices in Governance</span>
+                        </div>
+                        <div class="grant-actions" style="margin-top: 1rem;">
+                            <button class="btn btn-primary">Register</button>
+                            <button class="btn btn-outline">Share Event</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Excellence Tab -->
+        <div id="excellence" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon">⭐</span>
+                        Nonprofit Excellence Resources
+                    </h2>
+                    <button class="btn btn-primary">Submit Resource</button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div>
+                                <div class="metric-title">Best Practices</div>
+                                <div class="metric-value">48</div>
+                                <div class="metric-subtitle">Published guides</div>
+                            </div>
+                            <div class="metric-icon">📚</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div>
+                                <div class="metric-title">Training Programs</div>
+                                <div class="metric-value">12</div>
+                                <div class="metric-subtitle">Active programs</div>
+                            </div>
+                            <div class="metric-icon">🎓</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div>
+                                <div class="metric-title">Certified Orgs</div>
+                                <div class="metric-value">85</div>
+                                <div class="metric-subtitle">Excellence certified</div>
+                            </div>
+                            <div class="metric-icon">✅</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div>
+                                <div class="metric-title">Resources</div>
+                                <div class="metric-value">234</div>
+                                <div class="metric-subtitle">Tools & templates</div>
+                            </div>
+                            <div class="metric-icon">🔧</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grants-grid" style="margin-top: 2rem;">
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Board Governance Toolkit</h3>
+                                <p class="grant-organization">Essential Templates & Guidelines</p>
+                            </div>
+                            <span class="badge badge-gold">Popular</span>
+                        </div>
+                        <p class="grant-description">
+                            Comprehensive toolkit for nonprofit boards including bylaws templates, conflict of interest
+                            policies, committee structures, and governance best practices for effective leadership.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Download Toolkit</button>
+                            <button class="btn btn-outline">Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Financial Management Certification</h3>
+                                <p class="grant-organization">6-Week Online Course</p>
+                            </div>
+                            <span class="badge badge-purple">New</span>
+                        </div>
+                        <p class="grant-description">
+                            Master nonprofit financial management with expert-led training on budgeting, reporting,
+                            compliance, grant accounting, and sustainable funding strategies. Earn professional certification.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Enroll Now</button>
+                            <button class="btn btn-outline">View Curriculum</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Impact Measurement Framework</h3>
+                                <p class="grant-organization">Data-Driven Outcome Tracking</p>
+                            </div>
+                            <span class="badge badge-gold">Recommended</span>
+                        </div>
+                        <p class="grant-description">
+                            Learn to measure and communicate your organization's impact with proven frameworks, data
+                            collection tools, outcome indicators, and compelling reporting templates.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Access Framework</button>
+                            <button class="btn btn-outline">Case Studies</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Strategic Planning Masterclass</h3>
+                                <p class="grant-organization">Interactive Workshop Series</p>
+                            </div>
+                            <span class="badge badge-outline">Starting Jan 2026</span>
+                        </div>
+                        <p class="grant-description">
+                            Develop robust strategic plans through facilitated workshops covering visioning, goal setting,
+                            stakeholder engagement, resource allocation, and implementation planning.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-secondary">Register Interest</button>
+                            <button class="btn btn-outline">Learn More</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Fundraising Excellence Guide</h3>
+                                <p class="grant-organization">Donor Development Strategies</p>
+                            </div>
+                            <span class="badge badge-gold">Essential</span>
+                        </div>
+                        <p class="grant-description">
+                            Build sustainable funding with proven strategies for individual giving, major gifts, corporate
+                            partnerships, grant writing, and donor stewardship programs.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Get Guide</button>
+                            <button class="btn btn-outline">Success Stories</button>
+                        </div>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-header">
+                            <div>
+                                <h3 class="grant-title">Diversity & Inclusion Toolkit</h3>
+                                <p class="grant-organization">Building Equitable Organizations</p>
+                            </div>
+                            <span class="badge badge-purple">Updated</span>
+                        </div>
+                        <p class="grant-description">
+                            Create inclusive cultures with assessment tools, policy templates, training resources, and
+                            actionable strategies for advancing equity across all organizational levels.
+                        </p>
+                        <div class="grant-actions">
+                            <button class="btn btn-primary">Access Toolkit</button>
+                            <button class="btn btn-outline">Schedule Consultation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all nav tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked nav tab
+            event.target.classList.add('active');
+        }
+
+        // Animate progress bars on load
+        window.addEventListener('load', () => {
+            const progressBars = document.querySelectorAll('.progress-fill, .impact-bar-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+
+        // Interactive calendar days
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.addEventListener('click', function() {
+                if (this.classList.contains('has-event') || this.classList.contains('today')) {
+                    const dayNumber = this.querySelector('.day-number').textContent;
+                    console.log('Clicked on day:', dayNumber);
+                    // Could open modal or show day details here
+                }
+            });
+        });
+
+        // Add hover effects for cards
+        document.querySelectorAll('.metric-card, .grant-card, .member-card, .event-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Simulate real-time updates (for demo purposes)
+        setInterval(() => {
+            const activityIndicators = document.querySelectorAll('.metric-change.positive');
+            activityIndicators.forEach(indicator => {
+                indicator.style.opacity = '0.5';
+                setTimeout(() => {
+                    indicator.style.opacity = '1';
+                }, 500);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

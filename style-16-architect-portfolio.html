@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 16: Architect's Portfolio + Swiss Grid Systems</title>
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  ULTRATHINK DESIGN ANALYSIS                                               ║
+    ╠═══════════════════════════════════════════════════════════════════════════╣
+    ║  BLEND: Architect's Portfolio (75%) + Swiss Grid Systems (25%)           ║
+    ║                                                                           ║
+    ║  COMPATIBILITY SCORING (1-10):                                            ║
+    ║  • Formality: Both highly formal = 8 (institutional sophistication)     ║
+    ║  • Era: Contemporary + Modernist = Complementary (timeless precision)    ║
+    ║  • Texture: Minimal both = Perfect alignment (geometry-focused)          ║
+    ║  • Temperature: Cold/precise = 2 (clinical, objective, rational)         ║
+    ║  • Ornamentation: Anti-ornamental = Strong match (pure function)         ║
+    ║                                                                           ║
+    ║  DESIGN PHILOSOPHY:                                                       ║
+    ║  Portfolio-quality presentation with mathematical rigor. Dramatic use    ║
+    ║  of negative space creates breathing room for precision-engineered       ║
+    ║  content blocks. Every element exists on a strict grid with angular      ║
+    ║  dividers creating architectural sections. Think Zaha Hadid's website    ║
+    ║  meets Josef Müller-Brockmann's grid systems.                           ║
+    ║                                                                           ║
+    ║  Visual language: Concrete, steel, glass. Ultra-fine 1px rules act as    ║
+    ║  structural elements. Geometric sans-serif typography (Archivo)          ║
+    ║  provides clean readability. Monochromatic palette with surgical         ║
+    ║  accent application. Angular elements echo architectural blueprints.     ║
+    ║                                                                           ║
+    ║  TOKEN HIERARCHY:                                                         ║
+    ║  • Primary: Dramatic margins (≥80px), angular section dividers,         ║
+    ║    geometric precision, mathematical grid (8px base unit)                ║
+    ║  • Secondary: Fine 1px lines, flush-left alignment, single accent,       ║
+    ║    ultra-clean typography, monochrome palette                            ║
+    ║                                                                           ║
+    ║  EMOTIONAL RESONANCE:                                                     ║
+    ║  Trust through precision. Authority through restraint. Expertise         ║
+    ║  through spatial mastery. This design communicates institutional         ║
+    ║  credibility, technical excellence, and uncompromising attention to      ║
+    ║  detail. Appropriate for organizations where precision matters.          ║
+    ║                                                                           ║
+    ║  USE CASES: Architecture firms, Design studios, Engineering platforms,   ║
+    ║             Portfolio sites, Institutional dashboards, Research labs,    ║
+    ║             Premium SaaS products, Enterprise analytics                  ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Architectural Monochrome */
+            --pure-white: #ffffff;
+            --jet-black: #0a0a0a;
+            --concrete-gray: #a0a0a0;
+            --steel-light: #e8e8e8;
+            --steel-medium: #c0c0c0;
+            --steel-dark: #505050;
+            --shadow-10: rgba(10, 10, 10, 0.1);
+            --shadow-5: rgba(10, 10, 10, 0.05);
+
+            /* Single Surgical Accent */
+            --accent: #4a90e2;
+
+            /* Typography - Geometric Sans */
+            --font-main: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Mathematical Grid System (8px base unit) */
+            --unit: 8px;
+            --grid-2: calc(var(--unit) * 2);
+            --grid-3: calc(var(--unit) * 3);
+            --grid-4: calc(var(--unit) * 4);
+            --grid-5: calc(var(--unit) * 5);
+            --grid-6: calc(var(--unit) * 6);
+            --grid-8: calc(var(--unit) * 8);
+            --grid-10: calc(var(--unit) * 10);
+            --grid-12: calc(var(--unit) * 12);
+
+            /* Dramatic Margins */
+            --margin-dramatic: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--pure-white);
+            color: var(--jet-black);
+            min-height: 100vh;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        /* === HEADER - Architectural Precision === */
+        .header {
+            border-bottom: 1px solid var(--steel-light);
+            padding: var(--grid-4) var(--margin-dramatic);
+            background: var(--pure-white);
+        }
+
+        .header-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: var(--grid-8);
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--jet-black);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--grid-6);
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--concrete-gray);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--jet-black);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--jet-black);
+        }
+
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        /* === MAIN - Dramatic Spacing === */
+        .main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--margin-dramatic);
+        }
+
+        /* === PAGE HEADER - Portfolio Hero === */
+        .page-header {
+            margin-bottom: var(--grid-12);
+            padding-bottom: var(--grid-10);
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 1px;
+            background: var(--jet-black);
+        }
+
+        .page-meta {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--grid-8);
+            align-items: end;
+            margin-bottom: var(--grid-4);
+        }
+
+        .page-date {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--concrete-gray);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            padding-bottom: var(--grid-2);
+        }
+
+        .page-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--jet-black);
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--steel-dark);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-top: var(--grid-3);
+            font-weight: 400;
+        }
+
+        /* === STATS - Geometric Grid === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--steel-light);
+            margin-bottom: var(--grid-12);
+            border: 1px solid var(--steel-light);
+        }
+
+        .stat-card {
+            background: var(--pure-white);
+            padding: var(--grid-6);
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            background: var(--shadow-5);
+        }
+
+        .stat-card:hover::before {
+            height: 100%;
+        }
+
+        .stat-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--concrete-gray);
+            margin-bottom: var(--grid-2);
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--jet-black);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: var(--grid-2);
+        }
+
+        .stat-change {
+            font-size: 0.75rem;
+            color: var(--steel-dark);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .stat-change.positive {
+            color: var(--accent);
+        }
+
+        /* === CONTENT SECTION - Architectural Dividers === */
+        .content-section {
+            margin-bottom: var(--grid-12);
+            position: relative;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            margin-bottom: var(--grid-6);
+            padding-bottom: var(--grid-3);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, var(--jet-black) 0%, var(--jet-black) 80px, var(--steel-light) 80px);
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--jet-black);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .section-link {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--concrete-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .section-link:hover {
+            color: var(--jet-black);
+        }
+
+        /* === CARD GRID - Portfolio Blocks === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-4);
+        }
+
+        .card {
+            background: var(--pure-white);
+            border: 1px solid var(--steel-light);
+            padding: var(--grid-6);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            border-left: 1px solid var(--steel-light);
+            border-top: 1px solid var(--steel-light);
+            background: var(--shadow-5);
+        }
+
+        .card:hover {
+            border-color: var(--concrete-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--shadow-10);
+        }
+
+        .card-category {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: var(--grid-2);
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--jet-black);
+            line-height: 1.3;
+            margin-bottom: var(--grid-3);
+            letter-spacing: -0.01em;
+        }
+
+        .card-content {
+            color: var(--steel-dark);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: var(--grid-5);
+        }
+
+        .card-footer {
+            display: flex;
+            gap: var(--grid-2);
+        }
+
+        /* === BUTTONS - Geometric Precision === */
+        .btn {
+            padding: var(--grid-2) var(--grid-4);
+            font-family: var(--font-main);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--jet-black);
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-primary {
+            background: var(--jet-black);
+            color: var(--pure-white);
+            border-color: var(--jet-black);
+        }
+
+        .btn-primary:hover {
+            background: var(--steel-dark);
+            border-color: var(--steel-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--jet-black);
+            border-color: var(--steel-medium);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--jet-black);
+            background: var(--shadow-5);
+        }
+
+        /* === TABLE - Structural Data === */
+        .table-container {
+            border: 1px solid var(--steel-light);
+            background: var(--pure-white);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: var(--grid-3) var(--grid-4);
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--concrete-gray);
+            border-bottom: 1px solid var(--steel-light);
+            background: var(--shadow-5);
+        }
+
+        td {
+            padding: var(--grid-3) var(--grid-4);
+            border-bottom: 1px solid var(--steel-light);
+            font-size: 0.875rem;
+            color: var(--steel-dark);
+        }
+
+        tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--shadow-5);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            padding: var(--grid-1) var(--grid-2);
+            display: inline-block;
+        }
+
+        .status-active {
+            color: var(--jet-black);
+        }
+
+        .status-pending {
+            color: var(--accent);
+        }
+
+        /* === FOOTER - Minimal Signature === */
+        .footer {
+            margin-top: var(--grid-12);
+            padding: var(--grid-6) var(--margin-dramatic);
+            border-top: 1px solid var(--steel-light);
+        }
+
+        .footer-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--grid-8);
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--steel-dark);
+            font-weight: 500;
+        }
+
+        .footer-meta {
+            font-size: 0.625rem;
+            color: var(--concrete-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-align: right;
+        }
+
+        /* === RESPONSIVE - Adaptive Grid === */
+        @media (max-width: 1200px) {
+            :root {
+                --margin-dramatic: 48px;
+            }
+            .page-title { font-size: 3.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --margin-dramatic: 24px;
+            }
+            .header { padding: var(--grid-3) var(--grid-3); }
+            .main { padding: var(--grid-6) var(--grid-3); }
+            .footer { padding: var(--grid-4) var(--grid-3); }
+
+            .page-meta {
+                grid-template-columns: 1fr;
+                gap: var(--grid-3);
+            }
+            .page-date {
+                writing-mode: horizontal-tb;
+                transform: none;
+                padding-bottom: 0;
+            }
+            .page-title { font-size: 2.5rem; }
+            .nav { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--grid-2); }
+            .footer-meta { text-align: left; }
+            .stat-value { font-size: 2.5rem; }
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>16</strong> of 70 &mdash; Architect's Portfolio + Swiss Grid Systems</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-15-private-banking.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-17-executive-suite.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 15) window.location.href = 'style-15-private-banking.html';
+                if (e.key === 'ArrowRight' && 17) window.location.href = 'style-17-executive-suite.html';
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Lobbi</div>
+            <nav class="nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+                <a href="#">Finance</a>
+                <a href="#">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <div class="page-meta">
+                <span class="page-date">09.12.2025</span>
+                <h1 class="page-title">Association<br>Overview</h1>
+            </div>
+            <p class="page-subtitle">Comprehensive organizational analytics presenting membership dynamics, financial performance metrics, and strategic initiative tracking for institutional decision-making frameworks.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Members</div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-change positive">+12.5% YoY</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Monthly Revenue</div>
+                <div class="stat-value">$124K</div>
+                <div class="stat-change positive">+8.2% MoM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Events</div>
+                <div class="stat-value">18</div>
+                <div class="stat-change">3 this week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Retention Rate</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-change positive">+2.1% QoQ</div>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Initiatives</h2>
+                <a href="#" class="section-link">View All Projects →</a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-category">Featured Event</div>
+                    <h3 class="card-title">Annual Conference 2025</h3>
+                    <p class="card-content">Flagship institutional gathering featuring distinguished industry leaders, exclusive networking frameworks, and strategic knowledge-sharing sessions for organizational advancement.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                        <button class="btn btn-secondary">Register</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-category">Action Required</div>
+                    <h3 class="card-title">Membership Renewals</h3>
+                    <p class="card-content">247 renewal cycles approaching within current period. Automated communication sequences prepared for deployment with personalized engagement protocols.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Deploy</button>
+                        <button class="btn btn-secondary">Review</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-category">Financial Report</div>
+                    <h3 class="card-title">Q4 Performance Analysis</h3>
+                    <p class="card-content">Comprehensive quarterly assessment complete. Revenue metrics increased 12% with enhanced engagement patterns across all organizational segments and member tiers.</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Download</button>
+                        <button class="btn btn-secondary">Share</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Recent Activity Log</h2>
+                <a href="#" class="section-link">Complete History →</a>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Member Identifier</th>
+                            <th>Transaction Type</th>
+                            <th>Timestamp</th>
+                            <th>Processing Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sarah Mitchell</td>
+                            <td>Premium membership renewal executed</td>
+                            <td>Dec 9, 2025</td>
+                            <td><span class="status status-active">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>James Chen</td>
+                            <td>Conference registration confirmed</td>
+                            <td>Dec 9, 2025</td>
+                            <td><span class="status status-active">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Emily Rodriguez</td>
+                            <td>Professional certification submission</td>
+                            <td>Dec 8, 2025</td>
+                            <td><span class="status status-pending">In Review</span></td>
+                        </tr>
+                        <tr>
+                            <td>Michael Thompson</td>
+                            <td>Profile data synchronization</td>
+                            <td>Dec 8, 2025</td>
+                            <td><span class="status status-active">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Alexandra Kim</td>
+                            <td>Resource library access granted</td>
+                            <td>Dec 7, 2025</td>
+                            <td><span class="status status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-text">Style 16: Architect's Portfolio + Swiss Grid Systems</p>
+            <p class="footer-meta">Precision · Structure · Clarity</p>
+        </div>
+    </footer>
+</body>
+</html>

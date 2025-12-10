@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 98: Academic Research Portal - Scholarly Repository</title>
+    <style>
+        /* ============================================
+           STYLE 98: ACADEMIC RESEARCH PORTAL
+           BLEND ARCHITECTURE (3-Way Blend - 60/25/15)
+
+           Primary (60%): University Library
+           - Scholarly organization
+           - Research-focused layouts
+           - Catalog systems
+
+           Secondary (25%): Scientific Publishing
+           - Citation management
+           - Peer review workflows
+           - Publication standards
+
+           Tertiary (15%): Dark Academia
+           - Rich wood textures
+           - Leather accents
+           - Traditional elegance
+
+           Temperature: 4 (Cool - Professional scholarly)
+           Formality: 9 (Highly formal academic)
+
+           Color Palette:
+           - Deep Burgundy: #6B1C23
+           - Rich Cream: #F5F1E8
+           - Forest Green: #2C5530
+           - Dark Wood: #3E2723
+           - Aged Paper: #E8DCC8
+           - Leather Brown: #4A3428
+           - Gold Accent: #B8860B
+           ============================================ */
+
+        /* === CORE RESET & VARIABLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Palette */
+            --burgundy-deep: #6B1C23;
+            --burgundy-medium: #8B2530;
+            --burgundy-light: #A53844;
+
+            /* Neutral Tones */
+            --cream: #F5F1E8;
+            --aged-paper: #E8DCC8;
+            --parchment: #D4C7A8;
+
+            /* Accent Colors */
+            --forest-green: #2C5530;
+            --forest-medium: #3D6E42;
+            --forest-light: #4E8554;
+
+            /* Wood & Leather */
+            --dark-wood: #3E2723;
+            --medium-wood: #5D4037;
+            --leather: #4A3428;
+            --leather-light: #6D4C37;
+
+            /* Metallic Accents */
+            --gold: #B8860B;
+            --gold-light: #DAA520;
+            --bronze: #8C6239;
+
+            /* Text Colors */
+            --text-primary: #2C2416;
+            --text-secondary: #5C4A35;
+            --text-muted: #8C7A65;
+            --text-inverse: #F5F1E8;
+
+            /* Shadows & Borders */
+            --shadow-sm: 0 1px 3px rgba(62, 39, 35, 0.12);
+            --shadow-md: 0 4px 8px rgba(62, 39, 35, 0.15);
+            --shadow-lg: 0 8px 24px rgba(62, 39, 35, 0.2);
+            --shadow-xl: 0 16px 48px rgba(62, 39, 35, 0.25);
+
+            /* Typography */
+            --font-serif: 'Crimson Text', 'Baskerville', 'Georgia', serif;
+            --font-sans: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+            --font-mono: 'Source Code Pro', 'Courier New', monospace;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 6px;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* === TYPOGRAPHY === */
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #E8DCC8 0%, #D4C7A8 100%);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--burgundy-deep);
+            margin-bottom: var(--space-md);
+        }
+
+        h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+        h2 { font-size: 2rem; letter-spacing: -0.01em; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        /* === LAYOUT === */
+        .portal-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* === HEADER === */
+        .portal-header {
+            background: linear-gradient(135deg, var(--dark-wood) 0%, var(--medium-wood) 100%);
+            border-bottom: 4px solid var(--burgundy-deep);
+            padding: var(--space-xl) var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.03) 2px,
+                    rgba(0,0,0,0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .portal-header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-xl);
+        }
+
+        .portal-branding {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .portal-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy-medium));
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--cream);
+            font-family: var(--font-serif);
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .portal-title-group h1 {
+            color: var(--cream);
+            margin-bottom: var(--space-xs);
+            font-size: 2.25rem;
+        }
+
+        .portal-subtitle {
+            color: var(--aged-paper);
+            font-size: 1rem;
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        .portal-actions {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        /* === NAVIGATION === */
+        .main-navigation {
+            background: var(--cream);
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            border-bottom: 2px solid var(--parchment);
+            padding-bottom: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: var(--space-md) var(--space-lg);
+            background: linear-gradient(to bottom, var(--aged-paper), var(--parchment));
+            border: 2px solid var(--medium-wood);
+            border-bottom: none;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-align: center;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            background: linear-gradient(to bottom, var(--cream), var(--aged-paper));
+            color: var(--burgundy-deep);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy-medium));
+            color: var(--cream);
+            border-color: var(--burgundy-deep);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--burgundy-deep);
+        }
+
+        /* === SEARCH BAR === */
+        .search-container {
+            background: var(--cream);
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--space-md);
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: var(--space-md) var(--space-lg);
+            background: white;
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--burgundy-deep);
+            box-shadow: 0 0 0 3px rgba(107, 28, 35, 0.1);
+        }
+
+        .search-filters {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .filter-chip {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--aged-paper);
+            border: 1px solid var(--medium-wood);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-chip:hover {
+            background: var(--forest-light);
+            color: white;
+            border-color: var(--forest-green);
+        }
+
+        .filter-chip.active {
+            background: var(--forest-green);
+            color: white;
+            border-color: var(--forest-green);
+        }
+
+        /* === MAIN LAYOUT === */
+        .portal-main {
+            display: grid;
+            grid-template-columns: 300px 1fr 320px;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        /* === SIDEBAR === */
+        .sidebar {
+            background: var(--cream);
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: var(--space-lg);
+        }
+
+        .sidebar-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--burgundy-deep);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--burgundy-deep);
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-xs);
+            background: var(--aged-paper);
+            border-left: 3px solid var(--forest-green);
+            border-radius: var(--radius-sm);
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-item:hover {
+            background: var(--forest-green);
+            color: white;
+            border-left-color: var(--burgundy-deep);
+            padding-left: var(--space-lg);
+        }
+
+        .category-count {
+            font-size: 0.8125rem;
+            background: var(--medium-wood);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* === CONTENT AREA === */
+        .content-area {
+            background: var(--cream);
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            min-height: 800px;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--burgundy-deep);
+        }
+
+        .content-title {
+            font-size: 1.75rem;
+            margin-bottom: 0;
+        }
+
+        .view-controls {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .view-btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--aged-paper);
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .view-btn:hover {
+            background: var(--burgundy-medium);
+            color: white;
+            border-color: var(--burgundy-deep);
+        }
+
+        .view-btn.active {
+            background: var(--burgundy-deep);
+            color: white;
+            border-color: var(--burgundy-deep);
+        }
+
+        /* === PAPER CARDS === */
+        .papers-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .paper-card {
+            background: white;
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--burgundy-deep), var(--burgundy-medium));
+        }
+
+        .paper-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            border-color: var(--burgundy-deep);
+        }
+
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-md);
+        }
+
+        .paper-metadata {
+            flex: 1;
+        }
+
+        .paper-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--burgundy-deep);
+            margin-bottom: var(--space-sm);
+            line-height: 1.4;
+        }
+
+        .paper-authors {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .paper-journal {
+            font-size: 0.875rem;
+            color: var(--forest-green);
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        .paper-badge {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--forest-green);
+            color: white;
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .paper-abstract {
+            padding-left: var(--space-md);
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .paper-stats {
+            display: flex;
+            gap: var(--space-xl);
+            padding-left: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--aged-paper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .paper-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            padding-left: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: var(--aged-paper);
+            border: 1px solid var(--medium-wood);
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .paper-actions {
+            display: flex;
+            gap: var(--space-sm);
+            padding-left: var(--space-md);
+        }
+
+        /* === CITATION PANEL === */
+        .citation-panel {
+            background: var(--cream);
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: var(--space-lg);
+        }
+
+        .citation-header {
+            margin-bottom: var(--space-lg);
+        }
+
+        .citation-title {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .citation-format-tabs {
+            display: flex;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+
+        .citation-tab {
+            flex: 1;
+            padding: var(--space-sm);
+            background: var(--aged-paper);
+            border: 1px solid var(--medium-wood);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: var(--text-secondary);
+        }
+
+        .citation-tab:hover {
+            background: var(--forest-light);
+            color: white;
+        }
+
+        .citation-tab.active {
+            background: var(--forest-green);
+            color: white;
+            border-color: var(--forest-green);
+        }
+
+        .citation-box {
+            background: white;
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .citation-actions {
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        /* === ACTIVITY FEED === */
+        .activity-feed {
+            margin-top: var(--space-xl);
+        }
+
+        .activity-title {
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+            color: var(--burgundy-deep);
+        }
+
+        .activity-list {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .activity-item {
+            background: white;
+            border-left: 3px solid var(--forest-green);
+            border-radius: var(--radius-sm);
+            padding: var(--space-md);
+            font-size: 0.875rem;
+        }
+
+        .activity-time {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: var(--space-xs);
+        }
+
+        /* === COLLABORATION SECTION === */
+        .collaboration-panel {
+            background: white;
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .collab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .collab-title {
+            font-size: 1.125rem;
+            margin-bottom: 0;
+        }
+
+        .collaborators-list {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .collaborator-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy-medium));
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .collaborator-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .comment-thread {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .comment {
+            background: var(--aged-paper);
+            border-left: 3px solid var(--burgundy-deep);
+            border-radius: var(--radius-sm);
+            padding: var(--space-md);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--burgundy-deep);
+            font-size: 0.9375rem;
+        }
+
+        .comment-time {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .comment-text {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            border: 2px solid;
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy-deep), var(--burgundy-medium));
+            border-color: var(--burgundy-deep);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--burgundy-medium), var(--burgundy-light));
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--aged-paper);
+            border-color: var(--medium-wood);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--forest-green);
+            border-color: var(--forest-green);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--burgundy-deep);
+            color: var(--burgundy-deep);
+        }
+
+        .btn-outline:hover {
+            background: var(--burgundy-deep);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 6px 14px;
+            font-size: 0.8125rem;
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        /* === PUBLICATION TRACKER === */
+        .publication-tracker {
+            background: white;
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, var(--aged-paper), var(--parchment));
+            border: 2px solid var(--medium-wood);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--burgundy-deep);
+            font-family: var(--font-serif);
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metric-change {
+            font-size: 0.8125rem;
+            margin-top: var(--space-sm);
+        }
+
+        .metric-change.positive {
+            color: var(--forest-green);
+        }
+
+        .metric-change.negative {
+            color: var(--burgundy-deep);
+        }
+
+        /* === TIMELINE === */
+        .publication-timeline {
+            position: relative;
+            padding-left: var(--space-xl);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--burgundy-deep), var(--forest-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-xl);
+            padding-left: var(--space-lg);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -20px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--burgundy-deep);
+            border-radius: 50%;
+        }
+
+        .timeline-item.completed .timeline-dot {
+            background: var(--forest-green);
+        }
+
+        .timeline-content {
+            background: var(--aged-paper);
+            border: 1px solid var(--medium-wood);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--burgundy-deep);
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* === STATS PANEL === */
+        .stats-panel {
+            background: white;
+            border: 2px solid var(--leather);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stats-title {
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+            color: var(--burgundy-deep);
+            font-weight: 600;
+        }
+
+        .stats-list {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--aged-paper);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--burgundy-deep);
+            font-family: var(--font-serif);
+        }
+
+        .stat-bar {
+            height: 6px;
+            background: var(--aged-paper);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: var(--space-xs);
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--burgundy-deep), var(--burgundy-medium));
+            transition: width var(--transition-slow);
+        }
+
+        /* === FOOTER === */
+        .portal-footer {
+            background: linear-gradient(135deg, var(--dark-wood) 0%, var(--medium-wood) 100%);
+            border-top: 4px solid var(--burgundy-deep);
+            padding: var(--space-2xl);
+            margin-top: var(--space-3xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h3 {
+            color: var(--cream);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-md);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: var(--space-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--aged-paper);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 241, 232, 0.2);
+            padding-top: var(--space-lg);
+            text-align: center;
+            color: var(--aged-paper);
+            font-size: 0.875rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1200px) {
+            .portal-main {
+                grid-template-columns: 250px 1fr 280px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .portal-main {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar,
+            .citation-panel {
+                position: static;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portal-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .portal-branding {
+                flex-direction: column;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                border-radius: var(--radius-md);
+                border-bottom: 2px solid var(--medium-wood);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === DECORATIVE ELEMENTS === */
+        .ornament {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            margin: 0 var(--space-sm);
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--burgundy-deep), transparent);
+            margin: var(--space-xl) 0;
+        }
+
+        .badge-peer-reviewed {
+            background: var(--forest-green);
+        }
+
+        .badge-open-access {
+            background: var(--gold);
+        }
+
+        .badge-high-impact {
+            background: var(--burgundy-deep);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn var(--transition-base) ease-out;
+        }
+
+        /* === UTILITY CLASSES === */
+        .text-center { text-align: center; }
+        .text-muted { color: var(--text-muted); }
+        .mb-0 { margin-bottom: 0; }
+        .mt-lg { margin-top: var(--space-lg); }
+        .fw-bold { font-weight: 700; }
+        .italic { font-style: italic; }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>98</strong> of 120 &mdash; Academic Research</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-97-creative-studio.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-99-sports-premium.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 97) window.location.href = 'style-97-creative-studio.html';
+                if (e.key === 'ArrowRight' && 99) window.location.href = 'style-99-sports-premium.html';
+            });
+        })();
+    </script>
+
+    <div class="portal-container">
+        <!-- HEADER -->
+        <header class="portal-header">
+            <div class="portal-header-content">
+                <div class="portal-branding">
+                    <div class="portal-logo">AR</div>
+                    <div class="portal-title-group">
+                        <h1>Academic Research Portal</h1>
+                        <p class="portal-subtitle">Scholarly Repository & Collaboration Network</p>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="btn btn-outline">Upload Paper</button>
+                    <button class="btn btn-primary">My Library</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav class="main-navigation">
+            <div class="nav-tabs">
+                <button class="nav-tab active">Research Papers</button>
+                <button class="nav-tab">Citations</button>
+                <button class="nav-tab">Collaborations</button>
+                <button class="nav-tab">Publications</button>
+                <button class="nav-tab">Analytics</button>
+            </div>
+        </nav>
+
+        <!-- SEARCH -->
+        <div class="search-container">
+            <form class="search-form">
+                <div class="search-input-group">
+                    <input type="text" class="search-input" placeholder="Search papers, authors, journals, keywords...">
+                    <button class="btn btn-primary">Advanced Search</button>
+                </div>
+            </form>
+            <div class="search-filters">
+                <span class="filter-chip active">All Fields</span>
+                <span class="filter-chip">Peer Reviewed</span>
+                <span class="filter-chip">Open Access</span>
+                <span class="filter-chip">Last 5 Years</span>
+                <span class="filter-chip">High Impact</span>
+            </div>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <main class="portal-main">
+            <!-- LEFT SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Research Areas</h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <span>Artificial Intelligence</span>
+                            <span class="category-count">1,247</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Machine Learning</span>
+                            <span class="category-count">2,156</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Computer Vision</span>
+                            <span class="category-count">892</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Natural Language</span>
+                            <span class="category-count">1,034</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Robotics</span>
+                            <span class="category-count">567</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Quantum Computing</span>
+                            <span class="category-count">234</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Bioinformatics</span>
+                            <span class="category-count">445</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Publishers</h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <span>Nature</span>
+                            <span class="category-count">342</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Science</span>
+                            <span class="category-count">298</span>
+                        </li>
+                        <li class="category-item">
+                            <span>IEEE</span>
+                            <span class="category-count">1,456</span>
+                        </li>
+                        <li class="category-item">
+                            <span>ACM</span>
+                            <span class="category-count">987</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Springer</span>
+                            <span class="category-count">2,134</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Quick Filters</h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <span>My Bookmarks</span>
+                            <span class="category-count">47</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Recently Viewed</span>
+                            <span class="category-count">12</span>
+                        </li>
+                        <li class="category-item">
+                            <span>Trending</span>
+                            <span class="category-count">89</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- CONTENT AREA -->
+            <section class="content-area">
+                <div class="content-header">
+                    <h2 class="content-title">Featured Research Papers</h2>
+                    <div class="view-controls">
+                        <button class="view-btn active">List</button>
+                        <button class="view-btn">Grid</button>
+                        <button class="view-btn">Timeline</button>
+                    </div>
+                </div>
+
+                <!-- PUBLICATION TRACKER -->
+                <div class="publication-tracker">
+                    <div class="tracker-header">
+                        <h3 class="mb-0">Publication Metrics</h3>
+                        <button class="btn btn-secondary btn-small">Export Report</button>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">127</div>
+                            <div class="metric-label">Total Papers</div>
+                            <div class="metric-change positive">+12 this month</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">3,456</div>
+                            <div class="metric-label">Citations</div>
+                            <div class="metric-change positive">+234 this year</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">24</div>
+                            <div class="metric-label">Collaborations</div>
+                            <div class="metric-change positive">+3 active</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">18.3</div>
+                            <div class="metric-label">H-Index</div>
+                            <div class="metric-change positive">+1.2 this year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAPERS GRID -->
+                <div class="papers-grid">
+                    <!-- Paper 1 -->
+                    <article class="paper-card fade-in">
+                        <div class="paper-header">
+                            <div class="paper-metadata">
+                                <h3 class="paper-title">Quantum-Enhanced Machine Learning Algorithms for Large-Scale Data Processing</h3>
+                                <p class="paper-authors">Dr. Sarah Chen, Prof. Michael Rodriguez, Dr. Aisha Patel</p>
+                                <p class="paper-journal">Nature Quantum Information, Vol. 8, Issue 3, 2024</p>
+                            </div>
+                            <span class="paper-badge badge-peer-reviewed">Peer Reviewed</span>
+                        </div>
+                        <p class="paper-abstract">
+                            This groundbreaking research presents novel quantum-enhanced algorithms that demonstrate exponential speedup in processing large-scale datasets. Our methodology combines variational quantum circuits with classical deep learning architectures, achieving unprecedented accuracy in pattern recognition tasks while reducing computational complexity by several orders of magnitude.
+                        </p>
+                        <div class="paper-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">📖</span>
+                                <span>234 Citations</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">👁</span>
+                                <span>4,567 Reads</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">💬</span>
+                                <span>89 Comments</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>4.8/5.0</span>
+                            </div>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Quantum Computing</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Algorithm Design</span>
+                            <span class="tag">Big Data</span>
+                        </div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary btn-small">Read Paper</button>
+                            <button class="btn btn-secondary btn-small">Cite</button>
+                            <button class="btn btn-secondary btn-small">Save</button>
+                            <button class="btn btn-secondary btn-small">Share</button>
+                        </div>
+                    </article>
+
+                    <!-- Paper 2 -->
+                    <article class="paper-card fade-in">
+                        <div class="paper-header">
+                            <div class="paper-metadata">
+                                <h3 class="paper-title">Ethical Frameworks for Autonomous AI Systems in Healthcare Decision-Making</h3>
+                                <p class="paper-authors">Prof. James Wellington, Dr. Emily Zhang, Dr. Marcus Thompson</p>
+                                <p class="paper-journal">Journal of Medical Ethics & AI, Vol. 12, Issue 4, 2024</p>
+                            </div>
+                            <span class="paper-badge badge-open-access">Open Access</span>
+                        </div>
+                        <p class="paper-abstract">
+                            We propose a comprehensive ethical framework for deploying autonomous AI systems in clinical settings. Through multi-year studies across 45 hospitals, we identify critical decision points where human oversight remains essential and develop protocols for transparent AI-assisted diagnosis that maintain patient autonomy and physician responsibility.
+                        </p>
+                        <div class="paper-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">📖</span>
+                                <span>567 Citations</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">👁</span>
+                                <span>8,923 Reads</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">💬</span>
+                                <span>156 Comments</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>4.9/5.0</span>
+                            </div>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Medical AI</span>
+                            <span class="tag">Ethics</span>
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Decision Support</span>
+                        </div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary btn-small">Read Paper</button>
+                            <button class="btn btn-secondary btn-small">Cite</button>
+                            <button class="btn btn-secondary btn-small">Save</button>
+                            <button class="btn btn-secondary btn-small">Share</button>
+                        </div>
+                    </article>
+
+                    <!-- Paper 3 -->
+                    <article class="paper-card fade-in">
+                        <div class="paper-header">
+                            <div class="paper-metadata">
+                                <h3 class="paper-title">Sustainable Neural Network Architectures: Reducing Carbon Footprint in Deep Learning</h3>
+                                <p class="paper-authors">Dr. Lena Andersson, Prof. Raj Kumar, Dr. Sophie Dubois</p>
+                                <p class="paper-journal">ACM Computing Surveys, Vol. 56, Issue 2, 2024</p>
+                            </div>
+                            <span class="paper-badge badge-high-impact">High Impact</span>
+                        </div>
+                        <p class="paper-abstract">
+                            This comprehensive survey examines energy-efficient neural network designs and training methodologies that reduce environmental impact without sacrificing performance. We analyze 200+ architectures and propose novel optimization techniques that achieve 85% energy reduction while maintaining state-of-the-art accuracy on benchmark datasets.
+                        </p>
+                        <div class="paper-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">📖</span>
+                                <span>892 Citations</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">👁</span>
+                                <span>12,456 Reads</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">💬</span>
+                                <span>203 Comments</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>5.0/5.0</span>
+                            </div>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Green Computing</span>
+                            <span class="tag">Neural Networks</span>
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">Energy Efficiency</span>
+                        </div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary btn-small">Read Paper</button>
+                            <button class="btn btn-secondary btn-small">Cite</button>
+                            <button class="btn btn-secondary btn-small">Save</button>
+                            <button class="btn btn-secondary btn-small">Share</button>
+                        </div>
+                    </article>
+
+                    <!-- Collaboration Panel -->
+                    <div class="collaboration-panel">
+                        <div class="collab-header">
+                            <h3 class="collab-title">Active Collaboration: Neural Network Research</h3>
+                            <button class="btn btn-secondary btn-small">Invite Researchers</button>
+                        </div>
+
+                        <div class="collaborators-list">
+                            <div class="collaborator-avatar" title="Dr. Sarah Chen">SC</div>
+                            <div class="collaborator-avatar" title="Prof. James Wellington">JW</div>
+                            <div class="collaborator-avatar" title="Dr. Lena Andersson">LA</div>
+                            <div class="collaborator-avatar" title="Prof. Raj Kumar">RK</div>
+                            <div class="collaborator-avatar" title="Dr. Emily Zhang">EZ</div>
+                        </div>
+
+                        <div class="comment-thread">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="comment-author">Dr. Sarah Chen</span>
+                                    <span class="comment-time">2 hours ago</span>
+                                </div>
+                                <p class="comment-text">
+                                    The latest results from the quantum algorithm experiments are promising. We're seeing a 40% improvement in convergence rates. I've uploaded the detailed analysis to the shared repository.
+                                </p>
+                            </div>
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="comment-author">Prof. Raj Kumar</span>
+                                    <span class="comment-time">1 hour ago</span>
+                                </div>
+                                <p class="comment-text">
+                                    Excellent work, Sarah. I've reviewed the methodology section and suggest we include a comparative analysis with classical approaches. This will strengthen the peer review process.
+                                </p>
+                            </div>
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="comment-author">Dr. Lena Andersson</span>
+                                    <span class="comment-time">30 minutes ago</span>
+                                </div>
+                                <p class="comment-text">
+                                    Agreed. I'm also working on the energy consumption metrics. The preliminary data shows our approach uses 75% less computational resources than baseline methods.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="citation-panel">
+                <div class="citation-header">
+                    <h3 class="citation-title">Citation Manager</h3>
+                    <div class="citation-format-tabs">
+                        <button class="citation-tab active">APA</button>
+                        <button class="citation-tab">MLA</button>
+                        <button class="citation-tab">Chicago</button>
+                        <button class="citation-tab">IEEE</button>
+                    </div>
+                </div>
+
+                <div class="citation-box">
+Chen, S., Rodriguez, M., & Patel, A. (2024). Quantum-enhanced machine learning algorithms for large-scale data processing. Nature Quantum Information, 8(3), 456-478. https://doi.org/10.1038/s41534-024-00123-x
+                </div>
+
+                <div class="citation-actions">
+                    <button class="btn btn-primary btn-small" style="width: 100%;">Copy Citation</button>
+                    <button class="btn btn-secondary btn-small" style="width: 100%;">Export to BibTeX</button>
+                    <button class="btn btn-secondary btn-small" style="width: 100%;">Add to Library</button>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Stats Panel -->
+                <div class="stats-panel">
+                    <h4 class="stats-title">Research Impact</h4>
+                    <div class="stats-list">
+                        <div class="stat-row">
+                            <span class="stat-label">Total Citations</span>
+                            <span class="stat-value">3,456</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 85%;"></div>
+                        </div>
+
+                        <div class="stat-row">
+                            <span class="stat-label">H-Index</span>
+                            <span class="stat-value">18.3</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 73%;"></div>
+                        </div>
+
+                        <div class="stat-row">
+                            <span class="stat-label">Publications</span>
+                            <span class="stat-value">127</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 92%;"></div>
+                        </div>
+
+                        <div class="stat-row">
+                            <span class="stat-label">Co-Authors</span>
+                            <span class="stat-value">89</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 67%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <h4 class="activity-title">Recent Activity</h4>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <strong>New citation</strong> to your paper "Quantum Algorithms"
+                            <div class="activity-time">15 minutes ago</div>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Collaboration invite</strong> from Dr. Marcus Thompson
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Paper accepted</strong> at NeurIPS 2024
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Review request</strong> for Nature submission
+                            <div class="activity-time">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="portal-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Research Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Paper Repository</a></li>
+                        <li><a href="#">Citation Manager</a></li>
+                        <li><a href="#">Collaboration Hub</a></li>
+                        <li><a href="#">Analytics Dashboard</a></li>
+                        <li><a href="#">Publication Tracker</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Research Guidelines</a></li>
+                        <li><a href="#">Peer Review Process</a></li>
+                        <li><a href="#">Publishing Standards</a></li>
+                        <li><a href="#">Open Access Policy</a></li>
+                        <li><a href="#">Ethics Guidelines</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Find Collaborators</a></li>
+                        <li><a href="#">Research Groups</a></li>
+                        <li><a href="#">Conferences</a></li>
+                        <li><a href="#">Seminars</a></li>
+                        <li><a href="#">Discussion Forums</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Academic Research Portal. A Scholarly Repository & Collaboration Network.</p>
+                <p class="italic" style="margin-top: 8px;">
+                    "In Scientia Veritas" <span class="ornament">❦</span> Temperature: 4 (Cool) <span class="ornament">❦</span> Formality: 9 (Highly Formal)
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Citation format switching
+            const citationTabs = document.querySelectorAll('.citation-tab');
+            const citationBox = document.querySelector('.citation-box');
+            const citations = {
+                'APA': 'Chen, S., Rodriguez, M., & Patel, A. (2024). Quantum-enhanced machine learning algorithms for large-scale data processing. Nature Quantum Information, 8(3), 456-478. https://doi.org/10.1038/s41534-024-00123-x',
+                'MLA': 'Chen, Sarah, Michael Rodriguez, and Aisha Patel. "Quantum-Enhanced Machine Learning Algorithms for Large-Scale Data Processing." Nature Quantum Information, vol. 8, no. 3, 2024, pp. 456-478.',
+                'Chicago': 'Chen, Sarah, Michael Rodriguez, and Aisha Patel. "Quantum-Enhanced Machine Learning Algorithms for Large-Scale Data Processing." Nature Quantum Information 8, no. 3 (2024): 456-478.',
+                'IEEE': 'S. Chen, M. Rodriguez, and A. Patel, "Quantum-enhanced machine learning algorithms for large-scale data processing," Nature Quantum Information, vol. 8, no. 3, pp. 456-478, 2024.'
+            };
+
+            citationTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    citationTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    citationBox.textContent = citations[this.textContent];
+                });
+            });
+
+            // Filter chips
+            const filterChips = document.querySelectorAll('.filter-chip');
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            // View controls
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Copy citation
+            const copyBtn = document.querySelector('.citation-actions .btn-primary');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    const citation = citationBox.textContent;
+                    navigator.clipboard.writeText(citation).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 2000);
+                    });
+                });
+            }
+
+            // Category hover effects
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    console.log('Category clicked:', this.textContent);
+                });
+            });
+
+            // Paper card interactions
+            const paperCards = document.querySelectorAll('.paper-card');
+            paperCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderLeftWidth = '8px';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderLeftWidth = '';
+                });
+            });
+
+            // Animated stats bars
+            const statBars = document.querySelectorAll('.stat-bar-fill');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.style.width;
+                    }
+                });
+            });
+            statBars.forEach(bar => observer.observe(bar));
+
+            console.log('Academic Research Portal initialized - Temperature: 4, Formality: 9');
+        });
+    </script>
+</body>
+</html>

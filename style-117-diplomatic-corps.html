@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="classification" content="OFFICIAL USE ONLY">
+    <meta name="security-level" content="CONFIDENTIAL">
+    <title>Diplomatic Corps Network - Global Mission Coordination Portal</title>
+    <style>
+        /* ULTRATHINK Style 117: Diplomatic Corps Network
+           BLEND: Government Formal (60%) + International Relations (25%) + Secure Communications (15%)
+           Temperature: 4 (Formal) | Formality: 10 (Maximum)
+           Palette: Navy Blue, Gold, Cream
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Official Color Palette */
+            --navy-primary: #1a365d;
+            --navy-secondary: #2c5282;
+            --navy-dark: #0f1f3a;
+            --navy-light: #3a5a8a;
+            --gold-primary: #d4af37;
+            --gold-secondary: #b8960a;
+            --gold-light: #f0e68c;
+            --gold-accent: #cfb53b;
+            --cream-primary: #faf5e9;
+            --cream-secondary: #f5e6d3;
+            --cream-dark: #e8dcc5;
+            --white: #ffffff;
+            --gray-light: #e2e8f0;
+            --gray-medium: #cbd5e0;
+            --gray-dark: #4a5568;
+            --red-alert: #c53030;
+            --green-verified: #2f855a;
+
+            /* Typography - Maximum Formality */
+            --font-primary: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            --font-secondary: 'Georgia', serif;
+            --font-accent: 'Garamond', serif;
+            --font-mono: 'Courier New', monospace;
+
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+
+            /* Security Levels */
+            --classification-top-secret: #8b0000;
+            --classification-secret: #b8860b;
+            --classification-confidential: #2e5090;
+            --classification-official: #4a5568;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-secondary) 100%);
+            color: var(--navy-dark);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Official Header with Security Markings */
+        .classification-banner {
+            background: var(--classification-confidential);
+            color: var(--white);
+            text-align: center;
+            padding: var(--spacing-sm);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            border-bottom: 3px solid var(--gold-primary);
+        }
+
+        .main-header {
+            background: linear-gradient(180deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
+            color: var(--cream-primary);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            border-bottom: 5px solid var(--gold-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .diplomatic-seal {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .seal-emblem {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-secondary) 100%);
+            border: 4px solid var(--cream-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--navy-primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .seal-text h1 {
+            font-family: var(--font-accent);
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .seal-text p {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        .user-credentials {
+            text-align: right;
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid var(--gold-accent);
+        }
+
+        .user-credentials .rank {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .user-credentials .name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .clearance-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--classification-secret);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            font-family: var(--font-mono);
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--navy-secondary);
+            border-top: 1px solid var(--gold-accent);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: var(--cream-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-links li a:hover {
+            background: var(--navy-primary);
+            color: var(--gold-primary);
+        }
+
+        .nav-links li a.active {
+            background: var(--gold-primary);
+            color: var(--navy-primary);
+            font-weight: bold;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            padding-right: var(--spacing-md);
+        }
+
+        .action-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: transparent;
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-light);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--gold-primary);
+            color: var(--navy-primary);
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: var(--spacing-xl) auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.15);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
+            color: var(--cream-primary);
+            padding: var(--spacing-md);
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        .card-header h3 {
+            font-family: var(--font-accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        /* Mission Status */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md);
+            background: var(--cream-secondary);
+            border-left: 4px solid var(--green-verified);
+            margin-bottom: var(--spacing-md);
+            border-radius: 4px;
+        }
+
+        .status-label {
+            font-weight: 600;
+            color: var(--navy-dark);
+        }
+
+        .status-value {
+            font-family: var(--font-mono);
+            color: var(--green-verified);
+            font-size: 0.9rem;
+        }
+
+        /* Secure Messages */
+        .message-item {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--gray-light);
+            transition: background 0.2s ease;
+        }
+
+        .message-item:hover {
+            background: var(--cream-secondary);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .message-sender {
+            font-weight: 600;
+            color: var(--navy-primary);
+        }
+
+        .message-classification {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            background: var(--classification-secret);
+            color: var(--white);
+            border-radius: 3px;
+            font-family: var(--font-mono);
+        }
+
+        .message-preview {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .message-time {
+            font-size: 0.8rem;
+            color: var(--gray-medium);
+            font-style: italic;
+        }
+
+        /* Protocol Documents */
+        .protocol-list {
+            list-style: none;
+        }
+
+        .protocol-item {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .protocol-item:hover {
+            background: var(--cream-secondary);
+            border-left: 4px solid var(--gold-primary);
+        }
+
+        .protocol-title {
+            font-weight: 600;
+            color: var(--navy-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .protocol-meta {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .protocol-number {
+            font-family: var(--font-mono);
+            color: var(--gold-secondary);
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+
+        /* Mission Directory */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .mission-card {
+            background: var(--white);
+            border: 2px solid var(--navy-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(26, 54, 93, 0.2);
+            border-color: var(--gold-primary);
+        }
+
+        .mission-flag {
+            height: 100px;
+            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 3px solid var(--gold-primary);
+        }
+
+        .mission-info {
+            padding: var(--spacing-md);
+        }
+
+        .mission-country {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--navy-primary);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-accent);
+        }
+
+        .mission-ambassador {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .mission-location {
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mission-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--gray-light);
+            font-size: 0.8rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: var(--gold-secondary);
+            font-size: 1.1rem;
+        }
+
+        .stat-label {
+            color: var(--gray-dark);
+        }
+
+        /* Event Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--gray-medium);
+            border: 1px solid var(--gray-medium);
+        }
+
+        .calendar-header {
+            background: var(--navy-primary);
+            color: var(--gold-light);
+            padding: var(--spacing-md);
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .calendar-day {
+            background: var(--white);
+            padding: var(--spacing-md);
+            min-height: 100px;
+            position: relative;
+        }
+
+        .calendar-day.other-month {
+            background: var(--cream-secondary);
+            opacity: 0.5;
+        }
+
+        .day-number {
+            font-weight: bold;
+            color: var(--navy-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .calendar-day.has-event {
+            background: var(--cream-primary);
+            border: 2px solid var(--gold-accent);
+        }
+
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .event-title {
+            font-size: 0.75rem;
+            color: var(--navy-dark);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Event List */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .event-item {
+            background: var(--white);
+            border: 2px solid var(--navy-secondary);
+            border-left: 6px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            box-shadow: 0 6px 20px rgba(26, 54, 93, 0.15);
+            border-left-color: var(--gold-secondary);
+        }
+
+        .event-date {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--navy-primary);
+            color: var(--gold-light);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .event-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--navy-primary);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-accent);
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        .event-icon {
+            color: var(--gold-secondary);
+        }
+
+        .event-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--navy-dark);
+            padding: var(--spacing-md);
+            background: var(--cream-secondary);
+            border-radius: 4px;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .rsvp-status {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm);
+            background: var(--green-verified);
+            color: var(--white);
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Security Notice */
+        .security-notice {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%);
+            color: var(--cream-primary);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .security-notice h4 {
+            color: var(--gold-primary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .security-notice ul {
+            list-style: none;
+            padding-left: var(--spacing-md);
+        }
+
+        .security-notice li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .security-notice li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        /* Tabs */
+        .tab-navigation {
+            display: flex;
+            gap: var(--spacing-sm);
+            border-bottom: 2px solid var(--gold-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .tab-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--gray-dark);
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover {
+            color: var(--navy-primary);
+            background: var(--cream-secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--navy-primary);
+            border-bottom-color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(180deg, var(--navy-secondary) 0%, var(--navy-primary) 100%);
+            color: var(--cream-primary);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+            border-top: 5px solid var(--gold-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--gold-primary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: var(--cream-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .mission-card, .event-item {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: var(--spacing-md); }
+        .mb-1 { margin-bottom: var(--spacing-md); }
+        .mb-2 { margin-bottom: var(--spacing-lg); }
+
+        /* Encryption Indicator */
+        .encrypted {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            color: var(--green-verified);
+            font-family: var(--font-mono);
+        }
+
+        .encrypted:before {
+            content: "🔒";
+            font-size: 0.8rem;
+        }
+
+        /* Priority Flags */
+        .priority-high {
+            color: var(--red-alert);
+            font-weight: bold;
+        }
+
+        .priority-medium {
+            color: var(--gold-secondary);
+        }
+
+        .priority-low {
+            color: var(--green-verified);
+        }
+
+        /* Seal Animation */
+        @keyframes rotateGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .seal-emblem {
+            animation: rotateGlow 3s ease-in-out infinite;
+        }
+    
+        /* Gallery Navigation - Injected */
+        .gallery-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav.visible {
+            transform: translateY(0);
+        }
+        .gallery-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gallery-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-back:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
+        }
+        .gallery-nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+        .gallery-nav-title {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+        .gallery-nav-title strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .gallery-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-nav-arrows {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .gallery-nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .gallery-nav-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .gallery-nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .gallery-nav-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+        .gallery-nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 9998;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-nav-toggle:hover {
+            background: linear-gradient(135deg, rgba(30,30,30,0.95) 0%, rgba(50,50,50,0.98) 100%);
+            transform: scale(1.05);
+        }
+        .gallery-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .gallery-nav.visible + .gallery-nav-toggle {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 640px) {
+            .gallery-nav-title { display: none; }
+            .gallery-nav { padding: 0.5rem 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Gallery Navigation -->
+    <nav class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav-left">
+            <a href="index.html" class="gallery-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Gallery
+            </a>
+            <span class="gallery-nav-title">Style <strong>117</strong> of 120 &mdash; Diplomatic Corps</span>
+        </div>
+        <div class="gallery-nav-right">
+            <div class="gallery-nav-arrows">
+                <a href="style-116-motorsport-club.html" class="gallery-nav-arrow" title="Previous Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </a>
+                <a href="style-118-startup-accelerator.html" class="gallery-nav-arrow" title="Next Style">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <button class="gallery-nav-toggle" id="galleryNavToggle" title="Show Navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <script>
+        (function() {
+            const nav = document.getElementById('galleryNav');
+            const toggle = document.getElementById('galleryNavToggle');
+            let hideTimeout;
+
+            function showNav() {
+                nav.classList.add('visible');
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+            }
+
+            function hideNav() {
+                nav.classList.remove('visible');
+            }
+
+            // Show on page load briefly
+            setTimeout(showNav, 500);
+
+            // Toggle button
+            toggle.addEventListener('click', showNav);
+
+            // Show on mouse near top
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 60) showNav();
+            });
+
+            // Keep visible on hover
+            nav.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+            nav.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => nav.classList.remove('visible'), 1500);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideNav();
+                if (e.key === 'ArrowLeft' && 116) window.location.href = 'style-116-motorsport-club.html';
+                if (e.key === 'ArrowRight' && 118) window.location.href = 'style-118-startup-accelerator.html';
+            });
+        })();
+    </script>
+
+    <!-- Classification Banner -->
+    <div class="classification-banner">
+        CONFIDENTIAL // OFFICIAL USE ONLY // DIPLOMATIC CORPS NETWORK
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="diplomatic-seal">
+                <div class="seal-emblem">⚜</div>
+                <div class="seal-text">
+                    <h1>DIPLOMATIC CORPS NETWORK</h1>
+                    <p>Global Mission Coordination Portal</p>
+                </div>
+            </div>
+            <div class="user-credentials">
+                <div class="rank">Ambassador Extraordinary and Plenipotentiary</div>
+                <div class="name">Hon. Catherine E. Whitmore</div>
+                <span class="clearance-badge">SECRET CLEARANCE</span>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#missions">Mission Directory</a></li>
+                    <li><a href="#protocols">Protocols</a></li>
+                    <li><a href="#events">Events Calendar</a></li>
+                    <li><a href="#communications">Secure Comms</a></li>
+                    <li><a href="#documents">Diplomatic Pouch</a></li>
+                </ul>
+                <div class="quick-actions">
+                    <button class="action-btn">🔔 Alerts (3)</button>
+                    <button class="action-btn">⚙ Settings</button>
+                    <button class="action-btn">🚪 Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Mission Status -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📊 Mission Status</h3>
+                </div>
+                <div class="card-content">
+                    <div class="status-indicator">
+                        <span class="status-label">Active Missions</span>
+                        <span class="status-value">47</span>
+                    </div>
+                    <div class="status-indicator" style="border-left-color: var(--gold-primary);">
+                        <span class="status-label">Diplomatic Staff</span>
+                        <span class="status-value" style="color: var(--gold-secondary);">1,847</span>
+                    </div>
+                    <div class="status-indicator" style="border-left-color: var(--navy-primary);">
+                        <span class="status-label">Active Treaties</span>
+                        <span class="status-value" style="color: var(--navy-primary);">312</span>
+                    </div>
+                    <div class="status-indicator" style="border-left-color: var(--red-alert);">
+                        <span class="status-label">Urgent Matters</span>
+                        <span class="status-value" style="color: var(--red-alert);">5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secure Messages -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>🔐 Secure Messages <span class="encrypted">ENCRYPTED</span></h3>
+                </div>
+                <div class="card-content" style="padding: 0;">
+                    <div class="message-item">
+                        <div class="message-header">
+                            <span class="message-sender">Embassy Paris</span>
+                            <span class="message-classification">SECRET</span>
+                        </div>
+                        <div class="message-preview">
+                            Trade negotiation update - Summit preparations progressing as scheduled...
+                        </div>
+                        <div class="message-time">2 hours ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-header">
+                            <span class="message-sender">Mission Geneva</span>
+                            <span class="message-classification" style="background: var(--classification-confidential);">CONFIDENTIAL</span>
+                        </div>
+                        <div class="message-preview">
+                            Human rights council session notes - Voting alignment confirmed...
+                        </div>
+                        <div class="message-time">5 hours ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-header">
+                            <span class="message-sender">Consulate Tokyo</span>
+                            <span class="message-classification" style="background: var(--classification-official);">OFFICIAL</span>
+                        </div>
+                        <div class="message-preview">
+                            Cultural exchange program - Application deadline extended to March 15...
+                        </div>
+                        <div class="message-time">1 day ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protocol Documents -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📜 Recent Protocols</h3>
+                </div>
+                <div class="card-content" style="padding: 0;">
+                    <ul class="protocol-list">
+                        <li class="protocol-item">
+                            <div class="protocol-title">State Visit Protocol Amendments</div>
+                            <div class="protocol-meta">
+                                <span class="protocol-number">DP-2025-047</span> • Updated 3 days ago
+                            </div>
+                        </li>
+                        <li class="protocol-item">
+                            <div class="protocol-title">Diplomatic Immunity Guidelines</div>
+                            <div class="protocol-meta">
+                                <span class="protocol-number">DP-2025-046</span> • Updated 1 week ago
+                            </div>
+                        </li>
+                        <li class="protocol-item">
+                            <div class="protocol-title">Official Communications Standards</div>
+                            <div class="protocol-meta">
+                                <span class="protocol-number">DP-2025-045</span> • Updated 2 weeks ago
+                            </div>
+                        </li>
+                        <li class="protocol-item">
+                            <div class="protocol-title">Reception Etiquette Manual</div>
+                            <div class="protocol-meta">
+                                <span class="protocol-number">DP-2024-128</span> • Updated 1 month ago
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                <h4>🔒 SECURITY REMINDER</h4>
+                <ul>
+                    <li>All communications are monitored and encrypted</li>
+                    <li>Report security incidents immediately</li>
+                    <li>Verify credentials before sharing classified information</li>
+                    <li>Diplomatic immunity does not exempt from security protocols</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="switchTab('missions')">Mission Directory</button>
+                <button class="tab-btn" onclick="switchTab('events')">Upcoming Events</button>
+                <button class="tab-btn" onclick="switchTab('calendar')">Calendar View</button>
+            </div>
+
+            <!-- Mission Directory Tab -->
+            <div id="missions-tab" class="tab-content active">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🌍 Global Mission Directory</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="mission-grid">
+                            <div class="mission-card">
+                                <div class="mission-flag">🇬🇧</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">United Kingdom</div>
+                                    <div class="mission-ambassador">Amb. Sir Jonathan Clarke</div>
+                                    <div class="mission-location">📍 London • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">89</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">12</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇫🇷</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">France</div>
+                                    <div class="mission-ambassador">Amb. Marie-Claire Dubois</div>
+                                    <div class="mission-location">📍 Paris • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">76</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">18</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇯🇵</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Japan</div>
+                                    <div class="mission-ambassador">Amb. Hiroshi Tanaka</div>
+                                    <div class="mission-location">📍 Tokyo • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">94</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">23</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇩🇪</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Germany</div>
+                                    <div class="mission-ambassador">Amb. Dr. Klaus Weber</div>
+                                    <div class="mission-location">📍 Berlin • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">81</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">21</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇨🇦</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Canada</div>
+                                    <div class="mission-ambassador">Amb. Elizabeth Morrison</div>
+                                    <div class="mission-location">📍 Ottawa • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">67</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">15</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇦🇺</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Australia</div>
+                                    <div class="mission-ambassador">Amb. Michael Thompson</div>
+                                    <div class="mission-location">📍 Canberra • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">58</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">14</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇮🇳</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">India</div>
+                                    <div class="mission-ambassador">Amb. Priya Sharma</div>
+                                    <div class="mission-location">📍 New Delhi • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">103</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">19</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇧🇷</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Brazil</div>
+                                    <div class="mission-ambassador">Amb. Carlos Silva</div>
+                                    <div class="mission-location">📍 Brasília • Embassy</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">72</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">16</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mission-card">
+                                <div class="mission-flag">🇨🇭</div>
+                                <div class="mission-info">
+                                    <div class="mission-country">Switzerland (UN)</div>
+                                    <div class="mission-ambassador">Amb. Dr. Anna Müller</div>
+                                    <div class="mission-location">📍 Geneva • Permanent Mission</div>
+                                    <div class="mission-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">45</span>
+                                            <span class="stat-label">Staff</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">89</span>
+                                            <span class="stat-label">Treaties</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">Active</span>
+                                            <span class="stat-label">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Tab -->
+            <div id="events-tab" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📅 Upcoming Diplomatic Events</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="event-list">
+                            <div class="event-item">
+                                <span class="event-date">December 15, 2025</span>
+                                <div class="event-name">Annual Ambassadors' Gala Reception</div>
+                                <div class="event-details">
+                                    <div class="event-detail">
+                                        <span class="event-icon">🕐</span>
+                                        <span>19:00 - 23:00 (Black Tie)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">📍</span>
+                                        <span>Grand Diplomatic Hall, State Department</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">👥</span>
+                                        <span>Expected: 350 Delegates</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">🔒</span>
+                                        <span class="encrypted">Security Level: HIGH</span>
+                                    </div>
+                                </div>
+                                <div class="event-description">
+                                    Annual gathering of the diplomatic corps to celebrate international cooperation and foster bilateral relations. Features keynote address by the Secretary of State, cultural performances, and networking opportunities.
+                                </div>
+                                <div class="rsvp-status">ATTENDANCE CONFIRMED</div>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">December 18, 2025</span>
+                                <div class="event-name">Trade Agreement Summit - Pacific Alliance</div>
+                                <div class="event-details">
+                                    <div class="event-detail">
+                                        <span class="event-icon">🕐</span>
+                                        <span>09:00 - 17:00 (Business Formal)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">📍</span>
+                                        <span>International Conference Center</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">👥</span>
+                                        <span>12 Member Nations</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">🔒</span>
+                                        <span class="message-classification">CONFIDENTIAL</span>
+                                    </div>
+                                </div>
+                                <div class="event-description">
+                                    Multilateral trade negotiation session focusing on tariff reductions, intellectual property rights, and digital commerce frameworks. Delegation briefing at 08:30.
+                                </div>
+                                <div class="rsvp-status">DELEGATION ASSIGNED - 8 MEMBERS</div>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">December 22, 2025</span>
+                                <div class="event-name">Cultural Exchange Program Launch</div>
+                                <div class="event-details">
+                                    <div class="event-detail">
+                                        <span class="event-icon">🕐</span>
+                                        <span>14:00 - 18:00 (Smart Casual)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">📍</span>
+                                        <span>National Arts Center</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">👥</span>
+                                        <span>Open to Public (500 capacity)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">🔒</span>
+                                        <span>Security Level: STANDARD</span>
+                                    </div>
+                                </div>
+                                <div class="event-description">
+                                    Inauguration of student exchange program with partner nations. Includes art exhibitions, musical performances, and scholarship announcements.
+                                </div>
+                                <div class="rsvp-status" style="background: var(--gold-secondary);">PENDING CONFIRMATION</div>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">January 10, 2026</span>
+                                <div class="event-name">International Climate Accord Signing Ceremony</div>
+                                <div class="event-details">
+                                    <div class="event-detail">
+                                        <span class="event-icon">🕐</span>
+                                        <span>11:00 - 13:00 (Formal Diplomatic Attire)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">📍</span>
+                                        <span>United Nations Headquarters, Geneva</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">👥</span>
+                                        <span>127 Signatory Nations</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">🔒</span>
+                                        <span class="message-classification" style="background: var(--classification-official);">OFFICIAL</span>
+                                    </div>
+                                </div>
+                                <div class="event-description">
+                                    Historic multilateral environmental agreement signing. Ceremonial protocols require full delegation presence. Media coverage anticipated.
+                                </div>
+                                <div class="rsvp-status">TRAVEL ARRANGEMENTS IN PROGRESS</div>
+                            </div>
+
+                            <div class="event-item">
+                                <span class="event-date">January 15, 2026</span>
+                                <div class="event-name">Quarterly Protocol Officers Meeting</div>
+                                <div class="event-details">
+                                    <div class="event-detail">
+                                        <span class="event-icon">🕐</span>
+                                        <span>10:00 - 12:00 (Business Attire)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">📍</span>
+                                        <span>Virtual Conference (Secure Channel)</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">👥</span>
+                                        <span>Protocol Officers - All Missions</span>
+                                    </div>
+                                    <div class="event-detail">
+                                        <span class="event-icon">🔒</span>
+                                        <span class="encrypted">END-TO-END ENCRYPTED</span>
+                                    </div>
+                                </div>
+                                <div class="event-description">
+                                    Routine briefing on updated diplomatic protocols, security procedures, and coordination guidelines for upcoming state visits.
+                                </div>
+                                <div class="rsvp-status">MANDATORY ATTENDANCE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar View Tab -->
+            <div id="calendar-tab" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📆 December 2025 - Diplomatic Calendar</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="calendar-grid">
+                            <div class="calendar-header">SUN</div>
+                            <div class="calendar-header">MON</div>
+                            <div class="calendar-header">TUE</div>
+                            <div class="calendar-header">WED</div>
+                            <div class="calendar-header">THU</div>
+                            <div class="calendar-header">FRI</div>
+                            <div class="calendar-header">SAT</div>
+
+                            <div class="calendar-day other-month"><div class="day-number">30</div></div>
+                            <div class="calendar-day"><div class="day-number">1</div></div>
+                            <div class="calendar-day"><div class="day-number">2</div></div>
+                            <div class="calendar-day"><div class="day-number">3</div></div>
+                            <div class="calendar-day"><div class="day-number">4</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">5</div>
+                                <div class="event-title"><span class="event-dot"></span>Protocol Review</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">6</div></div>
+
+                            <div class="calendar-day"><div class="day-number">7</div></div>
+                            <div class="calendar-day"><div class="day-number">8</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">9</div>
+                                <div class="event-title"><span class="event-dot"></span>Staff Meeting</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">10</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">11</div>
+                                <div class="event-title"><span class="event-dot"></span>Consular Visit</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">12</div></div>
+                            <div class="calendar-day"><div class="day-number">13</div></div>
+
+                            <div class="calendar-day"><div class="day-number">14</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">15</div>
+                                <div class="event-title"><span class="event-dot"></span>Ambassadors' Gala</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">16</div></div>
+                            <div class="calendar-day"><div class="day-number">17</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">18</div>
+                                <div class="event-title"><span class="event-dot"></span>Trade Summit</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">19</div></div>
+                            <div class="calendar-day"><div class="day-number">20</div></div>
+
+                            <div class="calendar-day"><div class="day-number">21</div></div>
+                            <div class="calendar-day has-event">
+                                <div class="day-number">22</div>
+                                <div class="event-title"><span class="event-dot"></span>Cultural Exchange</div>
+                            </div>
+                            <div class="calendar-day"><div class="day-number">23</div></div>
+                            <div class="calendar-day"><div class="day-number">24</div></div>
+                            <div class="calendar-day"><div class="day-number">25</div></div>
+                            <div class="calendar-day"><div class="day-number">26</div></div>
+                            <div class="calendar-day"><div class="day-number">27</div></div>
+
+                            <div class="calendar-day"><div class="day-number">28</div></div>
+                            <div class="calendar-day"><div class="day-number">29</div></div>
+                            <div class="calendar-day"><div class="day-number">30</div></div>
+                            <div class="calendar-day"><div class="day-number">31</div></div>
+                            <div class="calendar-day other-month"><div class="day-number">1</div></div>
+                            <div class="calendar-day other-month"><div class="day-number">2</div></div>
+                            <div class="calendar-day other-month"><div class="day-number">3</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Mission Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Embassy Locator</a></li>
+                    <li><a href="#">Staff Directory</a></li>
+                    <li><a href="#">Protocol Handbook</a></li>
+                    <li><a href="#">Travel Advisories</a></li>
+                    <li><a href="#">Visa Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Communications</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Secure Messaging</a></li>
+                    <li><a href="#">Diplomatic Pouch</a></li>
+                    <li><a href="#">Cable Traffic</a></li>
+                    <li><a href="#">Emergency Hotline</a></li>
+                    <li><a href="#">Encryption Tools</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Documentation</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Treaty Database</a></li>
+                    <li><a href="#">Official Records</a></li>
+                    <li><a href="#">Protocol Archives</a></li>
+                    <li><a href="#">Country Briefs</a></li>
+                    <li><a href="#">Legal Frameworks</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Technical Assistance</a></li>
+                    <li><a href="#">Security Support</a></li>
+                    <li><a href="#">Training Programs</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Help Desk</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Diplomatic Corps Network © 2025 • All communications subject to diplomatic protocols and security regulations</p>
+            <p style="margin-top: 0.5rem;">CONFIDENTIAL // OFFICIAL USE ONLY // Unauthorized access prohibited under international law</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Simulated real-time updates
+        function updateMissionStatus() {
+            const statusValues = document.querySelectorAll('.status-value');
+            // Add pulse effect to urgent matters
+            statusValues.forEach(val => {
+                if (val.textContent === '5') {
+                    val.style.animation = 'pulse 2s infinite';
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMissionStatus();
+
+            // Add hover effects to mission cards
+            const missionCards = document.querySelectorAll('.mission-card');
+            missionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    console.log('Mission card clicked');
+                    // Could open detailed mission view
+                });
+            });
+
+            // Add click handlers for protocol items
+            const protocolItems = document.querySelectorAll('.protocol-item');
+            protocolItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    console.log('Protocol document clicked');
+                    // Could open document viewer
+                });
+            });
+
+            // Message click handlers
+            const messageItems = document.querySelectorAll('.message-item');
+            messageItems.forEach(msg => {
+                msg.addEventListener('click', function() {
+                    console.log('Secure message clicked');
+                    // Could open message reader
+                });
+            });
+        });
+
+        // Pulse animation for urgent items
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.6; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Security notice auto-scroll (subtle)
+        let scrollPosition = 0;
+        setInterval(() => {
+            const notices = document.querySelectorAll('.security-notice li');
+            if (notices.length > 0) {
+                scrollPosition = (scrollPosition + 1) % notices.length;
+            }
+        }, 5000);
+
+        // Simulate new message notification
+        setTimeout(() => {
+            const alertBtn = document.querySelector('.action-btn');
+            if (alertBtn && alertBtn.textContent.includes('Alerts')) {
+                alertBtn.style.animation = 'pulse 1s 3';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
