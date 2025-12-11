@@ -1193,8 +1193,8 @@ td:first-child {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 4px;
@@ -1218,8 +1218,8 @@ td:first-child {
             top: 1rem;
             left: 1rem;
             z-index: 9998;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.95) 100%);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.2);
@@ -1298,7 +1298,7 @@ td:first-child {
 }
 
 .export-btn {
-    padding: 0.5rem 0.875rem;
+    padding: 0.75rem 0.875rem;
     background: rgba(255, 255, 255, 0.1);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1310,6 +1310,7 @@ td:first-child {
     align-items: center;
     gap: 0.375rem;
     transition: all 0.2s;
+    min-height: 44px;
 }
 
 .export-btn:hover {
@@ -1347,7 +1348,8 @@ td:first-child {
     left: 1rem;
     background: rgba(0, 0, 0, 0.85);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
     border-radius: 2rem;
     text-decoration: none;
     z-index: 1000;
@@ -1484,7 +1486,331 @@ td:first-child {
 .similar-style-card:hover .similar-name {
     color: #60a5fa;
 }
-    </style>
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        
+        /* Mobile touch target optimizations */
+        @media (min-width: 768px) {
+            .gallery-nav-arrow {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .gallery-nav-arrow {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Similar Styles Section Polish */
+        .similar-styles-toggle svg {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .similar-styles-section.collapsed .similar-styles-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .similar-style-card {
+            transition: all 0.3s ease;
+        }
+
+        .similar-style-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+</style>
 </head>
 <body>
     

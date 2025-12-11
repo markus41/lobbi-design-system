@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Tech Council - Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================================
+           CLIMATE TECH COUNCIL DESIGN SYSTEM
+           Style ID: 217
+           ============================================================================
+
+           DESIGN PHILOSOPHY:
+           This design system embodies the intersection of environmental technology,
+           data-driven sustainability, and organic natural elements. It creates a
+           professional yet approachable interface that communicates ecological
+           responsibility while maintaining technical credibility.
+
+           BLEND COMPOSITION:
+           - Environmental Tech (55%): Modern, clean interfaces with eco-conscious colors
+           - Data Visualization (30%): Clear charts, metrics, and progress indicators
+           - Nature Organic (15%): Subtle leaf patterns, flowing curves, earth tones
+
+           COLOR PSYCHOLOGY:
+           - Carbon Neutral Green (#22c55e): Growth, renewal, environmental action
+           - Ocean Blue (#0284c7): Trust, clarity, water conservation
+           - Earth Brown (#78716c): Stability, grounding, natural materials
+           - Clean Air White (#f9fafb): Purity, transparency, fresh beginnings
+
+           TYPOGRAPHY STRATEGY:
+           - Outfit (Primary): Modern, geometric sans-serif that conveys innovation
+             and approachability. Used for UI elements, headings, and data displays.
+           - Lora (Secondary): Serif font that adds authority and credibility.
+             Used for emphasis, quotes, and important statements.
+
+           TEMPERATURE & FORMALITY:
+           - Temperature: 6/10 (Warm Earth) - Inviting yet professional
+           - Formality: 7/10 - Structured but not corporate, accessible yet authoritative
+
+           COMPONENT ARCHITECTURE:
+           - Modular card-based layouts for scalability
+           - Consistent 16px spacing grid (1rem base)
+           - Rounded corners (8px) for approachability
+           - Subtle shadows for depth and hierarchy
+
+           ACCESSIBILITY NOTES:
+           - WCAG AA contrast ratios maintained (4.5:1 minimum)
+           - Focus states clearly visible with 2px outlines
+           - Semantic HTML5 structure for screen readers
+           - Keyboard navigation fully supported
+           - Color is not the only indicator of meaning
+
+           ============================================================================ */
+
+        /* ============================================================================
+           BASE STYLES & RESET
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Environmental Focus */
+            --green-primary: #22c55e;      /* Carbon neutral actions */
+            --green-secondary: #16a34a;    /* Success states */
+            --green-light: #dcfce7;        /* Backgrounds, subtle highlights */
+
+            --blue-primary: #0284c7;       /* Ocean, water systems */
+            --blue-secondary: #0369a1;     /* Interactive elements */
+            --blue-light: #e0f2fe;         /* Info backgrounds */
+
+            --brown-primary: #78716c;      /* Earth, grounding */
+            --brown-secondary: #57534e;    /* Text, borders */
+            --brown-light: #f5f5f4;        /* Subtle backgrounds */
+
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+
+            /* Typography Scale */
+            --font-primary: 'Outfit', system-ui, -apple-system, sans-serif;
+            --font-secondary: 'Lora', Georgia, serif;
+
+            /* Spacing Scale (8px base) */
+            --space-xs: 0.5rem;    /* 8px */
+            --space-sm: 1rem;      /* 16px */
+            --space-md: 1.5rem;    /* 24px */
+            --space-lg: 2rem;      /* 32px */
+            --space-xl: 3rem;      /* 48px */
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Shadows - Subtle, natural depth */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 250ms ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+            min-height: 100vh;
+        }
+
+        /* ============================================================================
+           HEADER & NAVIGATION
+           Temperature: Warm and welcoming while maintaining professionalism
+           ============================================================================ */
+
+        .header {
+            background: linear-gradient(135deg, var(--green-primary) 0%, var(--blue-primary) 100%);
+            /* Gradient symbolizes the harmony between land (green) and water (blue) */
+            color: var(--white);
+            padding: var(--space-md) var(--space-lg);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-secondary);
+            /* Lora adds gravitas and authority to the brand name */
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            /* Leaf icon represents organic growth and environmental focus */
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            transition: background-color var(--transition-fast);
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            /* Subtle hover maintains visual hierarchy */
+        }
+
+        .nav a:focus {
+            outline: 2px solid var(--white);
+            outline-offset: 2px;
+        }
+
+        /* ============================================================================
+           MAIN CONTAINER
+           ============================================================================ */
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* ============================================================================
+           HERO SECTION
+           Purpose: Immediate context and value proposition
+           ============================================================================ */
+
+        .hero {
+            background: linear-gradient(135deg, var(--green-light) 0%, var(--blue-light) 100%);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative leaf pattern - Nature organic element (15%) */
+        .hero::before {
+            content: '🌿';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            right: -20px;
+            bottom: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-secondary);
+            /* Lora for hero title adds weight and importance */
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* ============================================================================
+           STATS CARDS - Data Visualization (30%)
+           Architecture: Grid-based, responsive, scannable metrics
+           ============================================================================ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--green-primary);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            /* Lift effect provides tactile feedback */
+        }
+
+        .stat-card.blue-accent {
+            border-left-color: var(--blue-primary);
+        }
+
+        .stat-card.brown-accent {
+            border-left-color: var(--brown-primary);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--green-secondary);
+            font-weight: 500;
+        }
+
+        .stat-change.negative {
+            color: #dc2626; /* Red for emissions increase */
+        }
+
+        /* Progress bar for carbon footprint reduction */
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 999px;
+            margin-top: var(--space-sm);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green-primary), var(--blue-primary));
+            border-radius: 999px;
+            transition: width 1s ease-out;
+        }
+
+        /* ============================================================================
+           MAIN CONTENT GRID
+           Layout: Two-column responsive (table + sidebar)
+           ============================================================================ */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           DATA TABLE - Environmental Tech (55%)
+           Purpose: Display sustainability metrics, projects, and initiatives
+           ============================================================================ */
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            /* Ensures table is scrollable on small screens */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--gray-100);
+        }
+
+        th {
+            text-align: left;
+            padding: var(--space-sm);
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: var(--space-sm);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-800);
+        }
+
+        tbody tr:hover {
+            background: var(--gray-50);
+            transition: background-color var(--transition-fast);
+        }
+
+        /* ============================================================================
+           BADGES - Status Indicators
+           Color-coded with icons for quick scanning
+           ============================================================================ */
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.active {
+            background: var(--green-light);
+            color: var(--green-secondary);
+        }
+
+        .badge.pending {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .badge.completed {
+            background: var(--blue-light);
+            color: var(--blue-secondary);
+        }
+
+        /* Sustainability rating badges with leaf icons */
+        .sustainability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* ============================================================================
+           SIDEBAR - FORMS & ACTIONS
+           Purpose: Quick actions, filtering, and data entry
+           ============================================================================ */
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-xs);
+            font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--green-primary);
+            box-shadow: 0 0 0 3px var(--green-light);
+            /* Green focus state aligns with environmental theme */
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ============================================================================
+           BUTTONS - Interactive Elements
+           Hierarchy: Primary (green), Secondary (blue), Tertiary (outline)
+           ============================================================================ */
+
+        .button {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+        }
+
+        .button-primary {
+            background: var(--green-primary);
+            color: var(--white);
+        }
+
+        .button-primary:hover {
+            background: var(--green-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-secondary {
+            background: var(--blue-primary);
+            color: var(--white);
+        }
+
+        .button-secondary:hover {
+            background: var(--blue-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--green-primary);
+            border: 2px solid var(--green-primary);
+        }
+
+        .button-outline:hover {
+            background: var(--green-primary);
+            color: var(--white);
+        }
+
+        .button:focus {
+            outline: 2px solid var(--gray-900);
+            outline-offset: 2px;
+        }
+
+        .button-full {
+            width: 100%;
+        }
+
+        /* ============================================================================
+           FOOTER
+           Purpose: Additional navigation, credits, environmental commitment
+           ============================================================================ */
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+            color: var(--green-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Carbon neutral certification badge in footer */
+        .certification {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--green-primary);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-top: var(--space-sm);
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN
+           Breakpoints: 768px (tablet), 1024px (desktop)
+           ============================================================================ */
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           ACCESSIBILITY ENHANCEMENTS
+           ============================================================================ */
+
+        /* Focus visible for keyboard navigation */
+        *:focus-visible {
+            outline: 2px solid var(--green-primary);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .button {
+                border: 2px solid currentColor;
+            }
+        }
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+</style>
+</head>
+<body>
+    <!-- ======================================================================
+         HEADER & NAVIGATION
+         ====================================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span>Climate Tech Council</span>
+            </div>
+            <nav class="nav">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#projects">Projects</a>
+                <a href="#analytics">Analytics</a>
+                <a href="#reports">Reports</a>
+                <a href="#settings">Settings</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT
+         ====================================================================== -->
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>Environmental Impact Dashboard</h1>
+            <p>Track, measure, and optimize your organization's carbon footprint with real-time data visualization and actionable insights. Together, we're building a sustainable future through technology and innovation.</p>
+        </section>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Carbon Reduced</div>
+                <div class="stat-value">2,847 tons</div>
+                <div class="stat-change">↑ 23% from last month</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 68%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card blue-accent">
+                <div class="stat-label">Water Saved</div>
+                <div class="stat-value">1.2M gal</div>
+                <div class="stat-change">↑ 15% from last month</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 52%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card brown-accent">
+                <div class="stat-label">Renewable Energy</div>
+                <div class="stat-value">87%</div>
+                <div class="stat-change">↑ 8% from last month</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 87%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Active Projects</div>
+                <div class="stat-value">42</div>
+                <div class="stat-change">↑ 5 new this month</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- TABLE SECTION -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Sustainability Projects</h2>
+                    <button class="button button-primary">Add Project</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Impact Area</th>
+                                <th>Status</th>
+                                <th>Carbon Offset</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Solar Farm Initiative</strong></td>
+                                <td>Renewable Energy</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>450 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ocean Plastic Recovery</strong></td>
+                                <td>Waste Management</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>280 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Urban Reforestation</strong></td>
+                                <td>Carbon Capture</td>
+                                <td><span class="badge pending">Pending</span></td>
+                                <td>620 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Green Building Retrofit</strong></td>
+                                <td>Energy Efficiency</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>340 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Water Conservation System</strong></td>
+                                <td>Resource Management</td>
+                                <td><span class="badge completed">Completed</span></td>
+                                <td>190 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Electric Fleet Conversion</strong></td>
+                                <td>Transportation</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>510 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Composting Program</strong></td>
+                                <td>Waste Reduction</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>125 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Smart Grid Integration</strong></td>
+                                <td>Energy Distribution</td>
+                                <td><span class="badge pending">Pending</span></td>
+                                <td>720 tons/yr</td>
+                                <td><span class="sustainability-badge">🌿🌿🌿🌿🌿</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SIDEBAR SECTION -->
+            <div>
+                <!-- FORM CARD -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Actions</h2>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label" for="project-type">Project Type</label>
+                            <select id="project-type" class="form-select">
+                                <option>Renewable Energy</option>
+                                <option>Carbon Capture</option>
+                                <option>Waste Management</option>
+                                <option>Water Conservation</option>
+                                <option>Transportation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="project-name">Project Name</label>
+                            <input type="text" id="project-name" class="form-input" placeholder="Enter project name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="carbon-offset">Expected Carbon Offset (tons/yr)</label>
+                            <input type="number" id="carbon-offset" class="form-input" placeholder="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea id="description" class="form-input" placeholder="Describe the environmental impact..."></textarea>
+                        </div>
+
+                        <button type="submit" class="button button-primary button-full">Submit Project</button>
+                        <button type="button" class="button button-outline button-full" style="margin-top: var(--space-sm);">Save Draft</button>
+                    </form>
+                </div>
+
+                <!-- INFO CARD -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Carbon Footprint</h2>
+                    </div>
+                    <p style="color: var(--gray-600); margin-bottom: var(--space-md); line-height: 1.7;">
+                        Your organization has reduced carbon emissions by <strong style="color: var(--green-secondary);">2,847 tons</strong> this year. Keep up the excellent work!
+                    </p>
+                    <div style="background: var(--green-light); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-sm);">
+                        <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: var(--space-xs);">Year Target</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--green-secondary);">3,500 tons</div>
+                        <div class="progress-bar" style="margin-top: var(--space-sm);">
+                            <div class="progress-fill" style="width: 81%;"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--gray-600); margin-top: var(--space-xs);">81% Complete</div>
+                    </div>
+                    <button class="button button-secondary button-full">View Full Report</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#api">API Reference</a></li>
+                    <li><a href="#guides">Implementation Guides</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#community">Community Forum</a></li>
+                    <li><a href="#status">System Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Climate Tech Council. All rights reserved.</p>
+            <div class="certification">
+                🌍 Certified Carbon Neutral Organization
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Lobbi Design System
 
-210 professionally curated design styles for association management platforms. Each style is crafted using the Ultrathink methodology, blending 2-5 design influences to create unique, cohesive visual identities.
+255 professionally curated design styles for association management platforms. Each style is crafted using the Ultrathink methodology, blending 2-5 design influences to create unique, cohesive visual identities.
 
 ## View Live
 
@@ -8,7 +8,7 @@
 
 ## Features
 
-- **210 Unique Design Styles** - Comprehensive collection spanning premium, professional, creative, tech, hospitality, academic, media, and association categories
+- **255 Unique Design Styles** - Comprehensive collection spanning premium, professional, creative, tech, hospitality, academic, media, and association categories
 - **Smart Search & Filter** - Find styles by name, category, tags, or design blend
 - **Favorites System** - Save and organize your preferred styles locally
 - **Style Comparison Mode** - Compare up to 4 styles side-by-side
@@ -101,6 +101,46 @@ lobbi-design-system/
 
 This is a proprietary design system. For inquiries about licensing or customization, please contact The Lobbi team.
 
+## Mobile-First Design
+
+This design system is built with a mobile-first approach, ensuring optimal performance and usability across all devices.
+
+### Responsive Breakpoints
+
+| Breakpoint | Range | Target Devices |
+|------------|-------|----------------|
+| **Mobile** | 320px - 767px | Smartphones in portrait/landscape |
+| **Tablet** | 768px - 1023px | Tablets, small laptops |
+| **Desktop** | 1024px+ | Desktops, large displays |
+| **Extra Small** | ≤ 375px | Compact smartphones |
+| **Landscape** | height ≤ 500px | Phones in landscape mode |
+
+### Mobile Optimizations
+
+- **Touch-Friendly Targets**: All interactive elements meet the **48x48px** minimum touch target size (exceeding WCAG 2.1 AA standard)
+- **Enhanced Visual Feedback**: Active states, press animations, and tap highlight colors
+- **Progressive Enhancement**: Base mobile styles with enhancements for larger screens
+- **Font Sizing**: 16px+ inputs to prevent iOS zoom on focus
+- **Smart Scrolling**: Filter tabs with scroll indicators and auto-scroll to active filter
+- **Bottom Navigation**: Fixed mobile navigation bar with haptic feedback
+- **Optimized Typography**: Responsive font scaling for readability across devices
+- **Performance**: Mobile-first CSS reduces initial load and enhances performance
+- **Haptic Feedback**: Native vibration feedback on supported devices (10ms)
+- **Accessibility**: WCAG 2.1 AA compliant touch targets and interactions
+
+See [MOBILE-NAV-IMPROVEMENTS.md](MOBILE-NAV-IMPROVEMENTS.md) for detailed implementation guide.
+
+### Testing Recommendations
+
+When developing or customizing styles:
+1. Start with mobile view (320px width)
+2. Test touch interactions on actual devices
+3. Verify text readability at different sizes
+4. Check horizontal scrolling behavior
+5. Test landscape orientation on mobile
+6. Validate tablet breakpoint (768px)
+7. Confirm desktop enhancements (1024px+)
+
 ## Browser Support
 
 - Chrome/Edge 90+
@@ -110,10 +150,13 @@ This is a proprietary design system. For inquiries about licensing or customizat
 
 ## Performance
 
+- Mobile-first CSS architecture
 - Lazy-loaded style previews
 - Intersection Observer for efficient rendering
 - Local storage for favorites and preferences
 - Minimal external dependencies
+- Optimized touch interactions
+- Smooth scrolling with `-webkit-overflow-scrolling`
 
 ## License
 

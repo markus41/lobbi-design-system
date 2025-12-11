@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Science Hub - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&family=Fira+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================================
+           STYLE 236: CITIZEN SCIENCE HUB
+           ============================================================================
+
+           DESIGN PHILOSOPHY:
+           This design celebrates the democratization of scientific discovery. It bridges
+           the gap between professional research and amateur curiosity, creating an
+           inclusive environment where everyone can contribute to meaningful scientific
+           work. The interface balances scientific rigor with accessible friendliness.
+
+           BLEND COMPOSITION:
+           - Amateur Research (55%): Approachable data collection, friendly learning tools
+           - Community Discovery (30%): Collaborative exploration, shared achievements
+           - Data Collection (15%): Scientific methodology, research protocols
+
+           COLOR PSYCHOLOGY:
+           - Discovery Purple (#7c3aed): Wonder of exploration, innovation in research
+           - Nature Green (#16a34a): Environmental science, biological observation
+           - Research Blue (#0284c7): Scientific inquiry, data-driven insights
+           - Lab Coat White (#ffffff): Clean methodology, transparent processes
+
+           TYPOGRAPHY STRATEGY:
+           - Karla: Friendly, approachable sans-serif for welcoming science communication
+           - Fira Sans: Technical clarity for data displays and scientific information
+
+           TEMPERATURE: 6/10 (Balanced Inquiry)
+           Warm enough to be inviting, cool enough to maintain scientific credibility
+
+           FORMALITY: 5/10 (Accessible Science)
+           Professional research methods presented in an approachable, non-intimidating way
+
+           COMPONENT ARCHITECTURE:
+           - Data collection forms with progressive guidance
+           - Contribution badges celebrating participation milestones
+           - Research progress bars showing collective impact
+           - Interactive observation cards with scientific templates
+           - Community leaderboards fostering friendly competition
+
+           ACCESSIBILITY NOTES:
+           - WCAG AA contrast on all color combinations
+           - Large touch targets for field data entry
+           - Clear form validation with helpful error messages
+           - Voice-over friendly data entry workflows
+           - Keyboard navigation for all interactive elements
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Scientific Discovery */
+            --discovery-purple: #7c3aed;
+            --discovery-purple-light: #a78bfa;
+            --discovery-purple-dark: #5b21b6;
+            --nature-green: #16a34a;
+            --nature-green-light: #22c55e;
+            --nature-green-dark: #15803d;
+            --research-blue: #0284c7;
+            --research-blue-light: #0ea5e9;
+            --research-blue-dark: #075985;
+            --lab-white: #ffffff;
+            --notebook-cream: #fefce8;
+            --data-gray: #64748b;
+            --slate-bg: #f8fafc;
+            --border-gray: #e2e8f0;
+            --text-dark: #1e293b;
+
+            /* Typography Scale */
+            --font-friendly: 'Karla', sans-serif;
+            --font-data: 'Fira Sans', sans-serif;
+
+            /* Spacing System - Based on 8px grid */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+
+            /* Border Radius - Modern friendly curves */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Shadows - Subtle elevation */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: var(--font-friendly);
+            background: linear-gradient(135deg, var(--slate-bg) 0%, var(--notebook-cream) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ============================================================================
+           HEADER COMPONENT - Research Hub Identity
+           Welcoming banner that celebrates citizen scientists
+           ============================================================================ */
+        header {
+            background: linear-gradient(135deg, var(--discovery-purple) 0%, var(--research-blue) 100%);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-friendly);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .contribution-count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 0.875rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* ============================================================================
+           NAVIGATION - Research Areas
+           Category-based navigation for different science domains
+           ============================================================================ */
+        nav {
+            background: white;
+            border-bottom: 2px solid var(--border-gray);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .nav-item {
+            padding: var(--space-md) var(--space-md);
+            color: var(--data-gray);
+            text-decoration: none;
+            font-family: var(--font-friendly);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: var(--slate-bg);
+            color: var(--discovery-purple);
+            border-bottom-color: var(--discovery-purple-light);
+        }
+
+        .nav-item.active {
+            color: var(--discovery-purple);
+            border-bottom-color: var(--discovery-purple);
+            background: var(--slate-bg);
+        }
+
+        /* ============================================================================
+           MAIN CONTAINER - Research Workspace
+           ============================================================================ */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* ============================================================================
+           STATISTICS CARDS - Impact Metrics
+           Celebrating collective scientific contributions
+           ============================================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(40%, -40%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--discovery-purple-light);
+        }
+
+        .stat-card.purple {
+            border-left: 4px solid var(--discovery-purple);
+        }
+
+        .stat-card.green {
+            border-left: 4px solid var(--nature-green);
+        }
+
+        .stat-card.blue {
+            border-left: 4px solid var(--research-blue);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-icon.purple {
+            background: linear-gradient(135deg, var(--discovery-purple-light), var(--discovery-purple));
+        }
+
+        .stat-icon.green {
+            background: linear-gradient(135deg, var(--nature-green-light), var(--nature-green));
+        }
+
+        .stat-icon.blue {
+            background: linear-gradient(135deg, var(--research-blue-light), var(--research-blue));
+        }
+
+        .stat-label {
+            font-family: var(--font-data);
+            font-size: 0.875rem;
+            color: var(--data-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-family: var(--font-data);
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: var(--space-xs) 0;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--nature-green);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-weight: 600;
+        }
+
+        /* ============================================================================
+           CONTENT SECTIONS - Research Dashboard
+           ============================================================================ */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-gray);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--slate-bg);
+        }
+
+        .section-title {
+            font-family: var(--font-friendly);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* ============================================================================
+           DATA TABLE - Observation Records
+           Scientific data display with friendly aesthetics
+           ============================================================================ */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(to bottom, var(--slate-bg), white);
+        }
+
+        th {
+            padding: var(--space-md);
+            text-align: left;
+            font-family: var(--font-data);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--data-gray);
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--slate-bg);
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--notebook-cream);
+        }
+
+        td {
+            padding: var(--space-md);
+            color: var(--text-dark);
+        }
+
+        /* Contribution badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-verified {
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--nature-green-dark);
+        }
+
+        .badge-pending {
+            background: rgba(234, 179, 8, 0.1);
+            color: #a16207;
+        }
+
+        .badge-review {
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--research-blue-dark);
+        }
+
+        /* ============================================================================
+           FORM COMPONENTS - Data Collection Interface
+           User-friendly forms for scientific observations
+           ============================================================================ */
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-friendly);
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .helper-text {
+            font-size: 0.75rem;
+            color: var(--data-gray);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-data);
+            font-size: 1rem;
+            background: white;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--discovery-purple);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ============================================================================
+           BUTTON COMPONENTS - Action Elements
+           Friendly, approachable call-to-action buttons
+           ============================================================================ */
+        .btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-family: var(--font-friendly);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--discovery-purple) 0%, var(--research-blue) 100%);
+            color: white;
+            border-color: var(--discovery-purple-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--discovery-purple);
+            border-color: var(--discovery-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--slate-bg);
+            border-color: var(--discovery-purple-dark);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-green-light) 100%);
+            color: white;
+            border-color: var(--nature-green-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ============================================================================
+           PROGRESS BARS - Research Progress Tracking
+           Visual indicators of collective scientific progress
+           ============================================================================ */
+        .progress-container {
+            margin-bottom: var(--space-md);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-xs);
+            font-size: 0.875rem;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: var(--slate-bg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--discovery-purple), var(--research-blue));
+            border-radius: var(--radius-lg);
+            transition: width 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* ============================================================================
+           CONTRIBUTION CARDS - Achievement Display
+           Celebrating individual and community achievements
+           ============================================================================ */
+        .contribution-card {
+            background: linear-gradient(135deg, var(--notebook-cream), white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            margin-bottom: var(--space-sm);
+            transition: all 0.3s ease;
+        }
+
+        .contribution-card:hover {
+            border-color: var(--discovery-purple-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contribution-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .contributor-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .contribution-date {
+            font-size: 0.75rem;
+            color: var(--data-gray);
+            font-family: var(--font-data);
+        }
+
+        /* ============================================================================
+           FOOTER - Community Information
+           ============================================================================ */
+        footer {
+            background: linear-gradient(to top, var(--text-dark) 0%, #334155 100%);
+            color: white;
+            margin-top: var(--space-xl);
+            padding: var(--space-lg);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-friendly);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN - Mobile Citizen Science
+           Optimized for field data collection
+           ============================================================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: var(--space-sm);
+            }
+        }
+
+        /* ============================================================================
+           ACCESSIBILITY ENHANCEMENTS
+           WCAG AA compliance for inclusive science
+           ============================================================================ */
+        *:focus-visible {
+            outline: 3px solid var(--discovery-purple);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🔬</div>
+                <div class="logo-text">
+                    <h1>Citizen Science Hub</h1>
+                    <p>Empowering Discovery Through Community Research</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="contribution-count">847 Active Contributors</span>
+                <button class="btn btn-primary">Join Research</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="nav-item active">Dashboard</a>
+            <a href="#" class="nav-item">Projects</a>
+            <a href="#" class="nav-item">My Observations</a>
+            <a href="#" class="nav-item">Data Sets</a>
+            <a href="#" class="nav-item">Community</a>
+            <a href="#" class="nav-item">Learn</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- STATISTICS CARDS -->
+        <section class="stats-grid">
+            <div class="stat-card purple">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Total Observations</div>
+                        <div class="stat-value">23,847</div>
+                        <div class="stat-change">
+                            <span>↑</span> 1,234 this week
+                        </div>
+                    </div>
+                    <div class="stat-icon purple">🔍</div>
+                </div>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Species Identified</div>
+                        <div class="stat-value">1,542</div>
+                        <div class="stat-change">
+                            <span>↑</span> 89 new species
+                        </div>
+                    </div>
+                    <div class="stat-icon green">🌿</div>
+                </div>
+            </div>
+
+            <div class="stat-card blue">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Active Projects</div>
+                        <div class="stat-value">47</div>
+                        <div class="stat-change">
+                            <span>↑</span> 5 launched
+                        </div>
+                    </div>
+                    <div class="stat-icon blue">📊</div>
+                </div>
+            </div>
+
+            <div class="stat-card purple">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Your Contributions</div>
+                        <div class="stat-value">127</div>
+                        <div class="stat-change">
+                            <span>↑</span> 12 this month
+                        </div>
+                    </div>
+                    <div class="stat-icon purple">⭐</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- MAIN SECTION - RECENT OBSERVATIONS TABLE -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Observations</h2>
+                    <button class="btn btn-secondary">View All</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Species/Phenomenon</th>
+                                <th>Location</th>
+                                <th>Contributor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Dec 10</strong></td>
+                                <td>Monarch Butterfly Migration</td>
+                                <td>Austin, TX</td>
+                                <td>Sarah Chen</td>
+                                <td><span class="badge badge-verified">✓ Verified</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dec 10</strong></td>
+                                <td>Red-tailed Hawk Nesting</td>
+                                <td>Portland, OR</td>
+                                <td>Mike Johnson</td>
+                                <td><span class="badge badge-pending">⏱ Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dec 9</strong></td>
+                                <td>Native Wildflower Bloom</td>
+                                <td>Denver, CO</td>
+                                <td>Emma Rodriguez</td>
+                                <td><span class="badge badge-verified">✓ Verified</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dec 9</strong></td>
+                                <td>Water Quality Sampling</td>
+                                <td>Seattle, WA</td>
+                                <td>James Lee</td>
+                                <td><span class="badge badge-review">👁 In Review</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dec 8</strong></td>
+                                <td>Bat Colony Count</td>
+                                <td>Austin, TX</td>
+                                <td>Lisa Martinez</td>
+                                <td><span class="badge badge-verified">✓ Verified</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dec 8</strong></td>
+                                <td>Urban Tree Canopy Survey</td>
+                                <td>Boston, MA</td>
+                                <td>David Kim</td>
+                                <td><span class="badge badge-pending">⏱ Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SIDEBAR - FORM & PROGRESS -->
+            <aside>
+                <section class="section" style="margin-bottom: var(--space-lg);">
+                    <div class="section-header">
+                        <h2 class="section-title">Submit Observation</h2>
+                    </div>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="observation-type">Observation Type</label>
+                            <select id="observation-type">
+                                <option>Select type...</option>
+                                <option>Wildlife Sighting</option>
+                                <option>Plant Identification</option>
+                                <option>Weather Event</option>
+                                <option>Water Quality</option>
+                                <option>Air Quality</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="species">Species/Phenomenon</label>
+                            <input type="text" id="species" placeholder="e.g., Monarch Butterfly">
+                            <div class="helper-text">Use common or scientific name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="City, State or GPS coordinates">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="observation-date">Date Observed</label>
+                            <input type="date" id="observation-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="count">Count/Quantity</label>
+                            <input type="number" id="count" placeholder="1">
+                            <div class="helper-text">Number of individuals observed</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Field Notes</label>
+                            <textarea id="notes" placeholder="Describe behavior, habitat, weather conditions, and any other relevant details..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Submit Observation</button>
+                    </form>
+                </section>
+
+                <section class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Your Progress</h2>
+                    </div>
+
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="contributor-name">🏆 Achievement Level</span>
+                            <span style="font-size: 1.5rem;">⭐⭐⭐</span>
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--data-gray);">Advanced Contributor</p>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span style="font-weight: 600; color: var(--text-dark);">Observations Goal</span>
+                            <span style="font-weight: 700; color: var(--discovery-purple);">127/150</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span style="font-weight: 600; color: var(--text-dark);">Species Diversity</span>
+                            <span style="font-weight: 700; color: var(--nature-green);">42/50</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 84%; background: linear-gradient(90deg, var(--nature-green), var(--nature-green-light));"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span style="font-weight: 600; color: var(--text-dark);">Data Quality Score</span>
+                            <span style="font-weight: 700; color: var(--research-blue);">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%; background: linear-gradient(90deg, var(--research-blue), var(--research-blue-light));"></div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- FULL WIDTH SECTION - ACTIVE PROJECTS -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Research Projects</h2>
+                <button class="btn btn-secondary">Browse All Projects</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-md);">
+                <div style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(2, 132, 199, 0.05)); padding: var(--space-md); border-radius: var(--radius-lg); border: 2px solid var(--discovery-purple-light);">
+                    <div style="display: flex; justify-content: between; align-items: start; margin-bottom: var(--space-sm);">
+                        <h3 style="font-family: var(--font-friendly); color: var(--text-dark); margin-bottom: var(--space-sm); font-weight: 700; flex: 1;">Pollinator Population Study</h3>
+                        <span style="font-size: 2rem;">🦋</span>
+                    </div>
+                    <p style="color: var(--data-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Track butterfly and bee populations across urban and rural areas to understand pollinator health.</p>
+                    <div style="background: white; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--discovery-purple); height: 100%; width: 68%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-size: 0.75rem; color: var(--data-gray); display: block;">Progress</span>
+                            <span style="font-weight: 700; color: var(--discovery-purple);">3,421 / 5,000 observations</span>
+                        </div>
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Project</button>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(22, 163, 74, 0.05), rgba(34, 197, 94, 0.05)); padding: var(--space-md); border-radius: var(--radius-lg); border: 2px solid var(--nature-green-light);">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+                        <h3 style="font-family: var(--font-friendly); color: var(--text-dark); margin-bottom: var(--space-sm); font-weight: 700; flex: 1;">Urban Tree Health Monitor</h3>
+                        <span style="font-size: 2rem;">🌳</span>
+                    </div>
+                    <p style="color: var(--data-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Document tree species, health, and canopy coverage in city neighborhoods.</p>
+                    <div style="background: white; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--nature-green); height: 100%; width: 45%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-size: 0.75rem; color: var(--data-gray); display: block;">Progress</span>
+                            <span style="font-weight: 700; color: var(--nature-green);">1,809 / 4,000 trees</span>
+                        </div>
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Project</button>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.05), rgba(14, 165, 233, 0.05)); padding: var(--space-md); border-radius: var(--radius-lg); border: 2px solid var(--research-blue-light);">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+                        <h3 style="font-family: var(--font-friendly); color: var(--text-dark); margin-bottom: var(--space-sm); font-weight: 700; flex: 1;">Freshwater Quality Mapping</h3>
+                        <span style="font-size: 2rem;">💧</span>
+                    </div>
+                    <p style="color: var(--data-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Collect water samples from local streams and lakes to monitor ecosystem health.</p>
+                    <div style="background: white; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--research-blue); height: 100%; width: 82%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-size: 0.75rem; color: var(--data-gray); display: block;">Progress</span>
+                            <span style="font-weight: 700; color: var(--research-blue);">820 / 1,000 samples</span>
+                        </div>
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Project</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Citizen Science Hub</h3>
+                <p>We connect passionate people with meaningful research projects, enabling everyone to contribute to scientific discovery and environmental conservation.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Get Involved</h3>
+                <p><a href="#">Browse Projects</a></p>
+                <p><a href="#">Submit Observations</a></p>
+                <p><a href="#">Become a Researcher</a></p>
+                <p><a href="#">Training Resources</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <p><a href="#">Field Guide</a></p>
+                <p><a href="#">Data Collection Tips</a></p>
+                <p><a href="#">Species ID Help</a></p>
+                <p><a href="#">Research Protocols</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Email: hello@citizensciencehub.org</p>
+                <p>Phone: (555) 234-5678</p>
+                <p><a href="#">Community Forum</a></p>
+                <p><a href="#">Newsletter Signup</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Citizen Science Hub. Making science accessible to everyone.</p>
+        </div>
+    </footer>
+</body>
+</html>

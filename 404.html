@@ -17,6 +17,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* Mobile-First Base Styles */
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg-primary);
@@ -27,49 +28,55 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .error-container {
-            max-width: 500px;
+            max-width: 100%;
+            padding: 0 0.5rem;
         }
 
         .error-code {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem;
+            font-size: 4rem;
             font-weight: 500;
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .error-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
         .error-message {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
         .home-link {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            padding: 0.875rem 2rem;
+            padding: 0.75rem 1.5rem;
             background: var(--accent);
             color: white;
             text-decoration: none;
             border-radius: 0.5rem;
             font-weight: 600;
+            font-size: 0.9375rem;
             transition: all 0.2s;
+            min-height: 44px;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
         }
 
         .home-link:hover {
@@ -77,19 +84,188 @@
             transform: translateY(-2px);
         }
 
+        .home-link:active {
+            transform: scale(0.98);
+        }
+
         .home-link svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
         }
 
         .style-count {
-            margin-top: 2rem;
-            font-size: 0.875rem;
+            margin-top: 1.5rem;
+            font-size: 0.8125rem;
             color: var(--text-secondary);
         }
 
         .style-count strong {
             color: var(--accent-light);
+        }
+
+        /* Tablet Styles (768px+) */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+
+            .error-container {
+                max-width: 500px;
+                padding: 0;
+            }
+
+            .error-code {
+                font-size: 6rem;
+                margin-bottom: 1rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .home-link {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+
+            .home-link svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .style-count {
+                margin-top: 2rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Desktop Styles (1024px+) */
+        @media (min-width: 1024px) {
+            .error-code {
+                font-size: 8rem;
+            }
+        }
+
+        /* Extra Small Devices (max 375px) */
+        @media (max-width: 375px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            .error-code {
+                font-size: 3.5rem;
+            }
+
+            .error-title {
+                font-size: 1.125rem;
+            }
+
+            .error-message {
+                font-size: 0.875rem;
+            }
+
+            .home-link {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+            }
+
+            .style-count {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .home-link:hover {
+                transform: none;
+            }
+        }
+
+        /* Entrance Animations */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+            }
+        }
+
+        .error-container {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .error-code {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.1s backwards,
+                       pulseGlow 3s ease-in-out infinite;
+        }
+
+        .error-title {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.2s backwards;
+        }
+
+        .error-message {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s backwards;
+        }
+
+        .home-link {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.4s backwards;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .home-link:hover {
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+        }
+
+        .home-link:focus-visible {
+            outline: 2px solid var(--accent-light);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .style-count {
+            animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.5s backwards;
+        }
+
+        /* Subtle Background Decoration */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08), transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06), transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Respect Reduced Motion Preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
     <script>
@@ -102,7 +278,7 @@
             if (styleMatch) {
                 // Redirect to the actual style page if it exists
                 var styleNum = parseInt(styleMatch[1]);
-                if (styleNum >= 1 && styleNum <= 210) {
+                if (styleNum >= 1 && styleNum <= 255) {
                     // Could redirect, but let's show 404 for missing files
                 }
             }
@@ -125,7 +301,7 @@
             </svg>
             Back to Gallery
         </a>
-        <p class="style-count">Explore <strong>210</strong> curated design styles</p>
+        <p class="style-count">Explore <strong>255</strong> curated design styles</p>
     </div>
 </body>
 </html>

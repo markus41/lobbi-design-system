@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Preservation Foundation - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================================
+           STYLE 235: HERITAGE PRESERVATION FOUNDATION
+           ============================================================================
+
+           DESIGN PHILOSOPHY:
+           This design embodies the reverence and responsibility of preserving cultural
+           heritage. It balances the weight of history with modern accessibility,
+           creating a bridge between past and present through thoughtful visual language.
+
+           BLEND COMPOSITION:
+           - Historical Conservation (55%): Aged materials, archival aesthetics, timeless layouts
+           - Museum Quality (30%): Refined presentation, curated information hierarchy
+           - Modern Archive (15%): Digital accessibility, contemporary functionality
+
+           COLOR PSYCHOLOGY:
+           - Archive Sepia (#a16207): Warmth of aged documents, stability of preservation
+           - Preservation Green (#15803d): Growth through conservation, environmental care
+           - Document Cream (#fef3c7): Aged paper authenticity, gentle reading surface
+           - Antique Brass (#b45309): Heritage craftsmanship, enduring value
+
+           TYPOGRAPHY STRATEGY:
+           - Playfair Display: Serif elegance for heritage titles, historical gravitas
+           - Spectral: Document-style serif for body text, archival readability
+
+           TEMPERATURE: 7/10 (Warm Historic)
+           Evokes the warmth of preserved materials while maintaining professional distance
+
+           FORMALITY: 8/10 (Institutional Reverence)
+           Serious commitment to preservation with accessible modern touches
+
+           COMPONENT ARCHITECTURE:
+           - Aged paper textures through subtle gradients and shadows
+           - Archival stamps as decorative accents and status indicators
+           - Timeline ribbons for chronological organization
+           - Heritage borders with subtle embossing effects
+
+           ACCESSIBILITY NOTES:
+           - WCAG AAA contrast ratios on cream backgrounds
+           - Serif fonts sized generously for readability (16px+ body)
+           - Clear focus states with heritage-appropriate styling
+           - Semantic HTML for screen reader navigation
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Historical Archive */
+            --archive-sepia: #a16207;
+            --archive-sepia-light: #d97706;
+            --archive-sepia-dark: #78350f;
+            --preservation-green: #15803d;
+            --preservation-green-light: #16a34a;
+            --preservation-green-dark: #14532d;
+            --document-cream: #fef3c7;
+            --document-cream-light: #fefce8;
+            --document-cream-dark: #fde68a;
+            --antique-brass: #b45309;
+            --heritage-brown: #92400e;
+            --aged-paper: #fef9e7;
+            --ink-black: #1c1917;
+            --shadow-gray: #78716c;
+
+            /* Typography Scale */
+            --font-heritage: 'Playfair Display', serif;
+            --font-document: 'Spectral', serif;
+
+            /* Spacing System - Based on archival grid (8px base) */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+
+            /* Border Radius - Subtle vintage curves */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 6px;
+
+            /* Shadows - Aged paper depth */
+            --shadow-sm: 0 1px 3px rgba(120, 53, 15, 0.1), 0 1px 2px rgba(120, 53, 15, 0.06);
+            --shadow-md: 0 4px 6px rgba(120, 53, 15, 0.1), 0 2px 4px rgba(120, 53, 15, 0.06);
+            --shadow-lg: 0 10px 15px rgba(120, 53, 15, 0.1), 0 4px 6px rgba(120, 53, 15, 0.05);
+            --shadow-emboss: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-document);
+            background: linear-gradient(135deg, var(--document-cream-light) 0%, var(--aged-paper) 100%);
+            color: var(--ink-black);
+            line-height: 1.7;
+            min-height: 100vh;
+
+            /* Subtle paper texture overlay */
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(161, 98, 7, 0.02) 2px, rgba(161, 98, 7, 0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(161, 98, 7, 0.02) 2px, rgba(161, 98, 7, 0.02) 4px);
+        }
+
+        /* ============================================================================
+           HEADER COMPONENT - Archival Identity Bar
+           Museum-quality presentation with heritage branding
+           ============================================================================ */
+        header {
+            background: linear-gradient(to bottom, var(--document-cream) 0%, var(--document-cream-dark) 100%);
+            border-bottom: 3px solid var(--archive-sepia);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--archive-sepia) 0%, var(--antique-brass) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heritage);
+            font-size: 24px;
+            color: var(--document-cream-light);
+            font-weight: 700;
+            box-shadow: var(--shadow-emboss);
+            border: 2px solid var(--archive-sepia-dark);
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-heritage);
+            font-size: 1.75rem;
+            color: var(--archive-sepia-dark);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            color: var(--shadow-gray);
+            font-style: italic;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        /* Archival stamp-style badge */
+        .preservation-badge {
+            background: var(--preservation-green);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-lg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 2px dashed var(--preservation-green-dark);
+            box-shadow: var(--shadow-sm);
+            transform: rotate(-2deg);
+        }
+
+        /* ============================================================================
+           NAVIGATION - Timeline Ribbon Style
+           Horizontal timeline navigation with heritage aesthetics
+           ============================================================================ */
+        nav {
+            background: var(--aged-paper);
+            border-bottom: 1px solid var(--archive-sepia-light);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .nav-item {
+            padding: var(--space-md) var(--space-md);
+            color: var(--heritage-brown);
+            text-decoration: none;
+            font-family: var(--font-heritage);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: var(--document-cream);
+            border-bottom-color: var(--archive-sepia-light);
+            color: var(--archive-sepia-dark);
+        }
+
+        .nav-item.active {
+            background: var(--document-cream);
+            border-bottom-color: var(--archive-sepia);
+            color: var(--archive-sepia-dark);
+        }
+
+        /* Timeline ribbon accent */
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--archive-sepia);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--aged-paper);
+        }
+
+        /* ============================================================================
+           MAIN CONTAINER - Archival Workspace
+           ============================================================================ */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* ============================================================================
+           STATISTICS CARDS - Heritage Metrics Display
+           Museum-quality presentation of key preservation data
+           ============================================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: linear-gradient(to bottom right, var(--document-cream-light), var(--document-cream));
+            border: 2px solid var(--archive-sepia-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(161, 98, 7, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--archive-sepia);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--archive-sepia-light), var(--antique-brass));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-emboss);
+            border: 2px solid var(--archive-sepia-dark);
+        }
+
+        .stat-label {
+            font-family: var(--font-heritage);
+            font-size: 0.875rem;
+            color: var(--shadow-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-family: var(--font-heritage);
+            font-size: 2.25rem;
+            color: var(--archive-sepia-dark);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: var(--space-xs) 0;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--preservation-green);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-change.negative {
+            color: var(--antique-brass);
+        }
+
+        /* ============================================================================
+           CONTENT SECTIONS - Archival Document Layouts
+           ============================================================================ */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section {
+            background: var(--document-cream-light);
+            border: 2px solid var(--archive-sepia-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--document-cream-dark);
+        }
+
+        .section-title {
+            font-family: var(--font-heritage);
+            font-size: 1.5rem;
+            color: var(--archive-sepia-dark);
+            font-weight: 700;
+        }
+
+        /* ============================================================================
+           DATA TABLE - Archival Records Display
+           Traditional ledger-style table with heritage aesthetics
+           ============================================================================ */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--archive-sepia-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(to bottom, var(--archive-sepia-dark), var(--heritage-brown));
+            color: var(--document-cream-light);
+        }
+
+        th {
+            padding: var(--space-md);
+            text-align: left;
+            font-family: var(--font-heritage);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--archive-sepia);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--document-cream-dark);
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--aged-paper);
+        }
+
+        td {
+            padding: var(--space-md);
+            color: var(--ink-black);
+        }
+
+        /* Archival stamp badges in table */
+        .status-badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px dashed;
+        }
+
+        .status-preserved {
+            background: rgba(21, 128, 61, 0.1);
+            color: var(--preservation-green-dark);
+            border-color: var(--preservation-green);
+        }
+
+        .status-restoring {
+            background: rgba(161, 98, 7, 0.1);
+            color: var(--archive-sepia-dark);
+            border-color: var(--archive-sepia);
+        }
+
+        .status-cataloging {
+            background: rgba(180, 83, 9, 0.1);
+            color: var(--heritage-brown);
+            border-color: var(--antique-brass);
+        }
+
+        /* ============================================================================
+           FORM COMPONENTS - Document Input Fields
+           Heritage-styled forms with archival aesthetics
+           ============================================================================ */
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-heritage);
+            font-size: 0.875rem;
+            color: var(--heritage-brown);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 2px solid var(--archive-sepia-light);
+            border-radius: var(--radius-md);
+            font-family: var(--font-document);
+            font-size: 1rem;
+            background: white;
+            color: var(--ink-black);
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--archive-sepia);
+            box-shadow: 0 0 0 3px rgba(161, 98, 7, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ============================================================================
+           BUTTON COMPONENTS - Heritage Action Elements
+           Archival-inspired buttons with stamp-like aesthetics
+           ============================================================================ */
+        .btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-family: var(--font-heritage);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--archive-sepia) 0%, var(--antique-brass) 100%);
+            color: white;
+            border-color: var(--archive-sepia-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--archive-sepia-dark) 0%, var(--archive-sepia) 100%);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--archive-sepia-dark);
+            border-color: var(--archive-sepia);
+        }
+
+        .btn-secondary:hover {
+            background: var(--document-cream);
+            border-color: var(--archive-sepia-dark);
+        }
+
+        .btn-preservation {
+            background: linear-gradient(135deg, var(--preservation-green) 0%, var(--preservation-green-light) 100%);
+            color: white;
+            border-color: var(--preservation-green-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-preservation:hover {
+            background: var(--preservation-green-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================================
+           TIMELINE COMPONENT - Heritage Chronology Display
+           Visual timeline with ribbon-style markers
+           ============================================================================ */
+        .timeline {
+            position: relative;
+            padding-left: var(--space-lg);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--archive-sepia), var(--preservation-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-md);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--archive-sepia);
+            border: 3px solid var(--document-cream-light);
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--archive-sepia-light);
+        }
+
+        .timeline-date {
+            font-family: var(--font-heritage);
+            font-size: 0.875rem;
+            color: var(--shadow-gray);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: var(--space-sm);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--archive-sepia-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ============================================================================
+           FOOTER - Archival Foundation Information
+           ============================================================================ */
+        footer {
+            background: linear-gradient(to top, var(--heritage-brown) 0%, var(--archive-sepia-dark) 100%);
+            color: var(--document-cream-light);
+            margin-top: var(--space-xl);
+            padding: var(--space-lg);
+            border-top: 3px solid var(--archive-sepia);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heritage);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            color: var(--document-cream-dark);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--document-cream);
+            font-size: 0.875rem;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--document-cream-dark);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(254, 243, 199, 0.2);
+            text-align: center;
+            color: var(--document-cream);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN - Mobile Heritage Experience
+           Optimized for archival work on all devices
+           ============================================================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: var(--space-sm);
+            }
+        }
+
+        /* ============================================================================
+           ACCESSIBILITY ENHANCEMENTS
+           WCAG AAA compliance for heritage content
+           ============================================================================ */
+        *:focus-visible {
+            outline: 3px solid var(--archive-sepia);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .stat-card,
+            .section {
+                border-width: 3px;
+            }
+
+            .btn {
+                border-width: 3px;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <div class="logo-text">
+                    <h1>Heritage Preservation Foundation</h1>
+                    <p>Protecting Our Shared Legacy Since 1947</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="preservation-badge">Certified Archive</span>
+                <button class="btn btn-primary">Donate</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="nav-item active">Dashboard</a>
+            <a href="#" class="nav-item">Collections</a>
+            <a href="#" class="nav-item">Preservation</a>
+            <a href="#" class="nav-item">Research</a>
+            <a href="#" class="nav-item">Archives</a>
+            <a href="#" class="nav-item">Support</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- STATISTICS CARDS -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Items Preserved</div>
+                        <div class="stat-value">12,847</div>
+                        <div class="stat-change">
+                            <span>↑</span> 324 this month
+                        </div>
+                    </div>
+                    <div class="stat-icon">📜</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Active Restorations</div>
+                        <div class="stat-value">147</div>
+                        <div class="stat-change">
+                            <span>↑</span> 23 new projects
+                        </div>
+                    </div>
+                    <div class="stat-icon">🔧</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Digital Archives</div>
+                        <div class="stat-value">8,921</div>
+                        <div class="stat-change">
+                            <span>↑</span> 156 digitized
+                        </div>
+                    </div>
+                    <div class="stat-icon">💾</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Volunteer Hours</div>
+                        <div class="stat-value">2,340</div>
+                        <div class="stat-change">
+                            <span>↑</span> 189 this week
+                        </div>
+                    </div>
+                    <div class="stat-icon">🤝</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- MAIN SECTION - RECENT ACQUISITIONS TABLE -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Acquisitions</h2>
+                    <button class="btn btn-secondary">View All</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Description</th>
+                                <th>Period</th>
+                                <th>Condition</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>HPF-2024-0847</strong></td>
+                                <td>Victorian Era Letters Collection</td>
+                                <td>1880-1895</td>
+                                <td>Fair</td>
+                                <td><span class="status-badge status-restoring">Restoring</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HPF-2024-0846</strong></td>
+                                <td>Medieval Manuscript Fragment</td>
+                                <td>13th Century</td>
+                                <td>Good</td>
+                                <td><span class="status-badge status-cataloging">Cataloging</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HPF-2024-0845</strong></td>
+                                <td>Civil War Photographs</td>
+                                <td>1861-1865</td>
+                                <td>Excellent</td>
+                                <td><span class="status-badge status-preserved">Preserved</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HPF-2024-0844</strong></td>
+                                <td>Art Deco Posters</td>
+                                <td>1920-1935</td>
+                                <td>Good</td>
+                                <td><span class="status-badge status-restoring">Restoring</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HPF-2024-0843</strong></td>
+                                <td>Indigenous Artifacts</td>
+                                <td>Pre-1800</td>
+                                <td>Fair</td>
+                                <td><span class="status-badge status-cataloging">Cataloging</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HPF-2024-0842</strong></td>
+                                <td>Renaissance Maps</td>
+                                <td>1550-1600</td>
+                                <td>Excellent</td>
+                                <td><span class="status-badge status-preserved">Preserved</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SIDEBAR - TIMELINE & FORM -->
+            <aside>
+                <section class="section" style="margin-bottom: var(--space-lg);">
+                    <div class="section-header">
+                        <h2 class="section-title">Recent Activity</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Dec 9, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Digital Scan Completed</strong>
+                                <p>Victorian Letters Collection digitized</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">Dec 8, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Restoration Started</strong>
+                                <p>Art Deco posters conservation began</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">Dec 7, 2025</div>
+                            <div class="timeline-content">
+                                <strong>New Acquisition</strong>
+                                <p>Renaissance maps added to collection</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">Dec 6, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Grant Received</strong>
+                                <p>$50,000 preservation funding secured</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Submit Artifact</h2>
+                    </div>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="artifact-name">Artifact Name</label>
+                            <input type="text" id="artifact-name" placeholder="Victorian Letter Collection">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="period">Historical Period</label>
+                            <select id="period">
+                                <option>Select period...</option>
+                                <option>Ancient (Before 500 CE)</option>
+                                <option>Medieval (500-1500)</option>
+                                <option>Renaissance (1400-1600)</option>
+                                <option>Modern (1600-1900)</option>
+                                <option>Contemporary (1900+)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="condition">Condition</label>
+                            <select id="condition">
+                                <option>Select condition...</option>
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Fair</option>
+                                <option>Poor</option>
+                                <option>Requires Restoration</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" placeholder="Detailed description of the artifact, its history, and significance..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-preservation" style="width: 100%;">Submit for Review</button>
+                    </form>
+                </section>
+            </aside>
+        </div>
+
+        <!-- FULL WIDTH SECTION - PRESERVATION PROJECTS -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Active Preservation Projects</h2>
+                <button class="btn btn-secondary">Create Project</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-md);">
+                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--preservation-green); box-shadow: var(--shadow-sm);">
+                    <h3 style="font-family: var(--font-heritage); color: var(--archive-sepia-dark); margin-bottom: var(--space-sm);">Colonial Documents</h3>
+                    <p style="color: var(--shadow-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Restoration of 18th century colonial correspondence</p>
+                    <div style="background: var(--document-cream); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--preservation-green); height: 100%; width: 75%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.75rem; color: var(--shadow-gray);">75% Complete</span>
+                        <button class="btn btn-secondary" style="padding: 0.375rem 0.75rem; font-size: 0.75rem;">View Details</button>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--archive-sepia); box-shadow: var(--shadow-sm);">
+                    <h3 style="font-family: var(--font-heritage); color: var(--archive-sepia-dark); margin-bottom: var(--space-sm);">Textile Archive</h3>
+                    <p style="color: var(--shadow-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Conservation of historic fabric samples</p>
+                    <div style="background: var(--document-cream); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--archive-sepia); height: 100%; width: 45%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.75rem; color: var(--shadow-gray);">45% Complete</span>
+                        <button class="btn btn-secondary" style="padding: 0.375rem 0.75rem; font-size: 0.75rem;">View Details</button>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--antique-brass); box-shadow: var(--shadow-sm);">
+                    <h3 style="font-family: var(--font-heritage); color: var(--archive-sepia-dark); margin-bottom: var(--space-sm);">Photograph Collection</h3>
+                    <p style="color: var(--shadow-gray); font-size: 0.875rem; margin-bottom: var(--space-sm);">Digitization of early 20th century photos</p>
+                    <div style="background: var(--document-cream); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: var(--space-sm);">
+                        <div style="background: var(--antique-brass); height: 100%; width: 90%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.75rem; color: var(--shadow-gray);">90% Complete</span>
+                        <button class="btn btn-secondary" style="padding: 0.375rem 0.75rem; font-size: 0.75rem;">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>The Heritage Preservation Foundation is dedicated to protecting and preserving cultural artifacts and historical documents for future generations.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#">Collections</a></p>
+                <p><a href="#">Donate Artifacts</a></p>
+                <p><a href="#">Volunteer</a></p>
+                <p><a href="#">Research Access</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>123 Heritage Lane</p>
+                <p>Archive City, AC 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: info@heritagefoundation.org</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <p>Your donations help preserve our shared cultural heritage for future generations.</p>
+                <button class="btn btn-preservation" style="margin-top: var(--space-sm);">Support Our Work</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Heritage Preservation Foundation. All rights reserved. | Est. 1947</p>
+        </div>
+    </footer>
+</body>
+</html>

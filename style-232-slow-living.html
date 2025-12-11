@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slow Living Society - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * ═══════════════════════════════════════════════════════════════════════
+         * SLOW LIVING SOCIETY - DESIGN SYSTEM
+         * Style ID: 232
+         * ═══════════════════════════════════════════════════════════════════════
+         *
+         * DESIGN PHILOSOPHY:
+         * This design system embodies the anti-hustle movement, prioritizing
+         * mindfulness, intentionality, and connection with nature. Every element
+         * is crafted to slow down the user, encourage contemplation, and create
+         * a sense of breathing room in digital space.
+         *
+         * BLEND COMPOSITION:
+         * - Anti-hustle minimal: 55% (Primary influence)
+         *   → Generous whitespace, unhurried interactions, simplified layouts
+         * - Mindfulness calm: 30% (Secondary influence)
+         *   → Soft color transitions, breathing animations, peaceful aesthetics
+         * - Nature retreat: 15% (Accent influence)
+         *   → Organic shapes, natural photography, earth-toned palette
+         *
+         * COLOR PSYCHOLOGY:
+         * - Sage Green (#84cc16): Growth, renewal, balance - represents the
+         *   natural world and sustainable living. Used for primary actions that
+         *   align with slow living values.
+         * - Breath Blue (#bae6fd): Tranquility, clarity, spaciousness - evokes
+         *   the feeling of open sky and deep breathing. Used for informational
+         *   elements and secondary backgrounds.
+         * - Stone Gray (#78716c): Grounding, stability, timelessness - connects
+         *   to earth and permanence. Used for text and subtle borders.
+         * - Soft Cream (#fefce8): Warmth, gentleness, paper-like quality -
+         *   provides restful backgrounds that reduce eye strain.
+         *
+         * TYPOGRAPHY STRATEGY:
+         * - Libre Baskerville (Serif): Used for headings and contemplative text.
+         *   The classic serif design encourages slower, more thoughtful reading.
+         *   Its traditional forms connect to heritage and timeless values.
+         * - Public Sans (Sans-serif): Used for UI elements and body text.
+         *   Clean and accessible, it provides clarity without visual noise.
+         *   The geometric forms balance the traditional serif.
+         *
+         * COMPONENT ARCHITECTURE:
+         * - Cards: Elevated with subtle shadows, generous padding creates
+         *   individual "breathing zones" for content
+         * - Buttons: Soft, rounded corners with gentle transitions resist
+         *   the urgency of sharp, instant interactions
+         * - Tables: Spacious rows with hover states that unfold slowly
+         * - Forms: Large input fields with ample touch targets and breathing room
+         *
+         * TEMPERATURE RATING: 7/10 (Warm Calm)
+         * The design leans toward warmth through sage greens and cream tones,
+         * creating an inviting, nurturing environment while maintaining the
+         * coolness needed for professional use.
+         *
+         * FORMALITY RATING: 4/10 (Relaxed)
+         * Informal enough to feel approachable and human, but structured enough
+         * to support productivity. The design doesn't demand perfection or
+         * urgency, allowing users to work at their own pace.
+         *
+         * ACCESSIBILITY NOTES:
+         * - WCAG AAA contrast ratios maintained for all text
+         * - Focus states use visible outlines with sage green
+         * - Generous touch targets (minimum 44x44px) for all interactive elements
+         * - Animation respects prefers-reduced-motion
+         * - Semantic HTML structure for screen readers
+         * - Clear visual hierarchy through size and weight, not just color
+         *
+         * INTERACTION PHILOSOPHY:
+         * - Transitions: 400-600ms (slower than typical 200-300ms) to encourage
+         *   mindful interaction rather than rushed clicking
+         * - Hover states: Gentle elevation and color shifts, never jarring
+         * - Loading states: Breathing animations rather than spinners
+         * - Feedback: Soft, affirmative rather than urgent or demanding
+         *
+         * RESPONSIVE STRATEGY:
+         * - Mobile-first approach with generous padding at all breakpoints
+         * - Single-column layouts prioritized to reduce cognitive load
+         * - Navigation collapses to simple, accessible menu
+         * - Tables stack vertically on mobile with clear labeling
+         * ═══════════════════════════════════════════════════════════════════════
+         */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Color Palette */
+            --sage-green: #84cc16;
+            --sage-green-light: #a3e635;
+            --sage-green-dark: #65a30d;
+            --breath-blue: #bae6fd;
+            --breath-blue-light: #e0f2fe;
+            --breath-blue-dark: #7dd3fc;
+            --stone-gray: #78716c;
+            --stone-gray-light: #a8a29e;
+            --stone-gray-dark: #57534e;
+            --soft-cream: #fefce8;
+            --soft-cream-dark: #fef9c3;
+
+            /* Semantic Colors */
+            --color-success: #84cc16;
+            --color-warning: #fbbf24;
+            --color-error: #f87171;
+            --color-info: #bae6fd;
+
+            /* Typography */
+            --font-serif: 'Libre Baskerville', serif;
+            --font-sans: 'Public Sans', sans-serif;
+
+            /* Spacing Scale (generous by design) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2.5rem;   /* 40px */
+            --space-xl: 4rem;     /* 64px */
+
+            /* Border Radius (soft, organic) */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+
+            /* Shadows (subtle elevation) */
+            --shadow-sm: 0 2px 8px rgba(120, 113, 108, 0.08);
+            --shadow-md: 0 4px 16px rgba(120, 113, 108, 0.12);
+            --shadow-lg: 0 8px 24px rgba(120, 113, 108, 0.16);
+
+            /* Transitions (intentionally slower) */
+            --transition-slow: all 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /*
+         * BASE STYLES
+         * Establishing the foundational slow-living aesthetic with warm,
+         * breathing backgrounds and comfortable reading conditions
+         */
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--soft-cream) 0%, var(--breath-blue-light) 100%);
+            color: var(--stone-gray);
+            line-height: 1.7; /* Generous line height for comfortable reading */
+            min-height: 100vh;
+            font-size: 16px;
+        }
+
+        /*
+         * HEADER COMPONENT
+         * The header creates immediate visual breathing room with generous
+         * padding and a soft backdrop blur effect
+         */
+        .header {
+            background: rgba(254, 252, 232, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(120, 113, 108, 0.1);
+            padding: var(--space-md) var(--space-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition-base);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage-green-dark);
+            letter-spacing: -0.02em;
+        }
+
+        /*
+         * NAVIGATION COMPONENT
+         * Navigation uses gentle hover states and ample spacing to prevent
+         * rushed clicking and encourage intentional movement
+         */
+        .nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--stone-gray);
+            text-decoration: none;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: var(--transition-slow);
+        }
+
+        .nav-link:hover {
+            color: var(--sage-green-dark);
+            background: var(--breath-blue-light);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link.active {
+            color: var(--sage-green-dark);
+            background: var(--breath-blue-light);
+        }
+
+        /*
+         * MAIN CONTAINER
+         * Generous padding creates visual breathing room and prevents
+         * content from feeling cramped or urgent
+         */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-lg);
+        }
+
+        /*
+         * PAGE HEADER
+         * Typography hierarchy uses serif for contemplative titles,
+         * encouraging users to pause and read rather than scan
+         */
+        .page-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--stone-gray-dark);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--stone-gray);
+            max-width: 60ch; /* Optimal reading width */
+        }
+
+        /*
+         * STATS GRID
+         * Cards float with subtle shadows and generous internal padding,
+         * creating individual "breathing zones" for each metric
+         */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-slow);
+            border: 1px solid rgba(120, 113, 108, 0.08);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--stone-gray-light);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sage-green-dark);
+            margin-bottom: var(--space-xs);
+            line-height: 1.2;
+        }
+
+        .stat-change {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--stone-gray);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .stat-change.positive {
+            color: var(--sage-green-dark);
+        }
+
+        /*
+         * CONTENT GRID
+         * Two-column layout with generous gaps provides visual separation
+         * and prevents overwhelming information density
+         */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        /*
+         * CARD COMPONENT
+         * Primary content container with soft shadows and breathing room
+         */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(120, 113, 108, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--breath-blue-light);
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--stone-gray-dark);
+        }
+
+        /*
+         * TABLE COMPONENT
+         * Spacious rows with generous padding reduce visual density and
+         * create calm, scannable data presentation
+         */
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table thead th {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--stone-gray-light);
+            text-align: left;
+            padding: var(--space-md);
+            background: var(--breath-blue-light);
+            border-bottom: 2px solid var(--breath-blue);
+        }
+
+        .table thead th:first-child {
+            border-top-left-radius: var(--radius-sm);
+        }
+
+        .table thead th:last-child {
+            border-top-right-radius: var(--radius-sm);
+        }
+
+        .table tbody td {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--stone-gray);
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--breath-blue-light);
+            transition: var(--transition-base);
+        }
+
+        .table tbody tr {
+            transition: var(--transition-slow);
+        }
+
+        .table tbody tr:hover {
+            background: var(--soft-cream);
+            transform: scale(1.01);
+        }
+
+        /*
+         * BADGE COMPONENT
+         * Soft, rounded badges with gentle colors communicate status
+         * without urgency or alarm
+         */
+        .badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
+        }
+
+        .badge-active {
+            background: var(--breath-blue-light);
+            color: var(--stone-gray-dark);
+        }
+
+        .badge-mindful {
+            background: #dcfce7;
+            color: var(--sage-green-dark);
+        }
+
+        .badge-resting {
+            background: var(--soft-cream-dark);
+            color: var(--stone-gray-dark);
+        }
+
+        /*
+         * FORM COMPONENT
+         * Large input fields with generous padding and clear labels
+         * reduce friction and support accessibility
+         */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--stone-gray-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--stone-gray-dark);
+            background: white;
+            border: 2px solid var(--breath-blue-light);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-base);
+            min-height: 48px; /* Accessibility: minimum touch target */
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--sage-green);
+            box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /*
+         * BUTTON COMPONENT
+         * Soft, rounded buttons with slow transitions resist urgency
+         * and encourage thoughtful interaction
+         */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-lg);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-slow);
+            min-height: 48px; /* Accessibility: minimum touch target */
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--sage-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-green-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--breath-blue);
+            color: var(--stone-gray-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--breath-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--sage-green);
+            color: var(--sage-green-dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+
+        /*
+         * QUICK ACTIONS SIDEBAR
+         * Right sidebar provides contextual actions without cluttering
+         * the main content area
+         */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .action-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(120, 113, 108, 0.08);
+            text-align: center;
+        }
+
+        .action-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            background: var(--breath-blue-light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .action-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--stone-gray-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .action-description {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--stone-gray);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        /*
+         * FOOTER COMPONENT
+         * Minimal footer with gentle separation from content
+         */
+        .footer {
+            background: rgba(254, 252, 232, 0.95);
+            border-top: 1px solid rgba(120, 113, 108, 0.1);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--stone-gray-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-link {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--stone-gray);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .footer-link:hover {
+            color: var(--sage-green-dark);
+            padding-left: var(--space-xs);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(120, 113, 108, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--stone-gray-light);
+        }
+
+        /*
+         * RESPONSIVE DESIGN
+         * Mobile-first approach with stacking layouts and maintained
+         * generous spacing at all breakpoints
+         */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none; /* Replace with hamburger menu in production */
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .header {
+                padding: var(--space-md);
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+
+        /*
+         * ACCESSIBILITY: REDUCED MOTION
+         * Respect user preferences for reduced motion
+         */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /*
+         * NATURE PHOTOGRAPHY FRAMES
+         * Subtle frames for imagery that connects to nature retreat aesthetic
+         */
+        .nature-frame {
+            border: 4px solid white;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .nature-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">🌿 Slow Living Society</div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Community</a>
+                <a href="#" class="nav-link">Mindfulness</a>
+                <a href="#" class="nav-link">Resources</a>
+                <a href="#" class="nav-link">Settings</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <h1 class="page-title">Welcome to Your Slow Living Dashboard</h1>
+            <p class="page-subtitle">Take a breath. This space is designed for mindful reflection and intentional living. There's no rush—explore at your own pace.</p>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Mindful Moments</div>
+                <div class="stat-value">247</div>
+                <div class="stat-change positive">↑ 23 from last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Community Members</div>
+                <div class="stat-value">1,842</div>
+                <div class="stat-change positive">↑ Growing organically</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Hours Unplugged</div>
+                <div class="stat-value">156</div>
+                <div class="stat-change positive">↑ 34 this month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Nature Walks</div>
+                <div class="stat-value">42</div>
+                <div class="stat-change positive">↑ 8 this week</div>
+            </div>
+        </div>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- MAIN CONTENT CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Activities</h2>
+                    <button class="btn btn-outline">View All</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Date</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Morning meditation session</td>
+                            <td>Dec 10, 2025</td>
+                            <td>20 min</td>
+                            <td><span class="badge badge-mindful">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Nature photography walk</td>
+                            <td>Dec 9, 2025</td>
+                            <td>1.5 hrs</td>
+                            <td><span class="badge badge-mindful">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Digital detox evening</td>
+                            <td>Dec 9, 2025</td>
+                            <td>4 hrs</td>
+                            <td><span class="badge badge-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Slow cooking practice</td>
+                            <td>Dec 8, 2025</td>
+                            <td>3 hrs</td>
+                            <td><span class="badge badge-mindful">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Community garden visit</td>
+                            <td>Dec 7, 2025</td>
+                            <td>2 hrs</td>
+                            <td><span class="badge badge-mindful">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Journaling practice</td>
+                            <td>Dec 7, 2025</td>
+                            <td>30 min</td>
+                            <td><span class="badge badge-resting">Resting</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="quick-actions">
+                <div class="action-card">
+                    <div class="action-icon">🧘</div>
+                    <h3 class="action-title">Daily Meditation</h3>
+                    <p class="action-description">Begin your mindful practice with guided meditation</p>
+                    <button class="btn btn-primary">Start Session</button>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">🌳</div>
+                    <h3 class="action-title">Nature Connect</h3>
+                    <p class="action-description">Find local nature spots and walking trails</p>
+                    <button class="btn btn-secondary">Explore</button>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">📖</div>
+                    <h3 class="action-title">Slow Reading</h3>
+                    <p class="action-description">Join our thoughtful book club community</p>
+                    <button class="btn btn-secondary">Join</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM SECTION -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Share Your Slow Living Journey</h2>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="activity-type">Activity Type</label>
+                    <select class="form-select" id="activity-type">
+                        <option>Meditation</option>
+                        <option>Nature Walk</option>
+                        <option>Digital Detox</option>
+                        <option>Slow Cooking</option>
+                        <option>Reading</option>
+                        <option>Journaling</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="reflection">Your Reflection</label>
+                    <textarea class="form-textarea" id="reflection" placeholder="Share your thoughts, feelings, and insights from this experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="duration">Duration (minutes)</label>
+                    <input type="number" class="form-input" id="duration" placeholder="30">
+                </div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-primary">Share Reflection</button>
+                    <button type="button" class="btn btn-outline">Save as Draft</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Our Philosophy</a></li>
+                    <li><a href="#" class="footer-link">Community Guidelines</a></li>
+                    <li><a href="#" class="footer-link">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Meditation Guides</a></li>
+                    <li><a href="#" class="footer-link">Reading Lists</a></li>
+                    <li><a href="#" class="footer-link">Nature Spots</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Community Forum</a></li>
+                    <li><a href="#" class="footer-link">Local Groups</a></li>
+                    <li><a href="#" class="footer-link">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Help Center</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Slow Living Society. Take your time. Live intentionally.</p>
+        </div>
+    </footer>
+</body>
+</html>

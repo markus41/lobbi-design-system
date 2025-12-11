@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Twin Consortium - Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================================
+           DIGITAL TWIN CONSORTIUM DESIGN SYSTEM
+           Style ID: 218
+           ============================================================================
+
+           DESIGN PHILOSOPHY:
+           This design system represents the convergence of physical and digital worlds,
+           creating an interface that feels like a living mirror of reality. It emphasizes
+           real-time data synchronization, simulation accuracy, and the duality between
+           the real and virtual. The aesthetic is technical yet sophisticated, with a
+           strong emphasis on data visualization and system monitoring.
+
+           BLEND COMPOSITION:
+           - Mirror World (55%): Dual-pane layouts, reflection effects, synchronized states
+           - Simulation Tech (30%): Technical overlays, data streams, system monitoring
+           - Real-time Data (15%): Live indicators, pulse animations, status updates
+
+           COLOR PSYCHOLOGY:
+           - Twin Cyan (#00bcd4): Digital precision, real-time data, clarity
+           - Mirror Silver (#b0bec5): Reflection, neutrality, technological elegance
+           - Simulation Purple (#9c27b0): Virtual reality, computation, advanced tech
+           - Data Green (#4caf50): Active connections, live data, system health
+
+           TYPOGRAPHY STRATEGY:
+           - Roboto Mono (Technical): Monospace font for code, data, and technical info.
+             Conveys precision, system monitoring, and computational accuracy.
+           - Poppins (UI): Modern geometric sans-serif for interface elements, headings,
+             and user-facing content. Balances technical precision with usability.
+
+           TEMPERATURE & FORMALITY:
+           - Temperature: 4/10 (Tech Cool) - Clinical, precise, data-focused
+           - Formality: 8/10 - Professional, enterprise-grade, technical authority
+
+           COMPONENT ARCHITECTURE:
+           - Split-screen layouts for physical/digital comparison
+           - Modular card system with data streaming capabilities
+           - Grid-based spacing (8px base) for precision alignment
+           - Sharp corners (4px) emphasizing technical precision
+           - Data visualization priority with live updating elements
+
+           ACCESSIBILITY NOTES:
+           - WCAG AA contrast maintained (4.5:1 minimum)
+           - High contrast mode for technical readability
+           - Focus indicators with 3px outline for visibility
+           - Monospace fonts sized appropriately (14px min) for readability
+           - Status indicators use icons + color for redundancy
+           - Screen reader announcements for real-time data updates
+
+           ============================================================================ */
+
+        /* ============================================================================
+           BASE STYLES & RESET
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Technical & Precise */
+            --cyan-primary: #00bcd4;        /* Digital twin, real-time */
+            --cyan-secondary: #0097a7;      /* Interactive states */
+            --cyan-light: #e0f7fa;          /* Backgrounds */
+            --cyan-dark: #006064;           /* Text emphasis */
+
+            --purple-primary: #9c27b0;      /* Simulation, virtual */
+            --purple-secondary: #7b1fa2;    /* Hover states */
+            --purple-light: #f3e5f5;        /* Subtle backgrounds */
+
+            --silver: #b0bec5;              /* Neutral, mirror */
+            --silver-light: #eceff1;        /* Backgrounds */
+            --silver-dark: #607d8b;         /* Borders */
+
+            --green-data: #4caf50;          /* Live data, active */
+            --green-light: #e8f5e9;         /* Success backgrounds */
+
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #eeeeee;
+            --gray-300: #e0e0e0;
+            --gray-400: #bdbdbd;
+            --gray-600: #757575;
+            --gray-700: #616161;
+            --gray-800: #424242;
+            --gray-900: #212121;
+            --white: #ffffff;
+
+            /* Typography Scale */
+            --font-mono: 'Roboto Mono', 'Courier New', monospace;
+            --font-ui: 'Poppins', system-ui, -apple-system, sans-serif;
+
+            /* Spacing Scale (8px base) */
+            --space-xs: 0.5rem;    /* 8px */
+            --space-sm: 1rem;      /* 16px */
+            --space-md: 1.5rem;    /* 24px */
+            --space-lg: 2rem;      /* 32px */
+            --space-xl: 3rem;      /* 48px */
+
+            /* Border Radius - Sharp, technical */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 6px;
+
+            /* Shadows - Crisp and defined */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-ui);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--gray-100);
+            min-height: 100vh;
+        }
+
+        /* ============================================================================
+           HEADER & NAVIGATION
+           Technical precision with real-time indicators
+           ============================================================================ */
+
+        .header {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--cyan-dark) 100%);
+            color: var(--white);
+            padding: var(--space-md) var(--space-lg);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--cyan-primary);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            /* Monospace emphasizes technical nature */
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cyan-primary), var(--purple-primary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pulse animation for real-time indicator */
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: var(--cyan-primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: pulse 2s infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(0); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            font-family: var(--font-ui);
+            border: 1px solid transparent;
+        }
+
+        .nav a:hover {
+            background-color: rgba(0, 188, 212, 0.2);
+            border-color: var(--cyan-primary);
+        }
+
+        .nav a:focus {
+            outline: 3px solid var(--cyan-primary);
+            outline-offset: 2px;
+        }
+
+        /* Sync status indicator */
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-family: var(--font-mono);
+        }
+
+        .sync-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--green-data);
+            border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ============================================================================
+           MAIN CONTAINER
+           ============================================================================ */
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* ============================================================================
+           HERO SECTION - Split Screen Effect
+           Mirror world concept (55%)
+           ============================================================================ */
+
+        .hero {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-300);
+        }
+
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            min-height: 200px;
+        }
+
+        .hero-side {
+            padding: var(--space-xl);
+            position: relative;
+        }
+
+        .hero-side.physical {
+            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 100%);
+        }
+
+        .hero-side.digital {
+            background: linear-gradient(135deg, var(--cyan-light) 0%, var(--purple-light) 100%);
+        }
+
+        .hero-divider {
+            background: linear-gradient(180deg, var(--cyan-primary), var(--purple-primary));
+            position: relative;
+        }
+
+        /* Mirror icon in divider */
+        .hero-divider::after {
+            content: '⇄';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--gray-600);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-mono);
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-ui);
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* ============================================================================
+           STATS CARDS - Real-time Data (15%)
+           Live indicators and monitoring
+           ============================================================================ */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-300);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan-primary), var(--purple-primary));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .stat-status {
+            width: 8px;
+            height: 8px;
+            background: var(--green-data);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-mono);
+            /* Monospace for precise data display */
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--cyan-primary);
+            font-weight: 500;
+            font-family: var(--font-mono);
+        }
+
+        .stat-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--gray-200);
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            font-family: var(--font-mono);
+        }
+
+        /* ============================================================================
+           MAIN CONTENT GRID
+           ============================================================================ */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           DATA TABLE - Simulation Tech (30%)
+           Technical data display with system monitoring
+           ============================================================================ */
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-300);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            font-family: var(--font-ui);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+
+        thead {
+            background: var(--gray-100);
+            border-bottom: 2px solid var(--cyan-primary);
+        }
+
+        th {
+            text-align: left;
+            padding: var(--space-sm);
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: var(--space-sm);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-800);
+        }
+
+        tbody tr {
+            transition: background-color var(--transition-fast);
+        }
+
+        tbody tr:hover {
+            background: var(--cyan-light);
+        }
+
+        /* Technical ID styling */
+        .twin-id {
+            font-family: var(--font-mono);
+            color: var(--cyan-primary);
+            font-weight: 600;
+        }
+
+        /* ============================================================================
+           BADGES - Status Indicators
+           Multi-sensory indicators (color + icon + text)
+           ============================================================================ */
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: var(--font-mono);
+        }
+
+        .badge.synced {
+            background: var(--green-light);
+            color: var(--green-data);
+        }
+
+        .badge.syncing {
+            background: var(--cyan-light);
+            color: var(--cyan-primary);
+        }
+
+        .badge.error {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .badge.offline {
+            background: var(--gray-200);
+            color: var(--gray-600);
+        }
+
+        /* Sync indicator icon */
+        .sync-icon {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .badge.syncing .sync-icon {
+            animation: pulse-dot 1s infinite;
+        }
+
+        /* ============================================================================
+           SIDEBAR - FORMS & MONITORING
+           ============================================================================ */
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-xs);
+            font-size: 0.875rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            background: var(--white);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--cyan-primary);
+            box-shadow: 0 0 0 3px var(--cyan-light);
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ============================================================================
+           BUTTONS - Technical Precision
+           ============================================================================ */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition-base);
+        }
+
+        .button-primary {
+            background: var(--cyan-primary);
+            color: var(--white);
+            border-color: var(--cyan-primary);
+        }
+
+        .button-primary:hover {
+            background: var(--cyan-secondary);
+            border-color: var(--cyan-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-secondary {
+            background: var(--purple-primary);
+            color: var(--white);
+            border-color: var(--purple-primary);
+        }
+
+        .button-secondary:hover {
+            background: var(--purple-secondary);
+            border-color: var(--purple-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--cyan-primary);
+            border-color: var(--cyan-primary);
+        }
+
+        .button-outline:hover {
+            background: var(--cyan-primary);
+            color: var(--white);
+        }
+
+        .button-icon {
+            background: transparent;
+            color: var(--gray-600);
+            border-color: var(--gray-300);
+            padding: var(--space-xs);
+        }
+
+        .button-icon:hover {
+            color: var(--cyan-primary);
+            border-color: var(--cyan-primary);
+            background: var(--cyan-light);
+        }
+
+        .button:focus {
+            outline: 3px solid var(--cyan-primary);
+            outline-offset: 2px;
+        }
+
+        .button-full {
+            width: 100%;
+        }
+
+        /* ============================================================================
+           MONITORING PANEL - Real-time visualization
+           ============================================================================ */
+
+        .monitor-panel {
+            background: var(--gray-900);
+            color: var(--cyan-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin-bottom: var(--space-md);
+        }
+
+        .monitor-line {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: 0.25rem;
+        }
+
+        .monitor-timestamp {
+            color: var(--gray-600);
+        }
+
+        .monitor-status-ok {
+            color: var(--green-data);
+        }
+
+        .monitor-status-warn {
+            color: #ffa726;
+        }
+
+        /* ============================================================================
+           FOOTER
+           ============================================================================ */
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 2px solid var(--cyan-primary);
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--cyan-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: var(--space-lg) auto 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN
+           ============================================================================ */
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-split {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-divider {
+                height: 2px;
+                width: 100%;
+            }
+
+            .hero-divider::after {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           ACCESSIBILITY ENHANCEMENTS
+           ============================================================================ */
+
+        *:focus-visible {
+            outline: 3px solid var(--cyan-primary);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (prefers-contrast: high) {
+            .button {
+                border-width: 3px;
+            }
+        }
+    
+        /* ============================================
+           MOBILE-FIRST RESPONSIVE STYLES
+           ============================================ */
+        
+        /* Mobile Base (320px+) - Default styles optimized for mobile */
+        @media (max-width: 767px) {
+            .main {
+                padding: 1.5rem 1rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.9375rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .card-badge {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Gallery navigation - mobile optimized */
+            .gallery-nav {
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gallery-nav-title {
+                display: none;
+            }
+
+            .gallery-nav-hints {
+                display: none;
+            }
+
+            .gallery-nav-categories {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            /* Export panel - mobile positioning */
+            .export-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .export-buttons {
+                flex-wrap: wrap;
+            }
+
+            .export-btn {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                padding: 0.625rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main {
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .export-panel {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Desktop (1024px+) - Keep original styles */
+        @media (min-width: 1024px) {
+            /* Original desktop styles apply */
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card {
+                -webkit-tap-highlight-color: rgba(212, 165, 32, 0.1);
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+
+            .gallery-nav-arrow,
+            .gallery-nav-toggle,
+            .export-btn,
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Extra small screens (max 375px) */
+        @media (max-width: 375px) {
+            .main {
+                padding: 1rem 0.75rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+            }
+
+            .card {
+                padding: 0.875rem;
+            }
+
+            .export-panel {
+                bottom: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation - optimize vertical space */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-grid {
+                gap: 0.875rem;
+            }
+
+            .gallery-nav {
+                padding: 0.375rem 1rem;
+            }
+        }
+
+    
+        /* === UI POLISH ADDITIONS === */
+
+        /* Smooth transitions for all interactive elements */
+        a, button, input, select, textarea {
+            transition: all 0.2s ease;
+        }
+
+        /* Card hover improvements */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG transitions for collapsible sections */
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Button active states with smooth transitions */
+        button:active, .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Focus visible states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        /* Form input focus improvements */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold-500, #d4a520);
+            box-shadow: 0 0 0 3px rgba(212, 165, 32, 0.15);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease-out;
+            }
+
+            button:active, .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Gallery Navigation Polish */
+        .gallery-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s ease;
+        }
+
+        .gallery-nav-toggle svg,
+        .gallery-nav-arrow svg {
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-nav-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .gallery-nav-arrow:hover svg {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-arrow:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-out;
+        }
+</style>
+</head>
+<body>
+    <!-- ======================================================================
+         HEADER & NAVIGATION
+         ====================================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">◈</div>
+                <span>DIGITAL_TWIN::CONSORTIUM</span>
+            </div>
+            <nav class="nav">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#twins">Twins</a>
+                <a href="#simulations">Simulations</a>
+                <a href="#analytics">Analytics</a>
+                <a href="#settings">Settings</a>
+                <div class="sync-status">
+                    <span class="sync-indicator"></span>
+                    SYNCED
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT
+         ====================================================================== -->
+    <main class="container">
+        <!-- HERO SECTION - Split Screen -->
+        <section class="hero">
+            <div class="hero-split">
+                <div class="hero-side physical">
+                    <div class="hero-label">PHYSICAL WORLD</div>
+                    <h1 class="hero-title">Real-Time Infrastructure</h1>
+                    <p class="hero-description">Monitor and manage physical assets with precision. IoT sensors capture real-world data from manufacturing floors, smart buildings, and industrial systems.</p>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-side digital">
+                    <div class="hero-label">DIGITAL TWIN</div>
+                    <h1 class="hero-title">Virtual Mirror</h1>
+                    <p class="hero-description">High-fidelity digital replicas simulate, predict, and optimize operations. Run scenarios, test changes, and predict outcomes before implementation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Active Twins</div>
+                    <div class="stat-status"></div>
+                </div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-change">+18 THIS HOUR</div>
+                <div class="stat-meta">
+                    <span>SYNC: 99.8%</span>
+                    <span>LAT: 12ms</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Data Points/sec</div>
+                    <div class="stat-status"></div>
+                </div>
+                <div class="stat-value">847K</div>
+                <div class="stat-change">+2.4% THROUGHPUT</div>
+                <div class="stat-meta">
+                    <span>AVG: 782K</span>
+                    <span>PEAK: 1.2M</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Simulations</div>
+                    <div class="stat-status"></div>
+                </div>
+                <div class="stat-value">342</div>
+                <div class="stat-change">24 RUNNING</div>
+                <div class="stat-meta">
+                    <span>CPU: 67%</span>
+                    <span>GPU: 84%</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-status"></div>
+                </div>
+                <div class="stat-value">99.2%</div>
+                <div class="stat-change">+0.3% IMPROVEMENT</div>
+                <div class="stat-meta">
+                    <span>CONFIDENCE: 94%</span>
+                    <span>DRIFT: 0.8%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- TABLE SECTION -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Digital Twin Registry</h2>
+                    <div class="card-actions">
+                        <button class="button button-icon" title="Refresh">↻</button>
+                        <button class="button button-icon" title="Filter">⊟</button>
+                        <button class="button button-primary">NEW TWIN</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TWIN ID</th>
+                                <th>PHYSICAL ASSET</th>
+                                <th>TYPE</th>
+                                <th>STATUS</th>
+                                <th>SYNC RATE</th>
+                                <th>ACCURACY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="twin-id">DT-8472A</span></td>
+                                <td>Turbine-Factory-03</td>
+                                <td>Manufacturing</td>
+                                <td><span class="badge synced"><span class="sync-icon"></span> SYNCED</span></td>
+                                <td>100Hz</td>
+                                <td>99.8%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-9284B</span></td>
+                                <td>HVAC-System-12</td>
+                                <td>Building</td>
+                                <td><span class="badge synced"><span class="sync-icon"></span> SYNCED</span></td>
+                                <td>50Hz</td>
+                                <td>98.7%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-7391C</span></td>
+                                <td>Supply-Chain-A</td>
+                                <td>Logistics</td>
+                                <td><span class="badge syncing"><span class="sync-icon"></span> SYNCING</span></td>
+                                <td>25Hz</td>
+                                <td>97.2%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-6528D</span></td>
+                                <td>Smart-Grid-01</td>
+                                <td>Energy</td>
+                                <td><span class="badge synced"><span class="sync-icon"></span> SYNCED</span></td>
+                                <td>200Hz</td>
+                                <td>99.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-5447E</span></td>
+                                <td>Production-Line-7</td>
+                                <td>Manufacturing</td>
+                                <td><span class="badge synced"><span class="sync-icon"></span> SYNCED</span></td>
+                                <td>150Hz</td>
+                                <td>99.1%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-4312F</span></td>
+                                <td>Warehouse-Robot-4</td>
+                                <td>Automation</td>
+                                <td><span class="badge error"><span class="sync-icon"></span> ERROR</span></td>
+                                <td>0Hz</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-3298G</span></td>
+                                <td>Water-Treatment-A</td>
+                                <td>Infrastructure</td>
+                                <td><span class="badge synced"><span class="sync-icon"></span> SYNCED</span></td>
+                                <td>75Hz</td>
+                                <td>98.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="twin-id">DT-2147H</span></td>
+                                <td>Airport-Terminal-2</td>
+                                <td>Building</td>
+                                <td><span class="badge offline"><span class="sync-icon"></span> OFFLINE</span></td>
+                                <td>0Hz</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SIDEBAR SECTION -->
+            <div>
+                <!-- MONITORING PANEL -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title">System Monitor</h2>
+                    </div>
+                    <div class="monitor-panel">
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:18]</span>
+                            <span class="monitor-status-ok">✓ SYNC_ENGINE</span>
+                        </div>
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:19]</span>
+                            <span class="monitor-status-ok">✓ DATA_STREAM</span>
+                        </div>
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:21]</span>
+                            <span class="monitor-status-ok">✓ SIMULATION_PROC</span>
+                        </div>
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:23]</span>
+                            <span class="monitor-status-warn">⚠ DT-4312F OFFLINE</span>
+                        </div>
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:24]</span>
+                            <span class="monitor-status-ok">✓ ANALYTICS_NODE</span>
+                        </div>
+                        <div class="monitor-line">
+                            <span class="monitor-timestamp">[14:32:26]</span>
+                            <span class="monitor-status-ok">✓ NETWORK_SYNC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREATE TWIN FORM -->
+                <div class="card" style="margin-bottom: var(--space-lg);">
+                    <div class="card-header">
+                        <h2 class="card-title">Create Twin</h2>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label" for="twin-type">TWIN TYPE</label>
+                            <select id="twin-type" class="form-select">
+                                <option>Manufacturing</option>
+                                <option>Building</option>
+                                <option>Logistics</option>
+                                <option>Energy</option>
+                                <option>Automation</option>
+                                <option>Infrastructure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="asset-id">PHYSICAL ASSET ID</label>
+                            <input type="text" id="asset-id" class="form-input" placeholder="ASSET-XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="sync-rate">SYNC RATE (Hz)</label>
+                            <input type="number" id="sync-rate" class="form-input" placeholder="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="description">DESCRIPTION</label>
+                            <textarea id="description" class="form-input" placeholder="Enter twin description..."></textarea>
+                        </div>
+
+                        <button type="submit" class="button button-primary button-full">CREATE</button>
+                        <button type="button" class="button button-outline button-full" style="margin-top: var(--space-xs);">SIMULATE</button>
+                    </form>
+                </div>
+
+                <!-- PERFORMANCE METRICS -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Performance</h2>
+                    </div>
+                    <div style="margin-bottom: var(--space-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray-600);">CPU USAGE</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.875rem; font-weight: 700; color: var(--cyan-primary);">67%</span>
+                        </div>
+                        <div style="height: 8px; background: var(--gray-200); border-radius: 999px; overflow: hidden;">
+                            <div style="width: 67%; height: 100%; background: linear-gradient(90deg, var(--cyan-primary), var(--purple-primary));"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: var(--space-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray-600);">GPU USAGE</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.875rem; font-weight: 700; color: var(--purple-primary);">84%</span>
+                        </div>
+                        <div style="height: 8px; background: var(--gray-200); border-radius: 999px; overflow: hidden;">
+                            <div style="width: 84%; height: 100%; background: var(--purple-primary);"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray-600);">MEMORY</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.875rem; font-weight: 700; color: var(--green-data);">56%</span>
+                        </div>
+                        <div style="height: 8px; background: var(--gray-200); border-radius: 999px; overflow: hidden;">
+                            <div style="width: 56%; height: 100%; background: var(--green-data);"></div>
+                        </div>
+                    </div>
+                    <button class="button button-secondary button-full" style="margin-top: var(--space-md);">DIAGNOSTICS</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Platform</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#api">API Reference</a></li>
+                    <li><a href="#sdk">SDK Downloads</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Solutions</h3>
+                <ul>
+                    <li><a href="#manufacturing">Manufacturing</a></li>
+                    <li><a href="#smart-cities">Smart Cities</a></li>
+                    <li><a href="#energy">Energy & Utilities</a></li>
+                    <li><a href="#healthcare">Healthcare</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#status">System Status</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#training">Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Digital Twin Consortium. All rights reserved. | <a href="#privacy" style="color: var(--cyan-primary);">Privacy</a> | <a href="#terms" style="color: var(--cyan-primary);">Terms</a></p>
+        </div>
+    </footer>
+</body>
+</html>
